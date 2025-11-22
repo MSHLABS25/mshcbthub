@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSH CBT HUB - Admin Dashboard</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <style>
+        .admin-body {
+            background: linear-gradient(135deg, #002244 0%, #001122 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .admin-login-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .admin-dashboard {
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .admin-header {
+            background: linear-gradient(135deg, #002244 0%, #00BFA5 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #00BFA5;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #002244;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .admin-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e9ecef;
+        }
+        
+        .code-item {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        
+        .code-used {
+            background: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+        
+        .code-unused {
+            background: #fff3cd;
+            color: #856404;
+            border-color: #ffeaa7;
+        }
+        
+        .user-row {
+            transition: background-color 0.2s ease;
+        }
+        
+        .user-row:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .btn-admin {
+            background: linear-gradient(135deg, #00BFA5 0%, #009c7a 100%);
+            border: none;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-admin:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 191, 165, 0.4);
+        }
+        
+        .logout-btn {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        }
+    </style>
+</head>
+<body class="admin-body">
+    <!-- Admin Login Section -->
+    <div id="admin-login-section">
+        <div class="container">
+            <div class="row justify-content-center align-items-center min-vh-100">
+                <div class="col-md-5">
+                    <div class="admin-login-card p-5">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-lock fa-3x text-teal mb-3"></i>
+                            <h2>Admin Access</h2>
+                            <p class="text-muted">Enter admin password to continue</p>
+                        </div>
+                        
+                        <form id="adminLoginForm">
+                            <div class="mb-4">
+                                <label for="adminPassword" class="form-label">Admin Password</label>
+                                <input type="password" class="form-control form-control-lg" 
+                                       id="adminPassword" placeholder="Enter admin password" required>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn-admin btn-lg">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Login to Admin Dashboard
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div class="text-center mt-4">
+                            <a href="{{ url_for('index') }}" class="text-teal text-decoration-none">
+                                <i class="fas fa-arrow-left me-2"></i>Back to Main Site
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Section (Hidden until login) -->
+    <div id="admin-dashboard-section" style="display: none;">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h1 class="h3 mb-0">
+                            <i class="fas fa-cogs me-2"></i>
+                            MSH CBT HUB - Admin Dashboard
+                        </h1>
+                        <p class="mb-0 opacity-75">Manage users, codes, and platform statistics</p>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <button class="btn btn-light me-2" onclick="refreshDashboard()">
+                            <i class="fas fa-sync-alt me-2"></i>Refresh
+                        </button>
+                        <button class="btn logout-btn" onclick="adminLogout()">
+                            <i class="fas fa-sign-out-alt me-2"></i>Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="admin-dashboard py-4">
+            <div class="container">
+                <!-- Statistics Cards -->
+                <div class="row mb-4">
+                    <div class="col-md-3 mb-3">
+                        <div class="stat-card">
+                            <div class="stat-number" id="total-users">0</div>
+                            <div class="stat-label">Total Users</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="stat-card">
+                            <div class="stat-number" id="active-trials">0</div>
+                            <div class="stat-label">Active Trials</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="stat-card">
+                            <div class="stat-number" id="activated-users">0</div>
+                            <div class="stat-label">Activated Users</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="stat-card">
+                            <div class="stat-number" id="total-exams">0</div>
+                            <div class="stat-label">Exams Taken</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generate Codes Section -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="admin-card">
+                            <h4 class="text-teal mb-4">
+                                <i class="fas fa-key me-2"></i>Generate Activation Codes
+                            </h4>
+                            
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                Generate 100 activation codes at once. Codes expire after 5 months.
+                            </div>
+                            
+                            <button class="btn-admin w-100 mb-3" onclick="generateActivationCodes()">
+                                <i class="fas fa-plus-circle me-2"></i>Generate 100 Codes
+                            </button>
+                            
+                            <div id="codes-result" class="mt-3"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="admin-card">
+                            <h4 class="text-teal mb-4">
+                                <i class="fas fa-users me-2"></i>Quick Actions
+                            </h4>
+                            
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button class="btn btn-outline-teal w-100" onclick="showUsersSection()">
+                                        <i class="fas fa-user-friends me-2"></i>View Users
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-teal w-100" onclick="showCodesSection()">
+                                        <i class="fas fa-list me-2"></i>View Codes
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-teal w-100" onclick="exportData()">
+                                        <i class="fas fa-download me-2"></i>Export Data
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-teal w-100" onclick="showStatsSection()">
+                                        <i class="fas fa-chart-bar me-2"></i>Statistics
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Section -->
+                <div class="admin-card" id="users-section">
+                    <h4 class="text-teal mb-4">
+                        <i class="fas fa-user-friends me-2"></i>User Management
+                    </h4>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>IP Address</th>
+                                    <th>Status</th>
+                                    <th>Join Date</th>
+                                    <th>Activation Code</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-table-body">
+                                <tr>
+                                    <td colspan="6" class="text-center">Loading users data...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Codes Section -->
+                <div class="admin-card" id="codes-section" style="display: none;">
+                    <h4 class="text-teal mb-4">
+                        <i class="fas fa-list me-2"></i>Activation Codes
+                    </h4>
+                    
+                    <div class="mb-3">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-teal active" onclick="filterCodes('all')">All Codes</button>
+                            <button type="button" class="btn btn-outline-success" onclick="filterCodes('unused')">Unused</button>
+                            <button type="button" class="btn btn-outline-warning" onclick="filterCodes('used')">Used</button>
+                        </div>
+                    </div>
+                    
+                    <div id="codes-list" class="row">
+                        <div class="col-12 text-center">
+                            <p>Loading activation codes...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Admin JavaScript -->
+    <script>
+        let currentFilter = 'all';
+        
+        // Admin authentication
+        document.getElementById('adminLoginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('adminPassword').value;
+            
+            if (password === '@Muhseen1') {
+                // Show admin dashboard
+                document.getElementById('admin-login-section').style.display = 'none';
+                document.getElementById('admin-dashboard-section').style.display = 'block';
+                
+                // Load REAL dashboard data from backend
+                await loadAdminDashboard();
+            } else {
+                alert('Invalid admin password!');
+            }
+        });
+        
+        function adminLogout() {
+            document.getElementById('adminPassword').value = '';
+            document.getElementById('admin-login-section').style.display = 'block';
+            document.getElementById('admin-dashboard-section').style.display = 'none';
+        }
+        
+        // Dashboard functions - LOADING REAL DATA FROM BACKEND
+        async function loadAdminDashboard() {
+            await updateStatistics();
+            await loadUsersTable();
+            await loadActivationCodes();
+        }
+        
+        async function refreshDashboard() {
+            await loadAdminDashboard();
+            showNotification('Dashboard refreshed with latest data!', 'success');
+        }
+        
+        // Load REAL statistics from backend
+        async function updateStatistics() {
+            try {
+                const response = await fetch('/api/admin/stats', {
+                    headers: {
+                        'Admin-Auth': '@Muhseen1'
+                    }
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    const stats = result.stats;
+                    document.getElementById('total-users').textContent = stats.total_users;
+                    document.getElementById('active-trials').textContent = stats.active_trials;
+                    document.getElementById('activated-users').textContent = stats.activated_users;
+                    document.getElementById('total-exams').textContent = stats.total_exams;
+                } else {
+                    console.error('Error loading stats:', result.message);
+                }
+            } catch (error) {
+                console.error('Error loading statistics:', error);
+            }
+        }
+        
+        // Load REAL users from backend
+        async function loadUsersTable() {
+            try {
+                const response = await fetch('/api/admin/users', {
+                    headers: {
+                        'Admin-Auth': '@Muhseen1'
+                    }
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    const users = result.users;
+                    const tbody = document.getElementById('users-table-body');
+                    
+                    if (users.length === 0) {
+                        tbody.innerHTML = `
+                            <tr>
+                                <td colspan="6" class="text-center">No users found</td>
+                            </tr>
+                        `;
+                        return;
+                    }
+                    
+                    tbody.innerHTML = users.map(user => `
+                        <tr class="user-row">
+                            <td>${user.name}</td>
+                            <td>${user.email}</td>
+                            <td>${user.ip_address || 'N/A'}</td>
+                            <td>
+                                <span class="badge ${user.status === 'Activated' ? 'bg-success' : 'bg-warning'}">
+                                    ${user.status}
+                                </span>
+                            </td>
+                            <td>${user.join_date}</td>
+                            <td>${user.activation_code || 'Not Activated'}</td>
+                        </tr>
+                    `).join('');
+                } else {
+                    console.error('Error loading users:', result.message);
+                }
+            } catch (error) {
+                console.error('Error loading users:', error);
+            }
+        }
+        
+        // Load REAL activation codes from backend
+        async function loadActivationCodes() {
+            try {
+                const response = await fetch('/api/admin/codes', {
+                    headers: {
+                        'Admin-Auth': '@Muhseen1'
+                    }
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    const codes = result.codes;
+                    const container = document.getElementById('codes-list');
+                    
+                    if (codes.length === 0) {
+                        container.innerHTML = `
+                            <div class="col-12 text-center">
+                                <p>No activation codes generated yet</p>
+                            </div>
+                        `;
+                        return;
+                    }
+                    
+                    // Filter codes based on current filter
+                    const filteredCodes = codes.filter(code => {
+                        if (currentFilter === 'all') return true;
+                        if (currentFilter === 'used') return code.used;
+                        if (currentFilter === 'unused') return !code.used;
+                        return true;
+                    });
+                    
+                    container.innerHTML = filteredCodes.map(code => `
+                        <div class="col-md-6 col-lg-4 mb-2">
+                            <div class="code-item ${code.used ? 'code-used' : 'code-unused'}">
+                                <i class="fas ${code.used ? 'fa-check-circle' : 'fa-clock'} me-2"></i>
+                                ${code.code}
+                                <br>
+                                <small class="text-muted">
+                                    ${code.used ? 'Used' : 'Available'} • Expires: ${code.expires_at}
+                                </small>
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    console.error('Error loading codes:', result.message);
+                }
+            } catch (error) {
+                console.error('Error loading codes:', error);
+            }
+        }
+        
+        // Generate REAL activation codes via backend
+        async function generateActivationCodes() {
+            try {
+                const response = await fetch('/api/generate-codes', {
+                    method: 'POST',
+                    headers: {
+                        'Admin-Auth': '@Muhseen1',
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    const resultDiv = document.getElementById('codes-result');
+                    resultDiv.innerHTML = `
+                        <div class="alert alert-success">
+                            <h5><i class="fas fa-check-circle me-2"></i>100 REAL Codes Generated Successfully!</h5>
+                            <p class="mb-2">Codes have been saved to the database and are ready for use.</p>
+                            <textarea class="form-control" rows="6" readonly>${result.codes.join('\n')}</textarea>
+                            <button class="btn btn-teal mt-2" onclick="downloadCodes('${result.codes.join('\n')}')">
+                                <i class="fas fa-download me-2"></i>Download Codes as Text File
+                            </button>
+                        </div>
+                    `;
+                    
+                    showNotification('100 REAL activation codes generated and saved to database!', 'success');
+                    // Refresh codes list
+                    await loadActivationCodes();
+                } else {
+                    alert('Error generating codes: ' + result.message);
+                }
+            } catch (error) {
+                alert('Error generating codes. Please try again.');
+            }
+        }
+        
+        function downloadCodes(codesText) {
+            const blob = new Blob([codesText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'msh_activation_codes.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        function showUsersSection() {
+            document.getElementById('users-section').style.display = 'block';
+            document.getElementById('codes-section').style.display = 'none';
+        }
+        
+        function showCodesSection() {
+            document.getElementById('users-section').style.display = 'none';
+            document.getElementById('codes-section').style.display = 'block';
+        }
+        
+        function filterCodes(type) {
+            currentFilter = type;
+            loadActivationCodes();
+            showNotification(`Showing ${type} codes`, 'info');
+        }
+        
+        function showStatsSection() {
+            updateStatistics();
+            showNotification('Statistics updated with real data!', 'info');
+        }
+        
+        async function exportData() {
+            try {
+                // Export users data
+                const usersResponse = await fetch('/api/admin/users', {
+                    headers: {
+                        'Admin-Auth': '@Muhseen1'
+                    }
+                });
+                const usersData = await usersResponse.json();
+                
+                // Export codes data
+                const codesResponse = await fetch('/api/admin/codes', {
+                    headers: {
+                        'Admin-Auth': '@Muhseen1'
+                    }
+                });
+                const codesData = await codesResponse.json();
+                
+                // Export stats data
+                const statsResponse = await fetch('/api/admin/stats', {
+                    headers: {
+                        'Admin-Auth': '@Muhseen1'
+                    }
+                });
+                const statsData = await statsResponse.json();
+                
+                const exportData = {
+                    exported_at: new Date().toISOString(),
+                    statistics: statsData.success ? statsData.stats : {},
+                    users: usersData.success ? usersData.users : [],
+                    activation_codes: codesData.success ? codesData.codes : []
+                };
+                
+                const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `msh-cbt-export-${new Date().toISOString().split('T')[0]}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                showNotification('Data exported successfully!', 'success');
+            } catch (error) {
+                showNotification('Error exporting data: ' + error.message, 'error');
+            }
+        }
+        
+        function showNotification(message, type) {
+            // Create toast notification
+            const toastHtml = `
+                <div class="toast align-items-center text-white bg-${type === 'success' ? 'success' : type === 'error' ? 'danger' : 'info'} border-0 position-fixed top-0 end-0 m-3" role="alert">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'} me-2"></i>
+                            ${message}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', toastHtml);
+            const toast = new bootstrap.Toast(document.querySelector('.toast:last-child'));
+            toast.show();
+            
+            // Remove toast after it hides
+            setTimeout(() => {
+                const toastElement = document.querySelector('.toast:last-child');
+                if (toastElement) {
+                    toastElement.remove();
+                }
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
