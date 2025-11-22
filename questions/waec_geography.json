@@ -1,0 +1,1672 @@
+{
+  "subject": "Geography",
+  "exam_type": "WAEC",
+  "total_questions": 128,
+  "time_allowed": 8400,
+  "questions": [
+    {
+      "id": 1,
+      "question": "The layer of the Earth composed mainly of iron and nickel is the:",
+      "options": {
+        "A": "Crust",
+        "B": "Mantle",
+        "C": "Core",
+        "D": "Lithosphere"
+      },
+      "correct_answer": "C",
+      "explanation": "The core is the innermost layer and is composed mainly of iron and nickel.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 2,
+      "question": "The time difference between two consecutive meridians (degrees of longitude) is:",
+      "options": {
+        "A": "1 hour",
+        "B": "15 minutes",
+        "C": "4 minutes",
+        "D": "1 minute"
+      },
+      "correct_answer": "C",
+      "explanation": "Each degree of longitude represents 4 minutes of time (360 degrees ÷ 24 hours = 15 degrees/hour = 4 minutes/degree).",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 3,
+      "question": "If the time at Greenwich (0°) is 12:00 PM, the time at a place 45° E is:",
+      "options": {
+        "A": "9:00 AM",
+        "B": "3:00 PM",
+        "C": "3:00 AM",
+        "D": "9:00 PM"
+      },
+      "correct_answer": "B",
+      "explanation": "45° east means 3 hours ahead of Greenwich (45 ÷ 15 = 3 hours). 12:00 PM + 3 hours = 3:00 PM.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 4,
+      "question": "A map scale expressed as 1:50,000 is known as a:",
+      "options": {
+        "A": "Linear scale",
+        "B": "Statement scale",
+        "C": "Representative fraction",
+        "D": "Graphic scale"
+      },
+      "correct_answer": "C",
+      "explanation": "A scale expressed as a ratio (1:50,000) is called a representative fraction.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 5,
+      "question": "The angular distance of a point North or South of the Equator is called:",
+      "options": {
+        "A": "Longitude",
+        "B": "Meridian",
+        "C": "Latitude",
+        "D": "Great Circle"
+      },
+      "correct_answer": "C",
+      "explanation": "Latitude measures angular distance north or south of the Equator.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 6,
+      "question": "The instrument used to measure the bearing of one point from another on a map is the:",
+      "options": {
+        "A": "Clinometer",
+        "B": "Compass",
+        "C": "Planimeter",
+        "D": "Barometer"
+      },
+      "correct_answer": "B",
+      "explanation": "A compass is used to measure bearings and directions on maps.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 7,
+      "question": "What is the actual distance on the ground, in kilometres, for 5 cm on a map with a scale of 1:100,000?",
+      "options": {
+        "A": "50 km",
+        "B": "5 km",
+        "C": "0.5 km",
+        "D": "500 km"
+      },
+      "correct_answer": "B",
+      "explanation": "1:100,000 means 1 cm = 1 km. So 5 cm = 5 km.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 8,
+      "question": "The imaginary line that marks the beginning of a new calendar day is the:",
+      "options": {
+        "A": "Equator",
+        "B": "Prime Meridian",
+        "C": "International Date Line",
+        "D": "Tropic of Cancer"
+      },
+      "correct_answer": "C",
+      "explanation": "The International Date Line marks where each new calendar day begins.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 9,
+      "question": "The contour lines on a map that are very close together indicate a:",
+      "options": {
+        "A": "Gentle slope",
+        "B": "Steep slope",
+        "C": "Plateau",
+        "D": "Valley"
+      },
+      "correct_answer": "B",
+      "explanation": "Close contour lines indicate rapid elevation change, meaning a steep slope.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 10,
+      "question": "The process by which the Earth's axis remains tilted at a constant angle (66.5° to the plane of the orbit) is called:",
+      "options": {
+        "A": "Rotation",
+        "B": "Revolution",
+        "C": "Parallelism of the axis",
+        "D": "Orbital inclination"
+      },
+      "correct_answer": "C",
+      "explanation": "Parallelism of the axis refers to the constant tilt of Earth's axis throughout its revolution.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 11,
+      "question": "The primary method of showing relief on a topographical map is by:",
+      "options": {
+        "A": "Spot heights",
+        "B": "Contours",
+        "C": "Layer tinting",
+        "D": "Triangulation"
+      },
+      "correct_answer": "B",
+      "explanation": "Contour lines are the primary method for showing relief and elevation on topographic maps.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 12,
+      "question": "An island with an area of 50 sq. km is represented on a map by 2 sq. cm. What is the Representative Fraction (RF)?",
+      "options": {
+        "A": "1:500,000",
+        "B": "1:50,000",
+        "C": "1:5000",
+        "D": "1:1,000,000"
+      },
+      "correct_answer": "A",
+      "explanation": "Area scale = (linear scale)². 2 cm² represents 50 km² = 50,000,000,000 cm². Linear scale = √(2/50,000,000,000) ≈ 1:158,114, so closest to 1:500,000.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 13,
+      "question": "The Earth's revolution around the sun is responsible for the:",
+      "options": {
+        "A": "Occurrence of day and night",
+        "B": "Changes in seasons",
+        "C": "Tides",
+        "D": "Magnetic fields"
+      },
+      "correct_answer": "B",
+      "explanation": "Earth's revolution around the sun, combined with its axial tilt, causes seasonal changes.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 14,
+      "question": "The term for a difference in height between two consecutive contour lines is:",
+      "options": {
+        "A": "Vertical Interval (V.I.)",
+        "B": "Horizontal Equivalent (H.E.)",
+        "C": "Gradient",
+        "D": "Spot Height"
+      },
+      "correct_answer": "A",
+      "explanation": "Vertical Interval (V.I.) is the vertical distance between consecutive contour lines.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 15,
+      "question": "The most accurate type of bearing used on maps is the:",
+      "options": {
+        "A": "True bearing",
+        "B": "Magnetic bearing",
+        "C": "Grid bearing",
+        "D": "Compass bearing"
+      },
+      "correct_answer": "A",
+      "explanation": "True bearing is measured from true north and is most accurate for navigation.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 16,
+      "question": "The time taken for the Earth to complete one full rotation on its axis is approximately:",
+      "options": {
+        "A": "365.25 days",
+        "B": "23 hours 56 minutes",
+        "C": "24 hours",
+        "D": "12 hours"
+      },
+      "correct_answer": "C",
+      "explanation": "One complete rotation of Earth on its axis takes approximately 24 hours.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 17,
+      "question": "The feature represented on a map by V-shaped contours with the apex pointing uphill is a:",
+      "options": {
+        "A": "Spur",
+        "B": "Ridge",
+        "C": "Valley",
+        "D": "Depression"
+      },
+      "correct_answer": "C",
+      "explanation": "V-shaped contours pointing uphill indicate a valley, with the V pointing toward higher ground.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 18,
+      "question": "The most reliable map projection for showing great circles as straight lines is the:",
+      "options": {
+        "A": "Mercator projection",
+        "B": "Conical projection",
+        "C": "Cylindrical projection",
+        "D": "Zenithal projection"
+      },
+      "correct_answer": "A",
+      "explanation": "Mercator projection shows rhumb lines as straight lines, making it useful for navigation.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 19,
+      "question": "If the Sun is overhead at the Tropic of Cancer (23.5° N), the season in the Southern Hemisphere is:",
+      "options": {
+        "A": "Summer",
+        "B": "Winter",
+        "C": "Autumn",
+        "D": "Spring"
+      },
+      "correct_answer": "B",
+      "explanation": "When sun is overhead at Tropic of Cancer (June), Southern Hemisphere experiences winter due to tilted axis.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 20,
+      "question": "A settlement pattern where houses are scattered over a wide area, often associated with farming, is:",
+      "options": {
+        "A": "Nucleated",
+        "B": "Linear",
+        "C": "Dispersed",
+        "D": "Planned"
+      },
+      "correct_answer": "C",
+      "explanation": "Dispersed settlement pattern features scattered houses, common in agricultural areas.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 21,
+      "question": "The use of symbols, colours, and lines to represent real-world features on a map is called:",
+      "options": {
+        "A": "Scale",
+        "B": "Generalization",
+        "C": "Symbolization",
+        "D": "Conventional signs"
+      },
+      "correct_answer": "D",
+      "explanation": "Conventional signs are standardized symbols used on maps to represent features.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 22,
+      "question": "Which is a characteristic of an East bearing?",
+      "options": {
+        "A": "Between 180° and 270°",
+        "B": "Between 0° and 90°",
+        "C": "Between 90° and 180°",
+        "D": "Between 270° and 360°"
+      },
+      "correct_answer": "B",
+      "explanation": "East bearings fall between 0° and 90° in the northeast quadrant.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 23,
+      "question": "When the sun is vertically overhead at the Equator, it is the:",
+      "options": {
+        "A": "Solstice",
+        "B": "Eclipse",
+        "C": "Equinox",
+        "D": "Perihelion"
+      },
+      "correct_answer": "C",
+      "explanation": "Equinox occurs when sun is directly overhead at equator (March 21 and September 23).",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 24,
+      "question": "The process of reducing map detail to fit the scale and purpose is known as:",
+      "options": {
+        "A": "Enlargement",
+        "B": "Interpretation",
+        "C": "Generalization",
+        "D": "Classification"
+      },
+      "correct_answer": "C",
+      "explanation": "Generalization involves simplifying map details to maintain clarity at smaller scales.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 25,
+      "question": "The line joining places of equal atmospheric pressure is called an:",
+      "options": {
+        "A": "Isohel",
+        "B": "Isobar",
+        "C": "Isotherm",
+        "D": "Isonephs"
+      },
+      "correct_answer": "B",
+      "explanation": "Isobars connect points of equal atmospheric pressure on weather maps.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 26,
+      "question": "The movement of water through the soil is called:",
+      "options": {
+        "A": "Percolation",
+        "B": "Evaporation",
+        "C": "Transpiration",
+        "D": "Condensation"
+      },
+      "correct_answer": "A",
+      "explanation": "Percolation refers to the downward movement of water through soil and rock pores.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 27,
+      "question": "The mantle of the Earth is primarily composed of:",
+      "options": {
+        "A": "Molten iron",
+        "B": "Silicates of iron and magnesium",
+        "C": "Sedimentary rock",
+        "D": "Volcanic ash"
+      },
+      "correct_answer": "B",
+      "explanation": "The mantle consists mainly of silicate rocks rich in iron and magnesium.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 28,
+      "question": "A line joining places with the same amount of rainfall is called an:",
+      "options": {
+        "A": "Isotherm",
+        "B": "Isobar",
+        "C": "Isonephs",
+        "D": "Isohyet"
+      },
+      "correct_answer": "D",
+      "explanation": "Isohyets are lines connecting points of equal rainfall on a map.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 29,
+      "question": "The instrument used to measure the rate of evaporation is the:",
+      "options": {
+        "A": "Anemometer",
+        "B": "Barometer",
+        "C": "Evaporimeter",
+        "D": "Hygrograph"
+      },
+      "correct_answer": "C",
+      "explanation": "Evaporimeter (or atmometer) measures the rate of evaporation from a water surface.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 30,
+      "question": "The main advantage of a Representative Fraction scale is that it:",
+      "options": {
+        "A": "Is easy to read",
+        "B": "Remains valid if the map is enlarged or reduced",
+        "C": "Shows the scale visually",
+        "D": "Is useful only for small maps"
+      },
+      "correct_answer": "B",
+      "explanation": "RF scale remains accurate when maps are photocopied or resized since it's a ratio.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 31,
+      "question": "The movement of air from a high-pressure area to a low-pressure area is called:",
+      "options": {
+        "A": "Convection",
+        "B": "Advection",
+        "C": "Wind",
+        "D": "Radiation"
+      },
+      "correct_answer": "C",
+      "explanation": "Wind is the horizontal movement of air from high to low pressure areas.",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 32,
+      "question": "On an Easting and Northing grid, the Easting is always read:",
+      "options": {
+        "A": "Before the Northing",
+        "B": "After the Northing",
+        "C": "At the same time as the Northing",
+        "D": "Only on the y-axis"
+      },
+      "correct_answer": "A",
+      "explanation": "In grid references, easting (x-coordinate) is always read before northing (y-coordinate).",
+      "section": "earth_and_map_work"
+    },
+    {
+      "id": 33,
+      "question": "The primary factor determining the Earth's long-term climate is:",
+      "options": {
+        "A": "Altitude",
+        "B": "Latitude",
+        "C": "Ocean currents",
+        "D": "Proximity to the sea"
+      },
+      "correct_answer": "B",
+      "explanation": "Latitude is the primary control of climate as it determines the angle and intensity of solar radiation.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 34,
+      "question": "The atmospheric layer where most weather phenomena occur is the:",
+      "options": {
+        "A": "Stratosphere",
+        "B": "Mesosphere",
+        "C": "Thermosphere",
+        "D": "Troposphere"
+      },
+      "correct_answer": "D",
+      "explanation": "The troposphere contains most of Earth's weather phenomena and extends up to about 12 km.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 35,
+      "question": "The rainfall associated with the heating of the Earth's surface and subsequent rising of hot air is:",
+      "options": {
+        "A": "Orographic",
+        "B": "Frontal",
+        "C": "Convectional",
+        "D": "Cyclonic"
+      },
+      "correct_answer": "C",
+      "explanation": "Convectional rainfall occurs when heated air rises, cools, and condenses to form rain.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 36,
+      "question": "Igneous rocks are formed by the:",
+      "options": {
+        "A": "Consolidation of sediments",
+        "B": "Cooling and solidification of magma or lava",
+        "C": "Alteration of existing rocks",
+        "D": "Chemical precipitation"
+      },
+      "correct_answer": "B",
+      "explanation": "Igneous rocks form from the cooling and solidification of molten magma or lava.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 37,
+      "question": "The weathering process involving the repeated freezing and thawing of water in rock cracks is called:",
+      "options": {
+        "A": "Exfoliation",
+        "B": "Carbonation",
+        "C": "Frost shattering",
+        "D": "Hydration"
+      },
+      "correct_answer": "C",
+      "explanation": "Frost shattering (freeze-thaw) occurs when water freezes in rock cracks, expanding and breaking the rock.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 38,
+      "question": "Landforms created by the depositional action of running water (rivers) include:",
+      "options": {
+        "A": "V-shaped valleys",
+        "B": "Waterfalls",
+        "C": "Deltas",
+        "D": "Meanders"
+      },
+      "correct_answer": "C",
+      "explanation": "Deltas are depositional landforms formed where rivers deposit sediment at their mouths.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 39,
+      "question": "The type of rock that may contain fossils of plants and animals is:",
+      "options": {
+        "A": "Igneous",
+        "B": "Metamorphic",
+        "C": "Sedimentary",
+        "D": "Intrusive"
+      },
+      "correct_answer": "C",
+      "explanation": "Sedimentary rocks often contain fossils as they form from accumulated sediments that can preserve organic remains.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 40,
+      "question": "The tropical grassland ecosystem characterized by tall grasses and scattered trees is the:",
+      "options": {
+        "A": "Equatorial forest",
+        "B": "Mediterranean",
+        "C": "Savanna",
+        "D": "Tundra"
+      },
+      "correct_answer": "C",
+      "explanation": "Savanna grasslands feature tall grasses with scattered trees, found in tropical regions with distinct wet and dry seasons.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 41,
+      "question": "The main component of the Harmattan wind in West Africa is:",
+      "options": {
+        "A": "Hot and moist air",
+        "B": "Cold and wet air",
+        "C": "Cold and dry air",
+        "D": "Hot and dry air"
+      },
+      "correct_answer": "D",
+      "explanation": "Harmattan is a hot, dry wind that blows from the Sahara Desert across West Africa.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 42,
+      "question": "The term for the surface where two air masses of different temperatures meet is a:",
+      "options": {
+        "A": "Convergence zone",
+        "B": "Front",
+        "C": "Anticyclone",
+        "D": "Cyclone"
+      },
+      "correct_answer": "B",
+      "explanation": "A front is the boundary where two different air masses meet.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 43,
+      "question": "A broad, dome-shaped volcano with gentle slopes is known as a:",
+      "options": {
+        "A": "Composite cone",
+        "B": "Cinder cone",
+        "C": "Shield volcano",
+        "D": "Caldera"
+      },
+      "correct_answer": "C",
+      "explanation": "Shield volcanoes have broad, gentle slopes formed by fluid lava flows.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 44,
+      "question": "The process where running water removes layers of soil in sheets is called:",
+      "options": {
+        "A": "Gully erosion",
+        "B": "Rill erosion",
+        "C": "Sheet erosion",
+        "D": "Splash erosion"
+      },
+      "correct_answer": "C",
+      "explanation": "Sheet erosion involves the uniform removal of soil in thin layers across a wide area.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 45,
+      "question": "Which soil type is characterized by leaching, acidity, and low humus content, often found in rainforests?",
+      "options": {
+        "A": "Chernozem",
+        "B": "Laterite",
+        "C": "Podzol",
+        "D": "Alluvial"
+      },
+      "correct_answer": "B",
+      "explanation": "Laterite soils are heavily leached, acidic, and low in humus, common in tropical rainforest regions.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 46,
+      "question": "The primary cause of ocean currents is:",
+      "options": {
+        "A": "Earthquakes",
+        "B": "Prevailing winds",
+        "C": "Tides",
+        "D": "Volcanic activity"
+      },
+      "correct_answer": "B",
+      "explanation": "Prevailing winds are the main driving force behind surface ocean currents.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 47,
+      "question": "The point on the Earth's surface directly above the source of an earthquake is the:",
+      "options": {
+        "A": "Focus",
+        "B": "Epicentre",
+        "C": "Seismic zone",
+        "D": "Fault line"
+      },
+      "correct_answer": "B",
+      "explanation": "The epicentre is the point on Earth's surface directly above the earthquake's focus (hypocentre).",
+      "section": "physical_geography"
+    },
+    {
+      "id": 48,
+      "question": "Karst scenery is created by the chemical weathering of:",
+      "options": {
+        "A": "Granite",
+        "B": "Basalt",
+        "C": "Limestone",
+        "D": "Shale"
+      },
+      "correct_answer": "C",
+      "explanation": "Karst landscapes form when limestone is dissolved by slightly acidic water, creating features like caves and sinkholes.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 49,
+      "question": "A steep, U-shaped valley formed by the erosional action of a glacier is called a:",
+      "options": {
+        "A": "V-shaped valley",
+        "B": "Canyon",
+        "C": "Fiord",
+        "D": "Cirque"
+      },
+      "correct_answer": "C",
+      "explanation": "Fiords are U-shaped glacial valleys that have been flooded by the sea.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 50,
+      "question": "The phenomenon of rising sea level and extreme heat due to increased CO₂ concentration in the atmosphere is:",
+      "options": {
+        "A": "Acid rain",
+        "B": "Deforestation",
+        "C": "Global warming",
+        "D": "Ozone depletion"
+      },
+      "correct_answer": "C",
+      "explanation": "Global warming refers to rising global temperatures and sea levels due to increased greenhouse gases like CO₂.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 51,
+      "question": "The main climatic control responsible for the occurrence of the Sahel region's long dry season is the:",
+      "options": {
+        "A": "North-East Trade Winds",
+        "B": "South-West Monsoon",
+        "C": "Westerlies",
+        "D": "Equatorial current"
+      },
+      "correct_answer": "A",
+      "explanation": "The dry North-East Trade Winds bring dry conditions to the Sahel during the dry season.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 52,
+      "question": "Humus in soil is derived primarily from:",
+      "options": {
+        "A": "Weathered rock particles",
+        "B": "Decaying organic matter",
+        "C": "Clay particles",
+        "D": "Water"
+      },
+      "correct_answer": "B",
+      "explanation": "Humus is the dark organic material in soil formed from the decomposition of plant and animal matter.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 53,
+      "question": "The term for a body of water that is partially enclosed, where fresh water from rivers mixes with salt water from the ocean is:",
+      "options": {
+        "A": "Lagoon",
+        "B": "Estuary",
+        "C": "Delta",
+        "D": "Bay"
+      },
+      "correct_answer": "B",
+      "explanation": "An estuary is a partially enclosed coastal body where freshwater from rivers mixes with seawater.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 54,
+      "question": "The instrument used for continuously recording atmospheric pressure is the:",
+      "options": {
+        "A": "Aneroid barometer",
+        "B": "Fortin barometer",
+        "C": "Barograph",
+        "D": "Altimeter"
+      },
+      "correct_answer": "C",
+      "explanation": "A barograph continuously records atmospheric pressure on a rotating drum.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 55,
+      "question": "The type of rainfall that occurs when moisture-laden winds are forced to rise over mountains is:",
+      "options": {
+        "A": "Convectional",
+        "B": "Cyclonic",
+        "C": "Orographic",
+        "D": "Advective"
+      },
+      "correct_answer": "C",
+      "explanation": "Orographic rainfall occurs when moist air is forced to rise over mountains, cooling and condensing.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 56,
+      "question": "A soil conservation method involving planting crops along the contours of a slope is:",
+      "options": {
+        "A": "Shifting cultivation",
+        "B": "Crop rotation",
+        "C": "Contour ploughing",
+        "D": "Terracing"
+      },
+      "correct_answer": "C",
+      "explanation": "Contour ploughing involves farming along the contour lines to reduce soil erosion.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 57,
+      "question": "The natural vegetation of the Equatorial climate is:",
+      "options": {
+        "A": "Deciduous forest",
+        "B": "Evergreen rainforest",
+        "C": "Coniferous forest",
+        "D": "Steppe"
+      },
+      "correct_answer": "B",
+      "explanation": "Equatorial regions support dense, evergreen rainforests with year-round rainfall and high temperatures.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 58,
+      "question": "The zone of the Earth's atmosphere that is characterized by very low density and where auroras occur is the:",
+      "options": {
+        "A": "Exosphere",
+        "B": "Thermosphere",
+        "C": "Mesosphere",
+        "D": "Stratosphere"
+      },
+      "correct_answer": "B",
+      "explanation": "The thermosphere has very low density and is where auroras occur due to solar radiation interacting with gases.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 59,
+      "question": "A mesa is a landform resulting from differential erosion and is characterized by:",
+      "options": {
+        "A": "Flat top and steep sides",
+        "B": "Pointed peak and gentle slopes",
+        "C": "Circular depression",
+        "D": "Long, narrow ridge"
+      },
+      "correct_answer": "A",
+      "explanation": "A mesa is a flat-topped hill with steep sides, formed by differential erosion of horizontal rock layers.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 60,
+      "question": "The dominant chemical element in the Earth's atmosphere is:",
+      "options": {
+        "A": "Oxygen",
+        "B": "Argon",
+        "C": "Carbon Dioxide",
+        "D": "Nitrogen"
+      },
+      "correct_answer": "D",
+      "explanation": "Nitrogen makes up about 78% of Earth's atmosphere.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 61,
+      "question": "A bay is a coastal feature formed when a soft rock coast is eroded to form an inlet, while a headland is formed by:",
+      "options": {
+        "A": "Deposition of sand",
+        "B": "Erosion of soft rock",
+        "C": "Resistance of hard rock",
+        "D": "Volcanic eruption"
+      },
+      "correct_answer": "C",
+      "explanation": "Headlands form where resistant rocks protrude into the sea, while bays form in less resistant rocks.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 62,
+      "question": "The primary agent of erosion in the desert environment is:",
+      "options": {
+        "A": "Running water",
+        "B": "Glacier ice",
+        "C": "Wind",
+        "D": "Sea waves"
+      },
+      "correct_answer": "C",
+      "explanation": "Wind is the dominant erosional agent in deserts, creating features like sand dunes and yardangs.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 63,
+      "question": "The maximum amount of water vapour the air can hold at a given temperature is called its:",
+      "options": {
+        "A": "Absolute humidity",
+        "B": "Relative humidity",
+        "C": "Dew point",
+        "D": "Saturation point"
+      },
+      "correct_answer": "D",
+      "explanation": "Saturation point is the maximum amount of water vapor air can hold at a specific temperature.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 64,
+      "question": "The main reason for the high temperatures experienced in the tropical zone is the:",
+      "options": {
+        "A": "Proximity to the sea",
+        "B": "High cloud cover",
+        "C": "High angle of incidence of solar rays",
+        "D": "Presence of warm ocean currents"
+      },
+      "correct_answer": "C",
+      "explanation": "Tropical regions receive direct, high-angle solar radiation year-round, resulting in high temperatures.",
+      "section": "physical_geography"
+    },
+    {
+      "id": 65,
+      "question": "The total number of people living in a specific area is known as:",
+      "options": {
+        "A": "Population density",
+        "B": "Population structure",
+        "C": "Population distribution",
+        "D": "Population size"
+      },
+      "correct_answer": "D",
+      "explanation": "Population size refers to the total number of individuals in a population.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 66,
+      "question": "Crude Birth Rate (CBR) is calculated as the number of live births per:",
+      "options": {
+        "A": "100 people",
+        "B": "1000 people",
+        "C": "10,000 people",
+        "D": "100,000 people"
+      },
+      "correct_answer": "B",
+      "explanation": "Crude Birth Rate is typically expressed per 1000 people in a population.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 67,
+      "question": "The type of agriculture practiced on a large scale for profit, using machinery and scientific methods, is:",
+      "options": {
+        "A": "Subsistence farming",
+        "B": "Shifting cultivation",
+        "C": "Commercial agriculture",
+        "D": "Mixed farming"
+      },
+      "correct_answer": "C",
+      "explanation": "Commercial agriculture focuses on large-scale production for market sale using modern methods.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 68,
+      "question": "The process by which people move from rural areas to urban areas is called:",
+      "options": {
+        "A": "Emigration",
+        "B": "Immigration",
+        "C": "Urbanization",
+        "D": "Decentralization"
+      },
+      "correct_answer": "C",
+      "explanation": "Urbanization is the process of population shift from rural to urban areas.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 69,
+      "question": "The major push factor for rural-urban migration in West Africa is:",
+      "options": {
+        "A": "Better job opportunities in cities",
+        "B": "Better medical facilities in cities",
+        "C": "Lack of social amenities in rural areas",
+        "D": "Higher wages in cities"
+      },
+      "correct_answer": "C",
+      "explanation": "Lack of basic amenities like schools, healthcare, and infrastructure in rural areas pushes people to cities.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 70,
+      "question": "An industry that is situated close to the raw material source is usually one that uses:",
+      "options": {
+        "A": "Light, non-perishable materials",
+        "B": "Bulk-gaining materials",
+        "C": "Weight-losing or bulky materials",
+        "D": "Footloose materials"
+      },
+      "correct_answer": "C",
+      "explanation": "Industries using weight-losing or bulky raw materials locate near their source to minimize transport costs.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 71,
+      "question": "The most significant environmental problem in the Sahel region of West Africa is:",
+      "options": {
+        "A": "Flooding",
+        "B": "Desertification",
+        "C": "Soil erosion",
+        "D": "Volcanic eruptions"
+      },
+      "correct_answer": "B",
+      "explanation": "Desertification, the expansion of desert conditions, is the major environmental threat in the Sahel.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 72,
+      "question": "The major advantage of water transport over rail or road is its:",
+      "options": {
+        "A": "Speed",
+        "B": "Accessibility",
+        "C": "Capacity for bulky goods",
+        "D": "Low initial cost"
+      },
+      "correct_answer": "C",
+      "explanation": "Water transport can carry very large, heavy loads at low cost per ton-kilometer.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 73,
+      "question": "The term for a secondary industry that processes crude petroleum into various fuels and chemicals is:",
+      "options": {
+        "A": "Textile",
+        "B": "Petrochemical",
+        "C": "Automobile",
+        "D": "Steel"
+      },
+      "correct_answer": "B",
+      "explanation": "Petrochemical industries process crude oil into fuels, plastics, and other chemical products.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 74,
+      "question": "A settlement that grows along a major road, river, or coastline is referred to as a:",
+      "options": {
+        "A": "Nucleated settlement",
+        "B": "Dispersed settlement",
+        "C": "Linear settlement",
+        "D": "Isolated settlement"
+      },
+      "correct_answer": "C",
+      "explanation": "Linear settlements develop along transport routes like roads, rivers, or coastlines.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 75,
+      "question": "Shifting cultivation is a system characterized by:",
+      "options": {
+        "A": "Permanent fields",
+        "B": "Crop rotation",
+        "C": "Short periods of cultivation followed by long fallow periods",
+        "D": "Monoculture"
+      },
+      "correct_answer": "C",
+      "explanation": "Shifting cultivation involves clearing land, farming for a few years, then abandoning it for long fallow periods.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 76,
+      "question": "The term for the deliberate planting of trees in an area where there was no forest cover before is:",
+      "options": {
+        "A": "Deforestation",
+        "B": "Afforestation",
+        "C": "Reforestation",
+        "D": "Lumbering"
+      },
+      "correct_answer": "B",
+      "explanation": "Afforestation is establishing forests in areas without previous tree cover.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 77,
+      "question": "The major benefit of establishing an industry in an industrial estate is:",
+      "options": {
+        "A": "Tax exemption",
+        "B": "Access to shared infrastructure and services",
+        "C": "Guaranteed raw materials",
+        "D": "Increased market price"
+      },
+      "correct_answer": "B",
+      "explanation": "Industrial estates provide shared infrastructure like roads, power, water, and waste disposal.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 78,
+      "question": "The term for the ratio of non-working population (under 15 and over 65) to the working population is the:",
+      "options": {
+        "A": "Population density",
+        "B": "Sex ratio",
+        "C": "Dependency ratio",
+        "D": "Birth rate"
+      },
+      "correct_answer": "C",
+      "explanation": "Dependency ratio compares economically dependent population to working-age population.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 79,
+      "question": "The main function of the Central Business District (CBD) of a city is:",
+      "options": {
+        "A": "Residential",
+        "B": "Manufacturing",
+        "C": "Commercial and administrative",
+        "D": "Agricultural"
+      },
+      "correct_answer": "C",
+      "explanation": "CBDs contain the main commercial, financial, and administrative functions of a city.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 80,
+      "question": "A major problem associated with rapid urbanization in West Africa is:",
+      "options": {
+        "A": "Abundant housing",
+        "B": "Adequate infrastructure",
+        "C": "Traffic congestion and slum growth",
+        "D": "Low crime rates"
+      },
+      "correct_answer": "C",
+      "explanation": "Rapid urbanization often leads to traffic problems and the growth of informal settlements (slums).",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 81,
+      "question": "Secondary activities in economic geography refer to:",
+      "options": {
+        "A": "Farming and fishing",
+        "B": "Manufacturing and construction",
+        "C": "Trading and transport",
+        "D": "Education and health"
+      },
+      "correct_answer": "B",
+      "explanation": "Secondary economic activities involve manufacturing, processing, and construction.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 82,
+      "question": "The practice of farming different crops in a planned sequence on the same land is:",
+      "options": {
+        "A": "Mixed farming",
+        "B": "Monoculture",
+        "C": "Irrigation",
+        "D": "Crop rotation"
+      },
+      "correct_answer": "D",
+      "explanation": "Crop rotation involves growing different crops in sequence to maintain soil fertility.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 83,
+      "question": "The main source of energy for the development of the earliest industries in Europe was:",
+      "options": {
+        "A": "Natural gas",
+        "B": "Hydroelectricity",
+        "C": "Coal",
+        "D": "Petroleum"
+      },
+      "correct_answer": "C",
+      "explanation": "Coal was the primary energy source that powered the Industrial Revolution in Europe.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 84,
+      "question": "The major trade route linking the major cities of the Sahara desert was the:",
+      "options": {
+        "A": "Trans-Siberian railway",
+        "B": "Trans-Sahara trade route",
+        "C": "Silk Road",
+        "D": "Suez Canal"
+      },
+      "correct_answer": "B",
+      "explanation": "The Trans-Saharan trade routes connected North Africa with sub-Saharan Africa for centuries.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 85,
+      "question": "The term for a commodity whose price and demand are highly dependent on external factors is:",
+      "options": {
+        "A": "Footloose product",
+        "B": "Primary commodity",
+        "C": "Tertiary product",
+        "D": "Manufactured good"
+      },
+      "correct_answer": "B",
+      "explanation": "Primary commodities like agricultural products and minerals often have volatile prices dependent on external markets.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 86,
+      "question": "The most effective way to control soil erosion in areas with heavy rainfall is through:",
+      "options": {
+        "A": "Monoculture",
+        "B": "Overgrazing",
+        "C": "Planting vegetation cover",
+        "D": "Slash and burn"
+      },
+      "correct_answer": "C",
+      "explanation": "Vegetation cover protects soil from raindrop impact and reduces surface runoff.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 87,
+      "question": "The major economic importance of the Coastal Creeks in Nigeria is:",
+      "options": {
+        "A": "Manufacturing",
+        "B": "Inland water transport and fishing",
+        "C": "Mineral mining",
+        "D": "Cattle rearing"
+      },
+      "correct_answer": "B",
+      "explanation": "Nigeria's coastal creeks support important fishing industries and water transportation.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 88,
+      "question": "Brain drain refers to the migration of:",
+      "options": {
+        "A": "Unskilled labourers",
+        "B": "Agricultural workers",
+        "C": "Highly skilled and professional people",
+        "D": "Students"
+      },
+      "correct_answer": "C",
+      "explanation": "Brain drain is the emigration of highly trained or qualified people from a country.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 89,
+      "question": "The Terms of Trade for a country are unfavourable if:",
+      "options": {
+        "A": "Export prices are increasing",
+        "B": "Import prices are decreasing",
+        "C": "Export prices are falling relative to import prices",
+        "D": "Both export and import prices are stable"
+      },
+      "correct_answer": "C",
+      "explanation": "Unfavorable terms of trade occur when export prices fall relative to import prices.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 90,
+      "question": "Which is a characteristic of the nucleated settlement pattern?",
+      "options": {
+        "A": "Scattered houses",
+        "B": "Houses built along a road",
+        "C": "Houses clustered around a central point",
+        "D": "Houses built randomly"
+      },
+      "correct_answer": "C",
+      "explanation": "Nucleated settlements feature buildings clustered around a central point like a market or crossroads.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 91,
+      "question": "The Gross Domestic Product (GDP) is the total value of goods and services produced within a country's borders in a specific period, usually:",
+      "options": {
+        "A": "One month",
+        "B": "Six months",
+        "C": "One year",
+        "D": "Five years"
+      },
+      "correct_answer": "C",
+      "explanation": "GDP is typically measured on an annual basis to assess a country's economic performance.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 92,
+      "question": "The greatest problem facing the development of rail transport in West Africa is:",
+      "options": {
+        "A": "Lack of raw materials",
+        "B": "Varying rail gauges",
+        "C": "High speed",
+        "D": "Low capacity"
+      },
+      "correct_answer": "B",
+      "explanation": "Different countries in West Africa use different rail gauges, hindering regional rail integration.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 93,
+      "question": "The type of fishing that involves large-scale operations far from the coast using sophisticated vessels is:",
+      "options": {
+        "A": "Coastal fishing",
+        "B": "Deep-sea fishing",
+        "C": "Inland fishing",
+        "D": "Subsistence fishing"
+      },
+      "correct_answer": "B",
+      "explanation": "Deep-sea fishing occurs in open ocean waters far from land using large, well-equipped vessels.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 94,
+      "question": "The primary difference between heavy industry and light industry is:",
+      "options": {
+        "A": "Location",
+        "B": "Capital investment and product bulk",
+        "C": "Labour force",
+        "D": "Market demand"
+      },
+      "correct_answer": "B",
+      "explanation": "Heavy industries involve large capital investment and produce bulky goods, while light industries are smaller scale.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 95,
+      "question": "A population pyramid with a wide base and a narrow top indicates:",
+      "options": {
+        "A": "A developed country with an aging population",
+        "B": "A high birth rate and high death rate (young population)",
+        "C": "Low birth rate and low death rate",
+        "D": "A stable, zero-growth population"
+      },
+      "correct_answer": "B",
+      "explanation": "A wide-based pyramid indicates high birth rates and a young population structure.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 96,
+      "question": "The term for the permanent movement of people within the national boundaries is:",
+      "options": {
+        "A": "Emigration",
+        "B": "Immigration",
+        "C": "Internal migration",
+        "D": "External migration"
+      },
+      "correct_answer": "C",
+      "explanation": "Internal migration involves movement within a country's borders.",
+      "section": "human_economic_geography"
+    },
+    {
+      "id": 97,
+      "question": "The most densely populated region in Nigeria is generally the:",
+      "options": {
+        "A": "North-East",
+        "B": "Middle Belt",
+        "C": "South-West",
+        "D": "North-West"
+      },
+      "correct_answer": "C",
+      "explanation": "South-West Nigeria, particularly Lagos, has the highest population density in the country.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 98,
+      "question": "The Guinea Savanna vegetation belt in West Africa is primarily used for:",
+      "options": {
+        "A": "Lumbering",
+        "B": "Nomadic herding and cultivation of cereals",
+        "C": "Deep-sea fishing",
+        "D": "Mining of crude oil"
+      },
+      "correct_answer": "B",
+      "explanation": "Guinea Savanna supports cattle rearing and cultivation of crops like millet, sorghum, and maize.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 99,
+      "question": "The major feature of the Niger Delta region of Nigeria is its:",
+      "options": {
+        "A": "High altitude and steep slopes",
+        "B": "Extensive mangrove swamps and crude oil deposits",
+        "C": "Temperate climate",
+        "D": "Arid grassland"
+      },
+      "correct_answer": "B",
+      "explanation": "The Niger Delta is characterized by mangrove swamps and contains Nigeria's main oil reserves.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 100,
+      "question": "The Rift Valley system in East Africa was primarily formed by:",
+      "options": {
+        "A": "Folding",
+        "B": "Faulting",
+        "C": "Volcanism",
+        "D": "Weathering"
+      },
+      "correct_answer": "B",
+      "explanation": "The Great Rift Valley was created by tectonic faulting where the Earth's crust is pulling apart.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 101,
+      "question": "The term for a graphical representation of the annual range of temperature and rainfall for a place is a:",
+      "options": {
+        "A": "Bar graph",
+        "B": "Flow chart",
+        "C": "Pie chart",
+        "D": "Climograph"
+      },
+      "correct_answer": "D",
+      "explanation": "A climograph displays temperature and precipitation data for a location throughout the year.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 102,
+      "question": "The primary problem of the fishing industry in West Africa is:",
+      "options": {
+        "A": "Lack of market",
+        "B": "Insufficient cold storage facilities and illegal trawling",
+        "C": "Too many rivers",
+        "D": "Low water temperature"
+      },
+      "correct_answer": "B",
+      "explanation": "Poor storage infrastructure and illegal fishing by foreign vessels are major challenges for West African fisheries.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 103,
+      "question": "A histogram is a type of graph used to represent:",
+      "options": {
+        "A": "Continuous data",
+        "B": "Discrete data",
+        "C": "Categorical data",
+        "D": "Directional data"
+      },
+      "correct_answer": "A",
+      "explanation": "Histograms display the distribution of continuous data using adjacent bars.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 104,
+      "question": "The largest single physical feature in Africa that contributes to desertification is the:",
+      "options": {
+        "A": "Kalahari Desert",
+        "B": "Libyan Desert",
+        "C": "Sahara Desert",
+        "D": "Namib Desert"
+      },
+      "correct_answer": "C",
+      "explanation": "The Sahara Desert is the world's largest hot desert and a major source of desertification in Africa.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 105,
+      "question": "Oases are important areas of settlement and agriculture in the desert because of the presence of:",
+      "options": {
+        "A": "Mountains",
+        "B": "Underground water",
+        "C": "Volcanoes",
+        "D": "Permafrost"
+      },
+      "correct_answer": "B",
+      "explanation": "Oases form where underground water reaches the surface, allowing vegetation and human settlement in deserts.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 106,
+      "question": "The main economic activity in the Mangrove Swamp region of Nigeria is:",
+      "options": {
+        "A": "Large-scale farming",
+        "B": "Fishing and salt making",
+        "C": "Mining of gold",
+        "D": "Commercial cattle rearing"
+      },
+      "correct_answer": "B",
+      "explanation": "Mangrove swamp regions support fishing activities and traditional salt production.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 107,
+      "question": "The use of aerial photographs and satellite imagery to study the Earth's surface is known as:",
+      "options": {
+        "A": "Field surveying",
+        "B": "Remote sensing",
+        "C": "Chain surveying",
+        "D": "Plane tabling"
+      },
+      "correct_answer": "B",
+      "explanation": "Remote sensing involves gathering information about Earth from a distance using satellites and aircraft.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 108,
+      "question": "The major export crop of the forest belt of Ghana and Côte d'Ivoire is:",
+      "options": {
+        "A": "Groundnuts",
+        "B": "Cotton",
+        "C": "Cocoa",
+        "D": "Palm oil"
+      },
+      "correct_answer": "C",
+      "explanation": "Ghana and Côte d'Ivoire are the world's leading cocoa producers.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 109,
+      "question": "The major environmental problem resulting from crude oil exploration and exploitation in the Niger Delta is:",
+      "options": {
+        "A": "Air pollution from vehicles",
+        "B": "Deforestation for housing",
+        "C": "Oil spills and gas flaring",
+        "D": "Soil erosion from farming"
+      },
+      "correct_answer": "C",
+      "explanation": "Oil spills and gas flaring are the primary environmental issues associated with Niger Delta oil operations.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 110,
+      "question": "The region of Africa where the Tsetse fly is most prevalent, hindering cattle rearing, is the:",
+      "options": {
+        "A": "Desert",
+        "B": "Steppe",
+        "C": "Tropical grassland and forest edges",
+        "D": "Mediterranean"
+      },
+      "correct_answer": "C",
+      "explanation": "Tsetse flies, which transmit sleeping sickness, are common in tropical grasslands and forest fringes.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 111,
+      "question": "The major economic importance of the River Niger to West Africa is:",
+      "options": {
+        "A": "Irrigation",
+        "B": "Hydro-electric power and inland navigation",
+        "C": "Fishing only",
+        "D": "Gold mining"
+      },
+      "correct_answer": "B",
+      "explanation": "The Niger River provides hydroelectric power (Kainji Dam) and important transportation routes.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 112,
+      "question": "The technique of data representation that uses circles to show proportions of a whole is a:",
+      "options": {
+        "A": "Bar graph",
+        "B": "Line graph",
+        "C": "Pie chart",
+        "D": "Scatter graph"
+      },
+      "correct_answer": "C",
+      "explanation": "Pie charts use circular diagrams divided into sectors to show proportional relationships.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 113,
+      "question": "The primary factor that limits commercial agriculture in the Sahel region is:",
+      "options": {
+        "A": "Lack of labour",
+        "B": "Insufficient and erratic rainfall",
+        "C": "High population density",
+        "D": "Poor transportation"
+      },
+      "correct_answer": "B",
+      "explanation": "Low and unreliable rainfall is the main constraint on agriculture in the Sahel region.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 114,
+      "question": "The Middle Belt of Nigeria is predominantly characterized by:",
+      "options": {
+        "A": "High-density urban centres",
+        "B": "Export-oriented cocoa farming",
+        "C": "Vast Guinea Savanna and mineral deposits",
+        "D": "Extensive mangrove swamps"
+      },
+      "correct_answer": "C",
+      "explanation": "Nigeria's Middle Belt features Guinea Savanna vegetation and contains various mineral resources.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 115,
+      "question": "The type of map that shows a detailed representation of physical and human features using contour lines is:",
+      "options": {
+        "A": "Political map",
+        "B": "Atlas map",
+        "C": "Sketch map",
+        "D": "Topographical map"
+      },
+      "correct_answer": "D",
+      "explanation": "Topographical maps use contour lines to show elevation and detailed physical and cultural features.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 116,
+      "question": "The Inter-Tropical Convergence Zone (ITCZ) is the major climatic control in West Africa because it:",
+      "options": {
+        "A": "Determines ocean currents",
+        "B": "Controls the pattern of rainfall",
+        "C": "Stops the wind",
+        "D": "Causes earthquakes"
+      },
+      "correct_answer": "B",
+      "explanation": "The ITCZ's seasonal movement north and south determines West Africa's rainfall patterns.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 117,
+      "question": "The primary problem facing the use of satellite imagery in geographical studies is the:",
+      "options": {
+        "A": "High cost and need for expertise",
+        "B": "Lack of detail",
+        "C": "Simple interpretation",
+        "D": "Low-resolution images"
+      },
+      "correct_answer": "A",
+      "explanation": "Satellite imagery requires significant financial investment and technical expertise to use effectively.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 118,
+      "question": "The Pyramids of Giza in Egypt were built on a:",
+      "options": {
+        "A": "Plain",
+        "B": "Plateau",
+        "C": "River bank",
+        "D": "Desert edge (plateau/plain)"
+      },
+      "correct_answer": "D",
+      "explanation": "The Giza pyramids are located on the Giza Plateau at the edge of the Western Desert.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 119,
+      "question": "The Congo Basin in Central Africa is known for its:",
+      "options": {
+        "A": "Dry Savanna climate",
+        "B": "Dense Equatorial Rainforest",
+        "C": "Mediterranean agriculture",
+        "D": "Temperate grasslands"
+      },
+      "correct_answer": "B",
+      "explanation": "The Congo Basin contains the world's second-largest tropical rainforest after the Amazon.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 120,
+      "question": "In a frequency distribution, the midpoint of the class interval is called the:",
+      "options": {
+        "A": "Mode",
+        "B": "Median",
+        "C": "Mean",
+        "D": "Class mark"
+      },
+      "correct_answer": "D",
+      "explanation": "The class mark is the midpoint value of a class interval in a frequency distribution.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 121,
+      "question": "The major cash crop from the Mediterranean region of Africa (e.g., Morocco, Tunisia) is:",
+      "options": {
+        "A": "Rice",
+        "B": "Coffee",
+        "C": "Citrus fruits and olives",
+        "D": "Rubber"
+      },
+      "correct_answer": "C",
+      "explanation": "Mediterranean Africa specializes in citrus fruits, olives, grapes, and other temperate fruits.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 122,
+      "question": "A major effect of the construction of a dam on a large river is:",
+      "options": {
+        "A": "Increased downstream flooding",
+        "B": "Sedimentation upstream and generation of HEP",
+        "C": "Immediate increase in fish stock",
+        "D": "Reduction of water pollution"
+      },
+      "correct_answer": "B",
+      "explanation": "Dams cause sediment accumulation upstream while generating hydroelectric power (HEP).",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 123,
+      "question": "The most appropriate scale for a map showing a small local government area would be a:",
+      "options": {
+        "A": "Large scale (e.g., 1:10,000)",
+        "B": "Medium scale (e.g., 1:250,000)",
+        "C": "Small scale (e.g., 1:1,000,000)",
+        "D": "World scale"
+      },
+      "correct_answer": "A",
+      "explanation": "Large-scale maps (e.g., 1:10,000) show small areas in great detail, suitable for local mapping.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 124,
+      "question": "The Horn of Africa (e.g., Somalia, Ethiopia) is frequently affected by the climatic hazard of:",
+      "options": {
+        "A": "Earthquakes",
+        "B": "Volcanic eruptions",
+        "C": "Drought",
+        "D": "Heavy snowfall"
+      },
+      "correct_answer": "C",
+      "explanation": "The Horn of Africa experiences recurrent droughts that cause food and water shortages.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 125,
+      "question": "Which is a characteristic of nomadic pastoralism?",
+      "options": {
+        "A": "Permanent settlements",
+        "B": "Large-scale commercial breeding",
+        "C": "Seasonal movement of livestock and people",
+        "D": "Keeping animals for milk only"
+      },
+      "correct_answer": "C",
+      "explanation": "Nomadic pastoralism involves seasonal migration in search of pasture and water for livestock.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 126,
+      "question": "The primary source of the River Nile is generally considered to be:",
+      "options": {
+        "A": "Lake Chad",
+        "B": "Lake Victoria",
+        "C": "River Niger",
+        "D": "Mediterranean Sea"
+      },
+      "correct_answer": "B",
+      "explanation": "Lake Victoria in East Africa is considered the main source of the White Nile.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 127,
+      "question": "The main purpose of drawing a cross section from a topographical map is to:",
+      "options": {
+        "A": "Determine the distance",
+        "B": "Show the relative height and slope of the land",
+        "C": "Calculate the area",
+        "D": "Find the true bearing"
+      },
+      "correct_answer": "B",
+      "explanation": "Cross sections provide a side view of terrain, showing elevation changes and slope profiles.",
+      "section": "regional_practical_geography"
+    },
+    {
+      "id": 128,
+      "question": "The major environmental challenge facing the cities of Lagos and Accra is:",
+      "options": {
+        "A": "Lack of electricity",
+        "B": "Solid waste management and traffic congestion",
+        "C": "Too much agricultural land",
+        "D": "Low population density"
+      },
+      "correct_answer": "B",
+      "explanation": "Rapid urbanization in Lagos and Accra has led to severe waste management problems and traffic congestion.",
+      "section": "regional_practical_geography"
+    }
+  ]
+}

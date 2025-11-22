@@ -1,0 +1,1672 @@
+{
+  "subject": "Islamic Religious Studies",
+  "exam_type": "JAMB",
+  "total_questions": 128,
+  "time_allowed": 8400,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the meaning of 'Islam'?",
+      "options": {
+        "A": "Submission to the will of Allah",
+        "B": "Peace and prosperity",
+        "C": "Islamic law",
+        "D": "Muslim community"
+      },
+      "correct_answer": "A",
+      "explanation": "Islam means submission to the will of Allah and obedience to His commands.",
+      "section": "basic_concepts"
+    },
+    {
+      "id": 2,
+      "question": "Who is a Muslim?",
+      "options": {
+        "A": "One who submits to Allah's will",
+        "B": "Arab person",
+        "C": "Middle Easterner",
+        "D": "Quran reciter"
+      },
+      "correct_answer": "A",
+      "explanation": "A Muslim is anyone who submits to the will of Allah and follows Islam.",
+      "section": "basic_concepts"
+    },
+    {
+      "id": 3,
+      "question": "What is the first pillar of Islam?",
+      "options": {
+        "A": "Shahadah (Declaration of Faith)",
+        "B": "Salah (Prayer)",
+        "C": "Zakah (Charity)",
+        "D": "Sawm (Fasting)"
+      },
+      "correct_answer": "A",
+      "explanation": "Shahadah is the first pillar: 'There is no god but Allah, and Muhammad is His messenger.'",
+      "section": "pillars_of_islam"
+    },
+    {
+      "id": 4,
+      "question": "How many pillars of Islam are there?",
+      "options": {
+        "A": "Five",
+        "B": "Four",
+        "C": "Six",
+        "D": "Seven"
+      },
+      "correct_answer": "A",
+      "explanation": "The five pillars are Shahadah, Salah, Zakah, Sawm, and Hajj.",
+      "section": "pillars_of_islam"
+    },
+    {
+      "id": 5,
+      "question": "What is Tawhid?",
+      "options": {
+        "A": "Oneness of Allah",
+        "B": "Islamic law",
+        "C": "Prayer direction",
+        "D": "Fasting month"
+      },
+      "correct_answer": "A",
+      "explanation": "Tawhid is the fundamental Islamic concept of the Oneness and Uniqueness of Allah.",
+      "section": "aqidah"
+    },
+    {
+      "id": 6,
+      "question": "How many times do Muslims pray daily?",
+      "options": {
+        "A": "Five",
+        "B": "Three",
+        "C": "Seven",
+        "D": "Four"
+      },
+      "correct_answer": "A",
+      "explanation": "Muslims perform five obligatory prayers daily: Fajr, Dhuhr, Asr, Maghrib, Isha.",
+      "section": "salah"
+    },
+    {
+      "id": 7,
+      "question": "What is the direction of prayer in Islam?",
+      "options": {
+        "A": "Ka'bah in Mecca",
+        "B": "Jerusalem",
+        "C": "Medina",
+        "D": "East"
+      },
+      "correct_answer": "A",
+      "explanation": "Muslims face the Ka'bah in Mecca during prayer, known as Qiblah.",
+      "section": "salah"
+    },
+    {
+      "id": 8,
+      "question": "Which month do Muslims fast?",
+      "options": {
+        "A": "Ramadan",
+        "B": "Muharram",
+        "C": "Shawwal",
+        "D": "Dhul-Hijjah"
+      },
+      "correct_answer": "A",
+      "explanation": "Muslims fast during the month of Ramadan from dawn to sunset.",
+      "section": "sawm"
+    },
+    {
+      "id": 9,
+      "question": "What is Zakah?",
+      "options": {
+        "A": "Obligatory charity",
+        "B": "Voluntary prayer",
+        "C": "Pilgrimage",
+        "D": "Fasting"
+      },
+      "correct_answer": "A",
+      "explanation": "Zakah is the obligatory charity given by Muslims who meet certain wealth criteria.",
+      "section": "zakah"
+    },
+    {
+      "id": 10,
+      "question": "Where is Hajj performed?",
+      "options": {
+        "A": "Mecca, Saudi Arabia",
+        "B": "Medina, Saudi Arabia",
+        "C": "Jerusalem, Palestine",
+        "D": "Baghdad, Iraq"
+      },
+      "correct_answer": "A",
+      "explanation": "Hajj is performed in and around Mecca during the Islamic month of Dhul-Hijjah.",
+      "section": "hajj"
+    },
+    {
+      "id": 11,
+      "question": "What is the holy book of Islam?",
+      "options": {
+        "A": "Quran",
+        "B": "Bible",
+        "C": "Torah",
+        "D": "Psalms"
+      },
+      "correct_answer": "A",
+      "explanation": "The Quran is the holy book revealed to Prophet Muhammad (PBUH) through Angel Jibril.",
+      "section": "quran"
+    },
+    {
+      "id": 12,
+      "question": "In which language was the Quran revealed?",
+      "options": {
+        "A": "Arabic",
+        "B": "Persian",
+        "C": "Urdu",
+        "D": "English"
+      },
+      "correct_answer": "A",
+      "explanation": "The Quran was revealed in Arabic and is preserved in its original language.",
+      "section": "quran"
+    },
+    {
+      "id": 13,
+      "question": "How many chapters (Surahs) are in the Quran?",
+      "options": {
+        "A": "114",
+        "B": "100",
+        "C": "120",
+        "D": "99"
+      },
+      "correct_answer": "A",
+      "explanation": "The Quran contains 114 chapters of varying lengths.",
+      "section": "quran"
+    },
+    {
+      "id": 14,
+      "question": "What is the first chapter of the Quran?",
+      "options": {
+        "A": "Surah Al-Fatihah",
+        "B": "Surah Al-Baqarah",
+        "C": "Surah Al-Ikhlas",
+        "D": "Surah Yasin"
+      },
+      "correct_answer": "A",
+      "explanation": "Surah Al-Fatihah is the opening chapter of the Quran, recited in every prayer.",
+      "section": "quran"
+    },
+    {
+      "id": 15,
+      "question": "Who is the final prophet in Islam?",
+      "options": {
+        "A": "Prophet Muhammad (PBUH)",
+        "B": "Prophet Isa (Jesus)",
+        "C": "Prophet Musa (Moses)",
+        "D": "Prophet Ibrahim (Abraham)"
+      },
+      "correct_answer": "A",
+      "explanation": "Prophet Muhammad (PBUH) is the final messenger sent to all humanity.",
+      "section": "prophets"
+    },
+    {
+      "id": 16,
+      "question": "Where was Prophet Muhammad (PBUH) born?",
+      "options": {
+        "A": "Mecca",
+        "B": "Medina",
+        "C": "Jerusalem",
+        "D": "Taif"
+      },
+      "correct_answer": "A",
+      "explanation": "Prophet Muhammad (PBUH) was born in Mecca in 570 CE.",
+      "section": "prophet_muhammad"
+    },
+    {
+      "id": 17,
+      "question": "At what age did Prophet Muhammad (PBUH) receive his first revelation?",
+      "options": {
+        "A": "40 years",
+        "B": "35 years",
+        "C": "45 years",
+        "D": "25 years"
+      },
+      "correct_answer": "A",
+      "explanation": "The first revelation came to him at age 40 in the cave of Hira.",
+      "section": "prophet_muhammad"
+    },
+    {
+      "id": 18,
+      "question": "What is the Hijrah?",
+      "options": {
+        "A": "Migration from Mecca to Medina",
+        "B": "Prayer pilgrimage",
+        "C": "Fasting practice",
+        "D": "Quran revelation"
+      },
+      "correct_answer": "A",
+      "explanation": "Hijrah refers to the migration of Prophet Muhammad (PBUH) and his followers from Mecca to Medina in 622 CE.",
+      "section": "prophet_muhammad"
+    },
+    {
+      "id": 19,
+      "question": "Where is Prophet Muhammad (PBUH) buried?",
+      "options": {
+        "A": "Medina",
+        "B": "Mecca",
+        "C": "Jerusalem",
+        "D": "Baghdad"
+      },
+      "correct_answer": "A",
+      "explanation": "He is buried in the Prophet's Mosque in Medina.",
+      "section": "prophet_muhammad"
+    },
+    {
+      "id": 20,
+      "question": "Who was the first wife of Prophet Muhammad (PBUH)?",
+      "options": {
+        "A": "Khadijah",
+        "B": "Aisha",
+        "C": "Hafsa",
+        "D": "Sawdah"
+      },
+      "correct_answer": "A",
+      "explanation": "Khadijah was his first wife and the first person to accept Islam.",
+      "section": "prophet_muhammad"
+    },
+    {
+      "id": 21,
+      "question": "What are the six articles of faith in Islam?",
+      "options": {
+        "A": "Belief in Allah, Angels, Books, Messengers, Day of Judgment, Divine Decree",
+        "B": "Five pillars of Islam",
+        "C": "Islamic laws",
+        "D": "Quranic chapters"
+      },
+      "correct_answer": "A",
+      "explanation": "The six articles of faith form the foundation of Islamic belief system.",
+      "section": "aqidah"
+    },
+    {
+      "id": 22,
+      "question": "Who is the angel responsible for revealing revelations to prophets?",
+      "options": {
+        "A": "Jibril (Gabriel)",
+        "B": "Mika'il (Michael)",
+        "C": "Israfil",
+        "D": "Izra'il"
+      },
+      "correct_answer": "A",
+      "explanation": "Angel Jibril is responsible for bringing revelations from Allah to the prophets.",
+      "section": "angels"
+    },
+    {
+      "id": 23,
+      "question": "Which angel will blow the trumpet on Judgment Day?",
+      "options": {
+        "A": "Israfil",
+        "B": "Jibril",
+        "C": "Mika'il",
+        "D": "Izra'il"
+      },
+      "correct_answer": "A",
+      "explanation": "Angel Israfil will blow the trumpet to signal the Day of Judgment.",
+      "section": "angels"
+    },
+    {
+      "id": 24,
+      "question": "Who is the angel of death?",
+      "options": {
+        "A": "Izra'il",
+        "B": "Jibril",
+        "C": "Mika'il",
+        "D": "Israfil"
+      },
+      "correct_answer": "A",
+      "explanation": "Angel Izra'il is responsible for taking souls at the time of death.",
+      "section": "angels"
+    },
+    {
+      "id": 25,
+      "question": "What is the Day of Judgment called in Islam?",
+      "options": {
+        "A": "Yawm al-Qiyamah",
+        "B": "Yawm ad-Din",
+        "C": "Yawm al-Hisab",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "It is known by various names including Day of Resurrection, Day of Reckoning, and Day of Judgment.",
+      "section": "aqidah"
+    },
+    {
+      "id": 26,
+      "question": "What is Shirk?",
+      "options": {
+        "A": "Associating partners with Allah",
+        "B": "Prayer mistake",
+        "C": "Fasting error",
+        "D": "Charity giving"
+      },
+      "correct_answer": "A",
+      "explanation": "Shirk is the unpardonable sin of associating partners with Allah or worshipping others besides Him.",
+      "section": "aqidah"
+    },
+    {
+      "id": 27,
+      "question": "What is Sunnah?",
+      "options": {
+        "A": "Practices and traditions of Prophet Muhammad (PBUH)",
+        "B": "Quranic verses",
+        "C": "Islamic laws",
+        "D": "Prayer times"
+      },
+      "correct_answer": "A",
+      "explanation": "Sunnah refers to the sayings, actions, and approvals of Prophet Muhammad (PBUH).",
+      "section": "sunnah"
+    },
+    {
+      "id": 28,
+      "question": "What is Hadith?",
+      "options": {
+        "A": "Recorded sayings of Prophet Muhammad (PBUH)",
+        "B": "Quranic commentary",
+        "C": "Islamic history",
+        "D": "Prayer manual"
+      },
+      "correct_answer": "A",
+      "explanation": "Hadith are the recorded narrations of the Prophet's sayings, actions, and approvals.",
+      "section": "hadith"
+    },
+    {
+      "id": 29,
+      "question": "What is Ijma?",
+      "options": {
+        "A": "Consensus of Islamic scholars",
+        "B": "Individual reasoning",
+        "C": "Quranic interpretation",
+        "D": "Prayer congregation"
+      },
+      "correct_answer": "A",
+      "explanation": "Ijma refers to the consensus of Islamic scholars on a particular issue.",
+      "section": "islamic_jurisprudence"
+    },
+    {
+      "id": 30,
+      "question": "What is Qiyas?",
+      "options": {
+        "A": "Analogical reasoning in Islamic law",
+        "B": "Quranic recitation",
+        "C": "Prayer position",
+        "D": "Fasting method"
+      },
+      "correct_answer": "A",
+      "explanation": "Qiyas is the process of deductive analogy in Islamic jurisprudence.",
+      "section": "islamic_jurisprudence"
+    },
+    {
+      "id": 31,
+      "question": "What is Halal?",
+      "options": {
+        "A": "Permissible according to Islamic law",
+        "B": "Prohibited actions",
+        "C": "Prayer times",
+        "D": "Fasting rules"
+      },
+      "correct_answer": "A",
+      "explanation": "Halal refers to anything that is permissible and lawful in Islam.",
+      "section": "islamic_law"
+    },
+    {
+      "id": 32,
+      "question": "What is Haram?",
+      "options": {
+        "A": "Prohibited according to Islamic law",
+        "B": "Permissible actions",
+        "C": "Recommended deeds",
+        "D": "Optional prayers"
+      },
+      "correct_answer": "A",
+      "explanation": "Haram refers to anything that is forbidden and unlawful in Islam.",
+      "section": "islamic_law"
+    },
+    {
+      "id": 33,
+      "question": "Which food is definitely Haram in Islam?",
+      "options": {
+        "A": "Pork",
+        "B": "Beef",
+        "C": "Chicken",
+        "D": "Fish"
+      },
+      "correct_answer": "A",
+      "explanation": "Pork and its products are strictly prohibited in Islam.",
+      "section": "islamic_law"
+    },
+    {
+      "id": 34,
+      "question": "What is Wudu?",
+      "options": {
+        "A": "Ablution for prayer",
+        "B": "Full bath",
+        "C": "Dry ablution",
+        "D": "Prayer mat"
+      },
+      "correct_answer": "A",
+      "explanation": "Wudu is the ritual washing performed before prayers.",
+      "section": "taharah"
+    },
+    {
+      "id": 35,
+      "question": "What is Ghusl?",
+      "options": {
+        "A": "Full ritual bath",
+        "B": "Partial ablution",
+        "C": "Dry purification",
+        "D": "Hand washing"
+      },
+      "correct_answer": "A",
+      "explanation": "Ghusl is the full body ritual purification required after certain states of impurity.",
+      "section": "taharah"
+    },
+    {
+      "id": 36,
+      "question": "What is Tayammum?",
+      "options": {
+        "A": "Dry ablution with clean earth",
+        "B": "Water ablution",
+        "C": "Full bath",
+        "D": "Hand purification"
+      },
+      "correct_answer": "A",
+      "explanation": "Tayammum is the dry ablution using clean earth when water is unavailable or harmful to use.",
+      "section": "taharah"
+    },
+    {
+      "id": 37,
+      "question": "What is the call to prayer called?",
+      "options": {
+        "A": "Adhan",
+        "B": "Iqamah",
+        "C": "Takbir",
+        "D": "Tasbih"
+      },
+      "correct_answer": "A",
+      "explanation": "Adhan is the Islamic call to prayer, recited by the muezzin.",
+      "section": "salah"
+    },
+    {
+      "id": 38,
+      "question": "How many Rak'ahs are in Fajr prayer?",
+      "options": {
+        "A": "Two",
+        "B": "Three",
+        "C": "Four",
+        "D": "Five"
+      },
+      "correct_answer": "A",
+      "explanation": "Fajr prayer consists of two Rak'ahs (units of prayer).",
+      "section": "salah"
+    },
+    {
+      "id": 39,
+      "question": "What is Jumu'ah?",
+      "options": {
+        "A": "Friday congregational prayer",
+        "B": "Eid prayer",
+        "C": "Funeral prayer",
+        "D": "Night prayer"
+      },
+      "correct_answer": "A",
+      "explanation": "Jumu'ah is the Friday noon prayer that Muslims attend in congregation.",
+      "section": "salah"
+    },
+    {
+      "id": 40,
+      "question": "What is Zakat al-Fitr?",
+      "options": {
+        "A": "Charity given at the end of Ramadan",
+        "B": "Annual wealth tax",
+        "C": "Voluntary charity",
+        "D": "Business zakat"
+      },
+      "correct_answer": "A",
+      "explanation": "Zakat al-Fitr is a special charity given before Eid al-Fitr prayer.",
+      "section": "zakah"
+    },
+    {
+      "id": 41,
+      "question": "What is the Nisab for Zakat?",
+      "options": {
+        "A": "Minimum amount of wealth for Zakat eligibility",
+        "B": "Zakat calculation method",
+        "C": "Zakat distribution",
+        "D": "Zakat recipients"
+      },
+      "correct_answer": "A",
+      "explanation": "Nisab is the minimum amount of wealth a Muslim must possess before being liable to pay Zakat.",
+      "section": "zakah"
+    },
+    {
+      "id": 42,
+      "question": "What is Umrah?",
+      "options": {
+        "A": "Minor pilgrimage to Mecca",
+        "B": "Major pilgrimage",
+        "C": "Prayer pilgrimage",
+        "D": "Medina visit"
+      },
+      "correct_answer": "A",
+      "explanation": "Umrah is the minor pilgrimage that can be performed any time of the year.",
+      "section": "hajj"
+    },
+    {
+      "id": 43,
+      "question": "What is Tawaf?",
+      "options": {
+        "A": "Circumambulation of the Ka'bah",
+        "B": "Running between Safa and Marwah",
+        "C": "Standing at Arafat",
+        "D": "Stoning the pillars"
+      },
+      "correct_answer": "A",
+      "explanation": "Tawaf is the act of walking around the Ka'bah seven times during Hajj or Umrah.",
+      "section": "hajj"
+    },
+    {
+      "id": 44,
+      "question": "What is Sa'i?",
+      "options": {
+        "A": "Walking between Safa and Marwah",
+        "B": "Circumambulation of Ka'bah",
+        "C": "Standing at Arafat",
+        "D": "Stoning ritual"
+      },
+      "correct_answer": "A",
+      "explanation": "Sa'i is the ritual of walking seven times between the hills of Safa and Marwah.",
+      "section": "hajj"
+    },
+    {
+      "id": 45,
+      "question": "Where do pilgrims stand during Hajj on the 9th of Dhul-Hijjah?",
+      "options": {
+        "A": "Plain of Arafat",
+        "B": "Muzdalifah",
+        "C": "Mina",
+        "D": "Ka'bah"
+      },
+      "correct_answer": "A",
+      "explanation": "The standing at Arafat is the most essential part of Hajj.",
+      "section": "hajj"
+    },
+    {
+      "id": 46,
+      "question": "What is Eid al-Fitr?",
+      "options": {
+        "A": "Festival of Breaking the Fast",
+        "B": "Festival of Sacrifice",
+        "C": "Islamic New Year",
+        "D": "Prophet's Birthday"
+      },
+      "correct_answer": "A",
+      "explanation": "Eid al-Fitr marks the end of Ramadan and the month of fasting.",
+      "section": "eid"
+    },
+    {
+      "id": 47,
+      "question": "What is Eid al-Adha?",
+      "options": {
+        "A": "Festival of Sacrifice",
+        "B": "Festival of Breaking Fast",
+        "C": "Islamic New Year",
+        "D": "Night of Power"
+      },
+      "correct_answer": "A",
+      "explanation": "Eid al-Adha commemorates Prophet Ibrahim's willingness to sacrifice his son.",
+      "section": "eid"
+    },
+    {
+      "id": 48,
+      "question": "What is Lailatul Qadr?",
+      "options": {
+        "A": "Night of Power during Ramadan",
+        "B": "Night of Ascension",
+        "C": "Night of Forgiveness",
+        "D": "New Year's night"
+      },
+      "correct_answer": "A",
+      "explanation": "Lailatul Qadr is the night when the Quran was first revealed, better than 1000 months.",
+      "section": "ramadan"
+    },
+    {
+      "id": 49,
+      "question": "Which Surah is called the 'Heart of the Quran'?",
+      "options": {
+        "A": "Surah Yasin",
+        "B": "Surah Al-Fatihah",
+        "C": "Surah Al-Baqarah",
+        "D": "Surah Al-Ikhlas"
+      },
+      "correct_answer": "A",
+      "explanation": "Surah Yasin is often referred to as the heart of the Quran.",
+      "section": "quran"
+    },
+    {
+      "id": 50,
+      "question": "Which Surah emphasizes the Oneness of Allah?",
+      "options": {
+        "A": "Surah Al-Ikhlas",
+        "B": "Surah Al-Fatihah",
+        "C": "Surah Al-Nas",
+        "D": "Surah Al-Falaq"
+      },
+      "correct_answer": "A",
+      "explanation": "Surah Al-Ikhlas purely describes the Oneness and Uniqueness of Allah.",
+      "section": "quran"
+    },
+    {
+      "id": 51,
+      "question": "What is the first revealed verse of the Quran?",
+      "options": {
+        "A": "Read in the name of your Lord",
+        "B": "All praise is due to Allah",
+        "C": "There is no god but Allah",
+        "D": "Say: He is Allah, the One"
+      },
+      "correct_answer": "A",
+      "explanation": "The first revelation was 'Read in the name of your Lord who created' (Surah Al-Alaq:1).",
+      "section": "quran"
+    },
+    {
+      "id": 52,
+      "question": "How many prophets are mentioned in the Quran?",
+      "options": {
+        "A": "25",
+        "B": "20",
+        "C": "30",
+        "D": "40"
+      },
+      "correct_answer": "A",
+      "explanation": "The Quran mentions 25 prophets by name.",
+      "section": "prophets"
+    },
+    {
+      "id": 53,
+      "question": "Who is known as Khalilullah (Friend of Allah)?",
+      "options": {
+        "A": "Prophet Ibrahim (AS)",
+        "B": "Prophet Muhammad (PBUH)",
+        "C": "Prophet Musa (AS)",
+        "D": "Prophet Isa (AS)"
+      },
+      "correct_answer": "A",
+      "explanation": "Prophet Ibrahim (AS) is given the title 'Friend of Allah'.",
+      "section": "prophets"
+    },
+    {
+      "id": 54,
+      "question": "Which prophet is known for his patience?",
+      "options": {
+        "A": "Prophet Ayyub (AS)",
+        "B": "Prophet Yusuf (AS)",
+        "C": "Prophet Yunus (AS)",
+        "D": "Prophet Nuh (AS)"
+      },
+      "correct_answer": "A",
+      "explanation": "Prophet Ayyub (AS) is renowned for his extraordinary patience during severe trials.",
+      "section": "prophets"
+    },
+    {
+      "id": 55,
+      "question": "Which prophet was thrown into fire?",
+      "options": {
+        "A": "Prophet Ibrahim (AS)",
+        "B": "Prophet Musa (AS)",
+        "C": "Prophet Isa (AS)",
+        "D": "Prophet Muhammad (PBUH)"
+      },
+      "correct_answer": "A",
+      "explanation": "Prophet Ibrahim (AS) was thrown into fire by his people for rejecting idol worship.",
+      "section": "prophets"
+    },
+    {
+      "id": 56,
+      "question": "Which prophet built the Ka'bah?",
+      "options": {
+        "A": "Prophet Ibrahim and Ismail (AS)",
+        "B": "Prophet Adam (AS)",
+        "C": "Prophet Nuh (AS)",
+        "D": "Prophet Muhammad (PBUH)"
+      },
+      "correct_answer": "A",
+      "explanation": "Prophet Ibrahim and his son Ismail rebuilt the Ka'bah.",
+      "section": "prophets"
+    },
+    {
+      "id": 57,
+      "question": "Which prophet was given the Zabur (Psalms)?",
+      "options": {
+        "A": "Prophet Dawud (AS)",
+        "B": "Prophet Musa (AS)",
+        "C": "Prophet Isa (AS)",
+        "D": "Prophet Ibrahim (AS)"
+      },
+      "correct_answer": "A",
+      "explanation": "Prophet Dawud (AS) was given the Zabur (Psalms).",
+      "section": "prophets"
+    },
+    {
+      "id": 58,
+      "question": "Which prophet was given the Tawrat (Torah)?",
+      "options": {
+        "A": "Prophet Musa (AS)",
+        "B": "Prophet Dawud (AS)",
+        "C": "Prophet Isa (AS)",
+        "D": "Prophet Ibrahim (AS)"
+      },
+      "correct_answer": "A",
+      "explanation": "Prophet Musa (AS) was given the Tawrat (Torah).",
+      "section": "prophets"
+    },
+    {
+      "id": 59,
+      "question": "Which prophet was given the Injil (Gospel)?",
+      "options": {
+        "A": "Prophet Isa (AS)",
+        "B": "Prophet Musa (AS)",
+        "C": "Prophet Dawud (AS)",
+        "D": "Prophet Muhammad (PBUH)"
+      },
+      "correct_answer": "A",
+      "explanation": "Prophet Isa (AS) was given the Injil (Gospel).",
+      "section": "prophets"
+    },
+    {
+      "id": 60,
+      "question": "Who was the first caliph after Prophet Muhammad (PBUH)?",
+      "options": {
+        "A": "Abu Bakr As-Siddiq (RA)",
+        "B": "Umar ibn Al-Khattab (RA)",
+        "C": "Uthman ibn Affan (RA)",
+        "D": "Ali ibn Abi Talib (RA)"
+      },
+      "correct_answer": "A",
+      "explanation": "Abu Bakr (RA) was the first caliph and close companion of the Prophet.",
+      "section": "caliphs"
+    },
+    {
+      "id": 61,
+      "question": "Who was the second caliph?",
+      "options": {
+        "A": "Umar ibn Al-Khattab (RA)",
+        "B": "Abu Bakr As-Siddiq (RA)",
+        "C": "Uthman ibn Affan (RA)",
+        "D": "Ali ibn Abi Talib (RA)"
+      },
+      "correct_answer": "A",
+      "explanation": "Umar ibn Al-Khattab (RA) was the second caliph known for his justice.",
+      "section": "caliphs"
+    },
+    {
+      "id": 62,
+      "question": "Who compiled the Quran into one book?",
+      "options": {
+        "A": "Uthman ibn Affan (RA)",
+        "B": "Abu Bakr As-Siddiq (RA)",
+        "C": "Umar ibn Al-Khattab (RA)",
+        "D": "Ali ibn Abi Talib (RA)"
+      },
+      "correct_answer": "A",
+      "explanation": "Caliph Uthman (RA) compiled the Quran into the standardized Mus'haf we have today.",
+      "section": "caliphs"
+    },
+    {
+      "id": 63,
+      "question": "What is Sadaqah?",
+      "options": {
+        "A": "Voluntary charity",
+        "B": "Obligatory charity",
+        "C": "Business charity",
+        "D": "Annual tax"
+      },
+      "correct_answer": "A",
+      "explanation": "Sadaqah is voluntary charity given beyond the obligatory Zakat.",
+      "section": "charity"
+    },
+    {
+      "id": 64,
+      "question": "What is Waqf?",
+      "options": {
+        "A": "Islamic endowment",
+        "B": "Islamic inheritance",
+        "C": "Islamic marriage",
+        "D": "Islamic business"
+      },
+      "correct_answer": "A",
+      "explanation": "Waqf is a permanent dedication of property for religious or charitable purposes.",
+      "section": "islamic_economics"
+    },
+    {
+      "id": 65,
+      "question": "What is Riba?",
+      "options": {
+        "A": "Interest/usury",
+        "B": "Business profit",
+        "C": "Charity",
+        "D": "Investment"
+      },
+      "correct_answer": "A",
+      "explanation": "Riba refers to interest or usury, which is strictly prohibited in Islam.",
+      "section": "islamic_economics"
+    },
+    {
+      "id": 66,
+      "question": "What is the Islamic greeting?",
+      "options": {
+        "A": "As-salamu alaykum",
+        "B": "Alhamdulillah",
+        "C": "Subhanallah",
+        "D": "Allahu Akbar"
+      },
+      "correct_answer": "A",
+      "explanation": "The Islamic greeting is 'As-salamu alaykum' meaning 'Peace be upon you'.",
+      "section": "islamic_etiquette"
+    },
+    {
+      "id": 67,
+      "question": "What is the response to 'As-salamu alaykum'?",
+      "options": {
+        "A": "Wa alaykum as-salam",
+        "B": "Alhamdulillah",
+        "C": "Subhanallah",
+        "D": "Masha Allah"
+      },
+      "correct_answer": "A",
+      "explanation": "The proper response is 'Wa alaykum as-salam' meaning 'And upon you be peace'.",
+      "section": "islamic_etiquette"
+    },
+    {
+      "id": 68,
+      "question": "What is Insha'Allah?",
+      "options": {
+        "A": "If Allah wills",
+        "B": "Praise be to Allah",
+        "C": "Glory be to Allah",
+        "D": "Allah is Great"
+      },
+      "correct_answer": "A",
+      "explanation": "Insha'Allah means 'If Allah wills' and is said when speaking about future plans.",
+      "section": "islamic_etiquette"
+    },
+    {
+      "id": 69,
+      "question": "What is Alhamdulillah?",
+      "options": {
+        "A": "Praise be to Allah",
+        "B": "If Allah wills",
+        "C": "Allah is Great",
+        "D": "Glory be to Allah"
+      },
+      "correct_answer": "A",
+      "explanation": "Alhamdulillah means 'All praise is due to Allah' and is said in gratitude.",
+      "section": "islamic_etiquette"
+    },
+    {
+      "id": 70,
+      "question": "What is Masha'Allah?",
+      "options": {
+        "A": "What Allah has willed",
+        "B": "If Allah wills",
+        "C": "Praise be to Allah",
+        "D": "Allah is Great"
+      },
+      "correct_answer": "A",
+      "explanation": "Masha'Allah is said to express appreciation, joy, or thankfulness for something.",
+      "section": "islamic_etiquette"
+    },
+    {
+      "id": 71,
+      "question": "What is Subhanallah?",
+      "options": {
+        "A": "Glory be to Allah",
+        "B": "Praise be to Allah",
+        "C": "Allah is Great",
+        "D": "If Allah wills"
+      },
+      "correct_answer": "A",
+      "explanation": "Subhanallah means 'Glory be to Allah' and is said in praise and admiration.",
+      "section": "islamic_etiquette"
+    },
+    {
+      "id": 72,
+      "question": "What is Allahu Akbar?",
+      "options": {
+        "A": "Allah is the Greatest",
+        "B": "Praise be to Allah",
+        "C": "Glory be to Allah",
+        "D": "If Allah wills"
+      },
+      "correct_answer": "A",
+      "explanation": "Allahu Akbar means 'Allah is the Greatest' and is said in various situations including prayer.",
+      "section": "islamic_etiquette"
+    },
+    {
+      "id": 73,
+      "question": "What is the Islamic declaration of faith?",
+      "options": {
+        "A": "La ilaha illallah, Muhammadur rasulullah",
+        "B": "Subhanallah",
+        "C": "Alhamdulillah",
+        "D": "Allahu Akbar"
+      },
+      "correct_answer": "A",
+      "explanation": "The Shahadah: 'There is no god but Allah, and Muhammad is the messenger of Allah.'",
+      "section": "shahadah"
+    },
+    {
+      "id": 74,
+      "question": "What is the meaning of 'Bismillah'?",
+      "options": {
+        "A": "In the name of Allah",
+        "B": "Praise be to Allah",
+        "C": "Allah is Great",
+        "D": "If Allah wills"
+      },
+      "correct_answer": "A",
+      "explanation": "Bismillah means 'In the name of Allah' and is said before starting any action.",
+      "section": "islamic_etiquette"
+    },
+    {
+      "id": 75,
+      "question": "What is Istikhara?",
+      "options": {
+        "A": "Prayer for guidance",
+        "B": "Prayer for rain",
+        "C": "Prayer for forgiveness",
+        "D": "Prayer for healing"
+      },
+      "correct_answer": "A",
+      "explanation": "Istikhara is a special prayer for seeking Allah's guidance in decision-making.",
+      "section": "dua"
+    },
+    {
+      "id": 76,
+      "question": "What is Tawakkul?",
+      "options": {
+        "A": "Reliance on Allah",
+        "B": "Prayer for guidance",
+        "C": "Trust in people",
+        "D": "Self-reliance"
+      },
+      "correct_answer": "A",
+      "explanation": "Tawakkul means putting one's trust in Allah after taking necessary means.",
+      "section": "islamic_ethics"
+    },
+    {
+      "id": 77,
+      "question": "What is Sabr?",
+      "options": {
+        "A": "Patience and perseverance",
+        "B": "Thankfulness",
+        "C": "Truthfulness",
+        "D": "Honesty"
+      },
+      "correct_answer": "A",
+      "explanation": "Sabr means patience, perseverance, and steadfastness in facing difficulties.",
+      "section": "islamic_ethics"
+    },
+    {
+      "id": 78,
+      "question": "What is Shukr?",
+      "options": {
+        "A": "Thankfulness to Allah",
+        "B": "Patience",
+        "C": "Truthfulness",
+        "D": "Reliance"
+      },
+      "correct_answer": "A",
+      "explanation": "Shukr means gratitude and thankfulness to Allah for His blessings.",
+      "section": "islamic_ethics"
+    },
+    {
+      "id": 79,
+      "question": "What is Ihsan?",
+      "options": {
+        "A": "Perfection and excellence in worship",
+        "B": "Belief in Allah",
+        "C": "Islamic law",
+        "D": "Prayer timing"
+      },
+      "correct_answer": "A",
+      "explanation": "Ihsan means to worship Allah as if you see Him, and though you don't see Him, He sees you.",
+      "section": "islamic_ethics"
+    },
+    {
+      "id": 80,
+      "question": "What is the Islamic concept of brotherhood?",
+      "options": {
+        "A": "All Muslims are brothers",
+        "B": "Only Arabs are brothers",
+        "C": "Family members only",
+        "D": "Same tribe members"
+      },
+      "correct_answer": "A",
+      "explanation": "Islam teaches that all believers are brothers regardless of race, nationality, or social status.",
+      "section": "islamic_society"
+    },
+    {
+      "id": 81,
+      "question": "What is the status of parents in Islam?",
+      "options": {
+        "A": "High status with special rights",
+        "B": "Equal to others",
+        "C": "No special status",
+        "D": "Lower status"
+      },
+      "correct_answer": "A",
+      "explanation": "Islam gives parents the highest status after worship of Allah and emphasizes kindness to them.",
+      "section": "islamic_family"
+    },
+    {
+      "id": 82,
+      "question": "What are the rights of neighbors in Islam?",
+      "options": {
+        "A": "Kind treatment and protection",
+        "B": "No special rights",
+        "C": "Only Muslim neighbors",
+        "D": "Only family neighbors"
+      },
+      "correct_answer": "A",
+      "explanation": "Islam emphasizes the rights of neighbors regardless of their religion.",
+      "section": "islamic_society"
+    },
+    {
+      "id": 83,
+      "question": "What is the Islamic view of justice?",
+      "options": {
+        "A": "Justice for all, even against oneself",
+        "B": "Justice only for Muslims",
+        "C": "Justice for family only",
+        "D": "No emphasis on justice"
+      },
+      "correct_answer": "A",
+      "explanation": "Islam commands absolute justice for everyone, even if it goes against oneself or family.",
+      "section": "islamic_ethics"
+    },
+    {
+      "id": 84,
+      "question": "What is the Islamic punishment for theft?",
+      "options": {
+        "A": "Amputation of hand under specific conditions",
+        "B": "Imprisonment only",
+        "C": "Fine only",
+        "D": "No punishment"
+      },
+      "correct_answer": "A",
+      "explanation": "The punishment for theft is amputation of the hand, but only under strict conditions and requirements.",
+      "section": "islamic_law"
+    },
+    {
+      "id": 85,
+      "question": "What is the Islamic punishment for adultery?",
+      "options": {
+        "A": "Stoning for married, lashing for unmarried",
+        "B": "Imprisonment only",
+        "C": "Fine only",
+        "D": "No punishment"
+      },
+      "correct_answer": "A",
+      "explanation": "The punishment varies based on marital status, with extremely high standards of evidence required.",
+      "section": "islamic_law"
+    },
+    {
+      "id": 86,
+      "question": "What is Jihad?",
+      "options": {
+        "A": "Struggle in the way of Allah",
+        "B": "Holy war only",
+        "C": "Fighting non-Muslims",
+        "D": "Terrorism"
+      },
+      "correct_answer": "A",
+      "explanation": "Jihad means struggle and includes spiritual struggle against sin, as well as physical defense when necessary.",
+      "section": "jihad"
+    },
+    {
+      "id": 87,
+      "question": "What is the greater Jihad?",
+      "options": {
+        "A": "Struggle against one's own soul",
+        "B": "Physical fighting",
+        "C": "Political struggle",
+        "D": "Economic struggle"
+      },
+      "correct_answer": "A",
+      "explanation": "The greater Jihad is the struggle against one's own desires and sinful tendencies.",
+      "section": "jihad"
+    },
+    {
+      "id": 88,
+      "question": "What is the lesser Jihad?",
+      "options": {
+        "A": "Physical struggle in defense",
+        "B": "Spiritual struggle",
+        "C": "Economic struggle",
+        "D": "Political struggle"
+      },
+      "correct_answer": "A",
+      "explanation": "The lesser Jihad refers to physical struggle in defense of Islam and Muslims, with strict rules of engagement.",
+      "section": "jihad"
+    },
+    {
+      "id": 89,
+      "question": "What is the Islamic calendar based on?",
+      "options": {
+        "A": "Lunar cycles",
+        "B": "Solar cycles",
+        "C": "Seasonal changes",
+        "D": "Historical events"
+      },
+      "correct_answer": "A",
+      "explanation": "The Islamic calendar is lunar-based, with 12 months of 29 or 30 days each.",
+      "section": "islamic_calendar"
+    },
+    {
+      "id": 90,
+      "question": "What is the first month of Islamic calendar?",
+      "options": {
+        "A": "Muharram",
+        "B": "Ramadan",
+        "C": "Shawwal",
+        "D": "Dhul-Hijjah"
+      },
+      "correct_answer": "A",
+      "explanation": "Muharram is the first month of the Islamic calendar.",
+      "section": "islamic_calendar"
+    },
+    {
+      "id": 91,
+      "question": "What is Ashura?",
+      "options": {
+        "A": "10th of Muharram",
+        "B": "First of Ramadan",
+        "C": "Eid day",
+        "D": "Last Friday of Ramadan"
+      },
+      "correct_answer": "A",
+      "explanation": "Ashura is the 10th day of Muharram, significant for various historical events.",
+      "section": "islamic_calendar"
+    },
+    {
+      "id": 92,
+      "question": "What is Mi'raj?",
+      "options": {
+        "A": "Prophet's night journey to heavens",
+        "B": "Migration to Medina",
+        "C": "First revelation",
+        "D": "Birth of Prophet"
+      },
+      "correct_answer": "A",
+      "explanation": "Al-Mi'raj refers to the Prophet's night journey from Mecca to Jerusalem and his ascension to heavens.",
+      "section": "prophet_muhammad"
+    },
+    {
+      "id": 93,
+      "question": "What is the significance of Hijrah?",
+      "options": {
+        "A": "Beginning of Islamic calendar",
+        "B": "First revelation",
+        "C": "Building of Ka'bah",
+        "D": "Conquest of Mecca"
+      },
+      "correct_answer": "A",
+      "explanation": "The Hijrah marks the beginning of the Islamic calendar.",
+      "section": "prophet_muhammad"
+    },
+    {
+      "id": 94,
+      "question": "What is the Constitution of Medina?",
+      "options": {
+        "A": "First Islamic state constitution",
+        "B": "Quranic compilation",
+        "C": "Prayer guidelines",
+        "D": "Hajj procedures"
+      },
+      "correct_answer": "A",
+      "explanation": "The Constitution of Medina established the first Islamic state and defined rights of all citizens.",
+      "section": "islamic_history"
+    },
+    {
+      "id": 95,
+      "question": "What is the Treaty of Hudaybiyyah?",
+      "options": {
+        "A": "Peace treaty between Muslims and Quraysh",
+        "B": "War agreement",
+        "C": "Trade agreement",
+        "D": "Marriage contract"
+      },
+      "correct_answer": "A",
+      "explanation": "The Treaty of Hudaybiyyah was a pivotal peace agreement that eventually led to the spread of Islam.",
+      "section": "islamic_history"
+    },
+    {
+      "id": 96,
+      "question": "What is the Farewell Sermon?",
+      "options": {
+        "A": "Prophet's final sermon during Hajj",
+        "B": "First sermon in Medina",
+        "C": "Sermon after conquest of Mecca",
+        "D": "Friday sermon"
+      },
+      "correct_answer": "A",
+      "explanation": "The Farewell Sermon delivered during the Prophet's final Hajj contains important Islamic teachings.",
+      "section": "prophet_muhammad"
+    },
+    {
+      "id": 97,
+      "question": "What is the significance of the year of the Elephant?",
+      "options": {
+        "A": "Year Prophet Muhammad was born",
+        "B": "Year of Hijrah",
+        "C": "Year Quran was revealed",
+        "D": "Year of Prophet's death"
+      },
+      "correct_answer": "A",
+      "explanation": "The Year of the Elephant (570 CE) is significant as it's the year Prophet Muhammad was born.",
+      "section": "prophet_muhammad"
+    },
+    {
+      "id": 98,
+      "question": "What is the Black Stone?",
+      "options": {
+        "A": "Stone in corner of Ka'bah",
+        "B": "Meteorite from space",
+        "C": "Prophet's tombstone",
+        "D": "First mosque stone"
+      },
+      "correct_answer": "A",
+      "explanation": "The Black Stone is set in the eastern corner of the Ka'bah and is kissed or pointed to during Tawaf.",
+      "section": "hajj"
+    },
+    {
+      "id": 99,
+      "question": "What is Zamzam water?",
+      "options": {
+        "A": "Holy water from well in Mecca",
+        "B": "Rain water",
+        "C": "River water",
+        "D": "Purified water"
+      },
+      "correct_answer": "A",
+      "explanation": "Zamzam is the holy water from the well in Masjid al-Haram in Mecca.",
+      "section": "hajj"
+    },
+    {
+      "id": 100,
+      "question": "What is the significance of Safa and Marwah?",
+      "options": {
+        "A": "Hills between which Hajar ran",
+        "B": "Prayer mountains",
+        "C": "Prophet's birth places",
+        "D": "Battle sites"
+      },
+      "correct_answer": "A",
+      "explanation": "Safa and Marwah are the hills between which Hajar ran searching for water for her son Ismail.",
+      "section": "hajj"
+    },
+    {
+      "id": 101,
+      "question": "What is the Minbar?",
+      "options": {
+        "A": "Pulpit in mosque for sermons",
+        "B": "Prayer niche",
+        "C": "Call to prayer tower",
+        "D": "Ablution area"
+      },
+      "correct_answer": "A",
+      "explanation": "The Minbar is the pulpit from which the Imam delivers the Friday sermon.",
+      "section": "mosque"
+    },
+    {
+      "id": 102,
+      "question": "What is the Mihrab?",
+      "options": {
+        "A": "Prayer niche indicating Qiblah",
+        "B": "Pulpit for sermons",
+        "C": "Call to prayer area",
+        "D": "Entrance of mosque"
+      },
+      "correct_answer": "A",
+      "explanation": "The Mihrab is the niche in the mosque wall that indicates the direction of Mecca.",
+      "section": "mosque"
+    },
+    {
+      "id": 103,
+      "question": "What is the Minaret?",
+      "options": {
+        "A": "Tower for call to prayer",
+        "B": "Prayer hall",
+        "C": "Ablution area",
+        "D": "Library"
+      },
+      "correct_answer": "A",
+      "explanation": "The Minaret is the tower from which the Adhan (call to prayer) is made.",
+      "section": "mosque"
+    },
+    {
+      "id": 104,
+      "question": "What is the Qiblah?",
+      "options": {
+        "A": "Direction of prayer towards Ka'bah",
+        "B": "Prayer timing",
+        "C": "Prayer leader",
+        "D": "Prayer format"
+      },
+      "correct_answer": "A",
+      "explanation": "Qiblah is the direction Muslims face during prayer - towards the Ka'bah in Mecca.",
+      "section": "salah"
+    },
+    {
+      "id": 105,
+      "question": "What is the Imam?",
+      "options": {
+        "A": "Prayer leader",
+        "B": "Islamic scholar",
+        "C": "Mosque builder",
+        "D": "Quran reciter"
+      },
+      "correct_answer": "A",
+      "explanation": "Imam is the person who leads the congregational prayer.",
+      "section": "salah"
+    },
+    {
+      "id": 106,
+      "question": "What is the Khutbah?",
+      "options": {
+        "A": "Friday sermon",
+        "B": "Prayer call",
+        "C": "Quran recitation",
+        "D": "Islamic lecture"
+      },
+      "correct_answer": "A",
+      "explanation": "Khutbah is the sermon delivered before the Friday prayer.",
+      "section": "salah"
+    },
+    {
+      "id": 107,
+      "question": "What is Taraweeh?",
+      "options": {
+        "A": "Special night prayers in Ramadan",
+        "B": "Friday prayers",
+        "C": "Eid prayers",
+        "D": "Funeral prayers"
+      },
+      "correct_answer": "A",
+      "explanation": "Taraweeh are the special voluntary prayers performed at night during Ramadan.",
+      "section": "ramadan"
+    },
+    {
+      "id": 108,
+      "question": "What is I'tikaf?",
+      "options": {
+        "A": "Spiritual retreat in mosque",
+        "B": "Fasting only",
+        "C": "Prayer only",
+        "D": "Charity giving"
+      },
+      "correct_answer": "A",
+      "explanation": "I'tikaf is spiritual retreat in the mosque, especially during the last ten days of Ramadan.",
+      "section": "ramadan"
+    },
+    {
+      "id": 109,
+      "question": "What is Zakat al-Mal?",
+      "options": {
+        "A": "Wealth tax on savings",
+        "B": "Charity for Eid",
+        "C": "Voluntary charity",
+        "D": "Business tax"
+      },
+      "correct_answer": "A",
+      "explanation": "Zakat al-Mal is the obligatory charity on wealth that meets the Nisab threshold.",
+      "section": "zakah"
+    },
+    {
+      "id": 110,
+      "question": "What is Sadaqah Jariyah?",
+      "options": {
+        "A": "Continuous charity",
+        "B": "One-time charity",
+        "C": "Eid charity",
+        "D": "Food charity"
+      },
+      "correct_answer": "A",
+      "explanation": "Sadaqah Jariyah is continuous charity that benefits people continuously, like building a well or school.",
+      "section": "charity"
+    },
+    {
+      "id": 111,
+      "question": "What is the Islamic view of Jesus?",
+      "options": {
+        "A": "He is a prophet and messiah",
+        "B": "He is God",
+        "C": "He is son of God",
+        "D": "He is ordinary man"
+      },
+      "correct_answer": "A",
+      "explanation": "Islam recognizes Jesus as a prophet and messiah, born of virgin Mary, but not as God or son of God.",
+      "section": "prophets"
+    },
+    {
+      "id": 112,
+      "question": "What is the Islamic view of Mary?",
+      "options": {
+        "A": "She is among the most righteous women",
+        "B": "She is divine",
+        "C": "She is ordinary woman",
+        "D": "She is not important"
+      },
+      "correct_answer": "A",
+      "explanation": "Mary is highly respected in Islam as one of the most righteous women and mother of Prophet Jesus.",
+      "section": "prophets"
+    },
+    {
+      "id": 113,
+      "question": "What is the Quran's miracle?",
+      "options": {
+        "A": "Its linguistic excellence and preservation",
+        "B": "Its size",
+        "C": "Its age",
+        "D": "Its translations"
+      },
+      "correct_answer": "A",
+      "explanation": "The Quran's main miracle is its unmatched linguistic excellence and its perfect preservation.",
+      "section": "quran"
+    },
+    {
+      "id": 114,
+      "question": "What is Ijaza in Quran?",
+      "options": {
+        "A": "Authorization to teach Quran",
+        "B": "Quran translation",
+        "C": "Quran commentary",
+        "D": "Quran printing"
+      },
+      "correct_answer": "A",
+      "explanation": "Ijaza is the certification that one has mastered Quran recitation with proper Tajweed.",
+      "section": "quran"
+    },
+    {
+      "id": 115,
+      "question": "What is Tajweed?",
+      "options": {
+        "A": "Rules of Quran recitation",
+        "B": "Quran translation",
+        "C": "Quran memorization",
+        "D": "Quran commentary"
+      },
+      "correct_answer": "A",
+      "explanation": "Tajweed are the rules governing the proper pronunciation during Quran recitation.",
+      "section": "quran"
+    },
+    {
+      "id": 116,
+      "question": "What is Hifz?",
+      "options": {
+        "A": "Memorization of Quran",
+        "B": "Recitation of Quran",
+        "C": "Translation of Quran",
+        "D": "Printing of Quran"
+      },
+      "correct_answer": "A",
+      "explanation": "Hifz refers to the memorization of the entire Quran.",
+      "section": "quran"
+    },
+    {
+      "id": 117,
+      "question": "What is a Hafiz?",
+      "options": {
+        "A": "One who memorized the Quran",
+        "B": "Quran reciter",
+        "C": "Quran translator",
+        "D": "Islamic scholar"
+      },
+      "correct_answer": "A",
+      "explanation": "Hafiz is a person who has memorized the entire Quran.",
+      "section": "quran"
+    },
+    {
+      "id": 118,
+      "question": "What is Tafsir?",
+      "options": {
+        "A": "Quranic exegesis/interpretation",
+        "B": "Quran recitation",
+        "C": "Quran memorization",
+        "D": "Quran translation"
+      },
+      "correct_answer": "A",
+      "explanation": "Tafsir is the scholarly interpretation and explanation of the Quran.",
+      "section": "quran"
+    },
+    {
+      "id": 119,
+      "question": "What is the Asbab al-Nuzul?",
+      "options": {
+        "A": "Occasions of Quranic revelations",
+        "B": "Quranic stories",
+        "C": "Quranic laws",
+        "D": "Quranic prayers"
+      },
+      "correct_answer": "A",
+      "explanation": "Asbab al-Nuzul refers to the specific occasions and circumstances surrounding the revelation of Quranic verses.",
+      "section": "quran"
+    },
+    {
+      "id": 120,
+      "question": "What is Makki and Madani?",
+      "options": {
+        "A": "Quranic chapters revealed in Mecca and Medina",
+        "B": "Islamic cities",
+        "C": "Prayer types",
+        "D": "Fasting methods"
+      },
+      "correct_answer": "A",
+      "explanation": "Makki chapters were revealed in Mecca, Madani chapters in Medina after Hijrah.",
+      "section": "quran"
+    },
+    {
+      "id": 121,
+      "question": "What is the significance of Surah Al-Kahf?",
+      "options": {
+        "A": "Recommended to read every Friday",
+        "B": "Read only in Ramadan",
+        "C": "Read only at night",
+        "D": "Read only in morning"
+      },
+      "correct_answer": "A",
+      "explanation": "It is recommended to read Surah Al-Kahf every Friday for its blessings and protection from Dajjal.",
+      "section": "quran"
+    },
+    {
+      "id": 122,
+      "question": "What is Dua?",
+      "options": {
+        "A": "Supplication to Allah",
+        "B": "Quran recitation",
+        "C": "Islamic song",
+        "D": "Religious poem"
+      },
+      "correct_answer": "A",
+      "explanation": "Dua means supplication - asking Allah for one's needs and desires.",
+      "section": "dua"
+    },
+    {
+      "id": 123,
+      "question": "What is Dhikr?",
+      "options": {
+        "A": "Remembrance of Allah",
+        "B": "Quran study",
+        "C": "Islamic lecture",
+        "D": "Prayer preparation"
+      },
+      "correct_answer": "A",
+      "explanation": "Dhikr means remembering Allah through specific phrases and prayers.",
+      "section": "dhikr"
+    },
+    {
+      "id": 124,
+      "question": "What is Tasbih?",
+      "options": {
+        "A": "Saying 'Subhanallah'",
+        "B": "Saying 'Alhamdulillah'",
+        "C": "Saying 'Allahu Akbar'",
+        "D": "Saying 'La ilaha illallah'"
+      },
+      "correct_answer": "A",
+      "explanation": "Tasbih specifically refers to saying 'Subhanallah' (Glory be to Allah).",
+      "section": "dhikr"
+    },
+    {
+      "id": 125,
+      "question": "What is Tahmid?",
+      "options": {
+        "A": "Saying 'Alhamdulillah'",
+        "B": "Saying 'Subhanallah'",
+        "C": "Saying 'Allahu Akbar'",
+        "D": "Saying 'La ilaha illallah'"
+      },
+      "correct_answer": "A",
+      "explanation": "Tahmid means saying 'Alhamdulillah' (Praise be to Allah).",
+      "section": "dhikr"
+    },
+    {
+      "id": 126,
+      "question": "What is Takbir?",
+      "options": {
+        "A": "Saying 'Allahu Akbar'",
+        "B": "Saying 'Subhanallah'",
+        "C": "Saying 'Alhamdulillah'",
+        "D": "Saying 'La ilaha illallah'"
+      },
+      "correct_answer": "A",
+      "explanation": "Takbir means saying 'Allahu Akbar' (Allah is the Greatest).",
+      "section": "dhikr"
+    },
+    {
+      "id": 127,
+      "question": "What is Tahlil?",
+      "options": {
+        "A": "Saying 'La ilaha illallah'",
+        "B": "Saying 'Subhanallah'",
+        "C": "Saying 'Alhamdulillah'",
+        "D": "Saying 'Allahu Akbar'"
+      },
+      "correct_answer": "A",
+      "explanation": "Tahlil means saying 'La ilaha illallah' (There is no god but Allah).",
+      "section": "dhikr"
+    },
+    {
+      "id": 128,
+      "question": "What is the ultimate goal of a Muslim?",
+      "options": {
+        "A": "To please Allah and attain Paradise",
+        "B": "To become rich",
+        "C": "To gain power",
+        "D": "To be famous"
+      },
+      "correct_answer": "A",
+      "explanation": "The ultimate goal of every Muslim is to seek Allah's pleasure and attain eternal Paradise in the Hereafter.",
+      "section": "aqidah"
+    }
+  ]
+}

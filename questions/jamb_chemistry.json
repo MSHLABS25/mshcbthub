@@ -1,0 +1,1673 @@
+{
+  "subject": "Chemistry",
+  "exam_type": "JAMB",
+  "total_questions": 128,
+  "time_allowed": 7200,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the atomic number of an element?",
+      "options": {
+        "A": "Number of protons in the nucleus",
+        "B": "Number of neutrons in the nucleus",
+        "C": "Number of electrons in the atom",
+        "D": "Mass number of the atom"
+      },
+      "correct_answer": "A",
+      "explanation": "The atomic number is the number of protons in the nucleus of an atom, which determines the chemical properties of the element.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is a transition metal?",
+      "options": {
+        "A": "Iron",
+        "B": "Sodium",
+        "C": "Calcium",
+        "D": "Aluminum"
+      },
+      "correct_answer": "A",
+      "explanation": "Iron is a transition metal located in the d-block of the periodic table, characterized by incomplete d-orbitals.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 3,
+      "question": "What is the electronic configuration of sodium (atomic number 11)?",
+      "options": {
+        "A": "1s² 2s² 2p⁶ 3s¹",
+        "B": "1s² 2s² 2p⁶ 3s²",
+        "C": "1s² 2s² 2p⁶",
+        "D": "1s² 2s² 2p⁶ 3s² 3p¹"
+      },
+      "correct_answer": "A",
+      "explanation": "Sodium has 11 electrons: 2 in first shell, 8 in second shell, and 1 in third shell: 1s² 2s² 2p⁶ 3s¹",
+      "section": "electronic_configuration"
+    },
+    {
+      "id": 4,
+      "question": "Which element has the electron configuration 1s² 2s² 2p⁶ 3s² 3p⁵?",
+      "options": {
+        "A": "Chlorine",
+        "B": "Sulfur",
+        "C": "Argon",
+        "D": "Phosphorus"
+      },
+      "correct_answer": "A",
+      "explanation": "This configuration has 17 electrons (2+2+6+2+5=17), which corresponds to chlorine (atomic number 17).",
+      "section": "electronic_configuration"
+    },
+    {
+      "id": 5,
+      "question": "What type of bonding occurs in sodium chloride?",
+      "options": {
+        "A": "Ionic bonding",
+        "B": "Covalent bonding",
+        "C": "Metallic bonding",
+        "D": "Hydrogen bonding"
+      },
+      "correct_answer": "A",
+      "explanation": "Sodium chloride exhibits ionic bonding where sodium donates an electron to chlorine, forming Na⁺ and Cl⁻ ions.",
+      "section": "chemical_bonding"
+    },
+    {
+      "id": 6,
+      "question": "Which of these compounds has covalent bonding?",
+      "options": {
+        "A": "Methane (CH₄)",
+        "B": "Sodium chloride (NaCl)",
+        "C": "Magnesium oxide (MgO)",
+        "D": "Potassium bromide (KBr)"
+      },
+      "correct_answer": "A",
+      "explanation": "Methane has covalent bonding where carbon shares electrons with hydrogen atoms.",
+      "section": "chemical_bonding"
+    },
+    {
+      "id": 7,
+      "question": "What is the oxidation number of oxygen in most compounds?",
+      "options": {
+        "A": "-2",
+        "B": "-1",
+        "C": "+2",
+        "D": "+1"
+      },
+      "correct_answer": "A",
+      "explanation": "Oxygen usually has an oxidation number of -2 in compounds, except in peroxides where it is -1.",
+      "section": "redox_reactions"
+    },
+    {
+      "id": 8,
+      "question": "What is the oxidation number of chromium in K₂Cr₂O₇?",
+      "options": {
+        "A": "+6",
+        "B": "+3",
+        "C": "+2",
+        "D": "+7"
+      },
+      "correct_answer": "A",
+      "explanation": "K is +1, O is -2. Let Cr be x. 2(+1) + 2x + 7(-2) = 0 ⇒ 2 + 2x - 14 = 0 ⇒ 2x = 12 ⇒ x = +6",
+      "section": "redox_reactions"
+    },
+    {
+      "id": 9,
+      "question": "Which of the following is a strong acid?",
+      "options": {
+        "A": "Hydrochloric acid",
+        "B": "Carbonic acid",
+        "C": "Ethanoic acid",
+        "D": "Citric acid"
+      },
+      "correct_answer": "A",
+      "explanation": "Hydrochloric acid (HCl) is a strong acid that completely dissociates in water.",
+      "section": "acids_bases"
+    },
+    {
+      "id": 10,
+      "question": "What is the pH of a neutral solution at 25°C?",
+      "options": {
+        "A": "7",
+        "B": "0",
+        "C": "14",
+        "D": "1"
+      },
+      "correct_answer": "A",
+      "explanation": "At 25°C, a neutral solution has pH = 7, where [H⁺] = [OH⁻] = 10⁻⁷ M",
+      "section": "acids_bases"
+    },
+    {
+      "id": 11,
+      "question": "Which indicator is suitable for strong acid-strong base titration?",
+      "options": {
+        "A": "Any indicator",
+        "B": "Methyl orange only",
+        "C": "Phenolphthalein only",
+        "D": "Litmus only"
+      },
+      "correct_answer": "A",
+      "explanation": "For strong acid-strong base titrations, any indicator can be used as the pH change at equivalence point is very sharp.",
+      "section": "titration"
+    },
+    {
+      "id": 12,
+      "question": "What volume of 0.1M HCl is needed to neutralize 25cm³ of 0.1M NaOH?",
+      "options": {
+        "A": "25 cm³",
+        "B": "50 cm³",
+        "C": "10 cm³",
+        "D": "100 cm³"
+      },
+      "correct_answer": "A",
+      "explanation": "M₁V₁ = M₂V₂ for monobasic-monacidic neutralization. 0.1 × V = 0.1 × 25 ⇒ V = 25 cm³",
+      "section": "titration"
+    },
+    {
+      "id": 13,
+      "question": "What is the molecular formula of benzene?",
+      "options": {
+        "A": "C₆H₆",
+        "B": "C₆H₁₂",
+        "C": "C₆H₁₄",
+        "D": "C₆H₈"
+      },
+      "correct_answer": "A",
+      "explanation": "Benzene has the molecular formula C₆H₆ with a hexagonal ring structure.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 14,
+      "question": "Which functional group is present in alcohols?",
+      "options": {
+        "A": "-OH",
+        "B": "-COOH",
+        "C": "-CHO",
+        "D": "-NH₂"
+      },
+      "correct_answer": "A",
+      "explanation": "Alcohols contain the hydroxyl functional group (-OH).",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 15,
+      "question": "What is the IUPAC name for CH₃CH₂CH₂OH?",
+      "options": {
+        "A": "Propan-1-ol",
+        "B": "Ethanol",
+        "C": "Butan-1-ol",
+        "D": "Methanol"
+      },
+      "correct_answer": "A",
+      "explanation": "CH₃CH₂CH₂OH has 3 carbon atoms with OH on carbon 1, so it's propan-1-ol.",
+      "section": "nomenclature"
+    },
+    {
+      "id": 16,
+      "question": "Which hydrocarbon is unsaturated?",
+      "options": {
+        "A": "Ethene",
+        "B": "Methane",
+        "C": "Ethane",
+        "D": "Propane"
+      },
+      "correct_answer": "A",
+      "explanation": "Ethene (C₂H₄) is unsaturated because it contains a carbon-carbon double bond.",
+      "section": "hydrocarbons"
+    },
+    {
+      "id": 17,
+      "question": "What is the general formula for alkanes?",
+      "options": {
+        "A": "CₙH₂ₙ₊₂",
+        "B": "CₙH₂ₙ",
+        "C": "CₙH₂ₙ₋₂",
+        "D": "CₙHₙ"
+      },
+      "correct_answer": "A",
+      "explanation": "Alkanes are saturated hydrocarbons with general formula CₙH₂ₙ₊₂",
+      "section": "hydrocarbons"
+    },
+    {
+      "id": 18,
+      "question": "Which process is used to separate crude oil into fractions?",
+      "options": {
+        "A": "Fractional distillation",
+        "B": "Filtration",
+        "C": "Chromatography",
+        "D": "Crystallization"
+      },
+      "correct_answer": "A",
+      "explanation": "Crude oil is separated into fractions by fractional distillation based on differences in boiling points.",
+      "section": "separation_techniques"
+    },
+    {
+      "id": 19,
+      "question": "What is the main component of natural gas?",
+      "options": {
+        "A": "Methane",
+        "B": "Ethane",
+        "C": "Propane",
+        "D": "Butane"
+      },
+      "correct_answer": "A",
+      "explanation": "Natural gas is primarily composed of methane (CH₄).",
+      "section": "fuels"
+    },
+    {
+      "id": 20,
+      "question": "Which metal is extracted by electrolysis?",
+      "options": {
+        "A": "Aluminum",
+        "B": "Iron",
+        "C": "Copper",
+        "D": "Zinc"
+      },
+      "correct_answer": "A",
+      "explanation": "Aluminum is extracted from bauxite by electrolysis because it is too reactive to be extracted by reduction with carbon.",
+      "section": "metallurgy"
+    },
+    {
+      "id": 21,
+      "question": "What is the chemical formula for rust?",
+      "options": {
+        "A": "Fe₂O₃·xH₂O",
+        "B": "FeO",
+        "C": "Fe₃O₄",
+        "D": "Fe(OH)₃"
+      },
+      "correct_answer": "A",
+      "explanation": "Rust is hydrated iron(III) oxide with formula Fe₂O₃·xH₂O",
+      "section": "corrosion"
+    },
+    {
+      "id": 22,
+      "question": "Which gas is produced when metals react with acids?",
+      "options": {
+        "A": "Hydrogen",
+        "B": "Oxygen",
+        "C": "Carbon dioxide",
+        "D": "Nitrogen"
+      },
+      "correct_answer": "A",
+      "explanation": "Metals above hydrogen in the reactivity series displace hydrogen from acids: Metal + Acid → Salt + Hydrogen",
+      "section": "chemical_reactions"
+    },
+    {
+      "id": 23,
+      "question": "What is the product when sodium reacts with water?",
+      "options": {
+        "A": "Sodium hydroxide and hydrogen",
+        "B": "Sodium oxide and hydrogen",
+        "C": "Sodium chloride and oxygen",
+        "D": "Sodium carbonate and water"
+      },
+      "correct_answer": "A",
+      "explanation": "2Na + 2H₂O → 2NaOH + H₂. Sodium reacts vigorously with water producing sodium hydroxide and hydrogen gas.",
+      "section": "chemical_reactions"
+    },
+    {
+      "id": 24,
+      "question": "Which law states that mass is conserved in chemical reactions?",
+      "options": {
+        "A": "Law of conservation of mass",
+        "B": "Law of definite proportions",
+        "C": "Law of multiple proportions",
+        "D": "Avogadro's law"
+      },
+      "correct_answer": "A",
+      "explanation": "The law of conservation of mass states that mass is neither created nor destroyed in chemical reactions.",
+      "section": "chemical_laws"
+    },
+    {
+      "id": 25,
+      "question": "What is the molar mass of water (H₂O)?",
+      "options": {
+        "A": "18 g/mol",
+        "B": "16 g/mol",
+        "C": "17 g/mol",
+        "D": "20 g/mol"
+      },
+      "correct_answer": "A",
+      "explanation": "H₂O: 2×1 + 16 = 18 g/mol. Hydrogen = 1 g/mol, Oxygen = 16 g/mol.",
+      "section": "mole_concept"
+    },
+    {
+      "id": 26,
+      "question": "How many moles are in 44g of carbon dioxide (CO₂)?",
+      "options": {
+        "A": "1 mole",
+        "B": "2 moles",
+        "C": "0.5 mole",
+        "D": "4 moles"
+      },
+      "correct_answer": "A",
+      "explanation": "Molar mass of CO₂ = 12 + 32 = 44 g/mol. Number of moles = mass/molar mass = 44/44 = 1 mole",
+      "section": "mole_concept"
+    },
+    {
+      "id": 27,
+      "question": "What is the empirical formula of glucose (C₆H₁₂O₆)?",
+      "options": {
+        "A": "CH₂O",
+        "B": "C₆H₁₂O₆",
+        "C": "C₃H₆O₃",
+        "D": "C₂H₄O₂"
+      },
+      "correct_answer": "A",
+      "explanation": "Divide all subscripts by 6: C₆H₁₂O₆ ÷ 6 = CH₂O",
+      "section": "empirical_formula"
+    },
+    {
+      "id": 28,
+      "question": "Which particles are found in the nucleus of an atom?",
+      "options": {
+        "A": "Protons and neutrons",
+        "B": "Protons and electrons",
+        "C": "Neutrons and electrons",
+        "D": "Electrons only"
+      },
+      "correct_answer": "A",
+      "explanation": "The nucleus contains protons (positive charge) and neutrons (neutral), while electrons orbit around the nucleus.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 29,
+      "question": "What is the mass number of an atom?",
+      "options": {
+        "A": "Protons + Neutrons",
+        "B": "Protons only",
+        "C": "Neutrons only",
+        "D": "Electrons + Protons"
+      },
+      "correct_answer": "A",
+      "explanation": "Mass number = Number of protons + Number of neutrons",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 30,
+      "question": "Which subatomic particle has negligible mass?",
+      "options": {
+        "A": "Electron",
+        "B": "Proton",
+        "C": "Neutron",
+        "D": "Positron"
+      },
+      "correct_answer": "A",
+      "explanation": "Electrons have negligible mass compared to protons and neutrons. Mass of electron is about 1/1840 of proton mass.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 31,
+      "question": "What are isotopes?",
+      "options": {
+        "A": "Atoms of same element with different mass numbers",
+        "B": "Atoms of different elements with same mass number",
+        "C": "Atoms with same number of neutrons",
+        "D": "Atoms with different atomic numbers"
+      },
+      "correct_answer": "A",
+      "explanation": "Isotopes are atoms of the same element (same atomic number) with different mass numbers due to different numbers of neutrons.",
+      "section": "isotopes"
+    },
+    {
+      "id": 32,
+      "question": "Which radioactive emission has the highest penetrating power?",
+      "options": {
+        "A": "Gamma rays",
+        "B": "Alpha particles",
+        "C": "Beta particles",
+        "D": "Neutrons"
+      },
+      "correct_answer": "A",
+      "explanation": "Gamma rays are electromagnetic radiation with high frequency and energy, giving them the highest penetrating power.",
+      "section": "radioactivity"
+    },
+    {
+      "id": 33,
+      "question": "What is the half-life of a radioactive element?",
+      "options": {
+        "A": "Time for half the atoms to decay",
+        "B": "Time for all atoms to decay",
+        "C": "Time for quarter atoms to decay",
+        "D": "Average life of atoms"
+      },
+      "correct_answer": "A",
+      "explanation": "Half-life is the time required for half of the radioactive atoms in a sample to decay.",
+      "section": "radioactivity"
+    },
+    {
+      "id": 34,
+      "question": "Which type of radiation is deflected towards the negative plate in an electric field?",
+      "options": {
+        "A": "Alpha particles",
+        "B": "Beta particles",
+        "C": "Gamma rays",
+        "D": "X-rays"
+      },
+      "correct_answer": "A",
+      "explanation": "Alpha particles are positively charged (helium nuclei) and are deflected towards the negative plate.",
+      "section": "radioactivity"
+    },
+    {
+      "id": 35,
+      "question": "What is the pH of a solution with [H⁺] = 10⁻³ M?",
+      "options": {
+        "A": "3",
+        "B": "11",
+        "C": "7",
+        "D": "1"
+      },
+      "correct_answer": "A",
+      "explanation": "pH = -log[H⁺] = -log(10⁻³) = 3",
+      "section": "ph_calculations"
+    },
+    {
+      "id": 36,
+      "question": "Which salt solution is basic?",
+      "options": {
+        "A": "Sodium acetate",
+        "B": "Ammonium chloride",
+        "C": "Sodium chloride",
+        "D": "Aluminum chloride"
+      },
+      "correct_answer": "A",
+      "explanation": "Sodium acetate is a salt of strong base (NaOH) and weak acid (CH₃COOH), so its solution is basic.",
+      "section": "salt_hydrolysis"
+    },
+    {
+      "id": 37,
+      "question": "What is a buffer solution?",
+      "options": {
+        "A": "Solution that resists pH change",
+        "B": "Solution with pH 7",
+        "C": "Strong acid solution",
+        "D": "Dilute salt solution"
+      },
+      "correct_answer": "A",
+      "explanation": "A buffer solution resists changes in pH when small amounts of acid or base are added.",
+      "section": "buffer_solutions"
+    },
+    {
+      "id": 38,
+      "question": "Which is an example of a buffer solution?",
+      "options": {
+        "A": "CH₃COOH + CH₃COONa",
+        "B": "HCl + NaCl",
+        "C": "NaOH + NaCl",
+        "D": "H₂SO₄ + Na₂SO₄"
+      },
+      "correct_answer": "A",
+      "explanation": "Acetic acid + sodium acetate is a common buffer system (weak acid + its salt with strong base).",
+      "section": "buffer_solutions"
+    },
+    {
+      "id": 39,
+      "question": "What is the solubility product constant?",
+      "options": {
+        "A": "Product of ion concentrations in saturated solution",
+        "B": "Product of molecular concentrations",
+        "C": "Sum of ion concentrations",
+        "D": "Ratio of dissolved to undissolved salt"
+      },
+      "correct_answer": "A",
+      "explanation": "Ksp is the product of the concentrations of the ions in a saturated solution, each raised to the power of its coefficient in the balanced equation.",
+      "section": "solubility"
+    },
+    {
+      "id": 40,
+      "question": "Which factor does NOT affect the rate of chemical reaction?",
+      "options": {
+        "A": "Color of reactants",
+        "B": "Temperature",
+        "C": "Concentration",
+        "D": "Catalyst"
+      },
+      "correct_answer": "A",
+      "explanation": "Color does not affect reaction rate. Factors that do affect rate include temperature, concentration, surface area, and catalysts.",
+      "section": "reaction_rates"
+    },
+    {
+      "id": 41,
+      "question": "What is a catalyst?",
+      "options": {
+        "A": "Substance that speeds up reaction without being consumed",
+        "B": "Substance that slows down reaction",
+        "C": "Reactant in chemical reaction",
+        "D": "Product of chemical reaction"
+      },
+      "correct_answer": "A",
+      "explanation": "A catalyst increases the rate of a chemical reaction without being consumed in the process.",
+      "section": "catalysis"
+    },
+    {
+      "id": 42,
+      "question": "Which principle states that increasing pressure favors the side with fewer gas molecules?",
+      "options": {
+        "A": "Le Chatelier's principle",
+        "B": "Henry's law",
+        "C": "Raoult's law",
+        "D": "Dalton's law"
+      },
+      "correct_answer": "A",
+      "explanation": "Le Chatelier's principle states that when a system at equilibrium is disturbed, it adjusts to minimize the effect of the disturbance.",
+      "section": "chemical_equilibrium"
+    },
+    {
+      "id": 43,
+      "question": "What is the equilibrium constant expression for N₂ + 3H₂ ⇌ 2NH₃?",
+      "options": {
+        "A": "Kc = [NH₃]²/([N₂][H₂]³)",
+        "B": "Kc = [N₂][H₂]³/[NH₃]²",
+        "C": "Kc = [NH₃]/([N₂][H₂])",
+        "D": "Kc = 2[NH₃]/([N₂] + 3[H₂])"
+      },
+      "correct_answer": "A",
+      "explanation": "For aA + bB ⇌ cC + dD, Kc = [C]^c[D]^d/([A]^a[B]^b)",
+      "section": "equilibrium_constants"
+    },
+    {
+      "id": 44,
+      "question": "Which process is exothermic?",
+      "options": {
+        "A": "Combustion",
+        "B": "Evaporation",
+        "C": "Melting",
+        "D": "Sublimation"
+      },
+      "correct_answer": "A",
+      "explanation": "Combustion releases heat to the surroundings, making it exothermic.",
+      "section": "thermochemistry"
+    },
+    {
+      "id": 45,
+      "question": "What is the standard temperature and pressure (STP)?",
+      "options": {
+        "A": "0°C and 1 atm",
+        "B": "25°C and 1 atm",
+        "C": "0°C and 760 mmHg",
+        "D": "25°C and 760 mmHg"
+      },
+      "correct_answer": "A",
+      "explanation": "STP is 0°C (273K) and 1 atmosphere pressure.",
+      "section": "gas_laws"
+    },
+    {
+      "id": 46,
+      "question": "What volume does 1 mole of any gas occupy at STP?",
+      "options": {
+        "A": "22.4 dm³",
+        "B": "24.0 dm³",
+        "C": "20.0 dm³",
+        "D": "25.0 dm³"
+      },
+      "correct_answer": "A",
+      "explanation": "According to Avogadro's law, 1 mole of any gas occupies 22.4 dm³ at STP.",
+      "section": "gas_laws"
+    },
+    {
+      "id": 47,
+      "question": "Which law states that volume is directly proportional to temperature at constant pressure?",
+      "options": {
+        "A": "Charles' law",
+        "B": "Boyle's law",
+        "C": "Gay-Lussac's law",
+        "D": "Avogadro's law"
+      },
+      "correct_answer": "A",
+      "explanation": "Charles' law: V ∝ T at constant pressure",
+      "section": "gas_laws"
+    },
+    {
+      "id": 48,
+      "question": "What is the ideal gas equation?",
+      "options": {
+        "A": "PV = nRT",
+        "B": "P₁V₁ = P₂V₂",
+        "C": "V₁/T₁ = V₂/T₂",
+        "D": "P₁/T₁ = P₂/T₂"
+      },
+      "correct_answer": "A",
+      "explanation": "The ideal gas equation is PV = nRT, where P is pressure, V is volume, n is moles, R is gas constant, T is temperature.",
+      "section": "gas_laws"
+    },
+    {
+      "id": 49,
+      "question": "Which element is a halogen?",
+      "options": {
+        "A": "Chlorine",
+        "B": "Sodium",
+        "C": "Calcium",
+        "D": "Aluminum"
+      },
+      "correct_answer": "A",
+      "explanation": "Chlorine is in group 17, the halogen group.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 50,
+      "question": "Which group contains the noble gases?",
+      "options": {
+        "A": "Group 18",
+        "B": "Group 1",
+        "C": "Group 2",
+        "D": "Group 17"
+      },
+      "correct_answer": "A",
+      "explanation": "Noble gases are in group 18 and have complete outer electron shells.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 51,
+      "question": "What is the trend of atomic radius across a period?",
+      "options": {
+        "A": "Decreases",
+        "B": "Increases",
+        "C": "Remains constant",
+        "D": "First increases then decreases"
+      },
+      "correct_answer": "A",
+      "explanation": "Atomic radius decreases across a period due to increasing nuclear charge pulling electrons closer.",
+      "section": "periodic_trends"
+    },
+    {
+      "id": 52,
+      "question": "Which element has the highest electronegativity?",
+      "options": {
+        "A": "Fluorine",
+        "B": "Chlorine",
+        "C": "Oxygen",
+        "D": "Nitrogen"
+      },
+      "correct_answer": "A",
+      "explanation": "Fluorine has the highest electronegativity (4.0 on Pauling scale).",
+      "section": "periodic_trends"
+    },
+    {
+      "id": 53,
+      "question": "What is the product of complete combustion of hydrocarbons?",
+      "options": {
+        "A": "CO₂ and H₂O",
+        "B": "CO and H₂",
+        "C": "C and H₂O",
+        "D": "CO₂ and H₂"
+      },
+      "correct_answer": "A",
+      "explanation": "Complete combustion of hydrocarbons produces carbon dioxide and water: CₓHᵧ + (x + y/4)O₂ → xCO₂ + (y/2)H₂O",
+      "section": "combustion"
+    },
+    {
+      "id": 54,
+      "question": "Which test distinguishes between alkanes and alkenes?",
+      "options": {
+        "A": "Bromine water test",
+        "B": "Flame test",
+        "C": "Litmus test",
+        "D": "Benedict's test"
+      },
+      "correct_answer": "A",
+      "explanation": "Alkenes decolorize bromine water due to addition reaction, while alkanes do not.",
+      "section": "organic_tests"
+    },
+    {
+      "id": 55,
+      "question": "What is the general formula for alcohols?",
+      "options": {
+        "A": "CₙH₂ₙ₊₁OH",
+        "B": "CₙH₂ₙOH",
+        "C": "CₙH₂ₙ₋₁OH",
+        "D": "CₙHₙOH"
+      },
+      "correct_answer": "A",
+      "explanation": "Alcohols have the general formula CₙH₂ₙ₊₁OH",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 56,
+      "question": "Which alcohol is used in alcoholic beverages?",
+      "options": {
+        "A": "Ethanol",
+        "B": "Methanol",
+        "C": "Propanol",
+        "D": "Butanol"
+      },
+      "correct_answer": "A",
+      "explanation": "Ethanol (C₂H₅OH) is the alcohol present in alcoholic beverages.",
+      "section": "alcohols"
+    },
+    {
+      "id": 57,
+      "question": "What is the product of oxidation of primary alcohols?",
+      "options": {
+        "A": "Aldehydes then carboxylic acids",
+        "B": "Ketones",
+        "C": "Alkenes",
+        "D": "Ethers"
+      },
+      "correct_answer": "A",
+      "explanation": "Primary alcohols oxidize to aldehydes, which further oxidize to carboxylic acids.",
+      "section": "oxidation"
+    },
+    {
+      "id": 58,
+      "question": "Which compound is formed when ethanol reacts with ethanoic acid?",
+      "options": {
+        "A": "Ethyl ethanoate",
+        "B": "Ethanol",
+        "C": "Ethane",
+        "D": "Ethanoic acid"
+      },
+      "correct_answer": "A",
+      "explanation": "Esterification: CH₃COOH + C₂H₅OH → CH₃COOC₂H₅ + H₂O (ethyl ethanoate)",
+      "section": "esters"
+    },
+    {
+      "id": 59,
+      "question": "What is saponification?",
+      "options": {
+        "A": "Alkaline hydrolysis of esters",
+        "B": "Acid hydrolysis of esters",
+        "C": "Oxidation of alcohols",
+        "D": "Reduction of aldehydes"
+      },
+      "correct_answer": "A",
+      "explanation": "Saponification is the alkaline hydrolysis of esters to produce soap (salt of fatty acid) and alcohol.",
+      "section": "soaps"
+    },
+    {
+      "id": 60,
+      "question": "Which metal is used in galvanization?",
+      "options": {
+        "A": "Zinc",
+        "B": "Iron",
+        "C": "Copper",
+        "D": "Aluminum"
+      },
+      "correct_answer": "A",
+      "explanation": "Galvanization is the process of coating iron or steel with zinc to prevent rusting.",
+      "section": "corrosion_prevention"
+    },
+    {
+      "id": 61,
+      "question": "What is the composition of brass?",
+      "options": {
+        "A": "Copper and zinc",
+        "B": "Copper and tin",
+        "C": "Copper and aluminum",
+        "D": "Iron and carbon"
+      },
+      "correct_answer": "A",
+      "explanation": "Brass is an alloy of copper and zinc.",
+      "section": "alloys"
+    },
+    {
+      "id": 62,
+      "question": "Which process is used to extract iron from its ore?",
+      "options": {
+        "A": "Blast furnace",
+        "B": "Electrolysis",
+        "C": "Bessemer process",
+        "D": "Hall-Heroult process"
+      },
+      "correct_answer": "A",
+      "explanation": "Iron is extracted from haematite in a blast furnace using coke as reducing agent.",
+      "section": "metallurgy"
+    },
+    {
+      "id": 63,
+      "question": "What is the reducing agent in blast furnace?",
+      "options": {
+        "A": "Carbon monoxide",
+        "B": "Carbon dioxide",
+        "C": "Oxygen",
+        "D": "Nitrogen"
+      },
+      "correct_answer": "A",
+      "explanation": "CO reduces iron(III) oxide: Fe₂O₃ + 3CO → 2Fe + 3CO₂",
+      "section": "metallurgy"
+    },
+    {
+      "id": 64,
+      "question": "Which gas is responsible for acid rain?",
+      "options": {
+        "A": "Sulfur dioxide",
+        "B": "Carbon dioxide",
+        "C": "Oxygen",
+        "D": "Nitrogen"
+      },
+      "correct_answer": "A",
+      "explanation": "SO₂ from burning fossil fuels dissolves in rainwater to form sulfuric acid, causing acid rain.",
+      "section": "environmental_chemistry"
+    },
+    {
+      "id": 65,
+      "question": "What is the chemical name for baking soda?",
+      "options": {
+        "A": "Sodium hydrogen carbonate",
+        "B": "Sodium carbonate",
+        "C": "Calcium carbonate",
+        "D": "Sodium hydroxide"
+      },
+      "correct_answer": "A",
+      "explanation": "Baking soda is NaHCO₃ - sodium hydrogen carbonate.",
+      "section": "common_compounds"
+    },
+    {
+      "id": 66,
+      "question": "Which compound is used as an antacid?",
+      "options": {
+        "A": "Magnesium hydroxide",
+        "B": "Sodium hydroxide",
+        "C": "Hydrochloric acid",
+        "D": "Sulfuric acid"
+      },
+      "correct_answer": "A",
+      "explanation": "Magnesium hydroxide (milk of magnesia) neutralizes excess stomach acid.",
+      "section": "medicinal_chemistry"
+    },
+    {
+      "id": 67,
+      "question": "What is the molecular formula for ammonia?",
+      "options": {
+        "A": "NH₃",
+        "B": "NH₄",
+        "C": "N₂H₄",
+        "D": "HNO₃"
+      },
+      "correct_answer": "A",
+      "explanation": "Ammonia is NH₃, a compound of nitrogen and hydrogen.",
+      "section": "nitrogen_compounds"
+    },
+    {
+      "id": 68,
+      "question": "What is the common name for calcium oxide?",
+      "options": {
+        "A": "Quicklime",
+        "B": "Slaked lime",
+        "C": "Lime water",
+        "D": "Gypsum"
+      },
+      "correct_answer": "A",
+      "explanation": "Calcium oxide (CaO) is commonly known as quicklime.",
+      "section": "common_compounds"
+    },
+    {
+      "id": 69,
+      "question": "Which of the following is a deliquescent substance?",
+      "options": {
+        "A": "Calcium chloride",
+        "B": "Sodium chloride",
+        "C": "Silica gel",
+        "D": "Copper (II) sulfate"
+      },
+      "correct_answer": "A",
+      "explanation": "Deliquescent substances absorb moisture from the air until they dissolve. Calcium chloride (CaCl₂) is a common example.",
+      "section": "water_of_crystallization"
+    },
+    {
+      "id": 70,
+      "question": "The mass of one mole of a substance is its?",
+      "options": {
+        "A": "Molar mass",
+        "B": "Atomic mass",
+        "C": "Molecular mass",
+        "D": "Formula mass"
+      },
+      "correct_answer": "A",
+      "explanation": "The mass of one mole of any substance (element or compound) is known as its molar mass, expressed in grams per mole (g/mol).",
+      "section": "mole_concept"
+    },
+    {
+      "id": 71,
+      "question": "In the electrolysis of brine using inert electrodes, the product at the cathode is?",
+      "options": {
+        "A": "Hydrogen gas",
+        "B": "Chlorine gas",
+        "C": "Sodium metal",
+        "D": "Oxygen gas"
+      },
+      "correct_answer": "A",
+      "explanation": "During the electrolysis of concentrated sodium chloride solution (brine), hydrogen gas (H₂) is liberated at the cathode.",
+      "section": "electrolysis"
+    },
+    {
+      "id": 72,
+      "question": "The shape of a methane molecule (CH₄) is?",
+      "options": {
+        "A": "Tetrahedral",
+        "B": "Linear",
+        "C": "Trigonal planar",
+        "D": "Octahedral"
+      },
+      "correct_answer": "A",
+      "explanation": "Methane has a tetrahedral shape due to sp³ hybridization of the carbon atom and four regions of electron density repelling each other equally.",
+      "section": "chemical_bonding"
+    },
+    {
+      "id": 73,
+      "question": "Which of the following gases can be collected by the downward displacement of air?",
+      "options": {
+        "A": "Ammonia",
+        "B": "Chlorine",
+        "C": "Carbon dioxide",
+        "D": "Hydrogen"
+      },
+      "correct_answer": "A",
+      "explanation": "Ammonia (NH₃) is lighter than air and can be collected by the downward displacement of air. Denser gases like CO₂ and Cl₂ are collected upward.",
+      "section": "laboratory_techniques"
+    },
+    {
+      "id": 74,
+      "question": "Hard water can be softened by adding?",
+      "options": {
+        "A": "Washing soda",
+        "B": "Sodium chloride",
+        "C": "Calcium chloride",
+        "D": "Magnesium sulfate"
+      },
+      "correct_answer": "A",
+      "explanation": "Washing soda (Na₂CO₃) softens hard water by precipitating calcium and magnesium ions as carbonates.",
+      "section": "water_treatment"
+    },
+    {
+      "id": 75,
+      "question": "The process by which alkanes are broken down into smaller molecules is called?",
+      "options": {
+        "A": "Cracking",
+        "B": "Reforming",
+        "C": "Polymerization",
+        "D": "Isomerization"
+      },
+      "correct_answer": "A",
+      "explanation": "Cracking is a petroleum refining process where long-chain alkanes are broken down into shorter, more useful alkanes and alkenes.",
+      "section": "petroleum_chemistry"
+    },
+    {
+      "id": 76,
+      "question": "Which of the following is a primary alkanol?",
+      "options": {
+        "A": "CH₃CH₂CH₂OH",
+        "B": "(CH₃)₂CHOH",
+        "C": "(CH₃)₃COH",
+        "D": "C₆H₅OH"
+      },
+      "correct_answer": "A",
+      "explanation": "Propan-1-ol (CH₃CH₂CH₂OH) is a primary alcohol because the carbon atom bearing the -OH group is attached to only one other carbon atom.",
+      "section": "alcohols"
+    },
+    {
+      "id": 77,
+      "question": "The IUPAC name for CH₃CH₂COOH is?",
+      "options": {
+        "A": "Propanoic acid",
+        "B": "Ethanoic acid",
+        "C": "Butanoic acid",
+        "D": "Methanoic acid"
+      },
+      "correct_answer": "A",
+      "explanation": "The compound has three carbon atoms in a chain with the carboxyl (-COOH) functional group, hence the name propanoic acid.",
+      "section": "nomenclature"
+    },
+    {
+      "id": 78,
+      "question": "Which element is used as a catalyst in the Haber process?",
+      "options": {
+        "A": "Iron",
+        "B": "Nickel",
+        "C": "Platinum",
+        "D": "Vanadium(V) oxide"
+      },
+      "correct_answer": "A",
+      "explanation": "Finely divided iron is used as a catalyst in the Haber process for the industrial production of ammonia (N₂ + 3H₂ ⇌ 2NH₃).",
+      "section": "industrial_chemistry"
+    },
+    {
+      "id": 79,
+      "question": "The principle of paper chromatography is based on?",
+      "options": {
+        "A": "Partition of solutes between two phases",
+        "B": "Electrical mobility of ions",
+        "C": "Difference in boiling points",
+        "D": "Difference in densities"
+      },
+      "correct_answer": "A",
+      "explanation": "Paper chromatography separates components based on their differing solubilities and partition coefficients between a stationary liquid phase (water in paper) and a mobile liquid phase (solvent).",
+      "section": "separation_techniques"
+    },
+    {
+      "id": 80,
+      "question": "The greenhouse effect is primarily caused by the accumulation of which gas in the atmosphere?",
+      "options": {
+        "A": "Carbon dioxide",
+        "B": "Oxygen",
+        "C": "Nitrogen",
+        "D": "Ozone"
+      },
+      "correct_answer": "A",
+      "explanation": "While several gases contribute, carbon dioxide (CO₂) from burning fossil fuels is the primary contributor to the enhanced greenhouse effect and global warming.",
+      "section": "environmental_chemistry"
+    },
+    {
+      "id": 81,
+      "question": "Which of the following statements about endothermic reactions is correct?",
+      "options": {
+        "A": "They absorb heat from the surroundings",
+        "B": "They release heat to the surroundings",
+        "C": "They occur at constant temperature",
+        "D": "They are always spontaneous"
+      },
+      "correct_answer": "A",
+      "explanation": "In an endothermic reaction, the system gains heat, causing the temperature of the surroundings to drop.",
+      "section": "thermochemistry"
+    },
+    {
+      "id": 82,
+      "question": "The number of electrons in a completely filled p-orbital is?",
+      "options": {
+        "A": "6",
+        "B": "2",
+        "C": "8",
+        "D": "10"
+      },
+      "correct_answer": "A",
+      "explanation": "A p-subshell has three orbitals (px, py, pz). Each orbital holds 2 electrons, so a filled p-subshell contains 6 electrons.",
+      "section": "electronic_configuration"
+    },
+    {
+      "id": 83,
+      "question": "Which of the following pairs are allotropes of carbon?",
+      "options": {
+        "A": "Diamond and Graphite",
+        "B": "Oxygen and Ozone",
+        "C": "Sucrose and Glucose",
+        "D": "Iron and Steel"
+      },
+      "correct_answer": "A",
+      "explanation": "Allotropes are different structural forms of the same element. Diamond and graphite are both pure carbon but with different atomic arrangements.",
+      "section": "allotropy"
+    },
+    {
+      "id": 84,
+      "question": "A reaction that is capable of proceeding in both forward and reverse directions is termed?",
+      "options": {
+        "A": "Reversible",
+        "B": "Redox",
+        "C": "Exothermic",
+        "D": "Spontaneous"
+      },
+      "correct_answer": "A",
+      "explanation": "A reversible reaction is one where the products can react to re-form the original reactants, often reaching a state of dynamic equilibrium.",
+      "section": "chemical_equilibrium"
+    },
+    {
+      "id": 85,
+      "question": "The polymer used for making non-stick cookware is?",
+      "options": {
+        "A": "Teflon",
+        "B": "Nylon",
+        "C": "Polyvinyl chloride",
+        "D": "Polystyrene"
+      },
+      "correct_answer": "A",
+      "explanation": "Teflon (Polytetrafluoroethylene, PTFE) is known for its non-stick properties and high resistance to heat and chemicals.",
+      "section": "polymers"
+    },
+    {
+      "id": 86,
+      "question": "Which of the following is a characteristic of a base?",
+      "options": {
+        "A": "It turns red litmus paper blue",
+        "B": "It turns blue litmus paper red",
+        "C": "It has a sour taste",
+        "D": "It reacts with metals to produce hydrogen gas"
+      },
+      "correct_answer": "A",
+      "explanation": "Bases are substances that accept protons (H⁺). A common test is that they turn red litmus paper blue.",
+      "section": "acids_bases"
+    },
+    {
+      "id": 87,
+      "question": "The formula of the compound formed between a trivalent metal X and a divalent non-metal Y is?",
+      "options": {
+        "A": "X₂Y₃",
+        "B": "X₃Y₂",
+        "C": "XY",
+        "D": "X₂Y"
+      },
+      "correct_answer": "A",
+      "explanation": "To form a neutral compound, the charges must balance. Two trivalent X³⁺ ions (total charge +6) will combine with three divalent Y²⁻ ions (total charge -6), giving X₂Y₃.",
+      "section": "chemical_formulas"
+    },
+    {
+      "id": 88,
+      "question": "The energy required to remove an electron from a gaseous atom in its ground state is called?",
+      "options": {
+        "A": "Ionization energy",
+        "B": "Electron affinity",
+        "C": "Electronegativity",
+        "D": "Activation energy"
+      },
+      "correct_answer": "A",
+      "explanation": "Ionization energy is the minimum energy required to remove the most loosely bound electron from a neutral gaseous atom.",
+      "section": "periodic_trends"
+    },
+    {
+      "id": 89,
+      "question": "Which of the following is a use of sodium hydrogen trioxocarbonate (IV)?",
+      "options": {
+        "A": "As a baking powder ingredient",
+        "B": "For bleaching cotton fabrics",
+        "C": "In the manufacture of glass",
+        "D": "As a dehydrating agent"
+      },
+      "correct_answer": "A",
+      "explanation": "Sodium hydrogen trioxocarbonate(IV) (NaHCO₃), or baking soda, is a key ingredient in baking powder where it releases CO₂ when heated or reacted with an acid.",
+      "section": "common_compounds"
+    },
+    {
+      "id": 90,
+      "question": "The most abundant element in the earth's crust is?",
+      "options": {
+        "A": "Oxygen",
+        "B": "Silicon",
+        "C": "Aluminum",
+        "D": "Iron"
+      },
+      "correct_answer": "A",
+      "explanation": "Oxygen makes up about 46.6% of the Earth's crust by mass, primarily in the form of oxides and silicates.",
+      "section": "earth_chemistry"
+    },
+    {
+      "id": 91,
+      "question": "In the contact process for sulfuric acid production, the catalyst used is?",
+      "options": {
+        "A": "Vanadium(V) oxide",
+        "B": "Iron",
+        "C": "Nickel",
+        "D": "Platinum"
+      },
+      "correct_answer": "A",
+      "explanation": "Vanadium(V) oxide (V₂O₅) is the catalyst used to convert sulfur dioxide (SO₂) to sulfur trioxide (SO₃) in the contact process.",
+      "section": "industrial_chemistry"
+    },
+    {
+      "id": 92,
+      "question": "Which of the following statements is true for a spontaneous reaction?",
+      "options": {
+        "A": "The Gibbs free energy change (ΔG) is negative",
+        "B": "The enthalpy change (ΔH) is always positive",
+        "C": "The entropy change (ΔS) is always positive",
+        "D": "It occurs very rapidly"
+      },
+      "correct_answer": "A",
+      "explanation": "For a reaction to be spontaneous at constant temperature and pressure, the change in Gibbs free energy (ΔG) must be negative (ΔG < 0).",
+      "section": "thermodynamics"
+    },
+    {
+      "id": 93,
+      "question": "The type of isomerism shown by butan-1-ol and butan-2-ol is?",
+      "options": {
+        "A": "Positional isomerism",
+        "B": "Functional group isomerism",
+        "C": "Chain isomerism",
+        "D": "Geometric isomerism"
+      },
+      "correct_answer": "A",
+      "explanation": "Positional isomers have the same functional group but differ in the position of that group on the carbon chain. Here, the -OH group is on carbon 1 vs carbon 2.",
+      "section": "isomerism"
+    },
+    {
+      "id": 94,
+      "question": "Which of the following is a property of ionic compounds?",
+      "options": {
+        "A": "High melting and boiling points",
+        "B": "Exist as molecules",
+        "C": "Volatile liquids at room temperature",
+        "D": "Do not conduct electricity in molten state"
+      },
+      "correct_answer": "A",
+      "explanation": "Ionic compounds have strong electrostatic forces of attraction (ionic bonds) between ions, requiring a lot of energy to break, hence their high melting and boiling points.",
+      "section": "chemical_bonding"
+    },
+    {
+      "id": 95,
+      "question": "The process of converting glucose to ethanol is known as?",
+      "options": {
+        "A": "Fermentation",
+        "B": "Esterification",
+        "C": "Cracking",
+        "D": "Polymerization"
+      },
+      "correct_answer": "A",
+      "explanation": "Fermentation is the anaerobic process where microorganisms like yeast convert sugars such as glucose (C₆H₁₂O₆) into ethanol (C₂H₅OH) and carbon dioxide.",
+      "section": "biochemistry"
+    },
+    {
+      "id": 96,
+      "question": "Which quantum number defines the shape of an orbital?",
+      "options": {
+        "A": "Azimuthal quantum number (l)",
+        "B": "Principal quantum number (n)",
+        "C": "Magnetic quantum number (mₗ)",
+        "D": "Spin quantum number (mₛ)"
+      },
+      "correct_answer": "A",
+      "explanation": "The azimuthal quantum number (l) determines the shape of the orbital (e.g., l=0 for s-orbital, l=1 for p-orbital).",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 97,
+      "question": "The reagent used to test for unsaturation in a laboratory is?",
+      "options": {
+        "A": "Bromine water",
+        "B": "Fehling's solution",
+        "C": "Tollen's reagent",
+        "D": "Acidified K₂Cr₂O₇"
+      },
+      "correct_answer": "A",
+      "explanation": "Bromine water is used to test for unsaturation (double or triple bonds). It changes from red-brown to colorless when it reacts with an alkene or alkyne.",
+      "section": "organic_tests"
+    },
+    {
+      "id": 98,
+      "question": "The law which states that the pressure of a fixed mass of gas is inversely proportional to its volume at constant temperature is?",
+      "options": {
+        "A": "Boyle's law",
+        "B": "Charles' law",
+        "C": "Gay-Lussac's law",
+        "D": "Dalton's law"
+      },
+      "correct_answer": "A",
+      "explanation": "Boyle's law states that P ∝ 1/V for a fixed mass of gas at constant temperature.",
+      "section": "gas_laws"
+    },
+    {
+      "id": 99,
+      "question": "Which of the following elements is a non-metal that is liquid at room temperature?",
+      "options": {
+        "A": "Bromine",
+        "B": "Chlorine",
+        "C": "Iodine",
+        "D": "Fluorine"
+      },
+      "correct_answer": "A",
+      "explanation": "Bromine (Br₂) is the only non-metal that exists as a liquid at room temperature (25°C).",
+      "section": "periodic_table"
+    },
+    {
+      "id": 100,
+      "question": "The method used to purify an insoluble solid from a solution is?",
+      "options": {
+        "A": "Filtration",
+        "B": "Crystallization",
+        "C": "Distillation",
+        "D": "Chromatography"
+      },
+      "correct_answer": "A",
+      "explanation": "Filtration is used to separate an insoluble solid from a liquid. The solid (residue) is retained by the filter paper while the liquid (filtrate) passes through.",
+      "section": "separation_techniques"
+    },
+    {
+      "id": 101,
+      "question": "What is the common name for trioxonitrate (V) acid?",
+      "options": {
+        "A": "Nitric acid",
+        "B": "Nitrous acid",
+        "C": "Hydrochloric acid",
+        "D": "Sulfuric acid"
+      },
+      "correct_answer": "A",
+      "explanation": "Trioxonitrate (V) acid is the IUPAC name for HNO₃, commonly known as Nitric Acid.",
+      "section": "common_compounds"
+    },
+    {
+      "id": 102,
+      "question": "Which of the following statements about catalyst is false?",
+      "options": {
+        "A": "It alters the position of equilibrium",
+        "B": "It provides an alternative reaction pathway",
+        "C": "It lowers the activation energy",
+        "D": "It is not consumed in the reaction"
+      },
+      "correct_answer": "A",
+      "explanation": "A catalyst speeds up the rate at which equilibrium is attained but does not change the position of the equilibrium or the equilibrium constant.",
+      "section": "catalysis"
+    },
+    {
+      "id": 103,
+      "question": "The type of reaction represented by CH₄ + Cl₂ → CH₃Cl + HCl in the presence of light is?",
+      "options": {
+        "A": "Substitution",
+        "B": "Addition",
+        "C": "Elimination",
+        "D": "Polymerization"
+      },
+      "correct_answer": "A",
+      "explanation": "This is a free radical substitution reaction, characteristic of alkanes, where a hydrogen atom is replaced by a chlorine atom.",
+      "section": "organic_reactions"
+    },
+    {
+      "id": 104,
+      "question": "The minimum amount of energy required for a reaction to occur is known as?",
+      "options": {
+        "A": "Activation energy",
+        "B": "Ionization energy",
+        "C": "Lattice energy",
+        "D": "Bond energy"
+      },
+      "correct_answer": "A",
+      "explanation": "Activation energy is the energy barrier that must be overcome for reactants to be transformed into products.",
+      "section": "reaction_rates"
+    },
+    {
+      "id": 105,
+      "question": "Which of the following is a synthetic polymer?",
+      "options": {
+        "A": "Nylon",
+        "B": "Starch",
+        "C": "Cellulose",
+        "D": "Protein"
+      },
+      "correct_answer": "A",
+      "explanation": "Nylon is a synthetic polymer (polyamide). Starch, cellulose, and proteins are natural polymers.",
+      "section": "polymers"
+    },
+    {
+      "id": 106,
+      "question": "The process of converting a vapor directly to a solid without passing through the liquid state is called?",
+      "options": {
+        "A": "Sublimation",
+        "B": "Deposition",
+        "C": "Condensation",
+        "D": "Evaporation"
+      },
+      "correct_answer": "B",
+      "explanation": "Deposition is the phase transition where a gas turns directly into a solid without becoming a liquid first. (Note: Sublimation is solid to gas).",
+      "section": "states_of_matter"
+    },
+    {
+      "id": 107,
+      "question": "Which of the following ions will give a white precipitate with NaOH soluble in excess?",
+      "options": {
+        "A": "Zn²⁺",
+        "B": "Ca²⁺",
+        "C": "Mg²⁺",
+        "D": "Pb²⁺"
+      },
+      "correct_answer": "A",
+      "explanation": "Zinc ions (Zn²⁺) form a white precipitate of Zn(OH)₂ with NaOH, which dissolves in excess NaOH to form the soluble complex ion [Zn(OH)₄]²⁻.",
+      "section": "qualitative_analysis"
+    },
+    {
+      "id": 108,
+      "question": "The acid found in vinegar is?",
+      "options": {
+        "A": "Ethanoic acid",
+        "B": "Methanoic acid",
+        "C": "Propanoic acid",
+        "D": "Butanoic acid"
+      },
+      "correct_answer": "A",
+      "explanation": "Vinegar is a dilute solution of ethanoic acid (acetic acid, CH₃COOH).",
+      "section": "common_compounds"
+    },
+    {
+      "id": 109,
+      "question": "In the periodic table, the element with the electron configuration 1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹ is?",
+      "options": {
+        "A": "Potassium",
+        "B": "Calcium",
+        "C": "Sodium",
+        "D": "Argon"
+      },
+      "correct_answer": "A",
+      "explanation": "The total number of electrons is 19, which corresponds to the atomic number of Potassium (K).",
+      "section": "electronic_configuration"
+    },
+    {
+      "id": 110,
+      "question": "Which of the following is a secondary pollutant?",
+      "options": {
+        "A": "Ozone (O₃)",
+        "B": "Carbon monoxide (CO)",
+        "C": "Sulfur dioxide (SO₂)",
+        "D": "Nitrogen oxides (NOₓ)"
+      },
+      "correct_answer": "A",
+      "explanation": "Secondary pollutants are not emitted directly but form in the atmosphere from primary pollutants. Ozone is formed by the reaction of NOₓ and VOCs in sunlight.",
+      "section": "environmental_chemistry"
+    },
+    {
+      "id": 111,
+      "question": "The formula for calculating the number of neutrons in an atom is?",
+      "options": {
+        "A": "Mass number - Atomic number",
+        "B": "Atomic number - Mass number",
+        "C": "Mass number + Atomic number",
+        "D": "Atomic number only"
+      },
+      "correct_answer": "A",
+      "explanation": "Number of Neutrons = Mass Number (A) - Atomic Number (Z).",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 112,
+      "question": "Which of the following compounds will not give a sweet smell when reacted with ethanol in the presence of concentrated H₂SO₄?",
+      "options": {
+        "A": "Ethanoic acid",
+        "B": "Propanoic acid",
+        "C": "Methanoic acid",
+        "D": "Hydrochloric acid"
+      },
+      "correct_answer": "D",
+      "explanation": "Esters have a sweet, fruity smell. They are formed from the reaction of an alcohol and a carboxylic acid. Hydrochloric acid is not a carboxylic acid and will not form an ester.",
+      "section": "esters"
+    },
+    {
+      "id": 113,
+      "question": "The process of heating an ore in the absence of air to remove volatile components is called?",
+      "options": {
+        "A": "Calcination",
+        "B": "Roasting",
+        "C": "Smelting",
+        "D": "Reduction"
+      },
+      "correct_answer": "A",
+      "explanation": "Calcination involves heating an ore strongly in the absence of air to decompose it and remove volatile matter like water or CO₂ (e.g., CaCO₃ → CaO + CO₂).",
+      "section": "metallurgy"
+    },
+    {
+      "id": 114,
+      "question": "Which of the following gases is monoatomic?",
+      "options": {
+        "A": "Helium",
+        "B": "Hydrogen",
+        "C": "Nitrogen",
+        "D": "Oxygen"
+      },
+      "correct_answer": "A",
+      "explanation": "Noble gases like Helium (He) exist as single, unattached atoms and are therefore monoatomic.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 115,
+      "question": "The property of metals which allows them to be drawn into wires is called?",
+      "options": {
+        "A": "Ductility",
+        "B": "Malleability",
+        "C": "Conductivity",
+        "D": "Sonority"
+      },
+      "correct_answer": "A",
+      "explanation": "Ductility is the ability of a material, especially metals, to be drawn out into a thin wire without breaking.",
+      "section": "metals"
+    },
+    {
+      "id": 116,
+      "question": "In the preparation of salts, the method used for a soluble base and an insoluble reactant is?",
+      "options": {
+        "A": "Titration",
+        "B": "Precipitation",
+        "C": "Action of acid on metal",
+        "D": "Neutralization"
+      },
+      "correct_answer": "A",
+      "explanation": "Titration is used to prepare salts when both the base and the acid are soluble. The endpoint is determined using an indicator.",
+      "section": "salt_preparation"
+    },
+    {
+      "id": 117,
+      "question": "Which of the following is a reducing agent?",
+      "options": {
+        "A": "Carbon monoxide",
+        "B": "Oxygen",
+        "C": "Chlorine",
+        "D": "Ozone"
+      },
+      "correct_answer": "A",
+      "explanation": "A reducing agent donates electrons and is itself oxidized. Carbon monoxide (CO) is a common reducing agent used in metallurgy to reduce metal oxides.",
+      "section": "redox_reactions"
+    },
+    {
+      "id": 118,
+      "question": "The substance often used as a drying agent in the laboratory is?",
+      "options": {
+        "A": "Fused calcium chloride",
+        "B": "Sodium chloride",
+        "C": "Calcium carbonate",
+        "D": "Sodium hydroxide"
+      },
+      "correct_answer": "A",
+      "explanation": "Fused calcium chloride (CaCl₂) is highly deliquescent and is commonly used as a desiccant to dry gases in the laboratory.",
+      "section": "laboratory_techniques"
+    },
+    {
+      "id": 119,
+      "question": "Which of the following pairs of elements would form a covalent compound?",
+      "options": {
+        "A": "Carbon and Hydrogen",
+        "B": "Sodium and Oxygen",
+        "C": "Magnesium and Chlorine",
+        "D": "Calcium and Fluorine"
+      },
+      "correct_answer": "A",
+      "explanation": "Covalent compounds are typically formed between non-metals. Carbon and Hydrogen are both non-metals and form covalent compounds like methane (CH₄).",
+      "section": "chemical_bonding"
+    },
+    {
+      "id": 120,
+      "question": "The process by which plants lose water vapor to the atmosphere is called?",
+      "options": {
+        "A": "Transpiration",
+        "B": "Evaporation",
+        "C": "Condensation",
+        "D": "Respiration"
+      },
+      "correct_answer": "A",
+      "explanation": "Transpiration is the process of water movement through a plant and its evaporation from aerial parts, such as leaves, stems, and flowers.",
+      "section": "biochemistry"
+    },
+    {
+      "id": 121,
+      "question": "Which of the following is NOT a method of preventing rusting?",
+      "options": {
+        "A": "Heating the metal strongly",
+        "B": "Galvanizing",
+        "C": "Painting",
+        "D": "Oiling"
+      },
+      "correct_answer": "A",
+      "explanation": "Heating a metal strongly does not prevent rusting; it might even form a scale of oxide. Galvanizing, painting, and oiling are all methods used to prevent corrosion.",
+      "section": "corrosion_prevention"
+    },
+    {
+      "id": 122,
+      "question": "The major constituent of natural gas is?",
+      "options": {
+        "A": "Methane",
+        "B": "Ethane",
+        "C": "Propane",
+        "D": "Butane"
+      },
+      "correct_answer": "A",
+      "explanation": "Natural gas is primarily composed of methane (CH₄), typically making up 70-90% of its volume.",
+      "section": "fuels"
+    },
+    {
+      "id": 123,
+      "question": "The reaction between an acid and a base to form salt and water only is called?",
+      "options": {
+        "A": "Neutralization",
+        "B": "Hydrolysis",
+        "C": "Esterification",
+        "D": "Saponification"
+      },
+      "correct_answer": "A",
+      "explanation": "A neutralization reaction is specifically an acid-base reaction that produces a salt and water.",
+      "section": "acids_bases"
+    },
+    {
+      "id": 124,
+      "question": "Which of the following statements is correct about the halogens?",
+      "options": {
+        "A": "They are diatomic",
+        "B": "They are monoatomic",
+        "C": "They are trivalent",
+        "D": "They have low reactivity"
+      },
+      "correct_answer": "A",
+      "explanation": "Halogens (F₂, Cl₂, Br₂, I₂) exist as diatomic molecules in their elemental form.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 125,
+      "question": "The substance that increases the rate of a chemical reaction without being used up is called?",
+      "options": {
+        "A": "Catalyst",
+        "B": "Inhibitor",
+        "C": "Activator",
+        "D": "Promoter"
+      },
+      "correct_answer": "A",
+      "explanation": "A catalyst is a substance that speeds up a chemical reaction by providing an alternative pathway with lower activation energy, and it is not consumed in the reaction.",
+      "section": "catalysis"
+    },
+    {
+      "id": 126,
+      "question": "Which of the following is a use of hydrogen?",
+      "options": {
+        "A": "Manufacture of ammonia",
+        "B": "Making electrodes",
+        "C": "Making coins",
+        "D": "As a refrigerant"
+      },
+      "correct_answer": "A",
+      "explanation": "The largest single use of hydrogen is in the Haber process for the manufacture of ammonia (NH₃), which is used in fertilizers.",
+      "section": "uses_of_gases"
+    },
+    {
+      "id": 127,
+      "question": "The phenomenon where by crystals change their color on exposure to air due to loss of water of crystallization is called?",
+      "options": {
+        "A": "Efflorescence",
+        "B": "Deliquescence",
+        "C": "Hygroscopy",
+        "D": "Florescence"
+      },
+      "correct_answer": "A",
+      "explanation": "Efflorescence is the process where a hydrated salt loses its water of crystallization to the atmosphere and becomes powdery.",
+      "section": "water_of_crystallization"
+    },
+    {
+      "id": 128,
+      "question": "In the laboratory preparation of oxygen gas, the catalyst used is?",
+      "options": {
+        "A": "Manganese (IV) oxide",
+        "B": "Vanadium (V) oxide",
+        "C": "Iron",
+        "D": "Platinum"
+      },
+      "correct_answer": "A",
+      "explanation": "In the decomposition of hydrogen peroxide (H₂O₂) to produce oxygen, manganese(IV) oxide (MnO₂) is used as a catalyst.",
+      "section": "laboratory_preparations"
+    }
+  ]
+}
+      

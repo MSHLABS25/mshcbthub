@@ -1,0 +1,1672 @@
+{
+  "subject": "Mathematics",
+  "exam_type": "WAEC",
+  "total_questions": 128,
+  "time_allowed": 8400,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Simplify √27 + 3√12 - √75",
+      "options": {
+        "A": "2√3",
+        "B": "3√3",
+        "C": "4√3",
+        "D": "5√3"
+      },
+      "correct_answer": "C",
+      "explanation": "√27 = 3√3, 3√12 = 3×2√3 = 6√3, √75 = 5√3. So 3√3 + 6√3 - 5√3 = 4√3",
+      "section": "surds"
+    },
+    {
+      "id": 2,
+      "question": "If 5^(x+1) = 25^(x-2), find the value of x.",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "correct_answer": "C",
+      "explanation": "25^(x-2) = (5²)^(x-2) = 5^(2x-4). So 5^(x+1) = 5^(2x-4) ⇒ x+1 = 2x-4 ⇒ x = 5",
+      "section": "indices"
+    },
+    {
+      "id": 3,
+      "question": "Factorize completely: 2x² - 8y²",
+      "options": {
+        "A": "2(x - 2y)(x + 2y)",
+        "B": "2(x - 4y)(x + 4y)",
+        "C": "(2x - 4y)(x + y)",
+        "D": "2(x² - 4y²)"
+      },
+      "correct_answer": "A",
+      "explanation": "2x² - 8y² = 2(x² - 4y²) = 2(x - 2y)(x + 2y)",
+      "section": "factorization"
+    },
+    {
+      "id": 4,
+      "question": "Solve the equation: 2/(x+1) = 3/(x-1)",
+      "options": {
+        "A": "-5",
+        "B": "5",
+        "C": "2",
+        "D": "-2"
+      },
+      "correct_answer": "B",
+      "explanation": "Cross multiply: 2(x-1) = 3(x+1) ⇒ 2x-2 = 3x+3 ⇒ -2-3 = 3x-2x ⇒ -5 = x ⇒ x = 5",
+      "section": "algebraic_fractions"
+    },
+    {
+      "id": 5,
+      "question": "If the sum of two numbers is 15 and their difference is 3, find the numbers.",
+      "options": {
+        "A": "9 and 6",
+        "B": "10 and 5",
+        "C": "8 and 7",
+        "D": "11 and 4"
+      },
+      "correct_answer": "A",
+      "explanation": "Let numbers be x and y. x+y=15, x-y=3. Add equations: 2x=18 ⇒ x=9, then y=6",
+      "section": "simultaneous_equations"
+    },
+    {
+      "id": 6,
+      "question": "Find the quadratic equation whose roots are 2 and -3.",
+      "options": {
+        "A": "x² + x - 6 = 0",
+        "B": "x² - x - 6 = 0",
+        "C": "x² + 5x + 6 = 0",
+        "D": "x² - 5x + 6 = 0"
+      },
+      "correct_answer": "A",
+      "explanation": "Sum of roots = 2 + (-3) = -1, Product = 2 × (-3) = -6. Equation: x² - (sum)x + product = x² + x - 6 = 0",
+      "section": "quadratic_equations"
+    },
+    {
+      "id": 7,
+      "question": "If P = {1, 2, 3, 4} and Q = {3, 4, 5, 6}, find P ∩ Q.",
+      "options": {
+        "A": "{1, 2, 3, 4, 5, 6}",
+        "B": "{3, 4}",
+        "C": "{1, 2}",
+        "D": "{5, 6}"
+      },
+      "correct_answer": "B",
+      "explanation": "Intersection contains elements common to both sets: {3, 4}",
+      "section": "sets"
+    },
+    {
+      "id": 8,
+      "question": "A number is chosen at random from 1 to 10. What is the probability that it is a prime number?",
+      "options": {
+        "A": "2/5",
+        "B": "3/5",
+        "C": "1/2",
+        "D": "3/10"
+      },
+      "correct_answer": "A",
+      "explanation": "Prime numbers from 1-10: 2,3,5,7 (4 primes). Total numbers: 10. Probability = 4/10 = 2/5",
+      "section": "probability"
+    },
+    {
+      "id": 9,
+      "question": "If y varies directly as x and y = 8 when x = 2, find y when x = 5.",
+      "options": {
+        "A": "10",
+        "B": "15",
+        "C": "20",
+        "D": "25"
+      },
+      "correct_answer": "C",
+      "explanation": "y ∝ x ⇒ y = kx. When x=2, y=8 ⇒ 8=k×2 ⇒ k=4. When x=5, y=4×5=20",
+      "section": "variation"
+    },
+    {
+      "id": 10,
+      "question": "Approximate 0.007286 to 3 significant figures.",
+      "options": {
+        "A": "0.007",
+        "B": "0.00729",
+        "C": "0.0073",
+        "D": "0.00728"
+      },
+      "correct_answer": "C",
+      "explanation": "0.007286 to 3 significant figures: look at 4th digit (8) which is ≥5, so round up: 0.0073",
+      "section": "approximation"
+    },
+    {
+      "id": 11,
+      "question": "Find the value of x in the equation: log₂(x + 1) = 3",
+      "options": {
+        "A": "7",
+        "B": "8",
+        "C": "9",
+        "D": "10"
+      },
+      "correct_answer": "A",
+      "explanation": "log₂(x + 1) = 3 ⇒ x + 1 = 2³ = 8 ⇒ x = 8 - 1 = 7",
+      "section": "logarithms"
+    },
+    {
+      "id": 12,
+      "question": "The nth term of a sequence is given by 3n - 1. What is the 10th term?",
+      "options": {
+        "A": "27",
+        "B": "28",
+        "C": "29",
+        "D": "30"
+      },
+      "correct_answer": "C",
+      "explanation": "10th term = 3(10) - 1 = 30 - 1 = 29",
+      "section": "sequence_and_series"
+    },
+    {
+      "id": 13,
+      "question": "What is the common difference of an arithmetic progression whose first term is 5 and the 7th term is 23?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5"
+      },
+      "correct_answer": "B",
+      "explanation": "7th term = a + 6d = 23 ⇒ 5 + 6d = 23 ⇒ 6d = 18 ⇒ d = 3",
+      "section": "arithmetic_progression"
+    },
+    {
+      "id": 14,
+      "question": "The second and fifth terms of a geometric progression are 6 and 48 respectively. Find the first term.",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5"
+      },
+      "correct_answer": "B",
+      "explanation": "2nd term = ar = 6, 5th term = ar⁴ = 48. Divide: (ar⁴)/(ar) = 48/6 ⇒ r³ = 8 ⇒ r = 2. Then ar = 6 ⇒ a×2 = 6 ⇒ a = 3",
+      "section": "geometric_progression"
+    },
+    {
+      "id": 15,
+      "question": "If sin θ = 3/5 and θ is acute, find tan θ.",
+      "options": {
+        "A": "3/4",
+        "B": "4/5",
+        "C": "4/3",
+        "D": "5/4"
+      },
+      "correct_answer": "A",
+      "explanation": "sin θ = opposite/hypotenuse = 3/5. Using Pythagoras, adjacent = √(5²-3²) = 4. tan θ = opposite/adjacent = 3/4",
+      "section": "trigonometry"
+    },
+    {
+      "id": 16,
+      "question": "A ladder 10m long rests against a vertical wall. If the foot of the ladder is 6m from the wall, how high up the wall does the ladder reach?",
+      "options": {
+        "A": "7m",
+        "B": "8m",
+        "C": "9m",
+        "D": "10m"
+      },
+      "correct_answer": "B",
+      "explanation": "Using Pythagoras theorem: height² + 6² = 10² ⇒ height² = 100 - 36 = 64 ⇒ height = 8m",
+      "section": "pythagoras_theorem"
+    },
+    {
+      "id": 17,
+      "question": "Differentiate y = 3x⁴ - 2x³ + 5x - 7 with respect to x.",
+      "options": {
+        "A": "12x³ - 6x² + 5",
+        "B": "12x³ - 2x² + 5",
+        "C": "12x³ - 6x² - 7",
+        "D": "3x³ - 2x² + 5"
+      },
+      "correct_answer": "A",
+      "explanation": "dy/dx = 4×3x³ - 3×2x² + 5 - 0 = 12x³ - 6x² + 5",
+      "section": "differentiation"
+    },
+    {
+      "id": 18,
+      "question": "Find the derivative of (2x + 3)⁵.",
+      "options": {
+        "A": "5(2x+3)⁴",
+        "B": "10(2x+3)⁴",
+        "C": "2(2x+3)⁴",
+        "D": "(2x+3)⁴"
+      },
+      "correct_answer": "B",
+      "explanation": "Using chain rule: d/dx[(2x+3)⁵] = 5(2x+3)⁴ × 2 = 10(2x+3)⁴",
+      "section": "differentiation_chain_rule"
+    },
+    {
+      "id": 19,
+      "question": "Integrate ∫(4x³ - 3x² + 2)dx.",
+      "options": {
+        "A": "x⁴ - x³ + 2x + C",
+        "B": "x⁴ - 2x³ + 2x + C",
+        "C": "x⁴ - x³ + x + C",
+        "D": "4x⁴ - 3x³ + 2x + C"
+      },
+      "correct_answer": "A",
+      "explanation": "∫4x³ dx = x⁴, ∫-3x² dx = -x³, ∫2 dx = 2x. So ∫(4x³ - 3x² + 2)dx = x⁴ - x³ + 2x + C",
+      "section": "integration"
+    },
+    {
+      "id": 20,
+      "question": "What is the minimum value of the function y = x² - 4x + 3?",
+      "options": {
+        "A": "-1",
+        "B": "1",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "A",
+      "explanation": "Complete square: y = (x² - 4x + 4) + 3 - 4 = (x-2)² - 1. Minimum value is -1 when x=2",
+      "section": "maxima_minima"
+    },
+    {
+      "id": 21,
+      "question": "If the mean of 2, 5, x, 8, 9 is 6, what is the value of x?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct_answer": "B",
+      "explanation": "Mean = (2+5+x+8+9)/5 = 6 ⇒ (24+x)/5 = 6 ⇒ 24+x = 30 ⇒ x = 6",
+      "section": "mean"
+    },
+    {
+      "id": 22,
+      "question": "Find the median of the numbers: 4, 7, 1, 9, 3.",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "7"
+      },
+      "correct_answer": "B",
+      "explanation": "Arrange in order: 1,3,4,7,9. Median is middle value = 4",
+      "section": "median"
+    },
+    {
+      "id": 23,
+      "question": "A bag contains 5 red and 3 blue balls. Two balls are drawn at random without replacement. Find the probability that both are red.",
+      "options": {
+        "A": "5/14",
+        "B": "3/14",
+        "C": "5/8",
+        "D": "3/8"
+      },
+      "correct_answer": "A",
+      "explanation": "P(both red) = (5/8) × (4/7) = 20/56 = 5/14",
+      "section": "probability"
+    },
+    {
+      "id": 24,
+      "question": "Calculate the simple interest on ₦8000 for 2 years at 5% per annum.",
+      "options": {
+        "A": "₦400",
+        "B": "₦600",
+        "C": "₦800",
+        "D": "₦1000"
+      },
+      "correct_answer": "C",
+      "explanation": "Simple Interest = (Principal × Rate × Time)/100 = (8000 × 5 × 2)/100 = ₦800",
+      "section": "simple_interest"
+    },
+    {
+      "id": 25,
+      "question": "Find the compound interest on ₦5000 for 2 years at 10% per annum.",
+      "options": {
+        "A": "₦1000",
+        "B": "₦1050",
+        "C": "₦1100",
+        "D": "₦1150"
+      },
+      "correct_answer": "B",
+      "explanation": "Amount = P(1 + r/100)ⁿ = 5000(1 + 10/100)² = 5000 × 1.1² = 5000 × 1.21 = ₦6050. Compound Interest = 6050 - 5000 = ₦1050",
+      "section": "compound_interest"
+    },
+    {
+      "id": 26,
+      "question": "Solve the simultaneous equations: 2x + y = 7; x - y = 2.",
+      "options": {
+        "A": "x=3, y=1",
+        "B": "x=2, y=3",
+        "C": "x=1, y=5",
+        "D": "x=4, y=1"
+      },
+      "correct_answer": "A",
+      "explanation": "Add equations: (2x+y)+(x-y)=7+2 ⇒ 3x=9 ⇒ x=3. Substitute: 3-y=2 ⇒ y=1",
+      "section": "simultaneous_equations"
+    },
+    {
+      "id": 27,
+      "question": "If 3x - 2y = 7 and x + 3y = 11, find the value of y.",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "B",
+      "explanation": "From second equation: x = 11 - 3y. Substitute in first: 3(11-3y) - 2y = 7 ⇒ 33 - 9y - 2y = 7 ⇒ -11y = -26 ⇒ y = 2",
+      "section": "simultaneous_equations"
+    },
+    {
+      "id": 28,
+      "question": "Find the value of x for which 2x² - 3x - 2 = 0.",
+      "options": {
+        "A": "x=2 or x=-1/2",
+        "B": "x=-2 or x=1/2",
+        "C": "x=1 or x=-2",
+        "D": "x=2 or x=1"
+      },
+      "correct_answer": "A",
+      "explanation": "2x² - 3x - 2 = 0 ⇒ (2x+1)(x-2)=0 ⇒ x=-1/2 or x=2",
+      "section": "quadratic_equations"
+    },
+    {
+      "id": 29,
+      "question": "The sum of the first n terms of an A.P. is S = n/2(2a + (n-1)d). If the first term is 3 and the common difference is 2, find the sum of the first 10 terms.",
+      "options": {
+        "A": "100",
+        "B": "110",
+        "C": "120",
+        "D": "130"
+      },
+      "correct_answer": "C",
+      "explanation": "S₁₀ = 10/2(2×3 + (10-1)×2) = 5(6 + 18) = 5×24 = 120",
+      "section": "arithmetic_progression"
+    },
+    {
+      "id": 30,
+      "question": "Find the sum to infinity of the G.P. 12, 4, 4/3, ...",
+      "options": {
+        "A": "16",
+        "B": "18",
+        "C": "20",
+        "D": "24"
+      },
+      "correct_answer": "B",
+      "explanation": "First term a=12, common ratio r=4/12=1/3. Sum to infinity = a/(1-r) = 12/(1-1/3) = 12/(2/3) = 18",
+      "section": "geometric_progression"
+    },
+    {
+      "id": 31,
+      "question": "From a point P on level ground, the angle of elevation of the top of a tower is 30°. If the tower is 50m high, how far is P from the foot of the tower?",
+      "options": {
+        "A": "25√3 m",
+        "B": "50√3 m",
+        "C": "100 m",
+        "D": "50/√3 m"
+      },
+      "correct_answer": "B",
+      "explanation": "tan 30° = opposite/adjacent = 50/distance ⇒ 1/√3 = 50/distance ⇒ distance = 50√3 m",
+      "section": "trigonometry"
+    },
+    {
+      "id": 32,
+      "question": "If y = x² sin x, find dy/dx.",
+      "options": {
+        "A": "2x sin x + x² cos x",
+        "B": "x² cos x",
+        "C": "2x sin x",
+        "D": "2x cos x"
+      },
+      "correct_answer": "A",
+      "explanation": "Using product rule: d(uv)/dx = u dv/dx + v du/dx = x² cos x + sin x × 2x = 2x sin x + x² cos x",
+      "section": "differentiation_product_rule"
+    },
+    {
+      "id": 33,
+      "question": "Evaluate ∫₁² (3x² + 2) dx.",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "9"
+      },
+      "correct_answer": "C",
+      "explanation": "∫(3x² + 2)dx = x³ + 2x. Evaluate from 1 to 2: (8+4)-(1+2)=12-3=9",
+      "section": "definite_integral"
+    },
+    {
+      "id": 34,
+      "question": "The gradient of the curve y = 2x³ - 3x² - 12x + 5 at the point (0, 5) is",
+      "options": {
+        "A": "-12",
+        "B": "12",
+        "C": "5",
+        "D": "0"
+      },
+      "correct_answer": "A",
+      "explanation": "dy/dx = 6x² - 6x - 12. At x=0: dy/dx = -12",
+      "section": "gradient_of_curve"
+    },
+    {
+      "id": 35,
+      "question": "A circle has a radius of 7cm. Calculate its area. (Take π = 22/7)",
+      "options": {
+        "A": "44 cm²",
+        "B": "154 cm²",
+        "C": "176 cm²",
+        "D": "196 cm²"
+      },
+      "correct_answer": "B",
+      "explanation": "Area = πr² = (22/7)×7² = (22/7)×49 = 22×7 = 154 cm²",
+      "section": "area_of_circle"
+    },
+    {
+      "id": 36,
+      "question": "The volume of a cylinder with radius 7cm and height 10cm is? (Take π = 22/7)",
+      "options": {
+        "A": "220 cm³",
+        "B": "440 cm³",
+        "C": "1540 cm³",
+        "D": "3080 cm³"
+      },
+      "correct_answer": "C",
+      "explanation": "Volume = πr²h = (22/7)×7²×10 = (22/7)×49×10 = 22×7×10 = 1540 cm³",
+      "section": "volume_of_cylinder"
+    },
+    {
+      "id": 37,
+      "question": "A bearing of 320° expressed as a compass bearing is",
+      "options": {
+        "A": "N50°W",
+        "B": "N40°W",
+        "C": "S40°W",
+        "D": "S50°W"
+      },
+      "correct_answer": "B",
+      "explanation": "320° from North = 360° - 320° = 40° West of North = N40°W",
+      "section": "bearings"
+    },
+    {
+      "id": 38,
+      "question": "The solution of the inequality 3x - 5 < x + 7 is",
+      "options": {
+        "A": "x < 6",
+        "B": "x > 6",
+        "C": "x < 2",
+        "D": "x > 2"
+      },
+      "correct_answer": "A",
+      "explanation": "3x - 5 < x + 7 ⇒ 3x - x < 7 + 5 ⇒ 2x < 12 ⇒ x < 6",
+      "section": "inequalities"
+    },
+    {
+      "id": 39,
+      "question": "If the binary operation * is defined by a * b = a² + b², then 2 * 3 is",
+      "options": {
+        "A": "10",
+        "B": "11",
+        "C": "12",
+        "D": "13"
+      },
+      "correct_answer": "D",
+      "explanation": "2 * 3 = 2² + 3² = 4 + 9 = 13",
+      "section": "binary_operations"
+    },
+    {
+      "id": 40,
+      "question": "The population of a town is 20,000. If it increases by 5% each year, what will be the population after 2 years?",
+      "options": {
+        "A": "22,000",
+        "B": "22,050",
+        "C": "22,500",
+        "D": "23,000"
+      },
+      "correct_answer": "B",
+      "explanation": "Population after 2 years = 20000 × (1 + 5/100)² = 20000 × 1.05² = 20000 × 1.1025 = 22,050",
+      "section": "compound_interest_appreciation"
+    },
+    {
+      "id": 41,
+      "question": "If M and N are the points (2, 5) and (4, 9) respectively, find the midpoint of MN.",
+      "options": {
+        "A": "(3, 7)",
+        "B": "(2, 7)",
+        "C": "(4, 5)",
+        "D": "(6, 14)"
+      },
+      "correct_answer": "A",
+      "explanation": "Midpoint = ((2+4)/2, (5+9)/2) = (6/2, 14/2) = (3, 7)",
+      "section": "coordinate_geometry_midpoint"
+    },
+    {
+      "id": 42,
+      "question": "What is the distance between points A(1, 2) and B(4, 6)?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "correct_answer": "C",
+      "explanation": "Distance = √[(4-1)² + (6-2)²] = √[3² + 4²] = √[9+16] = √25 = 5",
+      "section": "coordinate_geometry_distance"
+    },
+    {
+      "id": 43,
+      "question": "Find the gradient of the line joining points (1, 2) and (3, 8).",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5"
+      },
+      "correct_answer": "B",
+      "explanation": "Gradient = (8-2)/(3-1) = 6/2 = 3",
+      "section": "coordinate_geometry_gradient"
+    },
+    {
+      "id": 44,
+      "question": "What is the equation of a line with gradient 2 that passes through the point (1, 3)?",
+      "options": {
+        "A": "y = 2x + 1",
+        "B": "y = 2x + 2",
+        "C": "y = 2x + 3",
+        "D": "y = 2x - 1"
+      },
+      "correct_answer": "A",
+      "explanation": "Using y - y₁ = m(x - x₁): y - 3 = 2(x - 1) ⇒ y - 3 = 2x - 2 ⇒ y = 2x + 1",
+      "section": "coordinate_geometry_equation_of_line"
+    },
+    {
+      "id": 45,
+      "question": "If the lines 2y = 3x - 5 and y = kx + 4 are parallel, what is the value of k?",
+      "options": {
+        "A": "2/3",
+        "B": "3/2",
+        "C": "2",
+        "D": "3"
+      },
+      "correct_answer": "B",
+      "explanation": "First line: 2y = 3x - 5 ⇒ y = (3/2)x - 5/2, gradient = 3/2. Parallel lines have equal gradients, so k = 3/2",
+      "section": "coordinate_geometry_parallel_lines"
+    },
+    {
+      "id": 46,
+      "question": "The probability that a student passes Mathematics is 2/3 and the probability that he passes English is 4/9. If the probability of passing at least one subject is 4/5, what is the probability that he will pass both subjects?",
+      "options": {
+        "A": "14/45",
+        "B": "16/45",
+        "C": "18/45",
+        "D": "20/45"
+      },
+      "correct_answer": "A",
+      "explanation": "P(A∪B) = P(A) + P(B) - P(A∩B) ⇒ 4/5 = 2/3 + 4/9 - P(A∩B) ⇒ P(A∩B) = 2/3 + 4/9 - 4/5 = 30/45 + 20/45 - 36/45 = 14/45",
+      "section": "probability"
+    },
+    {
+      "id": 47,
+      "question": "The mean of 10 numbers is 15. If one number is removed, the mean becomes 14. What number was removed?",
+      "options": {
+        "A": "20",
+        "B": "22",
+        "C": "24",
+        "D": "26"
+      },
+      "correct_answer": "C",
+      "explanation": "Sum of 10 numbers = 10×15 = 150. Sum of 9 numbers = 9×14 = 126. Removed number = 150 - 126 = 24",
+      "section": "mean"
+    },
+    {
+      "id": 48,
+      "question": "If the mode of the scores 2, 3, 4, 4, 5, 5, 5, 6, x is 5, what is a possible value of x?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7"
+      },
+      "correct_answer": "B",
+      "explanation": "Mode is 5, so 5 must appear most frequently. Currently 5 appears 3 times, 4 appears 2 times. If x=5, then 5 appears 4 times, maintaining it as mode",
+      "section": "mode"
+    },
+    {
+      "id": 49,
+      "question": "Find the range of the data: 7, 3, 9, 5, 4, 11, 2.",
+      "options": {
+        "A": "7",
+        "B": "8",
+        "C": "9",
+        "D": "10"
+      },
+      "correct_answer": "C",
+      "explanation": "Range = maximum - minimum = 11 - 2 = 9",
+      "section": "range"
+    },
+    {
+      "id": 50,
+      "question": "A trader bought a book for ₦500 and sold it at a profit of 25%. What was the selling price?",
+      "options": {
+        "A": "₦575",
+        "B": "₦600",
+        "C": "₦625",
+        "D": "₦650"
+      },
+      "correct_answer": "C",
+      "explanation": "Profit = 25% of 500 = 125. Selling price = Cost price + Profit = 500 + 125 = ₦625",
+      "section": "profit_loss"
+    },
+        {
+      "id": 51,
+      "question": "Convert 1011₂ to base ten.",
+      "options": {
+        "A": "9",
+        "B": "10",
+        "C": "11",
+        "D": "12"
+      },
+      "correct_answer": "C",
+      "explanation": "1011₂ = 1×2³ + 0×2² + 1×2¹ + 1×2⁰ = 8 + 0 + 2 + 1 = 11",
+      "section": "number_bases"
+    },
+    {
+      "id": 52,
+      "question": "Convert 25 in base ten to base two.",
+      "options": {
+        "A": "10011₂",
+        "B": "11001₂",
+        "C": "11010₂",
+        "D": "11100₂"
+      },
+      "correct_answer": "B",
+      "explanation": "25 ÷ 2 = 12 remainder 1, 12 ÷ 2 = 6 remainder 0, 6 ÷ 2 = 3 remainder 0, 3 ÷ 2 = 1 remainder 1, 1 ÷ 2 = 0 remainder 1. Reading remainders backwards: 11001₂",
+      "section": "number_bases"
+    },
+    {
+      "id": 53,
+      "question": "If U = {1,2,3,4,5,6}, A = {2,4,6}, find A'.",
+      "options": {
+        "A": "{1,3,5}",
+        "B": "{2,4,6}",
+        "C": "{1,2,3}",
+        "D": "{4,5,6}"
+      },
+      "correct_answer": "A",
+      "explanation": "A' (complement of A) contains elements in U but not in A = {1,3,5}",
+      "section": "sets_complement"
+    },
+    {
+      "id": 54,
+      "question": "In a class of 50 students, 30 offer Physics, 25 offer Chemistry, and 15 offer both. How many students offer neither?",
+      "options": {
+        "A": "5",
+        "B": "10",
+        "C": "15",
+        "D": "20"
+      },
+      "correct_answer": "B",
+      "explanation": "Using inclusion-exclusion: n(P∪C) = n(P) + n(C) - n(P∩C) = 30 + 25 - 15 = 40. Neither = Total - n(P∪C) = 50 - 40 = 10",
+      "section": "sets_venn_diagram"
+    },
+    {
+      "id": 55,
+      "question": "The solution set of the equation |x - 2| = 3 is",
+      "options": {
+        "A": "{-1, 5}",
+        "B": "{1, -5}",
+        "C": "{1, 5}",
+        "D": "{-1, -5}"
+      },
+      "correct_answer": "A",
+      "explanation": "|x - 2| = 3 ⇒ x - 2 = 3 or x - 2 = -3 ⇒ x = 5 or x = -1",
+      "section": "absolute_value"
+    },
+    {
+      "id": 56,
+      "question": "If 2 and -1 are the roots of the equation x² + px + q = 0, find p + q.",
+      "options": {
+        "A": "-5",
+        "B": "-3",
+        "C": "3",
+        "D": "5"
+      },
+      "correct_answer": "A",
+      "explanation": "Sum of roots = 2 + (-1) = 1 = -p ⇒ p = -1. Product of roots = 2 × (-1) = -2 = q. So p + q = -1 + (-2) = -3",
+      "section": "quadratic_equations_roots"
+    },
+    {
+      "id": 57,
+      "question": "The sum of the roots of the equation 2x² - 5x + 3 = 0 is",
+      "options": {
+        "A": "5/2",
+        "B": "3/2",
+        "C": "-5/2",
+        "D": "-3/2"
+      },
+      "correct_answer": "A",
+      "explanation": "For ax² + bx + c = 0, sum of roots = -b/a = -(-5)/2 = 5/2",
+      "section": "quadratic_equations_sum_roots"
+    },
+    {
+      "id": 58,
+      "question": "The product of the roots of the equation 3x² + 7x - 2 = 0 is",
+      "options": {
+        "A": "7/3",
+        "B": "-7/3",
+        "C": "2/3",
+        "D": "-2/3"
+      },
+      "correct_answer": "D",
+      "explanation": "For ax² + bx + c = 0, product of roots = c/a = -2/3",
+      "section": "quadratic_equations_product_roots"
+    },
+    {
+      "id": 59,
+      "question": "If tan θ = 4/3, find sin θ.",
+      "options": {
+        "A": "3/5",
+        "B": "4/5",
+        "C": "5/4",
+        "D": "5/3"
+      },
+      "correct_answer": "B",
+      "explanation": "tan θ = opposite/adjacent = 4/3. Hypotenuse = √(4²+3²) = 5. sin θ = opposite/hypotenuse = 4/5",
+      "section": "trigonometry"
+    },
+    {
+      "id": 60,
+      "question": "Simplify (1 - sin²θ)",
+      "options": {
+        "A": "cos²θ",
+        "B": "tan²θ",
+        "C": "sec²θ",
+        "D": "cot²θ"
+      },
+      "correct_answer": "A",
+      "explanation": "Using identity sin²θ + cos²θ = 1 ⇒ 1 - sin²θ = cos²θ",
+      "section": "trigonometric_identities"
+    },
+    {
+      "id": 61,
+      "question": "If cos θ = 1/2, find θ for 0° ≤ θ ≤ 360°.",
+      "options": {
+        "A": "30° and 150°",
+        "B": "45° and 135°",
+        "C": "60° and 300°",
+        "D": "60° and 330°"
+      },
+      "correct_answer": "C",
+      "explanation": "cos θ = 1/2 ⇒ θ = 60° (1st quadrant) or θ = 360° - 60° = 300° (4th quadrant)",
+      "section": "trigonometry_angles"
+    },
+    {
+      "id": 62,
+      "question": "The derivative of a constant is",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "the constant itself",
+        "D": "undefined"
+      },
+      "correct_answer": "A",
+      "explanation": "The derivative of any constant is 0 because constants don't change",
+      "section": "differentiation"
+    },
+    {
+      "id": 63,
+      "question": "Find the value of x for which the function y = x³ - 3x has a minimum point.",
+      "options": {
+        "A": "-1",
+        "B": "0",
+        "C": "1",
+        "D": "2"
+      },
+      "correct_answer": "C",
+      "explanation": "dy/dx = 3x² - 3 = 0 ⇒ x² = 1 ⇒ x = ±1. d²y/dx² = 6x. At x=1, d²y/dx²=6>0 (minimum), at x=-1, d²y/dx²=-6<0 (maximum)",
+      "section": "maxima_minima"
+    },
+    {
+      "id": 64,
+      "question": "Evaluate the limit: lim (x→2) (x² - 4)/(x - 2)",
+      "options": {
+        "A": "0",
+        "B": "2",
+        "C": "4",
+        "D": "undefined"
+      },
+      "correct_answer": "C",
+      "explanation": "(x²-4)/(x-2) = (x-2)(x+2)/(x-2) = x+2. As x→2, x+2→4",
+      "section": "limits"
+    },
+    {
+      "id": 65,
+      "question": "A box contains 4 red and 6 black balls. If two balls are drawn at random, find the probability that they are of the same color.",
+      "options": {
+        "A": "1/3",
+        "B": "7/15",
+        "C": "8/15",
+        "D": "2/3"
+      },
+      "correct_answer": "B",
+      "explanation": "P(both red) = (4/10)×(3/9)=12/90=2/15, P(both black)=(6/10)×(5/9)=30/90=1/3. Total = 2/15 + 1/3 = 2/15 + 5/15 = 7/15",
+      "section": "probability"
+    },
+    {
+      "id": 66,
+      "question": "The 4th term of an exponential sequence is 54 and the 7th term is 1458. Find the common ratio.",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5"
+      },
+      "correct_answer": "B",
+      "explanation": "4th term = ar³ = 54, 7th term = ar⁶ = 1458. Divide: (ar⁶)/(ar³)=1458/54 ⇒ r³=27 ⇒ r=3",
+      "section": "geometric_progression"
+    },
+    {
+      "id": 67,
+      "question": "Find the number of sides of a regular polygon whose interior angle is 150°.",
+      "options": {
+        "A": "10",
+        "B": "11",
+        "C": "12",
+        "D": "13"
+      },
+      "correct_answer": "C",
+      "explanation": "Each exterior angle = 180° - 150° = 30°. Number of sides = 360°/30° = 12",
+      "section": "polygons"
+    },
+    {
+      "id": 68,
+      "question": "The exterior angle of a regular polygon is 30°. How many sides does it have?",
+      "options": {
+        "A": "10",
+        "B": "11",
+        "C": "12",
+        "D": "13"
+      },
+      "correct_answer": "C",
+      "explanation": "Number of sides = 360°/exterior angle = 360°/30° = 12",
+      "section": "polygons"
+    },
+    {
+      "id": 69,
+      "question": "If log₁₀2 = 0.3010 and log₁₀3 = 0.4771, find log₁₀6.",
+      "options": {
+        "A": "0.5741",
+        "B": "0.6721",
+        "C": "0.7781",
+        "D": "0.8451"
+      },
+      "correct_answer": "C",
+      "explanation": "log₁₀6 = log₁₀(2×3) = log₁₀2 + log₁₀3 = 0.3010 + 0.4771 = 0.7781",
+      "section": "logarithms"
+    },
+    {
+      "id": 70,
+      "question": "Solve for x: log₁₀(x + 1) - log₁₀(x - 1) = 1.",
+      "options": {
+        "A": "11/9",
+        "B": "10/9",
+        "C": "9/10",
+        "D": "9/11"
+      },
+      "correct_answer": "A",
+      "explanation": "log[(x+1)/(x-1)] = 1 ⇒ (x+1)/(x-1) = 10¹ = 10 ⇒ x+1 = 10(x-1) ⇒ x+1=10x-10 ⇒ 11=9x ⇒ x=11/9",
+      "section": "logarithms"
+    },
+    {
+      "id": 71,
+      "question": "The base of a triangle is 10cm and its area is 40cm². What is its height?",
+      "options": {
+        "A": "4cm",
+        "B": "6cm",
+        "C": "8cm",
+        "D": "10cm"
+      },
+      "correct_answer": "C",
+      "explanation": "Area = ½ × base × height ⇒ 40 = ½ × 10 × h ⇒ 40 = 5h ⇒ h = 8cm",
+      "section": "area_of_triangle"
+    },
+    {
+      "id": 72,
+      "question": "A chord of a circle is 8cm long and is 3cm from the center. Calculate the radius of the circle.",
+      "options": {
+        "A": "4cm",
+        "B": "5cm",
+        "C": "6cm",
+        "D": "7cm"
+      },
+      "correct_answer": "B",
+      "explanation": "Half chord = 4cm, distance from center = 3cm. Radius = √(4² + 3²) = √(16+9) = √25 = 5cm",
+      "section": "circle_geometry"
+    },
+    {
+      "id": 73,
+      "question": "The angle subtended at the center of a circle of radius 7cm by an arc of length 11cm is?",
+      "options": {
+        "A": "60°",
+        "B": "90°",
+        "C": "120°",
+        "D": "150°"
+      },
+      "correct_answer": "B",
+      "explanation": "Arc length = rθ (θ in radians) ⇒ 11 = 7θ ⇒ θ = 11/7 radians. Convert to degrees: (11/7)×(180/π) ≈ (11/7)×57.3 ≈ 90°",
+      "section": "circle_geometry"
+    },
+    {
+      "id": 74,
+      "question": "If y = (2x + 3)⁶, find dy/dx.",
+      "options": {
+        "A": "6(2x+3)⁵",
+        "B": "12(2x+3)⁵",
+        "C": "12(2x+3)⁶",
+        "D": "2(2x+3)⁵"
+      },
+      "correct_answer": "B",
+      "explanation": "Using chain rule: dy/dx = 6(2x+3)⁵ × 2 = 12(2x+3)⁵",
+      "section": "differentiation_chain_rule"
+    },
+    {
+      "id": 75,
+      "question": "Find the derivative of sin(3x).",
+      "options": {
+        "A": "3 cos(3x)",
+        "B": "cos(3x)",
+        "C": "-3 cos(3x)",
+        "D": "-cos(3x)"
+      },
+      "correct_answer": "A",
+      "explanation": "d/dx[sin(3x)] = cos(3x) × 3 = 3 cos(3x)",
+      "section": "differentiation_trig_functions"
+    },
+    {
+      "id": 76,
+      "question": "Evaluate ∫ sin x dx.",
+      "options": {
+        "A": "cos x + C",
+        "B": "-cos x + C",
+        "C": "sin x + C",
+        "D": "-sin x + C"
+      },
+      "correct_answer": "B",
+      "explanation": "∫ sin x dx = -cos x + C",
+      "section": "integration_trig_functions"
+    },
+    {
+      "id": 77,
+      "question": "If the position vectors of points A and B are (2, 3) and (5, 7) respectively, find the vector AB.",
+      "options": {
+        "A": "(3, 4)",
+        "B": "(4, 3)",
+        "C": "(7, 10)",
+        "D": "(-3, -4)"
+      },
+      "correct_answer": "A",
+      "explanation": "AB = position vector of B - position vector of A = (5-2, 7-3) = (3, 4)",
+      "section": "vectors"
+    },
+    {
+      "id": 78,
+      "question": "The magnitude of the vector (3, 4) is",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct_answer": "A",
+      "explanation": "Magnitude = √(3² + 4²) = √(9+16) = √25 = 5",
+      "section": "vectors"
+    },
+    {
+      "id": 79,
+      "question": "If a = 2i + 3j and b = 4i - j, find a + b.",
+      "options": {
+        "A": "6i + 2j",
+        "B": "6i - 2j",
+        "C": "2i + 4j",
+        "D": "-2i + 4j"
+      },
+      "correct_answer": "A",
+      "explanation": "a + b = (2i+3j) + (4i-j) = (2+4)i + (3-1)j = 6i + 2j",
+      "section": "vectors"
+    },
+    {
+      "id": 80,
+      "question": "The scalar product of vectors a = (2, 3) and b = (4, 1) is",
+      "options": {
+        "A": "8",
+        "B": "10",
+        "C": "11",
+        "D": "12"
+      },
+      "correct_answer": "C",
+      "explanation": "a·b = (2×4) + (3×1) = 8 + 3 = 11",
+      "section": "vectors_dot_product"
+    },
+    {
+      "id": 81,
+      "question": "Find the value of x if the vectors (x, 2) and (3, 4) are perpendicular.",
+      "options": {
+        "A": "-8/3",
+        "B": "-3/8",
+        "C": "3/8",
+        "D": "8/3"
+      },
+      "correct_answer": "A",
+      "explanation": "For perpendicular vectors, dot product = 0 ⇒ x×3 + 2×4 = 0 ⇒ 3x + 8 = 0 ⇒ x = -8/3",
+      "section": "vectors_perpendicular"
+    },
+    {
+      "id": 82,
+      "question": "The 3rd term of an A.P. is 14 and the 9th term is 38. Find the common difference.",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "correct_answer": "B",
+      "explanation": "3rd term = a + 2d = 14, 9th term = a + 8d = 38. Subtract: (a+8d)-(a+2d)=38-14 ⇒ 6d=24 ⇒ d=4",
+      "section": "arithmetic_progression"
+    },
+    {
+      "id": 83,
+      "question": "Find the sum of the first 20 even numbers.",
+      "options": {
+        "A": "400",
+        "B": "410",
+        "C": "420",
+        "D": "430"
+      },
+      "correct_answer": "C",
+      "explanation": "First 20 even numbers: 2,4,6,...,40. This is A.P. with a=2, d=2, n=20. Sum = n/2[2a+(n-1)d] = 20/2[4+38] = 10×42 = 420",
+      "section": "sequence_series"
+    },
+    {
+      "id": 84,
+      "question": "The first term of a G.P. is 5 and the common ratio is 2. What is the 6th term?",
+      "options": {
+        "A": "80",
+        "B": "120",
+        "C": "160",
+        "D": "200"
+      },
+      "correct_answer": "C",
+      "explanation": "6th term = ar⁵ = 5 × 2⁵ = 5 × 32 = 160",
+      "section": "geometric_progression"
+    },
+    {
+      "id": 85,
+      "question": "If 3, x, 27 are consecutive terms of a G.P., find the value of x.",
+      "options": {
+        "A": "6",
+        "B": "9",
+        "C": "12",
+        "D": "15"
+      },
+      "correct_answer": "B",
+      "explanation": "In G.P., (middle term)² = product of extremes ⇒ x² = 3×27 = 81 ⇒ x = 9",
+      "section": "geometric_progression"
+    },
+    {
+      "id": 86,
+      "question": "A man is 4 times as old as his son. In 5 years time, he will be 3 times as old as his son. How old is the son now?",
+      "options": {
+        "A": "5 years",
+        "B": "8 years",
+        "C": "10 years",
+        "D": "12 years"
+      },
+      "correct_answer": "C",
+      "explanation": "Let son's age = x, then man's age = 4x. In 5 years: 4x+5 = 3(x+5) ⇒ 4x+5=3x+15 ⇒ x=10",
+      "section": "word_problems_age"
+    },
+    {
+      "id": 87,
+      "question": "The sum of the interior angles of a pentagon is",
+      "options": {
+        "A": "360°",
+        "B": "540°",
+        "C": "720°",
+        "D": "900°"
+      },
+      "correct_answer": "B",
+      "explanation": "Sum of interior angles of n-gon = (n-2)×180° = (5-2)×180° = 3×180° = 540°",
+      "section": "polygons"
+    },
+    {
+      "id": 88,
+      "question": "Each exterior angle of a regular polygon is 45°. How many sides does it have?",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "9"
+      },
+      "correct_answer": "C",
+      "explanation": "Number of sides = 360°/exterior angle = 360°/45° = 8",
+      "section": "polygons"
+    },
+    {
+      "id": 89,
+      "question": "The length of a rectangle is 3 times its width. If the perimeter is 48cm, find its area.",
+      "options": {
+        "A": "72 cm²",
+        "B": "96 cm²",
+        "C": "108 cm²",
+        "D": "144 cm²"
+      },
+      "correct_answer": "C",
+      "explanation": "Let width = w, length = 3w. Perimeter = 2(l+w)=2(3w+w)=8w=48 ⇒ w=6cm, l=18cm. Area = l×w=18×6=108 cm²",
+      "section": "area_perimeter"
+    },
+    {
+      "id": 90,
+      "question": "The volume of a cone with radius 7cm and height 12cm is? (Take π = 22/7)",
+      "options": {
+        "A": "154 cm³",
+        "B": "308 cm³",
+        "C": "462 cm³",
+        "D": "616 cm³"
+      },
+      "correct_answer": "D",
+      "explanation": "Volume of cone = ⅓πr²h = ⅓×(22/7)×7²×12 = ⅓×(22/7)×49×12 = ⅓×22×7×12 = 22×7×4 = 616 cm³",
+      "section": "volume_of_cone"
+    },
+    {
+      "id": 91,
+      "question": "The curved surface area of a cylinder of radius 7cm and height 10cm is? (Take π = 22/7)",
+      "options": {
+        "A": "220 cm²",
+        "B": "440 cm²",
+        "C": "660 cm²",
+        "D": "880 cm²"
+      },
+      "correct_answer": "B",
+      "explanation": "Curved surface area = 2πrh = 2×(22/7)×7×10 = 2×22×10 = 440 cm²",
+      "section": "surface_area"
+    },
+    {
+      "id": 92,
+      "question": "If the midpoint of the line segment joining (x, 3) and (5, y) is (3, 5), find x and y.",
+      "options": {
+        "A": "x=1, y=7",
+        "B": "x=2, y=7",
+        "C": "x=1, y=8",
+        "D": "x=2, y=8"
+      },
+      "correct_answer": "A",
+      "explanation": "Midpoint = ((x+5)/2, (3+y)/2) = (3,5) ⇒ (x+5)/2=3 ⇒ x+5=6 ⇒ x=1; (3+y)/2=5 ⇒ 3+y=10 ⇒ y=7",
+      "section": "coordinate_geometry_midpoint"
+    },
+    {
+      "id": 93,
+      "question": "The line 3x + 4y = 12 cuts the x-axis at the point",
+      "options": {
+        "A": "(0, 3)",
+        "B": "(3, 0)",
+        "C": "(0, 4)",
+        "D": "(4, 0)"
+      },
+      "correct_answer": "D",
+      "explanation": "On x-axis, y=0. So 3x+4(0)=12 ⇒ 3x=12 ⇒ x=4. Point is (4,0)",
+      "section": "coordinate_geometry_intercepts"
+    },
+    {
+      "id": 94,
+      "question": "If 5 books cost ₦x, how many books can you buy with ₦y?",
+      "options": {
+        "A": "5y/x",
+        "B": "5x/y",
+        "C": "xy/5",
+        "D": "5xy"
+      },
+      "correct_answer": "A",
+      "explanation": "Cost per book = ₦x/5. Number of books for ₦y = y ÷ (x/5) = 5y/x",
+      "section": "variation"
+    },
+    {
+      "id": 95,
+      "question": "If p varies inversely as the square of q and p = 4 when q = 3, find p when q = 2.",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "9"
+      },
+      "correct_answer": "D",
+      "explanation": "p ∝ 1/q² ⇒ p = k/q². When q=3, p=4 ⇒ 4=k/9 ⇒ k=36. When q=2, p=36/4=9",
+      "section": "variation"
+    },
+    {
+      "id": 96,
+      "question": "The solution of the quadratic inequality x² - 5x + 6 < 0 is",
+      "options": {
+        "A": "2 < x < 3",
+        "B": "x < 2 or x > 3",
+        "C": "x < -3 or x > -2",
+        "D": "-3 < x < -2"
+      },
+      "correct_answer": "A",
+      "explanation": "x²-5x+6=(x-2)(x-3)<0. Critical points x=2,3. Test intervals: negative between 2 and 3 ⇒ 2<x<3",
+      "section": "inequalities"
+    },
+    {
+      "id": 97,
+      "question": "Find the value of k if the equation x² + kx + 9 = 0 has equal roots.",
+      "options": {
+        "A": "±3",
+        "B": "±6",
+        "C": "±9",
+        "D": "±12"
+      },
+      "correct_answer": "B",
+      "explanation": "Equal roots when discriminant = 0 ⇒ k² - 4×1×9=0 ⇒ k²=36 ⇒ k=±6",
+      "section": "quadratic_equations_discriminant"
+    },
+    {
+      "id": 98,
+      "question": "The remainder when x³ - 2x² + 3x - 1 is divided by (x - 1) is",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "3"
+      },
+      "correct_answer": "B",
+      "explanation": "Using remainder theorem: f(1)=1³-2(1)²+3(1)-1=1-2+3-1=1",
+      "section": "polynomials_remainder_theorem"
+    },
+    {
+      "id": 99,
+      "question": "If (x - 2) is a factor of x³ + kx² - 4x - 8, find k.",
+      "options": {
+        "A": "-1",
+        "B": "0",
+        "C": "1",
+        "D": "2"
+      },
+      "correct_answer": "C",
+      "explanation": "If (x-2) is factor, then f(2)=0 ⇒ 8 + 4k - 8 - 8=0 ⇒ 4k-8=0 ⇒ k=2",
+      "section": "polynomials_factor_theorem"
+    },
+    {
+      "id": 100,
+      "question": "Solve the equation: 4^(x+1) = 8^x",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "B",
+      "explanation": "4^(x+1)=8^x ⇒ (2²)^(x+1)=(2³)^x ⇒ 2^(2x+2)=2^(3x) ⇒ 2x+2=3x ⇒ x=2",
+      "section": "indices"
+    },
+    {
+      "id": 101,
+      "question": "Simplify (81)^(3/4)",
+      "options": {
+        "A": "9",
+        "B": "18",
+        "C": "27",
+        "D": "36"
+      },
+      "correct_answer": "C",
+      "explanation": "81^(3/4) = (3⁴)^(3/4) = 3³ = 27",
+      "section": "indices"
+    },
+    {
+      "id": 102,
+      "question": "Express 0.000345 in standard form.",
+      "options": {
+        "A": "3.45 x 10⁻⁴",
+        "B": "3.45 x 10⁻³",
+        "C": "3.45 x 10⁻⁵",
+        "D": "3.45 x 10⁻⁶"
+      },
+      "correct_answer": "A",
+      "explanation": "0.000345 = 3.45 × 10⁻⁴",
+      "section": "standard_form"
+    },
+    {
+      "id": 103,
+      "question": "The interior angle of a regular hexagon is",
+      "options": {
+        "A": "60°",
+        "B": "90°",
+        "C": "120°",
+        "D": "150°"
+      },
+      "correct_answer": "C",
+      "explanation": "Each interior angle = (n-2)×180°/n = (6-2)×180°/6 = 4×30°=120°",
+      "section": "polygons"
+    },
+    {
+      "id": 104,
+      "question": "Two triangles are similar if",
+      "options": {
+        "A": "their corresponding sides are equal",
+        "B": "their corresponding angles are equal",
+        "C": "they have the same area",
+        "D": "they have the same perimeter"
+      },
+      "correct_answer": "B",
+      "explanation": "Triangles are similar if their corresponding angles are equal",
+      "section": "similarity"
+    },
+    {
+      "id": 105,
+      "question": "The sine rule states that for any triangle ABC,",
+      "options": {
+        "A": "a/sin A = b/sin B = c/sin C",
+        "B": "a² = b² + c² - 2bc cos A",
+        "C": "sin A / a = sin B / b = sin C / c",
+        "D": "Area = ½ ab sin C"
+      },
+      "correct_answer": "A",
+      "explanation": "Sine rule: a/sin A = b/sin B = c/sin C = 2R",
+      "section": "sine_rule"
+    },
+    {
+      "id": 106,
+      "question": "The cosine rule for side a is",
+      "options": {
+        "A": "a² = b² + c² - 2bc cos A",
+        "B": "a = b cos C + c cos B",
+        "C": "a/sin A = 2R",
+        "D": "a² = b² + c²"
+      },
+      "correct_answer": "A",
+      "explanation": "Cosine rule: a² = b² + c² - 2bc cos A",
+      "section": "cosine_rule"
+    },
+    {
+      "id": 107,
+      "question": "A bag contains 3 red, 4 blue, and 5 green balls. One ball is drawn at random. What is the probability that it is not blue?",
+      "options": {
+        "A": "1/3",
+        "B": "2/3",
+        "C": "3/4",
+        "D": "4/5"
+      },
+      "correct_answer": "B",
+      "explanation": "P(not blue) = 1 - P(blue) = 1 - 4/12 = 1 - 1/3 = 2/3",
+      "section": "probability"
+    },
+    {
+      "id": 108,
+      "question": "The mean age of 5 students is 15 years. If the age of one more student is added, the mean becomes 16 years. What is the age of the sixth student?",
+      "options": {
+        "A": "18 years",
+        "B": "19 years",
+        "C": "20 years",
+        "D": "21 years"
+      },
+      "correct_answer": "D",
+      "explanation": "Sum of 5 students = 5×15=75. Sum of 6 students = 6×16=96. Sixth student's age = 96-75=21 years",
+      "section": "mean"
+    },
+    {
+      "id": 109,
+      "question": "The modal score of 2, 3, 3, 4, 4, 4, 5, 6 is",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "correct_answer": "B",
+      "explanation": "Mode is the most frequent score. 4 appears 3 times, others appear less",
+      "section": "mode"
+    },
+    {
+      "id": 110,
+      "question": "The median of 1, 3, 5, 7, 9, 11 is",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct_answer": "B",
+      "explanation": "Even number of terms: median = average of middle two = (5+7)/2 = 6",
+      "section": "median"
+    },
+    {
+      "id": 111,
+      "question": "If the simple interest on ₦6000 for 3 years is ₦1080, what is the rate percent per annum?",
+      "options": {
+        "A": "4%",
+        "B": "5%",
+        "C": "6%",
+        "D": "7%"
+      },
+      "correct_answer": "C",
+      "explanation": "SI = (P×R×T)/100 ⇒ 1080 = (6000×R×3)/100 ⇒ 1080=180R ⇒ R=6%",
+      "section": "simple_interest"
+    },
+    {
+      "id": 112,
+      "question": "A car valued at ₦1,200,000 depreciates by 10% per annum. What is its value after 2 years?",
+      "options": {
+        "A": "₦860,000",
+        "B": "₦900,000",
+        "C": "₦940,000",
+        "D": "₦972,000"
+      },
+      "correct_answer": "D",
+      "explanation": "Value after 2 years = 1,200,000 × (1 - 10/100)² = 1,200,000 × 0.9² = 1,200,000 × 0.81 = ₦972,000",
+      "section": "depreciation"
+    },
+    {
+      "id": 113,
+      "question": "If 3x - 2y = 8 and x + y = 4, find the value of x.",
+      "options": {
+        "A": "2.8",
+        "B": "3.0",
+        "C": "3.2",
+        "D": "3.4"
+      },
+      "correct_answer": "C",
+      "explanation": "From second equation: y=4-x. Substitute: 3x-2(4-x)=8 ⇒ 3x-8+2x=8 ⇒ 5x=16 ⇒ x=3.2",
+      "section": "simultaneous_equations"
+    },
+    {
+      "id": 114,
+      "question": "The solution set of the equation x² - 9 = 0 is",
+      "options": {
+        "A": "{-3, 3}",
+        "B": "{-9, 9}",
+        "C": "{3}",
+        "D": "{9}"
+      },
+      "correct_answer": "A",
+      "explanation": "x²-9=0 ⇒ (x-3)(x+3)=0 ⇒ x=3 or x=-3",
+      "section": "quadratic_equations"
+    },
+    {
+      "id": 115,
+      "question": "The graph of y = x² - 4x + 3 cuts the x-axis at the points",
+      "options": {
+        "A": "(1,0) and (3,0)",
+        "B": "(-1,0) and (-3,0)",
+        "C": "(1,0) and (-3,0)",
+        "D": "(-1,0) and (3,0)"
+      },
+      "correct_answer": "A",
+      "explanation": "x²-4x+3=0 ⇒ (x-1)(x-3)=0 ⇒ x=1 or x=3. Points: (1,0) and (3,0)",
+      "section": "graph_quadratic_function"
+    },
+    {
+      "id": 116,
+      "question": "The maximum value of the function y = 4 - x² is",
+      "options": {
+        "A": "0",
+        "B": "2",
+        "C": "4",
+        "D": "8"
+      },
+      "correct_answer": "C",
+      "explanation": "y = 4 - x² is a downward parabola with vertex at (0,4). Maximum value = 4",
+      "section": "maxima_minima"
+    },
+    {
+      "id": 117,
+      "question": "Evaluate ∫₀¹ (2x + 1) dx.",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "B",
+      "explanation": "∫(2x+1)dx = x² + x. Evaluate from 0 to 1: (1+1)-(0+0)=2",
+      "section": "definite_integral"
+    },
+    {
+      "id": 118,
+      "question": "If the position vectors of A and B are a and b respectively, the position vector of the midpoint of AB is",
+      "options": {
+        "A": "a + b",
+        "B": "½(a + b)",
+        "C": "a - b",
+        "D": "½(a - b)"
+      },
+      "correct_answer": "B",
+      "explanation": "Position vector of midpoint = ½(a + b)",
+      "section": "vectors"
+    },
+    {
+      "id": 119,
+      "question": "Two vectors are perpendicular if their scalar product is",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "-1",
+        "D": "undefined"
+      },
+      "correct_answer": "A",
+      "explanation": "Vectors are perpendicular if their dot product = 0",
+      "section": "vectors"
+    },
+    {
+      "id": 120,
+      "question": "The negation of the statement 'It is raining' is",
+      "options": {
+        "A": "It is not raining",
+        "B": "It is sunny",
+        "C": "It might rain",
+        "D": "It was raining"
+      },
+      "correct_answer": "A",
+      "explanation": "Negation of 'p' is 'not p'",
+      "section": "logic"
+    },
+    {
+      "id": 121,
+      "question": "In how many ways can 5 people be arranged in a row?",
+      "options": {
+        "A": "25",
+        "B": "60",
+        "C": "120",
+        "D": "125"
+      },
+      "correct_answer": "C",
+      "explanation": "5! = 5×4×3×2×1 = 120",
+      "section": "permutations"
+    },
+    {
+      "id": 122,
+      "question": "How many different committees of 3 people can be chosen from 7 people?",
+      "options": {
+        "A": "21",
+        "B": "35",
+        "C": "42",
+        "D": "49"
+      },
+      "correct_answer": "B",
+      "explanation": "⁷C₃ = 7!/(3!4!) = (7×6×5)/(3×2×1) = 35",
+      "section": "combinations"
+    },
+    {
+      "id": 123,
+      "question": "The binomial expansion of (1 + x)⁴ is",
+      "options": {
+        "A": "1 + 4x + 6x² + 4x³ + x⁴",
+        "B": "1 + 4x + 4x² + 4x³ + x⁴",
+        "C": "1 + 4x + 8x² + 8x³ + x⁴",
+        "D": "1 + 4x + 2x² + 4x³ + x⁴"
+      },
+      "correct_answer": "A",
+      "explanation": "(1+x)⁴ = 1 + 4x + 6x² + 4x³ + x⁴ using binomial coefficients",
+      "section": "binomial_theorem"
+    },
+    {
+      "id": 124,
+      "question": "The coefficient of x³ in the expansion of (2 + x)⁵ is",
+      "options": {
+        "A": "10",
+        "B": "40",
+        "C": "80",
+        "D": "120"
+      },
+      "correct_answer": "C",
+      "explanation": "Term in x³: ⁵C₃ × 2² × x³ = 10 × 4 × x³ = 40x³. Coefficient = 40",
+      "section": "binomial_theorem"
+    },
+    {
+      "id": 125,
+      "question": "The turning point of the graph of y = x² - 6x + 8 is a",
+      "options": {
+        "A": "maximum point at (3, -1)",
+        "B": "minimum point at (3, -1)",
+        "C": "maximum point at (-3, 1)",
+        "D": "minimum point at (-3, 1)"
+      },
+      "correct_answer": "B",
+      "explanation": "Complete square: y=(x-3)²-1. Vertex at (3,-1), coefficient of x² positive ⇒ minimum",
+      "section": "graph_quadratic_function"
+    },
+    {
+      "id": 126,
+      "question": "The derivative of ln(x) is",
+      "options": {
+        "A": "1/x",
+        "B": "x",
+        "C": "e^x",
+        "D": "1"
+      },
+      "correct_answer": "A",
+      "explanation": "d/dx[ln(x)] = 1/x",
+      "section": "differentiation"
+    },
+    {
+      "id": 127,
+      "question": "Evaluate ∫ e^x dx.",
+      "options": {
+        "A": "e^x + C",
+        "B": "ln(x) + C",
+        "C": "xe^x + C",
+        "D": "e^(x+1)/(x+1) + C"
+      },
+      "correct_answer": "A",
+      "explanation": "∫ e^x dx = e^x + C",
+      "section": "integration"
+    },
+    {
+      "id": 128,
+      "question": "The solution of the differential equation dy/dx = 3x² is",
+      "options": {
+        "A": "y = x³ + C",
+        "B": "y = 3x + C",
+        "C": "y = 6x + C",
+        "D": "y = x² + C"
+      },
+      "correct_answer": "A",
+      "explanation": "∫dy = ∫3x²dx ⇒ y = x³ + C",
+      "section": "differential_equations"
+    }
+  ]
+}

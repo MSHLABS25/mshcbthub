@@ -1,0 +1,1672 @@
+{
+  "subject": "Literature in English",
+  "exam_type": "JAMB",
+  "total_questions": 128,
+  "time_allowed": 8400,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is literature?",
+      "options": {
+        "A": "Written works of artistic value",
+        "B": "Any written material",
+        "C": "Historical documents",
+        "D": "Scientific writings"
+      },
+      "correct_answer": "A",
+      "explanation": "Literature refers to written works, especially those considered of superior or lasting artistic merit.",
+      "section": "introduction_to_literature"
+    },
+    {
+      "id": 2,
+      "question": "Which of these is a genre of literature?",
+      "options": {
+        "A": "Prose",
+        "B": "Poetry",
+        "C": "Drama",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "The three main genres of literature are prose, poetry, and drama.",
+      "section": "genres_of_literature"
+    },
+    {
+      "id": 3,
+      "question": "What is prose?",
+      "options": {
+        "A": "Writing in sentences and paragraphs",
+        "B": "Writing with rhyme and rhythm",
+        "C": "Writing for performance",
+        "D": "Short expressive writing"
+      },
+      "correct_answer": "A",
+      "explanation": "Prose is ordinary written or spoken language without metrical structure.",
+      "section": "prose"
+    },
+    {
+      "id": 4,
+      "question": "Which of these is a type of prose?",
+      "options": {
+        "A": "Novel",
+        "B": "Short story",
+        "C": "Novella",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Novel, short story, and novella are all types of prose fiction.",
+      "section": "prose"
+    },
+    {
+      "id": 5,
+      "question": "What is poetry?",
+      "options": {
+        "A": "Writing with aesthetic and rhythmic qualities",
+        "B": "Factual writing",
+        "C": "Scientific writing",
+        "D": "Historical writing"
+      },
+      "correct_answer": "A",
+      "explanation": "Poetry uses aesthetic and rhythmic qualities of language to evoke meanings.",
+      "section": "poetry"
+    },
+    {
+      "id": 6,
+      "question": "Which element is unique to drama?",
+      "options": {
+        "A": "Dialogue",
+        "B": "Stage directions",
+        "C": "Acts and scenes",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Drama features dialogue, stage directions, and division into acts and scenes.",
+      "section": "drama"
+    },
+    {
+      "id": 7,
+      "question": "What is a theme in literature?",
+      "options": {
+        "A": "The main idea or message",
+        "B": "The time and place",
+        "C": "The sequence of events",
+        "D": "The main character"
+      },
+      "correct_answer": "A",
+      "explanation": "Theme is the central idea, message, or insight about life that a work conveys.",
+      "section": "literary_elements"
+    },
+    {
+      "id": 8,
+      "question": "What is plot?",
+      "options": {
+        "A": "Sequence of events in a story",
+        "B": "Where the story happens",
+        "C": "The main character",
+        "D": "The writer's style"
+      },
+      "correct_answer": "A",
+      "explanation": "Plot refers to the sequence of events that make up a story.",
+      "section": "literary_elements"
+    },
+    {
+      "id": 9,
+      "question": "Which of these is part of plot structure?",
+      "options": {
+        "A": "Exposition",
+        "B": "Climax",
+        "C": "Resolution",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Plot structure includes exposition, rising action, climax, falling action, and resolution.",
+      "section": "literary_elements"
+    },
+    {
+      "id": 10,
+      "question": "What is characterization?",
+      "options": {
+        "A": "Creating and developing characters",
+        "B": "Writing character names",
+        "C": "Describing places",
+        "D": "Creating plot twists"
+      },
+      "correct_answer": "A",
+      "explanation": "Characterization is the process of creating and developing characters in a literary work.",
+      "section": "literary_elements"
+    },
+    {
+      "id": 11,
+      "question": "What is setting?",
+      "options": {
+        "A": "Time and place of a story",
+        "B": "The main conflict",
+        "C": "Character relationships",
+        "D": "The author's background"
+      },
+      "correct_answer": "A",
+      "explanation": "Setting refers to the time and place in which the events of a story occur.",
+      "section": "literary_elements"
+    },
+    {
+      "id": 12,
+      "question": "Which is a type of character?",
+      "options": {
+        "A": "Protagonist",
+        "B": "Antagonist",
+        "C": "Round character",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Characters can be protagonists, antagonists, round, flat, dynamic, or static.",
+      "section": "literary_elements"
+    },
+    {
+      "id": 13,
+      "question": "What is conflict in literature?",
+      "options": {
+        "A": "Struggle between opposing forces",
+        "B": "Peaceful resolution",
+        "C": "Character description",
+        "D": "Setting details"
+      },
+      "correct_answer": "A",
+      "explanation": "Conflict is the struggle between opposing forces that drives the plot.",
+      "section": "literary_elements"
+    },
+    {
+      "id": 14,
+      "question": "Which is a type of conflict?",
+      "options": {
+        "A": "Man vs man",
+        "B": "Man vs society",
+        "C": "Man vs self",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Common conflicts include man vs man, man vs society, man vs self, and man vs nature.",
+      "section": "literary_elements"
+    },
+    {
+      "id": 15,
+      "question": "What is point of view?",
+      "options": {
+        "A": "Perspective from which story is told",
+        "B": "Author's opinion",
+        "C": "Character's viewpoint",
+        "D": "Reader's interpretation"
+      },
+      "correct_answer": "A",
+      "explanation": "Point of view is the perspective from which a story is narrated.",
+      "section": "literary_elements"
+    },
+    {
+      "id": 16,
+      "question": "Which is a type of point of view?",
+      "options": {
+        "A": "First person",
+        "B": "Third person limited",
+        "C": "Third person omniscient",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Common points of view include first person, third person limited, and third person omniscient.",
+      "section": "literary_elements"
+    },
+    {
+      "id": 17,
+      "question": "What is tone in literature?",
+      "options": {
+        "A": "Author's attitude toward subject",
+        "B": "Character's mood",
+        "C": "Reader's feeling",
+        "D": "Story's setting"
+      },
+      "correct_answer": "A",
+      "explanation": "Tone is the author's attitude toward the subject matter or audience.",
+      "section": "literary_elements"
+    },
+    {
+      "id": 18,
+      "question": "What is mood?",
+      "options": {
+        "A": "Atmosphere or feeling created",
+        "B": "Author's personality",
+        "C": "Character's emotion",
+        "D": "Plot development"
+      },
+      "correct_answer": "A",
+      "explanation": "Mood is the atmosphere or emotional feeling created in the reader.",
+      "section": "literary_elements"
+    },
+    {
+      "id": 19,
+      "question": "What is symbolism?",
+      "options": {
+        "A": "Using symbols to represent ideas",
+        "B": "Writing symbols",
+        "C": "Mathematical signs",
+        "D": "Character names"
+      },
+      "correct_answer": "A",
+      "explanation": "Symbolism is the use of symbols to represent ideas or qualities.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 20,
+      "question": "What is imagery?",
+      "options": {
+        "A": "Descriptive language appealing to senses",
+        "B": "Pictures in books",
+        "C": "Character images",
+        "D": "Plot visualization"
+      },
+      "correct_answer": "A",
+      "explanation": "Imagery uses descriptive language to create sensory experiences for the reader.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 21,
+      "question": "What is a metaphor?",
+      "options": {
+        "A": "Direct comparison without 'like' or 'as'",
+        "B": "Comparison using 'like' or 'as'",
+        "C": "Contradictory terms",
+        "D": "Exaggerated statement"
+      },
+      "correct_answer": "A",
+      "explanation": "A metaphor directly compares two unlike things without using 'like' or 'as'.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 22,
+      "question": "What is a simile?",
+      "options": {
+        "A": "Comparison using 'like' or 'as'",
+        "B": "Direct comparison",
+        "C": "Human qualities to objects",
+        "D": "Sound imitation"
+      },
+      "correct_answer": "A",
+      "explanation": "A simile compares two different things using 'like' or 'as'.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 23,
+      "question": "What is personification?",
+      "options": {
+        "A": "Giving human traits to non-human things",
+        "B": "Creating persons",
+        "C": "Character development",
+        "D": "Plot personification"
+      },
+      "correct_answer": "A",
+      "explanation": "Personification gives human qualities to animals, objects, or ideas.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 24,
+      "question": "What is hyperbole?",
+      "options": {
+        "A": "Exaggeration for emphasis",
+        "B": "Understatement",
+        "C": "Direct statement",
+        "D": "Factual reporting"
+      },
+      "correct_answer": "A",
+      "explanation": "Hyperbole is deliberate exaggeration for emphasis or dramatic effect.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 25,
+      "question": "What is irony?",
+      "options": {
+        "A": "Contrast between expectation and reality",
+        "B": "Similarity between things",
+        "C": "Direct statement",
+        "D": "Literal meaning"
+      },
+      "correct_answer": "A",
+      "explanation": "Irony involves a contrast between expectation and reality.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 26,
+      "question": "Which is a type of irony?",
+      "options": {
+        "A": "Verbal irony",
+        "B": "Situational irony",
+        "C": "Dramatic irony",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "The three main types of irony are verbal, situational, and dramatic.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 27,
+      "question": "What is alliteration?",
+      "options": {
+        "A": "Repetition of initial consonant sounds",
+        "B": "Repetition of vowel sounds",
+        "C": "Repetition of end sounds",
+        "D": "Rhyming words"
+      },
+      "correct_answer": "A",
+      "explanation": "Alliteration is the repetition of initial consonant sounds in nearby words.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 28,
+      "question": "What is assonance?",
+      "options": {
+        "A": "Repetition of vowel sounds",
+        "B": "Repetition of consonants",
+        "C": "Rhyme scheme",
+        "D": "Meter pattern"
+      },
+      "correct_answer": "A",
+      "explanation": "Assonance is the repetition of vowel sounds in nearby words.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 29,
+      "question": "What is consonance?",
+      "options": {
+        "A": "Repetition of consonant sounds",
+        "B": "Repetition of vowels",
+        "C": "End rhymes",
+        "D": "Initial sounds"
+      },
+      "correct_answer": "A",
+      "explanation": "Consonance is the repetition of consonant sounds, typically at the end of words.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 30,
+      "question": "What is onomatopoeia?",
+      "options": {
+        "A": "Words that imitate sounds",
+        "B": "Sound patterns",
+        "C": "Musical devices",
+        "D": "Rhythm creation"
+      },
+      "correct_answer": "A",
+      "explanation": "Onomatopoeia uses words that imitate the natural sounds associated with objects or actions.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 31,
+      "question": "What is a stanza?",
+      "options": {
+        "A": "Group of lines in poetry",
+        "B": "Single line in poetry",
+        "C": "Poem's title",
+        "D": "Poem's theme"
+      },
+      "correct_answer": "A",
+      "explanation": "A stanza is a grouped set of lines in a poem, often with a recurring pattern.",
+      "section": "poetry_elements"
+    },
+    {
+      "id": 32,
+      "question": "What is rhyme?",
+      "options": {
+        "A": "Similarity of sounds between words",
+        "B": "Poem's rhythm",
+        "C": "Poem's structure",
+        "D": "Poet's style"
+      },
+      "correct_answer": "A",
+      "explanation": "Rhyme is the correspondence of sounds between words or endings of words.",
+      "section": "poetry_elements"
+    },
+    {
+      "id": 33,
+      "question": "What is rhythm?",
+      "options": {
+        "A": "Pattern of stressed and unstressed syllables",
+        "B": "Poem's rhyme",
+        "C": "Poem's meaning",
+        "D": "Poet's message"
+      },
+      "correct_answer": "A",
+      "explanation": "Rhythm is the pattern of stressed and unstressed syllables in poetry.",
+      "section": "poetry_elements"
+    },
+    {
+      "id": 34,
+      "question": "What is meter?",
+      "options": {
+        "A": "Regular rhythmic pattern in poetry",
+        "B": "Poem's length",
+        "C": "Number of stanzas",
+        "D": "Rhyme scheme"
+      },
+      "correct_answer": "A",
+      "explanation": "Meter is the systematic arrangement of stressed and unstressed syllables in verse.",
+      "section": "poetry_elements"
+    },
+    {
+      "id": 35,
+      "question": "What is a sonnet?",
+      "options": {
+        "A": "14-line poem with specific rhyme scheme",
+        "B": "Short story poem",
+        "C": "Long narrative poem",
+        "D": "Free verse poem"
+      },
+      "correct_answer": "A",
+      "explanation": "A sonnet is a 14-line poem, often with a specific rhyme scheme like Shakespearean or Petrarchan.",
+      "section": "poetry_forms"
+    },
+    {
+      "id": 36,
+      "question": "What is a ballad?",
+      "options": {
+        "A": "Narrative poem meant to be sung",
+        "B": "Short humorous poem",
+        "C": "Poem praising something",
+        "D": "Poem of mourning"
+      },
+      "correct_answer": "A",
+      "explanation": "A ballad is a narrative poem, often of folk origin, intended to be sung.",
+      "section": "poetry_forms"
+    },
+    {
+      "id": 37,
+      "question": "What is an ode?",
+      "options": {
+        "A": "Lyric poem praising something",
+        "B": "Poem telling a story",
+        "C": "Poem expressing grief",
+        "D": "Short witty poem"
+      },
+      "correct_answer": "A",
+      "explanation": "An ode is a lyric poem, usually addressing and praising a particular subject.",
+      "section": "poetry_forms"
+    },
+    {
+      "id": 38,
+      "question": "What is an elegy?",
+      "options": {
+        "A": "Poem of mourning or reflection on death",
+        "B": "Poem of praise",
+        "C": "Humorous poem",
+        "D": "Love poem"
+      },
+      "correct_answer": "A",
+      "explanation": "An elegy is a mournful, melancholic poem, especially a funeral song or lament for the dead.",
+      "section": "poetry_forms"
+    },
+    {
+      "id": 39,
+      "question": "What is free verse?",
+      "options": {
+        "A": "Poetry without regular meter or rhyme",
+        "B": "Poetry with strict form",
+        "C": "Rhyming poetry",
+        "D": "Traditional poetry"
+      },
+      "correct_answer": "A",
+      "explanation": "Free verse poetry does not follow regular meter patterns or rhyme schemes.",
+      "section": "poetry_forms"
+    },
+    {
+      "id": 40,
+      "question": "What is a soliloquy in drama?",
+      "options": {
+        "A": "Character speaking thoughts aloud alone",
+        "B": "Conversation between characters",
+        "C": "Group discussion",
+        "D": "Narrator's speech"
+      },
+      "correct_answer": "A",
+      "explanation": "A soliloquy is a speech where a character speaks their thoughts aloud while alone on stage.",
+      "section": "drama_elements"
+    },
+    {
+      "id": 41,
+      "question": "What is a monologue?",
+      "options": {
+        "A": "Long speech by one character",
+        "B": "Brief comment",
+        "C": "Stage direction",
+        "D": "Chorus speech"
+      },
+      "correct_answer": "A",
+      "explanation": "A monologue is a long speech by one character, often addressing other characters.",
+      "section": "drama_elements"
+    },
+    {
+      "id": 42,
+      "question": "What is dialogue?",
+      "options": {
+        "A": "Conversation between characters",
+        "B": "Single character speaking",
+        "C": "Narrator's comments",
+        "D": "Stage instructions"
+      },
+      "correct_answer": "A",
+      "explanation": "Dialogue is the conversation between two or more characters in a literary work.",
+      "section": "drama_elements"
+    },
+    {
+      "id": 43,
+      "question": "What is stage direction?",
+      "options": {
+        "A": "Instructions for actors and production",
+        "B": "Director's notes",
+        "C": "Audience guidance",
+        "D": "Character thoughts"
+      },
+      "correct_answer": "A",
+      "explanation": "Stage directions are instructions in the script for actors' movements, expressions, and technical aspects.",
+      "section": "drama_elements"
+    },
+    {
+      "id": 44,
+      "question": "What is tragedy?",
+      "options": {
+        "A": "Drama with unhappy ending",
+        "B": "Humorous play",
+        "C": "Musical drama",
+        "D": "Historical play"
+      },
+      "correct_answer": "A",
+      "explanation": "Tragedy is a dramatic work with a serious tone and typically an unhappy ending.",
+      "section": "drama_types"
+    },
+    {
+      "id": 45,
+      "question": "What is comedy?",
+      "options": {
+        "A": "Humorous drama with happy ending",
+        "B": "Serious drama",
+        "C": "Mystery play",
+        "D": "Religious drama"
+      },
+      "correct_answer": "A",
+      "explanation": "Comedy is a dramatic work that is humorous and typically has a happy ending.",
+      "section": "drama_types"
+    },
+    {
+      "id": 46,
+      "question": "What is tragicomedy?",
+      "options": {
+        "A": "Blend of tragedy and comedy",
+        "B": "Pure tragedy",
+        "C": "Pure comedy",
+        "D": "Musical drama"
+      },
+      "correct_answer": "A",
+      "explanation": "Tragicomedy combines elements of both tragedy and comedy.",
+      "section": "drama_types"
+    },
+    {
+      "id": 47,
+      "question": "Who wrote 'Things Fall Apart'?",
+      "options": {
+        "A": "Chinua Achebe",
+        "B": "Wole Soyinka",
+        "C": "Chimamanda Adichie",
+        "D": "Ngugi wa Thiong'o"
+      },
+      "correct_answer": "A",
+      "explanation": "Chinua Achebe, the Nigerian novelist, wrote 'Things Fall Apart' published in 1958.",
+      "section": "african_literature"
+    },
+    {
+      "id": 48,
+      "question": "Who is the main character in 'Things Fall Apart'?",
+      "options": {
+        "A": "Okonkwo",
+        "B": "Obierika",
+        "C": "Nwoye",
+        "D": "Ikemefuna"
+      },
+      "correct_answer": "A",
+      "explanation": "Okonkwo is the protagonist of Chinua Achebe's 'Things Fall Apart'.",
+      "section": "african_literature"
+    },
+    {
+      "id": 49,
+      "question": "What is the setting of 'Things Fall Apart'?",
+      "options": {
+        "A": "Pre-colonial Igbo society",
+        "B": "Modern Lagos",
+        "C": "Colonial government",
+        "D": "Post-independence Nigeria"
+      },
+      "correct_answer": "A",
+      "explanation": "The novel is set in pre-colonial Igbo society in Nigeria during the late 19th century.",
+      "section": "african_literature"
+    },
+    {
+      "id": 50,
+      "question": "Who wrote 'The Lion and the Jewel'?",
+      "options": {
+        "A": "Wole Soyinka",
+        "B": "Chinua Achebe",
+        "C": "Femi Osofisan",
+        "D": "J.P. Clark"
+      },
+      "correct_answer": "A",
+      "explanation": "Wole Soyinka, Nigerian playwright and Nobel laureate, wrote 'The Lion and the Jewel'.",
+      "section": "african_literature"
+    },
+    {
+      "id": 51,
+      "question": "What is the main theme of 'The Lion and the Jewel'?",
+      "options": {
+        "A": "Tradition vs modernity",
+        "B": "Political corruption",
+        "C": "Religious conflict",
+        "D": "Urban life"
+      },
+      "correct_answer": "A",
+      "explanation": "The play explores the conflict between traditional African values and Western modernization.",
+      "section": "african_literature"
+    },
+    {
+      "id": 52,
+      "question": "Who are the main characters in 'The Lion and the Jewel'?",
+      "options": {
+        "A": "Sidi, Lakunle, and Baroka",
+        "B": "Okonkwo and Obierika",
+        "C": "Ezeulu and Winterbottom",
+        "D": "Jagua and Freddie"
+      },
+      "correct_answer": "A",
+      "explanation": "The main characters are Sidi (the jewel), Lakunle (the teacher), and Baroka (the lion).",
+      "section": "african_literature"
+    },
+    {
+      "id": 53,
+      "question": "Who wrote 'Harvest of Corruption'?",
+      "options": {
+        "A": "Frank Ogodo Ogbeche",
+        "B": "Wole Soyinka",
+        "C": "Ola Rotimi",
+        "D": "Zulu Sofola"
+      },
+      "correct_answer": "A",
+      "explanation": "Frank Ogodo Ogbeche is the author of 'Harvest of Corruption'.",
+      "section": "african_literature"
+    },
+    {
+      "id": 54,
+      "question": "What is the main theme of 'Harvest of Corruption'?",
+      "options": {
+        "A": "Corruption in society",
+        "B": "Love and romance",
+        "C": "Traditional values",
+        "D": "Religious faith"
+      },
+      "correct_answer": "A",
+      "explanation": "The play exposes corruption in Nigerian society and its devastating consequences.",
+      "section": "african_literature"
+    },
+    {
+      "id": 55,
+      "question": "Who wrote 'The Blood of a Stranger'?",
+      "options": {
+        "A": "Dele Charley",
+        "B": "Wole Soyinka",
+        "C": "J.P. Clark",
+        "D": "Ola Rotimi"
+      },
+      "correct_answer": "A",
+      "explanation": "Dele Charley from Sierra Leone wrote 'The Blood of a Stranger'.",
+      "section": "african_literature"
+    },
+    {
+      "id": 56,
+      "question": "Who wrote 'Unexpected Joy at Dawn'?",
+      "options": {
+        "A": "Alex Agyei-Agyiri",
+        "B": "Ayi Kwei Armah",
+        "C": "Chimamanda Adichie",
+        "D": "Buchi Emecheta"
+      },
+      "correct_answer": "A",
+      "explanation": "Alex Agyei-Agyiri is the author of 'Unexpected Joy at Dawn'.",
+      "section": "african_literature"
+    },
+    {
+      "id": 57,
+      "question": "Who wrote 'The Blinkards'?",
+      "options": {
+        "A": "Kobina Sekyi",
+        "B": "Wole Soyinka",
+        "C": "Chinua Achebe",
+        "D": "Cyprian Ekwensi"
+      },
+      "correct_answer": "A",
+      "explanation": "Kobina Sekyi, a Ghanaian writer, wrote 'The Blinkards'.",
+      "section": "african_literature"
+    },
+    {
+      "id": 58,
+      "question": "Who wrote 'Faceless'?",
+      "options": {
+        "A": "Amma Darko",
+        "B": "Buchi Emecheta",
+        "C": "Flora Nwapa",
+        "D": "Mariama Ba"
+      },
+      "correct_answer": "A",
+      "explanation": "Amma Darko, Ghanaian author, wrote 'Faceless'.",
+      "section": "african_literature"
+    },
+    {
+      "id": 59,
+      "question": "Who is the author of 'The Concubine'?",
+      "options": {
+        "A": "Elechi Amadi",
+        "B": "Chinua Achebe",
+        "C": "Cyprian Ekwensi",
+        "D": "Wole Soyinka"
+      },
+      "correct_answer": "A",
+      "explanation": "Elechi Amadi wrote 'The Concubine', published in 1966.",
+      "section": "african_literature"
+    },
+    {
+      "id": 60,
+      "question": "Who wrote 'The Trials of Brother Jero'?",
+      "options": {
+        "A": "Wole Soyinka",
+        "B": "Ola Rotimi",
+        "C": "Femi Osofisan",
+        "D": "J.P. Clark"
+      },
+      "correct_answer": "A",
+      "explanation": "Wole Soyinka wrote 'The Trials of Brother Jero', a satirical play.",
+      "section": "african_literature"
+    },
+    {
+      "id": 61,
+      "question": "Who is the author of 'The Joys of Motherhood'?",
+      "options": {
+        "A": "Buchi Emecheta",
+        "B": "Flora Nwapa",
+        "C": "Mariama Ba",
+        "D": "Ama Ata Aidoo"
+      },
+      "correct_answer": "A",
+      "explanation": "Buchi Emecheta, Nigerian novelist, wrote 'The Joys of Motherhood'.",
+      "section": "african_literature"
+    },
+    {
+      "id": 62,
+      "question": "Who wrote 'So Long a Letter'?",
+      "options": {
+        "A": "Mariama Ba",
+        "B": "Buchi Emecheta",
+        "C": "Flora Nwapa",
+        "D": "Ama Ata Aidoo"
+      },
+      "correct_answer": "A",
+      "explanation": "Mariama Ba, Senegalese author, wrote 'So Long a Letter'.",
+      "section": "african_literature"
+    },
+    {
+      "id": 63,
+      "question": "Who is the author of 'The River Between'?",
+      "options": {
+        "A": "Ngugi wa Thiong'o",
+        "B": "Chinua Achebe",
+        "C": "Wole Soyinka",
+        "D": "Ousmane Sembene"
+      },
+      "correct_answer": "A",
+      "explanation": "Ngugi wa Thiong'o, Kenyan writer, wrote 'The River Between'.",
+      "section": "african_literature"
+    },
+    {
+      "id": 64,
+      "question": "Who wrote 'Arrow of God'?",
+      "options": {
+        "A": "Chinua Achebe",
+        "B": "Wole Soyinka",
+        "C": "Cyprian Ekwensi",
+        "D": "Elechi Amadi"
+      },
+      "correct_answer": "A",
+      "explanation": "Chinua Achebe wrote 'Arrow of God', the second novel in his African trilogy.",
+      "section": "african_literature"
+    },
+    {
+      "id": 65,
+      "question": "Who is the author of 'The Interpreters'?",
+      "options": {
+        "A": "Wole Soyinka",
+        "B": "Chinua Achebe",
+        "C": "Gabriel Okara",
+        "D": "Christopher Okigbo"
+      },
+      "correct_answer": "A",
+      "explanation": "Wole Soyinka wrote 'The Interpreters', his first novel.",
+      "section": "african_literature"
+    },
+    {
+      "id": 66,
+      "question": "Who wrote 'Weep Not Child'?",
+      "options": {
+        "A": "Ngugi wa Thiong'o",
+        "B": "Chinua Achebe",
+        "C": "Wole Soyinka",
+        "D": "Peter Abrahams"
+      },
+      "correct_answer": "A",
+      "explanation": "Ngugi wa Thiong'o wrote 'Weep Not Child', his first novel.",
+      "section": "african_literature"
+    },
+    {
+      "id": 67,
+      "question": "Who is the author of 'The Beautiful Ones Are Not Yet Born'?",
+      "options": {
+        "A": "Ayi Kwei Armah",
+        "B": "Chinua Achebe",
+        "C": "Wole Soyinka",
+        "D": "Kofi Awoonor"
+      },
+      "correct_answer": "A",
+      "explanation": "Ayi Kwei Armah, Ghanaian writer, wrote 'The Beautiful Ones Are Not Yet Born'.",
+      "section": "african_literature"
+    },
+    {
+      "id": 68,
+      "question": "Who wrote 'Efuru'?",
+      "options": {
+        "A": "Flora Nwapa",
+        "B": "Buchi Emecheta",
+        "C": "Mariama Ba",
+        "D": "Ama Ata Aidoo"
+      },
+      "correct_answer": "A",
+      "explanation": "Flora Nwapa, Nigerian author, wrote 'Efuru', making her the first African woman novelist.",
+      "section": "african_literature"
+    },
+    {
+      "id": 69,
+      "question": "Who is the author of 'The Famished Road'?",
+      "options": {
+        "A": "Ben Okri",
+        "B": "Chinua Achebe",
+        "C": "Wole Soyinka",
+        "D": "Amos Tutuola"
+      },
+      "correct_answer": "A",
+      "explanation": "Ben Okri wrote 'The Famished Road' which won the Booker Prize in 1991.",
+      "section": "african_literature"
+    },
+    {
+      "id": 70,
+      "question": "Who wrote 'Half of a Yellow Sun'?",
+      "options": {
+        "A": "Chimamanda Ngozi Adichie",
+        "B": "Chinua Achebe",
+        "C": "Wole Soyinka",
+        "D": "Buchi Emecheta"
+      },
+      "correct_answer": "A",
+      "explanation": "Chimamanda Ngozi Adichie wrote 'Half of a Yellow Sun' about the Biafran War.",
+      "section": "african_literature"
+    },
+    {
+      "id": 71,
+      "question": "Who is the author of 'Purple Hibiscus'?",
+      "options": {
+        "A": "Chimamanda Ngozi Adichie",
+        "B": "Chinua Achebe",
+        "C": "Buchi Emecheta",
+        "D": "Flora Nwapa"
+      },
+      "correct_answer": "A",
+      "explanation": "Chimamanda Ngozi Adichie wrote 'Purple Hibiscus', her debut novel.",
+      "section": "african_literature"
+    },
+    {
+      "id": 72,
+      "question": "Who wrote 'A Grain of Wheat'?",
+      "options": {
+        "A": "Ngugi wa Thiong'o",
+        "B": "Chinua Achebe",
+        "C": "Wole Soyinka",
+        "D": "Peter Abrahams"
+      },
+      "correct_answer": "A",
+      "explanation": "Ngugi wa Thiong'o wrote 'A Grain of Wheat' about Kenya's struggle for independence.",
+      "section": "african_literature"
+    },
+    {
+      "id": 73,
+      "question": "Who is the author of 'The Palm-Wine Drinkard'?",
+      "options": {
+        "A": "Amos Tutuola",
+        "B": "Chinua Achebe",
+        "C": "Wole Soyinka",
+        "D": "Cyprian Ekwensi"
+      },
+      "correct_answer": "A",
+      "explanation": "Amos Tutuola wrote 'The Palm-Wine Drinkard', his first novel.",
+      "section": "african_literature"
+    },
+    {
+      "id": 74,
+      "question": "Who wrote 'Death and ½the King's Horseman'?",
+      "options": {
+        "A": "Wole Soyinka",
+        "B": "Ola Rotimi",
+        "C": "J.P. Clark",
+        "D": "Femi Osofisan"
+      }3p,
+      "correct_answer": "A",
+      "explanation": "Wole Soyinka wrote 'Death and the King's Horseman' based on a historical incident.",
+      "section": "african_literature"
+    },
+    {
+      "id": 75,
+      "question": "Who is the author of 'The Slave Girl'?",
+      "options": {
+        "A": "Buchi Emecheta",
+        "B": "Flora Nwapa",
+        "C": "Mariama Ba",
+        "D": "Ama Ata Aidoo"
+      },
+      "correct_answer": "A",
+      "explanation": "Buchi Emecheta wrote 'The Slave Girl' about the experiences of women in Nigerian society.",
+      "section": "african_literature"
+    },
+    {
+      "id": 76,
+      "question": "What is non-African poetry?",
+      "options": {
+        "A": "Poetry from outside Africa",
+        "B": "Modern African poetry",
+        "C": "Traditional African poetry",
+        "D": "Poetry in African languages"
+      },
+      "correct_answer": "A",
+      "explanation": "Non-African poetry refers to poetic works originating from outside the African continent.",
+      "section": "non_african_poetry"
+    },
+    {
+      "id": 77,
+      "question": "Who wrote 'The Proud King'?",
+      "options": {
+        "A": "William Morris",
+        "B": "William Shakespeare",
+        "C": "John Milton",
+        "D": "Geoffrey Chaucer"
+      },
+      "correct_answer": "A",
+      "explanation": "William Morris, English poet, wrote 'The Proud King'.",
+      "section": "non_african_poetry"
+    },
+    {
+      "id": 78,
+      "question": "Who is the author of 'The School Boy'?",
+      "options": {
+        "A": "William Blake",
+        "B": "William Wordsworth",
+        "C": "John Keats",
+        "D": "Percy Shelley"
+      },
+      "correct_answer": "A",
+      "explanation": "William Blake wrote 'The School Boy' as part of his 'Songs of Experience'.",
+      "section": "non_african_poetry"
+    },
+    {
+      "id": 79,
+      "question": "Who wrote 'Binsey Poplars'?",
+      "options": {
+        "A": "Gerard Manley Hopkins",
+        "B": "William Wordsworth",
+        "C": "John Keats",
+        "D": "Alfred Tennyson"
+      },
+      "correct_answer": "A",
+      "explanation": "Gerard Manley Hopkins wrote 'Binsey Poplars' about the felling of trees.",
+      "section": "non_african_poetry"
+    },
+    {
+      "id": 80,
+      "question": "Who is the author of 'The Pulley'?",
+      "options": {
+        "A": "George Herbert",
+        "B": "John Donne",
+        "C": "Andrew Marvell",
+        "D": "Henry Vaughan"
+      },
+      "correct_answer": "A",
+      "explanation": "George Herbert wrote 'The Pulley', a metaphysical poem about God's relationship with humanity.",
+      "section": "non_african_poetry"
+    },
+    {
+      "id": 81,
+      "question": "Who wrote 'The Panic of Growing Older'?",
+      "options": {
+        "A": "Lenrie Peters",
+        "B": "Wole Soyinka",
+        "C": "Christopher Okigbo",
+        "D": "Gabriel Okara"
+      },
+      "correct_answer": "A",
+      "explanation": "Lenrie Peters, Gambian poet, wrote 'The Panic of Growing Older'.",
+      "section": "african_poetry"
+    },
+    {
+      "id": 82,
+      "question": "Who is the author of 'The Dining Table'?",
+      "options": {
+        "A": "Gbanabom Hallowell",
+        "B": "Wole Soyinka",
+        "C": "Christopher Okigbo",
+        "D": "J.P. Clark"
+      },
+      "correct_answer": "A",
+      "explanation": "Gbanabom Hallowell, Sierra Leonean poet, wrote 'The Dining Table'.",
+      "section": "african_poetry"
+    },
+    {
+      "id": 83,
+      "question": "Who wrote 'The Song of the Women of My Land'?",
+      "options": {
+        "A": "Oumar Farouk Sesay",
+        "B": "Wole Soyinka",
+        "C": "Gabriel Okara",
+        "D": "Christopher Okigbo"
+      },
+      "correct_answer": "A",
+      "explanation": "Oumar Farouk Sesay, Sierra Leonean poet, wrote 'The Song of the Women of My Land'.",
+      "section": "african_poetry"
+    },
+    {
+      "id": 84,
+      "question": "Who is the author of 'Raider of the Treasure Trove'?",
+      "options": {
+        "A": "Lade Wosornu",
+        "B": "Wole Soyinka",
+        "C": "J.P. Clark",
+        "D": "Christopher Okigbo"
+      },
+      "correct_answer": "A",
+      "explanation": "Lade Wosornu, Ghanaian poet, wrote 'Raider of the Treasure Trove'.",
+      "section": "african_poetry"
+    },
+    {
+      "id": 85,
+      "question": "What is literary appreciation?",
+      "options": {
+        "A": "Understanding and evaluating literature",
+        "B": "Writing literature",
+        "C": "Memorizing poems",
+        "D": "Performing plays"
+      },
+      "correct_answer": "A",
+      "explanation": "Literary appreciation involves understanding, analyzing, and evaluating literary works.",
+      "section": "literary_appreciation"
+    },
+    {
+      "id": 86,
+      "question": "What is critical analysis?",
+      "options": {
+        "A": "Detailed examination of literary elements",
+        "B": "Simple summary",
+        "C": "Author biography",
+        "D": "Plot retelling"
+      },
+      "correct_answer": "A",
+      "explanation": "Critical analysis involves examining literary elements like theme, characterization, and style.",
+      "section": "literary_appreciation"
+    },
+    {
+      "id": 87,
+      "question": "What is context in literature?",
+      "options": {
+        "A": "Circumstances surrounding a text",
+        "B": "Text's vocabulary",
+        "C": "Author's name",
+        "D": "Publication date"
+      },
+      "correct_answer": "A",
+      "explanation": "Context includes historical, social, and cultural circumstances influencing a literary work.",
+      "section": "literary_appreciation"
+    },
+    {
+      "id": 88,
+      "question": "What is oral literature?",
+      "options": {
+        "A": "Literature transmitted by word of mouth",
+        "B": "Written literature",
+        "C": "Printed books",
+        "D": "Digital literature"
+      },
+      "correct_answer": "A",
+      "explanation": "Oral literature includes folktales, proverbs, myths, and songs passed down verbally.",
+      "section": "oral_literature"
+    },
+    {
+      "id": 89,
+      "question": "What is a folktale?",
+      "options": {
+        "A": "Traditional story passed orally",
+        "B": "Modern short story",
+        "C": "Historical document",
+        "D": "Scientific report"
+      },
+      "correct_answer": "A",
+      "explanation": "Folktales are traditional stories passed down orally through generations.",
+      "section": "oral_literature"
+    },
+    {
+      "id": 90,
+      "question": "What is a proverb?",
+      "options": {
+        "A": "Short wise saying",
+        "B": "Long narrative",
+        "C": "Poetic form",
+        "D": "Dramatic speech"
+      },
+      "correct_answer": "A",
+      "explanation": "A proverb is a short, traditional saying expressing a perceived truth.",
+      "section": "oral_literature"
+    },
+    {
+      "id": 91,
+      "question": "What is a myth?",
+      "options": {
+        "A": "Traditional story explaining natural phenomena",
+        "B": "Historical fact",
+        "C": "Scientific theory",
+        "D": "Modern fiction"
+      },
+      "correct_answer": "A",
+      "explanation": "Myths are traditional stories explaining natural phenomena or cultural beliefs.",
+      "section": "oral_literature"
+    },
+    {
+      "id": 92,
+      "question": "What is a legend?",
+      "options": {
+        "A": "Story based on historical events",
+        "B": "Scientific fact",
+        "C": "Modern novel",
+        "D": "Poetic form"
+      },
+      "correct_answer": "A",
+      "explanation": "Legends are stories rooted in historical events but with exaggerated elements.",
+      "section": "oral_literature"
+    },
+    {
+      "id": 93,
+      "question": "What is a fable?",
+      "options": {
+        "A": "Story with moral, often with animals",
+        "B": "Historical account",
+        "C": "Love story",
+        "D": "Adventure tale"
+      },
+      "correct_answer": "A",
+      "explanation": "Fables are short stories, often with animal characters, conveying moral lessons.",
+      "section": "oral_literature"
+    },
+    {
+      "id": 94,
+      "question": "What is literary criticism?",
+      "options": {
+        "A": "Analysis and evaluation of literature",
+        "B": "Writing literature",
+        "C": "Memorizing texts",
+        "D": "Publishing books"
+      },
+      "correct_answer": "A",
+      "explanation": "Literary criticism involves analyzing, interpreting, and evaluating literary works.",
+      "section": "literary_criticism"
+    },
+    {
+      "id": 95,
+      "question": "What is formalism in criticism?",
+      "options": {
+        "A": "Focus on form and structure",
+        "B": "Study of author's life",
+        "C": "Historical context",
+        "D": "Social impact"
+      },
+      "correct_answer": "A",
+      "explanation": "Formalism emphasizes the form, structure, and literary devices in a work.",
+      "section": "literary_criticism"
+    },
+    {
+      "id": 96,
+      "question": "What is Marxist criticism?",
+      "options": {
+        "A": "Focus on class struggles and economic factors",
+        "B": "Study of symbols",
+        "C": "Analysis of structure",
+        "D": "Focus on author's psychology"
+      },
+      "correct_answer": "A",
+      "explanation": "Marxist criticism examines literature in terms of class struggles and economic systems.",
+      "section": "literary_criticism"
+    },
+    {
+      "id": 97,
+      "question": "What is feminist criticism?",
+      "options": {
+        "A": "Analysis of gender representation",
+        "B": "Study of form",
+        "C": "Historical analysis",
+        "D": "Structural analysis"
+      },
+      "correct_answer": "A",
+      "explanation": "Feminist criticism examines how literature represents gender and women's experiences.",
+      "section": "literary_criticism"
+    },
+    {
+      "id": 98,
+      "question": "What is post-colonial criticism?",
+      "options": {
+        "A": "Study of colonial impacts on literature",
+        "B": "Analysis of structure",
+        "C": "Study of symbols",
+        "D": "Focus on form"
+      },
+      "correct_answer": "A",
+      "explanation": "Post-colonial criticism examines literature in the context of colonialism and its aftermath.",
+      "section": "literary_criticism"
+    },
+    {
+      "id": 99,
+      "question": "What is a literary movement?",
+      "options": {
+        "A": "Group of writers with shared style/themes",
+        "B": "Author's career path",
+        "C": "Book publishing trend",
+        "D": "Reading habit"
+      },
+      "correct_answer": "A",
+      "explanation": "A literary movement is a group of writers sharing similar styles, themes, or philosophies.",
+      "section": "literary_movements"
+    },
+    {
+      "id": 100,
+      "question": "What is Romanticism?",
+      "options": {
+        "A": "Emphasis on emotion and nature",
+        "B": "Focus on reason and order",
+        "C": "Urban industrialization",
+        "D": "Scientific precision"
+      },
+      "correct_answer": "A",
+      "explanation": "Romanticism emphasizes emotion, imagination, and nature over reason and order.",
+      "section": "literary_movements"
+    },
+    {
+      "id": 101,
+      "question": "What is Realism?",
+      "options": {
+        "A": "Portrayal of everyday life accurately",
+        "B": "Idealized representation",
+        "C": "Supernatural elements",
+        "D": "Emotional exaggeration"
+      },
+      "correct_answer": "A",
+      "explanation": "Realism aims to represent everyday life and society accurately without idealization.",
+      "section": "literary_movements"
+    },
+    {
+      "id": 102,
+      "question": "What is Modernism?",
+      "options": {
+        "A": "Break from traditional forms",
+        "B": "Traditional storytelling",
+        "C": "Classical themes",
+        "D": "Conventional structure"
+      },
+      "correct_answer": "A",
+      "explanation": "Modernism involves breaking from traditional forms and experimenting with new techniques.",
+      "section": "literary_movements"
+    },
+    {
+      "id": 103,
+      "question": "What is Postmodernism?",
+      "options": {
+        "A": "Skepticism of grand narratives",
+        "B": "Belief in absolute truth",
+        "C": "Traditional values",
+        "D": "Classical forms"
+      },
+      "correct_answer": "A",
+      "explanation": "Postmodernism questions grand narratives and embraces fragmentation and irony.",
+      "section": "literary_movements"
+    },
+    {
+      "id": 104,
+      "question": "What is Negritude?",
+      "options": {
+        "A": "Celebration of African identity",
+        "B": "Rejection of African culture",
+        "C": "European literary style",
+        "D": "Asian literary movement"
+      },
+      "correct_answer": "A",
+      "explanation": "Negritude is a literary movement celebrating African culture and identity.",
+      "section": "literary_movements"
+    },
+    {
+      "id": 105,
+      "question": "Who were key figures in Negritude?",
+      "options": {
+        "A": "Leopold Senghor, Aime Cesaire",
+        "B": "Chinua Achebe, Wole Soyinka",
+        "C": "William Shakespeare, John Milton",
+        "D": "Karl Marx, Friedrich Engels"
+      },
+      "correct_answer": "A",
+      "explanation": "Leopold Senghor and Aime Cesaire were founding figures of the Negritude movement.",
+      "section": "literary_movements"
+    },
+    {
+      "id": 106,
+      "question": "What is African oral tradition?",
+      "options": {
+        "A": "Verbal artistic expressions in Africa",
+        "B": "Written African literature",
+        "C": "European stories about Africa",
+        "D": "Modern African novels"
+      },
+      "correct_answer": "A",
+      "explanation": "African oral tradition includes stories, poems, songs, and proverbs transmitted verbally.",
+      "section": "oral_literature"
+    },
+    {
+      "id": 107,
+      "question": "What is a griot?",
+      "options": {
+        "A": "West African oral historian",
+        "B": "European poet",
+        "C": "Asian storyteller",
+        "D": "American novelist"
+      },
+      "correct_answer": "A",
+      "explanation": "A griot is a West African historian, storyteller, and keeper of oral tradition.",
+      "section": "oral_literature"
+    },
+    {
+      "id": 108,
+      "question": "What is performance poetry?",
+      "options": {
+        "A": "Poetry written for performance",
+        "B": "Silent reading poetry",
+        "C": "Printed poems only",
+        "D": "Classical poetry"
+      },
+      "correct_answer": "A",
+      "explanation": "Performance poetry is composed specifically for live presentation with dramatic elements.",
+      "section": "poetry"
+    },
+    {
+      "id": 109,
+      "question": "What is a playwright?",
+      "options": {
+        "A": "Writer of plays",
+        "B": "Actor in plays",
+        "C": "Director of plays",
+        "D": "Designer of sets"
+      },
+      "correct_answer": "A",
+      "explanation": "A playwright is a person who writes plays for the theater.",
+      "section": "drama"
+    },
+    {
+      "id": 110,
+      "question": "What is a novelist?",
+      "options": {
+        "A": "Writer of novels",
+        "B": "Writer of poems",
+        "C": "Writer of plays",
+        "D": "Writer of short stories"
+      },
+      "correct_answer": "A",
+      "explanation": "A novelist is an author who writes novels, which are long works of fiction.",
+      "section": "prose"
+    },
+    {
+      "id": 111,
+      "question": "What is a poet?",
+      "options": {
+        "A": "Writer of poems",
+        "B": "Writer of novels",
+        "C": "Writer of plays",
+        "D": "Writer of essays"
+      },
+      "correct_answer": "A",
+      "explanation": "A poet is a person who writes poems, expressing ideas and emotions in verse.",
+      "section": "poetry"
+    },
+    {
+      "id": 112,
+      "question": "What is an essay?",
+      "options": {
+        "A": "Short piece of writing on a subject",
+        "B": "Long fictional story",
+        "C": "Dramatic work",
+        "D": "Poetic composition"
+      },
+      "correct_answer": "A",
+      "explanation": "An essay is a short piece of writing on a particular subject, often expressing personal views.",
+      "section": "prose"
+    },
+    {
+      "id": 113,
+      "question": "What is biography?",
+      "options": {
+        "A": "Story of a person's life written by someone else",
+        "B": "Story of one's own life",
+        "C": "Fictional life story",
+        "D": "Historical event account"
+      },
+      "correct_answer": "A",
+      "explanation": "A biography is an account of someone's life written by another person.",
+      "section": "prose"
+    },
+    {
+      "id": 114,
+      "question": "What is autobiography?",
+      "options": {
+        "A": "Story of one's own life",
+        "B": "Story of someone else's life",
+        "C": "Fictional life story",
+        "D": "Historical account"
+      },
+      "correct_answer": "A",
+      "explanation": "An autobiography is an account of a person's life written by that person.",
+      "section": "prose"
+    },
+    {
+      "id": 115,
+      "question": "What is a memoir?",
+      "options": {
+        "A": "Personal account of specific experiences",
+        "B": "Complete life story",
+        "C": "Fictional narrative",
+        "D": "Historical document"
+      },
+      "correct_answer": "A",
+      "explanation": "A memoir focuses on specific aspects or periods of the author's life rather than the entire life.",
+      "section": "prose"
+    },
+    {
+      "id": 116,
+      "question": "What is science fiction?",
+      "options": {
+        "A": "Fiction based on imagined future scientific advances",
+        "B": "Historical events fiction",
+        "C": "Romantic stories",
+        "D": "Mystery novels"
+      },
+      "correct_answer": "A",
+      "explanation": "Science fiction explores imaginative concepts like futuristic science and technology.",
+      "section": "prose"
+    },
+    {
+      "id": 117,
+      "question": "What is fantasy literature?",
+      "options": {
+        "A": "Fiction with magical or supernatural elements",
+        "B": "Realistic stories",
+        "C": "Historical accounts",
+        "D": "Scientific reports"
+      },
+      "correct_answer": "A",
+      "explanation": "Fantasy literature features magical or supernatural elements not found in the real world.",
+      "section": "prose"
+    },
+    {
+      "id": 118,
+      "question": "What is mystery fiction?",
+      "options": {
+        "A": "Stories involving crime or puzzle solving",
+        "B": "Romantic stories",
+        "C": "Historical events",
+        "D": "Scientific discoveries"
+      },
+      "correct_answer": "A",
+      "explanation": "Mystery fiction focuses on solving a crime or uncovering secrets.",
+      "section": "prose"
+    },
+    {
+      "id": 119,
+      "question": "What is historical fiction?",
+      "options": {
+        "A": "Fiction set in the past with historical elements",
+        "B": "Future predictions",
+        "C": "Present-day stories",
+        "D": "Scientific theories"
+      },
+      "correct_answer": "A",
+      "explanation": "Historical fiction is set in the past and incorporates historical events or figures.",
+      "section": "prose"
+    },
+    {
+      "id": 120,
+      "question": "What is realistic fiction?",
+      "options": {
+        "A": "Stories that could happen in real life",
+        "B": "Fantasy stories",
+        "C": "Science fiction",
+        "D": "Historical accounts"
+      },
+      "correct_answer": "A",
+      "explanation": "Realistic fiction features events and characters that could exist in the real world.",
+      "section": "prose"
+    },
+    {
+      "id": 121,
+      "question": "What is adventure fiction?",
+      "options": {
+        "A": "Stories involving exciting journeys or quests",
+        "B": "Domestic stories",
+        "C": "Psychological studies",
+        "D": "Philosophical debates"
+      },
+      "correct_answer": "A",
+      "explanation": "Adventure fiction typically involves exciting journeys, risks, and physical danger.",
+      "section": "prose"
+    },
+    {
+      "id": 122,
+      "question": "What is romance fiction?",
+      "options": {
+        "A": "Stories focusing on love relationships",
+        "B": "Action stories",
+        "C": "Mystery novels",
+        "D": "Historical accounts"
+      },
+      "correct_answer": "A",
+      "explanation": "Romance fiction centers on love relationships and emotional journeys.",
+      "section": "prose"
+    },
+    {
+      "id": 123,
+      "question": "What is horror fiction?",
+      "options": {
+        "A": "Stories intended to scare readers",
+        "B": "Comedic stories",
+        "C": "Romantic stories",
+        "D": "Educational texts"
+      },
+      "correct_answer": "A",
+      "explanation": "Horror fiction aims to frighten or unsettle readers with terrifying elements.",
+      "section": "prose"
+    },
+    {
+      "id": 124,
+      "question": "What is satire?",
+      "options": {
+        "A": "Use of humor to criticize society",
+        "B": "Serious tragedy",
+        "C": "Romantic praise",
+        "D": "Historical recording"
+      },
+      "correct_answer": "A",
+      "explanation": "Satire uses humor, irony, or exaggeration to criticize society or human nature.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 125,
+      "question": "What is parody?",
+      "options": {
+        "A": "Humorous imitation of a work or style",
+        "B": "Serious analysis",
+        "C": "Original creation",
+        "D": "Historical account"
+      },
+      "correct_answer": "A",
+      "explanation": "Parody imitates the style of a work or genre for comic effect or criticism.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 126,
+      "question": "What is allegory?",
+      "options": {
+        "A": "Story with hidden moral or political meaning",
+        "B": "Literal narrative",
+        "C": "Biographical account",
+        "D": "Scientific report"
+      },
+      "correct_answer": "A",
+      "explanation": "Allegory uses characters and events as symbols to convey hidden meanings.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 127,
+      "question": "What is foreshadowing?",
+      "options": {
+        "A": "Hints about future events",
+        "B": "Description of past events",
+        "C": "Character introduction",
+        "D": "Setting description"
+      },
+      "correct_answer": "A",
+      "explanation": "Foreshadowing gives subtle hints or clues about events that will occur later.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 128,
+      "question": "What is flashback?",
+      "options": {
+        "A": "Scene set in earlier time than main story",
+        "B": "Future prediction",
+        "C": "Present action",
+        "D": "Character dream"
+      },
+      "correct_answer": "A",
+      "explanation": "Flashback interrupts the present action to show events from the past.",
+      "section": "literary_devices"
+    }
+  ]
+}

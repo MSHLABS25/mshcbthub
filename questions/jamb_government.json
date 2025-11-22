@@ -1,0 +1,1672 @@
+{
+  "subject": "Government",
+  "exam_type": "JAMB",
+  "total_questions": 128,
+  "time_allowed": 8400,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary function of government?",
+      "options": {
+        "A": "To provide employment",
+        "B": "To maintain law and order",
+        "C": "To build infrastructure",
+        "D": "To conduct foreign affairs"
+      },
+      "correct_answer": "B",
+      "explanation": "The primary function of any government is to maintain law and order and ensure the security of lives and property.",
+      "section": "basic_concepts"
+    },
+    {
+      "id": 2,
+      "question": "Which of these is a feature of a state?",
+      "options": {
+        "A": "Political parties",
+        "B": "Sovereignty",
+        "C": "Constitution",
+        "D": "Elections"
+      },
+      "correct_answer": "B",
+      "explanation": "The four essential features of a state are: population, territory, government, and sovereignty.",
+      "section": "basic_concepts"
+    },
+    {
+      "id": 3,
+      "question": "What is sovereignty in government?",
+      "options": {
+        "A": "The power to make laws",
+        "B": "Supreme power and authority",
+        "C": "The right to vote",
+        "D": "Military strength"
+      },
+      "correct_answer": "B",
+      "explanation": "Sovereignty refers to the supreme power and authority of a state to govern itself without external control.",
+      "section": "basic_concepts"
+    },
+    {
+      "id": 4,
+      "question": "Which system of government has separation of powers?",
+      "options": {
+        "A": "Parliamentary",
+        "B": "Presidential",
+        "C": "Monarchical",
+        "D": "Unitary"
+      },
+      "correct_answer": "B",
+      "explanation": "Presidential system features clear separation of powers among the executive, legislature, and judiciary.",
+      "section": "systems_of_government"
+    },
+    {
+      "id": 5,
+      "question": "What is the main characteristic of a unitary system?",
+      "options": {
+        "A": "Division of power",
+        "B": "Concentration of power",
+        "C": "Separation of powers",
+        "D": "Federal character"
+      },
+      "correct_answer": "B",
+      "explanation": "In a unitary system, all governmental powers are concentrated in a single central authority.",
+      "section": "systems_of_government"
+    },
+    {
+      "id": 6,
+      "question": "Which country practices parliamentary system?",
+      "options": {
+        "A": "United States",
+        "B": "United Kingdom",
+        "C": "Brazil",
+        "D": "Mexico"
+      },
+      "correct_answer": "B",
+      "explanation": "The United Kingdom practices parliamentary system where the executive is drawn from and accountable to the legislature.",
+      "section": "systems_of_government"
+    },
+    {
+      "id": 7,
+      "question": "What is the supreme body in a confederation?",
+      "options": {
+        "A": "Central government",
+        "B": "Component states",
+        "C": "Judiciary",
+        "D": "Military"
+      },
+      "correct_answer": "B",
+      "explanation": "In a confederation, the component states are supreme and the central authority is weak.",
+      "section": "systems_of_government"
+    },
+    {
+      "id": 8,
+      "question": "Which organ of government interprets laws?",
+      "options": {
+        "A": "Executive",
+        "B": "Legislature",
+        "C": "Judiciary",
+        "D": "Bureaucracy"
+      },
+      "correct_answer": "C",
+      "explanation": "The judiciary is responsible for interpreting laws and administering justice.",
+      "section": "organs_of_government"
+    },
+    {
+      "id": 9,
+      "question": "What is the primary function of the legislature?",
+      "options": {
+        "A": "Implementation of laws",
+        "B": "Making of laws",
+        "C": "Interpretation of laws",
+        "D": "Execution of policies"
+      },
+      "correct_answer": "B",
+      "explanation": "The main function of the legislature is law-making.",
+      "section": "organs_of_government"
+    },
+    {
+      "id": 10,
+      "question": "Which branch of government implements policies?",
+      "options": {
+        "A": "Legislature",
+        "B": "Executive",
+        "C": "Judiciary",
+        "D": "Civil service"
+      },
+      "correct_answer": "B",
+      "explanation": "The executive branch is responsible for implementing government policies and laws.",
+      "section": "organs_of_government"
+    },
+    {
+      "id": 11,
+      "question": "What is constitutionalism?",
+      "options": {
+        "A": "Having a constitution",
+        "B": "Government according to constitutional provisions",
+        "C": "Writing constitutions",
+        "D": "Constitutional amendments"
+      },
+      "correct_answer": "B",
+      "explanation": "Constitutionalism means government according to the provisions and principles of the constitution.",
+      "section": "constitution"
+    },
+    {
+      "id": 12,
+      "question": "Which type of constitution is rigid?",
+      "options": {
+        "A": "Unwritten constitution",
+        "B": "Flexible constitution",
+        "C": "Written constitution",
+        "D": "Conventional constitution"
+      },
+      "correct_answer": "C",
+      "explanation": "Written constitutions are usually rigid, requiring special procedures for amendment.",
+      "section": "constitution"
+    },
+    {
+      "id": 13,
+      "question": "What is the main source of British constitution?",
+      "options": {
+        "A": "Single document",
+        "B": "Constitutional conventions",
+        "C": "Judicial precedents",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "The British constitution is unwritten and derives from statutes, conventions, judicial precedents, and authoritative works.",
+      "section": "constitution"
+    },
+    {
+      "id": 14,
+      "question": "Which principle means 'rule of law'?",
+      "options": {
+        "A": "Supremacy of parliament",
+        "B": "Equality before the law",
+        "C": "Separation of powers",
+        "D": "Judicial review"
+      },
+      "correct_answer": "B",
+      "explanation": "Rule of law means everyone is equal before the law and subject to the same laws.",
+      "section": "principles_of_government"
+    },
+    {
+      "id": 15,
+      "question": "What does separation of powers prevent?",
+      "options": {
+        "A": "Efficiency",
+        "B": "Tyranny",
+        "C": "Democracy",
+        "D": "Federalism"
+      },
+      "correct_answer": "B",
+      "explanation": "Separation of powers prevents tyranny by dividing governmental powers among different branches.",
+      "section": "principles_of_government"
+    },
+    {
+      "id": 16,
+      "question": "Which system has checks and balances?",
+      "options": {
+        "A": "Parliamentary",
+        "B": "Presidential",
+        "C": "Monarchical",
+        "D": "Unitary"
+      },
+      "correct_answer": "B",
+      "explanation": "Presidential system features checks and balances where each branch can limit the powers of others.",
+      "section": "principles_of_government"
+    },
+    {
+      "id": 17,
+      "question": "What is political socialization?",
+      "options": {
+        "A": "Political campaigns",
+        "B": "Learning political values",
+        "C": "Socialist politics",
+        "D": "Political meetings"
+      },
+      "correct_answer": "B",
+      "explanation": "Political socialization is the process through which individuals learn political attitudes, values, and behaviors.",
+      "section": "political_concepts"
+    },
+    {
+      "id": 18,
+      "question": "Which is an agent of political socialization?",
+      "options": {
+        "A": "Family",
+        "B": "School",
+        "C": "Mass media",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Family, school, mass media, peer groups, and religious organizations are all agents of political socialization.",
+      "section": "political_concepts"
+    },
+    {
+      "id": 19,
+      "question": "What is political participation?",
+      "options": {
+        "A": "Government activities",
+        "B": "Citizen involvement in politics",
+        "C": "Political appointments",
+        "D": "Military coups"
+      },
+      "correct_answer": "B",
+      "explanation": "Political participation refers to the various ways citizens can influence political decisions and processes.",
+      "section": "political_concepts"
+    },
+    {
+      "id": 20,
+      "question": "Which is a form of political participation?",
+      "options": {
+        "A": "Voting",
+        "B": "Protesting",
+        "C": "Joining political parties",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Political participation includes voting, protesting, joining parties, campaigning, and other civic activities.",
+      "section": "political_concepts"
+    },
+    {
+      "id": 21,
+      "question": "What is public opinion?",
+      "options": {
+        "A": "Government opinion",
+        "B": "Collective views of citizens",
+        "C": "Media reports",
+        "D": "Official statements"
+      },
+      "correct_answer": "B",
+      "explanation": "Public opinion refers to the collective attitudes and beliefs of citizens about political issues.",
+      "section": "political_concepts"
+    },
+    {
+      "id": 22,
+      "question": "Which institution protects fundamental human rights?",
+      "options": {
+        "A": "Executive",
+        "B": "Legislature",
+        "C": "Judiciary",
+        "D": "Military"
+      },
+      "correct_answer": "C",
+      "explanation": "The judiciary protects fundamental human rights through judicial review and enforcement.",
+      "section": "human_rights"
+    },
+    {
+      "id": 23,
+      "question": "What are civil rights?",
+      "options": {
+        "A": "Rights to participate in government",
+        "B": "Rights to fair treatment",
+        "C": "Economic rights",
+        "D": "Social rights"
+      },
+      "correct_answer": "B",
+      "explanation": "Civil rights include rights to equality, fair trial, and protection from discrimination.",
+      "section": "human_rights"
+    },
+    {
+      "id": 24,
+      "question": "Which right is a political right?",
+      "options": {
+        "A": "Right to life",
+        "B": "Right to vote",
+        "C": "Right to education",
+        "D": "Right to work"
+      },
+      "correct_answer": "B",
+      "explanation": "Political rights include rights to vote, contest elections, and participate in governance.",
+      "section": "human_rights"
+    },
+    {
+      "id": 25,
+      "question": "What is citizenship?",
+      "options": {
+        "A": "Living in a country",
+        "B": "Legal membership in a state",
+        "C": "National identity",
+        "D": "Birth in a country"
+      },
+      "correct_answer": "B",
+      "explanation": "Citizenship is the legal status of being a member of a particular state with associated rights and duties.",
+      "section": "citizenship"
+    },
+    {
+      "id": 26,
+      "question": "How can citizenship be acquired?",
+      "options": {
+        "A": "By birth",
+        "B": "By registration",
+        "C": "By naturalization",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Citizenship can be acquired through birth, registration, naturalization, or conferment.",
+      "section": "citizenship"
+    },
+    {
+      "id": 27,
+      "question": "What is the main duty of a citizen?",
+      "options": {
+        "A": "To pay taxes",
+        "B": "To obey laws",
+        "C": "To vote",
+        "D": "To defend the country"
+      },
+      "correct_answer": "B",
+      "explanation": "The fundamental duty of every citizen is to obey the laws of the state.",
+      "section": "citizenship"
+    },
+    {
+      "id": 28,
+      "question": "Which is a right of a citizen?",
+      "options": {
+        "A": "Right to education",
+        "B": "Right to work",
+        "C": "Right to freedom of speech",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Citizens have various rights including education, work, freedom of speech, and association.",
+      "section": "citizenship"
+    },
+    {
+      "id": 29,
+      "question": "What is a political party?",
+      "options": {
+        "A": "Government agency",
+        "B": "Group seeking political power",
+        "C": "Social organization",
+        "D": "Military group"
+      },
+      "correct_answer": "B",
+      "explanation": "A political party is an organized group that seeks to gain political power through elections.",
+      "section": "political_parties"
+    },
+    {
+      "id": 30,
+      "question": "Which function do political parties perform?",
+      "options": {
+        "A": "Aggregation of interests",
+        "B": "Political education",
+        "C": "Recruitment of leaders",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Political parties aggregate interests, educate citizens, recruit leaders, and formulate policies.",
+      "section": "political_parties"
+    },
+    {
+      "id": 31,
+      "question": "What is a one-party system?",
+      "options": {
+        "A": "System with one dominant party",
+        "B": "System with only one legal party",
+        "C": "System with no parties",
+        "D": "System with rotating parties"
+      },
+      "correct_answer": "B",
+      "explanation": "In a one-party system, only one political party is legally allowed to exist.",
+      "section": "political_parties"
+    },
+    {
+      "id": 32,
+      "question": "Which country has a two-party system?",
+      "options": {
+        "A": "United States",
+        "B": "China",
+        "C": "Nigeria",
+        "D": "Russia"
+      },
+      "correct_answer": "A",
+      "explanation": "The United States has a dominant two-party system with Democrats and Republicans.",
+      "section": "political_parties"
+    },
+    {
+      "id": 33,
+      "question": "What is pressure group?",
+      "options": {
+        "A": "Political party",
+        "B": "Organization influencing government",
+        "C": "Government agency",
+        "D": "International organization"
+      },
+      "correct_answer": "B",
+      "explanation": "Pressure groups are organizations that seek to influence government policies without seeking political power.",
+      "section": "pressure_groups"
+    },
+    {
+      "id": 34,
+      "question": "How do pressure groups differ from political parties?",
+      "options": {
+        "A": "They don't seek political power",
+        "B": "They have broader objectives",
+        "C": "They contest elections",
+        "D": "They form government"
+      },
+      "correct_answer": "A",
+      "explanation": "Pressure groups seek to influence government rather than gain political power directly.",
+      "section": "pressure_groups"
+    },
+    {
+      "id": 35,
+      "question": "Which is an example of a pressure group?",
+      "options": {
+        "A": "Trade unions",
+        "B": "Professional associations",
+        "C": "Human rights organizations",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Trade unions, professional associations, and human rights organizations are all types of pressure groups.",
+      "section": "pressure_groups"
+    },
+    {
+      "id": 36,
+      "question": "What is an electoral system?",
+      "options": {
+        "A": "Voting process",
+        "B": "Method of choosing representatives",
+        "C": "Election campaign",
+        "D": "Voter registration"
+      },
+      "correct_answer": "B",
+      "explanation": "An electoral system is the method by which voters choose their representatives.",
+      "section": "electoral_systems"
+    },
+    {
+      "id": 37,
+      "question": "Which electoral system is used in Nigeria?",
+      "options": {
+        "A": "First-past-the-post",
+        "B": "Proportional representation",
+        "C": "Alternative vote",
+        "D": "Mixed system"
+      },
+      "correct_answer": "A",
+      "explanation": "Nigeria uses the first-past-the-post system where the candidate with most votes wins.",
+      "section": "electoral_systems"
+    },
+    {
+      "id": 38,
+      "question": "What is universal adult suffrage?",
+      "options": {
+        "A": "Voting for adults",
+        "B": "Right of all adults to vote",
+        "C": "Compulsory voting",
+        "D": "Multiple voting"
+      },
+      "correct_answer": "B",
+      "explanation": "Universal adult suffrage means all adult citizens have the right to vote regardless of gender, race, or property.",
+      "section": "electoral_systems"
+    },
+    {
+      "id": 39,
+      "question": "Which body conducts elections in Nigeria?",
+      "options": {
+        "A": "INEC",
+        "B": "NPC",
+        "C": "NASS",
+        "D": "NSC"
+      },
+      "correct_answer": "A",
+      "explanation": "The Independent National Electoral Commission (INEC) conducts elections in Nigeria.",
+      "section": "electoral_systems"
+    },
+    {
+      "id": 40,
+      "question": "What is the civil service?",
+      "options": {
+        "A": "Military service",
+        "B": "Permanent government bureaucracy",
+        "C": "Political appointees",
+        "D": "Elected officials"
+      },
+      "correct_answer": "B",
+      "explanation": "The civil service comprises permanent government employees who implement policies.",
+      "section": "public_administration"
+    },
+    {
+      "id": 41,
+      "question": "Which characteristic should the civil service have?",
+      "options": {
+        "A": "Political neutrality",
+        "B": "Partisanship",
+        "C": "Political affiliation",
+        "D": "Campaign involvement"
+      },
+      "correct_answer": "A",
+      "explanation": "Civil servants should be politically neutral and serve any government in power.",
+      "section": "public_administration"
+    },
+    {
+      "id": 42,
+      "question": "What is the main function of the civil service?",
+      "options": {
+        "A": "Policy formulation",
+        "B": "Policy implementation",
+        "C": "Law making",
+        "D": "Judicial review"
+      },
+      "correct_answer": "B",
+      "explanation": "The civil service implements government policies and delivers public services.",
+      "section": "public_administration"
+    },
+    {
+      "id": 43,
+      "question": "What is local government?",
+      "options": {
+        "A": "Federal government",
+        "B": "Government at local level",
+        "C": "State government",
+        "D": "Traditional government"
+      },
+      "correct_answer": "B",
+      "explanation": "Local government is the administration of local affairs by elected authorities at the grassroots level.",
+      "section": "local_government"
+    },
+    {
+      "id": 44,
+      "question": "Why is local government important?",
+      "options": {
+        "A": "Brings government closer to people",
+        "B": "Promotes participation",
+        "C": "Addresses local needs",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Local government brings governance closer to people, promotes participation, and addresses local needs effectively.",
+      "section": "local_government"
+    },
+    {
+      "id": 45,
+      "question": "What is the main source of local government revenue?",
+      "options": {
+        "A": "Statutory allocation",
+        "B": "Local taxes",
+        "C": "Loans",
+        "D": "Grants"
+      },
+      "correct_answer": "A",
+      "explanation": "Statutory allocation from the federal account is the main revenue source for local governments in Nigeria.",
+      "section": "local_government"
+    },
+    {
+      "id": 46,
+      "question": "Which system allows traditional rulers in governance?",
+      "options": {
+        "A": "Republic system",
+        "B": "Monarchical system",
+        "C": "Presidential system",
+        "D": "Parliamentary system"
+      },
+      "correct_answer": "B",
+      "explanation": "Monarchical systems incorporate traditional rulers in governance structures.",
+      "section": "traditional_government"
+    },
+    {
+      "id": 47,
+      "question": "What is pre-colonial administration?",
+      "options": {
+        "A": "Colonial government",
+        "B": "Traditional African systems",
+        "C": "Modern government",
+        "D": "Military government"
+      },
+      "correct_answer": "B",
+      "explanation": "Pre-colonial administration refers to traditional African systems of government before European colonization.",
+      "section": "traditional_government"
+    },
+    {
+      "id": 48,
+      "question": "Which was a feature of pre-colonial administration?",
+      "options": {
+        "A": "Written constitution",
+        "B": "Decentralized power",
+        "C": "Political parties",
+        "D": "Universal suffrage"
+      },
+      "correct_answer": "B",
+      "explanation": "Many pre-colonial African systems had decentralized power structures with checks and balances.",
+      "section": "traditional_government"
+    },
+    {
+      "id": 49,
+      "question": "What is colonialism?",
+      "options": {
+        "A": "Self-government",
+        "B": "Foreign domination",
+        "C": "Traditional rule",
+        "D": "Democratic rule"
+      },
+      "correct_answer": "B",
+      "explanation": "Colonialism is the policy of acquiring and maintaining colonies, especially for economic exploitation.",
+      "section": "colonial_administration"
+    },
+    {
+      "id": 50,
+      "question": "Which policy was used in British colonies?",
+      "options": {
+        "A": "Assimilation",
+        "B": "Indirect rule",
+        "C": "Association",
+        "D": "Direct administration"
+      },
+      "correct_answer": "B",
+      "explanation": "The British used indirect rule, governing through traditional rulers and institutions.",
+      "section": "colonial_administration"
+    },
+    {
+      "id": 51,
+      "question": "What was the main goal of colonial administration?",
+      "options": {
+        "A": "Development of colonies",
+        "B": "Economic exploitation",
+        "C": "Political education",
+        "D": "Cultural preservation"
+      },
+      "correct_answer": "B",
+      "explanation": "The primary goal of colonial administration was economic exploitation of the colonies.",
+      "section": "colonial_administration"
+    },
+    {
+      "id": 52,
+      "question": "What is nationalism?",
+      "options": {
+        "A": "Love for one's country",
+        "B": "Political independence movement",
+        "C": "Cultural identity",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Nationalism encompasses love for one's country, political independence movements, and cultural identity.",
+      "section": "nationalism"
+    },
+    {
+      "id": 53,
+      "question": "Which factor promoted nationalism in Africa?",
+      "options": {
+        "A": "Colonial education",
+        "B": "Economic exploitation",
+        "C": "Return of educated elites",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Colonial education, economic exploitation, and return of educated elites all promoted African nationalism.",
+      "section": "nationalism"
+    },
+    {
+      "id": 54,
+      "question": "What was the main goal of nationalist movements?",
+      "options": {
+        "A": "Economic development",
+        "B": "Political independence",
+        "C": "Cultural revival",
+        "D": "Educational advancement"
+      },
+      "correct_answer": "B",
+      "explanation": "The primary goal of nationalist movements was to achieve political independence from colonial powers.",
+      "section": "nationalism"
+    },
+    {
+      "id": 55,
+      "question": "Which organization was formed to promote African unity?",
+      "options": {
+        "A": "United Nations",
+        "B": "Commonwealth",
+        "C": "OAU",
+        "D": "ECOWAS"
+      },
+      "correct_answer": "C",
+      "explanation": "The Organization of African Unity (OAU) was formed in 1963 to promote African unity and cooperation.",
+      "section": "international_relations"
+    },
+    {
+      "id": 56,
+      "question": "What is foreign policy?",
+      "options": {
+        "A": "Domestic policies",
+        "B": "Relations with other countries",
+        "C": "Immigration policies",
+        "D": "Trade policies"
+      },
+      "correct_answer": "B",
+      "explanation": "Foreign policy refers to a government's strategy in dealing with other nations.",
+      "section": "international_relations"
+    },
+    {
+      "id": 57,
+      "question": "Which principle guides Nigeria's foreign policy?",
+      "options": {
+        "A": "Non-alignment",
+        "B": "Pan-Africanism",
+        "C": "Economic diplomacy",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Nigeria's foreign policy is guided by non-alignment, Pan-Africanism, and economic diplomacy.",
+      "section": "international_relations"
+    },
+    {
+      "id": 58,
+      "question": "What is the United Nations?",
+      "options": {
+        "A": "Military alliance",
+        "B": "International organization",
+        "C": "Economic community",
+        "D": "Cultural organization"
+      },
+      "correct_answer": "B",
+      "explanation": "The United Nations is an international organization founded to promote peace and cooperation among nations.",
+      "section": "international_relations"
+    },
+    {
+      "id": 59,
+      "question": "Which organ of UN maintains international peace?",
+      "options": {
+        "A": "General Assembly",
+        "B": "Security Council",
+        "C": "Secretariat",
+        "D": "ICJ"
+      },
+      "correct_answer": "B",
+      "explanation": "The UN Security Council has primary responsibility for maintaining international peace and security.",
+      "section": "international_relations"
+    },
+    {
+      "id": 60,
+      "question": "What is ECOWAS?",
+      "options": {
+        "A": "East African community",
+        "B": "West African economic group",
+        "C": "Southern African bloc",
+        "D": "North African union"
+      },
+      "correct_answer": "B",
+      "explanation": "ECOWAS (Economic Community of West African States) is a regional economic group in West Africa.",
+      "section": "international_relations"
+    },
+    {
+      "id": 61,
+      "question": "What is a military coup?",
+      "options": {
+        "A": "Democratic election",
+        "B": "Violent takeover of government",
+        "C": "Peaceful transition",
+        "D": "Constitutional amendment"
+      },
+      "correct_answer": "B",
+      "explanation": "A military coup is the violent overthrow of a government by the military.",
+      "section": "military_rule"
+    },
+    {
+      "id": 62,
+      "question": "Which is a feature of military rule?",
+      "options": {
+        "A": "Rule of law",
+        "B": "Suspension of constitution",
+        "C": "Fundamental rights",
+        "D": "Democratic elections"
+      },
+      "correct_answer": "B",
+      "explanation": "Military rule typically involves suspension of the constitution and rule by decrees.",
+      "section": "military_rule"
+    },
+    {
+      "id": 63,
+      "question": "Why do military interventions occur?",
+      "options": {
+        "A": "Political instability",
+        "B": "Economic crisis",
+        "C": "Corruption",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Military interventions often occur due to political instability, economic crisis, corruption, and governance failure.",
+      "section": "military_rule"
+    },
+    {
+      "id": 64,
+      "question": "What is democracy?",
+      "options": {
+        "A": "Government by the people",
+        "B": "Government by the military",
+        "C": "Government by one person",
+        "D": "Government by the rich"
+      },
+      "correct_answer": "A",
+      "explanation": "Democracy means government by the people, either directly or through elected representatives.",
+      "section": "democracy"
+    },
+    {
+      "id": 65,
+      "question": "Which is a feature of democracy?",
+      "options": {
+        "A": "Periodic elections",
+        "B": "Fundamental rights",
+        "C": "Rule of law",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Democracy features periodic elections, fundamental rights, rule of law, and separation of powers.",
+      "section": "democracy"
+    },
+    {
+      "id": 66,
+      "question": "What is the difference between direct and indirect democracy?",
+      "options": {
+        "A": "Size of population",
+        "B": "Method of participation",
+        "C": "Type of constitution",
+        "D": "System of government"
+      },
+      "correct_answer": "B",
+      "explanation": "Direct democracy involves citizens participating directly, while indirect democracy uses representatives.",
+      "section": "democracy"
+    },
+    {
+      "id": 67,
+      "question": "Which country practices direct democracy?",
+      "options": {
+        "A": "United States",
+        "B": "United Kingdom",
+        "C": "Switzerland",
+        "D": "Nigeria"
+      },
+      "correct_answer": "C",
+      "explanation": "Switzerland practices elements of direct democracy through referendums and initiatives.",
+      "section": "democracy"
+    },
+    {
+      "id": 68,
+      "question": "What is constitutional development?",
+      "options": {
+        "A": "Writing constitutions",
+        "B": "Evolution of constitutional systems",
+        "C": "Constitutional amendments",
+        "D": "Constitutional conferences"
+      },
+      "correct_answer": "B",
+      "explanation": "Constitutional development refers to the historical evolution of constitutional systems in a country.",
+      "section": "constitutional_development"
+    },
+    {
+      "id": 69,
+      "question": "Which was Nigeria's first constitution?",
+      "options": {
+        "A": "1922 Constitution",
+        "B": "1946 Constitution",
+        "C": "1951 Constitution",
+        "D": "1960 Constitution"
+      },
+      "correct_answer": "A",
+      "explanation": "The 1922 Clifford Constitution was Nigeria's first written constitution.",
+      "section": "constitutional_development"
+    },
+    {
+      "id": 70,
+      "question": "What introduced federalism in Nigeria?",
+      "options": {
+        "A": "Richards Constitution",
+        "B": "Macpherson Constitution",
+        "C": "Lyttleton Constitution",
+        "D": "Independence Constitution"
+      },
+      "correct_answer": "C",
+      "explanation": "The 1954 Lyttleton Constitution introduced federalism in Nigeria.",
+      "section": "constitutional_development"
+    },
+    {
+      "id": 71,
+      "question": "When did Nigeria gain independence?",
+      "options": {
+        "A": "1957",
+        "B": "1958",
+        "C": "1959",
+        "D": "1960"
+      },
+      "correct_answer": "D",
+      "explanation": "Nigeria gained independence on October 1, 1960.",
+      "section": "constitutional_development"
+    },
+    {
+      "id": 72,
+      "question": "What is the current constitution of Nigeria?",
+      "options": {
+        "A": "1963 Constitution",
+        "B": "1979 Constitution",
+        "C": "1989 Constitution",
+        "D": "1999 Constitution"
+      },
+      "correct_answer": "D",
+      "explanation": "The 1999 Constitution is Nigeria's current constitution.",
+      "section": "constitutional_development"
+    },
+    {
+      "id": 73,
+      "question": "What is the legislature called in Nigeria?",
+      "options": {
+        "A": "Parliament",
+        "B": "National Assembly",
+        "C": "Congress",
+        "D": "Legislative House"
+      },
+      "correct_answer": "B",
+      "explanation": "Nigeria's legislature is called the National Assembly, consisting of Senate and House of Representatives.",
+      "section": "nigerian_government"
+    },
+    {
+      "id": 74,
+      "question": "How many states are in Nigeria?",
+      "options": {
+        "A": "34",
+        "B": "36",
+        "C": "37",
+        "D": "38"
+      },
+      "correct_answer": "B",
+      "explanation": "Nigeria has 36 states and the Federal Capital Territory.",
+      "section": "nigerian_government"
+    },
+    {
+      "id": 75,
+      "question": "What is the tenure of Nigerian president?",
+      "options": {
+        "A": "4 years",
+        "B": "5 years",
+        "C": "6 years",
+        "D": "7 years"
+      },
+      "correct_answer": "A",
+      "explanation": "The Nigerian president serves a 4-year term, renewable once.",
+      "section": "nigerian_government"
+    },
+    {
+      "id": 76,
+      "question": "Which court is the highest in Nigeria?",
+      "options": {
+        "A": "High Court",
+        "B": "Court of Appeal",
+        "C": "Supreme Court",
+        "D": "Sharia Court"
+      },
+      "correct_answer": "C",
+      "explanation": "The Supreme Court is the highest court and final appellate court in Nigeria.",
+      "section": "nigerian_government"
+    },
+    {
+      "id": 77,
+      "question": "What is the principle of federal character?",
+      "options": {
+        "A": "Equal representation",
+        "B": "Geographical spread",
+        "C": "Ethnic balance",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Federal character ensures equitable representation of all states and ethnic groups in government.",
+      "section": "nigerian_government"
+    },
+    {
+      "id": 78,
+      "question": "What is the main function of the Code of Conduct Bureau?",
+      "options": {
+        "A": "To prosecute criminals",
+        "B": "To check corruption in public service",
+        "C": "To conduct elections",
+        "D": "To make laws"
+      },
+      "correct_answer": "B",
+      "explanation": "The Code of Conduct Bureau ensures accountability and checks corruption among public officers.",
+      "section": "nigerian_government"
+    },
+    {
+      "id": 79,
+      "question": "Which body is responsible for revenue allocation in Nigeria?",
+      "options": {
+        "A": "CBN",
+        "B": "Revenue Mobilization Commission",
+        "C": "National Assembly",
+        "D": "Ministry of Finance"
+      },
+      "correct_answer": "B",
+      "explanation": "The Revenue Mobilization Allocation and Fiscal Commission handles revenue allocation among government tiers.",
+      "section": "nigerian_government"
+    },
+    {
+      "id": 80,
+      "question": "What is the main source of government revenue in Nigeria?",
+      "options": {
+        "A": "Taxation",
+        "B": "Oil exports",
+        "C": "Foreign aid",
+        "D": "Borrowing"
+      },
+      "correct_answer": "B",
+      "explanation": "Oil exports constitute the primary source of revenue for the Nigerian government.",
+      "section": "nigerian_government"
+    },
+    {
+      "id": 81,
+      "question": "Which commission conducts public service exams?",
+      "options": {
+        "A": "INEC",
+        "B": "Federal Civil Service Commission",
+        "C": "Code of Conduct Bureau",
+        "D": "Public Complaints Commission"
+      },
+      "correct_answer": "B",
+      "explanation": "The Federal Civil Service Commission recruits and disciplines federal civil servants.",
+      "section": "public_administration"
+    },
+    {
+      "id": 82,
+      "question": "What is the main problem of Nigerian federalism?",
+      "options": {
+        "A": "Too many states",
+        "B": "Revenue allocation disputes",
+        "C": "Ethnic conflicts",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Nigerian federalism faces challenges including state creation, revenue sharing, and ethnic tensions.",
+      "section": "nigerian_government"
+    },
+    {
+      "id": 83,
+      "question": "Which is a concurrent legislative power?",
+      "options": {
+        "A": "Defense",
+        "B": "Currency",
+        "C": "Education",
+        "D": "Foreign affairs"
+      },
+      "correct_answer": "C",
+      "explanation": "Education is a concurrent legislative subject where both federal and state governments can make laws.",
+      "section": "nigerian_government"
+    },
+    {
+      "id": 84,
+      "question": "What is judicial review?",
+      "options": {
+        "A": "Review of judicial appointments",
+        "B": "Power to review laws' constitutionality",
+        "C": "Review of court judgments",
+        "D": "Judicial promotions"
+      },
+      "correct_answer": "B",
+      "explanation": "Judicial review allows courts to examine and invalidate laws that violate the constitution.",
+      "section": "organs_of_government"
+    },
+    {
+      "id": 85,
+      "question": "Which is an exclusive legislative power?",
+      "options": {
+        "A": "Agriculture",
+        "B": "Defense",
+        "C": "Health",
+        "D": "Transportation"
+      },
+      "correct_answer": "B",
+      "explanation": "Defense is an exclusive legislative matter reserved for the federal government.",
+      "section": "nigerian_government"
+    },
+    {
+      "id": 86,
+      "question": "What is the main role of traditional rulers today?",
+      "options": {
+        "A": "Governing",
+        "B": "Advisory and cultural",
+        "C": "Law making",
+        "D": "Revenue collection"
+      },
+      "correct_answer": "B",
+      "explanation": "Modern traditional rulers serve advisory and cultural preservation roles.",
+      "section": "traditional_government"
+    },
+    {
+      "id": 87,
+      "question": "Which system allows for recall of representatives?",
+      "options": {
+        "A": "Presidential",
+        "B": "Parliamentary",
+        "C": "Democratic",
+        "D": "Military"
+      },
+      "correct_answer": "C",
+      "explanation": "Democratic systems may include provisions for recalling elected representatives.",
+      "section": "democracy"
+    },
+    {
+      "id": 88,
+      "question": "What is the main advantage of federalism?",
+      "options": {
+        "A": "Unity in diversity",
+        "B": "Strong central control",
+        "C": "Quick decision making",
+        "D": "Low cost of governance"
+      },
+      "correct_answer": "A",
+      "explanation": "Federalism accommodates diversity while maintaining national unity.",
+      "section": "systems_of_government"
+    },
+    {
+      "id": 89,
+      "question": "Which is a feature of the 1999 Constitution?",
+      "options": {
+        "A": "Military rule",
+        "B": "Fundamental human rights",
+        "C": "One-party system",
+        "D": "Colonial governance"
+      },
+      "correct_answer": "B",
+      "explanation": "The 1999 Constitution guarantees fundamental human rights and democratic governance.",
+      "section": "constitutional_development"
+    },
+    {
+      "id": 90,
+      "question": "What is the main purpose of NYSC?",
+      "options": {
+        "A": "Military training",
+        "B": "National integration",
+        "C": "Job creation",
+        "D": "Political education"
+      },
+      "correct_answer": "B",
+      "explanation": "NYSC aims to promote national integration and unity among Nigerian youth.",
+      "section": "citizenship"
+    },
+    {
+      "id": 91,
+      "question": "Which factor threatens Nigerian democracy?",
+      "options": {
+        "A": "Ethnic politics",
+        "B": "Electoral fraud",
+        "C": "Corruption",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Ethnic politics, electoral fraud, and corruption pose threats to Nigerian democracy.",
+      "section": "democracy"
+    },
+    {
+      "id": 92,
+      "question": "What is the role of mass media in democracy?",
+      "options": {
+        "A": "Entertainment",
+        "B": "Information and watchdog",
+        "C": "Government propaganda",
+        "D": "Social events"
+      },
+      "correct_answer": "B",
+      "explanation": "Mass media informs citizens and acts as watchdog on government activities.",
+      "section": "political_concepts"
+    },
+    {
+      "id": 93,
+      "question": "Which is a method of limiting government power?",
+      "options": {
+        "A": "Separation of powers",
+        "B": "Bill of rights",
+        "C": "Judicial review",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Separation of powers, bill of rights, and judicial review all limit government power.",
+      "section": "principles_of_government"
+    },
+    {
+      "id": 94,
+      "question": "What is delegated legislation?",
+      "options": {
+        "A": "Laws by local governments",
+        "B": "Laws made by executive bodies",
+        "C": "International laws",
+        "D": "Traditional laws"
+      },
+      "correct_answer": "B",
+      "explanation": "Delegated legislation refers to laws made by executive bodies under authority from legislature.",
+      "section": "organs_of_government"
+    },
+    {
+      "id": 95,
+      "question": "Which is characteristic of civil service?",
+      "options": {
+        "A": "Political neutrality",
+        "B": "Permanence",
+        "C": "Anonymity",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Civil service features political neutrality, permanence, and anonymity.",
+      "section": "public_administration"
+    },
+    {
+      "id": 96,
+      "question": "What is the main goal of foreign policy?",
+      "options": {
+        "A": "National interest",
+        "B": "International peace",
+        "C": "Economic development",
+        "D": "Cultural exchange"
+      },
+      "correct_answer": "A",
+      "explanation": "Foreign policy primarily serves national interest and security.",
+      "section": "international_relations"
+    },
+    {
+      "id": 97,
+      "question": "Which organization replaced OAU?",
+      "options": {
+        "A": "AU",
+        "B": "ECOWAS",
+        "C": "UN",
+        "D": "EU"
+      },
+      "correct_answer": "A",
+      "explanation": "The African Union (AU) replaced the Organization of African Unity in 2002.",
+      "section": "international_relations"
+    },
+    {
+      "id": 98,
+      "question": "What is the main problem of local governments?",
+      "options": {
+        "A": "Financial constraints",
+        "B": "Political interference",
+        "C": "Poor leadership",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Local governments face financial, political, and leadership challenges.",
+      "section": "local_government"
+    },
+    {
+      "id": 99,
+      "question": "Which is a type of pressure group?",
+      "options": {
+        "A": "Anomic",
+        "B": "Associational",
+        "C": "Non-associational",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Pressure groups include anomic, associational, and non-associational types.",
+      "section": "pressure_groups"
+    },
+    {
+      "id": 100,
+      "question": "What is political culture?",
+      "options": {
+        "A": "Political parties",
+        "B": "Attitudes toward politics",
+        "C": "Government culture",
+        "D": "Political buildings"
+      },
+      "correct_answer": "B",
+      "explanation": "Political culture refers to people's attitudes, beliefs, and values about political system.",
+      "section": "political_concepts"
+    },
+    {
+      "id": 101,
+      "question": "Which is a type of political culture?",
+      "options": {
+        "A": "Parochial",
+        "B": "Subject",
+        "C": "Participant",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Political cultures include parochial, subject, and participant types.",
+      "section": "political_concepts"
+    },
+    {
+      "id": 102,
+      "question": "What is political efficacy?",
+      "options": {
+        "A": "Government efficiency",
+        "B": "Belief in political influence",
+        "C": "Election efficiency",
+        "D": "Policy effectiveness"
+      },
+      "correct_answer": "B",
+      "explanation": "Political efficacy is citizens' belief they can influence political decisions.",
+      "section": "political_concepts"
+    },
+    {
+      "id": 103,
+      "question": "Which is a feature of good governance?",
+      "options": {
+        "A": "Transparency",
+        "B": "Accountability",
+        "C": "Participation",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Good governance requires transparency, accountability, and public participation.",
+      "section": "principles_of_government"
+    },
+    {
+      "id": 104,
+      "question": "What is the main purpose of government budget?",
+      "options": {
+        "A": "Revenue allocation",
+        "B": "Economic planning",
+        "C": "Policy implementation",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Government budget allocates resources, plans economy, and implements policies.",
+      "section": "public_administration"
+    },
+    {
+      "id": 105,
+      "question": "Which is a source of constitution?",
+      "options": {
+        "A": "Conventions",
+        "B": "Judicial precedents",
+        "C": "Authoritative works",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Constitutions derive from conventions, judicial precedents, and authoritative works.",
+      "section": "constitution"
+    },
+    {
+      "id": 106,
+      "question": "What is constitutional supremacy?",
+      "options": {
+        "A": "Supreme Court power",
+        "B": "Constitution as highest law",
+        "C": "President's power",
+        "D": "Parliament's sovereignty"
+      },
+      "correct_answer": "B",
+      "explanation": "Constitutional supremacy means the constitution is the highest law of the land.",
+      "section": "constitution"
+    },
+    {
+      "id": 107,
+      "question": "Which is a method of constitutional amendment?",
+      "options": {
+        "A": "Simple majority",
+        "B": "Special majority",
+        "C": "Referendum",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Constitutions can be amended by simple majority, special majority, or referendum.",
+      "section": "constitution"
+    },
+    {
+      "id": 108,
+      "question": "What is the main advantage of written constitution?",
+      "options": {
+        "A": "Clarity and certainty",
+        "B": "Flexibility",
+        "C": "Easy amendment",
+        "D": "Traditional basis"
+      },
+      "correct_answer": "A",
+      "explanation": "Written constitutions provide clarity, certainty, and limit government powers.",
+      "section": "constitution"
+    },
+    {
+      "id": 109,
+      "question": "Which is a feature of parliamentary system?",
+      "options": {
+        "A": "Fusion of powers",
+        "B": "Separation of powers",
+        "C": "Fixed terms",
+        "D": "Judicial independence"
+      },
+      "correct_answer": "A",
+      "explanation": "Parliamentary systems feature fusion of executive and legislative powers.",
+      "section": "systems_of_government"
+    },
+    {
+      "id": 110,
+      "question": "What is vote of no confidence?",
+      "options": {
+        "A": "Election process",
+        "B": "Removal of government",
+        "C": "Judicial review",
+        "D": "Military action"
+      },
+      "correct_answer": "B",
+      "explanation": "Vote of no confidence allows parliament to remove government in parliamentary systems.",
+      "section": "systems_of_government"
+    },
+    {
+      "id": 111,
+      "question": "Which is a merit of unitary system?",
+      "options": {
+        "A": "Uniform laws",
+        "B": "Quick decisions",
+        "C": "Cost effective",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Unitary systems offer uniform laws, quick decisions, and cost effectiveness.",
+      "section": "systems_of_government"
+    },
+    {
+      "id": 112,
+      "question": "What is the main disadvantage of confederation?",
+      "options": {
+        "A": "Weak central government",
+        "B": "Strong central control",
+        "C": "Too much unity",
+        "D": "High cost"
+      },
+      "correct_answer": "A",
+      "explanation": "Confederations suffer from weak central authority and coordination problems.",
+      "section": "systems_of_government"
+    },
+    {
+      "id": 113,
+      "question": "Which is a function of legislature?",
+      "options": {
+        "A": "Oversight",
+        "B": "Representation",
+        "C": "Approval of budget",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Legislature performs lawmaking, oversight, representation, and budget approval.",
+      "section": "organs_of_government"
+    },
+    {
+      "id": 114,
+      "question": "What is legislative immunity?",
+      "options": {
+        "A": "Freedom from arrest",
+        "B": "Freedom of speech in parliament",
+        "C": "Tax exemption",
+        "D": "Legal immunity"
+      },
+      "correct_answer": "B",
+      "explanation": "Legislative immunity protects free speech in parliamentary proceedings.",
+      "section": "organs_of_government"
+    },
+    {
+      "id": 115,
+      "question": "Which is a type of executive?",
+      "options": {
+        "A": "Nominal",
+        "B": "Real",
+        "C": "Political",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Executives can be nominal, real, political, or permanent types.",
+      "section": "organs_of_government"
+    },
+    {
+      "id": 116,
+      "question": "What is judicial independence?",
+      "options": {
+        "A": "Judges making laws",
+        "B": "Courts free from interference",
+        "C": "Judicial appointments",
+        "D": "Court funding"
+      },
+      "correct_answer": "B",
+      "explanation": "Judicial independence means courts operate free from executive or legislative interference.",
+      "section": "organs_of_government"
+    },
+    {
+      "id": 117,
+      "question": "Which is a source of law?",
+      "options": {
+        "A": "Legislation",
+        "B": "Precedent",
+        "C": "Custom",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Sources of law include legislation, judicial precedent, and customs.",
+      "section": "organs_of_government"
+    },
+    {
+      "id": 118,
+      "question": "What is the rule of law?",
+      "options": {
+        "A": "Government by laws",
+        "B": "Equality before law",
+        "C": "Legal certainty",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Rule of law means government by laws, equality, and legal certainty.",
+      "section": "principles_of_government"
+    },
+    {
+      "id": 119,
+      "question": "Which is a fundamental human right?",
+      "options": {
+        "A": "Right to life",
+        "B": "Right to dignity",
+        "C": "Right to fair hearing",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Fundamental rights include life, dignity, fair hearing, and others.",
+      "section": "human_rights"
+    },
+    {
+      "id": 120,
+      "question": "What is citizenship by naturalization?",
+      "options": {
+        "A": "Birth citizenship",
+        "B": "Acquired citizenship",
+        "C": "Dual citizenship",
+        "D": "Honorary citizenship"
+      },
+      "correct_answer": "B",
+      "explanation": "Naturalization grants citizenship to foreigners meeting specific requirements.",
+      "section": "citizenship"
+    },
+    {
+      "id": 121,
+      "question": "Which is a duty of citizens?",
+      "options": {
+        "A": "Tax payment",
+        "B": "Loyalty to state",
+        "C": "Defense of country",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Citizen duties include tax payment, loyalty, and national defense.",
+      "section": "citizenship"
+    },
+    {
+      "id": 122,
+      "question": "What is political apathy?",
+      "options": {
+        "A": "Political interest",
+        "B": "Lack of political interest",
+        "C": "Political violence",
+        "D": "Political participation"
+      },
+      "correct_answer": "B",
+      "explanation": "Political apathy refers to lack of interest in political activities.",
+      "section": "political_concepts"
+    },
+    {
+      "id": 123,
+      "question": "Which is a cause of political apathy?",
+      "options": {
+        "A": "Bad governance",
+        "B": "Poverty",
+        "C": "Illiteracy",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Political apathy stems from bad governance, poverty, and illiteracy.",
+      "section": "political_concepts"
+    },
+    {
+      "id": 124,
+      "question": "What is political mobilization?",
+      "options": {
+        "A": "Military deployment",
+        "B": "Activating political support",
+        "C": "Government movement",
+        "D": "Election rigging"
+      },
+      "correct_answer": "B",
+      "explanation": "Political mobilization involves activating people for political action or support.",
+      "section": "political_concepts"
+    },
+    {
+      "id": 125,
+      "question": "Which is a type of election?",
+      "options": {
+        "A": "Direct",
+        "B": "Indirect",
+        "C": "Bye-election",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Elections can be direct, indirect, general, or bye-elections.",
+      "section": "electoral_systems"
+    },
+    {
+      "id": 126,
+      "question": "What is electoral malpractice?",
+      "options": {
+        "A": "Free and fair election",
+        "B": "Election irregularities",
+        "C": "Voter education",
+        "D": "Election monitoring"
+      },
+      "correct_answer": "B",
+      "explanation": "Electoral malpractice includes rigging, violence, and other election irregularities.",
+      "section": "electoral_systems"
+    },
+    {
+      "id": 127,
+      "question": "Which is a feature of independent judiciary?",
+      "options": {
+        "A": "Security of tenure",
+        "B": "Financial autonomy",
+        "C": "Independent appointments",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Independent judiciary requires security of tenure, financial autonomy, and independent appointments.",
+      "section": "organs_of_government"
+    },
+    {
+      "id": 128,
+      "question": "What is the main purpose of government?",
+      "options": {
+        "A": "Promote general welfare",
+        "B": "Maintain order",
+        "C": "Provide security",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Government exists to promote welfare, maintain order, and provide security for citizens.",
+      "section": "basic_concepts"
+    }
+  ]
+}

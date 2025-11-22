@@ -1,0 +1,1672 @@
+{
+  "subject": "Physics",
+  "exam_type": "WAEC",
+  "total_questions": 128,
+  "time_allowed": 8400,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the SI unit of length?",
+      "options": {
+        "A": "Kilogram",
+        "B": "Second",
+        "C": "Meter",
+        "D": "Newton"
+      },
+      "correct_answer": "C",
+      "explanation": "The meter is the SI base unit for length.",
+      "section": "measurement"
+    },
+    {
+      "id": 2,
+      "question": "Which instrument is used to measure time accurately?",
+      "options": {
+        "A": "Stopwatch",
+        "B": "Ruler",
+        "C": "Thermometer",
+        "D": "Balance"
+      },
+      "correct_answer": "A",
+      "explanation": "Stopwatches are designed for precise time measurement.",
+      "section": "measurement"
+    },
+    {
+      "id": 3,
+      "question": "What is the SI unit of mass?",
+      "options": {
+        "A": "Gram",
+        "B": "Kilogram",
+        "C": "Pound",
+        "D": "Newton"
+      },
+      "correct_answer": "B",
+      "explanation": "The kilogram is the SI base unit for mass.",
+      "section": "measurement"
+    },
+    {
+      "id": 4,
+      "question": "Which quantity has both magnitude and direction?",
+      "options": {
+        "A": "Scalar",
+        "B": "Vector",
+        "C": "Mass",
+        "D": "Temperature"
+      },
+      "correct_answer": "B",
+      "explanation": "Vectors have both magnitude and direction, while scalars have only magnitude.",
+      "section": "vectors"
+    },
+    {
+      "id": 5,
+      "question": "What is the acceleration due to gravity on Earth?",
+      "options": {
+        "A": "9.8 m/s²",
+        "B": "6.7 m/s²",
+        "C": "10 m/s²",
+        "D": "8.9 m/s²"
+      },
+      "correct_answer": "A",
+      "explanation": "The standard value for acceleration due to gravity on Earth is approximately 9.8 m/s².",
+      "section": "motion"
+    },
+    {
+      "id": 6,
+      "question": "Which law states that every action has an equal and opposite reaction?",
+      "options": {
+        "A": "Newton's First Law",
+        "B": "Newton's Second Law",
+        "C": "Newton's Third Law",
+        "D": "Law of Gravitation"
+      },
+      "correct_answer": "C",
+      "explanation": "Newton's Third Law states that for every action, there is an equal and opposite reaction.",
+      "section": "laws_of_motion"
+    },
+    {
+      "id": 7,
+      "question": "What is the formula for calculating force?",
+      "options": {
+        "A": "F = mv",
+        "B": "F = ma",
+        "C": "F = mgh",
+        "D": "F = pV"
+      },
+      "correct_answer": "B",
+      "explanation": "Newton's Second Law states that Force = mass × acceleration (F = ma).",
+      "section": "laws_of_motion"
+    },
+    {
+      "id": 8,
+      "question": "Which type of energy is stored in a stretched spring?",
+      "options": {
+        "A": "Kinetic energy",
+        "B": "Potential energy",
+        "C": "Thermal energy",
+        "D": "Electrical energy"
+      },
+      "correct_answer": "B",
+      "explanation": "Elastic potential energy is stored in stretched or compressed springs.",
+      "section": "energy"
+    },
+    {
+      "id": 9,
+      "question": "What is the SI unit of work?",
+      "options": {
+        "A": "Watt",
+        "B": "Newton",
+        "C": "Joule",
+        "D": "Pascal"
+      },
+      "correct_answer": "C",
+      "explanation": "The joule is the SI unit for work and energy.",
+      "section": "work_energy_power"
+    },
+    {
+      "id": 10,
+      "question": "Which machine has a mechanical advantage greater than 1?",
+      "options": {
+        "A": "Fixed pulley",
+        "B": "Movable pulley",
+        "C": "Single fixed pulley",
+        "D": "None of the above"
+      },
+      "correct_answer": "B",
+      "explanation": "Movable pulleys have mechanical advantage greater than 1, making it easier to lift loads.",
+      "section": "machines"
+    },
+    {
+      "id": 11,
+      "question": "What is the formula for pressure?",
+      "options": {
+        "A": "P = F/A",
+        "B": "P = Fd",
+        "C": "P = ρgh",
+        "D": "P = Fv"
+      },
+      "correct_answer": "A",
+      "explanation": "Pressure is defined as force per unit area (P = F/A).",
+      "section": "pressure"
+    },
+    {
+      "id": 12,
+      "question": "Which principle explains why ships float?",
+      "options": {
+        "A": "Pascal's principle",
+        "B": "Archimedes' principle",
+        "C": "Bernoulli's principle",
+        "D": "Newton's principle"
+      },
+      "correct_answer": "B",
+      "explanation": "Archimedes' principle states that the buoyant force equals the weight of fluid displaced.",
+      "section": "fluids"
+    },
+    {
+      "id": 13,
+      "question": "What is the SI unit of temperature?",
+      "options": {
+        "A": "Fahrenheit",
+        "B": "Celsius",
+        "C": "Kelvin",
+        "D": "Rankine"
+      },
+      "correct_answer": "C",
+      "explanation": "The kelvin is the SI base unit for temperature.",
+      "section": "heat"
+    },
+    {
+      "id": 14,
+      "question": "Which method of heat transfer occurs in fluids?",
+      "options": {
+        "A": "Conduction",
+        "B": "Convection",
+        "C": "Radiation",
+        "D": "Insulation"
+      },
+      "correct_answer": "B",
+      "explanation": "Convection involves heat transfer through fluid motion.",
+      "section": "heat"
+    },
+    {
+      "id": 15,
+      "question": "What is the speed of light in vacuum?",
+      "options": {
+        "A": "3 × 10⁶ m/s",
+        "B": "3 × 10⁸ m/s",
+        "C": "3 × 10¹⁰ m/s",
+        "D": "3 × 10¹² m/s"
+      },
+      "correct_answer": "B",
+      "explanation": "The speed of light in vacuum is approximately 3 × 10⁸ m/s.",
+      "section": "light"
+    },
+    {
+      "id": 16,
+      "question": "Which mirror always forms virtual images?",
+      "options": {
+        "A": "Concave mirror",
+        "B": "Convex mirror",
+        "C": "Plane mirror",
+        "D": "Spherical mirror"
+      },
+      "correct_answer": "B",
+      "explanation": "Convex mirrors always form virtual, erect, and diminished images.",
+      "section": "optics"
+    },
+    {
+      "id": 17,
+      "question": "What is the unit of electric current?",
+      "options": {
+        "A": "Volt",
+        "B": "Ampere",
+        "C": "Ohm",
+        "D": "Watt"
+      },
+      "correct_answer": "B",
+      "explanation": "The ampere is the SI base unit for electric current.",
+      "section": "electricity"
+    },
+    {
+      "id": 18,
+      "question": "Which law relates current, voltage, and resistance?",
+      "options": {
+        "A": "Ohm's law",
+        "B": "Coulomb's law",
+        "C": "Faraday's law",
+        "D": "Kirchhoff's law"
+      },
+      "correct_answer": "A",
+      "explanation": "Ohm's law states that V = IR (voltage = current × resistance).",
+      "section": "electricity"
+    },
+    {
+      "id": 19,
+      "question": "What is the formula for electrical power?",
+      "options": {
+        "A": "P = IV",
+        "B": "P = I²R",
+        "C": "P = V²/R",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Electrical power can be calculated as P = IV, P = I²R, or P = V²/R.",
+      "section": "electricity"
+    },
+    {
+      "id": 20,
+      "question": "Which device converts mechanical energy to electrical energy?",
+      "options": {
+        "A": "Motor",
+        "B": "Generator",
+        "C": "Transformer",
+        "D": "Rectifier"
+      },
+      "correct_answer": "B",
+      "explanation": "Generators convert mechanical energy into electrical energy.",
+      "section": "electromagnetism"
+    },
+    {
+      "id": 21,
+      "question": "What is the unit of frequency?",
+      "options": {
+        "A": "Hertz",
+        "B": "Decibel",
+        "C": "Watt",
+        "D": "Newton"
+      },
+      "correct_answer": "A",
+      "explanation": "The hertz (Hz) is the SI unit for frequency.",
+      "section": "waves"
+    },
+    {
+      "id": 22,
+      "question": "Which type of wave requires a medium to travel?",
+      "options": {
+        "A": "Electromagnetic wave",
+        "B": "Mechanical wave",
+        "C": "Light wave",
+        "D": "Radio wave"
+      },
+      "correct_answer": "B",
+      "explanation": "Mechanical waves require a material medium to propagate.",
+      "section": "waves"
+    },
+    {
+      "id": 23,
+      "question": "What is the range of human hearing?",
+      "options": {
+        "A": "20 Hz - 20,000 Hz",
+        "B": "10 Hz - 10,000 Hz",
+        "C": "50 Hz - 50,000 Hz",
+        "D": "100 Hz - 100,000 Hz"
+      },
+      "correct_answer": "A",
+      "explanation": "Humans typically hear frequencies between 20 Hz and 20,000 Hz.",
+      "section": "sound"
+    },
+    {
+      "id": 24,
+      "question": "Which particle has a positive charge?",
+      "options": {
+        "A": "Electron",
+        "B": "Proton",
+        "C": "Neutron",
+        "D": "Atom"
+      },
+      "correct_answer": "B",
+      "explanation": "Protons carry a positive electric charge.",
+      "section": "atomic_physics"
+    },
+    {
+      "id": 25,
+      "question": "What is the SI unit of radioactivity?",
+      "options": {
+        "A": "Becquerel",
+        "B": "Curie",
+        "C": "Roentgen",
+        "D": "Gray"
+      },
+      "correct_answer": "A",
+      "explanation": "The becquerel (Bq) is the SI unit for radioactivity.",
+      "section": "nuclear_physics"
+    },
+    {
+      "id": 26,
+      "question": "Which instrument measures atmospheric pressure?",
+      "options": {
+        "A": "Thermometer",
+        "B": "Barometer",
+        "C": "Hygrometer",
+        "D": "Anemometer"
+      },
+      "correct_answer": "B",
+      "explanation": "Barometers are used to measure atmospheric pressure.",
+      "section": "pressure"
+    },
+    {
+      "id": 27,
+      "question": "What is the formula for density?",
+      "options": {
+        "A": "ρ = m/V",
+        "B": "ρ = F/A",
+        "C": "ρ = P/hg",
+        "D": "ρ = ma"
+      },
+      "correct_answer": "A",
+      "explanation": "Density is mass per unit volume (ρ = m/V).",
+      "section": "measurement"
+    },
+    {
+      "id": 28,
+      "question": "Which quantity is measured in newtons?",
+      "options": {
+        "A": "Mass",
+        "B": "Weight",
+        "C": "Volume",
+        "D": "Density"
+      },
+      "correct_answer": "B",
+      "explanation": "Weight is a force measured in newtons, while mass is measured in kilograms.",
+      "section": "forces"
+    },
+    {
+      "id": 29,
+      "question": "What is the principle behind hydraulic brakes?",
+      "options": {
+        "A": "Archimedes' principle",
+        "B": "Pascal's principle",
+        "C": "Bernoulli's principle",
+        "D": "Newton's principle"
+      },
+      "correct_answer": "B",
+      "explanation": "Pascal's principle states that pressure applied to a confined fluid is transmitted equally throughout.",
+      "section": "fluids"
+    },
+    {
+      "id": 30,
+      "question": "Which type of lens converges light rays?",
+      "options": {
+        "A": "Concave lens",
+        "B": "Convex lens",
+        "C": "Plano-concave lens",
+        "D": "Diverging lens"
+      },
+      "correct_answer": "B",
+      "explanation": "Convex lenses converge parallel light rays to a focal point.",
+      "section": "optics"
+    },
+    {
+      "id": 31,
+      "question": "What is the unit of electrical resistance?",
+      "options": {
+        "A": "Volt",
+        "B": "Ampere",
+        "C": "Ohm",
+        "D": "Watt"
+      },
+      "correct_answer": "C",
+      "explanation": "The ohm (Ω) is the SI unit for electrical resistance.",
+      "section": "electricity"
+    },
+    {
+      "id": 32,
+      "question": "Which circuit has the same current throughout?",
+      "options": {
+        "A": "Parallel circuit",
+        "B": "Series circuit",
+        "C": "Complex circuit",
+        "D": "Mixed circuit"
+      },
+      "correct_answer": "B",
+      "explanation": "In series circuits, the same current flows through all components.",
+      "section": "electricity"
+    },
+    {
+      "id": 33,
+      "question": "What is the speed of sound in air at room temperature?",
+      "options": {
+        "A": "330 m/s",
+        "B": "340 m/s",
+        "C": "350 m/s",
+        "D": "360 m/s"
+      },
+      "correct_answer": "B",
+      "explanation": "The speed of sound in air at room temperature (20°C) is approximately 340 m/s.",
+      "section": "sound"
+    },
+    {
+      "id": 34,
+      "question": "Which phenomenon explains the blue color of the sky?",
+      "options": {
+        "A": "Reflection",
+        "B": "Refraction",
+        "C": "Dispersion",
+        "D": "Scattering"
+      },
+      "correct_answer": "D",
+      "explanation": "Rayleigh scattering causes shorter blue wavelengths to scatter more, making the sky appear blue.",
+      "section": "light"
+    },
+    {
+      "id": 35,
+      "question": "What is the unit of power?",
+      "options": {
+        "A": "Joule",
+        "B": "Watt",
+        "C": "Newton",
+        "D": "Pascal"
+      },
+      "correct_answer": "B",
+      "explanation": "The watt (W) is the SI unit for power.",
+      "section": "work_energy_power"
+    },
+    {
+      "id": 36,
+      "question": "Which law states that pressure and volume are inversely proportional at constant temperature?",
+      "options": {
+        "A": "Charles' law",
+        "B": "Boyle's law",
+        "C": "Gay-Lussac's law",
+        "D": "Avogadro's law"
+      },
+      "correct_answer": "B",
+      "explanation": "Boyle's law states that P₁V₁ = P₂V₂ at constant temperature.",
+      "section": "gas_laws"
+    },
+    {
+      "id": 37,
+      "question": "What is the formula for kinetic energy?",
+      "options": {
+        "A": "KE = mgh",
+        "B": "KE = ½mv²",
+        "C": "KE = Fd",
+        "D": "KE = Pt"
+      },
+      "correct_answer": "B",
+      "explanation": "Kinetic energy is given by KE = ½mv², where m is mass and v is velocity.",
+      "section": "energy"
+    },
+    {
+      "id": 38,
+      "question": "Which device measures electric current?",
+      "options": {
+        "A": "Voltmeter",
+        "B": "Ammeter",
+        "C": "Ohmmeter",
+        "D": "Wattmeter"
+      },
+      "correct_answer": "B",
+      "explanation": "Ammeters are used to measure electric current and are connected in series.",
+      "section": "electricity"
+    },
+    {
+      "id": 39,
+      "question": "What is the principle of conservation of energy?",
+      "options": {
+        "A": "Energy can be created",
+        "B": "Energy can be destroyed",
+        "C": "Energy cannot be created or destroyed",
+        "D": "Energy decreases over time"
+      },
+      "correct_answer": "C",
+      "explanation": "The law of conservation of energy states that energy cannot be created or destroyed, only converted from one form to another.",
+      "section": "energy"
+    },
+    {
+      "id": 40,
+      "question": "Which mirror can form real images?",
+      "options": {
+        "A": "Plane mirror",
+        "B": "Convex mirror",
+        "C": "Concave mirror",
+        "D": "All mirrors"
+      },
+      "correct_answer": "C",
+      "explanation": "Concave mirrors can form real, inverted images when the object is beyond the focal point.",
+      "section": "optics"
+    },
+    {
+      "id": 41,
+      "question": "What is the unit of wavelength?",
+      "options": {
+        "A": "Hertz",
+        "B": "Meter",
+        "C": "Second",
+        "D": "Newton"
+      },
+      "correct_answer": "B",
+      "explanation": "Wavelength is a distance and is measured in meters.",
+      "section": "waves"
+    },
+    {
+      "id": 42,
+      "question": "Which type of electromagnetic wave has the longest wavelength?",
+      "options": {
+        "A": "Gamma rays",
+        "B": "X-rays",
+        "C": "Visible light",
+        "D": "Radio waves"
+      },
+      "correct_answer": "D",
+      "explanation": "Radio waves have the longest wavelengths in the electromagnetic spectrum.",
+      "section": "waves"
+    },
+    {
+      "id": 43,
+      "question": "What is the formula for gravitational potential energy?",
+      "options": {
+        "A": "PE = ½mv²",
+        "B": "PE = mgh",
+        "C": "PE = Fd",
+        "D": "PE = Pt"
+      },
+      "correct_answer": "B",
+      "explanation": "Gravitational potential energy is given by PE = mgh, where h is height.",
+      "section": "energy"
+    },
+    {
+      "id": 44,
+      "question": "Which law explains why ice floats on water?",
+      "options": {
+        "A": "Pascal's law",
+        "B": "Archimedes' principle",
+        "C": "Bernoulli's principle",
+        "D": "Hooke's law"
+      },
+      "correct_answer": "B",
+      "explanation": "Archimedes' principle explains buoyancy - ice floats because it's less dense than water.",
+      "section": "fluids"
+    },
+    {
+      "id": 45,
+      "question": "What is the unit of electric charge?",
+      "options": {
+        "A": "Ampere",
+        "B": "Volt",
+        "C": "Coulomb",
+        "D": "Ohm"
+      },
+      "correct_answer": "C",
+      "explanation": "The coulomb (C) is the SI unit for electric charge.",
+      "section": "electricity"
+    },
+    {
+      "id": 46,
+      "question": "Which device stores electric charge?",
+      "options": {
+        "A": "Resistor",
+        "B": "Capacitor",
+        "C": "Inductor",
+        "D": "Transistor"
+      },
+      "correct_answer": "B",
+      "explanation": "Capacitors store electric charge and energy in an electric field.",
+      "section": "electricity"
+    },
+    {
+      "id": 47,
+      "question": "What is the formula for wave speed?",
+      "options": {
+        "A": "v = fλ",
+        "B": "v = f/T",
+        "C": "v = λ/T",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Wave speed can be calculated as v = fλ, v = f/T, or v = λ/T, where f is frequency and λ is wavelength.",
+      "section": "waves"
+    },
+    {
+      "id": 48,
+      "question": "Which phenomenon causes a straw to appear bent in water?",
+      "options": {
+        "A": "Reflection",
+        "B": "Refraction",
+        "C": "Diffraction",
+        "D": "Interference"
+      },
+      "correct_answer": "B",
+      "explanation": "Refraction bends light as it passes from one medium to another, making the straw appear bent.",
+      "section": "optics"
+    },
+    {
+      "id": 49,
+      "question": "What is the unit of frequency?",
+      "options": {
+        "A": "Meter",
+        "B": "Second",
+        "C": "Hertz",
+        "D": "Watt"
+      },
+      "correct_answer": "C",
+      "explanation": "Frequency is measured in hertz (Hz), which represents cycles per second.",
+      "section": "waves"
+    },
+    {
+      "id": 50,
+      "question": "Which law states that the angle of incidence equals the angle of reflection?",
+      "options": {
+        "A": "Snell's law",
+        "B": "Law of refraction",
+        "C": "Law of reflection",
+        "D": "Law of diffraction"
+      },
+      "correct_answer": "C",
+      "explanation": "The law of reflection states that the angle of incidence equals the angle of reflection.",
+      "section": "optics"
+    },
+    {
+      "id": 51,
+      "question": "What is the SI unit of force?",
+      "options": {
+        "A": "Joule",
+        "B": "Newton",
+        "C": "Watt",
+        "D": "Pascal"
+      },
+      "correct_answer": "B",
+      "explanation": "The newton (N) is the SI unit for force.",
+      "section": "forces"
+    },
+    {
+      "id": 52,
+      "question": "Which quantity is measured in joules?",
+      "options": {
+        "A": "Force",
+        "B": "Power",
+        "C": "Energy",
+        "D": "Pressure"
+      },
+      "correct_answer": "C",
+      "explanation": "The joule (J) is the SI unit for energy and work.",
+      "section": "energy"
+    },
+    {
+      "id": 53,
+      "question": "What is the formula for momentum?",
+      "options": {
+        "A": "p = mv",
+        "B": "p = F/t",
+        "C": "p = ma",
+        "D": "p = Fd"
+      },
+      "correct_answer": "A",
+      "explanation": "Momentum is the product of mass and velocity (p = mv).",
+      "section": "motion"
+    },
+    {
+      "id": 54,
+      "question": "Which principle states that the total momentum before collision equals total momentum after collision?",
+      "options": {
+        "A": "Conservation of energy",
+        "B": "Conservation of momentum",
+        "C": "Conservation of mass",
+        "D": "Conservation of charge"
+      },
+      "correct_answer": "B",
+      "explanation": "The law of conservation of momentum states that total momentum is conserved in isolated systems.",
+      "section": "motion"
+    },
+    {
+      "id": 55,
+      "question": "What is the unit of pressure?",
+      "options": {
+        "A": "Newton",
+        "B": "Pascal",
+        "C": "Joule",
+        "D": "Watt"
+      },
+      "correct_answer": "B",
+      "explanation": "The pascal (Pa) is the SI unit for pressure.",
+      "section": "pressure"
+    },
+    {
+      "id": 56,
+      "question": "Which instrument measures temperature?",
+      "options": {
+        "A": "Barometer",
+        "B": "Thermometer",
+        "C": "Hygrometer",
+        "D": "Anemometer"
+      },
+      "correct_answer": "B",
+      "explanation": "Thermometers are used to measure temperature.",
+      "section": "heat"
+    },
+    {
+      "id": 57,
+      "question": "What is the specific heat capacity of water?",
+      "options": {
+        "A": "2100 J/kg°C",
+        "B": "4200 J/kg°C",
+        "C": "1000 J/kg°C",
+        "D": "500 J/kg°C"
+      },
+      "correct_answer": "B",
+      "explanation": "The specific heat capacity of water is approximately 4200 J/kg°C.",
+      "section": "heat"
+    },
+    {
+      "id": 58,
+      "question": "Which type of energy is in the nucleus of an atom?",
+      "options": {
+        "A": "Chemical energy",
+        "B": "Nuclear energy",
+        "C": "Electrical energy",
+        "D": "Thermal energy"
+      },
+      "correct_answer": "B",
+      "explanation": "Nuclear energy is stored in the nucleus of atoms.",
+      "section": "nuclear_physics"
+    },
+    {
+      "id": 59,
+      "question": "What is the unit of electric potential difference?",
+      "options": {
+        "A": "Ampere",
+        "B": "Volt",
+        "C": "Ohm",
+        "D": "Watt"
+      },
+      "correct_answer": "B",
+      "explanation": "The volt (V) is the SI unit for electric potential difference.",
+      "section": "electricity"
+    },
+    {
+      "id": 60,
+      "question": "Which device converts electrical energy to mechanical energy?",
+      "options": {
+        "A": "Generator",
+        "B": "Motor",
+        "C": "Transformer",
+        "D": "Rectifier"
+      },
+      "correct_answer": "B",
+      "explanation": "Electric motors convert electrical energy into mechanical energy.",
+      "section": "electromagnetism"
+    },
+    {
+      "id": 61,
+      "question": "What is the formula for efficiency?",
+      "options": {
+        "A": "Efficiency = (input/output) × 100%",
+        "B": "Efficiency = (output/input) × 100%",
+        "C": "Efficiency = input - output",
+        "D": "Efficiency = output/input"
+      },
+      "correct_answer": "B",
+      "explanation": "Efficiency = (useful output energy / total input energy) × 100%",
+      "section": "work_energy_power"
+    },
+    {
+      "id": 62,
+      "question": "Which law relates the pressure and temperature of a gas at constant volume?",
+      "options": {
+        "A": "Boyle's law",
+        "B": "Charles' law",
+        "C": "Gay-Lussac's law",
+        "D": "Avogadro's law"
+      },
+      "correct_answer": "C",
+      "explanation": "Gay-Lussac's law states that pressure is directly proportional to temperature at constant volume.",
+      "section": "gas_laws"
+    },
+    {
+      "id": 63,
+      "question": "What is the unit of magnetic flux?",
+      "options": {
+        "A": "Tesla",
+        "B": "Weber",
+        "C": "Henry",
+        "D": "Farad"
+      },
+      "correct_answer": "B",
+      "explanation": "The weber (Wb) is the SI unit for magnetic flux.",
+      "section": "electromagnetism"
+    },
+    {
+      "id": 64,
+      "question": "Which phenomenon produces an electric current in a changing magnetic field?",
+      "options": {
+        "A": "Electromagnetic induction",
+        "B": "Magnetic resonance",
+        "C": "Electrostatic induction",
+        "D": "Magnetic induction"
+      },
+      "correct_answer": "A",
+      "explanation": "Electromagnetic induction produces electric current when a conductor moves through a magnetic field or the field changes.",
+      "section": "electromagnetism"
+    },
+    {
+      "id": 65,
+      "question": "What is the critical angle?",
+      "options": {
+        "A": "Angle of incidence",
+        "B": "Angle of reflection",
+        "C": "Angle for total internal reflection",
+        "D": "Angle of refraction"
+      },
+      "correct_answer": "C",
+      "explanation": "The critical angle is the angle of incidence that produces an angle of refraction of 90°, leading to total internal reflection.",
+      "section": "optics"
+    },
+    {
+      "id": 66,
+      "question": "Which type of mirror is used in car side mirrors?",
+      "options": {
+        "A": "Plane mirror",
+        "B": "Concave mirror",
+        "C": "Convex mirror",
+        "D": "Spherical mirror"
+      },
+      "correct_answer": "C",
+      "explanation": "Convex mirrors are used in car side mirrors because they provide a wider field of view.",
+      "section": "optics"
+    },
+    {
+      "id": 67,
+      "question": "What is the unit of capacitance?",
+      "options": {
+        "A": "Farad",
+        "B": "Henry",
+        "C": "Ohm",
+        "D": "Siemens"
+      },
+      "correct_answer": "A",
+      "explanation": "The farad (F) is the SI unit for capacitance.",
+      "section": "electricity"
+    },
+    {
+      "id": 68,
+      "question": "Which law states that current is directly proportional to voltage?",
+      "options": {
+        "A": "Coulomb's law",
+        "B": "Ohm's law",
+        "C": "Faraday's law",
+        "D": "Lenz's law"
+      },
+      "correct_answer": "B",
+      "explanation": "Ohm's law states that current through a conductor is directly proportional to the voltage across it.",
+      "section": "electricity"
+    },
+    {
+      "id": 69,
+      "question": "What is the formula for electrical energy?",
+      "options": {
+        "A": "E = IVt",
+        "B": "E = I²Rt",
+        "C": "E = V²t/R",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Electrical energy can be calculated as E = IVt, E = I²Rt, or E = V²t/R.",
+      "section": "electricity"
+    },
+    {
+      "id": 70,
+      "question": "Which device increases or decreases AC voltage?",
+      "options": {
+        "A": "Generator",
+        "B": "Motor",
+        "C": "Transformer",
+        "D": "Rectifier"
+      },
+      "correct_answer": "C",
+      "explanation": "Transformers change AC voltage levels using electromagnetic induction.",
+      "section": "electromagnetism"
+    },
+    {
+      "id": 71,
+      "question": "What is the unit of magnetic field strength?",
+      "options": {
+        "A": "Weber",
+        "B": "Tesla",
+        "C": "Henry",
+        "D": "Farad"
+      },
+      "correct_answer": "B",
+      "explanation": "The tesla (T) is the SI unit for magnetic field strength.",
+      "section": "electromagnetism"
+    },
+    {
+      "id": 72,
+      "question": "Which phenomenon explains the working of electric generators?",
+      "options": {
+        "A": "Electromagnetic induction",
+        "B": "Magnetic resonance",
+        "C": "Electrostatic induction",
+        "D": "Photoelectric effect"
+      },
+      "correct_answer": "A",
+      "explanation": "Electric generators work on the principle of electromagnetic induction.",
+      "section": "electromagnetism"
+    },
+    {
+      "id": 73,
+      "question": "What is the speed of light in glass?",
+      "options": {
+        "A": "3 × 10⁸ m/s",
+        "B": "2 × 10⁸ m/s",
+        "C": "1.5 × 10⁸ m/s",
+        "D": "Depends on the glass"
+      },
+      "correct_answer": "D",
+      "explanation": "The speed of light in glass depends on the refractive index of the specific glass.",
+      "section": "light"
+    },
+    {
+      "id": 74,
+      "question": "Which lens is used to correct short-sightedness?",
+      "options": {
+        "A": "Convex lens",
+        "B": "Concave lens",
+        "C": "Cylindrical lens",
+        "D": "Bifocal lens"
+      },
+      "correct_answer": "B",
+      "explanation": "Concave (diverging) lenses are used to correct myopia (short-sightedness).",
+      "section": "optics"
+    },
+    {
+      "id": 75,
+      "question": "What is the unit of inductance?",
+      "options": {
+        "A": "Farad",
+        "B": "Henry",
+        "C": "Ohm",
+        "D": "Siemens"
+      },
+      "correct_answer": "B",
+      "explanation": "The henry (H) is the SI unit for inductance.",
+      "section": "electromagnetism"
+    },
+    {
+      "id": 76,
+      "question": "Which law gives the direction of induced current?",
+      "options": {
+        "A": "Faraday's law",
+        "B": "Lenz's law",
+        "C": "Ohm's law",
+        "D": "Coulomb's law"
+      },
+      "correct_answer": "B",
+      "explanation": "Lenz's law states that the direction of induced current opposes the change causing it.",
+      "section": "electromagnetism"
+    },
+    {
+      "id": 77,
+      "question": "What is the formula for refractive index?",
+      "options": {
+        "A": "n = c/v",
+        "B": "n = sin i/sin r",
+        "C": "n = 1/sin C",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Refractive index can be calculated as n = c/v, n = sin i/sin r, or n = 1/sin C.",
+      "section": "optics"
+    },
+    {
+      "id": 78,
+      "question": "Which color of light has the shortest wavelength?",
+      "options": {
+        "A": "Red",
+        "B": "Green",
+        "C": "Blue",
+        "D": "Violet"
+      },
+      "correct_answer": "D",
+      "explanation": "Violet light has the shortest wavelength in the visible spectrum.",
+      "section": "light"
+    },
+    {
+      "id": 79,
+      "question": "What is the unit of luminous intensity?",
+      "options": {
+        "A": "Lumen",
+        "B": "Lux",
+        "C": "Candela",
+        "D": "Watt"
+      },
+      "correct_answer": "C",
+      "explanation": "The candela (cd) is the SI base unit for luminous intensity.",
+      "section": "light"
+    },
+    {
+      "id": 80,
+      "question": "Which principle explains the working of hydraulic machines?",
+      "options": {
+        "A": "Archimedes' principle",
+        "B": "Pascal's principle",
+        "C": "Bernoulli's principle",
+        "D": "Newton's principle"
+      },
+      "correct_answer": "B",
+      "explanation": "Pascal's principle explains how pressure is transmitted in fluids, enabling hydraulic machines to work.",
+      "section": "fluids"
+    },
+    {
+      "id": 81,
+      "question": "What is the formula for centripetal force?",
+      "options": {
+        "A": "F = mv²/r",
+        "B": "F = mω²r",
+        "C": "F = 4π²mr/T²",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Centripetal force can be expressed as F = mv²/r, F = mω²r, or F = 4π²mr/T².",
+      "section": "motion"
+    },
+    {
+      "id": 82,
+      "question": "Which type of energy is in a moving object?",
+      "options": {
+        "A": "Potential energy",
+        "B": "Kinetic energy",
+        "C": "Chemical energy",
+        "D": "Nuclear energy"
+      },
+      "correct_answer": "B",
+      "explanation": "Kinetic energy is the energy possessed by moving objects.",
+      "section": "energy"
+    },
+    {
+      "id": 83,
+      "question": "What is the unit of heat energy?",
+      "options": {
+        "A": "Joule",
+        "B": "Calorie",
+        "C": "Both A and B",
+        "D": "Watt"
+      },
+      "correct_answer": "C",
+      "explanation": "Heat energy can be measured in joules or calories.",
+      "section": "heat"
+    },
+    {
+      "id": 84,
+      "question": "Which law states that volume is directly proportional to temperature at constant pressure?",
+      "options": {
+        "A": "Boyle's law",
+        "B": "Charles' law",
+        "C": "Gay-Lussac's law",
+        "D": "Avogadro's law"
+      },
+      "correct_answer": "B",
+      "explanation": "Charles' law states that volume is directly proportional to absolute temperature at constant pressure.",
+      "section": "gas_laws"
+    },
+    {
+      "id": 85,
+      "question": "What is the formula for pressure in fluids?",
+      "options": {
+        "A": "P = F/A",
+        "B": "P = ρgh",
+        "C": "P = hρg",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Pressure in fluids can be calculated as P = F/A, P = ρgh, or P = hρg.",
+      "section": "pressure"
+    },
+    {
+      "id": 86,
+      "question": "Which instrument measures electric potential difference?",
+      "options": {
+        "A": "Ammeter",
+        "B": "Voltmeter",
+        "C": "Ohmmeter",
+        "D": "Galvanometer"
+      },
+      "correct_answer": "B",
+      "explanation": "Voltmeters measure electric potential difference and are connected in parallel.",
+      "section": "electricity"
+    },
+    {
+      "id": 87,
+      "question": "What is the unit of electric field strength?",
+      "options": {
+        "A": "Newton/coulomb",
+        "B": "Volt/meter",
+        "C": "Both A and B",
+        "D": "Joule/coulomb"
+      },
+      "correct_answer": "C",
+      "explanation": "Electric field strength can be measured in N/C or V/m.",
+      "section": "electricity"
+    },
+    {
+      "id": 88,
+      "question": "Which phenomenon produces sound when objects vibrate?",
+      "options": {
+        "A": "Reflection",
+        "B": "Refraction",
+        "C": "Vibration",
+        "D": "Oscillation"
+      },
+      "correct_answer": "C",
+      "explanation": "Sound is produced by vibrating objects that create pressure waves in a medium.",
+      "section": "sound"
+    },
+    {
+      "id": 89,
+      "question": "What is the formula for gravitational force?",
+      "options": {
+        "A": "F = Gm₁m₂/r²",
+        "B": "F = ma",
+        "C": "F = kx",
+        "D": "F = ρVg"
+      },
+      "correct_answer": "A",
+      "explanation": "Newton's law of universal gravitation: F = Gm₁m₂/r²",
+      "section": "gravitation"
+    },
+    {
+      "id": 90,
+      "question": "Which type of wave is sound?",
+      "options": {
+        "A": "Transverse wave",
+        "B": "Longitudinal wave",
+        "C": "Electromagnetic wave",
+        "D": "Surface wave"
+      },
+      "correct_answer": "B",
+      "explanation": "Sound waves are longitudinal waves where particles vibrate parallel to the wave direction.",
+      "section": "waves"
+    },
+    {
+      "id": 91,
+      "question": "What is the unit of activity of a radioactive substance?",
+      "options": {
+        "A": "Becquerel",
+        "B": "Curie",
+        "C": "Both A and B",
+        "D": "Roentgen"
+      },
+      "correct_answer": "C",
+      "explanation": "Radioactivity can be measured in becquerels (SI unit) or curies (traditional unit).",
+      "section": "nuclear_physics"
+    },
+    {
+      "id": 92,
+      "question": "Which principle explains why airplanes fly?",
+      "options": {
+        "A": "Archimedes' principle",
+        "B": "Pascal's principle",
+        "C": "Bernoulli's principle",
+        "D": "Newton's principle"
+      },
+      "correct_answer": "C",
+      "explanation": "Bernoulli's principle explains how faster-moving air creates lower pressure, generating lift for airplanes.",
+      "section": "fluids"
+    },
+    {
+      "id": 93,
+      "question": "What is the formula for power in electricity?",
+      "options": {
+        "A": "P = IV",
+        "B": "P = I²R",
+        "C": "P = V²/R",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Electrical power can be calculated as P = IV, P = I²R, or P = V²/R.",
+      "section": "electricity"
+    },
+    {
+      "id": 94,
+      "question": "Which device measures radiation?",
+      "options": {
+        "A": "Geiger-Muller tube",
+        "B": "Photocell",
+        "C": "Thermocouple",
+        "D": "Barometer"
+      },
+      "correct_answer": "A",
+      "explanation": "Geiger-Muller tubes are used to detect and measure ionizing radiation.",
+      "section": "nuclear_physics"
+    },
+    {
+      "id": 95,
+      "question": "What is the unit of impulse?",
+      "options": {
+        "A": "Newton-second",
+        "B": "Joule-second",
+        "C": "Kilogram-meter/second",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Impulse can be measured in N·s, J·s, or kg·m/s, all of which are equivalent.",
+      "section": "motion"
+    },
+    {
+      "id": 96,
+      "question": "Which law states that stress is proportional to strain?",
+      "options": {
+        "A": "Hooke's law",
+        "B": "Newton's law",
+        "C": "Ohm's law",
+        "D": "Boyle's law"
+      },
+      "correct_answer": "A",
+      "explanation": "Hooke's law states that stress is proportional to strain within the elastic limit.",
+      "section": "properties_of_matter"
+    },
+    {
+      "id": 97,
+      "question": "What is the formula for efficiency of a machine?",
+      "options": {
+        "A": "Efficiency = (MA/VR) × 100%",
+        "B": "Efficiency = (VR/MA) × 100%",
+        "C": "Efficiency = (work output/work input) × 100%",
+        "D": "Both A and C"
+      },
+      "correct_answer": "D",
+      "explanation": "Efficiency can be calculated as (MA/VR) × 100% or (work output/work input) × 100%.",
+      "section": "machines"
+    },
+    {
+      "id": 98,
+      "question": "Which type of lens is used in magnifying glasses?",
+      "options": {
+        "A": "Concave lens",
+        "B": "Convex lens",
+        "C": "Cylindrical lens",
+        "D": "Bifocal lens"
+      },
+      "correct_answer": "B",
+      "explanation": "Convex (converging) lenses are used in magnifying glasses to produce enlarged virtual images.",
+      "section": "optics"
+    },
+    {
+      "id": 99,
+      "question": "What is the unit of magnetic permeability?",
+      "options": {
+        "A": "Henry/meter",
+        "B": "Tesla meter/ampere",
+        "C": "Weber/ampere-meter",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Magnetic permeability can be expressed in H/m, T·m/A, or Wb/(A·m).",
+      "section": "electromagnetism"
+    },
+    {
+      "id": 100,
+      "question": "Which phenomenon explains the rainbow?",
+      "options": {
+        "A": "Reflection",
+        "B": "Refraction",
+        "C": "Dispersion",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Rainbows are formed by reflection, refraction, and dispersion of sunlight in water droplets.",
+      "section": "optics"
+    },
+    {
+      "id": 101,
+      "question": "What is the formula for moment of force?",
+      "options": {
+        "A": "M = Fd",
+        "B": "M = Fr",
+        "C": "M = F × perpendicular distance",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Moment of force (torque) is force multiplied by perpendicular distance from pivot.",
+      "section": "forces"
+    },
+    {
+      "id": 102,
+      "question": "Which principle states that a body wholly or partially immersed in fluid is buoyed up by a force equal to the weight of fluid displaced?",
+      "options": {
+        "A": "Pascal's principle",
+        "B": "Archimedes' principle",
+        "C": "Bernoulli's principle",
+        "D": "Newton's principle"
+      },
+      "correct_answer": "B",
+      "explanation": "This is the statement of Archimedes' principle of buoyancy.",
+      "section": "fluids"
+    },
+    {
+      "id": 103,
+      "question": "What is the unit of thermal conductivity?",
+      "options": {
+        "A": "W/mK",
+        "B": "J/smK",
+        "C": "Both A and B",
+        "D": "J/kgK"
+      },
+      "correct_answer": "C",
+      "explanation": "Thermal conductivity is measured in W/m·K or J/s·m·K.",
+      "section": "heat"
+    },
+    {
+      "id": 104,
+      "question": "Which law explains the photoelectric effect?",
+      "options": {
+        "A": "Einstein's photoelectric equation",
+        "B": "Planck's quantum theory",
+        "C": "Both A and B",
+        "D": "Ohm's law"
+      },
+      "correct_answer": "C",
+      "explanation": "The photoelectric effect is explained by both Planck's quantum theory and Einstein's photoelectric equation.",
+      "section": "modern_physics"
+    },
+    {
+      "id": 105,
+      "question": "What is the formula for capacitance?",
+      "options": {
+        "A": "C = Q/V",
+        "B": "C = εA/d",
+        "C": "Both A and B",
+        "D": "C = V/Q"
+      },
+      "correct_answer": "C",
+      "explanation": "Capacitance can be defined as C = Q/V or calculated as C = εA/d for parallel plates.",
+      "section": "electricity"
+    },
+    {
+      "id": 106,
+      "question": "Which device converts light energy to electrical energy?",
+      "options": {
+        "A": "Solar cell",
+        "B": "Photocell",
+        "C": "Both A and B",
+        "D": "Generator"
+      },
+      "correct_answer": "C",
+      "explanation": "Both solar cells and photocells convert light energy into electrical energy.",
+      "section": "modern_physics"
+    },
+    {
+      "id": 107,
+      "question": "What is the unit of Planck's constant?",
+      "options": {
+        "A": "Joule-second",
+        "B": "Electron-volt",
+        "C": "Both A and B",
+        "D": "Watt"
+      },
+      "correct_answer": "A",
+      "explanation": "Planck's constant is measured in joule-seconds (J·s).",
+      "section": "modern_physics"
+    },
+    {
+      "id": 108,
+      "question": "Which principle states that energy is quantized?",
+      "options": {
+        "A": "Planck's quantum theory",
+        "B": "Einstein's theory of relativity",
+        "C": "Newton's laws",
+        "D": "Ohm's law"
+      },
+      "correct_answer": "A",
+      "explanation": "Planck's quantum theory states that energy is emitted or absorbed in discrete quanta.",
+      "section": "modern_physics"
+    },
+    {
+      "id": 109,
+      "question": "What is the formula for de Broglie wavelength?",
+      "options": {
+        "A": "λ = h/p",
+        "B": "λ = h/mv",
+        "C": "Both A and B",
+        "D": "λ = c/f"
+      },
+      "correct_answer": "C",
+      "explanation": "De Broglie wavelength is given by λ = h/p or λ = h/mv, where p is momentum.",
+      "section": "modern_physics"
+    },
+    {
+      "id": 110,
+      "question": "Which experiment demonstrated the wave nature of electrons?",
+      "options": {
+        "A": "Photoelectric effect",
+        "B": "Davisson-Germer experiment",
+        "C": "Millikan's oil drop experiment",
+        "D": "Rutherford's experiment"
+      },
+      "correct_answer": "B",
+      "explanation": "The Davisson-Germer experiment demonstrated electron diffraction, confirming wave nature.",
+      "section": "modern_physics"
+    },
+    {
+      "id": 111,
+      "question": "What is the unit of angular momentum?",
+      "options": {
+        "A": "kg·m²/s",
+        "B": "J·s",
+        "C": "Both A and B",
+        "D": "N·m"
+      },
+      "correct_answer": "C",
+      "explanation": "Angular momentum can be measured in kg·m²/s or J·s.",
+      "section": "motion"
+    },
+    {
+      "id": 112,
+      "question": "Which law relates the force between two charges?",
+      "options": {
+        "A": "Coulomb's law",
+        "B": "Ohm's law",
+        "C": "Faraday's law",
+        "D": "Lenz's law"
+      },
+      "correct_answer": "A",
+      "explanation": "Coulomb's law gives the force between two electric charges.",
+      "section": "electricity"
+    },
+    {
+      "id": 113,
+      "question": "What is the formula for electric field?",
+      "options": {
+        "A": "E = F/q",
+        "B": "E = kQ/r²",
+        "C": "Both A and B",
+        "D": "E = V/d"
+      },
+      "correct_answer": "C",
+      "explanation": "Electric field can be defined as E = F/q or calculated as E = kQ/r² for point charges.",
+      "section": "electricity"
+    },
+    {
+      "id": 114,
+      "question": "Which device measures very small currents?",
+      "options": {
+        "A": "Galvanometer",
+        "B": "Ammeter",
+        "C": "Voltmeter",
+        "D": "Ohmmeter"
+      },
+      "correct_answer": "A",
+      "explanation": "Galvanometers are sensitive instruments used to detect small electric currents.",
+      "section": "electricity"
+    },
+    {
+      "id": 115,
+      "question": "What is the unit of reactance?",
+      "options": {
+        "A": "Ohm",
+        "B": "Henry",
+        "C": "Farad",
+        "D": "Siemens"
+      },
+      "correct_answer": "A",
+      "explanation": "Reactance, like resistance, is measured in ohms.",
+      "section": "electricity"
+    },
+    {
+      "id": 116,
+      "question": "Which phenomenon causes the twinkling of stars?",
+      "options": {
+        "A": "Reflection",
+        "B": "Refraction",
+        "C": "Atmospheric refraction",
+        "D": "Dispersion"
+      },
+      "correct_answer": "C",
+      "explanation": "Atmospheric refraction causes starlight to bend through varying air densities, making stars appear to twinkle.",
+      "section": "optics"
+    },
+    {
+      "id": 117,
+      "question": "What is the formula for impedance?",
+      "options": {
+        "A": "Z = √(R² + X²)",
+        "B": "Z = V/I",
+        "C": "Both A and B",
+        "D": "Z = R + jX"
+      },
+      "correct_answer": "C",
+      "explanation": "Impedance can be calculated as Z = √(R² + X²) or measured as Z = V/I in AC circuits.",
+      "section": "electricity"
+    },
+    {
+      "id": 118,
+      "question": "Which principle is used in nuclear reactors?",
+      "options": {
+        "A": "Nuclear fission",
+        "B": "Nuclear fusion",
+        "C": "Both A and B",
+        "D": "Radioactive decay"
+      },
+      "correct_answer": "A",
+      "explanation": "Most nuclear reactors use controlled nuclear fission to generate energy.",
+      "section": "nuclear_physics"
+    },
+    {
+      "id": 119,
+      "question": "What is the unit of half-life?",
+      "options": {
+        "A": "Second",
+        "B": "Year",
+        "C": "Any time unit",
+        "D": "Becquerel"
+      },
+      "correct_answer": "C",
+      "explanation": "Half-life can be measured in any time unit (seconds, minutes, hours, years, etc.).",
+      "section": "nuclear_physics"
+    },
+    {
+      "id": 120,
+      "question": "Which law gives the relationship between pressure and depth in fluids?",
+      "options": {
+        "A": "Pascal's law",
+        "B": "Archimedes' principle",
+        "C": "Hydrostatic pressure law",
+        "D": "Bernoulli's principle"
+      },
+      "correct_answer": "C",
+      "explanation": "The hydrostatic pressure law states that pressure increases with depth in fluids.",
+      "section": "pressure"
+    },
+    {
+      "id": 121,
+      "question": "What is the formula for stress?",
+      "options": {
+        "A": "Stress = Force/Area",
+        "B": "Stress = F/A",
+        "C": "Both A and B",
+        "D": "Stress = Extension/Original length"
+      },
+      "correct_answer": "C",
+      "explanation": "Stress is defined as force per unit area.",
+      "section": "properties_of_matter"
+    },
+    {
+      "id": 122,
+      "question": "Which device measures humidity?",
+      "options": {
+        "A": "Hygrometer",
+        "B": "Barometer",
+        "C": "Thermometer",
+        "D": "Anemometer"
+      },
+      "correct_answer": "A",
+      "explanation": "Hygrometers measure relative humidity in the atmosphere.",
+      "section": "heat"
+    },
+    {
+      "id": 123,
+      "question": "What is the unit of strain?",
+      "options": {
+        "A": "No unit",
+        "B": "Meter",
+        "C": "Newton",
+        "D": "Pascal"
+      },
+      "correct_answer": "A",
+      "explanation": "Strain is a dimensionless quantity (ratio of lengths).",
+      "section": "properties_of_matter"
+    },
+    {
+      "id": 124,
+      "question": "Which phenomenon explains the formation of mirages?",
+      "options": {
+        "A": "Reflection",
+        "B": "Refraction",
+        "C": "Total internal reflection",
+        "D": "Dispersion"
+      },
+      "correct_answer": "C",
+      "explanation": "Mirages are formed by total internal reflection in layers of air with different temperatures.",
+      "section": "optics"
+    },
+    {
+      "id": 125,
+      "question": "What is the formula for Young's modulus?",
+      "options": {
+        "A": "Y = Stress/Strain",
+        "B": "Y = FL/AΔL",
+        "C": "Both A and B",
+        "D": "Y = F/A"
+      },
+      "correct_answer": "C",
+      "explanation": "Young's modulus is the ratio of stress to strain: Y = (F/A)/(ΔL/L) = FL/AΔL.",
+      "section": "properties_of_matter"
+    },
+    {
+      "id": 126,
+      "question": "Which device measures wind speed?",
+      "options": {
+        "A": "Anemometer",
+        "B": "Barometer",
+        "C": "Hygrometer",
+        "D": "Thermometer"
+      },
+      "correct_answer": "A",
+      "explanation": "Anemometers are used to measure wind speed.",
+      "section": "measurement"
+    },
+    {
+      "id": 127,
+      "question": "What is the unit of surface tension?",
+      "options": {
+        "A": "N/m",
+        "B": "J/m²",
+        "C": "Both A and B",
+        "D": "N/m²"
+      },
+      "correct_answer": "C",
+      "explanation": "Surface tension can be measured in N/m or J/m².",
+      "section": "properties_of_matter"
+    },
+    {
+      "id": 128,
+      "question": "Which principle explains the working of rockets?",
+      "options": {
+        "A": "Conservation of energy",
+        "B": "Conservation of momentum",
+        "C": "Newton's third law",
+        "D": "Both B and C"
+      },
+      "correct_answer": "D",
+      "explanation": "Rockets work based on both conservation of momentum and Newton's third law of motion.",
+      "section": "laws_of_motion"
+    }
+  ]
+}

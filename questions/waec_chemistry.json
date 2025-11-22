@@ -1,0 +1,1672 @@
+{
+  "subject": "Chemistry",
+  "exam_type": "WAEC",
+  "total_questions": 128,
+  "time_allowed": 8400,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following is the atomic number of carbon?",
+      "options": {
+        "A": "6",
+        "B": "12",
+        "C": "14",
+        "D": "16"
+      },
+      "correct_answer": "A",
+      "explanation": "Carbon has atomic number 6, meaning it has 6 protons in its nucleus.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 2,
+      "question": "What is the mass number of an atom with 11 protons and 12 neutrons?",
+      "options": {
+        "A": "11",
+        "B": "12",
+        "C": "23",
+        "D": "24"
+      },
+      "correct_answer": "C",
+      "explanation": "Mass number = number of protons + number of neutrons = 11 + 12 = 23.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 3,
+      "question": "Which subatomic particle has a positive charge?",
+      "options": {
+        "A": "Electron",
+        "B": "Proton",
+        "C": "Neutron",
+        "D": "Neutrino"
+      },
+      "correct_answer": "B",
+      "explanation": "Protons carry a positive charge, electrons carry negative charge, and neutrons are neutral.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 4,
+      "question": "How many electrons are in a neutral atom of sodium (atomic number 11)?",
+      "options": {
+        "A": "10",
+        "B": "11",
+        "C": "12",
+        "D": "23"
+      },
+      "correct_answer": "B",
+      "explanation": "In a neutral atom, number of electrons equals atomic number = 11.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 5,
+      "question": "Which element has the electron configuration 2,8,7?",
+      "options": {
+        "A": "Fluorine",
+        "B": "Chlorine",
+        "C": "Bromine",
+        "D": "Iodine"
+      },
+      "correct_answer": "B",
+      "explanation": "Electron configuration 2,8,7 indicates 17 total electrons, which corresponds to chlorine.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 6,
+      "question": "What is the maximum number of electrons in the first shell (K shell)?",
+      "options": {
+        "A": "2",
+        "B": "8",
+        "C": "18",
+        "D": "32"
+      },
+      "correct_answer": "A",
+      "explanation": "The first electron shell can hold maximum 2 electrons (2n² where n=1).",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 7,
+      "question": "Which of these elements is a metal?",
+      "options": {
+        "A": "Carbon",
+        "B": "Sulfur",
+        "C": "Oxygen",
+        "D": "Sodium"
+      },
+      "correct_answer": "D",
+      "explanation": "Sodium is an alkali metal, while carbon, sulfur, and oxygen are non-metals.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 8,
+      "question": "Elements in the same group of the periodic table have the same:",
+      "options": {
+        "A": "Atomic number",
+        "B": "Number of electron shells",
+        "C": "Number of valence electrons",
+        "D": "Atomic mass"
+      },
+      "correct_answer": "C",
+      "explanation": "Elements in the same group have the same number of valence electrons, giving them similar chemical properties.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 9,
+      "question": "Which group contains the noble gases?",
+      "options": {
+        "A": "Group 1",
+        "B": "Group 7",
+        "C": "Group 8",
+        "D": "Group 2"
+      },
+      "correct_answer": "C",
+      "explanation": "Group 8 (or Group 18) contains the noble gases: helium, neon, argon, etc.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 10,
+      "question": "What is the charge on a chloride ion?",
+      "options": {
+        "A": "+1",
+        "B": "-1",
+        "C": "+2",
+        "D": "-2"
+      },
+      "correct_answer": "B",
+      "explanation": "Chlorine gains one electron to form Cl⁻ ion with -1 charge.",
+      "section": "chemical_bonding"
+    },
+    {
+      "id": 11,
+      "question": "Which type of bond involves the sharing of electron pairs?",
+      "options": {
+        "A": "Ionic bond",
+        "B": "Covalent bond",
+        "C": "Metallic bond",
+        "D": "Hydrogen bond"
+      },
+      "correct_answer": "B",
+      "explanation": "Covalent bonds form when atoms share electron pairs.",
+      "section": "chemical_bonding"
+    },
+    {
+      "id": 12,
+      "question": "What is the formula for sodium chloride?",
+      "options": {
+        "A": "NaCl₂",
+        "B": "Na₂Cl",
+        "C": "NaCl",
+        "D": "Na₂Cl₂"
+      },
+      "correct_answer": "C",
+      "explanation": "Sodium chloride has formula NaCl because sodium forms Na⁺ and chlorine forms Cl⁻ ions.",
+      "section": "chemical_formulas"
+    },
+    {
+      "id": 13,
+      "question": "What is the formula for water?",
+      "options": {
+        "A": "H₂O",
+        "B": "HO₂",
+        "C": "H₂O₂",
+        "D": "HO"
+      },
+      "correct_answer": "A",
+      "explanation": "Water consists of two hydrogen atoms and one oxygen atom: H₂O.",
+      "section": "chemical_formulas"
+    },
+    {
+      "id": 14,
+      "question": "What is the formula for carbon dioxide?",
+      "options": {
+        "A": "CO",
+        "B": "CO₂",
+        "C": "C₂O",
+        "D": "C₂O₂"
+      },
+      "correct_answer": "B",
+      "explanation": "Carbon dioxide contains one carbon atom and two oxygen atoms: CO₂.",
+      "section": "chemical_formulas"
+    },
+    {
+      "id": 15,
+      "question": "Which of these is a balanced chemical equation?",
+      "options": {
+        "A": "H₂ + O₂ → H₂O",
+        "B": "2H₂ + O₂ → 2H₂O",
+        "C": "H₂ + O₂ → 2H₂O",
+        "D": "2H₂ + 2O₂ → 2H₂O"
+      },
+      "correct_answer": "B",
+      "explanation": "2H₂ + O₂ → 2H₂O is balanced with 4H and 2O atoms on both sides.",
+      "section": "chemical_equations"
+    },
+    {
+      "id": 16,
+      "question": "What type of reaction is: 2H₂ + O₂ → 2H₂O?",
+      "options": {
+        "A": "Decomposition",
+        "B": "Combination",
+        "C": "Single displacement",
+        "D": "Double displacement"
+      },
+      "correct_answer": "B",
+      "explanation": "This is a combination reaction where two elements combine to form a compound.",
+      "section": "chemical_reactions"
+    },
+    {
+      "id": 17,
+      "question": "What is the molar mass of water (H₂O)?",
+      "options": {
+        "A": "16 g/mol",
+        "B": "17 g/mol",
+        "C": "18 g/mol",
+        "D": "20 g/mol"
+      },
+      "correct_answer": "C",
+      "explanation": "H₂O: 2×1 + 16 = 18 g/mol",
+      "section": "mole_concept"
+    },
+    {
+      "id": 18,
+      "question": "How many moles are in 36 grams of water?",
+      "options": {
+        "A": "1 mole",
+        "B": "2 moles",
+        "C": "3 moles",
+        "D": "4 moles"
+      },
+      "correct_answer": "B",
+      "explanation": "Molar mass of H₂O = 18 g/mol, so 36 g ÷ 18 g/mol = 2 moles.",
+      "section": "mole_concept"
+    },
+    {
+      "id": 19,
+      "question": "What is the concentration of a solution containing 0.5 moles of solute in 2 liters of solution?",
+      "options": {
+        "A": "0.25 M",
+        "B": "0.5 M",
+        "C": "1.0 M",
+        "D": "2.0 M"
+      },
+      "correct_answer": "A",
+      "explanation": "Concentration = moles/volume = 0.5 mol / 2 L = 0.25 mol/L = 0.25 M",
+      "section": "solutions"
+    },
+    {
+      "id": 20,
+      "question": "Which of these is an acid?",
+      "options": {
+        "A": "NaOH",
+        "B": "HCl",
+        "C": "NH₃",
+        "D": "NaCl"
+      },
+      "correct_answer": "B",
+      "explanation": "HCl (hydrochloric acid) is an acid, while NaOH is a base, NH₃ is a weak base, and NaCl is a salt.",
+      "section": "acids_bases"
+    },
+    {
+      "id": 21,
+      "question": "What is the pH of a neutral solution?",
+      "options": {
+        "A": "0",
+        "B": "7",
+        "C": "14",
+        "D": "1"
+      },
+      "correct_answer": "B",
+      "explanation": "pH 7 is neutral, below 7 is acidic, above 7 is basic.",
+      "section": "acids_bases"
+    },
+    {
+      "id": 22,
+      "question": "What gas is produced when acids react with metals?",
+      "options": {
+        "A": "Oxygen",
+        "B": "Carbon dioxide",
+        "C": "Hydrogen",
+        "D": "Nitrogen"
+      },
+      "correct_answer": "C",
+      "explanation": "Acids + metals → salt + hydrogen gas",
+      "section": "acids_bases"
+    },
+    {
+      "id": 23,
+      "question": "What is the oxidation state of oxygen in most compounds?",
+      "options": {
+        "A": "+1",
+        "B": "-1",
+        "C": "-2",
+        "D": "+2"
+      },
+      "correct_answer": "C",
+      "explanation": "Oxygen usually has oxidation state -2, except in peroxides where it's -1.",
+      "section": "redox"
+    },
+    {
+      "id": 24,
+      "question": "In the reaction Zn + Cu²⁺ → Zn²⁺ + Cu, which element is oxidized?",
+      "options": {
+        "A": "Zinc",
+        "B": "Copper",
+        "C": "Both",
+        "D": "Neither"
+      },
+      "correct_answer": "A",
+      "explanation": "Zinc loses electrons (0 to +2), so it is oxidized.",
+      "section": "redox"
+    },
+    {
+      "id": 25,
+      "question": "What is the rate of a chemical reaction?",
+      "options": {
+        "A": "The energy released",
+        "B": "The change in concentration per unit time",
+        "C": "The equilibrium constant",
+        "D": "The activation energy"
+      },
+      "correct_answer": "B",
+      "explanation": "Reaction rate = change in concentration of reactant or product per unit time.",
+      "section": "reaction_rates"
+    },
+    {
+      "id": 26,
+      "question": "Which factor does NOT affect reaction rates?",
+      "options": {
+        "A": "Temperature",
+        "B": "Concentration",
+        "C": "Catalyst",
+        "D": "Atomic number"
+      },
+      "correct_answer": "D",
+      "explanation": "Atomic number is an intrinsic property and doesn't affect reaction rates under given conditions.",
+      "section": "reaction_rates"
+    },
+    {
+      "id": 27,
+      "question": "What is a catalyst?",
+      "options": {
+        "A": "A reactant",
+        "B": "A product",
+        "C": "A substance that speeds up reaction",
+        "D": "A substance that slows down reaction"
+      },
+      "correct_answer": "C",
+      "explanation": "Catalysts speed up reactions by providing an alternative pathway with lower activation energy.",
+      "section": "reaction_rates"
+    },
+    {
+      "id": 28,
+      "question": "In a reversible reaction, when forward and reverse rates are equal, the system is at:",
+      "options": {
+        "A": "Completion",
+        "B": "Equilibrium",
+        "C": "Standstill",
+        "D": "Maximum rate"
+      },
+      "correct_answer": "B",
+      "explanation": "At equilibrium, forward and reverse reaction rates are equal, and concentrations remain constant.",
+      "section": "equilibrium"
+    },
+    {
+      "id": 29,
+      "question": "Which of these is an organic compound?",
+      "options": {
+        "A": "NaCl",
+        "B": "CO₂",
+        "C": "CH₄",
+        "D": "H₂O"
+      },
+      "correct_answer": "C",
+      "explanation": "CH₄ (methane) is an organic compound containing carbon-hydrogen bonds.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 30,
+      "question": "How many covalent bonds can a carbon atom form?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "6"
+      },
+      "correct_answer": "C",
+      "explanation": "Carbon has 4 valence electrons and forms 4 covalent bonds to achieve octet.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 31,
+      "question": "What is the general formula for alkanes?",
+      "options": {
+        "A": "CₙH₂ₙ",
+        "B": "CₙH₂ₙ₊₂",
+        "C": "CₙH₂ₙ₋₂",
+        "D": "CₙH₂ₙ₊₁OH"
+      },
+      "correct_answer": "B",
+      "explanation": "Alkanes have general formula CₙH₂ₙ₊₂ (saturated hydrocarbons).",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 32,
+      "question": "Which hydrocarbon has a triple bond?",
+      "options": {
+        "A": "Alkane",
+        "B": "Alkene",
+        "C": "Alkyne",
+        "D": "Cycloalkane"
+      },
+      "correct_answer": "C",
+      "explanation": "Alkynes contain carbon-carbon triple bonds.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 33,
+      "question": "What is the IUPAC name for CH₃CH₂OH?",
+      "options": {
+        "A": "Methanol",
+        "B": "Ethanol",
+        "C": "Propanol",
+        "D": "Butanol"
+      },
+      "correct_answer": "B",
+      "explanation": "CH₃CH₂OH has 2 carbon atoms, so it's ethanol.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 34,
+      "question": "Which functional group is -COOH?",
+      "options": {
+        "A": "Alcohol",
+        "B": "Aldehyde",
+        "C": "Carboxylic acid",
+        "D": "Ketone"
+      },
+      "correct_answer": "C",
+      "explanation": "-COOH is the carboxyl group found in carboxylic acids.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 35,
+      "question": "What is the product when an alcohol is oxidized?",
+      "options": {
+        "A": "Alkane",
+        "B": "Alkene",
+        "C": "Aldehyde or carboxylic acid",
+        "D": "Ester"
+      },
+      "correct_answer": "C",
+      "explanation": "Primary alcohols oxidize to aldehydes then carboxylic acids; secondary alcohols to ketones.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 36,
+      "question": "Which metal is liquid at room temperature?",
+      "options": {
+        "A": "Sodium",
+        "B": "Mercury",
+        "C": "Iron",
+        "D": "Copper"
+      },
+      "correct_answer": "B",
+      "explanation": "Mercury is the only metal that is liquid at room temperature.",
+      "section": "metals"
+    },
+    {
+      "id": 37,
+      "question": "What is the main ore of aluminum?",
+      "options": {
+        "A": "Hematite",
+        "B": "Bauxite",
+        "C": "Galena",
+        "D": "Malachite"
+      },
+      "correct_answer": "B",
+      "explanation": "Bauxite (Al₂O₃·2H₂O) is the principal ore of aluminum.",
+      "section": "metals"
+    },
+    {
+      "id": 38,
+      "question": "Which gas is used in the Haber process?",
+      "options": {
+        "A": "Oxygen",
+        "B": "Hydrogen",
+        "C": "Nitrogen",
+        "D": "Both B and C"
+      },
+      "correct_answer": "D",
+      "explanation": "Haber process: N₂ + 3H₂ → 2NH₃ (ammonia synthesis)",
+      "section": "industrial_chemistry"
+    },
+    {
+      "id": 39,
+      "question": "What is the process of converting sugars to alcohol called?",
+      "options": {
+        "A": "Fermentation",
+        "B": "Distillation",
+        "C": "Filtration",
+        "D": "Evaporation"
+      },
+      "correct_answer": "A",
+      "explanation": "Fermentation: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂",
+      "section": "industrial_chemistry"
+    },
+    {
+      "id": 40,
+      "question": "Which of these is a greenhouse gas?",
+      "options": {
+        "A": "Oxygen",
+        "B": "Nitrogen",
+        "C": "Carbon dioxide",
+        "D": "Argon"
+      },
+      "correct_answer": "C",
+      "explanation": "CO₂ traps heat in the atmosphere, contributing to the greenhouse effect.",
+      "section": "environmental_chemistry"
+    },
+    {
+      "id": 41,
+      "question": "What is the atomic number of nitrogen?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct_answer": "C",
+      "explanation": "Nitrogen has atomic number 7 with electron configuration 2,5.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 42,
+      "question": "How many neutrons are in an atom of carbon-14?",
+      "options": {
+        "A": "6",
+        "B": "8",
+        "C": "14",
+        "D": "20"
+      },
+      "correct_answer": "B",
+      "explanation": "Carbon-14 has 6 protons and 8 neutrons (14 - 6 = 8).",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 43,
+      "question": "Which subatomic particle has negligible mass?",
+      "options": {
+        "A": "Proton",
+        "B": "Neutron",
+        "C": "Electron",
+        "D": "All have significant mass"
+      },
+      "correct_answer": "C",
+      "explanation": "Electron mass is about 1/1836 of proton mass, considered negligible in atomic mass calculations.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 44,
+      "question": "How many electrons can the second shell hold?",
+      "options": {
+        "A": "2",
+        "B": "8",
+        "C": "18",
+        "D": "32"
+      },
+      "correct_answer": "B",
+      "explanation": "Second shell (L shell) can hold maximum 8 electrons (2n² where n=2).",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 45,
+      "question": "Which element has electron configuration 2,8,1?",
+      "options": {
+        "A": "Lithium",
+        "B": "Sodium",
+        "C": "Potassium",
+        "D": "Magnesium"
+      },
+      "correct_answer": "B",
+      "explanation": "Electron configuration 2,8,1 indicates 11 total electrons - sodium.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 46,
+      "question": "Which of these is a non-metal?",
+      "options": {
+        "A": "Iron",
+        "B": "Copper",
+        "C": "Sulfur",
+        "D": "Silver"
+      },
+      "correct_answer": "C",
+      "explanation": "Sulfur is a non-metal, while iron, copper, and silver are metals.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 47,
+      "question": "Elements in the same period have the same:",
+      "options": {
+        "A": "Number of electron shells",
+        "B": "Number of valence electrons",
+        "C": "Chemical properties",
+        "D": "Atomic size"
+      },
+      "correct_answer": "A",
+      "explanation": "Elements in the same period have the same number of electron shells.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 48,
+      "question": "Which group contains the halogens?",
+      "options": {
+        "A": "Group 1",
+        "B": "Group 2",
+        "C": "Group 7",
+        "D": "Group 8"
+      },
+      "correct_answer": "C",
+      "explanation": "Group 7 contains the halogens: fluorine, chlorine, bromine, iodine.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 49,
+      "question": "What is the charge on a sodium ion?",
+      "options": {
+        "A": "+1",
+        "B": "-1",
+        "C": "+2",
+        "D": "-2"
+      },
+      "correct_answer": "A",
+      "explanation": "Sodium loses one electron to form Na⁺ ion with +1 charge.",
+      "section": "chemical_bonding"
+    },
+    {
+      "id": 50,
+      "question": "Which type of bond forms between metal and non-metal?",
+      "options": {
+        "A": "Covalent bond",
+        "B": "Ionic bond",
+        "C": "Metallic bond",
+        "D": "Hydrogen bond"
+      },
+      "correct_answer": "B",
+      "explanation": "Ionic bonds typically form between metals and non-metals through electron transfer.",
+      "section": "chemical_bonding"
+    },
+    {
+      "id": 51,
+      "question": "What is the formula for magnesium oxide?",
+      "options": {
+        "A": "MgO",
+        "B": "MgO₂",
+        "C": "Mg₂O",
+        "D": "Mg₂O₂"
+      },
+      "correct_answer": "A",
+      "explanation": "Magnesium forms Mg²⁺ and oxygen forms O²⁻, so formula is MgO.",
+      "section": "chemical_formulas"
+    },
+    {
+      "id": 52,
+      "question": "What is the formula for ammonia?",
+      "options": {
+        "A": "NH₃",
+        "B": "NH₄",
+        "C": "N₂H₄",
+        "D": "N₂H₆"
+      },
+      "correct_answer": "A",
+      "explanation": "Ammonia consists of one nitrogen atom and three hydrogen atoms: NH₃.",
+      "section": "chemical_formulas"
+    },
+    {
+      "id": 53,
+      "question": "What is the formula for sulfuric acid?",
+      "options": {
+        "A": "H₂SO₃",
+        "B": "H₂SO₄",
+        "C": "HSO₄",
+        "D": "H₃SO₄"
+      },
+      "correct_answer": "B",
+      "explanation": "Sulfuric acid has formula H₂SO₄.",
+      "section": "chemical_formulas"
+    },
+    {
+      "id": 54,
+      "question": "Balance this equation: CH₄ + O₂ → CO₂ + H₂O",
+      "options": {
+        "A": "CH₄ + O₂ → CO₂ + 2H₂O",
+        "B": "CH₄ + 2O₂ → CO₂ + 2H₂O",
+        "C": "2CH₄ + O₂ → 2CO₂ + H₂O",
+        "D": "CH₄ + O₂ → CO₂ + H₂O"
+      },
+      "correct_answer": "B",
+      "explanation": "CH₄ + 2O₂ → CO₂ + 2H₂O is balanced with 1C, 4H, 4O on both sides.",
+      "section": "chemical_equations"
+    },
+    {
+      "id": 55,
+      "question": "What type of reaction is: CaCO₃ → CaO + CO₂?",
+      "options": {
+        "A": "Combination",
+        "B": "Decomposition",
+        "C": "Single displacement",
+        "D": "Double displacement"
+      },
+      "correct_answer": "B",
+      "explanation": "This is decomposition where one compound breaks down into simpler substances.",
+      "section": "chemical_reactions"
+    },
+    {
+      "id": 56,
+      "question": "What is the molar mass of CO₂?",
+      "options": {
+        "A": "28 g/mol",
+        "B": "32 g/mol",
+        "C": "44 g/mol",
+        "D": "56 g/mol"
+      },
+      "correct_answer": "C",
+      "explanation": "CO₂: 12 + 2×16 = 44 g/mol",
+      "section": "mole_concept"
+    },
+    {
+      "id": 57,
+      "question": "How many moles are in 88 grams of CO₂?",
+      "options": {
+        "A": "1 mole",
+        "B": "2 moles",
+        "C": "3 moles",
+        "D": "4 moles"
+      },
+      "correct_answer": "B",
+      "explanation": "Molar mass of CO₂ = 44 g/mol, so 88 g ÷ 44 g/mol = 2 moles.",
+      "section": "mole_concept"
+    },
+    {
+      "id": 58,
+      "question": "What is the concentration of 0.1 moles in 500 mL of solution?",
+      "options": {
+        "A": "0.05 M",
+        "B": "0.1 M",
+        "C": "0.2 M",
+        "D": "0.5 M"
+      },
+      "correct_answer": "C",
+      "explanation": "Concentration = moles/volume = 0.1 mol / 0.5 L = 0.2 mol/L = 0.2 M",
+      "section": "solutions"
+    },
+    {
+      "id": 59,
+      "question": "Which of these is a base?",
+      "options": {
+        "A": "HCl",
+        "B": "H₂SO₄",
+        "C": "NaOH",
+        "D": "HNO₃"
+      },
+      "correct_answer": "C",
+      "explanation": "NaOH (sodium hydroxide) is a base, while the others are acids.",
+      "section": "acids_bases"
+    },
+    {
+      "id": 60,
+      "question": "What is the pH of a strong acid?",
+      "options": {
+        "A": "1-3",
+        "B": "7",
+        "C": "8-10",
+        "D": "11-14"
+      },
+      "correct_answer": "A",
+      "explanation": "Strong acids have low pH values, typically between 1-3.",
+      "section": "acids_bases"
+    },
+    {
+      "id": 61,
+      "question": "What gas is produced when carbonates react with acids?",
+      "options": {
+        "A": "Hydrogen",
+        "B": "Oxygen",
+        "C": "Carbon dioxide",
+        "D": "Nitrogen"
+      },
+      "correct_answer": "C",
+      "explanation": "Acid + carbonate → salt + water + carbon dioxide",
+      "section": "acids_bases"
+    },
+    {
+      "id": 62,
+      "question": "What is the oxidation state of hydrogen in most compounds?",
+      "options": {
+        "A": "+1",
+        "B": "-1",
+        "C": "+2",
+        "D": "-2"
+      },
+      "correct_answer": "A",
+      "explanation": "Hydrogen usually has oxidation state +1, except in metal hydrides where it's -1.",
+      "section": "redox"
+    },
+    {
+      "id": 63,
+      "question": "In the reaction 2Mg + O₂ → 2MgO, which element is reduced?",
+      "options": {
+        "A": "Magnesium",
+        "B": "Oxygen",
+        "C": "Both",
+        "D": "Neither"
+      },
+      "correct_answer": "B",
+      "explanation": "Oxygen gains electrons (0 to -2), so it is reduced.",
+      "section": "redox"
+    },
+    {
+      "id": 64,
+      "question": "Which factor increases reaction rate?",
+      "options": {
+        "A": "Decreasing temperature",
+        "B": "Decreasing concentration",
+        "C": "Increasing surface area",
+        "D": "Removing catalyst"
+      },
+      "correct_answer": "C",
+      "explanation": "Increasing surface area provides more contact points for reaction, increasing rate.",
+      "section": "reaction_rates"
+    },
+    {
+      "id": 65,
+      "question": "What is the effect of a catalyst on activation energy?",
+      "options": {
+        "A": "Increases it",
+        "B": "Decreases it",
+        "C": "No effect",
+        "D": "Makes it zero"
+      },
+      "correct_answer": "B",
+      "explanation": "Catalysts lower the activation energy required for a reaction.",
+      "section": "reaction_rates"
+    },
+    {
+      "id": 66,
+      "question": "At equilibrium, the concentrations of reactants and products:",
+      "options": {
+        "A": "Become zero",
+        "B": "Become equal",
+        "C": "Remain constant",
+        "D": "Keep changing"
+      },
+      "correct_answer": "C",
+      "explanation": "At equilibrium, concentrations remain constant (not necessarily equal).",
+      "section": "equilibrium"
+    },
+    {
+      "id": 67,
+      "question": "Which compound is inorganic?",
+      "options": {
+        "A": "CH₃COOH",
+        "B": "C₂H₅OH",
+        "C": "CO₂",
+        "D": "C₆H₁₂O₆"
+      },
+      "correct_answer": "C",
+      "explanation": "CO₂ is considered inorganic despite containing carbon.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 68,
+      "question": "What is the simplest alkane?",
+      "options": {
+        "A": "Methane",
+        "B": "Ethane",
+        "C": "Propane",
+        "D": "Butane"
+      },
+      "correct_answer": "A",
+      "explanation": "Methane (CH₄) is the simplest alkane with one carbon atom.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 69,
+      "question": "What is the general formula for alkenes?",
+      "options": {
+        "A": "CₙH₂ₙ",
+        "B": "CₙH₂ₙ₊₂",
+        "C": "CₙH₂ₙ₋₂",
+        "D": "CₙH₂ₙO"
+      },
+      "correct_answer": "A",
+      "explanation": "Alkenes have general formula CₙH₂ₙ (unsaturated hydrocarbons with double bonds).",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 70,
+      "question": "Which hydrocarbon test decolorizes bromine water?",
+      "options": {
+        "A": "Alkane",
+        "B": "Alkene",
+        "C": "Both",
+        "D": "Neither"
+      },
+      "correct_answer": "B",
+      "explanation": "Alkenes decolorize bromine water due to addition reaction across double bond.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 71,
+      "question": "What is the IUPAC name for CH₃COOH?",
+      "options": {
+        "A": "Methanoic acid",
+        "B": "Ethanoic acid",
+        "C": "Propanoic acid",
+        "D": "Butanoic acid"
+      },
+      "correct_answer": "B",
+      "explanation": "CH₃COOH has 2 carbon atoms, so it's ethanoic acid (acetic acid).",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 72,
+      "question": "Which functional group is -OH?",
+      "options": {
+        "A": "Aldehyde",
+        "B": "Ketone",
+        "C": "Alcohol",
+        "D": "Carboxylic acid"
+      },
+      "correct_answer": "C",
+      "explanation": "-OH is the hydroxyl group found in alcohols.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 73,
+      "question": "What is formed when an alcohol reacts with a carboxylic acid?",
+      "options": {
+        "A": "Ester",
+        "B": "Ether",
+        "C": "Aldehyde",
+        "D": "Ketone"
+      },
+      "correct_answer": "A",
+      "explanation": "Alcohol + carboxylic acid → ester + water (esterification).",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 74,
+      "question": "Which metal is most reactive?",
+      "options": {
+        "A": "Gold",
+        "B": "Silver",
+        "C": "Copper",
+        "D": "Potassium"
+      },
+      "correct_answer": "D",
+      "explanation": "Potassium is very reactive, while gold, silver, and copper are less reactive.",
+      "section": "metals"
+    },
+    {
+      "id": 75,
+      "question": "What is the main ore of iron?",
+      "options": {
+        "A": "Bauxite",
+        "B": "Hematite",
+        "C": "Galena",
+        "D": "Cinnabar"
+      },
+      "correct_answer": "B",
+      "explanation": "Hematite (Fe₂O₃) is the principal ore of iron.",
+      "section": "metals"
+    },
+    {
+      "id": 76,
+      "question": "Which process is used to extract aluminum from its ore?",
+      "options": {
+        "A": "Blast furnace",
+        "B": "Electrolysis",
+        "C": "Roasting",
+        "D": "Reduction with carbon"
+      },
+      "correct_answer": "B",
+      "explanation": "Aluminum is extracted by electrolysis of molten bauxite (Hall-Héroult process).",
+      "section": "industrial_chemistry"
+    },
+    {
+      "id": 77,
+      "question": "What is the main product of fractional distillation of crude oil?",
+      "options": {
+        "A": "Petroleum gases",
+        "B": "Gasoline",
+        "C": "Diesel",
+        "D": "All of these"
+      },
+      "correct_answer": "D",
+      "explanation": "Fractional distillation produces various fractions including petroleum gases, gasoline, diesel, etc.",
+      "section": "industrial_chemistry"
+    },
+    {
+      "id": 78,
+      "question": "Which gas causes acid rain?",
+      "options": {
+        "A": "Oxygen",
+        "B": "Nitrogen",
+        "C": "Sulfur dioxide",
+        "D": "Carbon monoxide"
+      },
+      "correct_answer": "C",
+      "explanation": "SO₂ dissolves in rainwater to form sulfuric acid, causing acid rain.",
+      "section": "environmental_chemistry"
+    },
+    {
+      "id": 79,
+      "question": "What is the atomic number of oxygen?",
+      "options": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "16"
+      },
+      "correct_answer": "C",
+      "explanation": "Oxygen has atomic number 8 with electron configuration 2,6.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 80,
+      "question": "How many protons are in an atom of neon-20?",
+      "options": {
+        "A": "10",
+        "B": "20",
+        "C": "30",
+        "D": "40"
+      },
+      "correct_answer": "A",
+      "explanation": "Atomic number of neon is 10, so it has 10 protons regardless of isotope.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 81,
+      "question": "Which subatomic particle determines the element?",
+      "options": {
+        "A": "Proton",
+        "B": "Neutron",
+        "C": "Electron",
+        "D": "All of them"
+      },
+      "correct_answer": "A",
+      "explanation": "The number of protons (atomic number) determines the element.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 82,
+      "question": "How many electrons are in a chloride ion (Cl⁻)?",
+      "options": {
+        "A": "16",
+        "B": "17",
+        "C": "18",
+        "D": "19"
+      },
+      "correct_answer": "C",
+      "explanation": "Chlorine atom has 17 electrons; Cl⁻ gains one electron to have 18 electrons.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 83,
+      "question": "Which element has electron configuration 2,8,8,1?",
+      "options": {
+        "A": "Sodium",
+        "B": "Potassium",
+        "C": "Calcium",
+        "D": "Magnesium"
+      },
+      "correct_answer": "B",
+      "explanation": "Electron configuration 2,8,8,1 indicates 19 total electrons - potassium.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 84,
+      "question": "Which of these is a metalloid?",
+      "options": {
+        "A": "Carbon",
+        "B": "Silicon",
+        "C": "Nitrogen",
+        "D": "Oxygen"
+      },
+      "correct_answer": "B",
+      "explanation": "Silicon is a metalloid with properties between metals and non-metals.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 85,
+      "question": "Atomic size generally ______ across a period.",
+      "options": {
+        "A": "Increases",
+        "B": "Decreases",
+        "C": "Remains constant",
+        "D": "First increases then decreases"
+      },
+      "correct_answer": "B",
+      "explanation": "Atomic size decreases across a period due to increasing nuclear charge pulling electrons closer.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 86,
+      "question": "Which group contains the alkali metals?",
+      "options": {
+        "A": "Group 1",
+        "B": "Group 2",
+        "C": "Group 7",
+        "D": "Group 8"
+      },
+      "correct_answer": "A",
+      "explanation": "Group 1 contains the alkali metals: lithium, sodium, potassium, etc.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 87,
+      "question": "What is the charge on an aluminum ion?",
+      "options": {
+        "A": "+1",
+        "B": "+2",
+        "C": "+3",
+        "D": "-3"
+      },
+      "correct_answer": "C",
+      "explanation": "Aluminum loses three electrons to form Al³⁺ ion.",
+      "section": "chemical_bonding"
+    },
+    {
+      "id": 88,
+      "question": "Which type of bond exists in diamond?",
+      "options": {
+        "A": "Ionic",
+        "B": "Covalent",
+        "C": "Metallic",
+        "D": "Hydrogen"
+      },
+      "correct_answer": "B",
+      "explanation": "Diamond has giant covalent structure with each carbon atom bonded to four others.",
+      "section": "chemical_bonding"
+    },
+    {
+      "id": 89,
+      "question": "What is the formula for calcium chloride?",
+      "options": {
+        "A": "CaCl",
+        "B": "CaCl₂",
+        "C": "Ca₂Cl",
+        "D": "Ca₂Cl₂"
+      },
+      "correct_answer": "B",
+      "explanation": "Calcium forms Ca²⁺ and chlorine forms Cl⁻, so formula is CaCl₂.",
+      "section": "chemical_formulas"
+    },
+    {
+      "id": 90,
+      "question": "What is the formula for methane?",
+      "options": {
+        "A": "CH₄",
+        "B": "C₂H₆",
+        "C": "C₃H₈",
+        "D": "C₄H₁₀"
+      },
+      "correct_answer": "A",
+      "explanation": "Methane is the simplest alkane with formula CH₄.",
+      "section": "chemical_formulas"
+    },
+    {
+      "id": 91,
+      "question": "What is the formula for nitric acid?",
+      "options": {
+        "A": "HNO₂",
+        "B": "HNO₃",
+        "C": "H₂NO₃",
+        "D": "H₃NO₃"
+      },
+      "correct_answer": "B",
+      "explanation": "Nitric acid has formula HNO₃.",
+      "section": "chemical_formulas"
+    },
+    {
+      "id": 92,
+      "question": "Balance: Fe + O₂ → Fe₂O₃",
+      "options": {
+        "A": "2Fe + O₂ → Fe₂O₃",
+        "B": "4Fe + 3O₂ → 2Fe₂O₃",
+        "C": "Fe + O₂ → Fe₂O₃",
+        "D": "2Fe + 3O₂ → Fe₂O₃"
+      },
+      "correct_answer": "B",
+      "explanation": "4Fe + 3O₂ → 2Fe₂O₃ is balanced with 4Fe and 6O on both sides.",
+      "section": "chemical_equations"
+    },
+    {
+      "id": 93,
+      "question": "What type of reaction is: Zn + 2HCl → ZnCl₂ + H₂?",
+      "options": {
+        "A": "Combination",
+        "B": "Decomposition",
+        "C": "Single displacement",
+        "D": "Double displacement"
+      },
+      "correct_answer": "C",
+      "explanation": "This is single displacement where zinc displaces hydrogen from acid.",
+      "section": "chemical_reactions"
+    },
+    {
+      "id": 94,
+      "question": "What is the molar mass of NaOH?",
+      "options": {
+        "A": "38 g/mol",
+        "B": "40 g/mol",
+        "C": "42 g/mol",
+        "D": "44 g/mol"
+      },
+      "correct_answer": "B",
+      "explanation": "NaOH: 23 + 16 + 1 = 40 g/mol",
+      "section": "mole_concept"
+    },
+    {
+      "id": 95,
+      "question": "How many grams are in 2 moles of water?",
+      "options": {
+        "A": "18 g",
+        "B": "36 g",
+        "C": "54 g",
+        "D": "72 g"
+      },
+      "correct_answer": "B",
+      "explanation": "Molar mass of H₂O = 18 g/mol, so 2 moles = 2 × 18 = 36 g.",
+      "section": "mole_concept"
+    },
+    {
+      "id": 96,
+      "question": "What volume does 1 mole of any gas occupy at STP?",
+      "options": {
+        "A": "22.4 L",
+        "B": "24.4 L",
+        "C": "44.8 L",
+        "D": "11.2 L"
+      },
+      "correct_answer": "A",
+      "explanation": "At STP (Standard Temperature and Pressure), 1 mole of any gas occupies 22.4 liters.",
+      "section": "mole_concept"
+    },
+    {
+      "id": 97,
+      "question": "Which indicator turns red in acid?",
+      "options": {
+        "A": "Litmus",
+        "B": "Phenolphthalein",
+        "C": "Methyl orange",
+        "D": "Both A and C"
+      },
+      "correct_answer": "D",
+      "explanation": "Litmus and methyl orange turn red in acidic solutions.",
+      "section": "acids_bases"
+    },
+    {
+      "id": 98,
+      "question": "What is the pH of pure water?",
+      "options": {
+        "A": "0",
+        "B": "7",
+        "C": "14",
+        "D": "1"
+      },
+      "correct_answer": "B",
+      "explanation": "Pure water is neutral with pH 7 at 25°C.",
+      "section": "acids_bases"
+    },
+    {
+      "id": 99,
+      "question": "What salt is formed when NaOH reacts with HCl?",
+      "options": {
+        "A": "NaCl",
+        "B": "Na₂SO₄",
+        "C": "NaNO₃",
+        "D": "Na₂CO₃"
+      },
+      "correct_answer": "A",
+      "explanation": "NaOH + HCl → NaCl + H₂O (neutralization reaction).",
+      "section": "acids_bases"
+    },
+    {
+      "id": 100,
+      "question": "What is the oxidation state of sulfur in H₂SO₄?",
+      "options": {
+        "A": "+2",
+        "B": "+4",
+        "C": "+6",
+        "D": "-2"
+      },
+      "explanation": "In H₂SO₄: 2(+1) + S + 4(-2) = 0 ⇒ 2 + S - 8 = 0 ⇒ S = +6",
+      "correct_answer": "C",
+      "section": "redox"
+    },
+    {
+      "id": 101,
+      "question": "Which element is both oxidized and reduced in disproportionation?",
+      "options": {
+        "A": "Different elements",
+        "B": "The same element",
+        "C": "No element",
+        "D": "All elements"
+      },
+      "correct_answer": "B",
+      "explanation": "In disproportionation, the same element is both oxidized and reduced.",
+      "section": "redox"
+    },
+    {
+      "id": 102,
+      "question": "Increasing temperature generally ______ reaction rate.",
+      "options": {
+        "A": "Decreases",
+        "B": "Increases",
+        "C": "Has no effect on",
+        "D": "Stops"
+      },
+      "correct_answer": "B",
+      "explanation": "Higher temperature increases kinetic energy and collision frequency, increasing reaction rate.",
+      "section": "reaction_rates"
+    },
+    {
+      "id": 103,
+      "question": "What is the role of manganese dioxide in the decomposition of H₂O₂?",
+      "options": {
+        "A": "Reactant",
+        "B": "Product",
+        "C": "Catalyst",
+        "D": "Inhibitor"
+      },
+      "correct_answer": "C",
+      "explanation": "MnO₂ catalyzes the decomposition of hydrogen peroxide to water and oxygen.",
+      "section": "reaction_rates"
+    },
+    {
+      "id": 104,
+      "question": "Le Chatelier's principle predicts how equilibrium shifts when:",
+      "options": {
+        "A": "Temperature changes",
+        "B": "Concentration changes",
+        "C": "Pressure changes",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Le Chatelier's principle applies to changes in temperature, concentration, and pressure.",
+      "section": "equilibrium"
+    },
+    {
+      "id": 105,
+      "question": "Which compound is the main component of natural gas?",
+      "options": {
+        "A": "Ethane",
+        "B": "Propane",
+        "C": "Methane",
+        "D": "Butane"
+      },
+      "correct_answer": "C",
+      "explanation": "Natural gas is primarily methane (CH₄).",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 106,
+      "question": "What is the general formula for alkynes?",
+      "options": {
+        "A": "CₙH₂ₙ",
+        "B": "CₙH₂ₙ₊₂",
+        "C": "CₙH₂ₙ₋₂",
+        "D": "CₙH₂ₙO"
+      },
+      "correct_answer": "C",
+      "explanation": "Alkynes have general formula CₙH₂ₙ₋₂ (unsaturated hydrocarbons with triple bonds).",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 107,
+      "question": "Which test distinguishes between alkanes and alkenes?",
+      "options": {
+        "A": "Flame test",
+        "B": "Bromine water test",
+        "C": "Litmus test",
+        "D": "pH test"
+      },
+      "correct_answer": "B",
+      "explanation": "Bromine water test: alkenes decolorize it, alkanes do not.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 108,
+      "question": "What is the IUPAC name for CH₃CH₂CH₂OH?",
+      "options": {
+        "A": "Methanol",
+        "B": "Ethanol",
+        "C": "Propanol",
+        "D": "Butanol"
+      },
+      "correct_answer": "C",
+      "explanation": "CH₃CH₂CH₂OH has 3 carbon atoms, so it's propan-1-ol.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 109,
+      "question": "Which functional group is -CHO?",
+      "options": {
+        "A": "Alcohol",
+        "B": "Aldehyde",
+        "C": "Ketone",
+        "D": "Carboxylic acid"
+      },
+      "correct_answer": "B",
+      "explanation": "-CHO is the aldehyde group.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 110,
+      "question": "What is saponification?",
+      "options": {
+        "A": "Ester formation",
+        "B": "Soap making",
+        "C": "Alcohol oxidation",
+        "D": "Acid neutralization"
+      },
+      "correct_answer": "B",
+      "explanation": "Saponification is the alkaline hydrolysis of esters to make soap.",
+      "section": "organic_chemistry"
+    },
+    {
+      "id": 111,
+      "question": "Which metal does NOT react with dilute acids?",
+      "options": {
+        "A": "Zinc",
+        "B": "Iron",
+        "C": "Copper",
+        "D": "Magnesium"
+      },
+      "correct_answer": "C",
+      "explanation": "Copper is below hydrogen in reactivity series and doesn't displace H⁺ from acids.",
+      "section": "metals"
+    },
+    {
+      "id": 112,
+      "question": "What is the main ore of copper?",
+      "options": {
+        "A": "Bauxite",
+        "B": "Hematite",
+        "C": "Galena",
+        "D": "Malachite"
+      },
+      "correct_answer": "D",
+      "explanation": "Malachite (Cu₂CO₃(OH)₂) is an important copper ore.",
+      "section": "metals"
+    },
+    {
+      "id": 113,
+      "question": "Which process is used to manufacture sulfuric acid?",
+      "options": {
+        "A": "Haber process",
+        "B": "Contact process",
+        "C": "Ostwald process",
+        "D": "Solvay process"
+      },
+      "correct_answer": "B",
+      "explanation": "Contact process: SO₂ → SO₃ → H₂SO₄",
+      "section": "industrial_chemistry"
+    },
+    {
+      "id": 114,
+      "question": "What is cracking?",
+      "options": {
+        "A": "Breaking large hydrocarbons into smaller ones",
+        "B": "Joining small hydrocarbons into larger ones",
+        "C": "Removing sulfur from petroleum",
+        "D": "Separating petroleum fractions"
+      },
+      "correct_answer": "A",
+      "explanation": "Cracking breaks large hydrocarbon molecules into smaller, more useful ones.",
+      "section": "industrial_chemistry"
+    },
+    {
+      "id": 115,
+      "question": "Which pollutant causes ozone depletion?",
+      "options": {
+        "A": "CO₂",
+        "B": "SO₂",
+        "C": "CFCs",
+        "D": "CO"
+      },
+      "correct_answer": "C",
+      "explanation": "Chlorofluorocarbons (CFCs) break down ozone in the stratosphere.",
+      "section": "environmental_chemistry"
+    },
+    {
+      "id": 116,
+      "question": "What is the atomic number of phosphorus?",
+      "options": {
+        "A": "14",
+        "B": "15",
+        "C": "16",
+        "D": "17"
+      },
+      "correct_answer": "B",
+      "explanation": "Phosphorus has atomic number 15 with electron configuration 2,8,5.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 117,
+      "question": "How many electrons are in the valence shell of nitrogen?",
+      "options": {
+        "A": "3",
+        "B": "5",
+        "C": "7",
+        "D": "8"
+      },
+      "correct_answer": "B",
+      "explanation": "Nitrogen has electron configuration 2,5, so 5 valence electrons.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 118,
+      "question": "Which isotope is used in carbon dating?",
+      "options": {
+        "A": "Carbon-12",
+        "B": "Carbon-13",
+        "C": "Carbon-14",
+        "D": "Carbon-16"
+      },
+      "correct_answer": "C",
+      "explanation": "Carbon-14 is radioactive and used for dating organic materials.",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 119,
+      "question": "What is the mass number of uranium-235?",
+      "options": {
+        "A": "92",
+        "B": "143",
+        "C": "235",
+        "D": "327"
+      },
+      "correct_answer": "C",
+      "explanation": "Uranium-235 has mass number 235 (92 protons + 143 neutrons).",
+      "section": "atomic_structure"
+    },
+    {
+      "id": 120,
+      "question": "Which element has the smallest atomic radius?",
+      "options": {
+        "A": "Lithium",
+        "B": "Sodium",
+        "C": "Potassium",
+        "D": "Rubidium"
+      },
+      "correct_answer": "A",
+      "explanation": "Atomic radius increases down a group, so lithium (top of Group 1) has smallest radius.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 121,
+      "question": "Which element is most electronegative?",
+      "options": {
+        "A": "Fluorine",
+        "B": "Chlorine",
+        "C": "Oxygen",
+        "D": "Nitrogen"
+      },
+      "correct_answer": "A",
+      "explanation": "Fluorine is the most electronegative element (4.0 on Pauling scale).",
+      "section": "periodic_table"
+    },
+    {
+      "id": 122,
+      "question": "Which group contains the alkaline earth metals?",
+      "options": {
+        "A": "Group 1",
+        "B": "Group 2",
+        "C": "Group 7",
+        "D": "Group 8"
+      },
+      "correct_answer": "B",
+      "explanation": "Group 2 contains the alkaline earth metals: beryllium, magnesium, calcium, etc.",
+      "section": "periodic_table"
+    },
+    {
+      "id": 123,
+      "question": "What is the charge on a sulfate ion?",
+      "options": {
+        "A": "-1",
+        "B": "-2",
+        "C": "+1",
+        "D": "+2"
+      },
+      "correct_answer": "B",
+      "explanation": "Sulfate ion is SO₄²⁻ with -2 charge.",
+      "section": "chemical_bonding"
+    },
+    {
+      "id": 124,
+      "question": "Which type of bond exists in sodium chloride?",
+      "options": {
+        "A": "Covalent",
+        "B": "Ionic",
+        "C": "Metallic",
+        "D": "Hydrogen"
+      },
+      "correct_answer": "B",
+      "explanation": "NaCl has ionic bonding between Na⁺ and Cl⁻ ions.",
+      "section": "chemical_bonding"
+    },
+    {
+      "id": 125,
+      "question": "What is the formula for potassium nitrate?",
+      "options": {
+        "A": "KNO₂",
+        "B": "KNO₃",
+        "C": "K₂NO₃",
+        "D": "K₃NO₃"
+      },
+      "correct_answer": "B",
+      "explanation": "Potassium nitrate has formula KNO₃.",
+      "section": "chemical_formulas"
+    },
+    {
+      "id": 126,
+      "question": "What is the formula for ethanol?",
+      "options": {
+        "A": "CH₃OH",
+        "B": "C₂H₅OH",
+        "C": "C₃H₇OH",
+        "D": "C₄H₉OH"
+      },
+      "correct_answer": "B",
+      "explanation": "Ethanol has formula C₂H₅OH.",
+      "section": "chemical_formulas"
+    },
+    {
+      "id": 127,
+      "question": "What is the formula for calcium carbonate?",
+      "options": {
+        "A": "CaCO₃",
+        "B": "Ca(HCO₃)₂",
+        "C": "Ca₂CO₃",
+        "D": "CaCO₄"
+      },
+      "correct_answer": "A",
+      "explanation": "Calcium carbonate has formula CaCO₃.",
+      "section": "chemical_formulas"
+    },
+    {
+      "id": 128,
+      "question": "Balance: N₂ + H₂ → NH₃",
+      "options": {
+        "A": "N₂ + H₂ → NH₃",
+        "B": "N₂ + 3H₂ → 2NH₃",
+        "C": "2N₂ + 3H₂ → 2NH₃",
+        "D": "N₂ + 2H₂ → 2NH₃"
+      },
+      "correct_answer": "B",
+      "explanation": "N₂ + 3H₂ → 2NH₃ is balanced with 2N and 6H on both sides (Haber process).",
+      "section": "chemical_equations"
+    }
+  ]
+}

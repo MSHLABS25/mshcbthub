@@ -1,0 +1,1672 @@
+{
+  "subject": "Christian Religious Studies",
+  "exam_type": "WAEC",
+  "total_questions": 128,
+  "time_allowed": 8400,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Who was the first man created by God according to the Bible?",
+      "options": {
+        "A": "Adam",
+        "B": "Abraham",
+        "C": "Noah",
+        "D": "Moses"
+      },
+      "correct_answer": "A",
+      "explanation": "Adam was the first human created by God as recorded in Genesis 2:7.",
+      "section": "creation"
+    },
+    {
+      "id": 2,
+      "question": "On which day did God create human beings?",
+      "options": {
+        "A": "Sixth day",
+        "B": "First day",
+        "C": "Third day",
+        "D": "Fifth day"
+      },
+      "correct_answer": "A",
+      "explanation": "God created human beings on the sixth day of creation (Genesis 1:26-31).",
+      "section": "creation"
+    },
+    {
+      "id": 3,
+      "question": "What was the first sin committed by humans?",
+      "options": {
+        "A": "Eating the forbidden fruit",
+        "B": "Murder",
+        "C": "Stealing",
+        "D": "Lying"
+      },
+      "correct_answer": "A",
+      "explanation": "Adam and Eve ate the forbidden fruit from the tree of knowledge of good and evil.",
+      "section": "the_fall"
+    },
+    {
+      "id": 4,
+      "question": "Who was the first murderer in the Bible?",
+      "options": {
+        "A": "Cain",
+        "B": "Abel",
+        "C": "Adam",
+        "D": "Seth"
+      },
+      "correct_answer": "A",
+      "explanation": "Cain killed his brother Abel out of jealousy (Genesis 4:8).",
+      "section": "the_fall"
+    },
+    {
+      "id": 5,
+      "question": "Why did God send the flood in Noah's time?",
+      "options": {
+        "A": "Human wickedness",
+        "B": "Natural disaster",
+        "C": "Noah's sin",
+        "D": "Animal rebellion"
+      },
+      "correct_answer": "A",
+      "explanation": "God saw that human wickedness was great on earth (Genesis 6:5).",
+      "section": "noah"
+    },
+    {
+      "id": 6,
+      "question": "How many people were saved in the ark?",
+      "options": {
+        "A": "Eight",
+        "B": "Ten",
+        "C": "Twelve",
+        "D": "Two"
+      },
+      "correct_answer": "A",
+      "explanation": "Noah, his wife, his three sons and their wives - eight people total (1 Peter 3:20).",
+      "section": "noah"
+    },
+    {
+      "id": 7,
+      "question": "What was God's covenant with Noah after the flood?",
+      "options": {
+        "A": "Never to destroy earth with flood again",
+        "B": "To make him father of nations",
+        "C": "To give him land",
+        "D": "To make him priest"
+      },
+      "correct_answer": "A",
+      "explanation": "God set the rainbow as sign of His covenant never to flood the earth again (Genesis 9:11).",
+      "section": "noah"
+    },
+    {
+      "id": 8,
+      "question": "Who was called the father of faith?",
+      "options": {
+        "A": "Abraham",
+        "B": "Moses",
+        "C": "David",
+        "D": "Paul"
+      },
+      "correct_answer": "A",
+      "explanation": "Abraham is called the father of faith because he believed God's promises (Romans 4:16).",
+      "section": "abraham"
+    },
+    {
+      "id": 9,
+      "question": "What was the sign of God's covenant with Abraham?",
+      "options": {
+        "A": "Circumcision",
+        "B": "Rainbow",
+        "C": "Sabbath",
+        "D": "Sacrifice"
+      },
+      "correct_answer": "A",
+      "explanation": "Circumcision was the physical sign of God's covenant with Abraham (Genesis 17:10).",
+      "section": "abraham"
+    },
+    {
+      "id": 10,
+      "question": "What was Abraham's original name?",
+      "options": {
+        "A": "Abram",
+        "B": "Adam",
+        "C": "Aaron",
+        "D": "Abel"
+      },
+      "correct_answer": "A",
+      "explanation": "God changed his name from Abram (exalted father) to Abraham (father of many nations).",
+      "section": "abraham"
+    },
+    {
+      "id": 11,
+      "question": "Who was Abraham's wife?",
+      "options": {
+        "A": "Sarah",
+        "B": "Rebekah",
+        "C": "Rachel",
+        "D": "Leah"
+      },
+      "correct_answer": "A",
+      "explanation": "Sarah was Abraham's wife and mother of Isaac (Genesis 17:15).",
+      "section": "abraham"
+    },
+    {
+      "id": 12,
+      "question": "How old was Abraham when Isaac was born?",
+      "options": {
+        "A": "100 years",
+        "B": "90 years",
+        "C": "80 years",
+        "D": "70 years"
+      },
+      "correct_answer": "A",
+      "explanation": "Abraham was 100 years old when Isaac was born (Genesis 21:5).",
+      "section": "abraham"
+    },
+    {
+      "id": 13,
+      "question": "Who was Abraham's first son?",
+      "options": {
+        "A": "Ishmael",
+        "B": "Isaac",
+        "C": "Lot",
+        "D": "Eliezer"
+      },
+      "correct_answer": "A",
+      "explanation": "Ishmael was born to Hagar, Sarah's maidservant, before Isaac.",
+      "section": "abraham"
+    },
+    {
+      "id": 14,
+      "question": "What test did God give Abraham concerning his son?",
+      "options": {
+        "A": "To sacrifice Isaac",
+        "B": "To send him away",
+        "C": "To disown him",
+        "D": "To marry early"
+      },
+      "correct_answer": "A",
+      "explanation": "God tested Abraham's faith by asking him to sacrifice Isaac (Genesis 22:2).",
+      "section": "abraham"
+    },
+    {
+      "id": 15,
+      "question": "Who was Isaac's wife?",
+      "options": {
+        "A": "Rebekah",
+        "B": "Rachel",
+        "C": "Leah",
+        "D": "Sarah"
+      },
+      "correct_answer": "A",
+      "explanation": "Rebekah was Isaac's wife and mother of Jacob and Esau.",
+      "section": "isaac"
+    },
+    {
+      "id": 16,
+      "question": "Who tricked Isaac to get the blessing?",
+      "options": {
+        "A": "Jacob",
+        "B": "Esau",
+        "C": "Rebekah",
+        "D": "Laban"
+      },
+      "correct_answer": "A",
+      "explanation": "Jacob, with his mother's help, tricked Isaac into giving him the firstborn's blessing.",
+      "section": "jacob"
+    },
+    {
+      "id": 17,
+      "question": "What was Jacob's name changed to?",
+      "options": {
+        "A": "Israel",
+        "B": "Judah",
+        "C": "Joseph",
+        "D": "Benjamin"
+      },
+      "correct_answer": "A",
+      "explanation": "God changed Jacob's name to Israel after wrestling with him (Genesis 32:28).",
+      "section": "jacob"
+    },
+    {
+      "id": 18,
+      "question": "How many sons did Jacob have?",
+      "options": {
+        "A": "Twelve",
+        "B": "Ten",
+        "C": "Seven",
+        "D": "Thirteen"
+      },
+      "correct_answer": "A",
+      "explanation": "Jacob had twelve sons who became the twelve tribes of Israel.",
+      "section": "jacob"
+    },
+    {
+      "id": 19,
+      "question": "Who was Jacob's favorite son?",
+      "options": {
+        "A": "Joseph",
+        "B": "Benjamin",
+        "C": "Reuben",
+        "D": "Judah"
+      },
+      "correct_answer": "A",
+      "explanation": "Joseph was Jacob's favorite son, which made his brothers jealous.",
+      "section": "joseph"
+    },
+    {
+      "id": 20,
+      "question": "What did Joseph's dreams symbolize?",
+      "options": {
+        "A": "His family would bow to him",
+        "B": "Famine would come",
+        "C": "He would be king",
+        "D": "His brothers would die"
+      },
+      "correct_answer": "A",
+      "explanation": "Joseph dreamed that his family would bow down to him, angering his brothers.",
+      "section": "joseph"
+    },
+    {
+      "id": 21,
+      "question": "How did Joseph end up in Egypt?",
+      "options": {
+        "A": "Sold by his brothers",
+        "B": "Taken as slave in war",
+        "C": "Went voluntarily",
+        "D": "Kidnapped"
+      },
+      "correct_answer": "A",
+      "explanation": "Joseph's brothers sold him to Ishmaelite traders going to Egypt.",
+      "section": "joseph"
+    },
+    {
+      "id": 22,
+      "question": "Why was Joseph put in prison in Egypt?",
+      "options": {
+        "A": "False accusation by Potiphar's wife",
+        "B": "Stealing",
+        "C": "Murder",
+        "D": "Rebellion"
+      },
+      "correct_answer": "A",
+      "explanation": "Potiphar's wife falsely accused Joseph of trying to seduce her.",
+      "section": "joseph"
+    },
+    {
+      "id": 23,
+      "question": "What was Joseph's position in Egypt?",
+      "options": {
+        "A": "Prime Minister",
+        "B": "King",
+        "C": "Priest",
+        "D": "General"
+      },
+      "correct_answer": "A",
+      "explanation": "Pharaoh made Joseph prime minister after he interpreted his dreams.",
+      "section": "joseph"
+    },
+    {
+      "id": 24,
+      "question": "Who led the Israelites out of Egypt?",
+      "options": {
+        "A": "Moses",
+        "B": "Aaron",
+        "C": "Joshua",
+        "D": "Caleb"
+      },
+      "correct_answer": "A",
+      "explanation": "Moses was chosen by God to lead the Israelites from Egyptian slavery.",
+      "section": "moses"
+    },
+    {
+      "id": 25,
+      "question": "How did God appear to Moses?",
+      "options": {
+        "A": "Burning bush",
+        "B": "Thunder cloud",
+        "C": "Whispering wind",
+        "D": "Bright light"
+      },
+      "correct_answer": "A",
+      "explanation": "God appeared to Moses in a burning bush that wasn't consumed.",
+      "section": "moses"
+    },
+    {
+      "id": 26,
+      "question": "What was Moses' excuse when God called him?",
+      "options": {
+        "A": "I am slow of speech",
+        "B": "I am too old",
+        "C": "I am afraid",
+        "D": "I am unworthy"
+      },
+      "correct_answer": "A",
+      "explanation": "Moses said he was slow of speech and not eloquent.",
+      "section": "moses"
+    },
+    {
+      "id": 27,
+      "question": "Who was Moses' spokesman?",
+      "options": {
+        "A": "Aaron",
+        "B": "Joshua",
+        "C": "Miriam",
+        "D": "Caleb"
+      },
+      "correct_answer": "A",
+      "explanation": "Aaron, Moses' brother, became his spokesman before Pharaoh.",
+      "section": "moses"
+    },
+    {
+      "id": 28,
+      "question": "How many plagues did God send on Egypt?",
+      "options": {
+        "A": "Ten",
+        "B": "Seven",
+        "C": "Twelve",
+        "D": "Three"
+      },
+      "correct_answer": "A",
+      "explanation": "God sent ten plagues to convince Pharaoh to free the Israelites.",
+      "section": "exodus"
+    },
+    {
+      "id": 29,
+      "question": "What was the final plague?",
+      "options": {
+        "A": "Death of firstborn",
+        "B": "Locusts",
+        "C": "Darkness",
+        "D": "Hail"
+      },
+      "correct_answer": "A",
+      "explanation": "The death of all firstborn Egyptians was the final plague.",
+      "section": "exodus"
+    },
+    {
+      "id": 30,
+      "question": "What feast commemorates the Exodus?",
+      "options": {
+        "A": "Passover",
+        "B": "Pentecost",
+        "C": "Tabernacles",
+        "D": "Firstfruits"
+      },
+      "correct_answer": "A",
+      "explanation": "Passover commemorates God passing over Israelite homes during the final plague.",
+      "section": "exodus"
+    },
+    {
+      "id": 31,
+      "question": "How did Israelites cross the Red Sea?",
+      "options": {
+        "A": "God divided the waters",
+        "B": "They swam across",
+        "C": "They built boats",
+        "D": "They walked on water"
+      },
+      "correct_answer": "A",
+      "explanation": "God miraculously divided the Red Sea for Israelites to cross on dry ground.",
+      "section": "exodus"
+    },
+    {
+      "id": 32,
+      "question": "Where did God give the Ten Commandments?",
+      "options": {
+        "A": "Mount Sinai",
+        "B": "Mount Zion",
+        "C": "Mount Carmel",
+        "D": "Mount Moriah"
+      },
+      "correct_answer": "A",
+      "explanation": "God gave Moses the Ten Commandments on Mount Sinai.",
+      "section": "ten_commandments"
+    },
+    {
+      "id": 33,
+      "question": "What is the first commandment?",
+      "options": {
+        "A": "No other gods before me",
+        "B": "No graven images",
+        "C": "Remember Sabbath",
+        "D": "Honor parents"
+      },
+      "correct_answer": "A",
+      "explanation": "The first commandment is to have no other gods before the Lord.",
+      "section": "ten_commandments"
+    },
+    {
+      "id": 34,
+      "question": "What was in the Ark of the Covenant?",
+      "options": {
+        "A": "Tablets of law, manna, Aaron's rod",
+        "B": "Gold and silver",
+        "C": "Priestly garments",
+        "D": "Temple plans"
+      },
+      "correct_answer": "A",
+      "explanation": "The Ark contained the stone tablets, golden jar of manna, and Aaron's rod.",
+      "section": "tabernacle"
+    },
+    {
+      "id": 35,
+      "question": "Who succeeded Moses as leader?",
+      "options": {
+        "A": "Joshua",
+        "B": "Caleb",
+        "C": "Aaron",
+        "D": "Eleazar"
+      },
+      "correct_answer": "A",
+      "explanation": "Joshua was chosen by God to lead Israel after Moses' death.",
+      "section": "joshua"
+    },
+    {
+      "id": 36,
+      "question": "How did Israelites conquer Jericho?",
+      "options": {
+        "A": "Marching around it seven days",
+        "B": "Direct attack",
+        "C": "Siege warfare",
+        "D": "Negotiation"
+      },
+      "correct_answer": "A",
+      "explanation": "God instructed them to march around Jericho for seven days.",
+      "section": "joshua"
+    },
+    {
+      "id": 37,
+      "question": "Who was the first king of Israel?",
+      "options": {
+        "A": "Saul",
+        "B": "David",
+        "C": "Solomon",
+        "D": "Samuel"
+      },
+      "correct_answer": "A",
+      "explanation": "Saul was anointed as Israel's first king by Samuel.",
+      "section": "kings"
+    },
+    {
+      "id": 38,
+      "question": "Who defeated Goliath?",
+      "options": {
+        "A": "David",
+        "B": "Saul",
+        "C": "Jonathan",
+        "D": "Samuel"
+      },
+      "correct_answer": "A",
+      "explanation": "David, a young shepherd, defeated the giant Goliath with a sling.",
+      "section": "david"
+    },
+    {
+      "id": 39,
+      "question": "What was David's great sin?",
+      "options": {
+        "A": "Adultery with Bathsheba",
+        "B": "Murder of Uriah",
+        "C": "Pride in numbering people",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "David committed adultery with Bathsheba and arranged Uriah's death.",
+      "section": "david"
+    },
+    {
+      "id": 40,
+      "question": "Who built the first temple in Jerusalem?",
+      "options": {
+        "A": "Solomon",
+        "B": "David",
+        "C": "Saul",
+        "D": "Hezekiah"
+      },
+      "correct_answer": "A",
+      "explanation": "Solomon built the first temple as God had promised David.",
+      "section": "solomon"
+    },
+    {
+      "id": 41,
+      "question": "What was Solomon known for?",
+      "options": {
+        "A": "Wisdom",
+        "B": "Military strength",
+        "C": "Wealth",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Solomon was famous for his wisdom, wealth, and building projects.",
+      "section": "solomon"
+    },
+    {
+      "id": 42,
+      "question": "After Solomon, the kingdom split into:",
+      "options": {
+        "A": "Israel and Judah",
+        "B": "North and South",
+        "C": "East and West",
+        "D": "Samaria and Judea"
+      },
+      "correct_answer": "A",
+      "explanation": "After Solomon, the kingdom divided into Northern Israel and Southern Judah.",
+      "section": "divided_kingdom"
+    },
+    {
+      "id": 43,
+      "question": "Who was the prophet who confronted Ahab?",
+      "options": {
+        "A": "Elijah",
+        "B": "Elisha",
+        "C": "Isaiah",
+        "D": "Jeremiah"
+      },
+      "correct_answer": "A",
+      "explanation": "Elijah confronted King Ahab and Queen Jezebel about their idolatry.",
+      "section": "prophets"
+    },
+    {
+      "id": 44,
+      "question": "Where did Elijah challenge Baal's prophets?",
+      "options": {
+        "A": "Mount Carmel",
+        "B": "Mount Sinai",
+        "C": "Mount Zion",
+        "D": "Mount Moriah"
+      },
+      "correct_answer": "A",
+      "explanation": "Elijah challenged Baal's prophets on Mount Carmel in a fire contest.",
+      "section": "prophets"
+    },
+    {
+      "id": 45,
+      "question": "Who succeeded Elijah?",
+      "options": {
+        "A": "Elisha",
+        "B": "Amos",
+        "C": "Hosea",
+        "D": "Isaiah"
+      },
+      "correct_answer": "A",
+      "explanation": "Elisha was chosen by God to succeed Elijah as prophet.",
+      "section": "prophets"
+    },
+    {
+      "id": 46,
+      "question": "Who was thrown into lions' den?",
+      "options": {
+        "A": "Daniel",
+        "B": "Shadrach",
+        "C": "Meshach",
+        "D": "Abednego"
+      },
+      "correct_answer": "A",
+      "explanation": "Daniel was thrown into lions' den for praying to God against the king's decree.",
+      "section": "daniel"
+    },
+    {
+      "id": 47,
+      "question": "Who interpreted dreams for Nebuchadnezzar?",
+      "options": {
+        "A": "Daniel",
+        "B": "Joseph",
+        "C": "Samuel",
+        "D": "Isaiah"
+      },
+      "correct_answer": "A",
+      "explanation": "Daniel interpreted King Nebuchadnezzar's dreams in Babylon.",
+      "section": "daniel"
+    },
+    {
+      "id": 48,
+      "question": "Who were the three Hebrew men in fiery furnace?",
+      "options": {
+        "A": "Shadrach, Meshach, Abednego",
+        "B": "Daniel and his friends",
+        "C": "Moses and Aaron",
+        "D": "Elijah and Elisha"
+      },
+      "correct_answer": "A",
+      "explanation": "Shadrach, Meshach and Abednego were thrown into fiery furnace but saved by God.",
+      "section": "daniel"
+    },
+    {
+      "id": 49,
+      "question": "Who was the mother of Jesus?",
+      "options": {
+        "A": "Mary",
+        "B": "Elizabeth",
+        "C": "Anna",
+        "D": "Martha"
+      },
+      "correct_answer": "A",
+      "explanation": "Mary, a virgin, was chosen by God to bear Jesus through the Holy Spirit.",
+      "section": "jesus_birth"
+    },
+    {
+      "id": 50,
+      "question": "Where was Jesus born?",
+      "options": {
+        "A": "Bethlehem",
+        "B": "Nazareth",
+        "C": "Jerusalem",
+        "D": "Jericho"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus was born in Bethlehem as prophesied by Micah.",
+      "section": "jesus_birth"
+    },
+    {
+      "id": 51,
+      "question": "Who were the first visitors to baby Jesus?",
+      "options": {
+        "A": "Shepherds",
+        "B": "Wise men",
+        "C": "Angels",
+        "D": "Priests"
+      },
+      "correct_answer": "A",
+      "explanation": "Shepherds were the first to visit Jesus after angelic announcement.",
+      "section": "jesus_birth"
+    },
+    {
+      "id": 52,
+      "question": "How many wise men visited Jesus?",
+      "options": {
+        "A": "The Bible doesn't specify",
+        "B": "Three",
+        "C": "Four",
+        "D": "Twelve"
+      },
+      "correct_answer": "A",
+      "explanation": "The Bible mentions wise men but doesn't specify how many; tradition says three.",
+      "section": "jesus_birth"
+    },
+    {
+      "id": 53,
+      "question": "Who baptized Jesus?",
+      "options": {
+        "A": "John the Baptist",
+        "B": "Peter",
+        "C": "Andrew",
+        "D": "James"
+      },
+      "correct_answer": "A",
+      "explanation": "John the Baptist baptized Jesus in the Jordan River.",
+      "section": "jesus_ministry"
+    },
+    {
+      "id": 54,
+      "question": "What sign appeared when Jesus was baptized?",
+      "options": {
+        "A": "Dove and voice from heaven",
+        "B": "Thunder and lightning",
+        "C": "Earthquake",
+        "D": "Fire from heaven"
+      },
+      "correct_answer": "A",
+      "explanation": "The Holy Spirit descended like a dove and God spoke from heaven.",
+      "section": "jesus_ministry"
+    },
+    {
+      "id": 55,
+      "question": "How long was Jesus tempted in the wilderness?",
+      "options": {
+        "A": "40 days",
+        "B": "40 weeks",
+        "C": "40 months",
+        "D": "3 days"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus was tempted by Satan for 40 days in the wilderness.",
+      "section": "jesus_ministry"
+    },
+    {
+      "id": 56,
+      "question": "What was Jesus' first miracle?",
+      "options": {
+        "A": "Turning water to wine",
+        "B": "Healing blind man",
+        "C": "Walking on water",
+        "D": "Feeding 5000"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus turned water into wine at the wedding in Cana.",
+      "section": "jesus_miracles"
+    },
+    {
+      "id": 57,
+      "question": "How many disciples did Jesus choose?",
+      "options": {
+        "A": "Twelve",
+        "B": "Seven",
+        "C": "Ten",
+        "D": "Forty"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus chose twelve disciples to be his closest followers.",
+      "section": "disciples"
+    },
+    {
+      "id": 58,
+      "question": "What is the Sermon on the Mount?",
+      "options": {
+        "A": "Jesus' teaching on kingdom values",
+        "B": "Moses' law giving",
+        "C": "Paul's missionary sermon",
+        "D": "Peter's Pentecost sermon"
+      },
+      "correct_answer": "A",
+      "explanation": "The Sermon on the Mount contains Jesus' fundamental teachings.",
+      "section": "jesus_teachings"
+    },
+    {
+      "id": 59,
+      "question": "What are the Beatitudes?",
+      "options": {
+        "A": "Blessings Jesus taught",
+        "B": "Miracles of Jesus",
+        "C": "Parables of Jesus",
+        "D": "Commandments of Moses"
+      },
+      "correct_answer": "A",
+      "explanation": "The Beatitudes are eight blessings taught by Jesus in Sermon on Mount.",
+      "section": "jesus_teachings"
+    },
+    {
+      "id": 60,
+      "question": "What is the Golden Rule?",
+      "options": {
+        "A": "Do to others as you want them to do to you",
+        "B": "Love your neighbor",
+        "C": "Honor your parents",
+        "D": "Love God completely"
+      },
+      "correct_answer": "A",
+      "explanation": "The Golden Rule summarizes how we should treat others.",
+      "section": "jesus_teachings"
+    },
+    {
+      "id": 61,
+      "question": "How did Jesus feed 5000 people?",
+      "options": {
+        "A": "With 5 loaves and 2 fish",
+        "B": "With manna from heaven",
+        "C": "With bread from towns",
+        "D": "They caught fish"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus miraculously multiplied 5 loaves and 2 fish to feed 5000.",
+      "section": "jesus_miracles"
+    },
+    {
+      "id": 62,
+      "question": "Who walked on water with Jesus?",
+      "options": {
+        "A": "Peter",
+        "B": "John",
+        "C": "James",
+        "D": "Andrew"
+      },
+      "correct_answer": "A",
+      "explanation": "Peter walked on water toward Jesus but began to sink when afraid.",
+      "section": "jesus_miracles"
+    },
+    {
+      "id": 63,
+      "question": "Who was raised from dead by Jesus?",
+      "options": {
+        "A": "Lazarus",
+        "B": "Jairus' daughter",
+        "C": "Widow's son",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Jesus raised Lazarus, Jairus' daughter, and a widow's son from death.",
+      "section": "jesus_miracles"
+    },
+    {
+      "id": 64,
+      "question": "What is the parable of the Good Samaritan about?",
+      "options": {
+        "A": "Loving your neighbor",
+        "B": "Praying persistently",
+        "C": "God's forgiveness",
+        "D": "Heaven's value"
+      },
+      "correct_answer": "A",
+      "explanation": "It teaches that anyone in need is our neighbor, regardless of background.",
+      "section": "parables"
+    },
+    {
+      "id": 65,
+      "question": "What is the parable of the Prodigal Son about?",
+      "options": {
+        "A": "God's forgiveness",
+        "B": "Wisdom in planning",
+        "C": "Prayer persistence",
+        "D": "Heaven's kingdom"
+      },
+      "correct_answer": "A",
+      "explanation": "It illustrates God's unconditional love and forgiveness for repentant sinners.",
+      "section": "parables"
+    },
+    {
+      "id": 66,
+      "question": "Who betrayed Jesus?",
+      "options": {
+        "A": "Judas Iscariot",
+        "B": "Peter",
+        "C": "Thomas",
+        "D": "John"
+      },
+      "correct_answer": "A",
+      "explanation": "Judas Iscariot betrayed Jesus for thirty pieces of silver.",
+      "section": "passion_week"
+    },
+    {
+      "id": 67,
+      "question": "What was the Last Supper?",
+      "options": {
+        "A": "Jesus' final meal with disciples",
+        "B": "Wedding feast in Cana",
+        "C": "Feeding of 5000",
+        "D": "Meal with Pharisees"
+      },
+      "correct_answer": "A",
+      "explanation": "The Last Supper was Jesus' final meal with disciples before crucifixion.",
+      "section": "passion_week"
+    },
+    {
+      "id": 68,
+      "question": "What did Jesus institute at Last Supper?",
+      "options": {
+        "A": "Lord's Supper/Communion",
+        "B": "Baptism",
+        "C": "Foot washing",
+        "D": "All of the above"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus instituted Communion using bread and wine as symbols of his body and blood.",
+      "section": "passion_week"
+    },
+    {
+      "id": 69,
+      "question": "Where was Jesus arrested?",
+      "options": {
+        "A": "Garden of Gethsemane",
+        "B": "Mount of Olives",
+        "C": "Temple courts",
+        "D": "Upper Room"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus was arrested in Garden of Gethsemane after praying.",
+      "section": "passion_week"
+    },
+    {
+      "id": 70,
+      "question": "Who denied Jesus three times?",
+      "options": {
+        "A": "Peter",
+        "B": "Judas",
+        "C": "Thomas",
+        "D": "John"
+      },
+      "correct_answer": "A",
+      "explanation": "Peter denied knowing Jesus three times as Jesus predicted.",
+      "section": "passion_week"
+    },
+    {
+      "id": 71,
+      "question": "Who sentenced Jesus to death?",
+      "options": {
+        "A": "Pontius Pilate",
+        "B": "Herod Antipas",
+        "C": "Caiaphas",
+        "D": "Roman soldiers"
+      },
+      "correct_answer": "A",
+      "explanation": "Pontius Pilate, the Roman governor, sentenced Jesus to crucifixion.",
+      "section": "crucifixion"
+    },
+    {
+      "id": 72,
+      "question": "Where was Jesus crucified?",
+      "options": {
+        "A": "Golgotha/Calvary",
+        "B": "Mount Zion",
+        "C": "Mount of Olives",
+        "D": "Garden Tomb"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus was crucified at Golgotha, meaning 'place of the skull'.",
+      "section": "crucifixion"
+    },
+    {
+      "id": 73,
+      "question": "What was written on Jesus' cross?",
+      "options": {
+        "A": "Jesus of Nazareth, King of the Jews",
+        "B": "This is the Son of God",
+        "C": "Savior of the World",
+        "D": "Prophet from Galilee"
+      },
+      "correct_answer": "A",
+      "explanation": "The inscription read 'Jesus of Nazareth, King of the Jews' in three languages.",
+      "section": "crucifixion"
+    },
+    {
+      "id": 74,
+      "question": "Who buried Jesus?",
+      "options": {
+        "A": "Joseph of Arimathea",
+        "B": "Nicodemus",
+        "C": "The disciples",
+        "D": "Roman soldiers"
+      },
+      "correct_answer": "A",
+      "explanation": "Joseph of Arimathea, a secret disciple, buried Jesus in his own tomb.",
+      "section": "burial"
+    },
+    {
+      "id": 75,
+      "question": "On which day did Jesus rise?",
+      "options": {
+        "A": "Third day",
+        "B": "First day",
+        "C": "Seventh day",
+        "D": "Fortieth day"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus rose from dead on the third day after crucifixion.",
+      "section": "resurrection"
+    },
+    {
+      "id": 76,
+      "question": "Who were first to find empty tomb?",
+      "options": {
+        "A": "Women followers",
+        "B": "Peter and John",
+        "C": "Roman guards",
+        "D": "Angels"
+      },
+      "correct_answer": "A",
+      "explanation": "Women who followed Jesus were first to discover the empty tomb.",
+      "section": "resurrection"
+    },
+    {
+      "id": 77,
+      "question": "How many days between resurrection and ascension?",
+      "options": {
+        "A": "40 days",
+        "B": "3 days",
+        "C": "7 days",
+        "D": "50 days"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus appeared to disciples for 40 days after resurrection before ascending.",
+      "section": "ascension"
+    },
+    {
+      "id": 78,
+      "question": "Where did Jesus ascend to heaven?",
+      "options": {
+        "A": "Mount of Olives",
+        "B": "Mount Sinai",
+        "C": "Mount Zion",
+        "D": "Mount Carmel"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus ascended to heaven from the Mount of Olives near Jerusalem.",
+      "section": "ascension"
+    },
+    {
+      "id": 79,
+      "question": "What happened at Pentecost?",
+      "options": {
+        "A": "Holy Spirit came on disciples",
+        "B": "Jesus was crucified",
+        "C": "Paul was converted",
+        "D": "Peter was martyred"
+      },
+      "correct_answer": "A",
+      "explanation": "The Holy Spirit descended on disciples with power, beginning the Church.",
+      "section": "holy_spirit"
+    },
+    {
+      "id": 80,
+      "question": "Who was the first martyr?",
+      "options": {
+        "A": "Stephen",
+        "B": "James",
+        "C": "Peter",
+        "D": "Paul"
+      },
+      "correct_answer": "A",
+      "explanation": "Stephen was stoned to death for preaching about Jesus.",
+      "section": "early_church"
+    },
+    {
+      "id": 81,
+      "question": "Who persecuted Christians before conversion?",
+      "options": {
+        "A": "Paul",
+        "B": "Peter",
+        "C": "John",
+        "D": "James"
+      },
+      "correct_answer": "A",
+      "explanation": "Paul (Saul) persecuted Christians before his dramatic conversion.",
+      "section": "paul"
+    },
+    {
+      "id": 82,
+      "question": "How was Paul converted?",
+      "options": {
+        "A": "Jesus appeared to him on road to Damascus",
+        "B": "Peter preached to him",
+        "C": "He read Scriptures",
+        "D": "An angel visited him"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus appeared to Paul in bright light on road to Damascus.",
+      "section": "paul"
+    },
+    {
+      "id": 83,
+      "question": "What was Paul's occupation?",
+      "options": {
+        "A": "Tentmaker",
+        "B": "Fisherman",
+        "C": "Tax collector",
+        "D": "Farmer"
+      },
+      "correct_answer": "A",
+      "explanation": "Paul was a tentmaker who supported himself while ministering.",
+      "section": "paul"
+    },
+    {
+      "id": 84,
+      "question": "How many missionary journeys did Paul make?",
+      "options": {
+        "A": "Three",
+        "B": "Two",
+        "C": "Four",
+        "D": "One"
+      },
+      "correct_answer": "A",
+      "explanation": "Paul made three major missionary journeys spreading the gospel.",
+      "section": "paul"
+    },
+    {
+      "id": 85,
+      "question": "Who was Paul's main missionary companion?",
+      "options": {
+        "A": "Barnabas",
+        "B": "Peter",
+        "C": "John Mark",
+        "D": "Silas"
+      },
+      "correct_answer": "A",
+      "explanation": "Barnabas was Paul's first major missionary partner.",
+      "section": "paul"
+    },
+    {
+      "id": 86,
+      "question": "Where was Paul shipwrecked?",
+      "options": {
+        "A": "Malta",
+        "B": "Cyprus",
+        "C": "Crete",
+        "D": "Sicily"
+      },
+      "correct_answer": "A",
+      "explanation": "Paul was shipwrecked on Malta during voyage to Rome.",
+      "section": "paul"
+    },
+    {
+      "id": 87,
+      "question": "How many books did Paul write in New Testament?",
+      "options": {
+        "A": "13",
+        "B": "12",
+        "C": "14",
+        "D": "10"
+      },
+      "correct_answer": "A",
+      "explanation": "Paul wrote 13 New Testament letters (Romans through Philemon).",
+      "section": "pauline_epistles"
+    },
+    {
+      "id": 88,
+      "question": "What is the theme of Romans?",
+      "options": {
+        "A": "Justification by faith",
+        "B": "Spiritual gifts",
+        "C": "Church unity",
+        "D": "End times"
+      },
+      "correct_answer": "A",
+      "explanation": "Romans emphasizes salvation by grace through faith in Christ.",
+      "section": "pauline_epistles"
+    },
+    {
+      "id": 89,
+      "question": "What are the fruits of the Spirit?",
+      "options": {
+        "A": "Love, joy, peace, etc.",
+        "B": "Miracles, healing, prophecy",
+        "C": "Faith, hope, charity",
+        "D": "Wisdom, knowledge, understanding"
+      },
+      "correct_answer": "A",
+      "explanation": "Galatians 5 lists love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control.",
+      "section": "pauline_epistles"
+    },
+    {
+      "id": 90,
+      "question": "What is the armor of God?",
+      "options": {
+        "A": "Spiritual weapons for Christians",
+        "B": "Physical weapons for battle",
+        "C": "Angelic protection",
+        "D": "Temple implements"
+      },
+      "correct_answer": "A",
+      "explanation": "Ephesians 6 describes spiritual armor like helmet of salvation, shield of faith.",
+      "section": "pauline_epistles"
+    },
+    {
+      "id": 91,
+      "question": "Who wrote the book of Revelation?",
+      "options": {
+        "A": "John",
+        "B": "Paul",
+        "C": "Peter",
+        "D": "James"
+      },
+      "correct_answer": "A",
+      "explanation": "The Apostle John wrote Revelation while exiled on Patmos.",
+      "section": "revelation"
+    },
+    {
+      "id": 92,
+      "question": "What is Revelation about?",
+      "options": {
+        "A": "End times and Christ's return",
+        "B": "Early church history",
+        "C": "Paul's journeys",
+        "D": "Jesus' parables"
+      },
+      "correct_answer": "A",
+      "explanation": "Revelation prophesies about end times, Christ's victory, and new creation.",
+      "section": "revelation"
+    },
+    {
+      "id": 93,
+      "question": "What are the four Gospels?",
+      "options": {
+        "A": "Matthew, Mark, Luke, John",
+        "B": "Peter, James, John, Jude",
+        "C": "Genesis, Exodus, Leviticus, Numbers",
+        "D": "Romans, Corinthians, Galatians, Ephesians"
+      },
+      "correct_answer": "A",
+      "explanation": "The four Gospels present Jesus' life from different perspectives.",
+      "section": "gospels"
+    },
+    {
+      "id": 94,
+      "question": "Which Gospel emphasizes Jesus as Messiah?",
+      "options": {
+        "A": "Matthew",
+        "B": "Mark",
+        "C": "Luke",
+        "D": "John"
+      },
+      "correct_answer": "A",
+      "explanation": "Matthew presents Jesus as the promised Jewish Messiah.",
+      "section": "gospels"
+    },
+    {
+      "id": 95,
+      "question": "Which Gospel emphasizes Jesus as Servant?",
+      "options": {
+        "A": "Mark",
+        "B": "Matthew",
+        "C": "Luke",
+        "D": "John"
+      },
+      "correct_answer": "A",
+      "explanation": "Mark portrays Jesus as the suffering servant.",
+      "section": "gospels"
+    },
+    {
+      "id": 96,
+      "question": "Which Gospel emphasizes Jesus as Son of Man?",
+      "options": {
+        "A": "Luke",
+        "B": "Matthew",
+        "C": "Mark",
+        "D": "John"
+      },
+      "correct_answer": "A",
+      "explanation": "Luke presents Jesus as the perfect Son of Man who came to save all people.",
+      "section": "gospels"
+    },
+    {
+      "id": 97,
+      "question": "Which Gospel emphasizes Jesus as Son of God?",
+      "options": {
+        "A": "John",
+        "B": "Matthew",
+        "C": "Mark",
+        "D": "Luke"
+      },
+      "correct_answer": "A",
+      "explanation": "John emphasizes Jesus' divine nature as eternal Son of God.",
+      "section": "gospels"
+    },
+    {
+      "id": 98,
+      "question": "What are the synoptic Gospels?",
+      "options": {
+        "A": "Matthew, Mark, Luke",
+        "B": "John, Matthew, Mark",
+        "C": "Luke, John, Matthew",
+        "D": "Mark, Luke, John"
+      },
+      "correct_answer": "A",
+      "explanation": "Matthew, Mark, and Luke are called synoptic because they share similar content and structure.",
+      "section": "gospels"
+    },
+    {
+      "id": 99,
+      "question": "How many books in New Testament?",
+      "options": {
+        "A": "27",
+        "B": "39",
+        "C": "66",
+        "D": "22"
+      },
+      "correct_answer": "A",
+      "explanation": "The New Testament contains 27 books from Matthew to Revelation.",
+      "section": "bible"
+    },
+    {
+      "id": 100,
+      "question": "How many books in Old Testament?",
+      "options": {
+        "A": "39",
+        "B": "27",
+        "C": "66",
+        "D": "22"
+      },
+      "correct_answer": "A",
+      "explanation": "The Old Testament contains 39 books from Genesis to Malachi.",
+      "section": "bible"
+    },
+    {
+      "id": 101,
+      "question": "What are the first five books of Bible called?",
+      "options": {
+        "A": "Pentateuch",
+        "B": "Gospels",
+        "C": "Epistles",
+        "D": "Psalms"
+      },
+      "correct_answer": "A",
+      "explanation": "Genesis, Exodus, Leviticus, Numbers, Deuteronomy are called Pentateuch or Torah.",
+      "section": "bible"
+    },
+    {
+      "id": 102,
+      "question": "Who wrote most of the Psalms?",
+      "options": {
+        "A": "David",
+        "B": "Solomon",
+        "C": "Moses",
+        "D": "Asaph"
+      },
+      "correct_answer": "A",
+      "explanation": "David wrote about half of the 150 Psalms in the Bible.",
+      "section": "bible"
+    },
+    {
+      "id": 103,
+      "question": "What is the longest book in Bible?",
+      "options": {
+        "A": "Psalms",
+        "B": "Genesis",
+        "C": "Isaiah",
+        "D": "Matthew"
+      },
+      "correct_answer": "A",
+      "explanation": "Psalms is the longest book with 150 chapters.",
+      "section": "bible"
+    },
+    {
+      "id": 104,
+      "question": "What is the shortest verse in Bible?",
+      "options": {
+        "A": "Jesus wept",
+        "B": "Pray continually",
+        "C": "God is love",
+        "D": "Love one another"
+      },
+      "correct_answer": "A",
+      "explanation": "John 11:35 'Jesus wept' is the shortest verse in most English translations.",
+      "section": "bible"
+    },
+    {
+      "id": 105,
+      "question": "What are the Ten Commandments?",
+      "options": {
+        "A": "God's moral law",
+        "B": "Jesus' teachings",
+        "C": "Paul's instructions",
+        "D": "Prophets' messages"
+      },
+      "correct_answer": "A",
+      "explanation": "The Ten Commandments are fundamental moral laws God gave Moses.",
+      "section": "ten_commandments"
+    },
+    {
+      "id": 106,
+      "question": "What is the Great Commission?",
+      "options": {
+        "A": "Jesus' command to make disciples",
+        "B": "Moses' charge to Israelites",
+        "C": "Paul's missionary call",
+        "D": "Peter's preaching mandate"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus commanded his followers to make disciples of all nations.",
+      "section": "great_commission"
+    },
+    {
+      "id": 107,
+      "question": "What is the Great Commandment?",
+      "options": {
+        "A": "Love God and love neighbor",
+        "B": "Go and make disciples",
+        "C": "Do to others as you want",
+        "D": "Believe in the Lord Jesus"
+      },
+      "correct_answer": "A",
+      "explanation": "Jesus said the greatest commandments are to love God completely and love neighbor as self.",
+      "section": "great_commandment"
+    },
+    {
+      "id": 108,
+      "question": "What is justification?",
+      "options": {
+        "A": "Being declared righteous by God",
+        "B": "Becoming perfect",
+        "C": "Following the law",
+        "D": "Doing good works"
+      },
+      "correct_answer": "A",
+      "explanation": "Justification is God declaring sinners righteous through faith in Christ.",
+      "section": "salvation"
+    },
+    {
+      "id": 109,
+      "question": "What is sanctification?",
+      "options": {
+        "A": "Process of becoming holy",
+        "B": "Declaration of righteousness",
+        "C": "Baptism in water",
+        "D": "Church membership"
+      },
+      "correct_answer": "A",
+      "explanation": "Sanctification is the lifelong process of becoming more like Christ.",
+      "section": "salvation"
+    },
+    {
+      "id": 110,
+      "question": "What is redemption?",
+      "options": {
+        "A": "Being bought from slavery to sin",
+        "B": "Forgiveness of sins",
+        "C": "Healing from sickness",
+        "D": "Answer to prayer"
+      },
+      "correct_answer": "A",
+      "explanation": "Redemption means Christ paid the price to free us from sin's slavery.",
+      "section": "salvation"
+    },
+    {
+      "id": 111,
+      "question": "What is grace?",
+      "options": {
+        "A": "God's unmerited favor",
+        "B": "Human goodness",
+        "C": "Religious effort",
+        "D": "Moral achievement"
+      },
+      "correct_answer": "A",
+      "explanation": "Grace is God's free gift of salvation we don't deserve.",
+      "section": "salvation"
+    },
+    {
+      "id": 112,
+      "question": "What is faith?",
+      "options": {
+        "A": "Trust in God",
+        "B": "Intellectual belief",
+        "C": "Religious feeling",
+        "D": "Good works"
+      },
+      "correct_answer": "A",
+      "explanation": "Biblical faith involves trust, commitment, and reliance on God.",
+      "section": "salvation"
+    },
+    {
+      "id": 113,
+      "question": "What is repentance?",
+      "options": {
+        "A": "Turning from sin to God",
+        "B": "Feeling sorry",
+        "C": "Confessing sins",
+        "D": "Being baptized"
+      },
+      "correct_answer": "A",
+      "explanation": "Repentance involves changing mind about sin and turning to God.",
+      "section": "salvation"
+    },
+    {
+      "id": 114,
+      "question": "What is the Trinity?",
+      "options": {
+        "A": "One God in three Persons",
+        "B": "Three separate gods",
+        "C": "God with three forms",
+        "D": "Three aspects of God"
+      },
+      "correct_answer": "A",
+      "explanation": "The Trinity is one God eternally existing as Father, Son, and Holy Spirit.",
+      "section": "doctrine"
+    },
+    {
+      "id": 115,
+      "question": "What is the Incarnation?",
+      "options": {
+        "A": "God becoming human in Jesus",
+        "B": "Jesus rising from dead",
+        "C": "Holy Spirit coming",
+        "D": "Creation of world"
+      },
+      "correct_answer": "A",
+      "explanation": "The Incarnation is God the Son taking on human flesh in Jesus.",
+      "section": "doctrine"
+    },
+    {
+      "id": 116,
+      "question": "What is the Atonement?",
+      "options": {
+        "A": "Christ's work on cross for salvation",
+        "B": "Jesus' resurrection",
+        "C": "Holy Spirit's indwelling",
+        "D": "God's creation"
+      },
+      "correct_answer": "A",
+      "explanation": "Atonement refers to Christ's sacrificial death reconciling us to God.",
+      "section": "doctrine"
+    },
+    {
+      "id": 117,
+      "question": "What is the Church?",
+      "options": {
+        "A": "Body of Christ worldwide",
+        "B": "Building for worship",
+        "C": "Denomination",
+        "D": "Local congregation"
+      },
+      "correct_answer": "A",
+      "explanation": "The Church is all believers in Christ across time and place.",
+      "section": "church"
+    },
+    {
+      "id": 118,
+      "question": "What are the sacraments/ordinances?",
+      "options": {
+        "A": "Baptism and Communion",
+        "B": "Prayer and fasting",
+        "C": "Preaching and teaching",
+        "D": "Singing and worship"
+      },
+      "correct_answer": "A",
+      "explanation": "Most Protestants observe two ordinances: baptism and communion.",
+      "section": "church"
+    },
+    {
+      "id": 119,
+      "question": "What is baptism?",
+      "options": {
+        "A": "Outward sign of inward grace",
+        "B": "Way to salvation",
+        "C": "Church membership",
+        "D": "Religious ritual"
+      },
+      "correct_answer": "A",
+      "explanation": "Baptism symbolizes identification with Christ's death and resurrection.",
+      "section": "church"
+    },
+    {
+      "id": 120,
+      "question": "What is the Lord's Supper?",
+      "options": {
+        "A": "Remembering Christ's sacrifice",
+        "B": "Church meal",
+        "C": "Fellowship event",
+        "D": "Religious duty"
+      },
+      "correct_answer": "A",
+      "explanation": "Communion remembers Jesus' death and anticipates his return.",
+      "section": "church"
+    },
+    {
+      "id": 121,
+      "question": "What is prayer?",
+      "options": {
+        "A": "Communication with God",
+        "B": "Religious chanting",
+        "C": "Positive thinking",
+        "D": "Meditation practice"
+      },
+      "correct_answer": "A",
+      "explanation": "Prayer is talking and listening to God in relationship.",
+      "section": "christian_living"
+    },
+    {
+      "id": 122,
+      "question": "What is worship?",
+      "options": {
+        "A": "Giving God worth and honor",
+        "B": "Singing songs",
+        "C": "Church attendance",
+        "D": "Religious rituals"
+      },
+      "correct_answer": "A",
+      "explanation": "Worship is ascribing to God the worth and honor He deserves.",
+      "section": "christian_living"
+    },
+    {
+      "id": 123,
+      "question": "What is evangelism?",
+      "options": {
+        "A": "Sharing the gospel",
+        "B": "Defending the faith",
+        "C": "Church growth",
+        "D": "Social action"
+      },
+      "correct_answer": "A",
+      "explanation": "Evangelism is proclaiming the good news of Jesus Christ.",
+      "section": "christian_living"
+    },
+    {
+      "id": 124,
+      "question": "What is discipleship?",
+      "options": {
+        "A": "Following and learning from Jesus",
+        "B": "Church leadership",
+        "C": "Bible study",
+        "D": "Mission work"
+      },
+      "correct_answer": "A",
+      "explanation": "Discipleship means being a committed follower of Jesus.",
+      "section": "christian_living"
+    },
+    {
+      "id": 125,
+      "question": "What is stewardship?",
+      "options": {
+        "A": "Managing God's resources",
+        "B": "Financial giving",
+        "C": "Environmental care",
+        "D": "Church administration"
+      },
+      "correct_answer": "A",
+      "explanation": "Stewardship recognizes God owns everything and we manage it for Him.",
+      "section": "christian_living"
+    },
+    {
+      "id": 126,
+      "question": "What is the Second Coming?",
+      "options": {
+        "A": "Jesus' return to earth",
+        "B": "Holy Spirit's coming",
+        "C": "Jesus' birth",
+        "D": "Church establishment"
+      },
+      "correct_answer": "A",
+      "explanation": "The Second Coming is Jesus' promised return to judge and reign.",
+      "section": "end_times"
+    },
+    {
+      "id": 127,
+      "question": "What is the Resurrection?",
+      "options": {
+        "A": "Rising from dead to eternal life",
+        "B": "Spiritual renewal",
+        "C": "Reincarnation",
+        "D": "Soul sleep"
+      },
+      "correct_answer": "A",
+      "explanation": "Believers will be raised with imperishable bodies like Christ's.",
+      "section": "end_times"
+    },
+    {
+      "id": 128,
+      "question": "What is eternal life?",
+      "options": {
+        "A": "Quality and quantity of life with God",
+        "B": "Living forever",
+        "C": "Heavenly existence",
+        "D": "Spiritual awareness"
+      },
+      "correct_answer": "A",
+      "explanation": "Eternal life begins now through knowing God and continues forever in His presence.",
+      "section": "salvation"
+    }
+  ]
+}

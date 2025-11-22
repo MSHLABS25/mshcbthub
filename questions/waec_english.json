@@ -1,0 +1,2092 @@
+{
+  "subject": "English",
+  "exam_type": "WAEC",
+  "total_questions": 158,
+  "time_allowed": 9000,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Choose the word that has the same vowel sound as the one represented by the letter(s) underlined: <u>ie</u>ld",
+      "options": {
+        "A": "seized",
+        "B": "sieve", 
+        "C": "friend",
+        "D": "fiend"
+      },
+      "correct_answer": "A",
+      "explanation": "'Field' has the /iː/ vowel sound. 'Seized' also has the /iː/ sound.",
+      "section": "vowel_sounds"
+    },
+    {
+      "id": 2,
+      "question": "From the words lettered A to D, choose the word that rhymes with the given word: Breadth",
+      "options": {
+        "A": "breath",
+        "B": "bread",
+        "C": "thread",
+        "D": "threat"
+      },
+      "correct_answer": "D",
+      "explanation": "'Breadth' rhymes with 'threat' as both end with the /ɛθ/ sound.",
+      "section": "rhymes"
+    },
+    {
+      "id": 3,
+      "question": "Choose the option that has the same stress pattern as the given word: december",
+      "options": {
+        "A": "entertain",
+        "B": "afternoon", 
+        "C": "understand",
+        "D": "recommend"
+      },
+      "correct_answer": "D",
+      "explanation": "'December' has stress on the second syllable. 'Recommend' also has stress on the second syllable.",
+      "section": "word_stress"
+    },
+    {
+      "id": 4,
+      "question": "In each of the following questions, the main or primary stress is indicated by writing the stressed syllable in capital letters. Choose the one that has the correct stress:",
+      "options": {
+        "A": "DE-mocrat",
+        "B": "de-MO-crat",
+        "C": "de-mo-CRAT", 
+        "D": "DE-mo-crat"
+      },
+      "correct_answer": "B",
+      "explanation": "The correct stress for 'democrat' is on the second syllable: de-MO-crat.",
+      "section": "word_stress"
+    },
+    {
+      "id": 5,
+      "question": "From the options, choose the word that contains the sound represented by the given phonetic symbol: /ʒ/",
+      "options": {
+        "A": "leisure",
+        "B": "pressure",
+        "C": "machine", 
+        "D": "chef"
+      },
+      "correct_answer": "A",
+      "explanation": "The /ʒ/ sound appears in 'leisure' (/'lɛʒ.ər/).",
+      "section": "consonant_sounds"
+    },
+    {
+      "id": 6,
+      "question": "Choose the interpretation that is most appropriate for the sentence: 'After his prison experience, Etim decided to turn over a new leaf.' This means Etim decided to",
+      "options": {
+        "A": "study the leaves of trees",
+        "B": "behave in a better way", 
+        "C": "forget about his past",
+        "D": "change his profession"
+      },
+      "correct_answer": "B",
+      "explanation": "'Turn over a new leaf' is an idiom meaning to start behaving in a better way.",
+      "section": "idioms"
+    },
+    {
+      "id": 7,
+      "question": "'The manager's decision to fire the secretary was a bolt from the blue.' This means the decision was",
+      "options": {
+        "A": "a pleasant surprise",
+        "B": "completely unexpected", 
+        "C": "long overdue",
+        "D": "very harsh"
+      },
+      "correct_answer": "B",
+      "explanation": "'A bolt from the blue' means something completely unexpected and surprising.",
+      "section": "idioms"
+    },
+    {
+      "id": 8,
+      "question": "From the words lettered A to D, choose the word that is nearest in meaning to the underlined word: His <u>nonchalant</u> attitude towards his studies worried his parents.",
+      "options": {
+        "A": "careless", 
+        "B": "enthusiastic",
+        "C": "cautious",
+        "D": "serious"
+      },
+      "correct_answer": "A",
+      "explanation": "'Nonchalant' means showing a lack of concern, similar to 'careless'.",
+      "section": "synonyms"
+    },
+    {
+      "id": 9,
+      "question": "The principal's <u>candid</u> remarks shocked the audience.",
+      "options": {
+        "A": "harsh",
+        "B": "lengthy", 
+        "C": "frank",
+        "D": "critical"
+      },
+      "correct_answer": "C",
+      "explanation": "'Candid' means truthful and straightforward, frank.",
+      "section": "synonyms"
+    },
+    {
+      "id": 10,
+      "question": "From the words lettered A to D, choose the word that is most nearly opposite in meaning to the underlined word: The <u>profligate</u> son squandered his inheritance.",
+      "options": {
+        "A": "miserly",
+        "B": "thrifty", 
+        "C": "generous",
+        "D": "wicked"
+      },
+      "correct_answer": "B",
+      "explanation": "'Profligate' means wasteful. The opposite is 'thrifty'.",
+      "section": "antonyms"
+    },
+    {
+  "id": 11,
+  "question": "His <u>taciturn</u> nature contrasts with his brother's _____.",
+  "options": {
+    "A": "garrulity", 
+    "B": "seriousness",
+    "C": "shyness",
+    "D": "anger"
+  },
+  "correct_answer": "A",
+  "explanation": "'Taciturn' means reserved. The opposite is 'garrulity' (talkative).",
+  "section": "antonyms"
+},
+{
+  "id": 12,
+  "question": "After the sentence, a list of possible interpretations is given. Choose the interpretation that is most appropriate: 'The new teacher's request for a transfer is like carrying coals to Newcastle.' This means the request is",
+  "options": {
+    "A": "very timely",
+    "B": "highly unnecessary", 
+    "C": "quite understandable",
+    "D": "very surprising"
+  },
+  "correct_answer": "B",
+  "explanation": "'Carrying coals to Newcastle' means doing something unnecessary.",
+  "section": "idioms"
+},
+{
+  "id": 13,
+  "question": "Choose the word that best completes the sentence: The _____ of the new hospital has been delayed by the strike.",
+  "options": {
+    "A": "erection",
+    "B": "building",
+    "C": "construction", 
+    "D": "establishment"
+  },
+  "correct_answer": "C",
+  "explanation": "'Construction' is the most appropriate word for building structures.",
+  "section": "lexis_structure"
+},
+{
+  "id": 14,
+  "question": "We need to _____ the goods immediately to avoid further damage.",
+  "options": {
+    "A": "dispose",
+    "B": "dispose of", 
+    "C": "dispose off",
+    "D": "dispose with"
+  },
+  "correct_answer": "B",
+  "explanation": "'Dispose of' is the correct phrasal verb meaning to get rid of something.",
+  "section": "lexis_structure"
+},
+{
+  "id": 15,
+  "question": "Choose the option that best completes the gap: If I _____ you, I would have resigned.",
+  "options": {
+    "A": "am",
+    "B": "was",
+    "C": "were", 
+    "D": "had been"
+  },
+  "correct_answer": "C",
+  "explanation": "'Were' is used in the subjunctive mood for hypothetical statements.",
+  "section": "grammar"
+},
+{
+  "id": 16,
+  "question": "By next year, I _____ here for ten years.",
+  "options": {
+    "A": "shall work",
+    "B": "have worked",
+    "C": "shall have worked", 
+    "D": "will be working"
+  },
+  "correct_answer": "C",
+  "explanation": "This requires the future perfect tense 'shall have worked'.",
+  "section": "grammar_tenses"
+},
+{
+  "id": 17,
+  "question": "The man, as well as his children, _____ arrived.",
+  "options": {
+    "A": "have",
+    "B": "has", 
+    "C": "are",
+    "D": "were"
+  },
+  "correct_answer": "B",
+  "explanation": "When 'as well as' connects subjects, the verb agrees with the first subject.",
+  "section": "grammar_concord"
+},
+{
+  "id": 18,
+  "question": "One of the boys _____ taken the book.",
+  "options": {
+    "A": "have",
+    "B": "has", 
+    "C": "were",
+    "D": "are"
+  },
+  "correct_answer": "B",
+  "explanation": "'One' is the subject and is singular, so it takes 'has'.",
+  "section": "grammar_concord"
+},
+{
+  "id": 19,
+  "question": "She is the _____ of the two sisters.",
+  "options": {
+    "A": "tall",
+    "B": "taller", 
+    "C": "tallest",
+    "D": "more taller"
+  },
+  "correct_answer": "B",
+  "explanation": "When comparing two, use the comparative form 'taller'.",
+  "section": "grammar_comparison"
+},
+{
+  "id": 20,
+  "question": "The committee has submitted _____ report.",
+  "options": {
+    "A": "its", 
+    "B": "their",
+    "C": "it's",
+    "D": "theirs"
+  },
+  "correct_answer": "A",
+  "explanation": "The committee is treated as singular, so 'its' is correct.",
+  "section": "grammar_pronouns"
+},
+{
+  "id": 21,
+  "question": "Between you and _____, he is not to be trusted.",
+  "options": {
+    "A": "I",
+    "B": "me", 
+    "C": "myself",
+    "D": "mine"
+  },
+  "correct_answer": "B",
+  "explanation": "After prepositions like 'between', use object pronouns 'me'.",
+  "section": "grammar_pronouns"
+},
+{
+  "id": 22,
+  "question": "The teacher asked if we _____ the assignment.",
+  "options": {
+    "A": "have completed",
+    "B": "had completed", 
+    "C": "completed",
+    "D": "will complete"
+  },
+  "correct_answer": "B",
+  "explanation": "In reported speech, use past perfect 'had completed'.",
+  "section": "grammar_tenses"
+},
+{
+  "id": 23,
+  "question": "He drives carefully, _____?",
+  "options": {
+    "A": "does he",
+    "B": "didn't he",
+    "C": "doesn't he", 
+    "D": "isn't it"
+  },
+  "correct_answer": "C",
+  "explanation": "For positive statements, the question tag is negative 'doesn't he'.",
+  "section": "grammar_question_tags"
+},
+{
+  "id": 24,
+  "question": "They hardly ever come late, _____?",
+  "options": {
+    "A": "do they", 
+    "B": "don't they",
+    "C": "is it",
+    "D": "isn't it"
+  },
+  "correct_answer": "A",
+  "explanation": "With negative adverbs like 'hardly', the tag is positive 'do they'.",
+  "section": "grammar_question_tags"
+},
+{
+  "id": 25,
+  "question": "Choose the option that best completes the gap: The boy is allergic _____ penicillin.",
+  "options": {
+    "A": "with",
+    "B": "for",
+    "C": "to", 
+    "D": "on"
+  },
+  "correct_answer": "C",
+  "explanation": "The correct preposition with 'allergic' is 'to'.",
+  "section": "grammar_prepositions"
+},
+{
+  "id": 26,
+  "question": "She was accused _____ stealing the money.",
+  "options": {
+    "A": "for",
+    "B": "with",
+    "C": "of", 
+    "D": "on"
+  },
+  "correct_answer": "C",
+  "explanation": "The correct preposition with 'accused' is 'of'.",
+  "section": "grammar_prepositions"
+},
+{
+  "id": 27,
+  "question": "I look forward to _____ from you.",
+  "options": {
+    "A": "hear",
+    "B": "hearing", 
+    "C": "have heard",
+    "D": "heard"
+  },
+  "correct_answer": "B",
+  "explanation": "After 'look forward to', use the gerund 'hearing'.",
+  "section": "grammar_verbs"
+},
+{
+  "id": 28,
+  "question": "He is used to _____ hard.",
+  "options": {
+    "A": "work",
+    "B": "working", 
+    "C": "works",
+    "D": "worked"
+  },
+  "correct_answer": "B",
+  "explanation": "After 'used to' meaning accustomed, use gerund 'working'.",
+  "section": "grammar_verbs"
+},
+{
+  "id": 29,
+  "question": "The _____ of the poem is very powerful.",
+  "options": {
+    "A": "imageries",
+    "B": "imagery", 
+    "C": "images",
+    "D": "imaginaries"
+  },
+  "correct_answer": "B",
+  "explanation": "'Imagery' is the correct collective noun for descriptive language.",
+  "section": "grammar_noun_forms"
+},
+{
+  "id": 30,
+  "question": "The company has _____ a new policy.",
+  "options": {
+    "A": "adapted",
+    "B": "adopted", 
+    "C": "adept",
+    "D": "adapt"
+  },
+  "correct_answer": "B",
+  "explanation": "'Adopted' means to take up and use as one's own.",
+  "section": "lexis_structure"
+},
+{
+  "id": 31,
+  "question": "The judge granted the accused _____ bail.",
+  "options": {
+    "A": "a",
+    "B": "an",
+    "C": "the", 
+    "D": "no article"
+  },
+  "correct_answer": "D",
+  "explanation": "'Bail' is an uncountable noun in this context, so no article is needed.",
+  "section": "grammar_articles"
+},
+{
+  "id": 32,
+  "question": "He is _____ honourable man.",
+  "options": {
+    "A": "a",
+    "B": "an", 
+    "C": "the",
+    "D": "no article"
+  },
+  "correct_answer": "B",
+  "explanation": "'Honourable' starts with a vowel sound, so 'an' is used.",
+  "section": "grammar_articles"
+},
+{
+  "id": 33,
+  "question": "Choose the word that has the same consonant sound as the one represented by the letter(s) underlined: <u>ch</u>oir",
+  "options": {
+    "A": "chest",
+    "B": "chaos",
+    "C": "character", 
+    "D": "cheque"
+  },
+  "correct_answer": "C",
+  "explanation": "'Choir' has the /k/ sound, same as 'character'.",
+  "section": "consonant_sounds"
+},
+{
+  "id": 34,
+  "question": "From the words lettered A to D, choose the word that has the correct stress: 'photograph'",
+  "options": {
+    "A": "PHO-to-graph", 
+    "B": "pho-TO-graph",
+    "C": "pho-to-GRAPH",
+    "D": "PHO-to-graph"
+  },
+  "correct_answer": "A",
+  "explanation": "'Photograph' has stress on the first syllable: PHO-to-graph.",
+  "section": "word_stress"
+},
+{
+  "id": 35,
+  "question": "The politician's <u>voluble</u> speech captivated the crowd.",
+  "options": {
+    "A": "verbose", 
+    "B": "quiet",
+    "C": "forceful",
+    "D": "persuasive"
+  },
+  "correct_answer": "A",
+  "explanation": "'Voluble' means talking fluently and readily, similar to 'verbose'.",
+  "section": "synonyms"
+},
+{
+  "id": 36,
+  "question": "His <u>parsimonious</u> habits made him unpopular.",
+  "options": {
+    "A": "generous",
+    "B": "stingy", 
+    "C": "clean",
+    "D": "strange"
+  },
+  "correct_answer": "B",
+  "explanation": "'Parsimonious' means extremely frugal or stingy.",
+  "section": "synonyms"
+},
+{
+  "id": 37,
+  "question": "The <u>ephemeral</u> nature of fame worries many artists.",
+  "options": {
+    "A": "permanent",
+    "B": "temporary", 
+    "C": "glorious",
+    "D": "important"
+  },
+  "correct_answer": "B",
+  "explanation": "'Ephemeral' means lasting for a very short time, temporary.",
+  "section": "synonyms"
+},
+{
+  "id": 38,
+  "question": "The government's policy was <u>detrimental</u> to economic growth.",
+  "options": {
+    "A": "harmful", 
+    "B": "beneficial",
+    "C": "neutral",
+    "D": "irrelevant"
+  },
+  "correct_answer": "A",
+  "explanation": "'Detrimental' means causing harm or damage.",
+  "section": "synonyms"
+},
+{
+  "id": 39,
+  "question": "The witness gave a <u>lucid</u> account of the incident.",
+  "options": {
+    "A": "clear", 
+    "B": "confused",
+    "C": "lengthy",
+    "D": "false"
+  },
+  "correct_answer": "A",
+  "explanation": "'Lucid' means expressed clearly and easy to understand.",
+  "section": "synonyms"
+},
+{
+  "id": 40,
+  "question": "The principal warned the students against <u>flouting</u> the school rules.",
+  "options": {
+    "A": "obeying",
+    "B": "discussing",
+    "C": "disregarding", 
+    "D": "amending"
+  },
+  "correct_answer": "C",
+  "explanation": "'Flouting' means openly disregarding rules or conventions.",
+  "section": "synonyms"
+}
+{
+  "id": 41,
+  "question": "His <u>magnanimous</u> gesture was appreciated by all.",
+  "options": {
+    "A": "generous", 
+    "B": "selfish",
+    "C": "strange",
+    "D": "foolish"
+  },
+  "correct_answer": "A",
+  "explanation": "'Magnanimous' means very generous or forgiving.",
+  "section": "synonyms"
+},
+{
+  "id": 42,
+  "question": "The <u>obsolete</u> equipment was replaced.",
+  "options": {
+    "A": "new",
+    "B": "modern",
+    "C": "outdated", 
+    "D": "efficient"
+  },
+  "correct_answer": "C",
+  "explanation": "'Obsolete' means no longer produced or used, outdated.",
+  "section": "synonyms"
+},
+{
+  "id": 43,
+  "question": "The student's <u>diligence</u> earned him a scholarship.",
+  "options": {
+    "A": "laziness",
+    "B": "carelessness",
+    "C": "hard work", 
+    "D": "intelligence"
+  },
+  "correct_answer": "C",
+  "explanation": "'Diligence' means careful and persistent work or effort.",
+  "section": "synonyms"
+},
+{
+  "id": 44,
+  "question": "The manager's <u>pragmatic</u> approach solved the problem.",
+  "options": {
+    "A": "theoretical",
+    "B": "impractical",
+    "C": "practical", 
+    "D": "dogmatic"
+  },
+  "correct_answer": "C",
+  "explanation": "'Pragmatic' means dealing with things sensibly and realistically.",
+  "section": "synonyms"
+},
+{
+  "id": 45,
+  "question": "The <u>prolific</u> writer published three novels last year.",
+  "options": {
+    "A": "unproductive",
+    "B": "productive", 
+    "C": "famous",
+    "D": "unknown"
+  },
+  "correct_answer": "B",
+  "explanation": "'Prolific' means producing much fruit or foliage or many offspring, highly productive.",
+  "section": "synonyms"
+},
+{
+  "id": 46,
+  "question": "His <u>reticent</u> nature makes it difficult to know him.",
+  "options": {
+    "A": "talkative",
+    "B": "reserved", 
+    "C": "friendly",
+    "D": "hostile"
+  },
+  "correct_answer": "B",
+  "explanation": "'Reticent' means not revealing one's thoughts or feelings readily.",
+  "section": "synonyms"
+},
+{
+  "id": 47,
+  "question": "The <u>scrupulous</u> lawyer checked every detail.",
+  "options": {
+    "A": "careless",
+    "B": "thorough", 
+    "C": "dishonest",
+    "D": "lazy"
+  },
+  "correct_answer": "B",
+  "explanation": "'Scrupulous' means diligent, thorough, and extremely attentive to details.",
+  "section": "synonyms"
+},
+{
+  "id": 48,
+  "question": "The <u>tranquil</u> atmosphere of the village was soothing.",
+  "options": {
+    "A": "peaceful", 
+    "B": "noisy",
+    "C": "polluted",
+    "D": "crowded"
+  },
+  "correct_answer": "A",
+  "explanation": "'Tranquil' means free from disturbance, calm.",
+  "section": "synonyms"
+},
+{
+  "id": 49,
+  "question": "The <u>vindictive</u> employee sought revenge.",
+  "options": {
+    "A": "forgiving",
+    "B": "revengeful", 
+    "C": "hardworking",
+    "D": "lazy"
+  },
+  "correct_answer": "B",
+  "explanation": "'Vindictive' means having or showing a strong or unreasoning desire for revenge.",
+  "section": "synonyms"
+},
+{
+  "id": 50,
+  "question": "The <u>wary</u> traveler watched his surroundings carefully.",
+  "options": {
+    "A": "careless",
+    "B": "cautious", 
+    "C": "tired",
+    "D": "lost"
+  },
+  "correct_answer": "B",
+  "explanation": "'Wary' means feeling or showing caution about possible dangers or problems.",
+  "section": "synonyms"
+},
+{
+  "id": 51,
+  "question": "The <u>affluent</u> businessman donated generously.",
+  "options": {
+    "A": "poor",
+    "B": "rich", 
+    "C": "miserly",
+    "D": "unknown"
+  },
+  "correct_answer": "B",
+  "explanation": "'Affluent' means having a great deal of money, wealthy.",
+  "section": "synonyms"
+},
+{
+  "id": 52,
+  "question": "The <u>ambiguous</u> statement confused everyone.",
+  "options": {
+    "A": "clear",
+    "B": "unclear", 
+    "C": "lengthy",
+    "D": "short"
+  },
+  "correct_answer": "B",
+  "explanation": "'Ambiguous' means open to more than one interpretation, not clear.",
+  "section": "synonyms"
+},
+{
+  "id": 53,
+  "question": "The <u>benevolent</u> king was loved by his subjects.",
+  "options": {
+    "A": "cruel",
+    "B": "kind", 
+    "C": "strict",
+    "D": "weak"
+  },
+  "correct_answer": "B",
+  "explanation": "'Benevolent' means well meaning and kindly.",
+  "section": "synonyms"
+},
+{
+  "id": 54,
+  "question": "The <u>candid</u> photo captured her natural beauty.",
+  "options": {
+    "A": "posed",
+    "B": "unposed", 
+    "C": "beautiful",
+    "D": "ugly"
+  },
+  "correct_answer": "B",
+  "explanation": "'Candid' in photography means taken informally, without the subject's knowledge.",
+  "section": "synonyms"
+},
+{
+  "id": 55,
+  "question": "The <u>dubious</u> character of the witness made the jury suspicious.",
+  "options": {
+    "A": "questionable", 
+    "B": "excellent",
+    "C": "known",
+    "D": "unknown"
+  },
+  "correct_answer": "A",
+  "explanation": "'Dubious' means hesitating or doubting, not to be relied upon.",
+  "section": "synonyms"
+},
+{
+  "id": 56,
+  "question": "The <u>eloquent</u> speaker held the audience spellbound.",
+  "options": {
+    "A": "articulate", 
+    "B": "inarticulate",
+    "C": "boring",
+    "D": "nervous"
+  },
+  "correct_answer": "A",
+  "explanation": "'Eloquent' means fluent or persuasive in speaking or writing.",
+  "section": "synonyms"
+},
+{
+  "id": 57,
+  "question": "The <u>frivolous</u> lawsuit was dismissed by the judge.",
+  "options": {
+    "A": "serious",
+    "B": "silly", 
+    "C": "important",
+    "D": "complicated"
+  },
+  "correct_answer": "B",
+  "explanation": "'Frivolous' means not having any serious purpose or value.",
+  "section": "synonyms"
+},
+{
+  "id": 58,
+  "question": "The <u>gregarious</u> child made friends easily.",
+  "options": {
+    "A": "shy",
+    "B": "sociable", 
+    "C": "quiet",
+    "D": "rude"
+  },
+  "correct_answer": "B",
+  "explanation": "'Gregarious' means fond of company, sociable.",
+  "section": "synonyms"
+},
+{
+  "id": 59,
+  "question": "The <u>hostile</u> takeover bid was rejected.",
+  "options": {
+    "A": "friendly",
+    "B": "unfriendly", 
+    "C": "generous",
+    "D": "strange"
+  },
+  "correct_answer": "B",
+  "explanation": "'Hostile' means showing or feeling opposition or dislike, unfriendly.",
+  "section": "synonyms"
+},
+{
+  "id": 60,
+  "question": "The <u>incessant</u> noise made concentration difficult.",
+  "options": {
+    "A": "continuous", 
+    "B": "intermittent",
+    "C": "loud",
+    "D": "soft"
+  },
+  "correct_answer": "A",
+  "explanation": "'Incessant' means continuing without pause or interruption.",
+  "section": "synonyms"
+},
+{
+  "id": 61,
+  "question": "From the words lettered A to D, choose the word that is most nearly opposite in meaning to the underlined word: The <u>amicable</u> settlement pleased both parties.",
+  "options": {
+    "A": "hostile", 
+    "B": "friendly",
+    "C": "quick",
+    "D": "slow"
+  },
+  "correct_answer": "A",
+  "explanation": "'Amicable' means friendly. The opposite is 'hostile'.",
+  "section": "antonyms"
+},
+{
+  "id": 62,
+  "question": "His <u>arrogant</u> manner made him unpopular.",
+  "options": {
+    "A": "humble", 
+    "B": "proud",
+    "C": "rude",
+    "D": "kind"
+  },
+  "correct_answer": "A",
+  "explanation": "'Arrogant' means having an exaggerated sense of one's own importance. Opposite is 'humble'.",
+  "section": "antonyms"
+},
+{
+  "id": 63,
+  "question": "The <u>benign</u> tumor was not dangerous.",
+  "options": {
+    "A": "malignant", 
+    "B": "harmless",
+    "C": "small",
+    "D": "large"
+  },
+  "correct_answer": "A",
+  "explanation": "'Benign' means gentle and kindly, or not harmful. In medicine, opposite of 'malignant'.",
+  "section": "antonyms"
+},
+{
+  "id": 64,
+  "question": "The <u>cowardly</u> soldier ran from the battle.",
+  "options": {
+    "A": "brave", 
+    "B": "fearful",
+    "C": "young",
+    "D": "experienced"
+  },
+  "correct_answer": "A",
+  "explanation": "'Cowardly' means lacking courage. Opposite is 'brave'.",
+  "section": "antonyms"
+},
+{
+  "id": 65,
+  "question": "The <u>diminutive</u> actor played child roles.",
+  "options": {
+    "A": "tall",
+    "B": "small",
+    "C": "large", 
+    "D": "fat"
+  },
+  "correct_answer": "C",
+  "explanation": "'Diminutive' means extremely or unusually small. Opposite is 'large'.",
+  "section": "antonyms"
+},
+{
+  "id": 66,
+  "question": "The <u>extravagant</u> wedding cost a fortune.",
+  "options": {
+    "A": "frugal", 
+    "B": "wasteful",
+    "C": "beautiful",
+    "D": "expensive"
+  },
+  "correct_answer": "A",
+  "explanation": "'Extravagant' means lacking restraint in spending money. Opposite is 'frugal'.",
+  "section": "antonyms"
+},
+{
+  "id": 67,
+  "question": "Her <u>frivolous</u> approach to work worried her boss.",
+  "options": {
+    "A": "serious", 
+    "B": "silly",
+    "C": "carefree",
+    "D": "happy"
+  },
+  "correct_answer": "A",
+  "explanation": "'Frivolous' means not having any serious purpose. Opposite is 'serious'.",
+  "section": "antonyms"
+},
+{
+  "id": 68,
+  "question": "The <u>generous</u> donation helped the charity.",
+  "options": {
+    "A": "stingy", 
+    "B": "large",
+    "C": "small",
+    "D": "timely"
+  },
+  "correct_answer": "A",
+  "explanation": "'Generous' means showing a readiness to give more. Opposite is 'stingy'.",
+  "section": "antonyms"
+},
+{
+  "id": 69,
+  "question": "The <u>humble</u> beginnings of the company are well known.",
+  "options": {
+    "A": "modest",
+    "B": "proud",
+    "C": "grand", 
+    "D": "poor"
+  },
+  "correct_answer": "C",
+  "explanation": "'Humble' means having or showing a modest estimate of one's importance. Opposite is 'grand'.",
+  "section": "antonyms"
+},
+{
+  "id": 70,
+  "question": "The <u>indigenous</u> people of the area were friendly.",
+  "options": {
+    "A": "native",
+    "B": "foreign", 
+    "C": "local",
+    "D": "primitive"
+  },
+  "correct_answer": "B",
+  "explanation": "'Indigenous' means originating or occurring naturally in a particular place. Opposite is 'foreign'.",
+  "section": "antonyms"
+},
+{
+  "id": 71,
+  "question": "The <u>juvenile</u> offender was treated leniently.",
+  "options": {
+    "A": "young",
+    "B": "adult", 
+    "C": "first-time",
+    "D": "repeat"
+  },
+  "correct_answer": "B",
+  "explanation": "'Juvenile' means for or relating to young people. Opposite is 'adult'.",
+  "section": "antonyms"
+},
+{
+  "id": 72,
+  "question": "The <u>kindhearted</u> woman helped the stranger.",
+  "options": {
+    "A": "cruel", 
+    "B": "gentle",
+    "C": "old",
+    "D": "rich"
+  },
+  "correct_answer": "A",
+  "explanation": "'Kindhearted' means having a kind and sympathetic nature. Opposite is 'cruel'.",
+  "section": "antonyms"
+},
+{
+  "id": 73,
+  "question": "The <u>lavish</u> party impressed the guests.",
+  "options": {
+    "A": "extravagant",
+    "B": "frugal", 
+    "C": "big",
+    "D": "small"
+  },
+  "correct_answer": "B",
+  "explanation": "'Lavish' means sumptuously rich, elaborate, or luxurious. Opposite is 'frugal'.",
+  "section": "antonyms"
+},
+{
+  "id": 74,
+  "question": "The <u>meticulous</u> worker checked every detail.",
+  "options": {
+    "A": "careful",
+    "B": "careless", 
+    "C": "slow",
+    "D": "fast"
+  },
+  "correct_answer": "B",
+  "explanation": "'Meticulous' means showing great attention to detail. Opposite is 'careless'.",
+  "section": "antonyms"
+},
+{
+  "id": 75,
+  "question": "The <u>notorious</u> criminal was finally caught.",
+  "options": {
+    "A": "famous",
+    "B": "unknown", 
+    "C": "dangerous",
+    "D": "violent"
+  },
+  "correct_answer": "B",
+  "explanation": "'Notorious' means famous or well known, typically for some bad quality. Opposite is 'unknown'.",
+  "section": "antonyms"
+},
+{
+  "id": 76,
+  "question": "The <u>obsolete</u> law was finally repealed.",
+  "options": {
+    "A": "old",
+    "B": "new",
+    "C": "current", 
+    "D": "modern"
+  },
+  "correct_answer": "C",
+  "explanation": "'Obsolete' means no longer produced or used. Opposite is 'current'.",
+  "section": "antonyms"
+},
+{
+  "id": 77,
+  "question": "The <u>permanent</u> structure was built to last.",
+  "options": {
+    "A": "temporary", 
+    "B": "strong",
+    "C": "beautiful",
+    "D": "large"
+  },
+  "correct_answer": "A",
+  "explanation": "'Permanent' means lasting or intended to last indefinitely. Opposite is 'temporary'.",
+  "section": "antonyms"
+},
+{
+  "id": 78,
+  "question": "The <u>qualified</u> applicant got the job.",
+  "options": {
+    "A": "suitable",
+    "B": "unqualified", 
+    "C": "experienced",
+    "D": "young"
+  },
+  "correct_answer": "B",
+  "explanation": "'Qualified' means officially recognized as being trained to perform a particular job. Opposite is 'unqualified'.",
+  "section": "antonyms"
+},
+{
+  "id": 79,
+  "question": "The <u>reluctant</u> witness finally testified.",
+  "options": {
+    "A": "willing", 
+    "B": "unwilling",
+    "C": "eager",
+    "D": "afraid"
+  },
+  "correct_answer": "A",
+  "explanation": "'Reluctant' means unwilling and hesitant. Opposite is 'willing'.",
+  "section": "antonyms"
+},
+{
+  "id": 80,
+  "question": "The <u>significant</u> discovery changed science.",
+  "options": {
+    "A": "important",
+    "B": "insignificant", 
+    "C": "major",
+    "D": "minor"
+  },
+  "correct_answer": "B",
+  "explanation": "'Significant' means sufficiently great or important. Opposite is 'insignificant'.",
+  "section": "antonyms"
+},
+{
+  "id": 81,
+  "question": "Choose the option that best completes the gap: The students, accompanied by their teacher, _____ going on a field trip.",
+  "options": {
+    "A": "is",
+    "B": "are", 
+    "C": "was",
+    "D": "has"
+  },
+  "correct_answer": "B",
+  "explanation": "The subject 'students' is plural, so the verb should be plural 'are'.",
+  "section": "grammar_concord"
+},
+{
+  "id": 82,
+  "question": "Neither the manager nor the employees _____ about the changes.",
+  "options": {
+    "A": "know", 
+    "B": "knows",
+    "C": "knowing",
+    "D": "has known"
+  },
+  "correct_answer": "A",
+  "explanation": "With 'neither...nor', the verb agrees with the closer subject 'employees' (plural).",
+  "section": "grammar_concord"
+},
+{
+  "id": 83,
+  "question": "The jury _____ divided in their opinions.",
+  "options": {
+    "A": "was",
+    "B": "were", 
+    "C": "has",
+    "D": "have"
+  },
+  "correct_answer": "B",
+  "explanation": "When 'jury' refers to individual members, it takes plural verb 'were'.",
+  "section": "grammar_concord"
+},
+{
+  "id": 84,
+  "question": "Mathematics _____ my favorite subject.",
+  "options": {
+    "A": "are",
+    "B": "is", 
+    "C": "were",
+    "D": "have been"
+  },
+  "correct_answer": "B",
+  "explanation": "Subjects like 'Mathematics' are singular and take singular verbs.",
+  "section": "grammar_concord"
+},
+{
+  "id": 85,
+  "question": "The number of students in the class _____ increased.",
+  "options": {
+    "A": "have",
+    "B": "has", 
+    "C": "are",
+    "D": "were"
+  },
+  "correct_answer": "B",
+  "explanation": "'The number' is singular and takes singular verb 'has'.",
+  "section": "grammar_concord"
+},
+{
+  "id": 86,
+  "question": "A large number of students _____ absent yesterday.",
+  "options": {
+    "A": "was",
+    "B": "were", 
+    "C": "is",
+    "D": "are"
+  },
+  "correct_answer": "B",
+  "explanation": "'A large number of' is plural and takes plural verb 'were'.",
+  "section": "grammar_concord"
+},
+{
+  "id": 87,
+  "question": "The police _____ investigating the case.",
+  "options": {
+    "A": "is",
+    "B": "are", 
+    "C": "was",
+    "D": "has"
+  },
+  "correct_answer": "B",
+  "explanation": "'Police' is always plural and takes plural verb 'are'.",
+  "section": "grammar_concord"
+},
+{
+  "id": 88,
+  "question": "Each of the boys _____ a prize.",
+  "options": {
+    "A": "receive",
+    "B": "receives", 
+    "C": "receiving",
+    "D": "have received"
+  },
+  "correct_answer": "B",
+  "explanation": "'Each' is singular and takes singular verb 'receives'.",
+  "section": "grammar_concord"
+},
+{
+  "id": 89,
+  "question": "Everybody _____ to be heard.",
+  "options": {
+    "A": "like",
+    "B": "likes", 
+    "C": "liking",
+    "D": "have liked"
+  },
+  "correct_answer": "B",
+  "explanation": "Indefinite pronouns like 'everybody' are singular and take singular verbs.",
+  "section": "grammar_concord"
+},
+{
+  "id": 90,
+  "question": "Some of the water _____ spilled.",
+  "options": {
+    "A": "were",
+    "B": "was", 
+    "C": "are",
+    "D": "have been"
+  },
+  "correct_answer": "B",
+  "explanation": "With uncountable nouns like 'water', use singular verb 'was'.",
+  "section": "grammar_concord"
+},
+{
+  "id": 91,
+  "question": "Choose the option that best completes the gap: If I had known, I _____ come.",
+  "options": {
+    "A": "would have", 
+    "B": "will",
+    "C": "would",
+    "D": "had"
+  },
+  "correct_answer": "A",
+  "explanation": "Third conditional requires 'would have + past participle'.",
+  "section": "grammar_conditionals"
+},
+{
+  "id": 92,
+  "question": "I wish I _____ taller.",
+  "options": {
+    "A": "am",
+    "B": "was",
+    "C": "were", 
+    "D": "have been"
+  },
+  "correct_answer": "C",
+  "explanation": "After 'wish', use the subjunctive 'were' for hypothetical situations.",
+  "section": "grammar_subjunctive"
+},
+{
+  "id": 93,
+  "question": "By next month, she _____ here for five years.",
+  "options": {
+    "A": "will work",
+    "B": "will have worked", 
+    "C": "has worked",
+    "D": "works"
+  },
+  "correct_answer": "B",
+  "explanation": "Future perfect tense 'will have worked' for actions completed by a future time.",
+  "section": "grammar_tenses"
+},
+{
+  "id": 94,
+  "question": "When I arrived, the meeting _____.",
+  "options": {
+    "A": "already started",
+    "B": "has already started",
+    "C": "had already started", 
+    "D": "starts"
+  },
+  "correct_answer": "C",
+  "explanation": "Past perfect 'had started' for action completed before another past action.",
+  "section": "grammar_tenses"
+},
+{
+  "id": 95,
+  "question": "She _____ television when I called.",
+  "options": {
+    "A": "watches",
+    "B": "watched",
+    "C": "was watching", 
+    "D": "has watched"
+  },
+  "correct_answer": "C",
+  "explanation": "Past continuous 'was watching' for action in progress at a specific past time.",
+  "section": "grammar_tenses"
+},
+{
+  "id": 96,
+  "question": "I _____ this book since morning.",
+  "options": {
+    "A": "am reading",
+    "B": "have been reading", 
+    "C": "read",
+    "D": "was reading"
+  },
+  "correct_answer": "B",
+  "explanation": "Present perfect continuous 'have been reading' for action starting in past and continuing.",
+  "section": "grammar_tenses"
+},
+{
+  "id": 97,
+  "question": "The sun _____ in the east.",
+  "options": {
+    "A": "rise",
+    "B": "rises", 
+    "C": "rose",
+    "D": "is rising"
+  },
+  "correct_answer": "B",
+  "explanation": "Present simple 'rises' for general truths and facts.",
+  "section": "grammar_tenses"
+},
+{
+  "id": 98,
+  "question": "She _____ to the market every day.",
+  "options": {
+    "A": "go",
+    "B": "goes", 
+    "C": "went",
+    "D": "has gone"
+  },
+  "correct_answer": "B",
+  "explanation": "Present simple 'goes' for habitual actions.",
+  "section": "grammar_tenses"
+},
+{
+  "id": 99,
+  "question": "They _____ here for two hours.",
+  "options": {
+    "A": "wait",
+    "B": "waited",
+    "C": "have been waiting", 
+    "D": "are waiting"
+  },
+  "correct_answer": "C",
+  "explanation": "Present perfect continuous 'have been waiting' for action starting in past and continuing.",
+  "section": "grammar_tenses"
+},
+{
+  "id": 100,
+  "question": "I _____ my homework before he came.",
+  "options": {
+    "A": "finish",
+    "B": "finished",
+    "C": "have finished",
+    "D": "had finished" 
+  },
+  "correct_answer": "D",
+  "explanation": "Past perfect 'had finished' for action completed before another past action.",
+  "section": "grammar_tenses"
+},
+{
+  "id": 101,
+  "question": "Choose the option that best completes the gap: She is not only intelligent _____ hardworking.",
+  "options": {
+    "A": "but also", 
+    "B": "and",
+    "C": "but",
+    "D": "also"
+  },
+  "correct_answer": "A",
+  "explanation": "'Not only...but also' is the correct correlative conjunction.",
+  "section": "grammar_conjunctions"
+},
+{
+  "id": 102,
+  "question": "He worked hard _____ he might pass.",
+  "options": {
+    "A": "so that", 
+    "B": "because",
+    "C": "although",
+    "D": "since"
+  },
+  "correct_answer": "A",
+  "explanation": "'So that' shows purpose or intention.",
+  "section": "grammar_conjunctions"
+},
+{
+  "id": 103,
+  "question": "_____ it was raining, we went out.",
+  "options": {
+    "A": "Although", 
+    "B": "Because",
+    "C": "Since",
+    "D": "Therefore"
+  },
+  "correct_answer": "A",
+  "explanation": "'Although' shows contrast between the rain and going out.",
+  "section": "grammar_conjunctions"
+},
+{
+  "id": 104,
+  "question": "She is the girl _____ won the prize.",
+  "options": {
+    "A": "which",
+    "B": "who", 
+    "C": "whom",
+    "D": "whose"
+  },
+  "correct_answer": "B",
+  "explanation": "'Who' is used for people as the subject of the relative clause.",
+  "section": "grammar_relative_pronouns"
+},
+{
+  "id": 105,
+  "question": "This is the house _____ Jack built.",
+  "options": {
+    "A": "which",
+    "B": "that", 
+    "C": "whom",
+    "D": "who"
+  },
+  "correct_answer": "B",
+  "explanation": "'That' can refer to both people and things in restrictive clauses.",
+  "section": "grammar_relative_pronouns"
+},
+{
+  "id": 106,
+  "question": "The man _____ car was stolen reported to the police.",
+  "options": {
+    "A": "which",
+    "B": "whose", 
+    "C": "whom",
+    "D": "who"
+  },
+  "correct_answer": "B",
+  "explanation": "'Whose' shows possession for both people and things.",
+  "section": "grammar_relative_pronouns"
+},
+{
+  "id": 107,
+  "question": "She is taller _____ her sister.",
+  "options": {
+    "A": "than", 
+    "B": "then",
+    "C": "as",
+    "D": "like"
+  },
+  "correct_answer": "A",
+  "explanation": "'Than' is used after comparatives.",
+  "section": "grammar_comparisons"
+},
+{
+  "id": 108,
+  "question": "This is the _____ book I have ever read.",
+  "options": {
+    "A": "interesting",
+    "B": "more interesting",
+    "C": "most interesting", 
+    "D": "interestinger"
+  },
+  "correct_answer": "C",
+  "explanation": "'Most interesting' is the superlative form.",
+  "section": "grammar_comparisons"
+},
+{
+  "id": 109,
+  "question": "He is the _____ of the two brothers.",
+  "options": {
+    "A": "old",
+    "B": "older", 
+    "C": "oldest",
+    "D": "most old"
+  },
+  "correct_answer": "B",
+  "explanation": "'Older' is the comparative form for two items.",
+  "section": "grammar_comparisons"
+},
+{
+  "id": 110,
+  "question": "She speaks English _____.",
+  "options": {
+    "A": "good",
+    "B": "well", 
+    "C": "goodly",
+    "D": "best"
+  },
+  "correct_answer": "B",
+  "explanation": "'Well' is the adverb form needed to modify 'speaks'.",
+  "section": "grammar_adverbs"
+},
+{
+  "id": 111,
+  "question": "The car drove _____.",
+  "options": {
+    "A": "fast", 
+    "B": "fastly",
+    "C": "faster",
+    "D": "fastest"
+  },
+  "correct_answer": "A",
+  "explanation": "'Fast' can function as both adjective and adverb.",
+  "section": "grammar_adverbs"
+},
+{
+  "id": 112,
+  "question": "She worked _____ to finish on time.",
+  "options": {
+    "A": "hard", 
+    "B": "hardly",
+    "C": "harder",
+    "D": "hardest"
+  },
+  "correct_answer": "A",
+  "explanation": "'Hard' is the adverb form. 'Hardly' means 'almost not'.",
+  "section": "grammar_adverbs"
+},
+{
+  "id": 113,
+  "question": "He _____ comes late.",
+  "options": {
+    "A": "never", 
+    "B": "ever",
+    "C": "always",
+    "D": "often"
+  },
+  "correct_answer": "A",
+  "explanation": "'Never' is the appropriate adverb of frequency here.",
+  "section": "grammar_adverbs"
+},
+{
+  "id": 114,
+  "question": "She is _____ beautiful than her sister.",
+  "options": {
+    "A": "more", 
+    "B": "most",
+    "C": "very",
+    "D": "too"
+  },
+  "correct_answer": "A",
+  "explanation": "'More' is used with comparative adjectives of two or more syllables.",
+  "section": "grammar_comparisons"
+},
+{
+  "id": 115,
+  "question": "This is _____ interesting story.",
+  "options": {
+    "A": "a",
+    "B": "an", 
+    "C": "the",
+    "D": "no article"
+  },
+  "correct_answer": "B",
+  "explanation": "'An' is used before vowel sounds like 'interesting'.",
+  "section": "grammar_articles"
+},
+{
+  "id": 116,
+  "question": "_____ sun rises in the east.",
+  "options": {
+    "A": "A",
+    "B": "An",
+    "C": "The", 
+    "D": "No article"
+  },
+  "correct_answer": "C",
+  "explanation": "'The' is used with unique things like 'sun', 'moon', etc.",
+  "section": "grammar_articles"
+},
+{
+  "id": 117,
+  "question": "She plays _____ piano beautifully.",
+  "options": {
+    "A": "a",
+    "B": "an",
+    "C": "the", 
+    "D": "no article"
+  },
+  "correct_answer": "C",
+  "explanation": "'The' is used with musical instruments.",
+  "section": "grammar_articles"
+},
+{
+  "id": 118,
+  "question": "He is _____ European.",
+  "options": {
+    "A": "a", 
+    "B": "an",
+    "C": "the",
+    "D": "no article"
+  },
+  "correct_answer": "A",
+  "explanation": "'European' starts with a consonant sound /j/, so 'a' is used.",
+  "section": "grammar_articles"
+},
+{
+  "id": 119,
+  "question": "She gave me _____ useful advice.",
+  "options": {
+    "A": "a",
+    "B": "an",
+    "C": "the",
+    "D": "no article" 
+  },
+  "correct_answer": "D",
+  "explanation": "'Advice' is uncountable, so no article is needed.",
+  "section": "grammar_articles"
+},
+{
+  "id": 120,
+  "question": "I have _____ money in my pocket.",
+  "options": {
+    "A": "a few",
+    "B": "a little", 
+    "C": "few",
+    "D": "many"
+  },
+  "correct_answer": "B",
+  "explanation": "'A little' is used with uncountable nouns like 'money'.",
+  "section": "grammar_quantifiers"
+},
+{
+  "id": 121,
+  "question": "There are _____ students in the class.",
+  "options": {
+    "A": "much",
+    "B": "many", 
+    "C": "a little",
+    "D": "less"
+  },
+  "correct_answer": "B",
+  "explanation": "'Many' is used with countable plural nouns like 'students'.",
+  "section": "grammar_quantifiers"
+},
+{
+  "id": 122,
+  "question": "She has _____ friends than I do.",
+  "options": {
+    "A": "few",
+    "B": "fewer", 
+    "C": "less",
+    "D": "little"
+  },
+  "correct_answer": "B",
+  "explanation": "'Fewer' is used with countable nouns in comparisons.",
+  "section": "grammar_quantifiers"
+},
+{
+  "id": 123,
+  "question": "I have _____ time to waste.",
+  "options": {
+    "A": "a few",
+    "B": "a little",
+    "C": "few",
+    "D": "little" 
+  },
+  "correct_answer": "D",
+  "explanation": "'Little' means 'not much' with uncountable nouns.",
+  "section": "grammar_quantifiers"
+},
+{
+  "id": 124,
+  "question": "_____ of the students passed the exam.",
+  "options": {
+    "A": "Much",
+    "B": "Many", 
+    "C": "Each",
+    "D": "Every"
+  },
+  "correct_answer": "B",
+  "explanation": "'Many' is used with countable plural nouns.",
+  "section": "grammar_quantifiers"
+},
+{
+  "id": 125,
+  "question": "She is _____ than her brother.",
+  "options": {
+    "A": "more intelligent", 
+    "B": "intelligenter",
+    "C": "most intelligent",
+    "D": "intelligent"
+  },
+  "correct_answer": "A",
+  "explanation": "'More intelligent' is the comparative form for adjectives with 3+ syllables.",
+  "section": "grammar_comparisons"
+},
+{
+  "id": 126,
+  "question": "This is _____ film I have ever seen.",
+  "options": {
+    "A": "bad",
+    "B": "worse",
+    "C": "worst",
+    "D": "the worst" 
+  },
+  "correct_answer": "D",
+  "explanation": "'The worst' is the superlative form with 'the'.",
+  "section": "grammar_comparisons"
+},
+{
+  "id": 127,
+  "question": "He is _____ player in the team.",
+  "options": {
+    "A": "good",
+    "B": "better",
+    "C": "the best", 
+    "D": "best"
+  },
+  "correct_answer": "C",
+  "explanation": "'The best' is the superlative form with 'the'.",
+  "section": "grammar_comparisons"
+},
+{
+  "id": 128,
+  "question": "She is _____ her mother.",
+  "options": {
+    "A": "as beautiful as", 
+    "B": "more beautiful",
+    "C": "most beautiful",
+    "D": "beautiful than"
+  },
+  "correct_answer": "A",
+  "explanation": "'As beautiful as' is the correct comparative structure for equality.",
+  "section": "grammar_comparisons"
+},
+    {
+      "id": 129,
+      "passage": "PASSAGE 1:\n\nThe importance of reading cannot be overemphasized. Reading is fundamental to functioning in today's society. It is a vital skill in finding a good job and is essential for academic success. In fact, many experts argue that reading is the single most important skill for success in life.\n\nReading develops the mind, teaches about the world, and helps develop imagination and creativity. It is through reading that we learn new things and acquire knowledge. Books, magazines, and even the Internet are great learning tools which require the ability to read and understand what is read.\n\nFurthermore, reading improves vocabulary and language skills. The more you read, the more words you gain exposure to, and they will inevitably make their way into your everyday vocabulary. Being articulate and well-spoken is of great help in any profession, and knowing that you can speak to higher-ups with self-confidence can be an enormous boost to your self-esteem.\n\nReading also improves concentration and focus. In our internet-crazed world, attention is drawn in a million different directions at once as we multi-task through every day. When you read a book, all of your attention is focused on the story—the rest of the world just falls away, and you can immerse yourself in every fine detail you are absorbing.\n\nFinally, reading is free entertainment. Though you might have to buy the books, once you have them, you can read them as many times as you want without spending more money. Libraries offer books for free, and with the advent of the Internet, it is now possible to download countless free books online.",
+      "question": "According to the passage, what do many experts consider the most important skill for success in life?",
+      "options": {
+        "A": "Writing",
+        "B": "Speaking", 
+        "C": "Reading",
+        "D": "Listening"
+      },
+      "correct_answer": "C",
+      "explanation": "The passage explicitly states: 'many experts argue that reading is the single most important skill for success in life.'",
+      "section": "comprehension"
+    },
+    {
+      "id": 130,
+      "passage": "PASSAGE 1:\n\nThe importance of reading cannot be overemphasized. Reading is fundamental to functioning in today's society. It is a vital skill in finding a good job and is essential for academic success. In fact, many experts argue that reading is the single most important skill for success in life.\n\nReading develops the mind, teaches about the world, and helps develop imagination and creativity. It is through reading that we learn new things and acquire knowledge. Books, magazines, and even the Internet are great learning tools which require the ability to read and understand what is read.\n\nFurthermore, reading improves vocabulary and language skills. The more you read, the more words you gain exposure to, and they will inevitably make their way into your everyday vocabulary. Being articulate and well-spoken is of great help in any profession, and knowing that you can speak to higher-ups with self-confidence can be an enormous boost to your self-esteem.\n\nReading also improves concentration and focus. In our internet-crazed world, attention is drawn in a million different directions at once as we multi-task through every day. When you read a book, all of your attention is focused on the story—the rest of the world just falls away, and you can immerse yourself in every fine detail you are absorbing.\n\nFinally, reading is free entertainment. Though you might have to buy the books, once you have them, you can read them as many times as you want without spending more money. Libraries offer books for free, and with the advent of the Internet, it is now possible to download countless free books online.",
+      "question": "The passage states that reading helps to develop all of the following EXCEPT",
+      "options": {
+        "A": "the mind",
+        "B": "imagination", 
+        "C": "physical strength",
+        "D": "knowledge"
+      },
+      "correct_answer": "C",
+      "explanation": "The passage mentions reading develops the mind, imagination, and knowledge, but does not mention physical strength.",
+      "section": "comprehension"
+    },
+    {
+      "id": 131,
+      "passage": "PASSAGE 1:\n\nThe importance of reading cannot be overemphasized. Reading is fundamental to functioning in today's society. It is a vital skill in finding a good job and is essential for academic success. In fact, many experts argue that reading is the single most important skill for success in life.\n\nReading develops the mind, teaches about the world, and helps develop imagination and creativity. It is through reading that we learn new things and acquire knowledge. Books, magazines, and even the Internet are great learning tools which require the ability to read and understand what is read.\n\nFurthermore, reading improves vocabulary and language skills. The more you read, the more words you gain exposure to, and they will inevitably make their way into your everyday vocabulary. Being articulate and well-spoken is of great help in any profession, and knowing that you can speak to higher-ups with self-confidence can be an enormous boost to your self-esteem.\n\nReading also improves concentration and focus. In our internet-crazed world, attention is drawn in a million different directions at once as we multi-task through every day. When you read a book, all of your attention is focused on the story—the rest of the world just falls away, and you can immerse yourself in every fine detail you are absorbing.\n\nFinally, reading is free entertainment. Though you might have to buy the books, once you have them, you can read them as many times as you want without spending more money. Libraries offer books for free, and with the advent of the Internet, it is now possible to download countless free books online.",
+      "question": "How does reading improve vocabulary according to the passage?",
+      "options": {
+        "A": "By forcing you to use a dictionary",
+        "B": "Through exposure to new words", 
+        "C": "By improving your memory",
+        "D": "Through writing exercises"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage states: 'the more you read, the more words you gain exposure to, and they will inevitably make their way into your everyday vocabulary.'",
+      "section": "comprehension"
+    },
+    {
+      "id": 132,
+      "passage": "PASSAGE 1:\n\nThe importance of reading cannot be overemphasized. Reading is fundamental to functioning in today's society. It is a vital skill in finding a good job and is essential for academic success. In fact, many experts argue that reading is the single most important skill for success in life.\n\nReading develops the mind, teaches about the world, and helps develop imagination and creativity. It is through reading that we learn new things and acquire knowledge. Books, magazines, and even the Internet are great learning tools which require the ability to read and understand what is read.\n\nFurthermore, reading improves vocabulary and language skills. The more you read, the more words you gain exposure to, and they will inevitably make their way into your everyday vocabulary. Being articulate and well-spoken is of great help in any profession, and knowing that you can speak to higher-ups with self-confidence can be an enormous boost to your self-esteem.\n\nReading also improves concentration and focus. In our internet-crazed world, attention is drawn in a million different directions at once as we multi-task through every day. When you read a book, all of your attention is focused on the story—the rest of the world just falls away, and you can immerse yourself in every fine detail you are absorbing.\n\nFinally, reading is free entertainment. Though you might have to buy the books, once you have them, you can read them as many times as you want without spending more money. Libraries offer books for free, and with the advent of the Internet, it is now possible to download countless free books online.",
+      "question": "What benefit of reading is mentioned in relation to our 'internet-crazed world'?",
+      "options": {
+        "A": "It saves money",
+        "B": "It improves concentration", 
+        "C": "It provides entertainment",
+        "D": "It helps find jobs"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage specifically mentions that reading improves concentration and focus in our 'internet-crazed world' where attention is constantly divided.",
+      "section": "comprehension"
+    },
+    {
+      "id": 133,
+      "passage": "PASSAGE 1:\n\nThe importance of reading cannot be overemphasized. Reading is fundamental to functioning in today's society. It is a vital skill in finding a good job and is essential for academic success. In fact, many experts argue that reading is the single most important skill for success in life.\n\nReading develops the mind, teaches about the world, and helps develop imagination and creativity. It is through reading that we learn new things and acquire knowledge. Books, magazines, and even the Internet are great learning tools which require the ability to read and understand what is read.\n\nFurthermore, reading improves vocabulary and language skills. The more you read, the more words you gain exposure to, and they will inevitably make their way into your everyday vocabulary. Being articulate and well-spoken is of great help in any profession, and knowing that you can speak to higher-ups with self-confidence can be an enormous boost to your self-esteem.\n\nReading also improves concentration and focus. In our internet-crazed world, attention is drawn in a million different directions at once as we multi-task through every day. When you read a book, all of your attention is focused on the story—the rest of the world just falls away, and you can immerse yourself in every fine detail you are absorbing.\n\nFinally, reading is free entertainment. Though you might have to buy the books, once you have them, you can read them as many times as you want without spending more money. Libraries offer books for free, and with the advent of the Internet, it is now possible to download countless free books online.",
+      "question": "The passage suggests that reading can boost self-esteem by",
+      "options": {
+        "A": "making you more popular",
+        "B": "allowing you to speak confidently to superiors", 
+        "C": "helping you get a promotion",
+        "D": "making you more intelligent"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage states that being articulate from reading helps you 'speak to higher-ups with self-confidence' which 'can be an enormous boost to your self-esteem.'",
+      "section": "comprehension"
+    },
+    {
+      "id": 134,
+      "passage": "PASSAGE 1:\n\nThe importance of reading cannot be overemphasized. Reading is fundamental to functioning in today's society. It is a vital skill in finding a good job and is essential for academic success. In fact, many experts argue that reading is the single most important skill for success in life.\n\nReading develops the mind, teaches about the world, and helps develop imagination and creativity. It is through reading that we learn new things and acquire knowledge. Books, magazines, and even the Internet are great learning tools which require the ability to read and understand what is read.\n\nFurthermore, reading improves vocabulary and language skills. The more you read, the more words you gain exposure to, and they will inevitably make their way into your everyday vocabulary. Being articulate and well-spoken is of great help in any profession, and knowing that you can speak to higher-ups with self-confidence can be an enormous boost to your self-esteem.\n\nReading also improves concentration and focus. In our internet-crazed world, attention is drawn in a million different directions at once as we multi-task through every day. When you read a book, all of your attention is focused on the story—the rest of the world just falls away, and you can immerse yourself in every fine detail you are absorbing.\n\nFinally, reading is free entertainment. Though you might have to buy the books, once you have them, you can read them as many times as you want without spending more money. Libraries offer books for free, and with the advent of the Internet, it is now possible to download countless free books online.",
+      "question": "Which of these is NOT mentioned as a source of reading material?",
+      "options": {
+        "A": "Books",
+        "B": "Magazines", 
+        "C": "Newspapers",
+        "D": "The Internet"
+      },
+      "correct_answer": "C",
+      "explanation": "The passage mentions books, magazines, and the Internet as reading sources, but does not mention newspapers.",
+      "section": "comprehension"
+    },
+    {
+      "id": 135,
+      "passage": "PASSAGE 1:\n\nThe importance of reading cannot be overemphasized. Reading is fundamental to functioning in today's society. It is a vital skill in finding a good job and is essential for academic success. In fact, many experts argue that reading is the single most important skill for success in life.\n\nReading develops the mind, teaches about the world, and helps develop imagination and creativity. It is through reading that we learn new things and acquire knowledge. Books, magazines, and even the Internet are great learning tools which require the ability to read and understand what is read.\n\nFurthermore, reading improves vocabulary and language skills. The more you read, the more words you gain exposure to, and they will inevitably make their way into your everyday vocabulary. Being articulate and well-spoken is of great help in any profession, and knowing that you can speak to higher-ups with self-confidence can be an enormous boost to your self-esteem.\n\nReading also improves concentration and focus. In our internet-crazed world, attention is drawn in a million different directions at once as we multi-task through every day. When you read a book, all of your attention is focused on the story—the rest of the world just falls away, and you can immerse yourself in every fine detail you are absorbing.\n\nFinally, reading is free entertainment. Though you might have to buy the books, once you have them, you can read them as many times as you want without spending more money. Libraries offer books for free, and with the advent of the Internet, it is now possible to download countless free books online.",
+      "question": "The word 'fundamental' as used in the passage means",
+      "options": {
+        "A": "unimportant",
+        "B": "basic", 
+        "C": "difficult",
+        "D": "optional"
+      },
+      "correct_answer": "B",
+      "explanation": "'Fundamental' means forming a necessary base or core, essential, basic.",
+      "section": "comprehension"
+    },
+    {
+      "id": 136,
+      "passage": "PASSAGE 1:\n\nThe importance of reading cannot be overemphasized. Reading is fundamental to functioning in today's society. It is a vital skill in finding a good job and is essential for academic success. In fact, many experts argue that reading is the single most important skill for success in life.\n\nReading develops the mind, teaches about the world, and helps develop imagination and creativity. It is through reading that we learn new things and acquire knowledge. Books, magazines, and even the Internet are great learning tools which require the ability to read and understand what is read.\n\nFurthermore, reading improves vocabulary and language skills. The more you read, the more words you gain exposure to, and they will inevitably make their way into your everyday vocabulary. Being articulate and well-spoken is of great help in any profession, and knowing that you can speak to higher-ups with self-confidence can be an enormous boost to your self-esteem.\n\nReading also improves concentration and focus. In our internet-crazed world, attention is drawn in a million different directions at once as we multi-task through every day. When you read a book, all of your attention is focused on the story—the rest of the world just falls away, and you can immerse yourself in every fine detail you are absorbing.\n\nFinally, reading is free entertainment. Though you might have to buy the books, once you have them, you can read them as many times as you want without spending more money. Libraries offer books for free, and with the advent of the Internet, it is now possible to download countless free books online.",
+      "question": "According to the author, where can you get books for free?",
+      "options": {
+        "A": "Bookstores",
+        "B": "Online stores",
+        "C": "Libraries", 
+        "D": "Schools"
+      },
+      "correct_answer": "C",
+      "explanation": "The passage states: 'Libraries offer books for free, and with the advent of the Internet, it is now possible to download countless free books online.'",
+      "section": "comprehension"
+    },
+    {
+      "id": 137,
+      "passage": "PASSAGE 1:\n\nThe importance of reading cannot be overemphasized. Reading is fundamental to functioning in today's society. It is a vital skill in finding a good job and is essential for academic success. In fact, many experts argue that reading is the single most important skill for success in life.\n\nReading develops the mind, teaches about the world, and helps develop imagination and creativity. It is through reading that we learn new things and acquire knowledge. Books, magazines, and even the Internet are great learning tools which require the ability to read and understand what is read.\n\nFurthermore, reading improves vocabulary and language skills. The more you read, the more words you gain exposure to, and they will inevitably make their way into your everyday vocabulary. Being articulate and well-spoken is of great help in any profession, and knowing that you can speak to higher-ups with self-confidence can be an enormous boost to your self-esteem.\n\nReading also improves concentration and focus. In our internet-crazed world, attention is drawn in a million different directions at once as we multi-task through every day. When you read a book, all of your attention is focused on the story—the rest of the world just falls away, and you can immerse yourself in every fine detail you are absorbing.\n\nFinally, reading is free entertainment. Though you might have to buy the books, once you have them, you can read them as many times as you want without spending more money. Libraries offer books for free, and with the advent of the Internet, it is now possible to download countless free books online.",
+      "question": "The word 'inevitably' as used in the passage means",
+      "options": {
+        "A": "slowly",
+        "B": "unavoidably", 
+        "C": "possibly",
+        "D": "rarely"
+      },
+      "correct_answer": "B",
+      "explanation": "'Inevitably' means as is certain to happen, unavoidably.",
+      "section": "comprehension"
+    },
+    {
+      "id": 138,
+      "passage": "PASSAGE 1:\n\nThe importance of reading cannot be overemphasized. Reading is fundamental to functioning in today's society. It is a vital skill in finding a good job and is essential for academic success. In fact, many experts argue that reading is the single most important skill for success in life.\n\nReading develops the mind, teaches about the world, and helps develop imagination and creativity. It is through reading that we learn new things and acquire knowledge. Books, magazines, and even the Internet are great learning tools which require the ability to read and understand what is read.\n\nFurthermore, reading improves vocabulary and language skills. The more you read, the more words you gain exposure to, and they will inevitably make their way into your everyday vocabulary. Being articulate and well-spoken is of great help in any profession, and knowing that you can speak to higher-ups with self-confidence can be an enormous boost to your self-esteem.\n\nReading also improves concentration and focus. In our internet-crazed world, attention is drawn in a million different directions at once as we multi-task through every day. When you read a book, all of your attention is focused on the story—the rest of the world just falls away, and you can immerse yourself in every fine detail you are absorbing.\n\nFinally, reading is free entertainment. Though you might have to buy the books, once you have them, you can read them as many times as you want without spending more money. Libraries offer books for free, and with the advent of the Internet, it is now possible to download countless free books online.",
+      "question": "What is the main idea of the passage?",
+      "options": {
+        "A": "The history of reading",
+        "B": "The benefits of reading", 
+        "C": "How to improve reading skills",
+        "D": "The best books to read"
+      },
+      "correct_answer": "B",
+      "explanation": "The entire passage discusses various benefits of reading, making this the main idea.",
+      "section": "comprehension"
+    },
+    {
+      "id": 139,
+      "passage": "PASSAGE 2:\n\nClimate change represents one of the most pressing challenges of our time. The Earth's climate has changed throughout history, but the current warming trend is of particular significance because most of it is extremely likely (greater than 95% probability) to be the result of human activity since the mid-20th century.\n\nThe primary cause of climate change is the greenhouse effect. Certain gases in the atmosphere block heat from escaping. This is a good thing because it keeps our planet warm enough for life to exist. However, human activities, primarily the burning of fossil fuels like coal, oil, and gas, have significantly increased the concentration of these greenhouse gases in the atmosphere. This enhanced greenhouse effect is causing the Earth's average temperature to rise, a phenomenon known as global warming.\n\nThe consequences of climate change are far-reaching and include rising sea levels, more frequent and intense extreme weather events such as hurricanes and droughts, melting glaciers and polar ice, and shifts in wildlife populations and habitats. These changes threaten not only the natural environment but also human health, agriculture, water supplies, and infrastructure.\n\nAddressing climate change requires a two-pronged approach: mitigation and adaptation. Mitigation involves reducing the flow of greenhouse gases into the atmosphere, either by reducing sources of these gases or enhancing the 'sinks' that accumulate and store them. This can be achieved by transitioning to renewable energy sources, improving energy efficiency, and protecting forests. Adaptation involves adjusting to actual or expected future climate to minimize harm. This includes building sea walls, developing drought-resistant crops, and improving early warning systems for extreme weather.\n\nWhile the challenge is immense, there is growing international cooperation to combat climate change. The Paris Agreement, adopted by nearly every nation in 2015, aims to substantially reduce global greenhouse gas emissions and to limit the global temperature increase this century. Individual actions, such as reducing energy consumption and supporting sustainable practices, also play a crucial role in the collective effort to address this global issue.",
+      "question": "According to the passage, what is the main cause of the current climate change trend?",
+      "options": {
+        "A": "Natural cycles",
+        "B": "Volcanic activity",
+        "C": "Human activity", 
+        "D": "Solar flares"
+      },
+      "correct_answer": "C",
+      "explanation": "The passage states that the current warming trend is 'extremely likely to be the result of human activity since the mid-20th century.'",
+      "section": "comprehension"
+    },
+    {
+      "id": 140,
+      "passage": "PASSAGE 2:\n\nClimate change represents one of the most pressing challenges of our time. The Earth's climate has changed throughout history, but the current warming trend is of particular significance because most of it is extremely likely (greater than 95% probability) to be the result of human activity since the mid-20th century.\n\nThe primary cause of climate change is the greenhouse effect. Certain gases in the atmosphere block heat from escaping. This is a good thing because it keeps our planet warm enough for life to exist. However, human activities, primarily the burning of fossil fuels like coal, oil, and gas, have significantly increased the concentration of these greenhouse gases in the atmosphere. This enhanced greenhouse effect is causing the Earth's average temperature to rise, a phenomenon known as global warming.\n\nThe consequences of climate change are far-reaching and include rising sea levels, more frequent and intense extreme weather events such as hurricanes and droughts, melting glaciers and polar ice, and shifts in wildlife populations and habitats. These changes threaten not only the natural environment but also human health, agriculture, water supplies, and infrastructure.\n\nAddressing climate change requires a two-pronged approach: mitigation and adaptation. Mitigation involves reducing the flow of greenhouse gases into the atmosphere, either by reducing sources of these gases or enhancing the 'sinks' that accumulate and store them. This can be achieved by transitioning to renewable energy sources, improving energy efficiency, and protecting forests. Adaptation involves adjusting to actual or expected future climate to minimize harm. This includes building sea walls, developing drought-resistant crops, and improving early warning systems for extreme weather.\n\nWhile the challenge is immense, there is growing international cooperation to combat climate change. The Paris Agreement, adopted by nearly every nation in 2015, aims to substantially reduce global greenhouse gas emissions and to limit the global temperature increase this century. Individual actions, such as reducing energy consumption and supporting sustainable practices, also play a crucial role in the collective effort to address this global issue.",
+      "question": "The 'greenhouse effect' is described as",
+      "options": {
+        "A": "a completely harmful process",
+        "B": "a process that cools the Earth",
+        "C": "a natural process that keeps Earth warm", 
+        "D": "a process caused only by humans"
+      },
+      "correct_answer": "C",
+      "explanation": "The passage states: 'This is a good thing because it keeps our planet warm enough for life to exist.'",
+      "section": "comprehension"
+    },
+    {
+      "id": 141,
+      "passage": "PASSAGE 2:\n\nClimate change represents one of the most pressing challenges of our time. The Earth's climate has changed throughout history, but the current warming trend is of particular significance because most of it is extremely likely (greater than 95% probability) to be the result of human activity since the mid-20th century.\n\nThe primary cause of climate change is the greenhouse effect. Certain gases in the atmosphere block heat from escaping. This is a good thing because it keeps our planet warm enough for life to exist. However, human activities, primarily the burning of fossil fuels like coal, oil, and gas, have significantly increased the concentration of these greenhouse gases in the atmosphere. This enhanced greenhouse effect is causing the Earth's average temperature to rise, a phenomenon known as global warming.\n\nThe consequences of climate change are far-reaching and include rising sea levels, more frequent and intense extreme weather events such as hurricanes and droughts, melting glaciers and polar ice, and shifts in wildlife populations and habitats. These changes threaten not only the natural environment but also human health, agriculture, water supplies, and infrastructure.\n\nAddressing climate change requires a two-pronged approach: mitigation and adaptation. Mitigation involves reducing the flow of greenhouse gases into the atmosphere, either by reducing sources of these gases or enhancing the 'sinks' that accumulate and store them. This can be achieved by transitioning to renewable energy sources, improving energy efficiency, and protecting forests. Adaptation involves adjusting to actual or expected future climate to minimize harm. This includes building sea walls, developing drought-resistant crops, and improving early warning systems for extreme weather.\n\nWhile the challenge is immense, there is growing international cooperation to combat climate change. The Paris Agreement, adopted by nearly every nation in 2015, aims to substantially reduce global greenhouse gas emissions and to limit the global temperature increase this century. Individual actions, such as reducing energy consumption and supporting sustainable practices, also play a crucial role in the collective effort to address this global issue.",
+      "question": "Which of the following is NOT mentioned as a consequence of climate change?",
+      "options": {
+        "A": "Rising sea levels",
+        "B": "More intense hurricanes",
+        "C": "Increased volcanic eruptions", 
+        "D": "Shifts in wildlife populations"
+      },
+      "correct_answer": "C",
+      "explanation": "The passage mentions rising sea levels, extreme weather events, and shifts in wildlife, but not volcanic eruptions.",
+      "section": "comprehension"
+    },
+    {
+      "id": 142,
+      "passage": "PASSAGE 2:\n\nClimate change represents one of the most pressing challenges of our time. The Earth's climate has changed throughout history, but the current warming trend is of particular significance because most of it is extremely likely (greater than 95% probability) to be the result of human activity since the mid-20th century.\n\nThe primary cause of climate change is the greenhouse effect. Certain gases in the atmosphere block heat from escaping. This is a good thing because it keeps our planet warm enough for life to exist. However, human activities, primarily the burning of fossil fuels like coal, oil, and gas, have significantly increased the concentration of these greenhouse gases in the atmosphere. This enhanced greenhouse effect is causing the Earth's average temperature to rise, a phenomenon known as global warming.\n\nThe consequences of climate change are far-reaching and include rising sea levels, more frequent and intense extreme weather events such as hurricanes and droughts, melting glaciers and polar ice, and shifts in wildlife populations and habitats. These changes threaten not only the natural environment but also human health, agriculture, water supplies, and infrastructure.\n\nAddressing climate change requires a two-pronged approach: mitigation and adaptation. Mitigation involves reducing the flow of greenhouse gases into the atmosphere, either by reducing sources of these gases or enhancing the 'sinks' that accumulate and store them. This can be achieved by transitioning to renewable energy sources, improving energy efficiency, and protecting forests. Adaptation involves adjusting to actual or expected future climate to minimize harm. This includes building sea walls, developing drought-resistant crops, and improving early warning systems for extreme weather.\n\nWhile the challenge is immense, there is growing international cooperation to combat climate change. The Paris Agreement, adopted by nearly every nation in 2015, aims to substantially reduce global greenhouse gas emissions and to limit the global temperature increase this century. Individual actions, such as reducing energy consumption and supporting sustainable practices, also play a crucial role in the collective effort to address this global issue.",
+      "question": "The two approaches to addressing climate change mentioned in the passage are",
+      "options": {
+        "A": "prevention and cure",
+        "B": "mitigation and adaptation", 
+        "C": "reduction and elimination",
+        "D": "local and global action"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage explicitly states: 'Addressing climate change requires a two-pronged approach: mitigation and adaptation.'",
+      "section": "comprehension"
+    },
+    {
+      "id": 143,
+      "passage": "PASSAGE 2:\n\nClimate change represents one of the most pressing challenges of our time. The Earth's climate has changed throughout history, but the current warming trend is of particular significance because most of it is extremely likely (greater than 95% probability) to be the result of human activity since the mid-20th century.\n\nThe primary cause of climate change is the greenhouse effect. Certain gases in the atmosphere block heat from escaping. This is a good thing because it keeps our planet warm enough for life to exist. However, human activities, primarily the burning of fossil fuels like coal, oil, and gas, have significantly increased the concentration of these greenhouse gases in the atmosphere. This enhanced greenhouse effect is causing the Earth's average temperature to rise, a phenomenon known as global warming.\n\nThe consequences of climate change are far-reaching and include rising sea levels, more frequent and intense extreme weather events such as hurricanes and droughts, melting glaciers and polar ice, and shifts in wildlife populations and habitats. These changes threaten not only the natural environment but also human health, agriculture, water supplies, and infrastructure.\n\nAddressing climate change requires a two-pronged approach: mitigation and adaptation. Mitigation involves reducing the flow of greenhouse gases into the atmosphere, either by reducing sources of these gases or enhancing the 'sinks' that accumulate and store them. This can be achieved by transitioning to renewable energy sources, improving energy efficiency, and protecting forests. Adaptation involves adjusting to actual or expected future climate to minimize harm. This includes building sea walls, developing drought-resistant crops, and improving early warning systems for extreme weather.\n\nWhile the challenge is immense, there is growing international cooperation to combat climate change. The Paris Agreement, adopted by nearly every nation in 2015, aims to substantially reduce global greenhouse gas emissions and to limit the global temperature increase this century. Individual actions, such as reducing energy consumption and supporting sustainable practices, also play a crucial role in the collective effort to address this global issue.",
+      "question": "What is the Paris Agreement primarily concerned with?",
+      "options": {
+        "A": "Space exploration",
+        "B": "International trade",
+        "C": "Reducing greenhouse gas emissions", 
+        "D": "Wildlife conservation"
+      },
+      "correct_answer": "C",
+      "explanation": "The passage states the Paris Agreement 'aims to substantially reduce global greenhouse gas emissions.'",
+      "section": "comprehension"
+    },
+    {
+      "id": 144,
+      "passage": "PASSAGE 2:\n\nClimate change represents one of the most pressing challenges of our time. The Earth's climate has changed throughout history, but the current warming trend is of particular significance because most of it is extremely likely (greater than 95% probability) to be the result of human activity since the mid-20th century.\n\nThe primary cause of climate change is the greenhouse effect. Certain gases in the atmosphere block heat from escaping. This is a good thing because it keeps our planet warm enough for life to exist. However, human activities, primarily the burning of fossil fuels like coal, oil, and gas, have significantly increased the concentration of these greenhouse gases in the atmosphere. This enhanced greenhouse effect is causing the Earth's average temperature to rise, a phenomenon known as global warming.\n\nThe consequences of climate change are far-reaching and include rising sea levels, more frequent and intense extreme weather events such as hurricanes and droughts, melting glaciers and polar ice, and shifts in wildlife populations and habitats. These changes threaten not only the natural environment but also human health, agriculture, water supplies, and infrastructure.\n\nAddressing climate change requires a two-pronged approach: mitigation and adaptation. Mitigation involves reducing the flow of greenhouse gases into the atmosphere, either by reducing sources of these gases or enhancing the 'sinks' that accumulate and store them. This can be achieved by transitioning to renewable energy sources, improving energy efficiency, and protecting forests. Adaptation involves adjusting to actual or expected future climate to minimize harm. This includes building sea walls, developing drought-resistant crops, and improving early warning systems for extreme weather.\n\nWhile the challenge is immense, there is growing international cooperation to combat climate change. The Paris Agreement, adopted by nearly every nation in 2015, aims to substantially reduce global greenhouse gas emissions and to limit the global temperature increase this century. Individual actions, such as reducing energy consumption and supporting sustainable practices, also play a crucial role in the collective effort to address this global issue.",
+      "question": "The word 'mitigation' as used in the passage refers to",
+      "options": {
+        "A": "adapting to changes",
+        "B": "reducing the severity of a problem", 
+        "C": "studying a phenomenon",
+        "D": "ignoring a problem"
+      },
+      "correct_answer": "B",
+      "explanation": "'Mitigation' means the action of reducing the severity, seriousness, or painfulness of something.",
+      "section": "comprehension"
+    },
+    {
+      "id": 145,
+      "passage": "PASSAGE 2:\n\nClimate change represents one of the most pressing challenges of our time. The Earth's climate has changed throughout history, but the current warming trend is of particular significance because most of it is extremely likely (greater than 95% probability) to be the result of human activity since the mid-20th century.\n\nThe primary cause of climate change is the greenhouse effect. Certain gases in the atmosphere block heat from escaping. This is a good thing because it keeps our planet warm enough for life to exist. However, human activities, primarily the burning of fossil fuels like coal, oil, and gas, have significantly increased the concentration of these greenhouse gases in the atmosphere. This enhanced greenhouse effect is causing the Earth's average temperature to rise, a phenomenon known as global warming.\n\nThe consequences of climate change are far-reaching and include rising sea levels, more frequent and intense extreme weather events such as hurricanes and droughts, melting glaciers and polar ice, and shifts in wildlife populations and habitats. These changes threaten not only the natural environment but also human health, agriculture, water supplies, and infrastructure.\n\nAddressing climate change requires a two-pronged approach: mitigation and adaptation. Mitigation involves reducing the flow of greenhouse gases into the atmosphere, either by reducing sources of these gases or enhancing the 'sinks' that accumulate and store them. This can be achieved by transitioning to renewable energy sources, improving energy efficiency, and protecting forests. Adaptation involves adjusting to actual or expected future climate to minimize harm. This includes building sea walls, developing drought-resistant crops, and improving early warning systems for extreme weather.\n\nWhile the challenge is immense, there is growing international cooperation to combat climate change. The Paris Agreement, adopted by nearly every nation in 2015, aims to substantially reduce global greenhouse gas emissions and to limit the global temperature increase this century. Individual actions, such as reducing energy consumption and supporting sustainable practices, also play a crucial role in the collective effort to address this global issue.",
+      "question": "Which human activity is specifically mentioned as increasing greenhouse gases?",
+      "options": {
+        "A": "Deforestation",
+        "B": "Agriculture",
+        "C": "Burning fossil fuels", 
+        "D": "Manufacturing"
+      },
+      "correct_answer": "C",
+      "explanation": "The passage specifically mentions 'the burning of fossil fuels like coal, oil, and gas' as increasing greenhouse gases.",
+      "section": "comprehension"
+    },
+    {
+      "id": 146,
+      "passage": "PASSAGE 2:\n\nClimate change represents one of the most pressing challenges of our time. The Earth's climate has changed throughout history, but the current warming trend is of particular significance because most of it is extremely likely (greater than 95% probability) to be the result of human activity since the mid-20th century.\n\nThe primary cause of climate change is the greenhouse effect. Certain gases in the atmosphere block heat from escaping. This is a good thing because it keeps our planet warm enough for life to exist. However, human activities, primarily the burning of fossil fuels like coal, oil, and gas, have significantly increased the concentration of these greenhouse gases in the atmosphere. This enhanced greenhouse effect is causing the Earth's average temperature to rise, a phenomenon known as global warming.\n\nThe consequences of climate change are far-reaching and include rising sea levels, more frequent and intense extreme weather events such as hurricanes and droughts, melting glaciers and polar ice, and shifts in wildlife populations and habitats. These changes threaten not only the natural environment but also human health, agriculture, water supplies, and infrastructure.\n\nAddressing climate change requires a two-pronged approach: mitigation and adaptation. Mitigation involves reducing the flow of greenhouse gases into the atmosphere, either by reducing sources of these gases or enhancing the 'sinks' that accumulate and store them. This can be achieved by transitioning to renewable energy sources, improving energy efficiency, and protecting forests. Adaptation involves adjusting to actual or expected future climate to minimize harm. This includes building sea walls, developing drought-resistant crops, and improving early warning systems for extreme weather.\n\nWhile the challenge is immense, there is growing international cooperation to combat climate change. The Paris Agreement, adopted by nearly every nation in 2015, aims to substantially reduce global greenhouse gas emissions and to limit the global temperature increase this century. Individual actions, such as reducing energy consumption and supporting sustainable practices, also play a crucial role in the collective effort to address this global issue.",
+      "question": "Developing drought-resistant crops is an example of",
+      "options": {
+        "A": "mitigation",
+        "B": "adaptation", 
+        "C": "conservation",
+        "D": "pollution"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage lists 'developing drought-resistant crops' under adaptation strategies.",
+      "section": "comprehension"
+    },
+    {
+      "id": 147,
+      "passage": "PASSAGE 2:\n\nClimate change represents one of the most pressing challenges of our time. The Earth's climate has changed throughout history, but the current warming trend is of particular significance because most of it is extremely likely (greater than 95% probability) to be the result of human activity since the mid-20th century.\n\nThe primary cause of climate change is the greenhouse effect. Certain gases in the atmosphere block heat from escaping. This is a good thing because it keeps our planet warm enough for life to exist. However, human activities, primarily the burning of fossil fuels like coal, oil, and gas, have significantly increased the concentration of these greenhouse gases in the atmosphere. This enhanced greenhouse effect is causing the Earth's average temperature to rise, a phenomenon known as global warming.\n\nThe consequences of climate change are far-reaching and include rising sea levels, more frequent and intense extreme weather events such as hurricanes and droughts, melting glaciers and polar ice, and shifts in wildlife populations and habitats. These changes threaten not only the natural environment but also human health, agriculture, water supplies, and infrastructure.\n\nAddressing climate change requires a two-pronged approach: mitigation and adaptation. Mitigation involves reducing the flow of greenhouse gases into the atmosphere, either by reducing sources of these gases or enhancing the 'sinks' that accumulate and store them. This can be achieved by transitioning to renewable energy sources, improving energy efficiency, and protecting forests. Adaptation involves adjusting to actual or expected future climate to minimize harm. This includes building sea walls, developing drought-resistant crops, and improving early warning systems for extreme weather.\n\nWhile the challenge is immense, there is growing international cooperation to combat climate change. The Paris Agreement, adopted by nearly every nation in 2015, aims to substantially reduce global greenhouse gas emissions and to limit the global temperature increase this century. Individual actions, such as reducing energy consumption and supporting sustainable practices, also play a crucial role in the collective effort to address this global issue.",
+      "question": "The author's attitude towards addressing climate change can be described as",
+      "options": {
+        "A": "hopeless",
+        "B": "indifferent",
+        "C": "realistic but hopeful", 
+        "D": "angry"
+      },
+      "correct_answer": "C",
+      "explanation": "The author acknowledges the challenge but mentions 'growing international cooperation' and solutions, showing realistic optimism.",
+      "section": "comprehension"
+    },
+    {
+      "id": 148,
+      "passage": "PASSAGE 2:\n\nClimate change represents one of the most pressing challenges of our time. The Earth's climate has changed throughout history, but the current warming trend is of particular significance because most of it is extremely likely (greater than 95% probability) to be the result of human activity since the mid-20th century.\n\nThe primary cause of climate change is the greenhouse effect. Certain gases in the atmosphere block heat from escaping. This is a good thing because it keeps our planet warm enough for life to exist. However, human activities, primarily the burning of fossil fuels like coal, oil, and gas, have significantly increased the concentration of these greenhouse gases in the atmosphere. This enhanced greenhouse effect is causing the Earth's average temperature to rise, a phenomenon known as global warming.\n\nThe consequences of climate change are far-reaching and include rising sea levels, more frequent and intense extreme weather events such as hurricanes and droughts, melting glaciers and polar ice, and shifts in wildlife populations and habitats. These changes threaten not only the natural environment but also human health, agriculture, water supplies, and infrastructure.\n\nAddressing climate change requires a two-pronged approach: mitigation and adaptation. Mitigation involves reducing the flow of greenhouse gases into the atmosphere, either by reducing sources of these gases or enhancing the 'sinks' that accumulate and store them. This can be achieved by transitioning to renewable energy sources, improving energy efficiency, and protecting forests. Adaptation involves adjusting to actual or expected future climate to minimize harm. This includes building sea walls, developing drought-resistant crops, and improving early warning systems for extreme weather.\n\nWhile the challenge is immense, there is growing international cooperation to combat climate change. The Paris Agreement, adopted by nearly every nation in 2015, aims to substantially reduce global greenhouse gas emissions and to limit the global temperature increase this century. Individual actions, such as reducing energy consumption and supporting sustainable practices, also play a crucial role in the collective effort to address this global issue.",
+      "question": "What is the main purpose of this passage?",
+      "options": {
+        "A": "To criticize government inaction on climate change",
+        "B": "To explain the causes and responses to climate change", 
+        "C": "To promote a specific environmental organization",
+        "D": "To deny the existence of climate change"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage explains both the causes of climate change and the various responses to it.",
+      "section": "comprehension"
+    },
+    {
+      "id": 149,
+      "passage": "PASSAGE 3:\n\nThe concept of entrepreneurship has gained significant attention in recent years. An entrepreneur is typically defined as an individual who creates a new business, bearing most of the risks and enjoying most of the rewards. Entrepreneurs are often seen as innovators, sources of new ideas, goods, services, and business/or procedures.\n\nEntrepreneurs play a key role in any economy. They are the people who have the skills and initiative necessary to anticipate current and future needs and bring good new ideas to market. Entrepreneurs who prove to be successful in taking on the risks of a startup are rewarded with profits, fame, and continued growth opportunities. Those who fail suffer losses and become less prevalent in the markets.\n\nSeveral characteristics are commonly associated with successful entrepreneurs. They tend to be highly motivated, willing to take calculated risks, and resilient in the face of failure. They are often creative, able to see opportunities where others see obstacles, and possess strong leadership skills to build and guide their teams. Furthermore, entrepreneurs are typically passionate about their ventures, which helps them persevere through the inevitable challenges of starting and growing a business.\n\nThe path of entrepreneurship is not an easy one. It requires substantial effort and long hours, particularly in the initial stages of building a business. Access to capital can be a major hurdle, as traditional lenders may be hesitant to fund unproven ventures. Additionally, entrepreneurs must navigate complex regulatory environments and face intense competition from established businesses.\n\nDespite these challenges, entrepreneurship offers numerous benefits. It drives economic growth by creating new jobs and introducing innovations that can improve productivity. It gives individuals the opportunity to pursue their passions and achieve financial independence. Moreover, successful entrepreneurs can make significant contributions to their communities and society at large. In today's rapidly changing global economy, the spirit of entrepreneurship is more important than ever for fostering innovation and economic development.",
+      "question": "According to the passage, an entrepreneur is someone who",
+      "options": {
+        "A": "works for a large corporation",
+        "B": "creates a new business", 
+        "C": "avoids all risks",
+        "D": "follows established procedures"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage defines an entrepreneur as 'an individual who creates a new business.'",
+      "section": "comprehension"
+    },
+    {
+      "id": 150,
+      "passage": "PASSAGE 3:\n\nThe concept of entrepreneurship has gained significant attention in recent years. An entrepreneur is typically defined as an individual who creates a new business, bearing most of the risks and enjoying most of the rewards. Entrepreneurs are often seen as innovators, sources of new ideas, goods, services, and business/or procedures.\n\nEntrepreneurs play a key role in any economy. They are the people who have the skills and initiative necessary to anticipate current and future needs and bring good new ideas to market. Entrepreneurs who prove to be successful in taking on the risks of a startup are rewarded with profits, fame, and continued growth opportunities. Those who fail suffer losses and become less prevalent in the markets.\n\nSeveral characteristics are commonly associated with successful entrepreneurs. They tend to be highly motivated, willing to take calculated risks, and resilient in the face of failure. They are often creative, able to see opportunities where others see obstacles, and possess strong leadership skills to build and guide their teams. Furthermore, entrepreneurs are typically passionate about their ventures, which helps them persevere through the inevitable challenges of starting and growing a business.\n\nThe path of entrepreneurship is not an easy one. It requires substantial effort and long hours, particularly in the initial stages of building a business. Access to capital can be a major hurdle, as traditional lenders may be hesitant to fund unproven ventures. Additionally, entrepreneurs must navigate complex regulatory environments and face intense competition from established businesses.\n\nDespite these challenges, entrepreneurship offers numerous benefits. It drives economic growth by creating new jobs and introducing innovations that can improve productivity. It gives individuals the opportunity to pursue their passions and achieve financial independence. Moreover, successful entrepreneurs can make significant contributions to their communities and society at large. In today's rapidly changing global economy, the spirit of entrepreneurship is more important than ever for fostering innovation and economic development.",
+      "question": "What is the reward for successful entrepreneurs mentioned in the passage?",
+      "options": {
+        "A": "Guaranteed income",
+        "B": "Profits and fame", 
+        "C": "Early retirement",
+        "D": "Government support"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage states successful entrepreneurs are 'rewarded with profits, fame, and continued growth opportunities.'",
+      "section": "comprehension"
+    },
+    {
+      "id": 151,
+      "passage": "PASSAGE 3:\n\nThe concept of entrepreneurship has gained significant attention in recent years. An entrepreneur is typically defined as an individual who creates a new business, bearing most of the risks and enjoying most of the rewards. Entrepreneurs are often seen as innovators, sources of new ideas, goods, services, and business/or procedures.\n\nEntrepreneurs play a key role in any economy. They are the people who have the skills and initiative necessary to anticipate current and future needs and bring good new ideas to market. Entrepreneurs who prove to be successful in taking on the risks of a startup are rewarded with profits, fame, and continued growth opportunities. Those who fail suffer losses and become less prevalent in the markets.\n\nSeveral characteristics are commonly associated with successful entrepreneurs. They tend to be highly motivated, willing to take calculated risks, and resilient in the face of failure. They are often creative, able to see opportunities where others see obstacles, and possess strong leadership skills to build and guide their teams. Furthermore, entrepreneurs are typically passionate about their ventures, which helps them persevere through the inevitable challenges of starting and growing a business.\n\nThe path of entrepreneurship is not an easy one. It requires substantial effort and long hours, particularly in the initial stages of building a business. Access to capital can be a major hurdle, as traditional lenders may be hesitant to fund unproven ventures. Additionally, entrepreneurs must navigate complex regulatory environments and face intense competition from established businesses.\n\nDespite these challenges, entrepreneurship offers numerous benefits. It drives economic growth by creating new jobs and introducing innovations that can improve productivity. It gives individuals the opportunity to pursue their passions and achieve financial independence. Moreover, successful entrepreneurs can make significant contributions to their communities and society at large. In today's rapidly changing global economy, the spirit of entrepreneurship is more important than ever for fostering innovation and economic development.",
+      "question": "Which of these is NOT mentioned as a characteristic of successful entrepreneurs?",
+      "options": {
+        "A": "Risk-taking",
+        "B": "Creativity", 
+        "C": "Passion",
+        "D": "Physical strength"
+      },
+      "correct_answer": "D",
+      "explanation": "The passage mentions risk-taking, creativity, and passion, but not physical strength.",
+      "section": "comprehension"
+    },
+    {
+      "id": 152,
+      "passage": "PASSAGE 3:\n\nThe concept of entrepreneurship has gained significant attention in recent years. An entrepreneur is typically defined as an individual who creates a new business, bearing most of the risks and enjoying most of the rewards. Entrepreneurs are often seen as innovators, sources of new ideas, goods, services, and business/or procedures.\n\nEntrepreneurs play a key role in any economy. They are the people who have the skills and initiative necessary to anticipate current and future needs and bring good new ideas to market. Entrepreneurs who prove to be successful in taking on the risks of a startup are rewarded with profits, fame, and continued growth opportunities. Those who fail suffer losses and become less prevalent in the markets.\n\nSeveral characteristics are commonly associated with successful entrepreneurs. They tend to be highly motivated, willing to take calculated risks, and resilient in the face of failure. They are often creative, able to see opportunities where others see obstacles, and possess strong leadership skills to build and guide their teams. Furthermore, entrepreneurs are typically passionate about their ventures, which helps them persevere through the inevitable challenges of starting and growing a business.\n\nThe path of entrepreneurship is not an easy one. It requires substantial effort and long hours, particularly in the initial stages of building a business. Access to capital can be a major hurdle, as traditional lenders may be hesitant to fund unproven ventures. Additionally, entrepreneurs must navigate complex regulatory environments and face intense competition from established businesses.\n\nDespite these challenges, entrepreneurship offers numerous benefits. It drives economic growth by creating new jobs and introducing innovations that can improve productivity. It gives individuals the opportunity to pursue their passions and achieve financial independence. Moreover, successful entrepreneurs can make significant contributions to their communities and society at large. In today's rapidly changing global economy, the spirit of entrepreneurship is more important than ever for fostering innovation and economic development.",
+      "question": "What is identified as a major challenge for entrepreneurs?",
+      "options": {
+        "A": "Lack of ideas",
+        "B": "Access to capital", 
+        "C": "Too much free time",
+        "D": "Lack of competition"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage specifically mentions 'Access to capital can be a major hurdle' for entrepreneurs.",
+      "section": "comprehension"
+    },
+    {
+      "id": 153,
+      "passage": "PASSAGE 3:\n\nThe concept of entrepreneurship has gained significant attention in recent years. An entrepreneur is typically defined as an individual who creates a new business, bearing most of the risks and enjoying most of the rewards. Entrepreneurs are often seen as innovators, sources of new ideas, goods, services, and business/or procedures.\n\nEntrepreneurs play a key role in any economy. They are the people who have the skills and initiative necessary to anticipate current and future needs and bring good new ideas to market. Entrepreneurs who prove to be successful in taking on the risks of a startup are rewarded with profits, fame, and continued growth opportunities. Those who fail suffer losses and become less prevalent in the markets.\n\nSeveral characteristics are commonly associated with successful entrepreneurs. They tend to be highly motivated, willing to take calculated risks, and resilient in the face of failure. They are often creative, able to see opportunities where others see obstacles, and possess strong leadership skills to build and guide their teams. Furthermore, entrepreneurs are typically passionate about their ventures, which helps them persevere through the inevitable challenges of starting and growing a business.\n\nThe path of entrepreneurship is not an easy one. It requires substantial effort and long hours, particularly in the initial stages of building a business. Access to capital can be a major hurdle, as traditional lenders may be hesitant to fund unproven ventures. Additionally, entrepreneurs must navigate complex regulatory environments and face intense competition from established businesses.\n\nDespite these challenges, entrepreneurship offers numerous benefits. It drives economic growth by creating new jobs and introducing innovations that can improve productivity. It gives individuals the opportunity to pursue their passions and achieve financial independence. Moreover, successful entrepreneurs can make significant contributions to their communities and society at large. In today's rapidly changing global economy, the spirit of entrepreneurship is more important than ever for fostering innovation and economic development.",
+      "question": "How does entrepreneurship benefit the economy according to the passage?",
+      "options": {
+        "A": "By reducing taxes",
+        "B": "By creating new jobs", 
+        "C": "By increasing imports",
+        "D": "By lowering prices"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage states entrepreneurship 'drives economic growth by creating new jobs.'",
+      "section": "comprehension"
+    },
+    {
+      "id": 154,
+      "passage": "PASSAGE 3:\n\nThe concept of entrepreneurship has gained significant attention in recent years. An entrepreneur is typically defined as an individual who creates a new business, bearing most of the risks and enjoying most of the rewards. Entrepreneurs are often seen as innovators, sources of new ideas, goods, services, and business/or procedures.\n\nEntrepreneurs play a key role in any economy. They are the people who have the skills and initiative necessary to anticipate current and future needs and bring good new ideas to market. Entrepreneurs who prove to be successful in taking on the risks of a startup are rewarded with profits, fame, and continued growth opportunities. Those who fail suffer losses and become less prevalent in the markets.\n\nSeveral characteristics are commonly associated with successful entrepreneurs. They tend to be highly motivated, willing to take calculated risks, and resilient in the face of failure. They are often creative, able to see opportunities where others see obstacles, and possess strong leadership skills to build and guide their teams. Furthermore, entrepreneurs are typically passionate about their ventures, which helps them persevere through the inevitable challenges of starting and growing a business.\n\nThe path of entrepreneurship is not an easy one. It requires substantial effort and long hours, particularly in the initial stages of building a business. Access to capital can be a major hurdle, as traditional lenders may be hesitant to fund unproven ventures. Additionally, entrepreneurs must navigate complex regulatory environments and face intense competition from established businesses.\n\nDespite these challenges, entrepreneurship offers numerous benefits. It drives economic growth by creating new jobs and introducing innovations that can improve productivity. It gives individuals the opportunity to pursue their passions and achieve financial independence. Moreover, successful entrepreneurs can make significant contributions to their communities and society at large. In today's rapidly changing global economy, the spirit of entrepreneurship is more important than ever for fostering innovation and economic development.",
+      "question": "The word 'resilient' as used in the passage means",
+      "options": {
+        "A": "easily discouraged",
+        "B": "able to recover quickly from difficulties", 
+        "C": "physically strong",
+        "D": "financially secure"
+      },
+      "correct_answer": "B",
+      "explanation": "'Resilient' means able to withstand or recover quickly from difficult conditions.",
+      "section": "comprehension"
+    },
+    {
+      "id": 155,
+      "passage": "PASSAGE 3:\n\nThe concept of entrepreneurship has gained significant attention in recent years. An entrepreneur is typically defined as an individual who creates a new business, bearing most of the risks and enjoying most of the rewards. Entrepreneurs are often seen as innovators, sources of new ideas, goods, services, and business/or procedures.\n\nEntrepreneurs play a key role in any economy. They are the people who have the skills and initiative necessary to anticipate current and future needs and bring good new ideas to market. Entrepreneurs who prove to be successful in taking on the risks of a startup are rewarded with profits, fame, and continued growth opportunities. Those who fail suffer losses and become less prevalent in the markets.\n\nSeveral characteristics are commonly associated with successful entrepreneurs. They tend to be highly motivated, willing to take calculated risks, and resilient in the face of failure. They are often creative, able to see opportunities where others see obstacles, and possess strong leadership skills to build and guide their teams. Furthermore, entrepreneurs are typically passionate about their ventures, which helps them persevere through the inevitable challenges of starting and growing a business.\n\nThe path of entrepreneurship is not an easy one. It requires substantial effort and long hours, particularly in the initial stages of building a business. Access to capital can be a major hurdle, as traditional lenders may be hesitant to fund unproven ventures. Additionally, entrepreneurs must navigate complex regulatory environments and face intense competition from established businesses.\n\nDespite these challenges, entrepreneurship offers numerous benefits. It drives economic growth by creating new jobs and introducing innovations that can improve productivity. It gives individuals the opportunity to pursue their passions and achieve financial independence. Moreover, successful entrepreneurs can make significant contributions to their communities and society at large. In today's rapidly changing global economy, the spirit of entrepreneurship is more important than ever for fostering innovation and economic development.",
+      "question": "What helps entrepreneurs persevere through challenges?",
+      "options": {
+        "A": "Government grants",
+        "B": "Their passion", 
+        "C": "Family pressure",
+        "D": "Luck"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage states entrepreneurs are 'typically passionate about their ventures, which helps them persevere through the inevitable challenges.'",
+      "section": "comprehension"
+    },
+    {
+      "id": 156,
+      "passage": "PASSAGE 3:\n\nThe concept of entrepreneurship has gained significant attention in recent years. An entrepreneur is typically defined as an individual who creates a new business, bearing most of the risks and enjoying most of the rewards. Entrepreneurs are often seen as innovators, sources of new ideas, goods, services, and business/or procedures.\n\nEntrepreneurs play a key role in any economy. They are the people who have the skills and initiative necessary to anticipate current and future needs and bring good new ideas to market. Entrepreneurs who prove to be successful in taking on the risks of a startup are rewarded with profits, fame, and continued growth opportunities. Those who fail suffer losses and become less prevalent in the markets.\n\nSeveral characteristics are commonly associated with successful entrepreneurs. They tend to be highly motivated, willing to take calculated risks, and resilient in the face of failure. They are often creative, able to see opportunities where others see obstacles, and possess strong leadership skills to build and guide their teams. Furthermore, entrepreneurs are typically passionate about their ventures, which helps them persevere through the inevitable challenges of starting and growing a business.\n\nThe path of entrepreneurship is not an easy one. It requires substantial effort and long hours, particularly in the initial stages of building a business. Access to capital can be a major hurdle, as traditional lenders may be hesitant to fund unproven ventures. Additionally, entrepreneurs must navigate complex regulatory environments and face intense competition from established businesses.\n\nDespite these challenges, entrepreneurship offers numerous benefits. It drives economic growth by creating new jobs and introducing innovations that can improve productivity. It gives individuals the opportunity to pursue their passions and achieve financial independence. Moreover, successful entrepreneurs can make significant contributions to their communities and society at large. In today's rapidly changing global economy, the spirit of entrepreneurship is more important than ever for fostering innovation and economic development.",
+      "question": "The passage suggests that entrepreneurs are important because they",
+      "options": {
+        "A": "avoid all risks",
+        "B": "bring new ideas to market", 
+        "C": "work regular hours",
+        "D": "follow traditional methods"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage states entrepreneurs 'bring good new ideas to market' and are 'sources of new ideas.'",
+      "section": "comprehension"
+    },
+    {
+      "id": 157,
+      "passage": "PASSAGE 3:\n\nThe concept of entrepreneurship has gained significant attention in recent years. An entrepreneur is typically defined as an individual who creates a new business, bearing most of the risks and enjoying most of the rewards. Entrepreneurs are often seen as innovators, sources of new ideas, goods, services, and business/or procedures.\n\nEntrepreneurs play a key role in any economy. They are the people who have the skills and initiative necessary to anticipate current and future needs and bring good new ideas to market. Entrepreneurs who prove to be successful in taking on the risks of a startup are rewarded with profits, fame, and continued growth opportunities. Those who fail suffer losses and become less prevalent in the markets.\n\nSeveral characteristics are commonly associated with successful entrepreneurs. They tend to be highly motivated, willing to take calculated risks, and resilient in the face of failure. They are often creative, able to see opportunities where others see obstacles, and possess strong leadership skills to build and guide their teams. Furthermore, entrepreneurs are typically passionate about their ventures, which helps them persevere through the inevitable challenges of starting and growing a business.\n\nThe path of entrepreneurship is not an easy one. It requires substantial effort and long hours, particularly in the initial stages of building a business. Access to capital can be a major hurdle, as traditional lenders may be hesitant to fund unproven ventures. Additionally, entrepreneurs must navigate complex regulatory environments and face intense competition from established businesses.\n\nDespite these challenges, entrepreneurship offers numerous benefits. It drives economic growth by creating new jobs and introducing innovations that can improve productivity. It gives individuals the opportunity to pursue their passions and achieve financial independence. Moreover, successful entrepreneurs can make significant contributions to their communities and society at large. In today's rapidly changing global economy, the spirit of entrepreneurship is more important than ever for fostering innovation and economic development.",
+      "question": "What is the tone of the passage towards entrepreneurship?",
+      "options": {
+        "A": "Highly critical",
+        "B": "Neutral and informative", 
+        "C": "Strongly discouraging",
+        "D": "Overly enthusiastic"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage presents facts about entrepreneurship in a balanced, informative manner without excessive praise or criticism.",
+      "section": "comprehension"
+    },
+    {
+      "id": 158,
+      "passage": "PASSAGE 3:\n\nThe concept of entrepreneurship has gained significant attention in recent years. An entrepreneur is typically defined as an individual who creates a new business, bearing most of the risks and enjoying most of the rewards. Entrepreneurs are often seen as innovators, sources of new ideas, goods, services, and business/or procedures.\n\nEntrepreneurs play a key role in any economy. They are the people who have the skills and initiative necessary to anticipate current and future needs and bring good new ideas to market. Entrepreneurs who prove to be successful in taking on the risks of a startup are rewarded with profits, fame, and continued growth opportunities. Those who fail suffer losses and become less prevalent in the markets.\n\nSeveral characteristics are commonly associated with successful entrepreneurs. They tend to be highly motivated, willing to take calculated risks, and resilient in the face of failure. They are often creative, able to see opportunities where others see obstacles, and possess strong leadership skills to build and guide their teams. Furthermore, entrepreneurs are typically passionate about their ventures, which helps them persevere through the inevitable challenges of starting and growing a business.\n\nThe path of entrepreneurship is not an easy one. It requires substantial effort and long hours, particularly in the initial stages of building a business. Access to capital can be a major hurdle, as traditional lenders may be hesitant to fund unproven ventures. Additionally, entrepreneurs must navigate complex regulatory environments and face intense competition from established businesses.\n\nDespite these challenges, entrepreneurship offers numerous benefits. It drives economic growth by creating new jobs and introducing innovations that can improve productivity. It gives individuals the opportunity to pursue their passions and achieve financial independence. Moreover, successful entrepreneurs can make significant contributions to their communities and society at large. In today's rapidly changing global economy, the spirit of entrepreneurship is more important than ever for fostering innovation and economic development.",
+      "question": "The main idea of the passage is to",
+      "options": {
+        "A": "discourage people from becoming entrepreneurs",
+        "B": "explain the concept and importance of entrepreneurship", 
+        "C": "promote a specific entrepreneurial program",
+        "D": "criticize failed entrepreneurs"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage provides a comprehensive explanation of entrepreneurship, its characteristics, challenges, and importance.",
+      "section": "comprehension"
+    }
+  ]
+}

@@ -1,0 +1,1672 @@
+{
+  "subject": "Physics",
+  "exam_type": "JAMB",
+  "total_questions": 128,
+  "time_allowed": 7200,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the SI unit of length?",
+      "options": {
+        "A": "Meter",
+        "B": "Centimeter",
+        "C": "Kilometer",
+        "D": "Millimeter"
+      },
+      "correct_answer": "A",
+      "explanation": "The meter is the fundamental SI unit of length, defined as the distance traveled by light in vacuum in 1/299,792,458 seconds.",
+      "section": "measurement"
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is a vector quantity?",
+      "options": {
+        "A": "Velocity",
+        "B": "Speed",
+        "C": "Mass",
+        "D": "Temperature"
+      },
+      "correct_answer": "A",
+      "explanation": "Velocity is a vector quantity because it has both magnitude and direction, unlike speed which has only magnitude.",
+      "section": "vectors_and_scalars"
+    },
+    {
+      "id": 3,
+      "question": "A car accelerates uniformly from rest to 20 m/s in 5 seconds. What is its acceleration?",
+      "options": {
+        "A": "4 m/s²",
+        "B": "5 m/s²",
+        "C": "10 m/s²",
+        "D": "2 m/s²"
+      },
+      "correct_answer": "A",
+      "explanation": "Using v = u + at, where u=0, v=20 m/s, t=5 s: 20 = 0 + a×5 ⇒ a = 20/5 = 4 m/s²",
+      "section": "motion"
+    },
+    {
+      "id": 4,
+      "question": "What is the weight of a 5kg mass on Earth? (g = 10 m/s²)",
+      "options": {
+        "A": "50 N",
+        "B": "5 N",
+        "C": "10 N",
+        "D": "100 N"
+      },
+      "correct_answer": "A",
+      "explanation": "Weight W = mg = 5 × 10 = 50 Newtons",
+      "section": "force"
+    },
+    {
+      "id": 5,
+      "question": "Which law states that every action has an equal and opposite reaction?",
+      "options": {
+        "A": "Newton's third law",
+        "B": "Newton's first law",
+        "C": "Newton's second law",
+        "D": "Law of gravitation"
+      },
+      "correct_answer": "A",
+      "explanation": "Newton's third law of motion states that for every action, there is an equal and opposite reaction.",
+      "section": "laws_of_motion"
+    },
+    {
+      "id": 6,
+      "question": "What is the momentum of a 2kg object moving at 3 m/s?",
+      "options": {
+        "A": "6 kg m/s",
+        "B": "2 kg m/s",
+        "C": "3 kg m/s",
+        "D": "5 kg m/s"
+      },
+      "correct_answer": "A",
+      "explanation": "Momentum p = mv = 2 × 3 = 6 kg m/s",
+      "section": "momentum"
+    },
+    {
+      "id": 7,
+      "question": "A force of 10N acts on a mass of 2kg. What is the acceleration?",
+      "options": {
+        "A": "5 m/s²",
+        "B": "2 m/s²",
+        "C": "10 m/s²",
+        "D": "20 m/s²"
+      },
+      "correct_answer": "A",
+      "explanation": "Using F = ma ⇒ 10 = 2a ⇒ a = 5 m/s²",
+      "section": "laws_of_motion"
+    },
+    {
+      "id": 8,
+      "question": "What is the work done when a 20N force moves an object 5m in the direction of the force?",
+      "options": {
+        "A": "100 J",
+        "B": "50 J",
+        "C": "20 J",
+        "D": "5 J"
+      },
+      "correct_answer": "A",
+      "explanation": "Work = Force × Distance = 20 × 5 = 100 Joules",
+      "section": "work_energy_power"
+    },
+    {
+      "id": 9,
+      "question": "What is the kinetic energy of a 4kg mass moving at 3 m/s?",
+      "options": {
+        "A": "18 J",
+        "B": "12 J",
+        "C": "24 J",
+        "D": "36 J"
+      },
+      "correct_answer": "A",
+      "explanation": "KE = ½mv² = ½ × 4 × 3² = 2 × 9 = 18 J",
+      "section": "work_energy_power"
+    },
+    {
+      "id": 10,
+      "question": "What is the power if 100J of work is done in 5 seconds?",
+      "options": {
+        "A": "20 W",
+        "B": "100 W",
+        "C": "50 W",
+        "D": "5 W"
+      },
+      "correct_answer": "A",
+      "explanation": "Power = Work/Time = 100/5 = 20 Watts",
+      "section": "work_energy_power"
+    },
+    {
+      "id": 11,
+      "question": "Which simple machine has a mechanical advantage greater than 1?",
+      "options": {
+        "A": "Lever",
+        "B": "Fixed pulley",
+        "C": "Single movable pulley",
+        "D": "Both A and C"
+      },
+      "correct_answer": "D",
+      "explanation": "Both levers and single movable pulleys can have mechanical advantage greater than 1, while fixed pulleys have MA=1.",
+      "section": "simple_machines"
+    },
+    {
+      "id": 12,
+      "question": "What is the pressure exerted by a force of 100N on an area of 2m²?",
+      "options": {
+        "A": "50 Pa",
+        "B": "100 Pa",
+        "C": "200 Pa",
+        "D": "20 Pa"
+      },
+      "correct_answer": "A",
+      "explanation": "Pressure = Force/Area = 100/2 = 50 Pascals",
+      "section": "pressure"
+    },
+    {
+      "id": 13,
+      "question": "What is the density of a substance with mass 200g and volume 100cm³?",
+      "options": {
+        "A": "2 g/cm³",
+        "B": "0.5 g/cm³",
+        "C": "1 g/cm³",
+        "D": "20 g/cm³"
+      },
+      "correct_answer": "A",
+      "explanation": "Density = Mass/Volume = 200/100 = 2 g/cm³",
+      "section": "density"
+    },
+    {
+      "id": 14,
+      "question": "What is the relative density of a substance that floats on water?",
+      "options": {
+        "A": "Less than 1",
+        "B": "Greater than 1",
+        "C": "Equal to 1",
+        "D": "Zero"
+      },
+      "correct_answer": "A",
+      "explanation": "A substance floats on water if its relative density (compared to water) is less than 1.",
+      "section": "density"
+    },
+    {
+      "id": 15,
+      "question": "What is the upthrust on an object immersed in a fluid equal to?",
+      "options": {
+        "A": "Weight of fluid displaced",
+        "B": "Weight of the object",
+        "C": "Volume of the object",
+        "D": "Density of the fluid"
+      },
+      "correct_answer": "A",
+      "explanation": "Archimedes' principle states that the upthrust on an object immersed in a fluid equals the weight of the fluid displaced.",
+      "section": "upthrust"
+    },
+    {
+      "id": 16,
+      "question": "What is the principle behind the hydraulic press?",
+      "options": {
+        "A": "Pascal's principle",
+        "B": "Archimedes' principle",
+        "C": "Bernoulli's principle",
+        "D": "Boyle's law"
+      },
+      "correct_answer": "A",
+      "explanation": "Hydraulic press works on Pascal's principle which states that pressure applied to a confined fluid is transmitted equally in all directions.",
+      "section": "pressure"
+    },
+    {
+      "id": 17,
+      "question": "What is the temperature in Kelvin when it is 27°C?",
+      "options": {
+        "A": "300 K",
+        "B": "273 K",
+        "C": "250 K",
+        "D": "327 K"
+      },
+      "correct_answer": "A",
+      "explanation": "K = °C + 273 = 27 + 273 = 300 K",
+      "section": "temperature"
+    },
+    {
+      "id": 18,
+      "question": "Which method of heat transfer occurs in fluids?",
+      "options": {
+        "A": "Convection",
+        "B": "Conduction",
+        "C": "Radiation",
+        "D": "All of the above"
+      },
+      "correct_answer": "A",
+      "explanation": "Convection is the method of heat transfer that occurs in fluids (liquids and gases) through the movement of the fluid itself.",
+      "section": "heat_transfer"
+    },
+    {
+      "id": 19,
+      "question": "What is the specific heat capacity of a substance?",
+      "options": {
+        "A": "Heat required to raise 1kg by 1K",
+        "B": "Heat required to melt 1kg",
+        "C": "Heat required to vaporize 1kg",
+        "D": "Temperature change of 1kg"
+      },
+      "correct_answer": "A",
+      "explanation": "Specific heat capacity is the amount of heat required to raise the temperature of 1kg of a substance by 1 Kelvin.",
+      "section": "heat_capacity"
+    },
+    {
+      "id": 20,
+      "question": "What is the wavelength of a wave with frequency 50Hz and speed 340m/s?",
+      "options": {
+        "A": "6.8 m",
+        "B": "3.4 m",
+        "C": "17 m",
+        "D": "1.7 m"
+      },
+      "correct_answer": "A",
+      "explanation": "Using v = fλ ⇒ λ = v/f = 340/50 = 6.8 meters",
+      "section": "waves"
+    },
+    {
+      "id": 21,
+      "question": "What type of wave requires a material medium for propagation?",
+      "options": {
+        "A": "Mechanical wave",
+        "B": "Electromagnetic wave",
+        "C": "Light wave",
+        "D": "Radio wave"
+      },
+      "correct_answer": "A",
+      "explanation": "Mechanical waves require a material medium for propagation, unlike electromagnetic waves which can travel through vacuum.",
+      "section": "waves"
+    },
+    {
+      "id": 22,
+      "question": "What is the frequency of a pendulum that makes 20 oscillations in 10 seconds?",
+      "options": {
+        "A": "2 Hz",
+        "B": "0.5 Hz",
+        "C": "20 Hz",
+        "D": "10 Hz"
+      },
+      "correct_answer": "A",
+      "explanation": "Frequency = Number of oscillations/Time = 20/10 = 2 Hz",
+      "section": "waves"
+    },
+    {
+      "id": 23,
+      "question": "What is the period of a wave with frequency 0.5 Hz?",
+      "options": {
+        "A": "2 s",
+        "B": "0.5 s",
+        "C": "1 s",
+        "D": "4 s"
+      },
+      "correct_answer": "A",
+      "explanation": "Period T = 1/f = 1/0.5 = 2 seconds",
+      "section": "waves"
+    },
+    {
+      "id": 24,
+      "question": "What is the speed of light in vacuum?",
+      "options": {
+        "A": "3 × 10⁸ m/s",
+        "B": "3 × 10⁶ m/s",
+        "C": "3 × 10⁵ m/s",
+        "D": "3 × 10¹⁰ m/s"
+      },
+      "correct_answer": "A",
+      "explanation": "The speed of light in vacuum is approximately 3 × 10⁸ meters per second.",
+      "section": "light"
+    },
+    {
+      "id": 25,
+      "question": "What is the law of reflection?",
+      "options": {
+        "A": "Angle of incidence equals angle of reflection",
+        "B": "Light travels in straight lines",
+        "C": "Speed of light is constant",
+        "D": "Light can be refracted"
+      },
+      "correct_answer": "A",
+      "explanation": "The law of reflection states that the angle of incidence equals the angle of reflection, and both lie in the same plane.",
+      "section": "light"
+    },
+    {
+      "id": 26,
+      "question": "What is the refractive index of a medium?",
+      "options": {
+        "A": "Speed of light in vacuum/Speed of light in medium",
+        "B": "Speed of light in medium/Speed of light in vacuum",
+        "C": "Angle of incidence/Angle of refraction",
+        "D": "Wavelength in vacuum/Wavelength in medium"
+      },
+      "correct_answer": "A",
+      "explanation": "Refractive index n = c/v, where c is speed in vacuum and v is speed in medium.",
+      "section": "refraction"
+    },
+    {
+      "id": 27,
+      "question": "What is the critical angle?",
+      "options": {
+        "A": "Angle of incidence when angle of refraction is 90°",
+        "B": "Angle of reflection",
+        "C": "Angle of minimum deviation",
+        "D": "Brewster's angle"
+      },
+      "correct_answer": "A",
+      "explanation": "Critical angle is the angle of incidence in the denser medium for which the angle of refraction in the rarer medium is 90°.",
+      "section": "refraction"
+    },
+    {
+      "id": 28,
+      "question": "What type of lens converges light rays?",
+      "options": {
+        "A": "Convex lens",
+        "B": "Concave lens",
+        "C": "Plano-concave lens",
+        "D": "Diverging lens"
+      },
+      "correct_answer": "A",
+      "explanation": "Convex lens (converging lens) brings parallel light rays together at a focal point.",
+      "section": "lenses"
+    },
+    {
+      "id": 29,
+      "question": "What is the power of a lens with focal length 0.5m?",
+      "options": {
+        "A": "2 D",
+        "B": "0.5 D",
+        "C": "1 D",
+        "D": "4 D"
+      },
+      "correct_answer": "A",
+      "explanation": "Power P = 1/f = 1/0.5 = 2 Diopters",
+      "section": "lenses"
+    },
+    {
+      "id": 30,
+      "question": "What is the SI unit of electric charge?",
+      "options": {
+        "A": "Coulomb",
+        "B": "Ampere",
+        "C": "Volt",
+        "D": "Ohm"
+      },
+      "correct_answer": "A",
+      "explanation": "The coulomb is the SI unit of electric charge.",
+      "section": "electric_charge"
+    },
+    {
+      "id": 31,
+      "question": "What is the current if 10 coulombs flow in 2 seconds?",
+      "options": {
+        "A": "5 A",
+        "B": "10 A",
+        "C": "2 A",
+        "D": "20 A"
+      },
+      "correct_answer": "A",
+      "explanation": "Current I = Q/t = 10/2 = 5 Amperes",
+      "section": "current"
+    },
+    {
+      "id": 32,
+      "question": "What is the voltage if 20J of energy is used to move 2C of charge?",
+      "options": {
+        "A": "10 V",
+        "B": "20 V",
+        "C": "5 V",
+        "D": "40 V"
+      },
+      "correct_answer": "A",
+      "explanation": "Voltage V = Energy/Charge = 20/2 = 10 Volts",
+      "section": "voltage"
+    },
+    {
+      "id": 33,
+      "question": "What is the resistance of a conductor if voltage is 12V and current is 3A?",
+      "options": {
+        "A": "4 Ω",
+        "B": "3 Ω",
+        "C": "12 Ω",
+        "D": "36 Ω"
+      },
+      "correct_answer": "A",
+      "explanation": "Using Ohm's law: R = V/I = 12/3 = 4 Ohms",
+      "section": "resistance"
+    },
+    {
+      "id": 34,
+      "question": "What is the equivalent resistance of two 6Ω resistors in parallel?",
+      "options": {
+        "A": "3 Ω",
+        "B": "12 Ω",
+        "C": "6 Ω",
+        "D": "2 Ω"
+      },
+      "correct_answer": "A",
+      "explanation": "1/R = 1/6 + 1/6 = 2/6 = 1/3 ⇒ R = 3 Ω",
+      "section": "resistance"
+    },
+    {
+      "id": 35,
+      "question": "What is the power dissipated in a 10Ω resistor with 2A current?",
+      "options": {
+        "A": "40 W",
+        "B": "20 W",
+        "C": "10 W",
+        "D": "5 W"
+      },
+      "correct_answer": "A",
+      "explanation": "Power P = I²R = 2² × 10 = 4 × 10 = 40 Watts",
+      "section": "electrical_power"
+    },
+    {
+      "id": 36,
+      "question": "What is the force between two charges of 2C each separated by 1m in vacuum?",
+      "options": {
+        "A": "3.6 × 10¹⁰ N",
+        "B": "9 × 10⁹ N",
+        "C": "1.8 × 10¹⁰ N",
+        "D": "4.5 × 10⁹ N"
+      },
+      "correct_answer": "A",
+      "explanation": "Using Coulomb's law: F = kq₁q₂/r² = (9×10⁹ × 2 × 2)/1² = 3.6 × 10¹⁰ N",
+      "section": "electrostatics"
+    },
+    {
+      "id": 37,
+      "question": "What is the electric field intensity at a point?",
+      "options": {
+        "A": "Force per unit charge",
+        "B": "Potential per unit charge",
+        "C": "Work per unit charge",
+        "D": "Energy per unit charge"
+      },
+      "correct_answer": "A",
+      "explanation": "Electric field intensity E = F/q, force per unit positive charge.",
+      "section": "electric_field"
+    },
+    {
+      "id": 38,
+      "question": "What is the potential difference between two points?",
+      "options": {
+        "A": "Work done per unit charge",
+        "B": "Force per unit charge",
+        "C": "Charge per unit time",
+        "D": "Energy per unit time"
+      },
+      "correct_answer": "A",
+      "explanation": "Potential difference = Work done/Charge moved between the points.",
+      "section": "potential_difference"
+    },
+    {
+      "id": 39,
+      "question": "What is the capacitance of a capacitor that stores 10C at 5V?",
+      "options": {
+        "A": "2 F",
+        "B": "5 F",
+        "C": "10 F",
+        "D": "0.5 F"
+      },
+      "correct_answer": "A",
+      "explanation": "Capacitance C = Q/V = 10/5 = 2 Farads",
+      "section": "capacitance"
+    },
+    {
+      "id": 40,
+      "question": "What is the energy stored in a 4F capacitor charged to 3V?",
+      "options": {
+        "A": "18 J",
+        "B": "12 J",
+        "C": "6 J",
+        "D": "24 J"
+      },
+      "correct_answer": "A",
+      "explanation": "Energy E = ½CV² = ½ × 4 × 3² = 2 × 9 = 18 Joules",
+      "section": "capacitance"
+    },
+    {
+      "id": 41,
+      "question": "What is the magnetic field around a straight current-carrying conductor?",
+      "options": {
+        "A": "Concentric circles",
+        "B": "Parallel lines",
+        "C": "Radial lines",
+        "D": "No field"
+      },
+      "correct_answer": "A",
+      "explanation": "The magnetic field around a straight current-carrying conductor forms concentric circles around the wire.",
+      "section": "magnetic_field"
+    },
+    {
+      "id": 42,
+      "question": "What rule is used to find the direction of magnetic field around a current-carrying conductor?",
+      "options": {
+        "A": "Right-hand grip rule",
+        "B": "Left-hand rule",
+        "C": "Fleming's right-hand rule",
+        "D": "Cork-screw rule"
+      },
+      "correct_answer": "A",
+      "explanation": "The right-hand grip rule: if you grip the wire with your right hand, thumb pointing in current direction, fingers show magnetic field direction.",
+      "section": "magnetic_field"
+    },
+    {
+      "id": 43,
+      "question": "What is electromagnetic induction?",
+      "options": {
+        "A": "Production of EMF by changing magnetic field",
+        "B": "Production of current by static charge",
+        "C": "Magnetization by electric current",
+        "D": "Charging by induction"
+      },
+      "correct_answer": "A",
+      "explanation": "Electromagnetic induction is the production of electromotive force (EMF) across a conductor when it is exposed to a changing magnetic field.",
+      "section": "electromagnetic_induction"
+    },
+    {
+      "id": 44,
+      "question": "What is Faraday's law?",
+      "options": {
+        "A": "Induced EMF proportional to rate of change of flux",
+        "B": "Force on current in magnetic field",
+        "C": "Magnetic field around current",
+        "D": "Energy conservation in circuits"
+      },
+      "correct_answer": "A",
+      "explanation": "Faraday's law states that the induced EMF in a circuit is proportional to the rate of change of magnetic flux through the circuit.",
+      "section": "electromagnetic_induction"
+    },
+    {
+      "id": 45,
+      "question": "What is Lenz's law?",
+      "options": {
+        "A": "Induced current opposes the change causing it",
+        "B": "EMF proportional to flux change",
+        "C": "Force on current in field",
+        "D": "Magnetic field strength"
+      },
+      "correct_answer": "A",
+      "explanation": "Lenz's law states that the direction of induced current is such that it opposes the change causing it.",
+      "section": "electromagnetic_induction"
+    },
+    {
+      "id": 46,
+      "question": "What is the principle of transformer operation?",
+      "options": {
+        "A": "Electromagnetic induction",
+        "B": "Ohm's law",
+        "C": "Joule's law",
+        "D": "Coulomb's law"
+      },
+      "correct_answer": "A",
+      "explanation": "Transformers work on the principle of electromagnetic induction - changing current in primary coil induces EMF in secondary coil.",
+      "section": "transformers"
+    },
+    {
+      "id": 47,
+      "question": "What is the turns ratio in a transformer if primary has 100 turns and secondary has 50 turns?",
+      "options": {
+        "A": "2:1",
+        "B": "1:2",
+        "C": "1:1",
+        "D": "4:1"
+      },
+      "correct_answer": "A",
+      "explanation": "Turns ratio = Np/Ns = 100/50 = 2:1",
+      "section": "transformers"
+    },
+    {
+      "id": 48,
+      "question": "What is the frequency of AC mains in Nigeria?",
+      "options": {
+        "A": "50 Hz",
+        "B": "60 Hz",
+        "C": "50 kHz",
+        "D": "60 kHz"
+      },
+      "correct_answer": "A",
+      "explanation": "The standard frequency for AC mains in Nigeria is 50 Hertz.",
+      "section": "ac_circuits"
+    },
+    {
+      "id": 49,
+      "question": "What is the RMS value of AC current?",
+      "options": {
+        "A": "Peak value/√2",
+        "B": "Peak value/2",
+        "C": "Peak value × √2",
+        "D": "Average value"
+      },
+      "correct_answer": "A",
+      "explanation": "RMS (Root Mean Square) value = Peak value/√2 for sinusoidal AC.",
+      "section": "ac_circuits"
+    },
+    {
+      "id": 50,
+      "question": "What is the half-life of a radioactive substance?",
+      "options": {
+        "A": "Time for half atoms to decay",
+        "B": "Time for all atoms to decay",
+        "C": "Time for quarter atoms to decay",
+        "D": "Average life of atoms"
+      },
+      "correct_answer": "A",
+      "explanation": "Half-life is the time required for half of the radioactive atoms in a sample to decay.",
+      "section": "radioactivity"
+    },
+    {
+      "id": 51,
+      "question": "What is alpha radiation?",
+      "options": {
+        "A": "Helium nucleus",
+        "B": "Electron",
+        "C": "Electromagnetic wave",
+        "D": "Neutron"
+      },
+      "correct_answer": "A",
+      "explanation": "Alpha radiation consists of helium nuclei (2 protons and 2 neutrons).",
+      "section": "radioactivity"
+    },
+    {
+      "id": 52,
+      "question": "What is beta radiation?",
+      "options": {
+        "A": "High-speed electron",
+        "B": "Helium nucleus",
+        "C": "Electromagnetic wave",
+        "D": "Proton"
+      },
+      "correct_answer": "A",
+      "explanation": "Beta radiation consists of high-speed electrons emitted from the nucleus.",
+      "section": "radioactivity"
+    },
+    {
+      "id": 53,
+      "question": "What is gamma radiation?",
+      "options": {
+        "A": "Electromagnetic wave",
+        "B": "Electron",
+        "C": "Helium nucleus",
+        "D": "Proton"
+      },
+      "correct_answer": "A",
+      "explanation": "Gamma radiation is high-energy electromagnetic radiation emitted from the nucleus.",
+      "section": "radioactivity"
+    },
+    {
+      "id": 54,
+      "question": "What is the principle of conservation of energy?",
+      "options": {
+        "A": "Energy cannot be created or destroyed",
+        "B": "Energy increases with time",
+        "C": "Energy decreases with time",
+        "D": "Energy can be created"
+      },
+      "correct_answer": "A",
+      "explanation": "The principle of conservation of energy states that energy cannot be created or destroyed, only transformed from one form to another.",
+      "section": "energy"
+    },
+    {
+      "id": 55,
+      "question": "What is the efficiency of a machine?",
+      "options": {
+        "A": "Useful output/Total input × 100%",
+        "B": "Input/Output × 100%",
+        "C": "Work done/Time taken",
+        "D": "Force/Distance"
+      },
+      "correct_answer": "A",
+      "explanation": "Efficiency = (Useful output energy/Total input energy) × 100%",
+      "section": "efficiency"
+    },
+    {
+      "id": 56,
+      "question": "What is the moment of a force?",
+      "options": {
+        "A": "Force × Perpendicular distance",
+        "B": "Force × Distance moved",
+        "C": "Mass × Acceleration",
+        "D": "Work/Time"
+      },
+      "correct_answer": "A",
+      "explanation": "Moment of force = Force × Perpendicular distance from pivot",
+      "section": "moments"
+    },
+    {
+      "id": 57,
+      "question": "What is the principle of moments?",
+      "options": {
+        "A": "Sum of clockwise moments = Sum of anticlockwise moments",
+        "B": "Total moment is zero",
+        "C": "Moment equals force times time",
+        "D": "Moment conserved"
+      },
+      "correct_answer": "A",
+      "explanation": "For a body in equilibrium, the sum of clockwise moments about a point equals the sum of anticlockwise moments about the same point.",
+      "section": "moments"
+    },
+    {
+      "id": 58,
+      "question": "What is center of gravity?",
+      "options": {
+        "A": "Point where weight appears to act",
+        "B": "Middle of object",
+        "C": "Point of support",
+        "D": "Balance point"
+      },
+      "correct_answer": "A",
+      "explanation": "Center of gravity is the point through which the resultant weight of a body appears to act.",
+      "section": "center_of_gravity"
+    },
+    {
+      "id": 59,
+      "question": "What is stability of an object?",
+      "options": {
+        "A": "Ability to return to equilibrium when displaced",
+        "B": "Weight of object",
+        "C": "Height of object",
+        "D": "Area of base"
+      },
+      "correct_answer": "A",
+      "explanation": "Stability refers to an object's ability to return to its equilibrium position when slightly displaced.",
+      "section": "stability"
+    },
+    {
+      "id": 60,
+      "question": "What is elasticity?",
+      "options": {
+        "A": "Property to regain original shape after deformation",
+        "B": "Ability to stretch",
+        "C": "Resistance to flow",
+        "D": "Ability to conduct heat"
+      },
+      "correct_answer": "A",
+      "explanation": "Elasticity is the property of a material to regain its original shape and size after the deforming force is removed.",
+      "section": "elasticity"
+    },
+    {
+      "id": 61,
+      "question": "What is Hooke's law?",
+      "options": {
+        "A": "Extension proportional to force",
+        "B": "Pressure same in all directions",
+        "C": "Energy conserved",
+        "D": "Current proportional to voltage"
+      },
+      "correct_answer": "A",
+      "explanation": "Hooke's law states that the extension of an elastic material is directly proportional to the applied force, provided the elastic limit is not exceeded.",
+      "section": "elasticity"
+    },
+    {
+      "id": 62,
+      "question": "What is the spring constant?",
+      "options": {
+        "A": "Force per unit extension",
+        "B": "Extension per unit force",
+        "C": "Energy stored",
+        "D": "Length of spring"
+      },
+      "correct_answer": "A",
+      "explanation": "Spring constant k = Force/Extension, measured in N/m.",
+      "section": "elasticity"
+    },
+    {
+      "id": 63,
+      "question": "What is surface tension?",
+      "options": {
+        "A": "Force per unit length",
+        "B": "Pressure on surface",
+        "C": "Energy per unit area",
+        "D": "Density of surface"
+      },
+      "correct_answer": "A",
+      "explanation": "Surface tension is the force acting per unit length perpendicular to an imaginary line drawn on the liquid surface.",
+      "section": "surface_tension"
+    },
+    {
+      "id": 64,
+      "question": "What is viscosity?",
+      "options": {
+        "A": "Resistance to flow",
+        "B": "Surface tension",
+        "C": "Density",
+        "D": "Elasticity"
+      },
+      "correct_answer": "A",
+      "explanation": "Viscosity is the measure of a fluid's resistance to flow.",
+      "section": "viscosity"
+    },
+    {
+      "id": 65,
+      "question": "What is Bernoulli's principle?",
+      "options": {
+        "A": "Pressure decreases when speed increases",
+        "B": "Pressure increases when speed increases",
+        "C": "Pressure constant in fluid",
+        "D": "Pressure depends on depth only"
+      },
+      "correct_answer": "A",
+      "explanation": "Bernoulli's principle states that for an ideal fluid flowing steadily, the pressure decreases when the fluid speed increases.",
+      "section": "fluid_dynamics"
+    },
+    {
+      "id": 66,
+      "question": "What is the equation of continuity?",
+      "options": {
+        "A": "A₁v₁ = A₂v₂",
+        "B": "P + ½ρv² = constant",
+        "C": "F = ma",
+        "D": "V = IR"
+      },
+      "correct_answer": "A",
+      "explanation": "Equation of continuity: A₁v₁ = A₂v₂, where A is cross-sectional area and v is fluid speed.",
+      "section": "fluid_dynamics"
+    },
+    {
+      "id": 67,
+      "question": "What is simple harmonic motion?",
+      "options": {
+        "A": "Motion where acceleration proportional to displacement",
+        "B": "Motion with constant velocity",
+        "C": "Motion with constant acceleration",
+        "D": "Random motion"
+      },
+      "correct_answer": "A",
+      "explanation": "Simple harmonic motion is motion where acceleration is directly proportional to displacement from equilibrium and directed towards equilibrium.",
+      "section": "shm"
+    },
+    {
+      "id": 68,
+      "question": "What is the period of a simple pendulum?",
+      "options": {
+        "A": "T = 2π√(l/g)",
+        "B": "T = 2π√(g/l)",
+        "C": "T = 2π√(m/k)",
+        "D": "T = 1/f"
+      },
+      "correct_answer": "A",
+      "explanation": "Period of simple pendulum T = 2π√(l/g), where l is length and g is gravity.",
+      "section": "shm"
+    },
+    {
+      "id": 69,
+      "question": "What is the Doppler effect?",
+      "options": {
+        "A": "Change in frequency due to relative motion",
+        "B": "Change in amplitude",
+        "C": "Change in wavelength in medium",
+        "D": "Change in speed"
+      },
+      "correct_answer": "A",
+      "explanation": "Doppler effect is the change in frequency or wavelength of a wave in relation to an observer moving relative to the wave source.",
+      "section": "waves"
+    },
+    {
+      "id": 70,
+      "question": "What is resonance?",
+      "options": {
+        "A": "Large amplitude at natural frequency",
+        "B": "Small amplitude vibration",
+        "C": "Forced vibration",
+        "D": "Damped oscillation"
+      },
+      "correct_answer": "A",
+      "explanation": "Resonance occurs when a system is driven at its natural frequency, resulting in large amplitude oscillations.",
+      "section": "waves"
+    },
+    {
+      "id": 71,
+      "question": "What is the photoelectric effect?",
+      "options": {
+        "A": "Emission of electrons by light",
+        "B": "Emission of light by electrons",
+        "C": "Absorption of light",
+        "D": "Reflection of light"
+      },
+      "correct_answer": "A",
+      "explanation": "Photoelectric effect is the emission of electrons from a metal surface when light of suitable frequency falls on it.",
+      "section": "modern_physics"
+    },
+    {
+      "id": 72,
+      "question": "What is Planck's constant?",
+      "options": {
+        "A": "6.63 × 10⁻³⁴ Js",
+        "B": "6.63 × 10⁻³¹ Js",
+        "C": "3 × 10⁸ m/s",
+        "D": "1.6 × 10⁻¹⁹ C"
+      },
+      "correct_answer": "A",
+      "explanation": "Planck's constant h = 6.63 × 10⁻³⁴ Joule-seconds.",
+      "section": "modern_physics"
+    },
+    {
+      "id": 73,
+      "question": "What is the work function?",
+      "options": {
+        "A": "Minimum energy to eject electron",
+        "B": "Energy of photon",
+        "C": "Kinetic energy of electron",
+        "D": "Potential energy"
+      },
+      "correct_answer": "A",
+      "explanation": "Work function is the minimum energy required to eject an electron from a metal surface.",
+      "section": "modern_physics"
+    },
+    {
+      "id": 74,
+      "question": "What is X-ray?",
+      "options": {
+        "A": "High frequency electromagnetic wave",
+        "B": "Low frequency wave",
+        "C": "Sound wave",
+        "D": "Radio wave"
+      },
+      "correct_answer": "A",
+      "explanation": "X-rays are high frequency electromagnetic waves with wavelengths shorter than ultraviolet light.",
+      "section": "modern_physics"
+    },
+    {
+      "id": 75,
+      "question": "What is nuclear fission?",
+      "options": {
+        "A": "Splitting heavy nucleus",
+        "B": "Combining light nuclei",
+        "C": "Radioactive decay",
+        "D": "Electron emission"
+      },
+      "correct_answer": "A",
+      "explanation": "Nuclear fission is the splitting of a heavy nucleus into lighter nuclei with release of energy.",
+      "section": "nuclear_physics"
+    },
+    {
+      "id": 76,
+      "question": "What is nuclear fusion?",
+      "options": {
+        "A": "Combining light nuclei",
+        "B": "Splitting heavy nucleus",
+        "C": "Radioactive decay",
+        "D": "Electron capture"
+      },
+      "correct_answer": "A",
+      "explanation": "Nuclear fusion is the combining of light nuclei to form heavier nuclei with release of energy.",
+      "section": "nuclear_physics"
+    },
+    {
+      "id": 77,
+      "question": "What is the mass number?",
+      "options": {
+        "A": "Protons + Neutrons",
+        "B": "Protons only",
+        "C": "Neutrons only",
+        "D": "Electrons"
+      },
+      "correct_answer": "A",
+      "explanation": "Mass number = Number of protons + Number of neutrons",
+      "section": "nuclear_physics"
+    },
+    {
+      "id": 78,
+      "question": "What is the atomic number?",
+      "options": {
+        "A": "Number of protons",
+        "B": "Number of neutrons",
+        "C": "Mass number",
+        "D": "Number of electrons"
+      },
+      "correct_answer": "A",
+      "explanation": "Atomic number = Number of protons in nucleus",
+      "section": "nuclear_physics"
+    },
+    {
+      "id": 79,
+      "question": "What are isotopes?",
+      "options": {
+        "A": "Same atomic number, different mass number",
+        "B": "Same mass number, different atomic number",
+        "C": "Different elements",
+        "D": "Same number of neutrons"
+      },
+      "correct_answer": "A",
+      "explanation": "Isotopes are atoms of the same element (same atomic number) with different mass numbers (different number of neutrons).",
+      "section": "nuclear_physics"
+    },
+    {
+      "id": 80,
+      "question": "What is a semiconductor?",
+      "options": {
+        "A": "Material with conductivity between conductor and insulator",
+        "B": "Perfect conductor",
+        "C": "Perfect insulator",
+        "D": "Superconductor"
+      },
+      "correct_answer": "A",
+      "explanation": "Semiconductors have electrical conductivity between that of conductors and insulators.",
+      "section": "electronics"
+    },
+    {
+      "id": 81,
+      "question": "What is a diode?",
+      "options": {
+        "A": "Device that allows current in one direction",
+        "B": "Device that amplifies current",
+        "C": "Device that stores charge",
+        "D": "Device that measures current"
+      },
+      "correct_answer": "A",
+      "explanation": "A diode is an electronic component that allows current to flow in one direction only.",
+      "section": "electronics"
+    },
+    {
+      "id": 82,
+      "question": "What is a transistor?",
+      "options": {
+        "A": "Semiconductor device for amplification",
+        "B": "Device for storing charge",
+        "C": "Device for measuring voltage",
+        "D": "Device for generating light"
+      },
+      "correct_answer": "A",
+      "explanation": "A transistor is a semiconductor device used to amplify or switch electronic signals.",
+      "section": "electronics"
+    },
+    {
+      "id": 83,
+      "question": "What is the principle of superposition?",
+      "options": {
+        "A": "Net displacement is sum of individual displacements",
+        "B": "Waves cancel each other",
+        "C": "Waves reinforce each other",
+        "D": "Energy conservation"
+      },
+      "correct_answer": "A",
+      "explanation": "Principle of superposition: When two or more waves meet, the resultant displacement equals the vector sum of individual displacements.",
+      "section": "waves"
+    },
+    {
+      "id": 84,
+      "question": "What is interference?",
+      "options": {
+        "A": "Superposition of waves from coherent sources",
+        "B": "Reflection of waves",
+        "C": "Refraction of waves",
+        "D": "Diffraction of waves"
+      },
+      "correct_answer": "A",
+      "explanation": "Interference is the superposition of waves from coherent sources resulting in reinforcement or cancellation.",
+      "section": "waves"
+    },
+    {
+      "id": 85,
+      "question": "What is diffraction?",
+      "options": {
+        "A": "Spreading of waves around obstacles",
+        "B": "Bending of waves at interface",
+        "C": "Superposition of waves",
+        "D": "Change in wave speed"
+      },
+      "correct_answer": "A",
+      "explanation": "Diffraction is the spreading of waves around obstacles or through openings.",
+      "section": "waves"
+    },
+    {
+      "id": 86,
+      "question": "What is polarization?",
+      "options": {
+        "A": "Restriction of vibration to one plane",
+        "B": "Change in frequency",
+        "C": "Change in amplitude",
+        "D": "Change in wavelength"
+      },
+      "correct_answer": "A",
+      "explanation": "Polarization is the restriction of the vibration of transverse waves to one plane.",
+      "section": "waves"
+    },
+    {
+      "id": 87,
+      "question": "What is a sound wave?",
+      "options": {
+        "A": "Longitudinal mechanical wave",
+        "B": "Transverse electromagnetic wave",
+        "C": "Stationary wave",
+        "D": "Surface wave"
+      },
+      "correct_answer": "A",
+      "explanation": "Sound waves are longitudinal mechanical waves that require a medium for propagation.",
+      "section": "sound"
+    },
+    {
+      "id": 88,
+      "question": "What is the speed of sound in air at 0°C?",
+      "options": {
+        "A": "331 m/s",
+        "B": "340 m/s",
+        "C": "300 m/s",
+        "D": "320 m/s"
+      },
+      "correct_answer": "A",
+      "explanation": "Speed of sound in air at 0°C is approximately 331 m/s.",
+      "section": "sound"
+    },
+    {
+      "id": 89,
+      "question": "What is ultrasound?",
+      "options": {
+        "A": "Sound above 20,000 Hz",
+        "B": "Sound below 20 Hz",
+        "C": "Loud sound",
+        "D": "Soft sound"
+      },
+      "correct_answer": "A",
+      "explanation": "Ultrasound refers to sound waves with frequencies above 20,000 Hz, beyond human hearing range.",
+      "section": "sound"
+    },
+    {
+      "id": 90,
+      "question": "What is the echo?",
+      "options": {
+        "A": "Reflection of sound",
+        "B": "Refraction of sound",
+        "C": "Diffraction of sound",
+        "D": "Interference of sound"
+      },
+      "correct_answer": "A",
+      "explanation": "Echo is the reflection of sound waves from a surface back to the listener.",
+      "section": "sound"
+    },
+    {
+      "id": 91,
+      "question": "What is the principle of floatation?",
+      "options": {
+        "A": "Weight of floating body equals weight of fluid displaced",
+        "B": "Volume of body equals volume displaced",
+        "C": "Density of body equals density of fluid",
+        "D": "Mass of body equals mass of fluid"
+      },
+      "correct_answer": "A",
+      "explanation": "Principle of floatation: A floating body displaces its own weight of the fluid in which it floats.",
+      "section": "floatation"
+    },
+    {
+      "id": 92,
+      "question": "What is a manometer?",
+      "options": {
+        "A": "Device to measure pressure",
+        "B": "Device to measure temperature",
+        "C": "Device to measure volume",
+        "D": "Device to measure density"
+      },
+      "correct_answer": "A",
+      "explanation": "A manometer is a device used to measure pressure using a column of liquid.",
+      "section": "pressure"
+    },
+    {
+      "id": 93,
+      "question": "What is a barometer?",
+      "options": {
+        "A": "Device to measure atmospheric pressure",
+        "B": "Device to measure liquid pressure",
+        "C": "Device to measure temperature",
+        "D": "Device to measure humidity"
+      },
+      "correct_answer": "A",
+      "explanation": "A barometer is an instrument used to measure atmospheric pressure.",
+      "section": "pressure"
+    },
+    {
+      "id": 94,
+      "question": "What is gauge pressure?",
+      "options": {
+        "A": "Pressure above atmospheric",
+        "B": "Absolute pressure",
+        "C": "Atmospheric pressure",
+        "D": "Vacuum pressure"
+      },
+      "correct_answer": "A",
+      "explanation": "Gauge pressure is the pressure measured relative to atmospheric pressure.",
+      "section": "pressure"
+    },
+    {
+      "id": 95,
+      "question": "What is absolute pressure?",
+      "options": {
+        "A": "Gauge pressure + Atmospheric pressure",
+        "B": "Gauge pressure only",
+        "C": "Atmospheric pressure only",
+        "D": "Vacuum pressure"
+      },
+      "correct_answer": "A",
+      "explanation": "Absolute pressure = Gauge pressure + Atmospheric pressure",
+      "section": "pressure"
+    },
+    {
+      "id": 96,
+      "question": "What is the first law of thermodynamics?",
+      "options": {
+        "A": "ΔU = Q - W",
+        "B": "Q = mL",
+        "C": "PV = constant",
+        "D": "V/T = constant"
+      },
+      "correct_answer": "A",
+      "explanation": "First law of thermodynamics: ΔU = Q - W, where ΔU is change in internal energy, Q is heat added, W is work done by system.",
+      "section": "thermodynamics"
+    },
+    {
+      "id": 97,
+      "question": "What is Boyle's law?",
+      "options": {
+        "A": "P₁V₁ = P₂V₂ at constant temperature",
+        "B": "V₁/T₁ = V₂/T₂ at constant pressure",
+        "C": "P₁/T₁ = P₂/T₂ at constant volume",
+        "D": "PV = nRT"
+      },
+      "correct_answer": "A",
+      "explanation": "Boyle's law: For a fixed mass of gas at constant temperature, pressure is inversely proportional to volume.",
+      "section": "gas_laws"
+    },
+    {
+      "id": 98,
+      "question": "What is Charles' law?",
+      "options": {
+        "A": "V₁/T₁ = V₂/T₂ at constant pressure",
+        "B": "P₁V₁ = P₂V₂ at constant temperature",
+        "C": "P₁/T₁ = P₂/T₂ at constant volume",
+        "D": "PV = nRT"
+      },
+      "correct_answer": "A",
+      "explanation": "Charles' law: For a fixed mass of gas at constant pressure, volume is directly proportional to absolute temperature.",
+      "section": "gas_laws"
+    },
+    {
+      "id": 99,
+      "question": "What is the pressure law?",
+      "options": {
+        "A": "P₁/T₁ = P₂/T₂ at constant volume",
+        "B": "V₁/T₁ = V₂/T₂ at constant pressure",
+        "C": "P₁V₁ = P₂V₂ at constant temperature",
+        "D": "PV = nRT"
+      },
+      "correct_answer": "A",
+      "explanation": "Pressure law: For a fixed mass of gas at constant volume, pressure is directly proportional to absolute temperature.",
+      "section": "gas_laws"
+    },
+    {
+      "id": 100,
+      "question": "What is the ideal gas equation?",
+      "options": {
+        "A": "PV = nRT",
+        "B": "P₁V₁ = P₂V₂",
+        "C": "V₁/T₁ = V₂/T₂",
+        "D": "P₁/T₁ = P₂/T₂"
+      },
+      "correct_answer": "A",
+      "explanation": "Ideal gas equation: PV = nRT, where P is pressure, V is volume, n is number of moles, R is gas constant, T is temperature.",
+      "section": "gas_laws"
+    },
+    {
+      "id": 101,
+      "question": "What is latent heat?",
+      "options": {
+        "A": "Heat for phase change at constant temperature",
+        "B": "Heat to raise temperature",
+        "C": "Specific heat",
+        "D": "Heat capacity"
+      },
+      "correct_answer": "A",
+      "explanation": "Latent heat is the heat required to change the phase of a substance at constant temperature.",
+      "section": "latent_heat"
+    },
+    {
+      "id": 102,
+      "question": "What is latent heat of fusion?",
+      "options": {
+        "A": "Heat for solid to liquid change",
+        "B": "Heat for liquid to gas change",
+        "C": "Heat to raise temperature",
+        "D": "Specific heat"
+      },
+      "correct_answer": "A",
+      "explanation": "Latent heat of fusion is the heat required to change unit mass of solid to liquid at constant temperature.",
+      "section": "latent_heat"
+    },
+    {
+      "id": 103,
+      "question": "What is latent heat of vaporization?",
+      "options": {
+        "A": "Heat for liquid to gas change",
+        "B": "Heat for solid to liquid change",
+        "C": "Heat to raise temperature",
+        "D": "Specific heat"
+      },
+      "correct_answer": "A",
+      "explanation": "Latent heat of vaporization is the heat required to change unit mass of liquid to vapor at constant temperature.",
+      "section": "latent_heat"
+    },
+    {
+      "id": 104,
+      "question": "What is a convex mirror?",
+      "options": {
+        "A": "Diverging mirror",
+        "B": "Converging mirror",
+        "C": "Plane mirror",
+        "D": "Concave mirror"
+      },
+      "correct_answer": "A",
+      "explanation": "Convex mirror is a diverging mirror that spreads out light rays.",
+      "section": "mirrors"
+    },
+    {
+      "id": 105,
+      "question": "What is a concave mirror?",
+      "options": {
+        "A": "Converging mirror",
+        "B": "Diverging mirror",
+        "C": "Plane mirror",
+        "D": "Convex mirror"
+      },
+      "correct_answer": "A",
+      "explanation": "Concave mirror is a converging mirror that brings parallel light rays to a focus.",
+      "section": "mirrors"
+    },
+    {
+      "id": 106,
+      "question": "What is the focal length?",
+      "options": {
+        "A": "Distance from mirror/lens to focal point",
+        "B": "Distance from object to image",
+        "C": "Radius of curvature",
+        "D": "Diameter of lens"
+      },
+      "correct_answer": "A",
+      "explanation": "Focal length is the distance from the mirror or lens to its focal point.",
+      "section": "optics"
+    },
+    {
+      "id": 107,
+      "question": "What is the mirror formula?",
+      "options": {
+        "A": "1/f = 1/u + 1/v",
+        "B": "f = R/2",
+        "C": "m = v/u",
+        "D": "n = c/v"
+      },
+      "correct_answer": "A",
+      "explanation": "Mirror formula: 1/f = 1/u + 1/v, where f is focal length, u is object distance, v is image distance.",
+      "section": "mirrors"
+    },
+    {
+      "id": 108,
+      "question": "What is magnification?",
+      "options": {
+        "A": "m = v/u",
+        "B": "m = u/v",
+        "C": "m = f/u",
+        "D": "m = f/v"
+      },
+      "correct_answer": "A",
+      "explanation": "Magnification m = v/u = height of image/height of object",
+      "section": "optics"
+    },
+    {
+      "id": 109,
+      "question": "What is total internal reflection?",
+      "options": {
+        "A": "Complete reflection at boundary when angle > critical angle",
+        "B": "Partial reflection",
+        "C": "Refraction",
+        "D": "Diffraction"
+      },
+      "correct_answer": "A",
+      "explanation": "Total internal reflection occurs when light traveling from denser to rarer medium is completely reflected back at the boundary when the angle of incidence exceeds the critical angle.",
+      "section": "refraction"
+    },
+    {
+      "id": 110,
+      "question": "What is a prism?",
+      "options": {
+        "A": "Transparent optical element with flat polished surfaces",
+        "B": "Lens",
+        "C": "Mirror",
+        "D": "Filter"
+      },
+      "correct_answer": "A",
+      "explanation": "A prism is a transparent optical element with flat, polished surfaces that refract light.",
+      "section": "optics"
+    },
+    {
+      "id": 111,
+      "question": "What is dispersion?",
+      "options": {
+        "A": "Separation of white light into colors",
+        "B": "Bending of light",
+        "C": "Reflection of light",
+        "D": "Absorption of light"
+      },
+      "correct_answer": "A",
+      "explanation": "Dispersion is the separation of white light into its constituent colors due to different refractive indices for different wavelengths.",
+      "section": "optics"
+    },
+    {
+      "id": 112,
+      "question": "What is a rainbow?",
+      "options": {
+        "A": "Dispersion of sunlight by water droplets",
+        "B": "Reflection from mirror",
+        "C": "Refraction through prism",
+        "D": "Interference pattern"
+      },
+      "correct_answer": "A",
+      "explanation": "Rainbow is caused by dispersion, refraction, and reflection of sunlight in water droplets.",
+      "section": "optics"
+    },
+    {
+      "id": 113,
+      "question": "What is a real image?",
+      "options": {
+        "A": "Image formed where light actually converges",
+        "B": "Image that cannot be projected",
+        "C": "Virtual image",
+        "D": "Image in mirror"
+      },
+      "correct_answer": "A",
+      "explanation": "A real image is formed where light rays actually converge and can be projected on a screen.",
+      "section": "optics"
+    },
+    {
+      "id": 114,
+      "question": "What is a virtual image?",
+      "options": {
+        "A": "Image formed where light appears to come from",
+        "B": "Real image",
+        "C": "Projected image",
+        "D": "Inverted image"
+      },
+      "correct_answer": "A",
+      "explanation": "A virtual image is formed where light rays appear to diverge from and cannot be projected on a screen.",
+      "section": "optics"
+    },
+    {
+      "id": 115,
+      "question": "What is the lens formula?",
+      "options": {
+        "A": "1/f = 1/u + 1/v",
+        "B": "f = R/2",
+        "C": "m = v/u",
+        "D": "n = sin i/sin r"
+      },
+      "correct_answer": "A",
+      "explanation": "Lens formula: 1/f = 1/u + 1/v, where f is focal length, u is object distance, v is image distance.",
+      "section": "lenses"
+    },
+    {
+      "id": 116,
+      "question": "What is the power of accommodation?",
+      "options": {
+        "A": "Eye's ability to focus at different distances",
+        "B": "Power of lens",
+        "C": "Magnifying power",
+        "D": "Resolving power"
+      },
+      "correct_answer": "A",
+      "explanation": "Power of accommodation is the ability of the eye to focus on objects at different distances by changing the focal length of the eye lens.",
+      "section": "human_eye"
+    },
+    {
+      "id": 117,
+      "question": "What is myopia?",
+      "options": {
+        "A": "Short-sightedness",
+        "B": "Long-sightedness",
+        "C": "Astigmatism",
+        "D": "Presbyopia"
+      },
+      "correct_answer": "A",
+      "explanation": "Myopia (short-sightedness) is a defect where distant objects appear blurred because the image forms in front of the retina.",
+      "section": "human_eye"
+    },
+    {
+      "id": 118,
+      "question": "What is hypermetropia?",
+      "options": {
+        "A": "Long-sightedness",
+        "B": "Short-sightedness",
+        "C": "Astigmatism",
+        "D": "Presbyopia"
+      },
+      "correct_answer": "A",
+      "explanation": "Hypermetropia (long-sightedness) is a defect where near objects appear blurred because the image forms behind the retina.",
+      "section": "human_eye"
+    },
+    {
+      "id": 119,
+      "question": "What is astigmatism?",
+      "options": {
+        "A": "Irregular curvature of cornea/lens",
+        "B": "Short-sightedness",
+        "C": "Long-sightedness",
+        "D": "Old-age sight"
+      },
+      "correct_answer": "A",
+      "explanation": "Astigmatism is caused by irregular curvature of the cornea or lens, resulting in distorted vision.",
+      "section": "human_eye"
+    },
+    {
+      "id": 120,
+      "question": "What is presbyopia?",
+      "options": {
+        "A": "Old-age long-sightedness",
+        "B": "Short-sightedness",
+        "C": "Astigmatism",
+        "D": "Color blindness"
+      },
+      "correct_answer": "A",
+      "explanation": "Presbyopia is age-related long-sightedness caused by loss of elasticity of the eye lens.",
+      "section": "human_eye"
+    },
+    {
+      "id": 121,
+      "question": "What is a microscope?",
+      "options": {
+        "A": "Instrument for viewing small objects",
+        "B": "Instrument for viewing distant objects",
+        "C": "Instrument for measuring angles",
+        "D": "Instrument for measuring light"
+      },
+      "correct_answer": "A",
+      "explanation": "A microscope is an optical instrument used for viewing very small objects.",
+      "section": "optical_instruments"
+    },
+    {
+      "id": 122,
+      "question": "What is a telescope?",
+      "options": {
+        "A": "Instrument for viewing distant objects",
+        "B": "Instrument for viewing small objects",
+        "C": "Instrument for measuring light",
+        "D": "Instrument for measuring angles"
+      },
+      "correct_answer": "A",
+      "explanation": "A telescope is an optical instrument used for viewing distant objects.",
+      "section": "optical_instruments"
+    },
+    {
+      "id": 123,
+      "question": "What is the principle of conservation of linear momentum?",
+      "options": {
+        "A": "Total momentum before collision equals total after",
+        "B": "Momentum increases with time",
+        "C": "Momentum decreases with time",
+        "D": "Momentum depends on force only"
+      },
+      "correct_answer": "A",
+      "explanation": "Principle of conservation of linear momentum: In the absence of external forces, the total momentum of a system remains constant.",
+      "section": "momentum"
+    },
+    {
+      "id": 124,
+      "question": "What is elastic collision?",
+      "options": {
+        "A": "Both momentum and kinetic energy conserved",
+        "B": "Only momentum conserved",
+        "C": "Only energy conserved",
+        "D": "Neither conserved"
+      },
+      "correct_answer": "A",
+      "explanation": "In elastic collision, both momentum and kinetic energy are conserved.",
+      "section": "collisions"
+    },
+    {
+      "id": 125,
+      "question": "What is inelastic collision?",
+      "options": {
+        "A": "Momentum conserved, kinetic energy not conserved",
+        "B": "Both conserved",
+        "C": "Neither conserved",
+        "D": "Energy conserved only"
+      },
+      "correct_answer": "A",
+      "explanation": "In inelastic collision, momentum is conserved but kinetic energy is not conserved.",
+      "section": "collisions"
+    },
+    {
+      "id": 126,
+      "question": "What is projectile motion?",
+      "options": {
+        "A": "Motion under gravity with horizontal velocity",
+        "B": "Circular motion",
+        "C": "Simple harmonic motion",
+        "D": "Random motion"
+      },
+      "correct_answer": "A",
+      "explanation": "Projectile motion is the motion of an object thrown into the air, subject to gravity, with constant horizontal velocity.",
+      "section": "projectile_motion"
+    },
+    {
+      "id": 127,
+      "question": "What is the range of a projectile?",
+      "options": {
+        "A": "Horizontal distance traveled",
+        "B": "Maximum height",
+        "C": "Time of flight",
+        "D": "Vertical distance"
+      },
+      "correct_answer": "A",
+      "explanation": "Range is the horizontal distance traveled by a projectile before hitting the ground.",
+      "section": "projectile_motion"
+    },
+    {
+      "id": 128,
+      "question": "What is the time of flight of a projectile?",
+      "options": {
+        "A": "Total time in air",
+        "B": "Time to maximum height",
+        "C": "Horizontal travel time",
+        "D": "Vertical travel time"
+      },
+      "correct_answer": "A",
+      "explanation": "Time of flight is the total time a projectile remains in the air.",
+      "section": "projectile_motion"
+    }
+  ]
+}

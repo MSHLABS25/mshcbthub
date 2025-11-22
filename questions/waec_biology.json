@@ -1,0 +1,1672 @@
+{
+  "subject": "Biology",
+  "exam_type": "WAEC",
+  "total_questions": 128,
+  "time_allowed": 8400,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following is NOT a characteristic of living organisms?",
+      "options": {
+        "A": "Respiration",
+        "B": "Reproduction",
+        "C": "Photosynthesis",
+        "D": "Growth"
+      },
+      "correct_answer": "C",
+      "explanation": "Photosynthesis is only performed by plants and some microorganisms, not all living organisms.",
+      "section": "basic_biology"
+    },
+    {
+      "id": 2,
+      "question": "The basic unit of life is the:",
+      "options": {
+        "A": "Tissue",
+        "B": "Organ",
+        "C": "Cell",
+        "D": "System"
+      },
+      "correct_answer": "C",
+      "explanation": "The cell is the fundamental structural and functional unit of all living organisms.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 3,
+      "question": "Which organelle is responsible for protein synthesis?",
+      "options": {
+        "A": "Mitochondrion",
+        "B": "Ribosome",
+        "C": "Golgi apparatus",
+        "D": "Endoplasmic reticulum"
+      },
+      "correct_answer": "B",
+      "explanation": "Ribosomes are the sites of protein synthesis in both prokaryotic and eukaryotic cells.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 4,
+      "question": "The process by which plants make their own food is called:",
+      "options": {
+        "A": "Respiration",
+        "B": "Photosynthesis",
+        "C": "Transpiration",
+        "D": "Digestion"
+      },
+      "correct_answer": "B",
+      "explanation": "Photosynthesis is the process where plants convert light energy, water, and carbon dioxide into glucose and oxygen.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 5,
+      "question": "Which of these is a waste product of photosynthesis?",
+      "options": {
+        "A": "Carbon dioxide",
+        "B": "Water",
+        "C": "Oxygen",
+        "D": "Glucose"
+      },
+      "correct_answer": "C",
+      "explanation": "Oxygen is released as a by-product during the light-dependent reactions of photosynthesis.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 6,
+      "question": "The movement of molecules from an area of higher concentration to an area of lower concentration is called:",
+      "options": {
+        "A": "Osmosis",
+        "B": "Diffusion",
+        "C": "Active transport",
+        "D": "Plasmolysis"
+      },
+      "correct_answer": "B",
+      "explanation": "Diffusion is the passive movement of molecules down their concentration gradient.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 7,
+      "question": "Which blood vessels carry blood away from the heart?",
+      "options": {
+        "A": "Veins",
+        "B": "Arteries",
+        "C": "Capillaries",
+        "D": "Venules"
+      },
+      "correct_answer": "B",
+      "explanation": "Arteries carry oxygenated blood away from the heart to body tissues.",
+      "section": "human_biology"
+    },
+    {
+      "id": 8,
+      "question": "The process of cell division that results in four daughter cells with half the number of chromosomes is:",
+      "options": {
+        "A": "Mitosis",
+        "B": "Meiosis",
+        "C": "Binary fission",
+        "D": "Budding"
+      },
+      "correct_answer": "B",
+      "explanation": "Meiosis produces gametes with half the chromosome number for sexual reproduction.",
+      "section": "genetics"
+    },
+    {
+      "id": 9,
+      "question": "Which of the following is NOT a part of the digestive system?",
+      "options": {
+        "A": "Liver",
+        "B": "Pancreas",
+        "C": "Kidney",
+        "D": "Stomach"
+      },
+      "correct_answer": "C",
+      "explanation": "The kidney is part of the excretory system, not the digestive system.",
+      "section": "human_biology"
+    },
+    {
+      "id": 10,
+      "question": "The basic unit of heredity is the:",
+      "options": {
+        "A": "Chromosome",
+        "B": "Gene",
+        "C": "Nucleus",
+        "D": "Cell"
+      },
+      "correct_answer": "B",
+      "explanation": "Genes are the fundamental units of heredity that carry genetic information.",
+      "section": "genetics"
+    },
+    {
+      "id": 11,
+      "question": "Which of these is a greenhouse gas?",
+      "options": {
+        "A": "Oxygen",
+        "B": "Nitrogen",
+        "C": "Carbon dioxide",
+        "D": "Hydrogen"
+      },
+      "correct_answer": "C",
+      "explanation": "Carbon dioxide traps heat in the atmosphere, contributing to the greenhouse effect.",
+      "section": "ecology"
+    },
+    {
+      "id": 12,
+      "question": "The study of the interactions between organisms and their environment is called:",
+      "options": {
+        "A": "Genetics",
+        "B": "Ecology",
+        "C": "Physiology",
+        "D": "Taxonomy"
+      },
+      "correct_answer": "B",
+      "explanation": "Ecology examines how organisms interact with each other and their physical environment.",
+      "section": "ecology"
+    },
+    {
+      "id": 13,
+      "question": "Which of these is a decomposer in an ecosystem?",
+      "options": {
+        "A": "Grass",
+        "B": "Rabbit",
+        "C": "Fungi",
+        "D": "Hawk"
+      },
+      "correct_answer": "C",
+      "explanation": "Fungi break down dead organic matter, returning nutrients to the ecosystem.",
+      "section": "ecology"
+    },
+    {
+      "id": 14,
+      "question": "The process by which water moves through a plant and evaporates from leaves is called:",
+      "options": {
+        "A": "Photosynthesis",
+        "B": "Transpiration",
+        "C": "Respiration",
+        "D": "Osmosis"
+      },
+      "correct_answer": "B",
+      "explanation": "Transpiration is the loss of water vapor from plant surfaces, mainly through stomata.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 15,
+      "question": "Which blood cells are responsible for fighting infections?",
+      "options": {
+        "A": "Red blood cells",
+        "B": "White blood cells",
+        "C": "Platelets",
+        "D": "Plasma"
+      },
+      "correct_answer": "B",
+      "explanation": "White blood cells (leukocytes) defend the body against pathogens and foreign substances.",
+      "section": "human_biology"
+    },
+    {
+      "id": 16,
+      "question": "The organ responsible for pumping blood throughout the body is the:",
+      "options": {
+        "A": "Liver",
+        "B": "Heart",
+        "C": "Lung",
+        "D": "Kidney"
+      },
+      "correct_answer": "B",
+      "explanation": "The heart is the muscular organ that circulates blood through the cardiovascular system.",
+      "section": "human_biology"
+    },
+    {
+      "id": 17,
+      "question": "Which of these is a renewable resource?",
+      "options": {
+        "A": "Coal",
+        "B": "Natural gas",
+        "C": "Solar energy",
+        "D": "Petroleum"
+      },
+      "correct_answer": "C",
+      "explanation": "Solar energy is continuously replenished and will not run out, unlike fossil fuels.",
+      "section": "ecology"
+    },
+    {
+      "id": 18,
+      "question": "The process by which plants lose water vapor through their leaves is called:",
+      "options": {
+        "A": "Evaporation",
+        "B": "Transpiration",
+        "C": "Condensation",
+        "D": "Precipitation"
+      },
+      "correct_answer": "B",
+      "explanation": "Transpiration specifically refers to water loss from plant surfaces, mainly through stomata.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 19,
+      "question": "Which of these is NOT a type of symbiotic relationship?",
+      "options": {
+        "A": "Mutualism",
+        "B": "Parasitism",
+        "C": "Commensalism",
+        "D": "Predation"
+      },
+      "correct_answer": "D",
+      "explanation": "Predation involves one organism killing and eating another, not a long-term symbiotic relationship.",
+      "section": "ecology"
+    },
+    {
+      "id": 20,
+      "question": "The process by which green plants convert light energy into chemical energy is:",
+      "options": {
+        "A": "Respiration",
+        "B": "Photosynthesis",
+        "C": "Transpiration",
+        "D": "Digestion"
+      },
+      "correct_answer": "B",
+      "explanation": "Photosynthesis converts light energy into chemical energy stored in glucose molecules.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 21,
+      "question": "Which organelle is known as the 'powerhouse' of the cell?",
+      "options": {
+        "A": "Nucleus",
+        "B": "Mitochondrion",
+        "C": "Chloroplast",
+        "D": "Ribosome"
+      },
+      "correct_answer": "B",
+      "explanation": "Mitochondria produce ATP through cellular respiration, providing energy for cellular activities.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 22,
+      "question": "The process by which organisms maintain a stable internal environment is called:",
+      "options": {
+        "A": "Metabolism",
+        "B": "Homeostasis",
+        "C": "Respiration",
+        "D": "Reproduction"
+      },
+      "correct_answer": "B",
+      "explanation": "Homeostasis is the maintenance of constant internal conditions despite external changes.",
+      "section": "human_biology"
+    },
+    {
+      "id": 23,
+      "question": "Which of these is a function of the skeletal system?",
+      "options": {
+        "A": "Transport of oxygen",
+        "B": "Protection of internal organs",
+        "C": "Digestion of food",
+        "D": "Production of hormones"
+      },
+      "correct_answer": "B",
+      "explanation": "The skeletal system provides structural support and protects vital organs like the brain and heart.",
+      "section": "human_biology"
+    },
+    {
+      "id": 24,
+      "question": "The process by which DNA is copied is called:",
+      "options": {
+        "A": "Transcription",
+        "B": "Translation",
+        "C": "Replication",
+        "D": "Mutation"
+      },
+      "correct_answer": "C",
+      "explanation": "DNA replication is the process where DNA makes an identical copy of itself before cell division.",
+      "section": "genetics"
+    },
+    {
+      "id": 25,
+      "question": "Which of these is a biotic factor in an ecosystem?",
+      "options": {
+        "A": "Temperature",
+        "B": "Water",
+        "C": "Soil",
+        "D": "Plants"
+      },
+      "correct_answer": "D",
+      "explanation": "Biotic factors are living components of an ecosystem, while abiotic factors are non-living.",
+      "section": "ecology"
+    },
+    {
+      "id": 26,
+      "question": "The process by which plants respond to light is called:",
+      "options": {
+        "A": "Geotropism",
+        "B": "Phototropism",
+        "C": "Hydrotropism",
+        "D": "Thigmotropism"
+      },
+      "correct_answer": "B",
+      "explanation": "Phototropism is the growth response of plants toward or away from light sources.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 27,
+      "question": "Which blood type is known as the universal donor?",
+      "options": {
+        "A": "A",
+        "B": "B",
+        "C": "AB",
+        "D": "O"
+      },
+      "correct_answer": "D",
+      "explanation": "Type O negative blood can be donated to people of any blood type in emergency situations.",
+      "section": "human_biology"
+    },
+    {
+      "id": 28,
+      "question": "The process by which plants make food using sunlight is:",
+      "options": {
+        "A": "Respiration",
+        "B": "Photosynthesis",
+        "C": "Transpiration",
+        "D": "Digestion"
+      },
+      "correct_answer": "B",
+      "explanation": "Photosynthesis uses light energy to convert carbon dioxide and water into glucose.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 29,
+      "question": "Which organ is responsible for filtering blood and producing urine?",
+      "options": {
+        "A": "Liver",
+        "B": "Heart",
+        "C": "Kidney",
+        "D": "Lung"
+      },
+      "correct_answer": "C",
+      "explanation": "Kidneys filter waste products from blood and regulate water and electrolyte balance.",
+      "section": "human_biology"
+    },
+    {
+      "id": 30,
+      "question": "The process by which characteristics are passed from parents to offspring is called:",
+      "options": {
+        "A": "Evolution",
+        "B": "Heredity",
+        "C": "Mutation",
+        "D": "Variation"
+      },
+      "correct_answer": "B",
+      "explanation": "Heredity is the transmission of genetic traits from one generation to the next.",
+      "section": "genetics"
+    },
+    {
+      "id": 31,
+      "question": "Which of these is a primary consumer in a food chain?",
+      "options": {
+        "A": "Grass",
+        "B": "Rabbit",
+        "C": "Fox",
+        "D": "Fungi"
+      },
+      "correct_answer": "B",
+      "explanation": "Primary consumers are herbivores that eat producers (plants) in a food chain.",
+      "section": "ecology"
+    },
+    {
+      "id": 32,
+      "question": "The process by which plants release water vapor into the atmosphere is:",
+      "options": {
+        "A": "Evaporation",
+        "B": "Transpiration",
+        "C": "Condensation",
+        "D": "Precipitation"
+      },
+      "correct_answer": "B",
+      "explanation": "Transpiration is the specific process of water movement through plants and evaporation from leaves.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 33,
+      "question": "Which cell organelle contains digestive enzymes?",
+      "options": {
+        "A": "Mitochondrion",
+        "B": "Lysosome",
+        "C": "Ribosome",
+        "D": "Golgi apparatus"
+      },
+      "correct_answer": "B",
+      "explanation": "Lysosomes contain hydrolytic enzymes that break down macromolecules and cellular debris.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 34,
+      "question": "The process by which plants bend toward light is called:",
+      "options": {
+        "A": "Geotropism",
+        "B": "Phototropism",
+        "C": "Hydrotropism",
+        "D": "Thigmotropism"
+      },
+      "correct_answer": "B",
+      "explanation": "Phototropism is the directional growth response of plants toward light sources.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 35,
+      "question": "Which of these is a function of the circulatory system?",
+      "options": {
+        "A": "Gas exchange",
+        "B": "Transport of nutrients",
+        "C": "Waste removal",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "The circulatory system transports oxygen, nutrients, hormones, and removes waste products.",
+      "section": "human_biology"
+    },
+    {
+      "id": 36,
+      "question": "The process by which DNA is transcribed into RNA is called:",
+      "options": {
+        "A": "Replication",
+        "B": "Transcription",
+        "C": "Translation",
+        "D": "Mutation"
+      },
+      "correct_answer": "B",
+      "explanation": "Transcription is the process where DNA sequence is copied into mRNA for protein synthesis.",
+      "section": "genetics"
+    },
+    {
+      "id": 37,
+      "question": "Which of these is an example of a renewable resource?",
+      "options": {
+        "A": "Coal",
+        "B": "Natural gas",
+        "C": "Wind energy",
+        "D": "Petroleum"
+      },
+      "correct_answer": "C",
+      "explanation": "Wind energy is renewable and sustainable, unlike finite fossil fuels.",
+      "section": "ecology"
+    },
+    {
+      "id": 38,
+      "question": "The process by which plants take in water and minerals from the soil is called:",
+      "options": {
+        "A": "Transpiration",
+        "B": "Photosynthesis",
+        "C": "Absorption",
+        "D": "Respiration"
+      },
+      "correct_answer": "C",
+      "explanation": "Roots absorb water and mineral nutrients from the soil through specialized structures.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 39,
+      "question": "Which blood cells carry oxygen?",
+      "options": {
+        "A": "Red blood cells",
+        "B": "White blood cells",
+        "C": "Platelets",
+        "D": "Plasma"
+      },
+      "correct_answer": "A",
+      "explanation": "Red blood cells contain hemoglobin that binds and transports oxygen throughout the body.",
+      "section": "human_biology"
+    },
+    {
+      "id": 40,
+      "question": "The process by which plants make food using sunlight is:",
+      "options": {
+        "A": "Respiration",
+        "B": "Photosynthesis",
+        "C": "Transpiration",
+        "D": "Digestion"
+      },
+      "correct_answer": "B",
+      "explanation": "Photosynthesis converts light energy into chemical energy stored in organic compounds.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 41,
+      "question": "Which organ is responsible for gas exchange in humans?",
+      "options": {
+        "A": "Heart",
+        "B": "Liver",
+        "C": "Lungs",
+        "D": "Kidneys"
+      },
+      "correct_answer": "C",
+      "explanation": "Lungs facilitate the exchange of oxygen and carbon dioxide between air and blood.",
+      "section": "human_biology"
+    },
+    {
+      "id": 42,
+      "question": "The process by which traits are passed from parents to offspring is:",
+      "options": {
+        "A": "Evolution",
+        "B": "Heredity",
+        "C": "Mutation",
+        "D": "Variation"
+      },
+      "correct_answer": "B",
+      "explanation": "Heredity involves the transmission of genetic information from one generation to the next.",
+      "section": "genetics"
+    },
+    {
+      "id": 43,
+      "question": "Which of these is a secondary consumer in a food chain?",
+      "options": {
+        "A": "Grass",
+        "B": "Rabbit",
+        "C": "Fox",
+        "D": "Fungi"
+      },
+      "correct_answer": "C",
+      "explanation": "Secondary consumers are carnivores that eat primary consumers in a food chain.",
+      "section": "ecology"
+    },
+    {
+      "id": 44,
+      "question": "The process by which plants lose water vapor is called:",
+      "options": {
+        "A": "Evaporation",
+        "B": "Transpiration",
+        "C": "Condensation",
+        "D": "Precipitation"
+      },
+      "correct_answer": "B",
+      "explanation": "Transpiration is the specific biological process of water vapor loss from plant surfaces.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 45,
+      "question": "Which cell structure controls what enters and leaves the cell?",
+      "options": {
+        "A": "Cell wall",
+        "B": "Cell membrane",
+        "C": "Nucleus",
+        "D": "Cytoplasm"
+      },
+      "correct_answer": "B",
+      "explanation": "The cell membrane is selectively permeable and regulates transport in and out of the cell.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 46,
+      "question": "The process by which plants respond to gravity is called:",
+      "options": {
+        "A": "Geotropism",
+        "B": "Phototropism",
+        "C": "Hydrotropism",
+        "D": "Thigmotropism"
+      },
+      "correct_answer": "A",
+      "explanation": "Geotropism (gravitropism) is the growth response of plants to gravitational forces.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 47,
+      "question": "Which of these is a function of the nervous system?",
+      "options": {
+        "A": "Transport of oxygen",
+        "B": "Coordination of body activities",
+        "C": "Digestion of food",
+        "D": "Production of hormones"
+      },
+      "correct_answer": "B",
+      "explanation": "The nervous system coordinates and controls body functions through electrical signals.",
+      "section": "human_biology"
+    },
+    {
+      "id": 48,
+      "question": "The process by which RNA is translated into proteins is called:",
+      "options": {
+        "A": "Replication",
+        "B": "Transcription",
+        "C": "Translation",
+        "D": "Mutation"
+      },
+      "correct_answer": "C",
+      "explanation": "Translation is the process where ribosomes synthesize proteins using mRNA as a template.",
+      "section": "genetics"
+    },
+    {
+      "id": 49,
+      "question": "Which of these is an example of a non-renewable resource?",
+      "options": {
+        "A": "Solar energy",
+        "B": "Wind energy",
+        "C": "Coal",
+        "D": "Hydroelectric power"
+      },
+      "correct_answer": "C",
+      "explanation": "Coal is a fossil fuel that takes millions of years to form and is being depleted.",
+      "section": "ecology"
+    },
+    {
+      "id": 50,
+      "question": "The process by which plants absorb water from the soil is called:",
+      "options": {
+        "A": "Transpiration",
+        "B": "Photosynthesis",
+        "C": "Absorption",
+        "D": "Respiration"
+      },
+      "correct_answer": "C",
+      "explanation": "Root absorption is the process where plants take up water and minerals from soil.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 51,
+      "question": "Which blood component is responsible for clotting?",
+      "options": {
+        "A": "Red blood cells",
+        "B": "White blood cells",
+        "C": "Platelets",
+        "D": "Plasma"
+      },
+      "correct_answer": "C",
+      "explanation": "Platelets (thrombocytes) form blood clots to prevent excessive bleeding.",
+      "section": "human_biology"
+    },
+    {
+      "id": 52,
+      "question": "The process by which green plants produce food is:",
+      "options": {
+        "A": "Respiration",
+        "B": "Photosynthesis",
+        "C": "Transpiration",
+        "D": "Digestion"
+      },
+      "correct_answer": "B",
+      "explanation": "Photosynthesis is the unique process where plants synthesize organic compounds from inorganic materials.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 53,
+      "question": "Which organ produces bile for fat digestion?",
+      "options": {
+        "A": "Pancreas",
+        "B": "Liver",
+        "C": "Stomach",
+        "D": "Small intestine"
+      },
+      "correct_answer": "B",
+      "explanation": "The liver produces bile which is stored in the gallbladder and released to emulsify fats.",
+      "section": "human_biology"
+    },
+    {
+      "id": 54,
+      "question": "The process by which genetic information is passed on is:",
+      "options": {
+        "A": "Evolution",
+        "B": "Heredity",
+        "C": "Mutation",
+        "D": "Variation"
+      },
+      "correct_answer": "B",
+      "explanation": "Heredity ensures the transmission of genetic traits from parents to offspring.",
+      "section": "genetics"
+    },
+    {
+      "id": 55,
+      "question": "Which of these is a tertiary consumer in a food chain?",
+      "options": {
+        "A": "Grass",
+        "B": "Rabbit",
+        "C": "Fox",
+        "D": "Eagle"
+      },
+      "correct_answer": "D",
+      "explanation": "Tertiary consumers are top predators that eat secondary consumers in a food chain.",
+      "section": "ecology"
+    },
+    {
+      "id": 56,
+      "question": "The process by which water evaporates from plant leaves is:",
+      "options": {
+        "A": "Evaporation",
+        "B": "Transpiration",
+        "C": "Condensation",
+        "D": "Precipitation"
+      },
+      "correct_answer": "B",
+      "explanation": "Transpiration is the biological process of water vapor loss specifically from plants.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 57,
+      "question": "Which cell organelle contains the genetic material?",
+      "options": {
+        "A": "Mitochondrion",
+        "B": "Nucleus",
+        "C": "Ribosome",
+        "D": "Golgi apparatus"
+      },
+      "correct_answer": "B",
+      "explanation": "The nucleus houses the cell's DNA and controls cellular activities.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 58,
+      "question": "The process by which plants respond to touch is called:",
+      "options": {
+        "A": "Geotropism",
+        "B": "Phototropism",
+        "C": "Hydrotropism",
+        "D": "Thigmotropism"
+      },
+      "correct_answer": "D",
+      "explanation": "Thigmotropism is the growth response of plants to mechanical stimulation or touch.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 59,
+      "question": "Which of these is a function of the endocrine system?",
+      "options": {
+        "A": "Transport of oxygen",
+        "B": "Coordination through hormones",
+        "C": "Digestion of food",
+        "D": "Fighting infections"
+      },
+      "correct_answer": "B",
+      "explanation": "The endocrine system regulates body functions through hormone secretion into the bloodstream.",
+      "section": "human_biology"
+    },
+    {
+      "id": 60,
+      "question": "The process by which DNA makes RNA is called:",
+      "options": {
+        "A": "Replication",
+        "B": "Transcription",
+        "C": "Translation",
+        "D": "Mutation"
+      },
+      "correct_answer": "B",
+      "explanation": "Transcription converts DNA genetic code into messenger RNA for protein synthesis.",
+      "section": "genetics"
+    },
+    {
+      "id": 61,
+      "question": "Which of these is an example of a sustainable resource?",
+      "options": {
+        "A": "Coal",
+        "B": "Natural gas",
+        "C": "Geothermal energy",
+        "D": "Petroleum"
+      },
+      "correct_answer": "C",
+      "explanation": "Geothermal energy is renewable and can be harnessed without depletion.",
+      "section": "ecology"
+    },
+    {
+      "id": 62,
+      "question": "The process by which plants take up minerals from soil is called:",
+      "options": {
+        "A": "Transpiration",
+        "B": "Photosynthesis",
+        "C": "Absorption",
+        "D": "Respiration"
+      },
+      "correct_answer": "C",
+      "explanation": "Mineral absorption occurs through root hairs and specialized transport mechanisms.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 63,
+      "question": "Which blood component is liquid and contains proteins?",
+      "options": {
+        "A": "Red blood cells",
+        "B": "White blood cells",
+        "C": "Platelets",
+        "D": "Plasma"
+      },
+      "correct_answer": "D",
+      "explanation": "Plasma is the liquid component of blood containing water, proteins, nutrients, and waste.",
+      "section": "human_biology"
+    },
+    {
+      "id": 64,
+      "question": "The process by which plants convert light energy to chemical energy is:",
+      "options": {
+        "A": "Respiration",
+        "B": "Photosynthesis",
+        "C": "Transpiration",
+        "D": "Digestion"
+      },
+      "correct_answer": "B",
+      "explanation": "Photosynthesis transforms solar energy into chemical energy stored in glucose molecules.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 65,
+      "question": "Which organ filters waste from blood?",
+      "options": {
+        "A": "Heart",
+        "B": "Liver",
+        "C": "Kidneys",
+        "D": "Lungs"
+      },
+      "correct_answer": "C",
+      "explanation": "Kidneys remove metabolic wastes, excess ions, and water from blood to form urine.",
+      "section": "human_biology"
+    },
+    {
+      "id": 66,
+      "question": "The process by which traits are inherited is called:",
+      "options": {
+        "A": "Evolution",
+        "B": "Heredity",
+        "C": "Mutation",
+        "D": "Variation"
+      },
+      "correct_answer": "B",
+      "explanation": "Heredity involves the transmission of genetic characteristics across generations.",
+      "section": "genetics"
+    },
+    {
+      "id": 67,
+      "question": "Which of these is a producer in a food chain?",
+      "options": {
+        "A": "Grass",
+        "B": "Rabbit",
+        "C": "Fox",
+        "D": "Fungi"
+      },
+      "correct_answer": "A",
+      "explanation": "Producers (autotrophs) like plants create organic matter through photosynthesis.",
+      "section": "ecology"
+    },
+    {
+      "id": 68,
+      "question": "The process by which plants release water vapor is called:",
+      "options": {
+        "A": "Evaporation",
+        "B": "Transpiration",
+        "C": "Condensation",
+        "D": "Precipitation"
+      },
+      "correct_answer": "B",
+      "explanation": "Transpiration is the biological process specific to plants for water vapor release.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 69,
+      "question": "Which cell structure provides support and protection in plant cells?",
+      "options": {
+        "A": "Cell membrane",
+        "B": "Cell wall",
+        "C": "Nucleus",
+        "D": "Cytoplasm"
+      },
+      "correct_answer": "B",
+      "explanation": "The cell wall made of cellulose provides structural support and protection in plant cells.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 70,
+      "question": "The process by which plants respond to water is called:",
+      "options": {
+        "A": "Geotropism",
+        "B": "Phototropism",
+        "C": "Hydrotropism",
+        "D": "Thigmotropism"
+      },
+      "correct_answer": "C",
+      "explanation": "Hydrotropism is the growth response of plant roots toward moisture sources.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 71,
+      "question": "Which of these is a function of the muscular system?",
+      "options": {
+        "A": "Transport of oxygen",
+        "B": "Movement and locomotion",
+        "C": "Digestion of food",
+        "D": "Production of hormones"
+      },
+      "correct_answer": "B",
+      "explanation": "The muscular system enables body movement, posture maintenance, and heat production.",
+      "section": "human_biology"
+    },
+    {
+      "id": 72,
+      "question": "The process by which proteins are synthesized from RNA is called:",
+      "options": {
+        "A": "Replication",
+        "B": "Transcription",
+        "C": "Translation",
+        "D": "Mutation"
+      },
+      "correct_answer": "C",
+      "explanation": "Translation converts the genetic code in mRNA into amino acid sequences of proteins.",
+      "section": "genetics"
+    },
+    {
+      "id": 73,
+      "question": "Which of these is an example of a conservation practice?",
+      "options": {
+        "A": "Deforestation",
+        "B": "Overfishing",
+        "C": "Recycling",
+        "D": "Pollution"
+      },
+      "correct_answer": "C",
+      "explanation": "Recycling conserves resources and reduces waste entering landfills.",
+      "section": "ecology"
+    },
+    {
+      "id": 74,
+      "question": "The process by which plants obtain nutrients from soil is called:",
+      "options": {
+        "A": "Transpiration",
+        "B": "Photosynthesis",
+        "C": "Absorption",
+        "D": "Respiration"
+      },
+      "correct_answer": "C",
+      "explanation": "Nutrient absorption occurs through root systems and specialized transport mechanisms.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 75,
+      "question": "Which blood type is known as the universal recipient?",
+      "options": {
+        "A": "A",
+        "B": "B",
+        "C": "AB",
+        "D": "O"
+      },
+      "correct_answer": "C",
+      "explanation": "Type AB positive can receive blood from any type because it has no antibodies against A, B, or Rh antigens.",
+      "section": "human_biology"
+    },
+    {
+      "id": 76,
+      "question": "The process by which plants manufacture food is:",
+      "options": {
+        "A": "Respiration",
+        "B": "Photosynthesis",
+        "C": "Transpiration",
+        "D": "Digestion"
+      },
+      "correct_answer": "B",
+      "explanation": "Photosynthesis is the fundamental process where plants produce their own organic nutrients.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 77,
+      "question": "Which organ produces insulin?",
+      "options": {
+        "A": "Liver",
+        "B": "Pancreas",
+        "C": "Stomach",
+        "D": "Small intestine"
+      },
+      "correct_answer": "B",
+      "explanation": "The pancreas produces insulin which regulates blood glucose levels.",
+      "section": "human_biology"
+    },
+    {
+      "id": 78,
+      "question": "The process of genetic inheritance is called:",
+      "options": {
+        "A": "Evolution",
+        "B": "Heredity",
+        "C": "Mutation",
+        "D": "Variation"
+      },
+      "correct_answer": "B",
+      "explanation": "Heredity describes how genetic traits are transmitted from parents to offspring.",
+      "section": "genetics"
+    },
+    {
+      "id": 79,
+      "question": "Which of these is a decomposer in an ecosystem?",
+      "options": {
+        "A": "Grass",
+        "B": "Rabbit",
+        "C": "Fox",
+        "D": "Bacteria"
+      },
+      "correct_answer": "D",
+      "explanation": "Bacteria break down dead organic matter and recycle nutrients in ecosystems.",
+      "section": "ecology"
+    },
+    {
+      "id": 80,
+      "question": "The process of water loss from plants is called:",
+      "options": {
+        "A": "Evaporation",
+        "B": "Transpiration",
+        "C": "Condensation",
+        "D": "Precipitation"
+      },
+      "correct_answer": "B",
+      "explanation": "Transpiration is the specific biological process of water vapor release from plants.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 81,
+      "question": "Which cell organelle is involved in protein modification and packaging?",
+      "options": {
+        "A": "Mitochondrion",
+        "B": "Lysosome",
+        "C": "Ribosome",
+        "D": "Golgi apparatus"
+      },
+      "correct_answer": "D",
+      "explanation": "The Golgi apparatus modifies, sorts, and packages proteins for secretion or delivery.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 82,
+      "question": "The process by which plant roots grow downward is called:",
+      "options": {
+        "A": "Positive geotropism",
+        "B": "Negative geotropism",
+        "C": "Positive phototropism",
+        "D": "Negative phototropism"
+      },
+      "correct_answer": "A",
+      "explanation": "Positive geotropism is the growth of roots toward gravity, while stems show negative geotropism.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 83,
+      "question": "Which of these is a function of the respiratory system?",
+      "options": {
+        "A": "Transport of oxygen",
+        "B": "Gas exchange",
+        "C": "Digestion of food",
+        "D": "Production of hormones"
+      },
+      "correct_answer": "B",
+      "explanation": "The respiratory system facilitates the exchange of oxygen and carbon dioxide between air and blood.",
+      "section": "human_biology"
+    },
+    {
+      "id": 84,
+      "question": "The process by which DNA duplicates itself is called:",
+      "options": {
+        "A": "Replication",
+        "B": "Transcription",
+        "C": "Translation",
+        "D": "Mutation"
+      },
+      "correct_answer": "A",
+      "explanation": "DNA replication ensures genetic continuity during cell division.",
+      "section": "genetics"
+    },
+    {
+      "id": 85,
+      "question": "Which of these practices helps reduce air pollution?",
+      "options": {
+        "A": "Burning fossil fuels",
+        "B": "Deforestation",
+        "C": "Using public transportation",
+        "D": "Industrial emissions"
+      },
+      "correct_answer": "C",
+      "explanation": "Public transportation reduces the number of vehicles on roads, decreasing air pollution.",
+      "section": "ecology"
+    },
+    {
+      "id": 86,
+      "question": "The process by which plants take in carbon dioxide is part of:",
+      "options": {
+        "A": "Respiration",
+        "B": "Photosynthesis",
+        "C": "Transpiration",
+        "D": "Digestion"
+      },
+      "correct_answer": "B",
+      "explanation": "Carbon dioxide uptake occurs during photosynthesis for carbon fixation.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 87,
+      "question": "Which component of blood fights infection?",
+      "options": {
+        "A": "Red blood cells",
+        "B": "White blood cells",
+        "C": "Platelets",
+        "D": "Plasma"
+      },
+      "correct_answer": "B",
+      "explanation": "White blood cells provide immune defense against pathogens and foreign substances.",
+      "section": "human_biology"
+    },
+    {
+      "id": 88,
+      "question": "The process by which plants produce oxygen is:",
+      "options": {
+        "A": "Respiration",
+        "B": "Photosynthesis",
+        "C": "Transpiration",
+        "D": "Digestion"
+      },
+      "correct_answer": "B",
+      "explanation": "Oxygen is released as a byproduct during the light reactions of photosynthesis.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 89,
+      "question": "Which organ stores bile?",
+      "options": {
+        "A": "Liver",
+        "B": "Gallbladder",
+        "C": "Pancreas",
+        "D": "Stomach"
+      },
+      "correct_answer": "B",
+      "explanation": "The gallbladder stores and concentrates bile produced by the liver.",
+      "section": "human_biology"
+    },
+    {
+      "id": 90,
+      "question": "The study of heredity and variation is called:",
+      "options": {
+        "A": "Ecology",
+        "B": "Genetics",
+        "C": "Physiology",
+        "D": "Taxonomy"
+      },
+      "correct_answer": "B",
+      "explanation": "Genetics is the scientific study of genes, genetic variation, and heredity in organisms.",
+      "section": "genetics"
+    },
+    {
+      "id": 91,
+      "question": "Which of these is an abiotic factor?",
+      "options": {
+        "A": "Plants",
+        "B": "Animals",
+        "C": "Temperature",
+        "D": "Bacteria"
+      },
+      "correct_answer": "C",
+      "explanation": "Abiotic factors are non-living physical and chemical components of an ecosystem.",
+      "section": "ecology"
+    },
+    {
+      "id": 92,
+      "question": "The process by which water moves upward in plants is called:",
+      "options": {
+        "A": "Transpiration pull",
+        "B": "Root pressure",
+        "C": "Capillary action",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Water movement in plants involves transpiration pull, root pressure, and capillary action.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 93,
+      "question": "Which cell structure contains chlorophyll?",
+      "options": {
+        "A": "Mitochondrion",
+        "B": "Chloroplast",
+        "C": "Nucleus",
+        "D": "Vacuole"
+      },
+      "correct_answer": "B",
+      "explanation": "Chloroplasts contain chlorophyll and are the sites of photosynthesis in plant cells.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 94,
+      "question": "The process by which plant stems grow toward light is called:",
+      "options": {
+        "A": "Positive geotropism",
+        "B": "Negative geotropism",
+        "C": "Positive phototropism",
+        "D": "Negative phototropism"
+      },
+      "correct_answer": "C",
+      "explanation": "Positive phototropism is the growth of plant stems toward light sources.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 95,
+      "question": "Which system protects the body from disease?",
+      "options": {
+        "A": "Circulatory system",
+        "B": "Immune system",
+        "C": "Digestive system",
+        "D": "Respiratory system"
+      },
+      "correct_answer": "B",
+      "explanation": "The immune system defends the body against pathogens and foreign invaders.",
+      "section": "human_biology"
+    },
+    {
+      "id": 96,
+      "question": "A permanent change in DNA sequence is called:",
+      "options": {
+        "A": "Replication",
+        "B": "Transcription",
+        "C": "Translation",
+        "D": "Mutation"
+      },
+      "correct_answer": "D",
+      "explanation": "Mutations are changes in the nucleotide sequence of DNA that can be inherited.",
+      "section": "genetics"
+    },
+    {
+      "id": 97,
+      "question": "Which practice helps conserve water?",
+      "options": {
+        "A": "Leaving taps running",
+        "B": "Using drip irrigation",
+        "C": "Watering during midday",
+        "D": "Planting water-intensive crops"
+      },
+      "correct_answer": "B",
+      "explanation": "Drip irrigation delivers water directly to plant roots, reducing evaporation and waste.",
+      "section": "ecology"
+    },
+    {
+      "id": 98,
+      "question": "The opening and closing of stomata is regulated by:",
+      "options": {
+        "A": "Root pressure",
+        "B": "Guard cells",
+        "C": "Xylem vessels",
+        "D": "Phloem tubes"
+      },
+      "correct_answer": "B",
+      "explanation": "Guard cells control stomatal opening and closing through changes in turgor pressure.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 99,
+      "question": "Which blood vessel has the thinnest walls?",
+      "options": {
+        "A": "Artery",
+        "B": "Vein",
+        "C": "Capillary",
+        "D": "Arteriole"
+      },
+      "correct_answer": "C",
+      "explanation": "Capillaries have extremely thin walls (one cell thick) to facilitate gas and nutrient exchange.",
+      "section": "human_biology"
+    },
+    {
+      "id": 100,
+      "question": "The light-dependent reactions of photosynthesis occur in the:",
+      "options": {
+        "A": "Stroma",
+        "B": "Thylakoid membranes",
+        "C": "Mitochondria",
+        "D": "Nucleus"
+      },
+      "correct_answer": "B",
+      "explanation": "Thylakoid membranes in chloroplasts contain the photosynthetic pigments and electron transport chain.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 101,
+      "question": "Which organ produces digestive enzymes?",
+      "options": {
+        "A": "Liver",
+        "B": "Pancreas",
+        "C": "Gallbladder",
+        "D": "Stomach"
+      },
+      "correct_answer": "B",
+      "explanation": "The pancreas produces digestive enzymes that break down carbohydrates, proteins, and fats.",
+      "section": "human_biology"
+    },
+    {
+      "id": 102,
+      "question": "The father of genetics is:",
+      "options": {
+        "A": "Charles Darwin",
+        "B": "Gregor Mendel",
+        "C": "Louis Pasteur",
+        "D": "Robert Hooke"
+      },
+      "correct_answer": "B",
+      "explanation": "Gregor Mendel established the fundamental principles of inheritance through pea plant experiments.",
+      "section": "genetics"
+    },
+    {
+      "id": 103,
+      "question": "Which factor limits population growth?",
+      "options": {
+        "A": "Abundant food",
+        "B": "Lack of predators",
+        "C": "Limited resources",
+        "D": "Optimal temperature"
+      },
+      "correct_answer": "C",
+      "explanation": "Limited resources like food, water, and space are key factors that restrict population growth.",
+      "section": "ecology"
+    },
+    {
+      "id": 104,
+      "question": "The Calvin cycle occurs in the:",
+      "options": {
+        "A": "Thylakoid membranes",
+        "B": "Stroma",
+        "C": "Mitochondria",
+        "D": "Nucleus"
+      },
+      "correct_answer": "B",
+      "explanation": "The Calvin cycle (light-independent reactions) takes place in the stroma of chloroplasts.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 105,
+      "question": "Which chamber of the heart receives oxygenated blood from lungs?",
+      "options": {
+        "A": "Right atrium",
+        "B": "Right ventricle",
+        "C": "Left atrium",
+        "D": "Left ventricle"
+      },
+      "correct_answer": "C",
+      "explanation": "The left atrium receives oxygenated blood from the pulmonary veins.",
+      "section": "human_biology"
+    },
+    {
+      "id": 106,
+      "question": "A cross between two heterozygous individuals (Aa x Aa) produces what ratio?",
+      "options": {
+        "A": "1:1",
+        "B": "3:1",
+        "C": "1:2:1",
+        "D": "9:3:3:1"
+      },
+      "correct_answer": "B",
+      "explanation": "A monohybrid cross between heterozygotes gives a 3:1 phenotypic ratio for dominant:recessive traits.",
+      "section": "genetics"
+    },
+    {
+      "id": 107,
+      "question": "The maximum number of individuals an environment can support is called:",
+      "options": {
+        "A": "Population density",
+        "B": "Carrying capacity",
+        "C": "Growth rate",
+        "D": "Biotic potential"
+      },
+      "correct_answer": "B",
+      "explanation": "Carrying capacity is the maximum population size an environment can sustain indefinitely.",
+      "section": "ecology"
+    },
+    {
+      "id": 108,
+      "question": "The tissue that transports water in plants is:",
+      "options": {
+        "A": "Phloem",
+        "B": "Xylem",
+        "C": "Epidermis",
+        "D": "Cambium"
+      },
+      "correct_answer": "B",
+      "explanation": "Xylem transports water and minerals from roots to other plant parts.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 109,
+      "question": "The pacemaker of the heart is the:",
+      "options": {
+        "A": "AV node",
+        "B": "SA node",
+        "C": "Bundle of His",
+        "D": "Purkinje fibers"
+      },
+      "correct_answer": "B",
+      "explanation": "The sinoatrial (SA) node initiates the heartbeat and sets the heart rhythm.",
+      "section": "human_biology"
+    },
+    {
+      "id": 110,
+      "question": "In DNA, adenine always pairs with:",
+      "options": {
+        "A": "Guanine",
+        "B": "Cytosine",
+        "C": "Thymine",
+        "D": "Uracil"
+      },
+      "correct_answer": "C",
+      "explanation": "Adenine pairs with thymine in DNA through two hydrogen bonds.",
+      "section": "genetics"
+    },
+    {
+      "id": 111,
+      "question": "The gradual change in species composition in an area is called:",
+      "options": {
+        "A": "Evolution",
+        "B": "Succession",
+        "C": "Adaptation",
+        "D": "Mutation"
+      },
+      "correct_answer": "B",
+      "explanation": "Ecological succession is the process of community change over time in an area.",
+      "section": "ecology"
+    },
+    {
+      "id": 112,
+      "question": "The tissue that transports food in plants is:",
+      "options": {
+        "A": "Xylem",
+        "B": "Phloem",
+        "C": "Epidermis",
+        "D": "Cambium"
+      },
+      "correct_answer": "B",
+      "explanation": "Phloem transports organic nutrients (sugars) from leaves to other plant parts.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 113,
+      "question": "The largest artery in the body is the:",
+      "options": {
+        "A": "Pulmonary artery",
+        "B": "Aorta",
+        "C": "Coronary artery",
+        "D": "Carotid artery"
+      },
+      "correct_answer": "B",
+      "explanation": "The aorta is the main and largest artery that carries oxygenated blood from the heart.",
+      "section": "human_biology"
+    },
+    {
+      "id": 114,
+      "question": "The genetic makeup of an organism is its:",
+      "options": {
+        "A": "Phenotype",
+        "B": "Genotype",
+        "C": "Allele",
+        "D": "Chromosome"
+      },
+      "correct_answer": "B",
+      "explanation": "Genotype refers to the genetic constitution of an organism, while phenotype is the observable traits.",
+      "section": "genetics"
+    },
+    {
+      "id": 115,
+      "question": "An organism's role in its ecosystem is its:",
+      "options": {
+        "A": "Habitat",
+        "B": "Niche",
+        "C": "Community",
+        "D": "Population"
+      },
+      "correct_answer": "B",
+      "explanation": "Ecological niche describes an organism's function and position in its environment.",
+      "section": "ecology"
+    },
+    {
+      "id": 116,
+      "question": "The process where pollen lands on the stigma is called:",
+      "options": {
+        "A": "Fertilization",
+        "B": "Pollination",
+        "C": "Germination",
+        "D": "Photosynthesis"
+      },
+      "correct_answer": "B",
+      "explanation": "Pollination is the transfer of pollen from anther to stigma in flowering plants.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 117,
+      "question": "The voice box is also known as the:",
+      "options": {
+        "A": "Pharynx",
+        "B": "Larynx",
+        "C": "Trachea",
+        "D": "Bronchus"
+      },
+      "correct_answer": "B",
+      "explanation": "The larynx contains vocal cords and is responsible for sound production.",
+      "section": "human_biology"
+    },
+    {
+      "id": 118,
+      "question": "A person with genotype 'aa' expresses the:",
+      "options": {
+        "A": "Dominant trait",
+        "B": "Recessive trait",
+        "C": "Heterozygous trait",
+        "D": "Co-dominant trait"
+      },
+      "correct_answer": "B",
+      "explanation": "A homozygous recessive genotype (aa) expresses the recessive phenotype.",
+      "section": "genetics"
+    },
+    {
+      "id": 119,
+      "question": "The first species to colonize barren land is called:",
+      "options": {
+        "A": "Climax species",
+        "B": "Pioneer species",
+        "C": "Keystone species",
+        "D": "Indicator species"
+      },
+      "correct_answer": "B",
+      "explanation": "Pioneer species are the first to colonize disturbed or newly formed habitats.",
+      "section": "ecology"
+    },
+    {
+      "id": 120,
+      "question": "Double fertilization is unique to:",
+      "options": {
+        "A": "Ferns",
+        "B": "Mosses",
+        "C": "Angiosperms",
+        "D": "Gymnosperms"
+      },
+      "correct_answer": "C",
+      "explanation": "Double fertilization, involving one sperm fertilizing the egg and another the polar nuclei, occurs only in flowering plants.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 121,
+      "question": "The functional unit of the kidney is the:",
+      "options": {
+        "A": "Neuron",
+        "B": "Nephron",
+        "C": "Alveolus",
+        "D": "Villus"
+      },
+      "correct_answer": "B",
+      "explanation": "Nephrons are the microscopic filtering units that form urine in the kidneys.",
+      "section": "human_biology"
+    },
+    {
+      "id": 122,
+      "question": "Blood type is an example of:",
+      "options": {
+        "A": "Multiple alleles",
+        "B": "Incomplete dominance",
+        "C": "Sex-linked inheritance",
+        "D": "Polygenic inheritance"
+      },
+      "correct_answer": "A",
+      "explanation": "ABO blood groups are determined by three alleles (IA, IB, i) at a single gene locus.",
+      "section": "genetics"
+    },
+    {
+      "id": 123,
+      "question": "A symbiotic relationship where both species benefit is:",
+      "options": {
+        "A": "Commensalism",
+        "B": "Mutualism",
+        "C": "Parasitism",
+        "D": "Predation"
+      },
+      "correct_answer": "B",
+      "explanation": "Mutualism describes interactions where both organisms derive benefits.",
+      "section": "ecology"
+    },
+    {
+      "id": 124,
+      "question": "The male reproductive part of a flower is the:",
+      "options": {
+        "A": "Pistil",
+        "B": "Stamen",
+        "C": "Petal",
+        "D": "Sepal"
+      },
+      "correct_answer": "B",
+      "explanation": "The stamen consists of anther and filament and produces pollen.",
+      "section": "plant_biology"
+    },
+    {
+      "id": 125,
+      "question": "The hormone that regulates blood sugar is:",
+      "options": {
+        "A": "Thyroxine",
+        "B": "Insulin",
+        "C": "Adrenaline",
+        "D": "Estrogen"
+      },
+      "correct_answer": "B",
+      "explanation": "Insulin lowers blood glucose levels by promoting cellular uptake and storage.",
+      "section": "human_biology"
+    },
+    {
+      "id": 126,
+      "question": "Color blindness is an example of:",
+      "options": {
+        "A": "Autosomal dominant",
+        "B": "Autosomal recessive",
+        "C": "X-linked recessive",
+        "D": "Y-linked"
+      },
+      "correct_answer": "C",
+      "explanation": "Color blindness is typically inherited as an X-linked recessive trait.",
+      "section": "genetics"
+    },
+    {
+      "id": 127,
+      "question": "The ultimate source of energy for most ecosystems is:",
+      "options": {
+        "A": "Water",
+        "B": "Soil",
+        "C": "Sun",
+        "D": "Air"
+      },
+      "correct_answer": "C",
+      "explanation": "Solar energy captured by producers through photosynthesis drives most ecosystems.",
+      "section": "ecology"
+    },
+    {
+      "id": 128,
+      "question": "The female reproductive part of a flower is the:",
+      "options": {
+        "A": "Stamen",
+        "B": "Pistil",
+        "C": "Petal",
+        "D": "Sepal"
+      },
+      "correct_answer": "B",
+      "explanation": "The pistil (carpel) consists of stigma, style, and ovary where seeds develop.",
+      "section": "plant_biology"
+    }
+  ]
+}

@@ -1,0 +1,2972 @@
+{
+  "subject": "English Language",
+  "exam_type": "JAMB",
+  "total_questions": 228,
+  "time_allowed": 7200,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Choose the word that is nearest in meaning to the underlined word: The journalist's account was highly fictitious.",
+      "options": {
+        "A": "Imaginary",
+        "B": "Factual",
+        "C": "Credible",
+        "D": "Accurate"
+      },
+      "correct_answer": "A",
+      "explanation": "Fictitious means invented or imaginary, not based on fact.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 2,
+      "question": "Choose the word that is opposite in meaning to the underlined word: Her success was ephemeral.",
+      "options": {
+        "A": "Momentary",
+        "B": "Lasting",
+        "C": "Brief",
+        "D": "Fleeting"
+      },
+      "correct_answer": "B",
+      "explanation": "Ephemeral means lasting for a very short time. Its opposite is lasting or permanent.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 3,
+      "question": "The committee has _______ its final decision.",
+      "options": {
+        "A": "deliver",
+        "B": "delivered",
+        "C": "delivering",
+        "D": "to deliver"
+      },
+      "correct_answer": "B",
+      "explanation": "The present perfect tense 'has delivered' is correct here.",
+      "section": "grammar"
+    },
+    {
+      "id": 4,
+      "question": "Select the word where the stress is on the first syllable.",
+      "options": {
+        "A": "Exa-mi-na-tion",
+        "B": "Pho-to-graph",
+        "C": "In-te-rrupt",
+        "D": "Po-ssess"
+      },
+      "correct_answer": "B",
+      "explanation": "PHO-to-graph has stress on the first syllable.",
+      "section": "oral_english"
+    },
+    {
+      "id": 5,
+      "question": "If he had gone home early, he _______ the gift.",
+      "options": {
+        "A": "would receive",
+        "B": "will receive",
+        "C": "would have received",
+        "D": "is receiving"
+      },
+      "correct_answer": "C",
+      "explanation": "The third conditional structure requires 'would have + past participle'.",
+      "section": "grammar"
+    },
+    {
+      "id": 6,
+      "question": "He died _______ a fever.",
+      "options": {
+        "A": "with",
+        "B": "from",
+        "C": "of",
+        "D": "for"
+      },
+      "correct_answer": "C",
+      "explanation": "We use 'die of' for diseases and specific causes of death.",
+      "section": "grammar"
+    },
+    {
+      "id": 7,
+      "question": "The baby cried for a glass of water. Identify the figure of speech.",
+      "options": {
+        "A": "Metaphor",
+        "B": "Personification",
+        "C": "Hyperbole",
+        "D": "Litotes"
+      },
+      "correct_answer": "B",
+      "explanation": "A baby cannot literally cry 'for' something specific - this gives human intent to the baby's cry.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 8,
+      "question": "The man insisted on _______ to the manager.",
+      "options": {
+        "A": "to speak",
+        "B": "speaking",
+        "C": "spoke",
+        "D": "speak"
+      },
+      "correct_answer": "B",
+      "explanation": "After prepositions like 'on', we use the -ing form of the verb.",
+      "section": "grammar"
+    },
+    {
+      "id": 9,
+      "question": "The noise from the party was quite deafening. (Nearest in meaning)",
+      "options": {
+        "A": "Loud",
+        "B": "Soft",
+        "C": "Pleasant",
+        "D": "Disturbing"
+      },
+      "correct_answer": "A",
+      "explanation": "Deafening means extremely loud.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 10,
+      "question": "The doctor advised him to eat only wholesome food. (Opposite in meaning)",
+      "options": {
+        "A": "Healthy",
+        "B": "Pure",
+        "C": "Contaminated",
+        "D": "Nutritious"
+      },
+      "correct_answer": "C",
+      "explanation": "Wholesome means healthy and good for you. Contaminated means polluted or impure.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 11,
+      "question": "She is the best student _______ the class.",
+      "options": {
+        "A": "of",
+        "B": "in",
+        "C": "among",
+        "D": "on"
+      },
+      "correct_answer": "B",
+      "explanation": "We use 'in' for being part of a group like a class.",
+      "section": "grammar"
+    },
+    {
+      "id": 12,
+      "question": "Select the word where the stress is on the second syllable.",
+      "options": {
+        "A": "Manager",
+        "B": "Delegate",
+        "C": "Produce (verb)",
+        "D": "Principle"
+      },
+      "correct_answer": "C",
+      "explanation": "pro-DUCE (verb) has stress on the second syllable.",
+      "section": "oral_english"
+    },
+    {
+      "id": 13,
+      "question": "I wish I _______ a bird.",
+      "options": {
+        "A": "am",
+        "B": "was",
+        "C": "were",
+        "D": "is"
+      },
+      "correct_answer": "C",
+      "explanation": "After 'wish' for hypothetical situations, we use 'were' for all subjects.",
+      "section": "grammar"
+    },
+    {
+      "id": 14,
+      "question": "The chairman congratulated him _______ his success.",
+      "options": {
+        "A": "on",
+        "B": "for",
+        "C": "at",
+        "D": "by"
+      },
+      "correct_answer": "A",
+      "explanation": "We congratulate someone 'on' their success.",
+      "section": "grammar"
+    },
+    {
+      "id": 15,
+      "question": "The fire spread like a rocket. Identify the figure of speech.",
+      "options": {
+        "A": "Metaphor",
+        "B": "Simile",
+        "C": "Irony",
+        "D": "Pun"
+      },
+      "correct_answer": "B",
+      "explanation": "Uses 'like' to compare two different things - a simile.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 16,
+      "question": "He told the police exactly _______ happened.",
+      "options": {
+        "A": "that",
+        "B": "how",
+        "C": "what",
+        "D": "which"
+      },
+      "correct_answer": "C",
+      "explanation": "'What' functions as both the object of 'told' and subject of 'happened'.",
+      "section": "grammar"
+    },
+    {
+      "id": 17,
+      "question": "The witness gave a lucid account of the accident. (Nearest in meaning)",
+      "options": {
+        "A": "Vague",
+        "B": "Clear",
+        "C": "Confusing",
+        "D": "Detailed"
+      },
+      "correct_answer": "B",
+      "explanation": "Lucid means expressed clearly; easy to understand.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 18,
+      "question": "The judge was known for his impartiality. (Opposite in meaning)",
+      "options": {
+        "A": "Fairness",
+        "B": "Bias",
+        "C": "Neutrality",
+        "D": "Justice"
+      },
+      "correct_answer": "B",
+      "explanation": "Impartiality means fairness and lack of bias. The opposite is bias.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 19,
+      "question": "Neither the students nor the teacher _______ ready for the exam.",
+      "options": {
+        "A": "are",
+        "B": "is",
+        "C": "were",
+        "D": "have been"
+      },
+      "correct_answer": "B",
+      "explanation": "When using 'neither...nor', the verb agrees with the closer subject (teacher - singular).",
+      "section": "grammar"
+    },
+    {
+      "id": 20,
+      "question": "Select the word where the stress is on the third syllable.",
+      "options": {
+        "A": "Com-pu-ter",
+        "B": "Ce-le-brate",
+        "C": "Un-der-stand",
+        "D": "E-le-phant"
+      },
+      "correct_answer": "C",
+      "explanation": "un-der-STAND has stress on the third syllable.",
+      "section": "oral_english"
+    },
+    {
+      "id": 21,
+      "question": "The thief was caught _______ red-handed.",
+      "options": {
+        "A": "with",
+        "B": "in",
+        "C": "by",
+        "D": "at"
+      },
+      "correct_answer": "B",
+      "explanation": "The fixed expression is 'caught in the act' or 'caught red-handed'.",
+      "section": "grammar"
+    },
+    {
+      "id": 22,
+      "question": "She is capable _______ doing the job well.",
+      "options": {
+        "A": "for",
+        "B": "of",
+        "C": "with",
+        "D": "on"
+      },
+      "correct_answer": "B",
+      "explanation": "The correct preposition after 'capable' is 'of'.",
+      "section": "grammar"
+    },
+    {
+      "id": 23,
+      "question": "The clock struck twelve. Identify the figure of speech.",
+      "options": {
+        "A": "Hyperbole",
+        "B": "Metonymy",
+        "C": "Onomatopoeia",
+        "D": "Personification"
+      },
+      "correct_answer": "D",
+      "explanation": "Giving human action (striking) to a non-human object (clock) is personification.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 24,
+      "question": "I look forward _______ you soon.",
+      "options": {
+        "A": "to see",
+        "B": "seeing",
+        "C": "to seeing",
+        "D": "see"
+      },
+      "correct_answer": "C",
+      "explanation": "'Look forward to' is a phrasal verb that takes the -ing form.",
+      "section": "grammar"
+    },
+    {
+      "id": 25,
+      "question": "The chairman gave a profound speech. (Nearest in meaning)",
+      "options": {
+        "A": "Shallow",
+        "B": "Deep",
+        "C": "Brief",
+        "D": "Simple"
+      },
+      "correct_answer": "B",
+      "explanation": "Profound means having deep meaning or significance.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 26,
+      "question": "His diligence led to his promotion. (Opposite in meaning)",
+      "options": {
+        "A": "Carefulness",
+        "B": "Laziness",
+        "C": "Hard work",
+        "D": "Sincerity"
+      },
+      "correct_answer": "B",
+      "explanation": "Diligence means careful and persistent work. Laziness is the opposite.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 27,
+      "question": "Every one of the boys _______ to participate.",
+      "options": {
+        "A": "were",
+        "B": "have",
+        "C": "is",
+        "D": "are"
+      },
+      "correct_answer": "C",
+      "explanation": "'Every one' is singular and takes a singular verb.",
+      "section": "grammar"
+    },
+    {
+      "id": 28,
+      "question": "Select the word that has a silent 'b'.",
+      "options": {
+        "A": "Lumber",
+        "B": "Number",
+        "C": "Climb",
+        "D": "Rubbish"
+      },
+      "correct_answer": "C",
+      "explanation": "In 'climb', the 'b' is silent.",
+      "section": "oral_english"
+    },
+    {
+      "id": 29,
+      "question": "Hardly had he entered the room _______ the light went out.",
+      "options": {
+        "A": "when",
+        "B": "than",
+        "C": "then",
+        "D": "before"
+      },
+      "correct_answer": "A",
+      "explanation": "The correct structure is 'Hardly...when' for two events that happen almost simultaneously.",
+      "section": "grammar"
+    },
+    {
+      "id": 30,
+      "question": "The child is afraid _______ the dark.",
+      "options": {
+        "A": "with",
+        "B": "of",
+        "C": "about",
+        "D": "for"
+      },
+      "correct_answer": "B",
+      "explanation": "The correct preposition after 'afraid' is 'of'.",
+      "section": "grammar"
+    },
+    {
+      "id": 31,
+      "question": "The whole class laughed at the fool of a boy. Identify the figure of speech.",
+      "options": {
+        "A": "Paradox",
+        "B": "Irony",
+        "C": "Litotes",
+        "D": "Oxymoron"
+      },
+      "correct_answer": "B",
+      "explanation": "The situation is ironic - the boy being laughed at as a fool creates humorous contrast.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 32,
+      "question": "I prefer reading _______ watching television.",
+      "options": {
+        "A": "than",
+        "B": "to",
+        "C": "from",
+        "D": "over"
+      },
+      "correct_answer": "B",
+      "explanation": "The correct structure is 'prefer X to Y'.",
+      "section": "grammar"
+    },
+    {
+      "id": 33,
+      "question": "The old man was known for his parsimony. (Nearest in meaning)",
+      "options": {
+        "A": "Generosity",
+        "B": "Thriftiness",
+        "C": "Wastefulness",
+        "D": "Kindness"
+      },
+      "correct_answer": "B",
+      "explanation": "Parsimony means extreme unwillingness to spend money or use resources.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 34,
+      "question": "The decision was unanimous. (Opposite in meaning)",
+      "options": {
+        "A": "Agreeable",
+        "B": "Disagreeable",
+        "C": "United",
+        "D": "Consensual"
+      },
+      "correct_answer": "B",
+      "explanation": "Unanimous means fully in agreement. Disagreeable means causing disagreement.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 35,
+      "question": "Ten thousand naira _______ a huge sum.",
+      "options": {
+        "A": "are",
+        "B": "is",
+        "C": "were",
+        "D": "have been"
+      },
+      "correct_answer": "B",
+      "explanation": "Amounts of money are treated as singular nouns.",
+      "section": "grammar"
+    },
+    {
+      "id": 36,
+      "question": "Which word is pronounced with the /g/ sound?",
+      "options": {
+        "A": "Sign",
+        "B": "Foreign",
+        "C": "Ghost",
+        "D": "Reign"
+      },
+      "correct_answer": "C",
+      "explanation": "'Ghost' is pronounced with a hard /g/ sound.",
+      "section": "oral_english"
+    },
+    {
+      "id": 37,
+      "question": "The bus arrived late, _______ it?",
+      "options": {
+        "A": "hasn't",
+        "B": "didn't",
+        "C": "wasn't",
+        "D": "doesn't"
+      },
+      "correct_answer": "B",
+      "explanation": "The main verb 'arrived' is past tense, so the tag should be 'didn't'.",
+      "section": "grammar"
+    },
+    {
+      "id": 38,
+      "question": "The manager provided me _______ accommodation.",
+      "options": {
+        "A": "with",
+        "B": "for",
+        "C": "by",
+        "D": "of"
+      },
+      "correct_answer": "A",
+      "explanation": "The correct preposition after 'provide' in this context is 'with'.",
+      "section": "grammar"
+    },
+    {
+      "id": 39,
+      "question": "The classroom was a market. Identify the figure of speech.",
+      "options": {
+        "A": "Simile",
+        "B": "Hyperbole",
+        "C": "Metaphor",
+        "D": "Personification"
+      },
+      "correct_answer": "C",
+      "explanation": "Direct comparison without 'like' or 'as' - a metaphor.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 40,
+      "question": "She apologized _______ being rude.",
+      "options": {
+        "A": "about",
+        "B": "for",
+        "C": "to",
+        "D": "with"
+      },
+      "correct_answer": "B",
+      "explanation": "We apologize 'for' something.",
+      "section": "grammar"
+    },
+    {
+      "id": 41,
+      "question": "The fragrance of the flowers filled the air. (Nearest in meaning)",
+      "options": {
+        "A": "Stench",
+        "B": "Aroma",
+        "C": "Decay",
+        "D": "Smell (neutral)"
+      },
+      "correct_answer": "B",
+      "explanation": "Fragrance means a pleasant, sweet scent - aroma has similar positive connotation.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 42,
+      "question": "The athlete was surprisingly lethargic. (Opposite in meaning)",
+      "options": {
+        "A": "Energetic",
+        "B": "Slow",
+        "C": "Tired",
+        "D": "Weak"
+      },
+      "correct_answer": "A",
+      "explanation": "Lethargic means sluggish and lacking energy. Energetic is the direct opposite.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 43,
+      "question": "Either the cat or the dogs _______ in the garden.",
+      "options": {
+        "A": "is",
+        "B": "was",
+        "C": "are",
+        "D": "has been"
+      },
+      "correct_answer": "C",
+      "explanation": "When using 'either...or', the verb agrees with the closer subject (dogs - plural).",
+      "section": "grammar"
+    },
+    {
+      "id": 44,
+      "question": "Which word has the vowel sound as in 'cup'?",
+      "options": {
+        "A": "Put",
+        "B": "Pull",
+        "C": "Cut",
+        "D": "Book"
+      },
+      "correct_answer": "C",
+      "explanation": "'Cut' has the same /ʌ/ sound as 'cup'.",
+      "section": "oral_english"
+    },
+    {
+      "id": 45,
+      "question": "If I were you, I _______ accept the offer.",
+      "options": {
+        "A": "would",
+        "B": "will",
+        "C": "shall",
+        "D": "may"
+      },
+      "correct_answer": "A",
+      "explanation": "Second conditional structure requires 'would' in the main clause.",
+      "section": "grammar"
+    },
+    {
+      "id": 46,
+      "question": "The girl is interested _______ music.",
+      "options": {
+        "A": "in",
+        "B": "at",
+        "C": "with",
+        "D": "for"
+      },
+      "correct_answer": "A",
+      "explanation": "The correct preposition after 'interested' is 'in'.",
+      "section": "grammar"
+    },
+    {
+      "id": 47,
+      "question": "He took the money and vanished into thin air. (Nearest in meaning to vanished into thin air)",
+      "options": {
+        "A": "Flew away",
+        "B": "Disappeared mysteriously",
+        "C": "Climbed a tree",
+        "D": "Died suddenly"
+      },
+      "correct_answer": "B",
+      "explanation": "The idiom 'vanished into thin air' means disappeared completely and mysteriously.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 48,
+      "question": "The manager's rudeness was shocking. (Opposite in meaning)",
+      "options": {
+        "A": "Impoliteness",
+        "B": "Courtesy",
+        "C": "Harshness",
+        "D": "Disrespect"
+      },
+      "correct_answer": "B",
+      "explanation": "Rudeness means lack of politeness. Courtesy is polite behavior.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 49,
+      "question": "The woman, along with her children, _______ travelling tomorrow.",
+      "options": {
+        "A": "are",
+        "B": "is",
+        "C": "were",
+        "D": "have been"
+      },
+      "correct_answer": "B",
+      "explanation": "When using 'along with', the verb agrees with the main subject (woman - singular).",
+      "section": "grammar"
+    },
+    {
+      "id": 50,
+      "question": "Which word is pronounced with the /z/ sound?",
+      "options": {
+        "A": "Cats",
+        "B": "Dogs",
+        "C": "Stops",
+        "D": "Books"
+      },
+      "correct_answer": "B",
+      "explanation": "'Dogs' ends with the /z/ sound, while the others have /s/ sound.",
+      "section": "oral_english"
+    },
+    {
+      "id": 51,
+      "question": "Scarcely had the teacher left _______ the students started playing.",
+      "options": {
+        "A": "than",
+        "B": "when",
+        "C": "before",
+        "D": "and"
+      },
+      "correct_answer": "B",
+      "explanation": "The correct structure is 'Scarcely...when' for two closely connected past events.",
+      "section": "grammar"
+    },
+    {
+      "id": 52,
+      "question": "The students congratulated the winner _______ his performance.",
+      "options": {
+        "A": "with",
+        "B": "at",
+        "C": "on",
+        "D": "for"
+      },
+      "correct_answer": "C",
+      "explanation": "We congratulate someone 'on' their achievement.",
+      "section": "grammar"
+    },
+    {
+      "id": 53,
+      "question": "The wind howled through the forest. Identify the figure of speech.",
+      "options": {
+        "A": "Alliteration",
+        "B": "Onomatopoeia",
+        "C": "Simile",
+        "D": "Metaphor"
+      },
+      "correct_answer": "B",
+      "explanation": "'Howled' imitates the sound it describes - onomatopoeia.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 54,
+      "question": "The child is accustomed _______ waking up early.",
+      "options": {
+        "A": "with",
+        "B": "for",
+        "C": "to",
+        "D": "by"
+      },
+      "correct_answer": "C",
+      "explanation": "The correct preposition after 'accustomed' is 'to'.",
+      "section": "grammar"
+    },
+    {
+      "id": 55,
+      "question": "The patient was in a critical condition. (Nearest in meaning)",
+      "options": {
+        "A": "Stable",
+        "B": "Serious",
+        "C": "Light",
+        "D": "Good"
+      },
+      "correct_answer": "B",
+      "explanation": "Critical condition means seriously ill and at risk of dying.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 56,
+      "question": "The evidence was completely fabricated. (Opposite in meaning)",
+      "options": {
+        "A": "Invented",
+        "B": "Genuine",
+        "C": "Fictional",
+        "D": "Edited"
+      },
+      "correct_answer": "B",
+      "explanation": "Fabricated means invented or fake. Genuine means real and authentic.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 57,
+      "question": "Both John and Mary _______ passed the examination.",
+      "options": {
+        "A": "has",
+        "B": "is",
+        "C": "have",
+        "D": "was"
+      },
+      "correct_answer": "C",
+      "explanation": "'Both...and' takes a plural verb.",
+      "section": "grammar"
+    },
+    {
+      "id": 58,
+      "question": "Select the word where the stress is on the second syllable.",
+      "options": {
+        "A": "Beautiful",
+        "B": "Decide",
+        "C": "Elephant",
+        "D": "Hospital"
+      },
+      "correct_answer": "B",
+      "explanation": "de-CIDE has stress on the second syllable.",
+      "section": "oral_english"
+    },
+    {
+      "id": 59,
+      "question": "The bus arrived late, so we _______ walk. (Correct verb form)",
+      "options": {
+        "A": "have to",
+        "B": "had to",
+        "C": "would have to",
+        "D": "must"
+      },
+      "correct_answer": "B",
+      "explanation": "Past tense 'had to' matches the past context.",
+      "section": "grammar"
+    },
+    {
+      "id": 60,
+      "question": "The students were charged _______ disobedience.",
+      "options": {
+        "A": "for",
+        "B": "with",
+        "C": "by",
+        "D": "of"
+      },
+      "correct_answer": "B",
+      "explanation": "The correct preposition after 'charged' in legal context is 'with'.",
+      "section": "grammar"
+    },
+    {
+      "id": 61,
+      "question": "The government is expected to solve the problem, _______ it?",
+      "options": {
+        "A": "is it",
+        "B": "isn't it",
+        "C": "doesn't it",
+        "D": "won't it"
+      },
+      "correct_answer": "B",
+      "explanation": "The main clause is passive ('is expected'), so the tag should be 'isn't it'.",
+      "section": "grammar"
+    },
+    {
+      "id": 62,
+      "question": "He agreed _______ the proposal.",
+      "options": {
+        "A": "to",
+        "B": "with",
+        "C": "on",
+        "D": "for"
+      },
+      "correct_answer": "A",
+      "explanation": "We agree 'to' a proposal or plan.",
+      "section": "grammar"
+    },
+    {
+      "id": 63,
+      "question": "He is a master of disguise. (Nearest in meaning to master of disguise)",
+      "options": {
+        "A": "A good cook",
+        "B": "A person good at changing appearance",
+        "C": "A teacher",
+        "D": "A fraudster"
+      },
+      "correct_answer": "B",
+      "explanation": "A master of disguise is someone skilled at changing their appearance to avoid recognition.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 64,
+      "question": "Her personality was considered quite affable. (Opposite in meaning)",
+      "options": {
+        "A": "Friendly",
+        "B": "Grumpy",
+        "C": "Kind",
+        "D": "Polite"
+      },
+      "correct_answer": "B",
+      "explanation": "Affable means friendly and easy to talk to. Grumpy means bad-tempered.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 65,
+      "question": "The luggage, together with the passengers, _______ delayed.",
+      "options": {
+        "A": "were",
+        "B": "are",
+        "C": "have been",
+        "D": "was"
+      },
+      "correct_answer": "D",
+      "explanation": "When using 'together with', the verb agrees with the main subject (luggage - singular).",
+      "section": "grammar"
+    },
+    {
+      "id": 66,
+      "question": "Which word contains the short /i/ sound as in 'sit'?",
+      "options": {
+        "A": "Seed",
+        "B": "Leave",
+        "C": "Live",
+        "D": "Chief"
+      },
+      "correct_answer": "C",
+      "explanation": "'Live' (verb) has the short /ɪ/ sound like in 'sit'.",
+      "section": "oral_english"
+    },
+    {
+      "id": 67,
+      "question": "If I knew his address, I _______ write to him.",
+      "options": {
+        "A": "will",
+        "B": "would",
+        "C": "shall",
+        "D": "may"
+      },
+      "correct_answer": "B",
+      "explanation": "Second conditional structure requires 'would' in the main clause.",
+      "section": "grammar"
+    },
+    {
+      "id": 68,
+      "question": "The boy was discouraged _______ running away.",
+      "options": {
+        "A": "for",
+        "B": "of",
+        "C": "from",
+        "D": "by"
+      },
+      "correct_answer": "C",
+      "explanation": "The correct preposition after 'discourage' is 'from'.",
+      "section": "grammar"
+    },
+    {
+      "id": 69,
+      "question": "The river ate up the bank. Identify the figure of speech.",
+      "options": {
+        "A": "Simile",
+        "B": "Metaphor",
+        "C": "Hyperbole",
+        "D": "Personification"
+      },
+      "correct_answer": "D",
+      "explanation": "Giving human action (eating) to a non-human object (river) is personification.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 70,
+      "question": "We watched the plane _______ until it disappeared.",
+      "options": {
+        "A": "flies",
+        "B": "flew",
+        "C": "to fly",
+        "D": "fly"
+      },
+      "correct_answer": "D",
+      "explanation": "After verbs of perception like 'watch', we use the base form of the verb.",
+      "section": "grammar"
+    },
+    {
+      "id": 71,
+      "question": "The soldiers were marching in a stolid manner. (Nearest in meaning)",
+      "options": {
+        "A": "Emotional",
+        "B": "Solemn",
+        "C": "Fast",
+        "D": "Carefree"
+      },
+      "correct_answer": "B",
+      "explanation": "Stolid means calm, dependable, and showing little emotion or animation.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 72,
+      "question": "The climate was benign. (Opposite in meaning)",
+      "options": {
+        "A": "Favorable",
+        "B": "Harsh",
+        "C": "Mild",
+        "D": "Gentle"
+      },
+      "correct_answer": "B",
+      "explanation": "Benign means gentle and favorable. Harsh is the opposite.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 73,
+      "question": "A hundred thousand naira _______ enough to buy a car.",
+      "options": {
+        "A": "are",
+        "B": "is",
+        "C": "were",
+        "D": "have been"
+      },
+      "correct_answer": "B",
+      "explanation": "Amounts of money are treated as singular nouns.",
+      "section": "grammar"
+    },
+    {
+      "id": 74,
+      "question": "Select the word that has a silent 'l'.",
+      "options": {
+        "A": "Calm",
+        "B": "Lamp",
+        "C": "Hold",
+        "D": "Palmist"
+      },
+      "correct_answer": "A",
+      "explanation": "In 'calm', the 'l' is silent.",
+      "section": "oral_english"
+    },
+    {
+      "id": 75,
+      "question": "He visits his grandmother regularly, _______ he?",
+      "options": {
+        "A": "doesn't",
+        "B": "didn't",
+        "C": "hasn't",
+        "D": "wasn't"
+      },
+      "correct_answer": "A",
+      "explanation": "Present simple tense with 'visits' requires 'doesn't' in the tag.",
+      "section": "grammar"
+    },
+    {
+      "id": 76,
+      "question": "The boy pleaded _______ his innocence.",
+      "options": {
+        "A": "for",
+        "B": "with",
+        "C": "by",
+        "D": "of"
+      },
+      "correct_answer": "A",
+      "explanation": "We plead 'for' something we want to achieve.",
+      "section": "grammar"
+    },
+    {
+      "id": 77,
+      "question": "The news struck him like lightning. Identify the figure of speech.",
+      "options": {
+        "A": "Metaphor",
+        "B": "Simile",
+        "C": "Irony",
+        "D": "Sarcasm"
+      },
+      "correct_answer": "B",
+      "explanation": "Uses 'like' to compare two different things - a simile.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 78,
+      "question": "The doctor warned him against _______ too much sugar.",
+      "options": {
+        "A": "eat",
+        "B": "eating",
+        "C": "to eat",
+        "D": "eaten"
+      },
+      "correct_answer": "B",
+      "explanation": "After prepositions like 'against', we use the -ing form.",
+      "section": "grammar"
+    },
+    {
+      "id": 79,
+      "question": "He was declared the culprit. (Nearest in meaning)",
+      "options": {
+        "A": "Victim",
+        "B": "Suspect",
+        "C": "Offender",
+        "D": "Judge"
+      },
+      "correct_answer": "C",
+      "explanation": "Culprit means a person who is responsible for a crime or wrongdoing.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 80,
+      "question": "The building was flimsy. (Opposite in meaning)",
+      "options": {
+        "A": "Weak",
+        "B": "Strong",
+        "C": "Light",
+        "D": "Temporary"
+      },
+      "correct_answer": "B",
+      "explanation": "Flimsy means insubstantial and easily damaged. Strong is the opposite.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 81,
+      "question": "This is one of the best books that _______ ever been written.",
+      "options": {
+        "A": "has",
+        "B": "is",
+        "C": "have",
+        "D": "was"
+      },
+      "correct_answer": "C",
+      "explanation": "The relative clause refers to 'books' (plural), so 'have' is correct.",
+      "section": "grammar"
+    },
+    {
+      "id": 82,
+      "question": "Select the word where the stress is on the last syllable.",
+      "options": {
+        "A": "Government",
+        "B": "Reporter",
+        "C": "Beautiful",
+        "D": "Important"
+      },
+      "correct_answer": "B",
+      "explanation": "re-PORT-er has stress on the last syllable.",
+      "section": "oral_english"
+    },
+    {
+      "id": 83,
+      "question": "Nobody was present, _______ they?",
+      "options": {
+        "A": "was",
+        "B": "were",
+        "C": "wasn't",
+        "D": "weren't"
+      },
+      "correct_answer": "B",
+      "explanation": "With 'nobody' (negative subject), the tag is positive ('were they').",
+      "section": "grammar"
+    },
+    {
+      "id": 84,
+      "question": "She compared his work _______ mine.",
+      "options": {
+        "A": "with",
+        "B": "to",
+        "C": "by",
+        "D": "in"
+      },
+      "correct_answer": "A",
+      "explanation": "When comparing similar things, we use 'compare with'.",
+      "section": "grammar"
+    },
+    {
+      "id": 85,
+      "question": "The pen is mightier than the sword. Identify the figure of speech.",
+      "options": {
+        "A": "Hyperbole",
+        "B": "Metonymy",
+        "C": "Simile",
+        "D": "Paradox"
+      },
+      "correct_answer": "B",
+      "explanation": "Pen represents writing/wisdom, sword represents force/violence - metonymy.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 86,
+      "question": "I regret _______ the party early.",
+      "options": {
+        "A": "leaving",
+        "B": "to leave",
+        "C": "leave",
+        "D": "left"
+      },
+      "correct_answer": "A",
+      "explanation": "'Regret + -ing' refers to past actions we wish we hadn't done.",
+      "section": "grammar"
+    },
+    {
+      "id": 87,
+      "question": "The journey was quite arduous. (Nearest in meaning)",
+      "options": {
+        "A": "Easy",
+        "B": "Difficult",
+        "C": "Short",
+        "D": "Pleasant"
+      },
+      "correct_answer": "B",
+      "explanation": "Arduous means involving strenuous effort and difficulty.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 88,
+      "question": "His behavior was completely aberrant. (Opposite in meaning)",
+      "options": {
+        "A": "Normal",
+        "B": "Strange",
+        "C": "Odd",
+        "D": "Deviant"
+      },
+      "correct_answer": "A",
+      "explanation": "Aberrant means deviating from the norm. Normal is the opposite.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 89,
+      "question": "Either you or I _______ going to the market.",
+      "options": {
+        "A": "are",
+        "B": "is",
+        "C": "am",
+        "D": "were"
+      },
+      "correct_answer": "C",
+      "explanation": "When using 'either...or', the verb agrees with the closer subject (I - first person singular).",
+      "section": "grammar"
+    },
+    {
+      "id": 90,
+      "question": "Which word is pronounced with the /θ/ sound?",
+      "options": {
+        "A": "The",
+        "B": "Then",
+        "C": "Thin",
+        "D": "Though"
+      },
+      "correct_answer": "C",
+      "explanation": "'Thin' has the voiceless /θ/ sound (as in 'think').",
+      "section": "oral_english"
+    },
+    {
+      "id": 91,
+      "question": "She would have passed if she _______ studied harder.",
+      "options": {
+        "A": "have",
+        "B": "had",
+        "C": "was",
+        "D": "would have"
+      },
+      "correct_answer": "B",
+      "explanation": "Third conditional structure requires 'had + past participle' in the if-clause.",
+      "section": "grammar"
+    },
+    {
+      "id": 92,
+      "question": "He is addicted _______ smoking.",
+      "options": {
+        "A": "in",
+        "B": "with",
+        "C": "to",
+        "D": "for"
+      },
+      "correct_answer": "C",
+      "explanation": "The correct preposition after 'addicted' is 'to'.",
+      "section": "grammar"
+    },
+    {
+      "id": 93,
+      "question": "That was a brave coward. Identify the figure of speech.",
+      "options": {
+        "A": "Irony",
+        "B": "Paradox",
+        "C": "Oxymoron",
+        "D": "Metaphor"
+      },
+      "correct_answer": "C",
+      "explanation": "'Brave coward' combines contradictory terms - an oxymoron.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 94,
+      "question": "We decided _______ a movie.",
+      "options": {
+        "A": "seeing",
+        "B": "to see",
+        "C": "see",
+        "D": "saw"
+      },
+      "correct_answer": "B",
+      "explanation": "After 'decide', we use the infinitive 'to see'.",
+      "section": "grammar"
+    },
+    {
+      "id": 95,
+      "question": "The judge gave a stern warning. (Nearest in meaning)",
+      "options": {
+        "A": "Gentle",
+        "B": "Mild",
+        "C": "Severe",
+        "D": "Funny"
+      },
+      "correct_answer": "C",
+      "explanation": "Stern means serious, strict, and severe.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 96,
+      "question": "The report was entirely authentic. (Opposite in meaning)",
+      "options": {
+        "A": "Fake",
+        "B": "Real",
+        "C": "True",
+        "D": "Reliable"
+      },
+      "correct_answer": "A",
+      "explanation": "Authentic means genuine and real. Fake is the opposite.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 97,
+      "question": "The choir and the soloist _______ performing today.",
+      "options": {
+        "A": "is",
+        "B": "was",
+        "C": "are",
+        "D": "has been"
+      },
+      "correct_answer": "C",
+      "explanation": "Compound subject with 'and' takes a plural verb.",
+      "section": "grammar"
+    },
+    {
+      "id": 98,
+      "question": "Select the word that has a silent 'w'.",
+      "options": {
+        "A": "Water",
+        "B": "Write",
+        "C": "Worry",
+        "D": "Switch"
+      },
+      "correct_answer": "B",
+      "explanation": "In 'write', the 'w' is silent.",
+      "section": "oral_english"
+    },
+    {
+      "id": 99,
+      "question": "Hardly had I sat down _______ the telephone rang.",
+      "options": {
+        "A": "than",
+        "B": "when",
+        "C": "before",
+        "D": "and"
+      },
+      "correct_answer": "B",
+      "explanation": "The correct structure is 'Hardly...when' for two closely connected past events.",
+      "section": "grammar"
+    },
+    {
+      "id": 100,
+      "question": "He is fond _______ playing football.",
+      "options": {
+        "A": "with",
+        "B": "for",
+        "C": "to",
+        "D": "of"
+      },
+      "correct_answer": "D",
+      "explanation": "The correct preposition after 'fond' is 'of'.",
+      "section": "grammar"
+    },
+    {
+      "id": 101,
+      "question": "The evidence presented was highly tenuous. (Nearest in meaning)",
+      "options": {
+        "A": "Weak",
+        "B": "Strong",
+        "C": "Factual",
+        "D": "Irrelevant"
+      },
+      "correct_answer": "A",
+      "explanation": "Tenuous means very weak or slight; insubstantial.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 102,
+      "question": "The student was warned _______ playing truant.",
+      "options": {
+        "A": "about",
+        "B": "on",
+        "C": "off",
+        "D": "with"
+      },
+      "correct_answer": "A",
+      "explanation": "We warn someone 'about' something.",
+      "section": "grammar"
+    },
+    {
+      "id": 103,
+      "question": "Which word has the same vowel sound as 'bird'?",
+      "options": {
+        "A": "Beard",
+        "B": "Heard",
+        "C": "Bared",
+        "D": "Cared"
+      },
+      "correct_answer": "B",
+      "explanation": "'Heard' has the same /ɜː/ sound as 'bird'.",
+      "section": "oral_english"
+    },
+    {
+      "id": 104,
+      "question": "Not only the students but also the teacher _______ excited about the trip.",
+      "options": {
+        "A": "are",
+        "B": "is",
+        "C": "were",
+        "D": "have been"
+      },
+      "correct_answer": "B",
+      "explanation": "With 'not only...but also', the verb agrees with the closer subject (teacher - singular).",
+      "section": "grammar"
+    },
+    {
+      "id": 105,
+      "question": "The company's profits have increased _______ 20% this year.",
+      "options": {
+        "A": "with",
+        "B": "by",
+        "C": "for",
+        "D": "at"
+      },
+      "correct_answer": "B",
+      "explanation": "We use 'by' to indicate the amount of increase or decrease.",
+      "section": "grammar"
+    },
+    {
+      "id": 106,
+      "question": "His explanation was quite convoluted. (Nearest in meaning)",
+      "options": {
+        "A": "Simple",
+        "B": "Complicated",
+        "C": "Clear",
+        "D": "Brief"
+      },
+      "correct_answer": "B",
+      "explanation": "Convoluted means extremely complex and difficult to follow.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 107,
+      "question": "The manager was known for his pragmatic approach. (Opposite in meaning)",
+      "options": {
+        "A": "Practical",
+        "B": "Theoretical",
+        "C": "Efficient",
+        "D": "Realistic"
+      },
+      "correct_answer": "B",
+      "explanation": "Pragmatic means dealing with things sensibly and realistically. Theoretical is the opposite.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 108,
+      "question": "Select the word with the correct stress pattern: 'ED-U-CA-TION'",
+      "options": {
+        "A": "ED-u-ca-tion",
+        "B": "ed-U-ca-tion",
+        "C": "ed-u-CA-tion",
+        "D": "ed-u-ca-TION"
+      },
+      "correct_answer": "C",
+      "explanation": "The stress in 'education' falls on the third syllable: ed-u-CA-tion.",
+      "section": "oral_english"
+    },
+    {
+      "id": 109,
+      "question": "If she _______ earlier, she would have caught the train.",
+      "options": {
+        "A": "left",
+        "B": "had left",
+        "C": "would leave",
+        "D": "leaves"
+      },
+      "correct_answer": "B",
+      "explanation": "Third conditional requires 'had + past participle' in the if-clause.",
+      "section": "grammar"
+    },
+    {
+      "id": 110,
+      "question": "The children are looking forward _______ their grandparents.",
+      "options": {
+        "A": "to visit",
+        "B": "visiting",
+        "C": "to visiting",
+        "D": "visit"
+      },
+      "correct_answer": "C",
+      "explanation": "'Look forward to' is followed by the -ing form.",
+      "section": "grammar"
+    },
+    {
+      "id": 111,
+      "question": "The politician's speech was full of rhetoric. (Nearest in meaning)",
+      "options": {
+        "A": "Truth",
+        "B": "Persuasive language",
+        "C": "Facts",
+        "D": "Statistics"
+      },
+      "correct_answer": "B",
+      "explanation": "Rhetoric means language designed to have a persuasive or impressive effect.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 112,
+      "question": "Her response was quite terse. (Opposite in meaning)",
+      "options": {
+        "A": "Brief",
+        "B": "Lengthy",
+        "C": "Rude",
+        "D": "Polite"
+      },
+      "correct_answer": "B",
+      "explanation": "Terse means sparing in the use of words; abrupt. Lengthy is the opposite.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 113,
+      "question": "Which word contains a silent 'g'?",
+      "options": {
+        "A": "Giant",
+        "B": "Gnaw",
+        "C": "Game",
+        "D": "Gift"
+      },
+      "correct_answer": "B",
+      "explanation": "In 'gnaw', the 'g' is silent.",
+      "section": "oral_english"
+    },
+    {
+      "id": 114,
+      "question": "The team, along with their coach, _______ traveling tomorrow.",
+      "options": {
+        "A": "are",
+        "B": "is",
+        "C": "were",
+        "D": "have been"
+      },
+      "correct_answer": "B",
+      "explanation": "When using 'along with', the verb agrees with the main subject (team - singular).",
+      "section": "grammar"
+    },
+    {
+      "id": 115,
+      "question": "She has a great aptitude _______ mathematics.",
+      "options": {
+        "A": "for",
+        "B": "with",
+        "C": "to",
+        "D": "in"
+      },
+      "correct_answer": "A",
+      "explanation": "The correct preposition after 'aptitude' is 'for'.",
+      "section": "grammar"
+    },
+    {
+      "id": 116,
+      "question": "The CEO's decision was final and _______. (Nearest in meaning)",
+      "options": {
+        "A": "Irrevocable",
+        "B": "Changeable",
+        "C": "Temporary",
+        "D": "Debatable"
+      },
+      "correct_answer": "A",
+      "explanation": "Irrevocable means not able to be changed, reversed, or recovered.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 117,
+      "question": "The witness's testimony was credible. (Opposite in meaning)",
+      "options": {
+        "A": "Believable",
+        "B": "Trustworthy",
+        "C": "Doubtful",
+        "D": "Honest"
+      },
+      "correct_answer": "C",
+      "explanation": "Credible means able to be believed; convincing. Doubtful is the opposite.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 118,
+      "question": "Select the word where the stress is on the first syllable.",
+      "options": {
+        "A": "De-ve-lop",
+        "B": "Pho-to-graph",
+        "C": "Com-pu-ter",
+        "D": "Ho-tel"
+      },
+      "correct_answer": "D",
+      "explanation": "HO-tel has stress on the first syllable.",
+      "section": "oral_english"
+    },
+    {
+      "id": 119,
+      "question": "By this time next year, I _______ my university degree.",
+      "options": {
+        "A": "will complete",
+        "B": "will have completed",
+        "C": "complete",
+        "D": "am completing"
+      },
+      "correct_answer": "B",
+      "explanation": "Future perfect tense is used for actions completed before a specific future time.",
+      "section": "grammar"
+    },
+    {
+      "id": 120,
+      "question": "The students were prohibited _______ using mobile phones in class.",
+      "options": {
+        "A": "from",
+        "B": "to",
+        "C": "with",
+        "D": "by"
+      },
+      "correct_answer": "A",
+      "explanation": "The correct preposition after 'prohibited' is 'from'.",
+      "section": "grammar"
+    },
+    {
+      "id": 121,
+      "question": "The company's new policy was met with widespread _______.",
+      "options": {
+        "A": "acclaim",
+        "B": "criticism",
+        "C": "approval",
+        "D": "support"
+      },
+      "correct_answer": "B",
+      "explanation": "Context suggests negative reaction, so 'criticism' fits best.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 122,
+      "question": "His meticulous attention to detail impressed everyone. (Nearest in meaning)",
+      "options": {
+        "A": "Careless",
+        "B": "Thorough",
+        "C": "Casual",
+        "D": "Quick"
+      },
+      "correct_answer": "B",
+      "explanation": "Meticulous means showing great attention to detail; very careful and precise.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 123,
+      "question": "The river overflowed its banks. Identify the figure of speech.",
+      "options": {
+        "A": "Metaphor",
+        "B": "Simile",
+        "C": "Personification",
+        "D": "Hyperbole"
+      },
+      "correct_answer": "C",
+      "explanation": "Giving human action (overflowing) to a non-human object (river) is personification.",
+      "section": "literary_devices"
+    },
+    {
+      "id": 124,
+      "question": "Which word is pronounced with the /ʃ/ sound?",
+      "options": {
+        "A": "Chef",
+        "B": "Church",
+        "C": "Character",
+        "D": "Choir"
+      },
+      "correct_answer": "A",
+      "explanation": "'Chef' is pronounced with the /ʃ/ sound (as in 'ship').",
+      "section": "oral_english"
+    },
+    {
+      "id": 125,
+      "question": "Neither the manager nor the employees _______ responsible for the error.",
+      "options": {
+        "A": "are",
+        "B": "is",
+        "C": "was",
+        "D": "has been"
+      },
+      "correct_answer": "A",
+      "explanation": "When using 'neither...nor', the verb agrees with the closer subject (employees - plural).",
+      "section": "grammar"
+    },
+    {
+      "id": 126,
+      "question": "She succeeded _______ convincing the committee.",
+      "options": {
+        "A": "in",
+        "B": "at",
+        "C": "with",
+        "D": "for"
+      },
+      "correct_answer": "A",
+      "explanation": "The correct preposition after 'succeeded' is 'in'.",
+      "section": "grammar"
+    },
+    {
+      "id": 127,
+      "question": "The artist's work was characterized by its _______ style.",
+      "options": {
+        "A": "conventional",
+        "B": "innovative",
+        "C": "traditional",
+        "D": "ordinary"
+      },
+      "correct_answer": "B",
+      "explanation": "Context suggests distinctive or unique style, so 'innovative' fits best.",
+      "section": "lexis_and_structure"
+    },
+    {
+      "id": 128,
+      "question": "The storm caused _______ damage to the coastal area.",
+      "options": {
+        "A": "minimal",
+        "B": "significant",
+        "C": "slight",
+        "D": "minor"
+      },
+      "correct_answer": "B",
+      "explanation": "Storm context suggests substantial impact, so 'significant' fits best.",
+      "section": "lexis_and_structure"
+    }
+]
+      "id": 129,
+      "question": "Who is the principal of Stardom Schools?",
+      "options": {
+        "A": "Mrs. Ibidun Gloss",
+        "B": "Mr. Bepo",
+        "C": "Mr. Jeremi Amos",
+        "D": "Chief David Aje"
+      },
+      "correct_answer": "B",
+      "explanation": "Mr. Bepo is the principal of Stardom Schools throughout the novel.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 130,
+      "question": "What nickname was given to Mr. Bepo during his time at Stardom Schools?",
+      "options": {
+        "A": "The Lekki Administrator",
+        "B": "The Lekki Headmaster",
+        "C": "The Stardom Boss",
+        "D": "The Education Reformer"
+      },
+      "correct_answer": "B",
+      "explanation": "Mr. Bepo was nicknamed 'The Lekki Headmaster' by his colleagues.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 131,
+      "question": "What was the reason for Mr. Bepo's potential relocation?",
+      "options": {
+        "A": "To start a rival school in London",
+        "B": "To escape financial trouble in Lagos",
+        "C": "Family pressure and the need to join his wife and children in the UK",
+        "D": "To pursue a PhD abroad"
+      },
+      "correct_answer": "C",
+      "explanation": "Bepo considered relocating to join his wife and children who were already in the UK.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 132,
+      "question": "How long did Mr. Bepo serve as Headmaster at Stardom Kiddies?",
+      "options": {
+        "A": "two years",
+        "B": "four years",
+        "C": "six years",
+        "D": "five years"
+      },
+      "correct_answer": "B",
+      "explanation": "Mr. Bepo served as Headmaster at Stardom Kiddies for four years.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 133,
+      "question": "What incident led to a legal issue involving a student and a teacher?",
+      "options": {
+        "A": "A teacher used corporal punishment on a student",
+        "B": "A parent sued the school after their daughter was asked to write on the marker board for others to copy, claiming visual exploitation",
+        "C": "A teacher disclosed examination questions prematurely",
+        "D": "A staff member was accused of theft"
+      },
+      "correct_answer": "B",
+      "explanation": "A parent sued claiming visual exploitation when their daughter was asked to write on the board.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 134,
+      "question": "What was the outcome of the legal case involving the student?",
+      "options": {
+        "A": "The teacher was jailed, and the principal was demoted",
+        "B": "The matter was settled out of court, with the student receiving one tuition-free term and the teacher being suspended without pay for three months",
+        "C": "The case was dismissed by the court",
+        "D": "The school had to pay a fine of N5 million"
+      },
+      "correct_answer": "B",
+      "explanation": "The case was settled out of court with specific penalties for both parties.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 135,
+      "question": "What was the principal's approach to resolving conflicts among teachers?",
+      "options": {
+        "A": "He immediately dismissed the involved staff",
+        "B": "He often accommodated their agitation and resolved issues with a humanistic and empathetic disposition",
+        "C": "He always sided with the management",
+        "D": "He used written warnings exclusively"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo was known for his humanistic and empathetic approach to conflict resolution.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 136,
+      "question": "What was the principal's reaction to the teachers' jokes about his conflict resolution style?",
+      "options": {
+        "A": "Mr. Bepo felt insulted and issued a warning",
+        "B": "Mr. Bepo ignored them completely",
+        "C": "Mr. Bepo found the jokes funny, and the nickname 'The Lekki Headmaster' stuck with him",
+        "D": "Mr. Bepo reported them to the school board"
+      },
+      "correct_answer": "C",
+      "explanation": "Bepo took the jokes in good humor and the nickname became part of his identity.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 137,
+      "question": "What financial incentive did Stardom Schools introduce to reduce lateness?",
+      "options": {
+        "A": "The school offered cash prizes for punctuality",
+        "B": "The school lowered its boarding fees from N250,000 to N165,000, which encouraged more parents to enroll their children in the boarding house",
+        "C": "The school increased staff salaries",
+        "D": "The school introduced stricter punishment for latecomers"
+      },
+      "correct_answer": "B",
+      "explanation": "Reduced boarding fees encouraged more students to board, improving punctuality.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 138,
+      "question": "How did the students respond to the new boarding fee policy?",
+      "options": {
+        "A": "Enrollment remained unchanged",
+        "B": "Less than 20 percent moved to the boarding house",
+        "C": "More than 80 percent of parents moved their children to the boarding house, leading to improved punctuality for the morning assembly",
+        "D": "The school had to reverse the policy due to parent complaints"
+      },
+      "correct_answer": "C",
+      "explanation": "The policy was highly successful with over 80% of students moving to boarding.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 139,
+      "question": "What was the cost of the intent forms for the position of Head Girl?",
+      "options": {
+        "A": "N10,000",
+        "B": "N25,000",
+        "C": "N50,000",
+        "D": "N100,000"
+      },
+      "correct_answer": "C",
+      "explanation": "Intent forms for Head Girl position cost N50,000.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 140,
+      "question": "What criteria were used to screen prefect candidates?",
+      "options": {
+        "A": "Wealth of parents and political connections",
+        "B": "Academic performance, moral history, duration of attendance at the school, and fee payment status",
+        "C": "Social media presence and popularity",
+        "D": "Age and height of the candidates only"
+      },
+      "correct_answer": "B",
+      "explanation": "Multiple criteria including academics, moral history, and school attendance were used.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 141,
+      "question": "What was the principal's concern regarding the management of the cooperative's loans?",
+      "options": {
+        "A": "That the cooperative was lending money too slowly",
+        "B": "The principal was worried about the amount of money in the cooperative's account and the potential for staff to rebel and establish their own school",
+        "C": "That the cooperative was only lending to senior staff",
+        "D": "That the loans were too small to be meaningful"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo was concerned about the large sums involved and potential staff rebellion.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 142,
+      "question": "What did Mr. Bepo think about the challenges of teaching in a new country?",
+      "options": {
+        "A": "Mr. Bepo believed it would be easy and stress-free",
+        "B": "Mr. Bepo was certain he would fail",
+        "C": "Mr. Bepo acknowledged that life anywhere is not a bed of roses and that every place has its challenges",
+        "D": "Mr. Bepo thought the UK was the only place without educational problems"
+      },
+      "correct_answer": "C",
+      "explanation": "Bepo recognized that challenges exist everywhere, not just in Nigeria.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 143,
+      "question": "How did the principal feel about leaving unresolved issues behind?",
+      "options": {
+        "A": "Bepo was relieved to be leaving the problems for his successor",
+        "B": "Bepo wished that the legal tussle between the families of his pupils did not linger as he stepped out of the country",
+        "C": "Bepo felt indifferent",
+        "D": "Bepo planned to continue managing the problems from the UK"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo was concerned about unresolved issues, particularly the legal case.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 144,
+      "question": "What was the principal's emotional state during the assembly?",
+      "options": {
+        "A": "The principal was seen sobbing uncontrollably and rolling on the floor, indicating a deep emotional struggle",
+        "B": "The principal was angry and shouted at the students",
+        "C": "The principal was calm and collected",
+        "D": "The principal appeared bored and disinterested"
+      },
+      "correct_answer": "A",
+      "explanation": "Bepo experienced deep emotional turmoil, visible during school assemblies.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 145,
+      "question": "What was the principal's reaction to the news of a suspect on TV?",
+      "options": {
+        "A": "Bepo felt excited and volunteered information",
+        "B": "Bepo ignored the news",
+        "C": "Bepo felt depressed and confused, contemplating whether to report the Beesway director to the police",
+        "D": "Bepo immediately called the police"
+      },
+      "correct_answer": "C",
+      "explanation": "Seeing a suspect on TV triggered Bepo's internal conflict about reporting someone.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 146,
+      "question": "What did the principal think about the potential consequences of reporting the director?",
+      "options": {
+        "A": "He was concerned about the financial implications of mobilizing the police and handling potential court cases",
+        "B": "He worried about being promoted too quickly",
+        "C": "He was concerned about disappointing his wife",
+        "D": "He thought the consequence would be immediate fame"
+      },
+      "correct_answer": "A",
+      "explanation": "Bepo was worried about the financial and legal implications of reporting someone.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 147,
+      "question": "What was the principal's relationship with his students?",
+      "options": {
+        "A": "Mr. Bepo was harsh and distant with them",
+        "B": "Mr. Bepo only cared about their academic performance",
+        "C": "Mr. Bepo cared deeply about his students and wanted to be part of their growth",
+        "D": "Mr. Bepo was indifferent to their emotional needs"
+      },
+      "correct_answer": "C",
+      "explanation": "Bepo had a deep, caring relationship with his students and valued their development.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 148,
+      "question": "How did the principal's colleagues react to his decision to relocate?",
+      "options": {
+        "A": "They staged a protest",
+        "B": "They organized a serious, solemn farewell party",
+        "C": "Many of Mr. Bepo's colleagues found his reaction to the impending relocation extremely funny",
+        "D": "They ignored his decision entirely"
+      },
+      "correct_answer": "C",
+      "explanation": "Colleagues found humor in Bepo's dramatic reactions to his potential relocation.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 149,
+      "question": "What unique teaching method did Bepo introduce at Fruitful Future School?",
+      "options": {
+        "A": "Bepo encouraged pupils to teach their parents a topic they learned during the school day, which reassured parents about the quality of teaching",
+        "B": "Bepo introduced an all-day technology class",
+        "C": "Bepo forced parents to attend daily evening classes",
+        "D": "Bepo eliminated all homework"
+      },
+      "correct_answer": "A",
+      "explanation": "Bepo's innovative method involved students teaching parents what they learned.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 150,
+      "question": "How did the enrollment at Fruitful Future School change over time?",
+      "options": {
+        "A": "Enrollment rapidly declined after the first session",
+        "B": "Enrollment grew to over 70 pupils by the end of the third session due to lower fees and innovative teaching methods",
+        "C": "Enrollment remained stagnant due to high fees",
+        "D": "Enrollment doubled every session"
+      },
+      "correct_answer": "B",
+      "explanation": "The school experienced significant growth reaching over 70 pupils.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 151,
+      "question": "What was the significance of the cow burial incident in the story?",
+      "options": {
+        "A": "It was a traditional ceremony for new buildings",
+        "B": "The live burial of a cow was part of a bizarre ritual that left Bepo questioning the actions of the school director and the nature of the school environment",
+        "C": "It was a community feast for a new chief",
+        "D": "It symbolized a drought in the region"
+      },
+      "correct_answer": "B",
+      "explanation": "The cow burial was a disturbing ritual that troubled Bepo deeply.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 152,
+      "question": "What was the reaction of the parents to the innovative teaching method introduced by Bepo?",
+      "options": {
+        "A": "Parents complained it added too much stress to their evenings",
+        "B": "Parents found the idea of their children teaching them at home to be novel and reassuring, leading to positive feedback about the school",
+        "C": "Parents did not participate",
+        "D": "Parents demanded a reduction in fees instead"
+      },
+      "correct_answer": "B",
+      "explanation": "Parents responded positively to the innovative teaching approach.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 153,
+      "question": "What was the purpose of the prefect election process at Stardom Schools?",
+      "options": {
+        "A": "To raise funds for the school's social activities",
+        "B": "The prefect election process aimed to introduce students to democratic culture and encourage leadership skills from an early age",
+        "C": "To punish students with low academic scores",
+        "D": "To select students who could manage the school's finances"
+      },
+      "correct_answer": "B",
+      "explanation": "The elections were designed to teach democracy and develop leadership skills.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 154,
+      "question": "What was the role of the panel during the prefect screening process?",
+      "options": {
+        "A": "The panel, consisting of only the principal, interviewed the students",
+        "B": "The panel, consisting of academic and non-academic staff, screened candidates to ensure they met the school's criteria for leadership",
+        "C": "The panel decided the winners based on parental wealth",
+        "D": "The panel organized the cleaning of the classrooms"
+      },
+      "correct_answer": "B",
+      "explanation": "A diverse panel of staff members conducted the screening process.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 155,
+      "question": "How did Bepo feel about the potential impact of his relocation on his students?",
+      "options": {
+        "A": "Bepo felt excited about starting over with new students",
+        "B": "Bepo felt a strong attachment to his students and was conflicted about leaving them behind in a developing nation",
+        "C": "Bepo felt certain they would forget him quickly",
+        "D": "Bepo believed the school was better off without him"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo was deeply conflicted about leaving his students behind.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 156,
+      "question": "What was the financial situation of the cooperative mentioned in the story?",
+      "options": {
+        "A": "The cooperative was bankrupt",
+        "B": "The cooperative had N95 million, with over N50 million loaned out, raising concerns about financial stability and management",
+        "C": "The cooperative was managed by the government",
+        "D": "The cooperative had only N10,000 left"
+      },
+      "correct_answer": "B",
+      "explanation": "The cooperative had significant funds but most were loaned out, causing concern.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 157,
+      "question": "How did the principal's colleagues perceive his nickname, 'The Lekki Headmaster'?",
+      "options": {
+        "A": "The nickname was seen as an insult",
+        "B": "The nickname was embraced by many, reflecting Bepo's reputation for conflict resolution and his empathetic approach to leadership",
+        "C": "The nickname was ignored",
+        "D": "The nickname was strictly reserved for official documents"
+      },
+      "correct_answer": "B",
+      "explanation": "The nickname reflected Bepo's respected leadership style and was widely accepted.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 158,
+      "question": "What was the significance of the dances performed by the drama club?",
+      "options": {
+        "A": "The dances were primarily contemporary ballet",
+        "B": "The dances were all foreign styles",
+        "C": "The dances showcased the richness of Nigerian arts and culture, highlighting Bepo's appreciation for cultural heritage",
+        "D": "The dances were purely for physical exercise"
+      },
+      "correct_answer": "C",
+      "explanation": "The dances celebrated Nigerian cultural heritage, which Bepo valued highly.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 159,
+      "question": "What was the principal's concern regarding the school's reputation?",
+      "options": {
+        "A": "Bepo was concerned about maintaining the school's reputation amidst the legal tussles and financial issues",
+        "B": "Bepo was unconcerned with public opinion",
+        "C": "Bepo was only concerned with government inspection ratings",
+        "D": "Bepo worried about the colour of the school uniform"
+      },
+      "correct_answer": "A",
+      "explanation": "Bepo was deeply concerned about protecting the school's reputation during challenges.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 160,
+      "question": "How did Bepo's past experiences influence his approach to education?",
+      "options": {
+        "A": "Bepo's past military training made him a strict disciplinarian",
+        "B": "Bepo's time as a lawyer influenced his focus on legal documents",
+        "C": "Bepo's experiences during his National Youth Service Corps influenced his innovative teaching methods and commitment to quality education",
+        "D": "Bepo's early career as a banker made him focus only on fees"
+      },
+      "correct_answer": "C",
+      "explanation": "Bepo's NYSC experience shaped his educational philosophy and methods.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 161,
+      "question": "What was the outcome of the screening process for prefect candidates?",
+      "options": {
+        "A": "All candidates were disqualified",
+        "B": "Candidates who successfully passed the screening were announced at the assembly, allowing the school community to know them",
+        "C": "The results were kept secret",
+        "D": "Only the parents were informed of the outcome"
+      },
+      "correct_answer": "B",
+      "explanation": "Successful candidates were publicly announced at school assembly.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 162,
+      "question": "How did the principal handle conflicts among staff members?",
+      "options": {
+        "A": "Bepo fired staff members immediately after any conflict",
+        "B": "Bepo resolved conflicts with empathy and understanding, often accommodating the concerns of his staff",
+        "C": "Bepo delegated all conflict resolution to Mrs. Gloss",
+        "D": "Bepo organized a staff boxing match"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo's empathetic approach to conflict resolution was a hallmark of his leadership.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 163,
+      "question": "What was the principal's view on the importance of moral history for prefect candidates?",
+      "options": {
+        "A": "Bepo believed it was irrelevant to leadership",
+        "B": "Bepo believed that a good moral history was essential for candidates, as it reflected their ability to lead by example",
+        "C": "Bepo only checked academic scores",
+        "D": "Bepo prioritized physical appearance over moral history"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo considered moral character crucial for leadership positions.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 164,
+      "question": "What was the principal's emotional response to the challenges he faced?",
+      "options": {
+        "A": "Bepo was always aggressive and confrontation",
+        "B": "Bepo often felt overwhelmed by the challenges, leading to moments of deep reflection and emotional struggle",
+        "C": "Bepo was perfectly stable and unemotional",
+        "D": "Bepo sought to resolve all issues through violence"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo experienced deep emotional struggles when facing challenges.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 165,
+      "question": "How did the principal's family influence his decision to relocate?",
+      "options": {
+        "A": "His family opposed his relocation",
+        "B": "Family pressure, particularly from his wife and children, played a significant role in Bepo's decision to consider relocating to the UK",
+        "C": "His family wanted him to move to Ghana",
+        "D": "His family was indifferent to his location"
+      },
+      "correct_answer": "B",
+      "explanation": "Family pressure was a major factor in Bepo's consideration of relocation.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 166,
+      "question": "What was the significance of the cooperative's loans to the staff?",
+      "options": {
+        "A": "The loans were a mandatory part of their salary",
+        "B": "The loans were a source of financial support for staff, but their management raised concerns about potential rebellion and loss of control",
+        "C": "The loans were insignificant to the staff",
+        "D": "The loans were only given to the principal"
+      },
+      "correct_answer": "B",
+      "explanation": "While helpful to staff, the loans created management and control concerns.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 167,
+      "question": "How did Bepo's colleagues react to the school's financial challenges?",
+      "options": {
+        "A": "They all quit immediately",
+        "B": "Many of Bepo's colleagues were concerned about the financial challenges and the potential impact on the school's operations",
+        "C": "They offered to donate their life savings",
+        "D": "They held a celebratory party"
+      },
+      "correct_answer": "B",
+      "explanation": "Staff shared concerns about the financial difficulties facing the school.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 168,
+      "question": "What was the principal's approach to ensuring quality teaching at his school?",
+      "options": {
+        "A": "Bepo focused only on high fees",
+        "B": "Bepo focused on innovative teaching methods, lower fees, and parental involvement to ensure quality education at his school",
+        "C": "Bepo outsourced teaching to foreign firms",
+        "D": "Bepo relied only on outdated textbooks"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo used multiple strategies including innovation and parent engagement.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 169,
+      "question": "What cultural dances were performed during the school's event?",
+      "options": {
+        "A": "Only American Hip-hop was performed",
+        "B": "Only Ballet and Waltz were performed",
+        "C": "The dances included the Bata, Atilogwu, Koroso, and Canoe dances, showcasing the diversity of Nigerian culture",
+        "D": "Only European folk dances were performed"
+      },
+      "correct_answer": "C",
+      "explanation": "Various traditional Nigerian dances were performed, celebrating cultural diversity.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 170,
+      "question": "How did Bepo feel about the future of Fruitful Future School?",
+      "options": {
+        "A": "Bepo believed the school was doomed to fail",
+        "B": "Bepo saw a great future for the school, despite the challenges, due to its growing enrollment and positive reputation",
+        "C": "Bepo planned to merge it with Stardom Schools",
+        "D": "Bepo hoped a new principal would take over immediately"
+      },
+      "correct_answer": "B",
+      "explanation": "Despite challenges, Bepo remained optimistic about the school's future.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 171,
+      "question": "What was the principal's reaction to the idea of performing a rite to attract more pupils?",
+      "options": {
+        "A": "Bepo strongly supported the rite",
+        "B": "Bepo immediately paid for the rite",
+        "C": "Bepo was skeptical about the effectiveness and ethics of performing a rite to attract pupils to the school",
+        "D": "Bepo only agreed to spiritual methods"
+      },
+      "correct_answer": "C",
+      "explanation": "Bepo was doubtful about using rituals for school promotion.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 172,
+      "question": "How did the principal's empathetic nature affect his leadership style?",
+      "options": {
+        "A": "Bepo's empathetic nature made him weak and easily manipulated",
+        "B": "Bepo's empathetic nature allowed him to connect with both students and staff, fostering a supportive school environment",
+        "C": "Bepo's empathy led to all his decisions being overturned",
+        "D": "Bepo lost respect due to his empathy"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo's empathy was a strength that created a positive school culture.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 173,
+      "question": "What was the principal's concern regarding the school's democratic practices?",
+      "options": {
+        "A": "Bepo believed democratic practices were a waste of time",
+        "B": "Bepo believed in introducing democratic practices early on, ensuring that students understood the importance of leadership and representation",
+        "C": "Bepo only allowed the wealthiest students to vote",
+        "D": "Bepo believed in dictatorship"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo valued democratic education and early leadership development.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 174,
+      "question": "How did the principal's past experiences shape his views on education?",
+      "options": {
+        "A": "His experiences made him rigid in his teaching methods",
+        "B": "Bepo's experiences in different educational settings influenced his commitment to innovative teaching and student engagement",
+        "C": "His experiences discouraged him from teaching entirely",
+        "D": "His past made him focus solely on rote learning"
+      },
+      "correct_answer": "B",
+      "explanation": "Diverse experiences shaped Bepo's innovative approach to education.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 175,
+      "question": "What was the significance of the prefect election fees?",
+      "options": {
+        "A": "The fees were used to pay staff salaries",
+        "B": "The fees for prefect elections were intended to cover administrative costs and emphasize the seriousness of the positions",
+        "C": "The fees were a major source of school income",
+        "D": "The fees were immediately refunded to candidates"
+      },
+      "correct_answer": "B",
+      "explanation": "Fees served both practical and symbolic purposes in the election process.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 176,
+      "question": "How did the principal view the relationship between parents and the school?",
+      "options": {
+        "A": "Bepo saw parents as only a source of funding",
+        "B": "Bepo tried to keep parents completely separate from school life",
+        "C": "Bepo valued the relationship with parents and believed their involvement was crucial for the success of the students and the school",
+        "D": "Bepo viewed parents as adversaries"
+      },
+      "correct_answer": "C",
+      "explanation": "Bepo valued strong parent-school partnerships for student success.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 177,
+      "question": "What was the principal's perspective on the challenges of teaching in a developing country?",
+      "options": {
+        "A": "Bepo believed the challenges were insurmountable",
+        "B": "Bepo recognized the challenges but remained committed to providing quality education and supporting his students",
+        "C": "Bepo thought the challenges were worse in developed countries",
+        "D": "Bepo saw the challenges as irrelevant"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo acknowledged challenges but maintained his commitment to education.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 178,
+      "question": "How did the principal's colleagues support him during difficult times?",
+      "options": {
+        "A": "They never offered any support",
+        "B": "Bepo's colleagues often provided emotional support and shared in the challenges of managing the school",
+        "C": "They constantly criticized his every move",
+        "D": "They reported him to the school board"
+      },
+      "correct_answer": "B",
+      "explanation": "Colleagues provided valuable support during challenging periods.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 179,
+      "question": "What was the principal's strategy for improving student attendance?",
+      "options": {
+        "A": "The principal implemented a harsh punishment system for lateness",
+        "B": "The principal reduced boarding fees to encourage more parents to enroll their children in the boarding house, which improved attendance",
+        "C": "The principal cancelled morning assembly",
+        "D": "The principal gave out free uniforms"
+      },
+      "correct_answer": "B",
+      "explanation": "The boarding fee reduction strategy successfully improved attendance.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 180,
+      "question": "How did the principal handle the emotional reactions of students during assemblies?",
+      "options": {
+        "A": "Bepo ignored all emotional displays",
+        "B": "Bepo was attentive to the emotional needs of students and often addressed their concerns with empathy and understanding",
+        "C": "Bepo sent all emotional students home",
+        "D": "Bepo made jokes to lighten the mood"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo was sensitive and responsive to students' emotional needs.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 181,
+      "question": "What was the significance of the principal's return to the school?",
+      "options": {
+        "A": "Bepo's return was met with indifference",
+        "B": "Bepo's return was celebrated by students, indicating their strong attachment to him and the positive impact he had on their lives",
+        "C": "Bepo's return was mandated by the government",
+        "D": "Bepo's return caused a riot"
+      },
+      "correct_answer": "B",
+      "explanation": "Students' warm welcome showed their deep connection to Bepo.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 182,
+      "question": "How did the principal view the role of extracurricular activities in education?",
+      "options": {
+        "A": "Bepo saw them as distractions from academics",
+        "B": "Bepo believed that extracurricular activities were essential for holistic development and encouraged student participation in various clubs",
+        "C": "Bepo only allowed sporting activities",
+        "D": "Bepo banned all clubs"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo valued extracurricular activities for comprehensive student development.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 183,
+      "question": "What was the principal's approach to addressing bullying in the school?",
+      "options": {
+        "A": "Bepo ignored bullying, believing students should resolve it themselves",
+        "B": "Bepo implemented policies to promote respect and understanding among students, creating a safe environment for everyone",
+        "C": "Bepo outsourced anti-bullying programs",
+        "D": "Bepo used severe, physical punishment for bullies"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo used proactive, respectful approaches to prevent bullying.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 184,
+      "question": "How did the principal's leadership style influence the school culture?",
+      "options": {
+        "A": "Bepo's style led to an autocratic and fearful culture",
+        "B": "Bepo's empathetic and inclusive leadership style fostered a positive school culture where students felt valued and supported",
+        "C": "Bepo's style resulted in low academic standards",
+        "D": "Bepo's style led to mass teacher resignations"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo's leadership created a positive, supportive school environment.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 185,
+      "question": "What challenges did the principal face regarding staff morale?",
+      "options": {
+        "A": "Bepo faced challenges related to staff morale due to financial constraints and the pressure of meeting educational standards",
+        "B": "Bepo's staff morale was always extremely high",
+        "C": "Bepo only faced challenges with student morale",
+        "D": "Bepo's biggest challenge was staff over-enthusiasm"
+      },
+      "correct_answer": "A",
+      "explanation": "Financial and academic pressures affected staff morale.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 186,
+      "question": "How did the principal encourage parental involvement in school activities?",
+      "options": {
+        "A": "Bepo threatened parents with expulsion if they did not attend events",
+        "B": "Bepo organized events and meetings to engage parents and encourage their participation in their children's education",
+        "C": "Bepo charged parents a high fee to attend events",
+        "D": "Bepo relied solely on email communication"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo actively organized events to foster parent involvement.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 187,
+      "question": "What was the principal's perspective on the importance of academic performance?",
+      "options": {
+        "A": "Bepo viewed academic performance as secondary to social skills",
+        "B": "Bepo emphasized the importance of academic performance as a foundation for future success and encouraged students to strive for excellence",
+        "C": "Bepo believed only average performance was necessary",
+        "D": "Bepo ignored academic results entirely"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo valued academic excellence while also supporting holistic development.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 188,
+      "question": "How did the principal respond to criticism from parents?",
+      "options": {
+        "A": "Bepo immediately defended the school without listening",
+        "B": "Bepo listened to parental concerns and addressed them constructively, seeking to improve the school's practices based on feedback",
+        "C": "Bepo banned critical parents from the school",
+        "D": "Bepo always agreed with the parents without question"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo used parent feedback constructively for school improvement.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 189,
+      "question": "What role did the drama club play in the school's activities?",
+      "options": {
+        "A": "The drama club was mandatory for all students",
+        "B": "The drama club provided students with opportunities to express themselves creatively and develop their confidence through performances",
+        "C": "The drama club was only for the principal's children",
+        "D": "The drama club focused solely on Shakespearean plays"
+      },
+      "correct_answer": "B",
+      "explanation": "The drama club fostered creativity and confidence through performances.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 190,
+      "question": "How did the principal view the impact of technology on education?",
+      "options": {
+        "A": "Bepo completely rejected all forms of technology",
+        "B": "Bepo recognized the importance of integrating technology into the curriculum to enhance learning and prepare students for the future",
+        "C": "Bepo only allowed the use of mobile phones in class",
+        "D": "Bepo believed technology was only for entertainment"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo understood technology's important role in modern education.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 191,
+      "question": "What was the principal's approach to professional development for teachers?",
+      "options": {
+        "A": "Bepo provided no training",
+        "B": "Bepo encouraged continuous professional development for teachers to improve their skills and stay updated on educational practices",
+        "C": "Bepo forced teachers to pay for all their training",
+        "D": "Bepo relied only on old training manuals"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo supported ongoing professional development for teaching staff.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 192,
+      "question": "How did the principal handle conflicts between students?",
+      "options": { 
+        "A": "Bepo left student conflicts for the Games Master to handle",
+        "B": "Bepo mediated conflicts between students by facilitating open discussions and encouraging them to find common ground",
+        "C": "Bepo always punished both sides equally",
+        "D": "Bepo ignored minor conflicts"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo used mediation and dialogue to resolve student conflicts.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 193,
+      "question": "What was the significance of the school's motto?",
+      "options": {
+        "A": "The school's motto was a random, untranslated Latin phrase",
+        "B": "The school's motto reflected its commitment to excellence and the belief that every student could achieve their potential",
+        "C": "The school's motto was changed weekly",
+        "D": "The school's motto was a quote from Mr. Bepo"
+      },
+      "correct_answer": "B",
+      "explanation": "The motto embodied the school's educational philosophy and high expectations.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 194,
+      "question": "How did the principal celebrate student achievements?",
+      "options": {
+        "A": "Bepo only sent private emails to parents",
+        "B": "Bepo organized award ceremonies and recognition events to celebrate student achievements and motivate others",
+        "C": "Bepo gave verbal praise only",
+        "D": "Bepo only celebrated academic achievements, ignoring sports"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo used formal recognition events to celebrate various achievements.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 195,
+      "question": "What was the principal's view on the importance of community service?",
+      "options": {
+        "A": "Bepo believed community service was a waste of instructional time",
+        "B": "Bepo believed that community service was essential for developing empathy and social responsibility among students",
+        "C": "Bepo banned all community service",
+        "D": "Bepo saw community service as a form of punishment"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo valued community service for character development.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 196,
+      "question": "How did the principal address the issue of financial constraints in the school?",
+      "options": {
+        "A": "Bepo took out large, personal loans",
+        "B": "Bepo sought partnerships and sponsorships to alleviate financial constraints and improve the school's resources",
+        "C": "Bepo relied entirely on a secret government grant",
+        "D": "Bepo increased tuition fees drastically"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo pursued partnerships to address financial challenges.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 197,
+      "question": "What was the principal's approach to fostering a sense of belonging among students?",
+      "options": {
+        "A": "Bepo enforced strict silence to promote focus",
+        "B": "Bepo created an inclusive environment where every student felt valued and part of the school community",
+        "C": "Bepo only focused on the top-performing students",
+        "D": "Bepo separated students based on their parents' social status"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo worked to create an inclusive, welcoming school environment.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 198,
+      "question": "How did the principal handle the transition of new students into the school?",
+      "options": {
+        "A": "Bepo ignored new students, expecting them to adjust on their own",
+        "B": "Bepo implemented orientation programs to help new students acclimate and feel welcomed in the school environment",
+        "C": "Bepo assigned them difficult exams immediately",
+        "D": "Bepo delegated the entire process to the youngest students"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo used orientation programs to support new student transitions.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 199,
+      "question": "What was the principal's perspective on the role of sports in education?",
+      "options": {
+        "A": "Bepo banned sports to focus only on academics",
+        "B": "Bepo viewed sports as an important aspect of education that promotes teamwork, discipline, and physical fitness",
+        "C": "Bepo only allowed professional sports teams on campus",
+        "D": "Bepo required all teachers to be Games Masters"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo recognized the educational value of sports beyond physical activity.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 200,
+      "question": "How did the principal encourage creativity among students?",
+      "options": {
+        "A": "Bepo insisted on only repetitive, rote tasks",
+        "B": "Bepo provided opportunities for students to engage in creative projects and express their ideas through various mediums",
+        "C": "Bepo limited creative expression to art class only",
+        "D": "Bepo believed creativity was innate and did not need encouragement"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo actively fostered creativity through diverse projects and activities.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 201,
+      "question": "What was the principal's reaction to the school's performance in academic competitions?",
+      "options": {
+        "A": "Bepo ignored all competition results",
+        "B": "Bepo celebrated the school's achievements in academic competitions and used them as motivation for continuous improvement",
+        "C": "Bepo fired teachers if results were not first place",
+        "D": "Bepo criticized the students publicly for low scores"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo used competition results positively to motivate improvement.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 202,
+      "question": "How did the principal address the issue of student absenteeism?",
+      "options": {
+        "A": "Bepo ignored the issue",
+        "B": "Bepo implemented strategies to identify the reasons for absenteeism and worked with families to encourage regular attendance",
+        "C": "Bepo implemented strategies to charge a fine for every day missed",
+        "D": "Bepo expelled students after one day of absence"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo used supportive, investigative approaches to address absenteeism.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 203,
+      "question": "What was the principal's approach to teaching values and ethics in the school?",
+      "options": {
+        "A": "Bepo only taught values in a separate religious studies class",
+        "B": "Bepo integrated values and ethics into the curriculum, emphasizing the importance of integrity and respect",
+        "C": "Bepo outsourced all ethics teaching to parents",
+        "D": "Bepo believed values were learned only at home"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo integrated values education throughout the curriculum.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 204,
+      "question": "How did the principal respond to the changing educational landscape?",
+      "options": {
+        "A": "Bepo refused to change anything",
+        "B": "Bepo adapted the school's practices to align with current educational trends and ensure students received relevant education",
+        "C": "Bepo decided to move the school to a rural area",
+        "D": "Bepo only implemented changes mandated by the government"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo proactively adapted to educational changes and trends.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 205,
+      "question": "What role did mentorship play in the principal's leadership style?",
+      "options": {
+        "A": "Bepo viewed mentorship as unnecessary for mature staff",
+        "B": "Bepo valued mentorship and often guided both students and teachers to help them reach their full potential",
+        "C": "Bepo received mentorship from the students",
+        "D": "Bepo reserved mentorship only for the top academic students"
+      },
+      "correct_answer": "B",
+      "explanation": "Mentorship was an important aspect of Bepo's educational leadership.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 206,
+      "question": "How did the principal view the relationship between education and personal development?",
+      "options": {
+        "A": "Bepo believed education should focus solely on test scores",
+        "B": "Bepo believed that education should not only focus on academics but also on personal development and character building",
+        "C": "Bepo saw personal development as a distraction from academic rigor",
+        "D": "Bepo left all character building to religious institutions"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo valued holistic education including personal development.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 207,
+      "question": "What was the principal's strategy for improving communication within the school?",
+      "options": {
+        "A": "Bepo relied only on written memos",
+        "B": "Bepo established open lines of communication between staff, students, and parents to foster collaboration and transparency",
+        "C": "Bepo used only a one-way communication system",
+        "D": "Bepo banned all informal communication"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo promoted open, multi-directional communication channels.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 208,
+      "question": "How did the principal handle feedback from students?",
+      "options": {
+        "A": "Bepo punished students who gave negative feedback",
+        "B": "Bepo welcomed feedback from students and used it to make informed decisions about school policies and practices",
+        "C": "Bepo only accepted anonymous feedback",
+        "D": "Bepo relied on student feedback for financial decisions only"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo valued and utilized student feedback for school improvement.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 209,
+      "question": "What was the principal's perspective on the importance of cultural diversity in education?",
+      "options": {
+        "A": "Bepo believed cultural diversity was a challenge to academic cohesion",
+        "B": "Bepo embraced cultural diversity and believed it enriched the educational experience for all students",
+        "C": "Bepo only promoted one dominant culture",
+        "D": "Bepo saw cultural diversity as irrelevant to the school"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo valued cultural diversity as an educational asset.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 210,
+      "question": "How did the principal encourage leadership skills among students?",
+      "options": {
+        "A": "Bepo limited leadership to the Head Girl position only",
+        "B": "Bepo provided opportunities for students to take on leadership roles in clubs and activities, fostering their development",
+        "C": "Bepo only chose students from wealthy backgrounds for leadership",
+        "D": "Bepo provided no training for leadership roles"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo created multiple leadership opportunities for students.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 211,
+      "question": "What was the principal's approach to addressing mental health issues among students?",
+      "options": {
+        "A": "Bepo ignored mental health issues",
+        "B": "Bepo prioritized mental health awareness and implemented programs to support students' emotional well-being",
+        "C": "Bepo relied solely on teachers to be mental health counselors",
+        "D": "Bepo believed mental health was a sign of weakness"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo recognized and addressed students' mental health needs.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 212,
+      "question": "How did the principal view the role of parents in their children's education?",
+      "options": {
+        "A": "Bepo believed parents should handle academics and the school handle social life",
+        "B": "Bepo believed that parents play a crucial role in their children's education and encouraged their active involvement",
+        "C": "Bepo restricted parental involvement to fee payments",
+        "D": "Bepo saw parents as obstacles to progress"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo valued strong parent partnerships in education.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 213,
+      "question": "What was the principal's reaction to the school's performance in extracurricular activities?",
+      "options": {
+        "A": "Bepo downplayed the importance of extracurricular achievements",
+        "B": "Bepo celebrated the school's success in extracurricular activities and recognized their importance in student development",
+        "C": "Bepo only supported the drama club",
+        "D": "Bepo believed extracurricular activities were too costly"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo valued and celebrated extracurricular achievements.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 214,
+      "question": "How did the principal address the issue of peer pressure among students?",
+      "options": {
+        "A": "Bepo ignored the issue, believing it was inevitable",
+        "B": "Bepo implemented programs to educate students about peer pressure and promote positive decision-making",
+        "C": "Bepo relied on punishment for all related issues",
+        "D": "Bepo tried to separate all students by age group"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo used educational programs to address peer pressure.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 215,
+      "question": "What was the principal's strategy for fostering a positive school environment?",
+      "options": {
+        "A": "Bepo focused on strict rules and fear",
+        "B": "Bepo focused on building strong relationships among students and staff to create a supportive and positive school culture",
+        "C": "Bepo enforced constant competition among students",
+        "D": "Bepo relied solely on security personnel"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo built positive school culture through relationships.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 216,
+      "question": "How did the principal handle the integration of new teaching methods?",
+      "options": {
+        "A": "Bepo enforced a single, rigid method",
+        "B": "Bepo encouraged teachers to experiment with new teaching methods and provided support for their implementation",
+        "C": "Bepo banned any teacher-led innovation",
+        "D": "Bepo only allowed traditional lecture methods"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo supported teacher innovation in teaching methods.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 217,
+      "question": "What was the principal's view on the importance of lifelong learning?",
+      "options": {
+        "A": "Bepo believed learning ended after graduation",
+        "B": "Bepo emphasized the value of lifelong learning and encouraged both students and staff to pursue continuous education",
+        "C": "Bepo only valued learning that led to immediate employment",
+        "D": "Bepo only encouraged external study"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo promoted lifelong learning for students and staff.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 218,
+      "question": "How did the principal respond to challenges in the school's infrastructure?",
+      "options": {
+        "A": "Bepo complained to the government and did nothing else",
+        "B": "Bepo sought funding and partnerships to address infrastructure challenges and improve the school's facilities",
+        "C": "Bepo reduced the school hours due to poor infrastructure",
+        "D": "Bepo focused on academics and ignored the infrastructure"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo proactively sought solutions for infrastructure issues.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 219,
+      "question": "What role did student feedback play in the principal's decision-making?",
+      "options": {
+        "A": "Bepo gave student feedback no importance",
+        "B": "Bepo valued student feedback and considered it when making decisions that affected the school community",
+        "C": "Bepo only used student feedback for disciplinary matters",
+        "D": "Bepo allowed students to make all policy decisions"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo incorporated student feedback into decision-making.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 220,
+      "question": "How did the principal promote a culture of respect among students?",
+      "options": {
+        "A": "Bepo only promoted respect for authority figures",
+        "B": "Bepo implemented programs that emphasized respect and understanding, fostering a positive school climate",
+        "C": "Bepo used a rewards system based on material possessions",
+        "D": "Bepo focused only on academic rankings"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo used educational programs to promote mutual respect.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 221,
+      "question": "What was the principal's approach to addressing academic disparities among students?",
+      "options": {
+        "A": "Bepo only focused on the high-achieving students",
+        "B": "Bepo provided additional support and resources to help students who were struggling academically",
+        "C": "Bepo ignored the lower-performing students",
+        "D": "Bepo set the same high standards for everyone without extra support"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo provided targeted support for struggling students.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 222,
+      "question": "How did the principal view the role of technology in enhancing learning?",
+      "options": {
+        "A": "Bepo only allowed the use of calculators",
+        "B": "Bepo recognized the potential of technology to enhance learning and integrated it into the school's curriculum",
+        "C": "Bepo banned all devices from the classroom",
+        "D": "Bepo relied on outdated technology exclusively"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo integrated technology to improve learning experiences.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 223,
+      "question": "What was the principal's strategy for building partnerships with the community?",
+      "options": {
+        "A": "Bepo avoided all community interaction",
+        "B": "Bepo actively sought partnerships with local organizations to enhance educational opportunities for students",
+        "C": "Bepo focused only on political partnerships",
+        "D": "Bepo relied only on international organizations"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo built community partnerships to benefit students.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 224,
+      "question": "How did the principal handle the transition to remote learning during emergencies?",
+      "options": {
+        "A": "Bepo refused to implement remote learning",
+        "B": "Bepo quickly adapted to remote learning by providing resources and training for teachers and students",
+        "C": "Bepo waited for government intervention before taking action",
+        "D": "Bepo only used phone calls for remote learning"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo proactively implemented remote learning solutions.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 225,
+      "question": "What was the principal's perspective on the importance of student voice in school governance?",
+      "options": {
+        "A": "Bepo believed student opinions were irrelevant",
+        "B": "Bepo believed that student voice was essential for effective governance and encouraged their participation in decision-making",
+        "C": "Bepo only listened to the Head Girl's opinion",
+        "D": "Bepo believed student voice was a sign of indiscipline"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo valued student input in school governance.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 226,
+      "question": "How did the principal address the issue of teacher burnout?",
+      "options": {
+        "A": "Bepo increased teacher workload",
+        "B": "Bepo implemented support systems and professional development opportunities to help teachers manage stress and prevent burnout",
+        "C": "Bepo forced teachers to take unpaid leave",
+        "D": "Bepo ignored the issue, believing it was a personal problem"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo provided support systems to prevent teacher burnout.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 227,
+      "question": "What was the principal's approach to fostering creativity in the classroom?",
+      "options": {
+        "A": "Bepo enforced strict adherence to textbooks",
+        "B": "Bepo encouraged teachers to incorporate creative projects and activities into their lessons to stimulate student engagement",
+        "C": "Bepo outsourced all creative teaching",
+        "D": "Bepo believed creativity was only for art students"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo promoted creative teaching approaches across subjects.",
+      "section": "prose_lekki_headmaster"
+    },
+    {
+      "id": 228,
+      "question": "How did the principal celebrate cultural events at the school?",
+      "options": {
+        "A": "Bepo only celebrated foreign holidays",
+        "B": "Bepo organized cultural events and activities to celebrate diversity and promote understanding among students",
+        "C": "Bepo minimized the importance of cultural events",
+        "D": "Bepo used cultural events as fundraisers only"
+      },
+      "correct_answer": "B",
+      "explanation": "Bepo used cultural events to celebrate diversity and build understanding.",
+      "section": "prose_lekki_headmaster"
+    }
+  ]
+}

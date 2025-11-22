@@ -1,0 +1,1672 @@
+{
+  "subject": "Economics",
+  "exam_type": "WAEC",
+  "total_questions": 128,
+  "time_allowed": 8400,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is Economics primarily concerned with?",
+      "options": {
+        "A": "Allocation of scarce resources",
+        "B": "Money and banking only",
+        "C": "Business management",
+        "D": "Government policies"
+      },
+      "correct_answer": "A",
+      "explanation": "Economics studies how societies allocate scarce resources to satisfy unlimited wants.",
+      "section": "basic_concepts"
+    },
+    {
+      "id": 2,
+      "question": "What does scarcity mean in Economics?",
+      "options": {
+        "A": "Limited resources vs unlimited wants",
+        "B": "Complete absence of resources",
+        "C": "Temporary shortage",
+        "D": "Poor resource management"
+      },
+      "correct_answer": "A",
+      "explanation": "Scarcity refers to the fundamental economic problem of limited resources facing unlimited human wants.",
+      "section": "basic_concepts"
+    },
+    {
+      "id": 3,
+      "question": "What is opportunity cost?",
+      "options": {
+        "A": "The next best alternative forgone",
+        "B": "The money cost of a product",
+        "C": "The total cost of production",
+        "D": "The cost of raw materials"
+      },
+      "correct_answer": "A",
+      "explanation": "Opportunity cost is the value of the next best alternative that must be sacrificed when making a choice.",
+      "section": "basic_concepts"
+    },
+    {
+      "id": 4,
+      "question": "What are the factors of production?",
+      "options": {
+        "A": "Land, labor, capital, entrepreneurship",
+        "B": "Money, machines, materials, management",
+        "C": "Inputs, processes, outputs, outcomes",
+        "D": "Goods, services, money, time"
+      },
+      "correct_answer": "A",
+      "explanation": "The four factors of production are land (natural resources), labor (human effort), capital (man-made resources), and entrepreneurship (organizational ability).",
+      "section": "production"
+    },
+    {
+      "id": 5,
+      "question": "What is a production possibility curve?",
+      "options": {
+        "A": "Shows maximum output combinations",
+        "B": "Shows demand and supply",
+        "C": "Shows cost curves",
+        "D": "Shows revenue patterns"
+      },
+      "correct_answer": "A",
+      "explanation": "A PPC illustrates the maximum combination of two goods an economy can produce with available resources and technology.",
+      "section": "production"
+    },
+    {
+      "id": 6,
+      "question": "What does a point inside the PPC indicate?",
+      "options": {
+        "A": "Unemployed resources",
+        "B": "Economic growth",
+        "C": "Optimal production",
+        "D": "Technological advancement"
+      },
+      "correct_answer": "A",
+      "explanation": "A point inside the curve indicates that resources are not fully utilized (unemployment or inefficiency).",
+      "section": "production"
+    },
+    {
+      "id": 7,
+      "question": "What is demand in Economics?",
+      "options": {
+        "A": "Quantity consumers are willing to buy at various prices",
+        "B": "Quantity producers want to sell",
+        "C": "Total market purchases",
+        "D": "Consumer needs and wants"
+      },
+      "correct_answer": "A",
+      "explanation": "Demand refers to the various quantities of a good that consumers are willing and able to purchase at different prices during a specific period.",
+      "section": "demand"
+    },
+    {
+      "id": 8,
+      "question": "What is the law of demand?",
+      "options": {
+        "A": "Price and quantity demanded are inversely related",
+        "B": "Price and quantity demanded are directly related",
+        "C": "Demand always increases with time",
+        "D": "Demand is constant regardless of price"
+      },
+      "correct_answer": "A",
+      "explanation": "The law of demand states that, ceteris paribus, as price increases, quantity demanded decreases, and vice versa.",
+      "section": "demand"
+    },
+    {
+      "id": 9,
+      "question": "What causes movement along the demand curve?",
+      "options": {
+        "A": "Change in price of the good",
+        "B": "Change in consumer income",
+        "C": "Change in tastes and preferences",
+        "D": "Change in price of related goods"
+      },
+      "correct_answer": "A",
+      "explanation": "Movement along the demand curve occurs due to changes in the price of the good itself.",
+      "section": "demand"
+    },
+    {
+      "id": 10,
+      "question": "What causes shift in the demand curve?",
+      "options": {
+        "A": "Changes in non-price factors",
+        "B": "Changes in price of the good",
+        "C": "Seasonal variations",
+        "D": "Temporary shortages"
+      },
+      "correct_answer": "A",
+      "explanation": "Shift in demand curve occurs due to changes in income, tastes, prices of related goods, population, or expectations.",
+      "section": "demand"
+    },
+    {
+      "id": 11,
+      "question": "What is supply in Economics?",
+      "options": {
+        "A": "Quantity producers are willing to sell at various prices",
+        "B": "Total goods available in market",
+        "C": "Goods actually sold",
+        "D": "Production capacity"
+      },
+      "correct_answer": "A",
+      "explanation": "Supply refers to the various quantities of a good that producers are willing and able to sell at different prices during a specific period.",
+      "section": "supply"
+    },
+    {
+      "id": 12,
+      "question": "What is the law of supply?",
+      "options": {
+        "A": "Price and quantity supplied are directly related",
+        "B": "Price and quantity supplied are inversely related",
+        "C": "Supply is fixed in short run",
+        "D": "Supply decreases with price increase"
+      },
+      "correct_answer": "A",
+      "explanation": "The law of supply states that, ceteris paribus, as price increases, quantity supplied increases, and vice versa.",
+      "section": "supply"
+    },
+    {
+      "id": 13,
+      "question": "What is market equilibrium?",
+      "options": {
+        "A": "Where quantity demanded equals quantity supplied",
+        "B": "Where demand exceeds supply",
+        "C": "Where supply exceeds demand",
+        "D": "Where price is lowest possible"
+      },
+      "correct_answer": "A",
+      "explanation": "Market equilibrium occurs at the price where quantity demanded equals quantity supplied.",
+      "section": "market_equilibrium"
+    },
+    {
+      "id": 4,
+      "question": "What is price elasticity of demand?",
+      "options": {
+        "A": "Responsiveness of quantity demanded to price changes",
+        "B": "Change in total revenue",
+        "C": "Shift in demand curve",
+        "D": "Market price changes"
+      },
+      "correct_answer": "A",
+      "explanation": "Price elasticity of demand measures how sensitive quantity demanded is to changes in price.",
+      "section": "elasticity"
+    },
+    {
+      "id": 15,
+      "question": "When demand is elastic, what happens to total revenue when price decreases?",
+      "options": {
+        "A": "Total revenue increases",
+        "B": "Total revenue decreases",
+        "C": "Total revenue remains constant",
+        "D": "Revenue becomes zero"
+      },
+      "correct_answer": "A",
+      "explanation": "When demand is elastic, a price decrease leads to a proportionally larger increase in quantity demanded, increasing total revenue.",
+      "section": "elasticity"
+    },
+    {
+      "id": 16,
+      "question": "What is income elasticity of demand?",
+      "options": {
+        "A": "Responsiveness of demand to income changes",
+        "B": "Change in demand due to price",
+        "C": "Effect of advertising on demand",
+        "D": "Seasonal demand variations"
+      },
+      "correct_answer": "A",
+      "explanation": "Income elasticity measures how quantity demanded responds to changes in consumer income.",
+      "section": "elasticity"
+    },
+    {
+      "id": 17,
+      "question": "What are normal goods?",
+      "options": {
+        "A": "Goods whose demand increases with income",
+        "B": "Goods whose demand decreases with income",
+        "C": "Goods with constant demand",
+        "D": "Essential goods only"
+      },
+      "correct_answer": "A",
+      "explanation": "Normal goods are those for which demand increases when consumer income increases.",
+      "section": "elasticity"
+    },
+    {
+      "id": 18,
+      "question": "What are inferior goods?",
+      "options": {
+        "A": "Goods whose demand decreases with income",
+        "B": "Goods whose demand increases with income",
+        "C": "Poor quality goods",
+        "D": "Illegal goods"
+      },
+      "correct_answer": "A",
+      "explanation": "Inferior goods are those for which demand decreases when consumer income increases.",
+      "section": "elasticity"
+    },
+    {
+      "id": 19,
+      "question": "What are complementary goods?",
+      "options": {
+        "A": "Goods used together",
+        "B": "Goods that replace each other",
+        "C": "Identical goods",
+        "D": "Unrelated goods"
+      },
+      "correct_answer": "A",
+      "explanation": "Complementary goods are used together (e.g., cars and petrol, bread and butter).",
+      "section": "elasticity"
+    },
+    {
+      "id": 20,
+      "question": "What are substitute goods?",
+      "options": {
+        "A": "Goods that can replace each other",
+        "B": "Goods used together",
+        "C": "Identical products",
+        "D": "Branded goods"
+      },
+      "correct_answer": "A",
+      "explanation": "Substitute goods can replace each other in consumption (e.g., tea and coffee, butter and margarine).",
+      "section": "elasticity"
+    },
+    {
+      "id": 21,
+      "question": "What is utility in Economics?",
+      "options": {
+        "A": "Satisfaction from consuming a good",
+        "B": "Usefulness of a product",
+        "C": "Price of a commodity",
+        "D": "Production efficiency"
+      },
+      "correct_answer": "A",
+      "explanation": "Utility refers to the satisfaction or pleasure derived from consuming a good or service.",
+      "section": "consumer_behavior"
+    },
+    {
+      "id": 22,
+      "question": "What is the law of diminishing marginal utility?",
+      "options": {
+        "A": "Additional satisfaction decreases with more consumption",
+        "B": "Total utility always increases",
+        "C": "Utility remains constant",
+        "D": "Marginal utility increases"
+      },
+      "correct_answer": "A",
+      "explanation": "As a consumer consumes more units of a good, the additional satisfaction from each extra unit decreases.",
+      "section": "consumer_behavior"
+    },
+    {
+      "id": 23,
+      "question": "What is fixed cost?",
+      "options": {
+        "A": "Costs that don't vary with output",
+        "B": "Costs that change with production",
+        "C": "Total production cost",
+        "D": "Variable costs only"
+      },
+      "correct_answer": "A",
+      "explanation": "Fixed costs remain constant regardless of the level of output (e.g., rent, salaries).",
+      "section": "costs"
+    },
+    {
+      "id": 24,
+      "question": "What is variable cost?",
+      "options": {
+        "A": "Costs that vary with output",
+        "B": "Costs that remain constant",
+        "C": "Total costs",
+        "D": "Fixed costs only"
+      },
+      "correct_answer": "A",
+      "explanation": "Variable costs change with the level of output (e.g., raw materials, electricity for production).",
+      "section": "costs"
+    },
+    {
+      "id": 25,
+      "question": "What is average cost?",
+      "options": {
+        "A": "Total cost divided by quantity",
+        "B": "Variable cost per unit",
+        "C": "Fixed cost per unit",
+        "D": "Marginal cost only"
+      },
+      "correct_answer": "A",
+      "explanation": "Average cost is total cost divided by the number of units produced.",
+      "section": "costs"
+    },
+    {
+      "id": 26,
+      "question": "What is marginal cost?",
+      "options": {
+        "A": "Cost of producing one more unit",
+        "B": "Total cost of production",
+        "C": "Average cost per unit",
+        "D": "Fixed cost per unit"
+      },
+      "correct_answer": "A",
+      "explanation": "Marginal cost is the additional cost incurred by producing one more unit of output.",
+      "section": "costs"
+    },
+    {
+      "id": 27,
+      "question": "What are economies of scale?",
+      "options": {
+        "A": "Cost advantages from increased production",
+        "B": "Higher costs with larger scale",
+        "C": "Constant costs regardless of size",
+        "D": "Market size advantages"
+      },
+      "correct_answer": "A",
+      "explanation": "Economies of scale occur when increasing production leads to lower average costs.",
+      "section": "production"
+    },
+    {
+      "id": 28,
+      "question": "What are diseconomies of scale?",
+      "options": {
+        "A": "Higher average costs with increased production",
+        "B": "Lower costs with larger scale",
+        "C": "Constant returns to scale",
+        "D": "Market disadvantages"
+      },
+      "correct_answer": "A",
+      "explanation": "Diseconomies of scale occur when increasing production leads to higher average costs.",
+      "section": "production"
+    },
+    {
+      "id": 29,
+      "question": "What is perfect competition?",
+      "options": {
+        "A": "Market with many buyers and sellers",
+        "B": "Single seller market",
+        "C": "Few large firms",
+        "D": "Government controlled market"
+      },
+      "correct_answer": "A",
+      "explanation": "Perfect competition features many buyers and sellers, homogeneous products, free entry and exit, and perfect information.",
+      "section": "market_structures"
+    },
+    {
+      "id": 30,
+      "question": "What is monopoly?",
+      "options": {
+        "A": "Single seller in the market",
+        "B": "Many sellers",
+        "C": "Two sellers",
+        "D": "No sellers"
+      },
+      "correct_answer": "A",
+      "explanation": "Monopoly exists when there is only one seller of a product with no close substitutes.",
+      "section": "market_structures"
+    },
+    {
+      "id": 31,
+      "question": "What is oligopoly?",
+      "options": {
+        "A": "Market dominated by few large firms",
+        "B": "Single firm market",
+        "C": "Many small firms",
+        "D": "Perfect competition"
+      },
+      "correct_answer": "A",
+      "explanation": "Oligopoly is a market structure dominated by a small number of large firms.",
+      "section": "market_structures"
+    },
+    {
+      "id": 32,
+      "question": "What is monopolistic competition?",
+      "options": {
+        "A": "Many firms with differentiated products",
+        "B": "Single firm market",
+        "C": "Few firms with identical products",
+        "D": "Government monopoly"
+      },
+      "correct_answer": "A",
+      "explanation": "Monopolistic competition features many firms selling differentiated products.",
+      "section": "market_structures"
+    },
+    {
+      "id": 33,
+      "question": "What is Gross Domestic Product (GDP)?",
+      "options": {
+        "A": "Total value of goods and services produced in a country",
+        "B": "Total national income",
+        "C": "Government revenue",
+        "D": "Total exports"
+      },
+      "correct_answer": "A",
+      "explanation": "GDP measures the total monetary value of all final goods and services produced within a country's borders in a specific time period.",
+      "section": "national_income"
+    },
+    {
+      "id": 34,
+      "question": "What is Gross National Product (GNP)?",
+      "options": {
+        "A": "GDP plus net income from abroad",
+        "B": "GDP minus depreciation",
+        "C": "Total government revenue",
+        "D": "Total consumer spending"
+      },
+      "correct_answer": "A",
+      "explanation": "GNP equals GDP plus net factor income from abroad (income earned by citizens overseas minus income earned by foreigners domestically).",
+      "section": "national_income"
+    },
+    {
+      "id": 35,
+      "question": "What is Net National Product (NNP)?",
+      "options": {
+        "A": "GNP minus depreciation",
+        "B": "GDP plus net exports",
+        "C": "Total consumption",
+        "D": "Government revenue"
+      },
+      "correct_answer": "A",
+      "explanation": "NNP is GNP minus depreciation (capital consumption allowance).",
+      "section": "national_income"
+    },
+    {
+      "id": 36,
+      "question": "What is National Income?",
+      "options": {
+        "A": "Total income earned by factors of production",
+        "B": "Government revenue only",
+        "C": "Corporate profits only",
+        "D": "Wages and salaries only"
+      },
+      "correct_answer": "A",
+      "explanation": "National income is the total income earned by a country's factors of production regardless of location.",
+      "section": "national_income"
+    },
+    {
+      "id": 37,
+      "question": "What are the methods of measuring national income?",
+      "options": {
+        "A": "Output, income, and expenditure methods",
+        "B": "Survey method only",
+        "C": "Census method",
+        "D": "Sampling method"
+      },
+      "correct_answer": "A",
+      "explanation": "National income can be measured using output method (value added), income method (factor incomes), or expenditure method (spending on final goods).",
+      "section": "national_income"
+    },
+    {
+      "id": 38,
+      "question": "What is inflation?",
+      "options": {
+        "A": "Sustained increase in general price level",
+        "B": "Temporary price increase",
+        "C": "Decrease in prices",
+        "D": "Stable prices"
+      },
+      "correct_answer": "A",
+      "explanation": "Inflation is a sustained and general increase in the overall price level in an economy.",
+      "section": "inflation"
+    },
+    {
+      "id": 39,
+      "question": "What is demand-pull inflation?",
+      "options": {
+        "A": "Inflation caused by excess demand",
+        "B": "Inflation from cost increases",
+        "C": "Imported inflation",
+        "D": "Wage-price spiral"
+      },
+      "correct_answer": "A",
+      "explanation": "Demand-pull inflation occurs when aggregate demand exceeds aggregate supply, pulling prices up.",
+      "section": "inflation"
+    },
+    {
+      "id": 40,
+      "question": "What is cost-push inflation?",
+      "options": {
+        "A": "Inflation caused by rising production costs",
+        "B": "Inflation from excess demand",
+        "C": "Government-induced inflation",
+        "D": "Monetary inflation"
+      },
+      "correct_answer": "A",
+      "explanation": "Cost-push inflation results from increases in production costs (wages, raw materials) that are passed on to consumers.",
+      "section": "inflation"
+    },
+    {
+      "id": 41,
+      "question": "What is deflation?",
+      "options": {
+        "A": "Sustained decrease in general price level",
+        "B": "Temporary price decrease",
+        "C": "Rapid inflation",
+        "D": "Price stability"
+      },
+      "correct_answer": "A",
+      "explanation": "Deflation is a sustained and general decrease in the overall price level.",
+      "section": "inflation"
+    },
+    {
+      "id": 42,
+      "question": "What is unemployment?",
+      "options": {
+        "A": "People willing and able to work but without jobs",
+        "B": "All people without jobs",
+        "C": "People not looking for work",
+        "D": "Retired people"
+      },
+      "correct_answer": "A",
+      "explanation": "Unemployment refers to people who are actively seeking work and are available for work but cannot find jobs.",
+      "section": "unemployment"
+    },
+    {
+      "id": 43,
+      "question": "What is frictional unemployment?",
+      "options": {
+        "A": "Temporary unemployment between jobs",
+        "B": "Unemployment due to economic downturn",
+        "C": "Unemployment due to technology",
+        "D": "Seasonal unemployment"
+      },
+      "correct_answer": "A",
+      "explanation": "Frictional unemployment occurs when people are between jobs or entering the labor market for the first time.",
+      "section": "unemployment"
+    },
+    {
+      "id": 44,
+      "question": "What is structural unemployment?",
+      "options": {
+        "A": "Unemployment due to economic structure changes",
+        "B": "Temporary unemployment",
+        "C": "Seasonal unemployment",
+        "D": "Cyclical unemployment"
+      },
+      "correct_answer": "A",
+      "explanation": "Structural unemployment results from fundamental changes in the economy that make certain skills obsolete.",
+      "section": "unemployment"
+    },
+    {
+      "id": 45,
+      "question": "What is cyclical unemployment?",
+      "options": {
+        "A": "Unemployment due to economic recession",
+        "B": "Temporary unemployment",
+        "C": "Technological unemployment",
+        "D": "Seasonal unemployment"
+      },
+      "correct_answer": "A",
+      "explanation": "Cyclical unemployment occurs during economic downturns when aggregate demand is insufficient.",
+      "section": "unemployment"
+    },
+    {
+      "id": 46,
+      "question": "What is money?",
+      "options": {
+        "A": "Anything generally accepted as medium of exchange",
+        "B": "Only coins and notes",
+        "C": "Gold and silver",
+        "D": "Bank deposits only"
+      },
+      "correct_answer": "A",
+      "explanation": "Money is anything that is generally accepted as a medium of exchange, measure of value, store of value, and standard for deferred payments.",
+      "section": "money_and_banking"
+    },
+    {
+      "id": 47,
+      "question": "What are the functions of money?",
+      "options": {
+        "A": "Medium of exchange, measure of value, store of value, standard for deferred payments",
+        "B": "Only buying goods",
+        "C": "Saving only",
+        "D": "Investment only"
+      },
+      "correct_answer": "A",
+      "explanation": "The four main functions of money are: medium of exchange, unit of account, store of value, and standard for deferred payments.",
+      "section": "money_and_banking"
+    },
+    {
+      "id": 48,
+      "question": "What is commercial bank?",
+      "options": {
+        "A": "Financial institution that accepts deposits and gives loans",
+        "B": "Central bank",
+        "C": "Investment bank only",
+        "D": "Government bank"
+      },
+      "correct_answer": "A",
+      "explanation": "Commercial banks are financial institutions that accept deposits from the public and provide loans.",
+      "section": "money_and_banking"
+    },
+    {
+      "id": 49,
+      "question": "What is central bank?",
+      "options": {
+        "A": "Banker's bank and government's bank",
+        "B": "Commercial bank for public",
+        "C": "Private bank",
+        "D": "Foreign bank"
+      },
+      "correct_answer": "A",
+      "explanation": "The central bank is the apex financial institution that regulates the banking system and implements monetary policy.",
+      "section": "money_and_banking"
+    },
+    {
+      "id": 50,
+      "question": "What are the functions of central bank?",
+      "options": {
+        "A": "Issue currency, banker to government, banker's bank, monetary policy",
+        "B": "Accept public deposits",
+        "C": "Provide personal loans",
+        "D": "Trade in goods"
+      },
+      "correct_answer": "A",
+      "explanation": "Central bank functions include currency issue, government banking, bankers' bank, monetary policy implementation, and foreign exchange management.",
+      "section": "money_and_banking"
+    },
+    {
+      "id": 51,
+      "question": "What is monetary policy?",
+      "options": {
+        "A": "Control of money supply and interest rates",
+        "B": "Government spending policy",
+        "C": "Taxation policy",
+        "D": "Trade policy"
+      },
+      "correct_answer": "A",
+      "explanation": "Monetary policy involves controlling the money supply and interest rates to achieve economic objectives.",
+      "section": "monetary_policy"
+    },
+    {
+      "id": 52,
+      "question": "What is fiscal policy?",
+      "options": {
+        "A": "Government spending and taxation policies",
+        "B": "Money supply control",
+        "C": "Interest rate policy",
+        "D": "Exchange rate policy"
+      },
+      "correct_answer": "A",
+      "explanation": "Fiscal policy involves government spending and taxation decisions to influence the economy.",
+      "section": "fiscal_policy"
+    },
+    {
+      "id": 53,
+      "question": "What is expansionary fiscal policy?",
+      "options": {
+        "A": "Increase government spending or decrease taxes",
+        "B": "Decrease government spending",
+        "C": "Increase taxes",
+        "D": "Balance budget"
+      },
+      "correct_answer": "A",
+      "explanation": "Expansionary fiscal policy involves increasing government spending or reducing taxes to stimulate economic growth.",
+      "section": "fiscal_policy"
+    },
+    {
+      "id": 54,
+      "question": "What is contractionary fiscal policy?",
+      "options": {
+        "A": "Decrease government spending or increase taxes",
+        "B": "Increase government spending",
+        "C": "Decrease taxes",
+        "D": "Maintain current spending"
+      },
+      "correct_answer": "A",
+      "explanation": "Contractionary fiscal policy involves reducing government spending or increasing taxes to slow down the economy.",
+      "section": "fiscal_policy"
+    },
+    {
+      "id": 55,
+      "question": "What is budget deficit?",
+      "options": {
+        "A": "Government spending exceeds revenue",
+        "B": "Government revenue exceeds spending",
+        "C": "Balanced budget",
+        "D": "Zero spending"
+      },
+      "correct_answer": "A",
+      "explanation": "Budget deficit occurs when government expenditures exceed government revenues in a given period.",
+      "section": "fiscal_policy"
+    },
+    {
+      "id": 56,
+      "question": "What is budget surplus?",
+      "options": {
+        "A": "Government revenue exceeds spending",
+        "B": "Spending exceeds revenue",
+        "C": "Balanced budget",
+        "D": "No revenue"
+      },
+      "correct_answer": "A",
+      "explanation": "Budget surplus occurs when government revenues exceed government expenditures.",
+      "section": "fiscal_policy"
+    },
+    {
+      "id": 57,
+      "question": "What is international trade?",
+      "options": {
+        "A": "Exchange of goods and services between countries",
+        "B": "Trade within a country",
+        "C": "Black market trade",
+        "D": "Illegal trade"
+      },
+      "correct_answer": "A",
+      "explanation": "International trade involves the exchange of goods and services across international borders.",
+      "section": "international_trade"
+    },
+    {
+      "id": 58,
+      "question": "What is comparative advantage?",
+      "options": {
+        "A": "Ability to produce at lower opportunity cost",
+        "B": "Absolute production advantage",
+        "C": "Larger production capacity",
+        "D": "Better technology only"
+      },
+      "correct_answer": "A",
+      "explanation": "Comparative advantage exists when a country can produce a good at a lower opportunity cost than another country.",
+      "section": "international_trade"
+    },
+    {
+      "id": 59,
+      "question": "What is absolute advantage?",
+      "options": {
+        "A": "Ability to produce more with same resources",
+        "B": "Lower opportunity cost",
+        "C": "Better quality products",
+        "D": "Larger market share"
+      },
+      "correct_answer": "A",
+      "explanation": "Absolute advantage exists when a country can produce more of a good with the same resources than another country.",
+      "section": "international_trade"
+    },
+    {
+      "id": 60,
+      "question": "What is balance of payments?",
+      "options": {
+        "A": "Record of all international transactions",
+        "B": "Trade balance only",
+        "C": "Capital flows only",
+        "D": "Government budget"
+      },
+      "correct_answer": "A",
+      "explanation": "Balance of payments is a systematic record of all economic transactions between residents of a country and the rest of the world.",
+      "section": "international_trade"
+    },
+    {
+      "id": 61,
+      "question": "What is balance of trade?",
+      "options": {
+        "A": "Difference between exports and imports of goods",
+        "B": "Total international transactions",
+        "C": "Capital account balance",
+        "D": "Service trade balance"
+      },
+      "correct_answer": "A",
+      "explanation": "Balance of trade is the difference between the value of a country's exports and imports of goods.",
+      "section": "international_trade"
+    },
+    {
+      "id": 62,
+      "question": "What is exchange rate?",
+      "options": {
+        "A": "Price of one currency in terms of another",
+        "B": "Interest rate difference",
+        "C": "Inflation rate",
+        "D": "Trade balance"
+      },
+      "correct_answer": "A",
+      "explanation": "Exchange rate is the price of one currency expressed in terms of another currency.",
+      "section": "international_trade"
+    },
+    {
+      "id": 63,
+      "question": "What is depreciation of currency?",
+      "options": {
+        "A": "Decrease in value of domestic currency",
+        "B": "Increase in value of domestic currency",
+        "C": "Stable currency value",
+        "D": "Currency elimination"
+      },
+      "correct_answer": "A",
+      "explanation": "Depreciation occurs when the value of a currency decreases relative to other currencies in a floating exchange rate system.",
+      "section": "international_trade"
+    },
+    {
+      "id": 64,
+      "question": "What is appreciation of currency?",
+      "options": {
+        "A": "Increase in value of domestic currency",
+        "B": "Decrease in currency value",
+        "C": "Currency stability",
+        "D": "New currency issue"
+      },
+      "correct_answer": "A",
+      "explanation": "Appreciation occurs when the value of a currency increases relative to other currencies.",
+      "section": "international_trade"
+    },
+    {
+      "id": 65,
+      "question": "What is economic growth?",
+      "options": {
+        "A": "Increase in real GDP over time",
+        "B": "Increase in prices",
+        "C": "Population growth",
+        "D": "Government growth"
+      },
+      "correct_answer": "A",
+      "explanation": "Economic growth refers to an increase in the real output of goods and services in an economy over time.",
+      "section": "economic_growth"
+    },
+    {
+      "id": 66,
+      "question": "What is economic development?",
+      "options": {
+        "A": "Improvement in living standards and economic welfare",
+        "B": "Only GDP growth",
+        "C": "Industrialization only",
+        "D": "Urbanization only"
+      },
+      "correct_answer": "A",
+      "explanation": "Economic development involves improvements in living standards, reduction in poverty, and overall economic welfare, not just GDP growth.",
+      "section": "economic_development"
+    },
+    {
+      "id": 67,
+      "question": "What is per capita income?",
+      "options": {
+        "A": "National income divided by population",
+        "B": "Total national income",
+        "C": "Average wage rate",
+        "D": "GDP only"
+      },
+      "correct_answer": "A",
+      "explanation": "Per capita income is national income divided by the total population, indicating average income per person.",
+      "section": "economic_development"
+    },
+    {
+      "id": 68,
+      "question": "What is Human Development Index (HDI)?",
+      "options": {
+        "A": "Measure of development using life expectancy, education, income",
+        "B": "GDP measure only",
+        "C": "Industrial output index",
+        "D": "Trade index"
+      },
+      "correct_answer": "A",
+      "explanation": "HDI measures development based on life expectancy, education levels, and standard of living (GNI per capita).",
+      "section": "economic_development"
+    },
+    {
+      "id": 69,
+      "question": "What is poverty line?",
+      "options": {
+        "A": "Minimum income level for basic needs",
+        "B": "Wealth threshold",
+        "C": "Tax threshold",
+        "D": "Salary scale"
+      },
+      "correct_answer": "A",
+      "explanation": "Poverty line is the minimum level of income deemed adequate to meet basic needs in a particular country.",
+      "section": "economic_development"
+    },
+    {
+      "id": 70,
+      "question": "What is sustainable development?",
+      "options": {
+        "A": "Development that meets present needs without compromising future",
+        "B": "Rapid industrialization",
+        "C": "Maximum GDP growth",
+        "D": "Urban development only"
+      },
+      "correct_answer": "A",
+      "explanation": "Sustainable development meets the needs of the present without compromising the ability of future generations to meet their own needs.",
+      "section": "economic_development"
+    },
+    {
+      "id": 71,
+      "question": "What is public finance?",
+      "options": {
+        "A": "Government revenue and expenditure",
+        "B": "Private company finance",
+        "C": "Personal finance",
+        "D": "Bank finance"
+      },
+      "correct_answer": "A",
+      "explanation": "Public finance deals with government revenue (taxes) and expenditure (public spending).",
+      "section": "public_finance"
+    },
+    {
+      "id": 72,
+      "question": "What are direct taxes?",
+      "options": {
+        "A": "Taxes levied directly on income and wealth",
+        "B": "Taxes on goods and services",
+        "C": "Import duties",
+        "D": "Sales taxes"
+      },
+      "correct_answer": "A",
+      "explanation": "Direct taxes are imposed directly on individuals and corporations (e.g., income tax, corporate tax).",
+      "section": "public_finance"
+    },
+    {
+      "id": 73,
+      "question": "What are indirect taxes?",
+      "options": {
+        "A": "Taxes on goods and services",
+        "B": "Taxes on income",
+        "C": "Wealth taxes",
+        "D": "Property taxes"
+      },
+      "correct_answer": "A",
+      "explanation": "Indirect taxes are levied on goods and services (e.g., VAT, sales tax, excise duty).",
+      "section": "public_finance"
+    },
+    {
+      "id": 74,
+      "question": "What is progressive tax?",
+      "options": {
+        "A": "Tax rate increases with income",
+        "B": "Fixed tax rate for all",
+        "C": "Tax rate decreases with income",
+        "D": "No tax on high income"
+      },
+      "correct_answer": "A",
+      "explanation": "Progressive tax takes a larger percentage from high-income earners than from low-income earners.",
+      "section": "public_finance"
+    },
+    {
+      "id": 75,
+      "question": "What is regressive tax?",
+      "options": {
+        "A": "Takes larger percentage from low-income earners",
+        "B": "Takes larger percentage from high-income",
+        "C": "Same percentage from all",
+        "D": "No impact on income"
+      },
+      "correct_answer": "A",
+      "explanation": "Regressive tax takes a larger percentage of income from low-income groups than from high-income groups.",
+      "section": "public_finance"
+    },
+    {
+      "id": 76,
+      "question": "What is proportional tax?",
+      "options": {
+        "A": "Same percentage rate for all income levels",
+        "B": "Increasing rate with income",
+        "C": "Decreasing rate with income",
+        "D": "No tax on low income"
+      },
+      "correct_answer": "A",
+      "explanation": "Proportional tax applies the same tax rate to all taxpayers regardless of income level.",
+      "section": "public_finance"
+    },
+    {
+      "id": 77,
+      "question": "What is public debt?",
+      "options": {
+        "A": "Total borrowings by government",
+        "B": "Private company debts",
+        "C": "Personal loans",
+        "D": "Bank loans"
+      },
+      "correct_answer": "A",
+      "explanation": "Public debt refers to the total amount of money that the government owes to its creditors.",
+      "section": "public_finance"
+    },
+    {
+      "id": 78,
+      "question": "What is economic system?",
+      "options": {
+        "A": "Way society organizes production and distribution",
+        "B": "Banking system only",
+        "C": "Tax system",
+        "D": "Trade system"
+      },
+      "correct_answer": "A",
+      "explanation": "An economic system is the way a society organizes the production, distribution, and consumption of goods and services.",
+      "section": "economic_systems"
+    },
+    {
+      "id": 79,
+      "question": "What is capitalism?",
+      "options": {
+        "A": "Private ownership of means of production",
+        "B": "Government ownership of all resources",
+        "C": "Mixed ownership",
+        "D": "No ownership"
+      },
+      "correct_answer": "A",
+      "explanation": "Capitalism features private ownership of resources and means of production, with market-determined prices.",
+      "section": "economic_systems"
+    },
+    {
+      "id": 80,
+      "question": "What is socialism?",
+      "options": {
+        "A": "Government ownership of major means of production",
+        "B": "Complete private ownership",
+        "C": "No government intervention",
+        "D": "Traditional economy"
+      },
+      "correct_answer": "A",
+      "explanation": "Socialism involves government ownership and control of major means of production and distribution.",
+      "section": "economic_systems"
+    },
+    {
+      "id": 81,
+      "question": "What is mixed economy?",
+      "options": {
+        "A": "Combination of private and public sectors",
+        "B": "Only private sector",
+        "C": "Only public sector",
+        "D": "No government role"
+      },
+      "correct_answer": "A",
+      "explanation": "Mixed economy combines features of both capitalism and socialism, with both private and public sectors coexisting.",
+      "section": "economic_systems"
+    },
+    {
+      "id": 82,
+      "question": "What is market economy?",
+      "options": {
+        "A": "Resources allocated by market forces",
+        "B": "Government allocation of resources",
+        "C": "Traditional allocation",
+        "D": "Random allocation"
+      },
+      "correct_answer": "A",
+      "explanation": "In a market economy, resources are allocated through the price mechanism and market forces of demand and supply.",
+      "section": "economic_systems"
+    },
+    {
+      "id": 83,
+      "question": "What is planned economy?",
+      "options": {
+        "A": "Government plans resource allocation",
+        "B": "Market determines allocation",
+        "C": "No planning",
+        "D": "Individual planning only"
+      },
+      "correct_answer": "A",
+      "explanation": "In a planned economy, the government makes all decisions about production and resource allocation.",
+      "section": "economic_systems"
+    },
+    {
+      "id": 84,
+      "question": "What is price mechanism?",
+      "options": {
+        "A": "System where prices determine resource allocation",
+        "B": "Government price control",
+        "C": "Fixed price system",
+        "D": "Traditional pricing"
+      },
+      "correct_answer": "A",
+      "explanation": "Price mechanism is the system where prices of goods and services are determined by supply and demand, guiding resource allocation.",
+      "section": "market_mechanism"
+    },
+    {
+      "id": 85,
+      "question": "What is market failure?",
+      "options": {
+        "A": "When market doesn't allocate resources efficiently",
+        "B": "Market closure",
+        "C": "Price stability",
+        "D": "Perfect competition"
+      },
+      "correct_answer": "A",
+      "explanation": "Market failure occurs when the market mechanism fails to achieve efficient allocation of resources.",
+      "section": "market_failure"
+    },
+    {
+      "id": 86,
+      "question": "What are externalities?",
+      "options": {
+        "A": "Effects on third parties not involved in transaction",
+        "B": "Internal costs",
+        "C": "Private benefits",
+        "D": "Market prices"
+      },
+      "correct_answer": "A",
+      "explanation": "Externalities are costs or benefits that affect third parties who are not directly involved in the economic transaction.",
+      "section": "market_failure"
+    },
+    {
+      "id": 87,
+      "question": "What is positive externality?",
+      "options": {
+        "A": "Benefit to third parties",
+        "B": "Cost to third parties",
+        "C": "Private benefit",
+        "D": "No external effect"
+      },
+      "correct_answer": "A",
+      "explanation": "Positive externality occurs when a transaction benefits third parties not involved in the transaction.",
+      "section": "market_failure"
+    },
+    {
+      "id": 88,
+      "question": "What is negative externality?",
+      "options": {
+        "A": "Cost imposed on third parties",
+        "B": "Benefit to third parties",
+        "C": "Private cost",
+        "D": "No external cost"
+      },
+      "correct_answer": "A",
+      "explanation": "Negative externality occurs when a transaction imposes costs on third parties not involved in the transaction.",
+      "section": "market_failure"
+    },
+    {
+      "id": 89,
+      "question": "What is public goods?",
+      "options": {
+        "A": "Goods that are non-rival and non-excludable",
+        "B": "Private goods",
+        "C": "Consumer goods",
+        "D": "Capital goods"
+      },
+      "correct_answer": "A",
+      "explanation": "Public goods are characterized by non-rivalry (one person's consumption doesn't reduce availability to others) and non-excludability (cannot prevent non-payers from consuming).",
+      "section": "market_failure"
+    },
+    {
+      "id": 90,
+      "question": "What is private goods?",
+      "options": {
+        "A": "Goods that are rival and excludable",
+        "B": "Public goods",
+        "C": "Free goods",
+        "D": "Government goods"
+      },
+      "correct_answer": "A",
+      "explanation": "Private goods are characterized by rivalry (consumption by one reduces availability to others) and excludability (can prevent non-payers from consuming).",
+      "section": "market_failure"
+    },
+    {
+      "id": 91,
+      "question": "What is labor force?",
+      "options": {
+        "A": "People employed plus unemployed seeking work",
+        "B": "Only employed people",
+        "C": "Only unemployed people",
+        "D": "Total population"
+      },
+      "correct_answer": "A",
+      "explanation": "Labor force consists of all people who are either employed or unemployed but actively seeking work.",
+      "section": "labor_market"
+    },
+    {
+      "id": 92,
+      "question": "What is productivity?",
+      "options": {
+        "A": "Output per unit of input",
+        "B": "Total output",
+        "C": "Input quantity",
+        "D": "Work hours"
+      },
+      "correct_answer": "A",
+      "explanation": "Productivity measures the efficiency of production, usually expressed as output per unit of input.",
+      "section": "production"
+    },
+    {
+      "id": 93,
+      "question": "What is division of labor?",
+      "options": {
+        "A": "Specialization in specific tasks",
+        "B": "Equal work distribution",
+        "C": "Labor unions",
+        "D": "Work sharing"
+      },
+      "correct_answer": "A",
+      "explanation": "Division of labor involves breaking down the production process into separate tasks performed by different workers.",
+      "section": "production"
+    },
+    {
+      "id": 94,
+      "question": "What is specialization?",
+      "options": {
+        "A": "Focusing on specific economic activities",
+        "B": "Doing all activities",
+        "C": "Random work allocation",
+        "D": "No specific focus"
+      },
+      "correct_answer": "A",
+      "explanation": "Specialization occurs when individuals, firms, or countries concentrate on producing specific goods or services.",
+      "section": "production"
+    },
+    {
+      "id": 95,
+      "question": "What is economic integration?",
+      "options": {
+        "A": "Coordination of economic policies between countries",
+        "B": "Isolation of economies",
+        "C": "Single country development",
+        "D": "Local trade only"
+      },
+      "correct_answer": "A",
+      "explanation": "Economic integration involves the coordination of economic policies and reduction of trade barriers between countries.",
+      "section": "international_trade"
+    },
+    {
+      "id": 96,
+      "question": "What is free trade area?",
+      "options": {
+        "A": "Group of countries with no trade barriers",
+        "B": "Single market",
+        "C": "Economic union",
+        "D": "Customs union"
+      },
+      "correct_answer": "A",
+      "explanation": "Free trade area involves elimination of trade barriers among member countries but each maintains its own external trade policy.",
+      "section": "international_trade"
+    },
+    {
+      "id": 97,
+      "question": "What is customs union?",
+      "options": {
+        "A": "Free trade area with common external tariff",
+        "B": "Single currency area",
+        "C": "Political union",
+        "D": "Military alliance"
+      },
+      "correct_answer": "A",
+      "explanation": "Customs union is a free trade area with a common external tariff against non-member countries.",
+      "section": "international_trade"
+    },
+    {
+      "id": 98,
+      "question": "What is common market?",
+      "options": {
+        "A": "Customs union with free factor mobility",
+        "B": "Free trade area only",
+        "C": "Single market",
+        "D": "Economic union"
+      },
+      "correct_answer": "A",
+      "explanation": "Common market includes free movement of goods, services, capital, and labor in addition to customs union features.",
+      "section": "international_trade"
+    },
+    {
+      "id": 99,
+      "question": "What is economic union?",
+      "options": {
+        "A": "Common market with harmonized economic policies",
+        "B": "Free trade area",
+        "C": "Customs union",
+        "D": "Political union"
+      },
+      "correct_answer": "A",
+      "explanation": "Economic union involves common market features plus harmonization of economic policies (monetary, fiscal, etc.).",
+      "section": "international_trade"
+    },
+    {
+      "id": 100,
+      "question": "What is WTO?",
+      "options": {
+        "A": "World Trade Organization",
+        "B": "World Tourism Organization",
+        "C": "World Transport Organization",
+        "D": "World Technology Organization"
+      },
+      "correct_answer": "A",
+      "explanation": "WTO is the international organization that regulates global trade rules and settles trade disputes.",
+      "section": "international_trade"
+    },
+    {
+      "id": 101,
+      "question": "What is IMF?",
+      "options": {
+        "A": "International Monetary Fund",
+        "B": "International Market Forum",
+        "C": "International Money Foundation",
+        "D": "International Manufacturing Federation"
+      },
+      "correct_answer": "A",
+      "explanation": "IMF provides financial assistance and policy advice to member countries facing balance of payments problems.",
+      "section": "international_trade"
+    },
+    {
+      "id": 102,
+      "question": "What is World Bank?",
+      "options": {
+        "A": "Provides loans for development projects",
+        "B": "Commercial bank",
+        "C": "Central bank",
+        "D": "Private bank"
+      },
+      "correct_answer": "A",
+      "explanation": "World Bank provides financial and technical assistance to developing countries for development projects.",
+      "section": "international_trade"
+    },
+    {
+      "id": 103,
+      "question": "What is economic planning?",
+      "options": {
+        "A": "Deliberate government direction of economic activity",
+        "B": "Market determination",
+        "C": "Individual planning",
+        "D": "No planning"
+      },
+      "correct_answer": "A",
+      "explanation": "Economic planning involves conscious government direction and regulation of economic activity to achieve specific objectives.",
+      "section": "economic_planning"
+    },
+    {
+      "id": 104,
+      "question": "What is development planning?",
+      "options": {
+        "A": "Planning for economic development objectives",
+        "B": "Daily operational planning",
+        "C": "Business planning",
+        "D": "Personal planning"
+      },
+      "correct_answer": "A",
+      "explanation": "Development planning focuses on achieving long-term economic development goals and structural transformation.",
+      "section": "economic_planning"
+    },
+    {
+      "id": 105,
+      "question": "What is indicative planning?",
+      "options": {
+        "A": "Planning through incentives and guidelines",
+        "B": "Compulsory planning",
+        "C": "No planning",
+        "D": "Market planning"
+      },
+      "correct_answer": "A",
+      "explanation": "Indicative planning sets targets and provides incentives for private sector to achieve them, without compulsion.",
+      "section": "economic_planning"
+    },
+    {
+      "id": 106,
+      "question": "What is comprehensive planning?",
+      "options": {
+        "A": "Planning covering all sectors of economy",
+        "B": "Partial planning",
+        "C": "Sectoral planning",
+        "D": "No sector coverage"
+      },
+      "correct_answer": "A",
+      "explanation": "Comprehensive planning covers all major sectors of the economy in an integrated manner.",
+      "section": "economic_planning"
+    },
+    {
+      "id": 107,
+      "question": "What is partial planning?",
+      "options": {
+        "A": "Planning for specific sectors only",
+        "B": "Comprehensive planning",
+        "C": "No planning",
+        "D": "Random planning"
+      },
+      "correct_answer": "A",
+      "explanation": "Partial planning focuses on specific sectors or regions rather than the entire economy.",
+      "section": "economic_planning"
+    },
+    {
+      "id": 108,
+      "question": "What is economic reform?",
+      "options": {
+        "A": "Policy changes to improve economic performance",
+        "B": "No change in policies",
+        "C": "Political reforms",
+        "D": "Social reforms"
+      },
+      "correct_answer": "A",
+      "explanation": "Economic reforms involve policy changes designed to improve economic efficiency and performance.",
+      "section": "economic_policy"
+    },
+    {
+      "id": 109,
+      "question": "What is structural adjustment?",
+      "options": {
+        "A": "Economic reforms to restructure the economy",
+        "B": "Minor policy changes",
+        "C": "No structural changes",
+        "D": "Political restructuring"
+      },
+      "correct_answer": "A",
+      "explanation": "Structural adjustment programs involve comprehensive economic reforms to address fundamental imbalances.",
+      "section": "economic_policy"
+    },
+    {
+      "id": 110,
+      "question": "What is privatization?",
+      "options": {
+        "A": "Transfer of public enterprises to private sector",
+        "B": "Government taking over private firms",
+        "C": "Joint ownership",
+        "D": "No ownership change"
+      },
+      "correct_answer": "A",
+      "explanation": "Privatization involves selling state-owned enterprises to private investors.",
+      "section": "economic_policy"
+    },
+    {
+      "id": 111,
+      "question": "What is commercialization?",
+      "options": {
+        "A": "Making public enterprises profit-oriented",
+        "B": "Closing public enterprises",
+        "C": "Nationalizing private firms",
+        "D": "Free services"
+      },
+      "correct_answer": "A",
+      "explanation": "Commercialization involves restructuring public enterprises to operate on commercial profit-making principles.",
+      "section": "economic_policy"
+    },
+    {
+      "id": 112,
+      "question": "What is deregulation?",
+      "options": {
+        "A": "Reduction of government regulations",
+        "B": "Increase in regulations",
+        "C": "No regulations",
+        "D": "Different regulations"
+      },
+      "correct_answer": "A",
+      "explanation": "Deregulation involves reducing or eliminating government regulations on economic activities.",
+      "section": "economic_policy"
+    },
+    {
+      "id": 113,
+      "question": "What is liberalization?",
+      "options": {
+        "A": "Removing restrictions on economic activities",
+        "B": "Increasing restrictions",
+        "C": "No change in policies",
+        "D": "Government control"
+      },
+      "correct_answer": "A",
+      "explanation": "Liberalization involves removing government restrictions and controls on economic activities.",
+      "section": "economic_policy"
+    },
+    {
+      "id": 114,
+      "question": "What is globalization?",
+      "options": {
+        "A": "Increasing integration of world economies",
+        "B": "Isolation of economies",
+        "C": "Local economic focus",
+        "D": "National economic policies"
+      },
+      "correct_answer": "A",
+      "explanation": "Globalization refers to the increasing integration and interdependence of national economies worldwide.",
+      "section": "international_trade"
+    },
+    {
+      "id": 115,
+      "question": "What is foreign direct investment?",
+      "options": {
+        "A": "Investment in physical assets in foreign country",
+        "B": "Portfolio investment",
+        "C": "Foreign aid",
+        "D": "Trade credit"
+      },
+      "correct_answer": "A",
+      "explanation": "FDI involves investment in physical assets like factories, machinery, or buildings in a foreign country.",
+      "section": "international_trade"
+    },
+    {
+      "id": 116,
+      "question": "What is portfolio investment?",
+      "options": {
+        "A": "Investment in financial assets like stocks and bonds",
+        "B": "Physical asset investment",
+        "C": "Direct business investment",
+        "D": "Real estate investment"
+      },
+      "correct_answer": "A",
+      "explanation": "Portfolio investment involves purchasing financial assets like stocks and bonds without controlling interest.",
+      "section": "international_trade"
+    },
+    {
+      "id": 117,
+      "question": "What is foreign aid?",
+      "options": {
+        "A": "Financial assistance from foreign countries or organizations",
+        "B": "Commercial loans",
+        "C": "Private investment",
+        "D": "Trade earnings"
+      },
+      "correct_answer": "A",
+      "explanation": "Foreign aid consists of grants, loans, and technical assistance provided by foreign governments or international organizations.",
+      "section": "international_trade"
+    },
+    {
+      "id": 118,
+      "question": "What is remittance?",
+      "options": {
+        "A": "Money sent home by migrant workers",
+        "B": "Foreign investment",
+        "C": "Trade payments",
+        "D": "Government transfers"
+      },
+      "correct_answer": "A",
+      "explanation": "Remittances are funds transferred by migrant workers to their home countries.",
+      "section": "international_trade"
+    },
+    {
+      "id": 119,
+      "question": "What is terms of trade?",
+      "options": {
+        "A": "Ratio of export prices to import prices",
+        "B": "Trade balance",
+        "C": "Volume of trade",
+        "D": "Trade agreements"
+      },
+      "correct_answer": "A",
+      "explanation": "Terms of trade measure the ratio between a country's export prices and its import prices.",
+      "section": "international_trade"
+    },
+    {
+      "id": 120,
+      "question": "What is balance of payments deficit?",
+      "options": {
+        "A": "When debits exceed credits in BOP",
+        "B": "When credits exceed debits",
+        "C": "Balanced BOP",
+        "D": "No international transactions"
+      },
+      "correct_answer": "A",
+      "explanation": "BOP deficit occurs when total payments to other countries exceed total receipts from them.",
+      "section": "international_trade"
+    },
+    {
+      "id": 121,
+      "question": "What is balance of payments surplus?",
+      "options": {
+        "A": "When credits exceed debits in BOP",
+        "B": "When debits exceed credits",
+        "C": "Balanced BOP",
+        "D": "Zero BOP"
+      },
+      "correct_answer": "A",
+      "explanation": "BOP surplus occurs when total receipts from other countries exceed total payments to them.",
+      "section": "international_trade"
+    },
+    {
+      "id": 122,
+      "question": "What is current account?",
+      "options": {
+        "A": "Records trade in goods and services, income flows",
+        "B": "Records capital flows",
+        "C": "Records official reserves",
+        "D": "Records errors and omissions"
+      },
+      "correct_answer": "A",
+      "explanation": "Current account records trade in goods and services, income receipts and payments, and current transfers.",
+      "section": "international_trade"
+    },
+    {
+      "id": 123,
+      "question": "What is capital account?",
+      "options": {
+        "A": "Records capital transfers and acquisition/disposal of non-produced assets",
+        "B": "Records trade in goods",
+        "C": "Records services trade",
+        "D": "Records income flows"
+      },
+      "correct_answer": "A",
+      "explanation": "Capital account records capital transfers and transactions in non-produced, non-financial assets.",
+      "section": "international_trade"
+    },
+    {
+      "id": 124,
+      "question": "What is financial account?",
+      "options": {
+        "A": "Records investment flows and changes in reserve assets",
+        "B": "Records goods trade",
+        "C": "Records services trade",
+        "D": "Records current transfers"
+      },
+      "correct_answer": "A",
+      "explanation": "Financial account records transactions involving financial assets and liabilities between residents and non-residents.",
+      "section": "international_trade"
+    },
+    {
+      "id": 125,
+      "question": "What is foreign exchange reserves?",
+      "options": {
+        "A": "Foreign currencies held by central bank",
+        "B": "Domestic currency reserves",
+        "C": "Gold reserves only",
+        "D": "Trade goods stock"
+      },
+      "correct_answer": "A",
+      "explanation": "Foreign exchange reserves are foreign currencies held by a country's central bank.",
+      "section": "international_trade"
+    },
+    {
+      "id": 126,
+      "question": "What is economic indicator?",
+      "options": {
+        "A": "Statistics about economic performance",
+        "B": "Political indicators",
+        "C": "Social indicators",
+        "D": "Environmental indicators"
+      },
+      "correct_answer": "A",
+      "explanation": "Economic indicators are statistics that provide information about the performance of an economy.",
+      "section": "economic_measurement"
+    },
+    {
+      "id": 127,
+      "question": "What is leading indicator?",
+      "options": {
+        "A": "Predicts future economic activity",
+        "B": "Measures current activity",
+        "C": "Measures past activity",
+        "D": "No predictive value"
+      },
+      "correct_answer": "A",
+      "explanation": "Leading indicators change before the economy as a whole changes, helping predict future trends.",
+      "section": "economic_measurement"
+    },
+    {
+      "id": 128,
+      "question": "What is lagging indicator?",
+      "options": {
+        "A": "Changes after the economy has begun following a pattern",
+        "B": "Predicts future trends",
+        "C": "Measures current activity",
+        "D": "No relation to economy"
+      },
+      "correct_answer": "A",
+      "explanation": "Lagging indicators change after the economy as a whole has changed, confirming established trends.",
+      "section": "economic_measurement"
+    }
+  ]
+}
