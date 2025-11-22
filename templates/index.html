@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MSH CBT HUB - Excel in WAEC & JAMB</title>
+    <meta name="description" content="MSH CBT HUB - Practice WAEC & JAMB questions online. Access 11 subjects, including English, Maths, Physics, Chemistry, Biology, and more. Boost your exam readiness!">
+    <meta name="author" content="MSH Labs (Muhsin Salihu Hassan)">
+    
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:title" content="MSH CBT HUB - Excel in WAEC & JAMB">
+    <meta property="og:description" content="Practice 11 subjects online, including WAEC & JAMB questions. Improve your scores with MSH CBT HUB.">
+    <meta property="og:image" content="{{ url_for('static', filename='students.jpg') }}">
+    <meta property="og:url" content="https://mshcbthub.onrender.com/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MSH CBT HUB - Excel in WAEC & JAMB">
+    <meta name="twitter:description" content="Practice 11 subjects online, including WAEC & JAMB questions. Improve your scores with MSH CBT HUB.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='students.jpg') }}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#4CAF50">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- ==================== LOADING ANIMATION ==================== -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h2>MSH CBT HUB</h2>
+            </div>
+            <div class="loading-spinner-large"></div>
+            <p>Loading your ultimate exam preparation platform...</p>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animated Background Elements -->
+    <div class="animated-bg"></div>
+    <div class="floating-elements">
+        <div class="floating-element element-1"><i class="fas fa-atom"></i></div>
+        <div class="floating-element element-2"><i class="fas fa-calculator"></i></div>
+        <div class="floating-element element-3"><i class="fas fa-flask"></i></div>
+        <div class="floating-element element-4"><i class="fas fa-book"></i></div>
+        <div class="floating-element element-5"><i class="fas fa-globe"></i></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showPage('home')">
+                <div class="brand-logo">
+                    <i class="fas fa-graduation-cap me-2"></i>
+                    <div class="brand-text">
+                        <strong>MSH CBT HUB</strong>
+                        <small>Excel in Exams</small>
+                    </div>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto" id="navLinks">
+                    <!-- Navigation will be updated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== ALL PAGES ==================== -->
+
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page-section active">
+        <!-- Hero Section -->
+        <header class="hero-header">
+            <div class="hero-content">
+                <div class="container text-center">
+                    <!-- Animated Badge -->
+                    <div class="premium-badge fade-in">
+                        <i class="fas fa-star me-2"></i>Nigeria's #1 CBT Platform
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-main">Master WAEC & JAMB</span>
+                        <span class="title-sub">With Intelligent Practice</span>
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        Your Ultimate Preparation Platform for WAEC & JAMB Exams
+                    </p>
+                    
+                    <div class="hero-badges mb-4">
+                        <span class="badge badge-waec me-2">
+                            <i class="fas fa-check-circle me-1"></i>WAEC Preparation
+                        </span>
+                        <span class="badge badge-jamb me-2">
+                            <i class="fas fa-check-circle me-1"></i>JAMB Preparation
+                        </span>
+                        <span class="badge bg-teal">
+                            <i class="fas fa-check-circle me-1"></i>SSS1 - SSS3
+                        </span>
+                    </div>
+                    
+                    <!-- Animated Stats -->
+                    <div class="hero-stats fade-in" style="animation-delay: 0.3s;">
+                        <div class="stat-item">
+                            <div class="stat-number">2,000+</div>
+                            <div class="stat-label">Questions</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">22</div>
+                            <div class="stat-label">Subjects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Syllabus</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-actions mt-4">
+                        <button class="btn btn-primary btn-lg me-3 pulse-animation" onclick="showPage('register')">
+                            <i class="fas fa-rocket me-2"></i>Start Free Trial
+                        </button>
+                        <button class="btn btn-outline-light btn-lg" onclick="showPage('login')">
+                            <i class="fas fa-sign-in-alt me-2"></i>Student Login
+                        </button>
+                    </div>
+                    
+                    <!-- Scroll Indicator -->
+                    <div class="scroll-indicator">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Features Section -->
+        <section class="container my-5 py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Why Choose MSH CBT HUB?</h2>
+                <p class="section-subtitle">Everything you need to excel in your exams</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h5>Curriculum Aligned</h5>
+                        <p>Specifically designed for Nigerian secondary school curriculum with comprehensive WAEC & JAMB syllabus coverage.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card fade-in" style="animation-delay: 0.2s;">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h5>Intelligent Practice</h5>
+                        <p>Smart question bank with 128+ questions per subject, adaptive learning, and personalized recommendations.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card fade-in" style="animation-delay: 0.4s;">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h5>Real Exam Simulation</h5>
+                        <p>Experience authentic exam conditions with timers, automatic submission, and detailed performance analytics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subjects Showcase -->
+        <section class="container my-5 py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Comprehensive Subject Coverage</h2>
+                <p class="section-subtitle">All subjects for WAEC & JAMB with special icons</p>
+            </div>
+            
+            <div class="row g-3">
+                <!-- WAEC Subjects -->
+                <div class="col-md-6">
+                    <div class="subject-group-card">
+                        <div class="subject-group-header">
+                            <i class="fas fa-book-open me-2"></i>
+                            <h5>WAEC Subjects (9 Total)</h5>
+                            <span class="badge bg-success">English & Maths Required</span>
+                        </div>
+                        <div class="subject-grid">
+                            <div class="subject-item">
+                                <div class="subject-icon english">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <span>English Language</span>
+                                <small class="text-muted">Compulsory</small>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon mathematics">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <span>Mathematics</span>
+                                <small class="text-muted">Compulsory</small>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon physics">
+                                    <i class="fas fa-atom"></i>
+                                </div>
+                                <span>Physics</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon chemistry">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <span>Chemistry</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon biology">
+                                    <i class="fas fa-dna"></i>
+                                </div>
+                                <span>Biology</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon geography">
+                                    <i class="fas fa-globe-africa"></i>
+                                </div>
+                                <span>Geography</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon economics">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <span>Economics</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon government">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <span>Government</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon literature">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <span>Literature</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon crs">
+                                    <i class="fas fa-church"></i>
+                                </div>
+                                <span>CRS</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon irs">
+                                    <i class="fas fa-mosque"></i>
+                                </div>
+                                <span>IRS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- JAMB Subjects -->
+                <div class="col-md-6">
+                    <div class="subject-group-card">
+                        <div class="subject-group-header">
+                            <i class="fas fa-university me-2"></i>
+                            <h5>JAMB Subjects (4 Total)</h5>
+                            <span class="badge bg-warning">Only English Required</span>
+                        </div>
+                        <div class="subject-grid">
+                            <div class="subject-item">
+                                <div class="subject-icon english">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <span>English Language</span>
+                                <small class="text-muted">Compulsory</small>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon mathematics">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <span>Mathematics</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon physics">
+                                    <i class="fas fa-atom"></i>
+                                </div>
+                                <span>Physics</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon chemistry">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <span>Chemistry</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon biology">
+                                    <i class="fas fa-dna"></i>
+                                </div>
+                                <span>Biology</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon geography">
+                                    <i class="fas fa-globe-africa"></i>
+                                </div>
+                                <span>Geography</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon economics">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <span>Economics</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon government">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <span>Government</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon literature">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <span>Literature</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon crs">
+                                    <i class="fas fa-church"></i>
+                                </div>
+                                <span>CRS</span>
+                            </div>
+                            <div class="subject-item">
+                                <div class="subject-icon irs">
+                                    <i class="fas fa-mosque"></i>
+                                </div>
+                                <span>IRS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Novel Section -->
+        <section class="container my-5 py-5">
+            <div class="cbt-card novel-card">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <div class="novel-content">
+                            <div class="novel-badge">
+                                <i class="fas fa-bookmark me-2"></i>Free Resource
+                            </div>
+                            <h3>Explore "The Lekki Headmaster"</h3>
+                            <p class="lead">Dive into the world of Lekki Headmaster! Practice your comprehension skills with questions based on the novel — completely free and available for all users.</p>
+                            <div class="novel-features">
+                                <div class="feature">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <span>Full novel access</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <span>Comprehension questions</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <span>Character analysis</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <a href="https://drive.google.com/file/d/1x-JBTvxA3y-Bn8dw16C1CW07tSqu6VeP/view" 
+                                   class="btn btn-primary me-3" target="_blank">
+                                    <i class="fas fa-book-open me-2"></i>Read Novel
+                                </a>
+                                <button class="btn btn-outline-teal" onclick="showPage('login')">
+                                    <i class="fas fa-play-circle me-2"></i>Start Practice
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="novel-illustration">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WhatsApp Section -->
+        <section class="container my-5 py-5">
+            <div class="cbt-card whatsapp-card text-center">
+                <div class="whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>Ready to Get Started?</h3>
+                <p class="lead">Get your activation code and unlock full access to all features!</p>
+                
+                <div class="whatsapp-features mb-4">
+                    <div class="row justify-content-center">
+                        <div class="col-md-3">
+                            <div class="feature-item">
+                                <i class="fas fa-key fa-2x text-success mb-2"></i>
+                                <h6>Instant Activation</h6>
+                                <small>Get code immediately</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="feature-item">
+                                <i class="fas fa-clock fa-2x text-success mb-2"></i>
+                                <h6>5 Months Access</h6>
+                                <small>Per activation code</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="feature-item">
+                                <i class="fas fa-headset fa-2x text-success mb-2"></i>
+                                <h6>24/7 Support</h6>
+                                <small>Quick responses</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="https://wa.me/2347084315679?text=Hello%2C%20I%20want%20to%20apply%20for%20an%20activation%20code%20for%20MSH%20CBT%20HUB." 
+                   class="btn btn-success btn-lg whatsapp-pulse" target="_blank">
+                    <i class="fab fa-whatsapp me-2"></i>Get Activation Code via WhatsApp
+                </a>
+                
+                <div class="mt-3">
+                    <small class="text-muted">Quick response guaranteed • Secure payment</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="container my-5 py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title">What Students Say</h2>
+                <p class="section-subtitle">Join thousands of successful students</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p>"MSH CBT HUB helped me improve from 45% to 82% in Mathematics. The real exam simulation is exactly what I needed!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="author-info">
+                                <strong>Chiamaka O.</strong>
+                                <small>SSS3 Student, Lagos</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card fade-in" style="animation-delay: 0.2s;">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p>"The subject icons and beautiful design made studying enjoyable. I actually look forward to practice sessions now!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="author-info">
+                                <strong>Ahmad R.</strong>
+                                <small>JAMB Candidate, Abuja</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card fade-in" style="animation-delay: 0.4s;">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p>"The free trial convinced me to get the full version. Best investment I've made for my education this year!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="author-info">
+                                <strong>Rahmah S.</strong>
+                                <small>WAEC Candidate, Kaduna</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- DASHBOARD PAGE -->
+    <div id="dashboard-page" class="page-section">
+        <div class="container mt-5 pt-5">
+            <!-- Welcome Message -->
+            <div class="cbt-card text-center mb-4 fade-in">
+                <div class="dashboard-header">
+                    <div class="welcome-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h2 id="welcomeMessage">Learning Dashboard</h2>
+                    <p class="lead" id="userGreeting">Welcome to your dashboard!</p>
+                </div>
+            </div>
+
+            <!-- Account Status & Quick Stats -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="cbt-card h-100 fade-in">
+                        <h5 class="text-teal">
+                            <i class="fas fa-user-check me-2"></i>Account Status
+                        </h5>
+                        <div id="accountStatus">
+                            <div class="loading-spinner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="cbt-card h-100 fade-in" style="animation-delay: 0.1s;">
+                        <h5 class="text-teal">
+                            <i class="fas fa-chart-line me-2"></i>Quick Stats
+                        </h5>
+                        <div class="row text-center" id="quickStats">
+                            <div class="col-6">
+                                <div class="stat-number text-teal">0</div>
+                                <div class="stat-label">Tests Taken</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-number text-teal">0%</div>
+                                <div class="stat-label">Average Score</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="cbt-card fade-in" style="animation-delay: 0.2s;">
+                <h5 class="text-teal mb-4">
+                    <i class="fas fa-rocket me-2"></i>Quick Actions
+                </h5>
+                
+                <div class="row g-3">
+                    <!-- WAEC Exam -->
+                    <div class="col-md-3">
+                        <div class="action-card text-center p-3">
+                            <div class="action-icon waec">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h6>WAEC Practice</h6>
+                            <p class="small text-muted">9 subjects, English & Maths compulsory</p>
+                            <button class="btn btn-waec btn-sm w-100" onclick="startWAECSelection()">
+                                Start WAEC
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- JAMB Exam -->
+                    <div class="col-md-3">
+                        <div class="action-card text-center p-3">
+                            <div class="action-icon jamb">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h6>JAMB Practice</h6>
+                            <p class="small text-muted">Only English compulsory + 3 others</p>
+                            <button class="btn btn-jamb btn-sm w-100" onclick="startJAMBSelection()">
+                                Start JAMB
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Read Novel -->
+                    <div class="col-md-3">
+                        <div class="action-card text-center p-3">
+                            <div class="action-icon novel">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h6>Read Novel</h6>
+                            <p class="small text-muted">Lekki Headmaster for JAMB English</p>
+                            <a href="https://drive.google.com/file/d/1x-JBTvxA3y-Bn8dw16C1CW07tSqu6VeP/view" 
+                               class="btn btn-teal btn-sm w-100" target="_blank">
+                                Read Now
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Instructions -->
+                    <div class="col-md-3">
+                        <div class="action-card text-center p-3">
+                            <div class="action-icon instructions">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <h6>Instructions</h6>
+                            <p class="small text-muted">How to use the platform</p>
+                            <button class="btn btn-outline-teal btn-sm w-100" onclick="showPage('instructions')">
+                                View Guide
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="cbt-card fade-in" style="animation-delay: 0.3s;">
+                <h5 class="text-teal mb-4">
+                    <i class="fas fa-history me-2"></i>Recent Activity
+                </h5>
+                <div id="recentActivity">
+                    <div class="text-center py-4">
+                        <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">No recent activity yet</p>
+                        <button class="btn btn-teal btn-sm" onclick="startWAECSelection()">
+                            Start Your First Exam
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INSTRUCTIONS PAGE -->
+    <div id="instructions-page" class="page-section">
+        <div class="container mt-5 pt-5">
+            <div class="cbt-card">
+                <div class="text-center mb-5">
+                    <div class="instructions-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h2>Platform Instructions</h2>
+                    <p class="text-muted">Learn how to make the most of MSH CBT HUB</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="instruction-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>Registration & Trial</h5>
+                                <p>Create your account to get 1 hour free trial. Explore all features before activating.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="instruction-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>Subject Selection</h5>
+                                <p>Choose your subjects carefully. WAEC requires 9 subjects, JAMB requires 4 subjects.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="instruction-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>Exam Interface</h5>
+                                <p>Use the navigation panel to move between questions. Timer will auto-submit when time ends.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="instruction-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h5>Results & Review</h5>
+                                <p>Analyze your performance with detailed breakdown and subject-wise scores.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info mt-4">
+                    <h6><i class="fas fa-lightbulb me-2"></i>Pro Tips</h6>
+                    <ul class="mb-0">
+                        <li>Use the scientific calculator for Mathematics and Science subjects</li>
+                        <li>Review wrong answers to understand your mistakes</li>
+                        <li>Practice regularly to improve your timing and accuracy</li>
+                        <li>Share your results with friends for healthy competition</li>
+                    </ul>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button class="btn btn-teal" onclick="showPage('dashboard')">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WAEC SELECTION PAGE -->
+    <div id="waec-selection-page" class="page-section">
+        <div class="container mt-5 pt-5">
+            <div class="cbt-card">
+                <div class="text-center mb-4">
+                    <h2 class="text-teal">
+                        <i class="fas fa-book-open me-2"></i>WAEC Subject Selection
+                    </h2>
+                    <p class="text-muted">Select exactly 9 subjects (English & Mathematics are compulsory)</p>
+                </div>
+                <div id="waecSubjectsList">
+                    <!-- WAEC subjects will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAMB SELECTION PAGE -->
+    <div id="jamb-selection-page" class="page-section">
+        <div class="container mt-5 pt-5">
+            <div class="cbt-card">
+                <div class="text-center mb-4">
+                    <h2 class="text-teal">
+                        <i class="fas fa-university me-2"></i>JAMB Subject Selection
+                    </h2>
+                    <p class="text-muted">Select exactly 4 subjects (English is compulsory)</p>
+                </div>
+                <div id="jambSubjectsList">
+                    <!-- JAMB subjects will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXAM INTERFACE PAGE -->
+    <div id="exam-interface-page" class="page-section">
+        <div class="container-fluid exam-container">
+            <!-- Exam Header -->
+            <div class="exam-header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h4 id="examSubject" class="text-white mb-0">
+                                <i class="fas fa-book me-2"></i>Exam Interface
+                            </h4>
+                            <small class="text-white-50" id="examInfo">Loading exam...</small>
+                        </div>
+                        <div class="col-md-6 text-end">
+                            <div class="timer-container">
+                                <div class="timer-display">
+                                    <i class="fas fa-clock me-2"></i>
+                                    <span id="examTimer">00:00:00</span>
+                                </div>
+                                <div class="progress" style="height: 4px;">
+                                    <div id="timerProgress" class="progress-bar bg-warning" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Exam Content -->
+            <div class="container exam-content">
+                <div class="row">
+                    <!-- Questions Panel -->
+                    <div class="col-lg-8">
+                        <div class="cbt-card question-card">
+                            <div class="question-number">
+                                Question <span id="currentQuestion">1</span> of <span id="totalQuestions">0</span>
+                            </div>
+                            
+                            <div class="question-text mb-4" id="questionText">
+                                <div class="text-center py-4">
+                                    <div class="loading-spinner"></div>
+                                    <p class="mt-3">Loading questions...</p>
+                                </div>
+                            </div>
+
+                            <!-- Options -->
+                            <div class="options-container" id="optionsContainer">
+                                <!-- Options will be loaded by JavaScript -->
+                            </div>
+
+                            <!-- Comprehension Passage (for English) -->
+                            <div class="comprehension-passage mt-4" id="comprehensionPassage" style="display: none;">
+                                <div class="passage-header bg-light p-3 rounded">
+                                    <h6><i class="fas fa-file-alt me-2"></i>Read the passage below:</h6>
+                                </div>
+                                <div class="passage-content p-3" id="passageContent">
+                                    <!-- Passage text will be loaded here -->
+                                </div>
+                            </div>
+
+                            <!-- Navigation Buttons -->
+                            <div class="exam-navigation mt-4">
+                                <button class="btn btn-outline-teal" id="prevBtn" disabled>
+                                    <i class="fas fa-arrow-left me-2"></i>Previous
+                                </button>
+                                <button class="btn btn-teal" id="nextBtn">
+                                    Next <i class="fas fa-arrow-right ms-2"></i>
+                                </button>
+                                <button class="btn btn-warning float-end" id="calculatorBtn">
+                                    <i class="fas fa-calculator me-2"></i>Calculator
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Questions Navigator -->
+                    <div class="col-lg-4">
+                        <div class="cbt-card questions-nav-card">
+                            <h6 class="text-teal mb-3">
+                                <i class="fas fa-map me-2"></i>Questions Navigator
+                            </h6>
+                            
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-success" id="progressBar" style="width: 0%"></div>
+                            </div>
+                            <div class="text-center small mb-3">
+                                <span id="answeredCount">0</span> of <span id="totalCount">0</span> answered
+                            </div>
+
+                            <div class="questions-grid" id="questionsGrid">
+                                <!-- Question numbers will be generated by JavaScript -->
+                            </div>
+
+                            <div class="text-center mt-3">
+                                <button class="btn btn-danger btn-sm" id="submitExamBtn">
+                                    <i class="fas fa-paper-plane me-2"></i>Submit Exam
+                                </button>
+                            </div>
+
+                            <div class="legend mt-3">
+                                <div class="legend-item">
+                                    <span class="legend-color answered"></span>
+                                    <span class="legend-text">Answered</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color current"></span>
+                                    <span class="legend-text">Current</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color unanswered"></span>
+                                    <span class="legend-text">Unanswered</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULTS PAGE -->
+    <div id="results-page" class="page-section">
+        <div class="container mt-5 pt-5">
+            <!-- Results Header -->
+            <div class="cbt-card text-center results-header fade-in">
+                <div class="success-checkmark">
+                    <div class="check-icon">
+                        <span class="icon-line line-tip"></span>
+                        <span class="icon-line line-long"></span>
+                        <div class="icon-circle"></div>
+                        <div class="icon-fix"></div>
+                    </div>
+                </div>
+                <h2 class="text-teal mb-3">Exam Completed! 🎉</h2>
+                <p class="lead" id="resultsMessage">Great job completing your exam!</p>
+            </div>
+
+            <!-- Score Summary -->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="cbt-card text-center score-card fade-in" style="animation-delay: 0.1s;">
+                        <div class="score-circle">
+                            <span id="scorePercentage">0%</span>
+                        </div>
+                        <h5 class="mt-3">Overall Score</h5>
+                        <p id="scoreText" class="text-muted">0 out of 0 questions</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="cbt-card text-center fade-in" style="animation-delay: 0.2s;">
+                        <i class="fas fa-clock fa-3x text-teal mb-3"></i>
+                        <h5>Time Taken</h5>
+                        <p id="timeTaken" class="text-muted">00:00:00</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="cbt-card text-center fade-in" style="animation-delay: 0.3s;">
+                        <i class="fas fa-calendar fa-3x text-teal mb-3"></i>
+                        <h5>Date Completed</h5>
+                        <p id="completionDate" class="text-muted">Just now</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subject Breakdown -->
+            <div class="cbt-card fade-in" style="animation-delay: 0.4s;">
+                <h5 class="text-teal mb-4">
+                    <i class="fas fa-chart-bar me-2"></i>Subject Performance
+                </h5>
+                <div id="subjectBreakdown">
+                    <div class="text-center py-4">
+                        <div class="loading-spinner"></div>
+                        <p class="mt-3">Loading performance breakdown...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="cbt-card text-center fade-in" style="animation-delay: 0.5s;">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <button class="btn btn-teal w-100" onclick="reviewAnswers()">
+                            <i class="fas fa-search me-2"></i>Review Answers
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-outline-teal w-100" onclick="showPage('dashboard')">
+                            <i class="fas fa-tachometer-alt me-2"></i>Back to Dashboard
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-waec w-100" onclick="shareResults()">
+                            <i class="fas fa-share-alt me-2"></i>Share Results
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="cbt-card fade-in" style="animation-delay: 0.6s;">
+                <h5 class="text-teal mb-4">
+                    <i class="fas fa-rocket me-2"></i>What's Next?
+                </h5>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="next-action-card text-center p-4">
+                            <i class="fas fa-redo fa-2x text-teal mb-3"></i>
+                            <h6>Retake Exam</h6>
+                            <p class="small text-muted">Practice with new questions</p>
+                            <button class="btn btn-outline-teal btn-sm" onclick="retakeExam()">
+                                Try Again
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="next-action-card text-center p-4">
+                            <i class="fas fa-book fa-2x text-teal mb-3"></i>
+                            <h6>Study Materials</h6>
+                            <p class="small text-muted">Access learning resources</p>
+                            <button class="btn btn-outline-teal btn-sm" onclick="showStudyMaterials()">
+                                View Resources
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ANSWERS REVIEW PAGE -->
+    <div id="review-page" class="page-section">
+        <div class="container mt-5 pt-5">
+            <div class="cbt-card">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="text-teal mb-0">
+                        <i class="fas fa-search me-2"></i>Answer Review
+                    </h4>
+                    <button class="btn btn-outline-teal" onclick="showPage('results')">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Results
+                    </button>
+                </div>
+
+                <div class="review-filters mb-4">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-teal active" onclick="filterReview('all')">
+                            All Questions
+                        </button>
+                        <button type="button" class="btn btn-outline-success" onclick="filterReview('correct')">
+                            Correct Answers
+                        </button>
+                        <button type="button" class="btn btn-outline-danger" onclick="filterReview('wrong')">
+                            Wrong Answers
+                        </button>
+                        <button type="button" class="btn btn-outline-warning" onclick="filterReview('unanswered')">
+                            Unanswered
+                        </button>
+                    </div>
+                </div>
+
+                <div id="reviewQuestionsContainer">
+                    <div class="text-center py-5">
+                        <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">Select a filter to review questions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIN PAGE -->
+    <div id="login-page" class="page-section">
+        <div class="container mt-5 pt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="auth-card slide-in-left">
+                        <div class="auth-header text-center">
+                            <div class="auth-icon">
+                                <i class="fas fa-sign-in-alt"></i>
+                            </div>
+                            <h2>Welcome Back!</h2>
+                            <p class="text-muted">Sign in to continue your preparation</p>
+                        </div>
+
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="loginEmail" class="form-label">
+                                    <i class="fas fa-envelope me-2"></i>Email Address
+                                </label>
+                                <input type="email" class="form-control form-control-lg" id="loginEmail" 
+                                       placeholder="Enter your email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="loginPassword" class="form-label">
+                                    <i class="fas fa-lock me-2"></i>Password
+                                </label>
+                                <input type="password" class="form-control form-control-lg" id="loginPassword" 
+                                       placeholder="Enter your password" required>
+                                <div class="form-text text-end">
+                                    <a href="#" class="text-teal">Forgot password?</a>
+                                </div>
+                            </div>
+
+                            <div class="d-grid mb-3">
+                                <button type="submit" class="btn btn-primary btn-lg auth-btn">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Login to Dashboard
+                                </button>
+                            </div>
+                        </form>
+
+                        <div class="auth-footer text-center">
+                            <p class="mb-0">New to MSH CBT HUB? 
+                                <a href="#" onclick="showPage('register')" class="text-teal fw-bold">Create account</a>
+                            </p>
+                        </div>
+
+                        <!-- Trial Information -->
+                        <div class="trial-info">
+                            <div class="trial-content">
+                                <i class="fas fa-gift"></i>
+                                <div>
+                                    <h6>Free Trial Available!</h6>
+                                    <p class="mb-0">New users get 1 hour free access to explore all features.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- REGISTER PAGE -->
+    <div id="register-page" class="page-section">
+        <div class="container mt-5 pt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="auth-card slide-in-left">
+                        <div class="auth-header text-center">
+                            <div class="auth-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <h2>Join MSH CBT HUB</h2>
+                            <p class="text-muted">Create your account and start excelling</p>
+                        </div>
+
+                        <form id="registerForm">
+                            <div class="form-group">
+                                <label for="registerName" class="form-label">
+                                    <i class="fas fa-user me-2"></i>Full Name
+                                </label>
+                                <input type="text" class="form-control form-control-lg" id="registerName" 
+                                       placeholder="Enter your full name" required>
+                                <div class="form-text">This name will appear on your results and certificates</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="registerEmail" class="form-label">
+                                    <i class="fas fa-envelope me-2"></i>Email Address
+                                </label>
+                                <input type="email" class="form-control form-control-lg" id="registerEmail" 
+                                       placeholder="Enter your email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="registerPassword" class="form-label">
+                                    <i class="fas fa-lock me-2"></i>Password
+                                </label>
+                                <input type="password" class="form-control form-control-lg" id="registerPassword" 
+                                       placeholder="Create a password" required minlength="6">
+                                <div class="form-text">Password must be at least 6 characters long</div>
+                            </div>
+
+                            <div class="d-grid mb-3">
+                                <button type="submit" class="btn btn-primary btn-lg auth-btn">
+                                    <i class="fas fa-user-plus me-2"></i>Create Account & Start Free Trial
+                                </button>
+                            </div>
+                        </form>
+
+                        <div class="auth-footer text-center">
+                            <p class="mb-0">Already have an account? 
+                                <a href="#" onclick="showPage('login')" class="text-teal fw-bold">Login here</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="footer-brand">
+                        <i class="fas fa-graduation-cap me-2"></i>
+                        <strong>MSH CBT HUB</strong>
+                    </div>
+                    <p class="mb-0 small">Transforming exam preparation through technology, one student at a time.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <div class="whatsapp-contact">
+                        <a href="https://wa.me/2347084315679?text=Hello%2C%20I%20want%20to%20apply%20for%20an%20activation%20code%20for%20MSH%20CBT%20HUB." 
+                           class="btn btn-success whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i>Get Activation Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center mt-4 pt-3 border-top">
+                <p class="mb-0">&copy; 2025 MSH CBT HUB. Powered by <strong>MSH LABS</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <!-- MODALS -->
+    <!-- ACTIVATION MODAL -->
+    <div class="modal fade" id="activationModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-teal text-white">
+                    <h5 class="modal-title">
+                        <i class="fas fa-key me-2"></i>Activate Your Account
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>To continue using MSH CBT HUB after your trial, enter your activation code.</p>
+                    
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>How to get an activation code:</strong>
+                        <p class="mb-0 small mt-1">Contact us on WhatsApp to purchase your activation code.</p>
+                    </div>
+
+                    <form id="activationForm">
+                        <div class="mb-3">
+                            <label for="activationCode" class="form-label">Activation Code</label>
+                            <input type="text" class="form-control" id="activationCode" 
+                                   placeholder="Enter MSH-XXXX code" required>
+                            <div class="form-text">Format: MSH- followed by 8 characters (e.g., MSH-A1B2-7D3M)</div>
+                        </div>
+                    </form>
+
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success me-2" onclick="activateAccount()">
+                            <i class="fas fa-check me-2"></i>Activate Account
+                        </button>
+                        <a href="https://wa.me/2347084315679?text=Hello%2C%20I%20want%20to%20apply%20for%20an%20activation%20code%20for%20MSH%20CBT%20HUB." 
+                           class="btn btn-outline-teal" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i>Get Code via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUBMIT CONFIRMATION MODAL -->
+    <div class="modal fade" id="submitConfirmationModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Confirm Submission
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="fas fa-question-circle fa-4x text-warning mb-3"></i>
+                    <h4 id="unansweredCount">You have unanswered questions!</h4>
+                    <p>Are you sure you want to submit your exam?</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-arrow-left me-2"></i>Continue Exam
+                    </button>
+                    <button type="button" class="btn btn-danger" onclick="submitExam()">
+                        <i class="fas fa-paper-plane me-2"></i>Submit Anyway
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHARE RESULTS MODAL -->
+    <div class="modal fade" id="shareModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-teal text-white">
+                    <h5 class="modal-title">
+                        <i class="fas fa-share-alt me-2"></i>Share Your Results
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="fas fa-trophy fa-4x text-warning mb-3"></i>
+                    <h4>Congratulations! 🎉</h4>
+                    <p>Share your achievement with friends and challenge them to beat your score!</p>
+                    
+                    <div class="share-buttons mt-4">
+                        <button class="btn btn-success me-2" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                        </button>
+                        <button class="btn btn-primary me-2" onclick="copyResultsLink()">
+                            <i class="fas fa-link me-2"></i>Copy Link
+                        </button>
+                        <button class="btn btn-outline-teal" onclick="downloadResults()">
+                            <i class="fas fa-download me-2"></i>Download
+                        </button>
+                    </div>
+
+                    <div class="invite-friends mt-4 p-3 bg-light rounded">
+                        <h6>Invite Your Friends</h6>
+                        <p class="small mb-2">Help your friends excel in their exams too!</p>
+                        <a href="https://wa.me/?text=Check%20out%20MSH%20CBT%20HUB%20-%20the%20best%20platform%20for%20WAEC%20and%20JAMB%20preparation!%20%F0%9F%8E%93%20Get%20ready%20to%20ace%20your%20exams!" 
+                           class="btn btn-success btn-sm" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i>Invite via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCIENTIFIC CALCULATOR MODAL -->
+    <div class="modal fade" id="calculatorModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-teal text-white">
+                    <h5 class="modal-title">
+                        <i class="fas fa-calculator me-2"></i>Scientific Calculator
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="calculator">
+                        <input type="text" class="calculator-display form-control mb-3" id="calcDisplay" readonly>
+                        <div class="calculator-buttons">
+                            <div class="row g-1 mb-2">
+                                <div class="col-3"><button class="btn btn-secondary w-100" onclick="calcInput('(')">(</button></div>
+                                <div class="col-3"><button class="btn btn-secondary w-100" onclick="calcInput(')')">)</button></div>
+                                <div class="col-3"><button class="btn btn-secondary w-100" onclick="calcInput('^')">^</button></div>
+                                <div class="col-3"><button class="btn btn-danger w-100" onclick="clearCalc()">C</button></div>
+                            </div>
+                            <div class="row g-1 mb-2">
+                                <div class="col-3"><button class="btn btn-light w-100" onclick="calcInput('7')">7</button></div>
+                                <div class="col-3"><button class="btn btn-light w-100" onclick="calcInput('8')">8</button></div>
+                                <div class="col-3"><button class="btn btn-light w-100" onclick="calcInput('9')">9</button></div>
+                                <div class="col-3"><button class="btn btn-warning w-100" onclick="calcInput('/')">/</button></div>
+                            </div>
+                            <div class="row g-1 mb-2">
+                                <div class="col-3"><button class="btn btn-light w-100" onclick="calcInput('4')">4</button></div>
+                                <div class="col-3"><button class="btn btn-light w-100" onclick="calcInput('5')">5</button></div>
+                                <div class="col-3"><button class="btn btn-light w-100" onclick="calcInput('6')">6</button></div>
+                                <div class="col-3"><button class="btn btn-warning w-100" onclick="calcInput('*')">×</button></div>
+                            </div>
+                            <div class="row g-1 mb-2">
+                                <div class="col-3"><button class="btn btn-light w-100" onclick="calcInput('1')">1</button></div>
+                                <div class="col-3"><button class="btn btn-light w-100" onclick="calcInput('2')">2</button></div>
+                                <div class="col-3"><button class="btn btn-light w-100" onclick="calcInput('3')">3</button></div>
+                                <div class="col-3"><button class="btn btn-warning w-100" onclick="calcInput('-')">-</button></div>
+                            </div>
+                            <div class="row g-1 mb-2">
+                                <div class="col-3"><button class="btn btn-light w-100" onclick="calcInput('0')">0</button></div>
+                                <div class="col-3"><button class="btn btn-light w-100" onclick="calcInput('.')">.</button></div>
+                                <div class="col-3"><button class="btn btn-success w-100" onclick="calculate()">=</button></div>
+                                <div class="col-3"><button class="btn btn-warning w-100" onclick="calcInput('+')">+</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            updateNavigation();
+            
+            // Add animation delays for elements
+            const animatedElements = document.querySelectorAll('.fade-in');
+            animatedElements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
