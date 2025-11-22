@@ -1,0 +1,1672 @@
+{
+  "subject": "Biology",
+  "exam_type": "JAMB",
+  "total_questions": 128,
+  "time_allowed": 7200,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following is a characteristic of living things?",
+      "options": {
+        "A": "Irritability",
+        "B": "Inertia",
+        "C": "Diffusion",
+        "D": "Osmosis"
+      },
+      "correct_answer": "A",
+      "explanation": "Irritability (or sensitivity) is the ability of organisms to respond to stimuli, a key characteristic of living things.",
+      "section": "characteristics_of_living_things"
+    },
+    {
+      "id": 2,
+      "question": "The basic unit of life is the",
+      "options": {
+        "A": "Cell",
+        "B": "Tissue",
+        "C": "Organ",
+        "D": "System"
+      },
+      "correct_answer": "A",
+      "explanation": "The cell is the fundamental structural and functional unit of all living organisms.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 3,
+      "question": "Which organelle is responsible for cellular respiration?",
+      "options": {
+        "A": "Mitochondrion",
+        "B": "Chloroplast",
+        "C": "Nucleus",
+        "D": "Ribosome"
+      },
+      "correct_answer": "A",
+      "explanation": "Mitochondria are the powerhouses of the cell where aerobic respiration occurs, producing ATP.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 4,
+      "question": "Photosynthesis takes place in which cellular structure?",
+      "options": {
+        "A": "Chloroplast",
+        "B": "Mitochondrion",
+        "C": "Nucleus",
+        "D": "Vacuole"
+      },
+      "correct_answer": "A",
+      "explanation": "Chloroplasts contain chlorophyll and are the sites of photosynthesis in plant cells.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 5,
+      "question": "Which of these is a waste product of photosynthesis?",
+      "options": {
+        "A": "Oxygen",
+        "B": "Carbon dioxide",
+        "C": "Water",
+        "D": "Glucose"
+      },
+      "correct_answer": "A",
+      "explanation": "Oxygen is released as a by-product during the light-dependent reactions of photosynthesis.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 6,
+      "question": "The movement of molecules from a region of higher concentration to a region of lower concentration is called",
+      "options": {
+        "A": "Diffusion",
+        "B": "Osmosis",
+        "C": "Active transport",
+        "D": "Plasmolysis"
+      },
+      "correct_answer": "A",
+      "explanation": "Diffusion is the passive movement of molecules down their concentration gradient.",
+      "section": "cell_physiology"
+    },
+    {
+      "id": 7,
+      "question": "Which of the following is an example of an abiotic factor?",
+      "options": {
+        "A": "Temperature",
+        "B": "Predator",
+        "C": "Prey",
+        "D": "Parasite"
+      },
+      "correct_answer": "A",
+      "explanation": "Abiotic factors are non-living chemical and physical parts of the environment, such as temperature.",
+      "section": "ecology"
+    },
+    {
+      "id": 8,
+      "question": "The relationship where one organism benefits and the other is harmed is called",
+      "options": {
+        "A": "Parasitism",
+        "B": "Mutualism",
+        "C": "Commensalism",
+        "D": "Saprophytism"
+      },
+      "correct_answer": "A",
+      "explanation": "In parasitism, the parasite benefits while the host is harmed.",
+      "section": "ecology"
+    },
+    {
+      "id": 9,
+      "question": "Which blood vessel carries oxygenated blood away from the heart?",
+      "options": {
+        "A": "Artery",
+        "B": "Vein",
+        "C": "Capillary",
+        "D": "Venule"
+      },
+      "correct_answer": "A",
+      "explanation": "Arteries generally carry oxygenated blood away from the heart to the body tissues.",
+      "section": "transport_system"
+    },
+    {
+      "id": 10,
+      "question": "The process of converting nitrogen compounds to atmospheric nitrogen is called",
+      "options": {
+        "A": "Denitrification",
+        "B": "Nitrogen fixation",
+        "C": "Nitrification",
+        "D": "Ammonification"
+      },
+      "correct_answer": "A",
+      "explanation": "Denitrification is the process where certain bacteria convert nitrates back into nitrogen gas.",
+      "section": "ecology"
+    },
+    {
+      "id": 11,
+      "question": "Which of these is NOT a part of the axial skeleton?",
+      "options": {
+        "A": "Femur",
+        "B": "Skull",
+        "C": "Vertebral column",
+        "D": "Ribs"
+      },
+      "correct_answer": "A",
+      "explanation": "The femur is a leg bone and part of the appendicular skeleton, not the axial skeleton.",
+      "section": "skeletal_system"
+    },
+    {
+      "id": 12,
+      "question": "The functional unit of the kidney is the",
+      "options": {
+        "A": "Nephron",
+        "B": "Neuron",
+        "C": "Alveolus",
+        "D": "Villus"
+      },
+      "correct_answer": "A",
+      "explanation": "The nephron is the microscopic structural and functional unit of the kidney responsible for filtration.",
+      "section": "excretory_system"
+    },
+    {
+      "id": 13,
+      "question": "Which vitamin is produced by the human skin when exposed to sunlight?",
+      "options": {
+        "A": "Vitamin D",
+        "B": "Vitamin A",
+        "C": "Vitamin C",
+        "D": "Vitamin K"
+      },
+      "correct_answer": "A",
+      "explanation": "Vitamin D is synthesized in the skin when it is exposed to ultraviolet B radiation from sunlight.",
+      "section": "nutrition"
+    },
+    {
+      "id": 14,
+      "question": "The male reproductive part of a flower is the",
+      "options": {
+        "A": "Stamen",
+        "B": "Pistil",
+        "C": "Petal",
+        "D": "Sepal"
+      },
+      "correct_answer": "A",
+      "explanation": "The stamen consists of the anther and filament and produces pollen (male gametes).",
+      "section": "reproduction_in_plants"
+    },
+    {
+      "id": 15,
+      "question": "In humans, the number of chromosomes in a gamete is",
+      "options": {
+        "A": "23",
+        "B": "46",
+        "C": "48",
+        "D": "24"
+      },
+      "correct_answer": "A",
+      "explanation": "Human gametes (sperm and egg) are haploid and contain 23 chromosomes.",
+      "section": "genetics"
+    },
+    {
+      "id": 16,
+      "question": "Which of these is a greenhouse gas?",
+      "options": {
+        "A": "Carbon dioxide",
+        "B": "Oxygen",
+        "C": "Nitrogen",
+        "D": "Hydrogen"
+      },
+      "correct_answer": "A",
+      "explanation": "Carbon dioxide traps heat in the atmosphere and is a major contributor to the greenhouse effect.",
+      "section": "ecology"
+    },
+    {
+      "id": 17,
+      "question": "The process by which plants lose water vapor to the atmosphere is called",
+      "options": {
+        "A": "Transpiration",
+        "B": "Evaporation",
+        "C": "Guttation",
+        "D": "Respiration"
+      },
+      "correct_answer": "A",
+      "explanation": "Transpiration is the loss of water vapor from the aerial parts of plants, mainly through the stomata.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 18,
+      "question": "Which of these is a micronutrient?",
+      "options": {
+        "A": "Zinc",
+        "B": "Nitrogen",
+        "C": "Phosphorus",
+        "D": "Potassium"
+      },
+      "correct_answer": "A",
+      "explanation": "Zinc is a micronutrient required by plants in small quantities. Nitrogen, phosphorus, and potassium are macronutrients.",
+      "section": "plant_nutrition"
+    },
+    {
+      "id": 19,
+      "question": "The theory of evolution by natural selection was proposed by",
+      "options": {
+        "A": "Charles Darwin",
+        "B": "Gregor Mendel",
+        "C": "Jean Lamarck",
+        "D": "Louis Pasteur"
+      },
+      "correct_answer": "A",
+      "explanation": "Charles Darwin proposed the theory of evolution by natural selection in his 1859 book 'On the Origin of Species'.",
+      "section": "evolution"
+    },
+    {
+      "id": 20,
+      "question": "Which of these is a decomposer?",
+      "options": {
+        "A": "Fungus",
+        "B": "Grass",
+        "C": "Rabbit",
+        "D": "Hawk"
+      },
+      "correct_answer": "A",
+      "explanation": "Fungi are decomposers that break down dead organic matter, returning nutrients to the ecosystem.",
+      "section": "ecology"
+    },
+    {
+      "id": 21,
+      "question": "The part of the brain responsible for balance and coordination is the",
+      "options": {
+        "A": "Cerebellum",
+        "B": "Cerebrum",
+        "C": "Medulla oblongata",
+        "D": "Hypothalamus"
+      },
+      "correct_answer": "A",
+      "explanation": "The cerebellum coordinates voluntary movements such as posture, balance, coordination, and speech.",
+      "section": "nervous_system"
+    },
+    {
+      "id": 22,
+      "question": "In a food chain, the primary consumers are",
+      "options": {
+        "A": "Herbivores",
+        "B": "Carnivores",
+        "C": "Omnivores",
+        "D": "Decomposers"
+      },
+      "correct_answer": "A",
+      "explanation": "Primary consumers are herbivores that eat producers (plants).",
+      "section": "ecology"
+    },
+    {
+      "id": 23,
+      "question": "Which of these is a disaccharide?",
+      "options": {
+        "A": "Sucrose",
+        "B": "Glucose",
+        "C": "Fructose",
+        "D": "Galactose"
+      },
+      "correct_answer": "A",
+      "explanation": "Sucrose (table sugar) is a disaccharide composed of glucose and fructose.",
+      "section": "biochemistry"
+    },
+    {
+      "id": 24,
+      "question": "The process by which fruits develop without fertilization is called",
+      "options": {
+        "A": "Parthenocarpy",
+        "B": "Parthenogenesis",
+        "C": "Pollination",
+        "D": "Fertilization"
+      },
+      "correct_answer": "A",
+      "explanation": "Parthenocarpy is the development of fruit without fertilization, resulting in seedless fruits.",
+      "section": "reproduction_in_plants"
+    },
+    {
+      "id": 25,
+      "question": "Which blood group is known as the universal donor?",
+      "options": {
+        "A": "O",
+        "B": "A",
+        "C": "B",
+        "D": "AB"
+      },
+      "correct_answer": "A",
+      "explanation": "Blood group O negative is the universal donor because it has no A, B, or Rh antigens.",
+      "section": "transport_system"
+    },
+    {
+      "id": 26,
+      "question": "The hormone responsible for milk production is",
+      "options": {
+        "A": "Prolactin",
+        "B": "Oxytocin",
+        "C": "Estrogen",
+        "D": "Progesterone"
+      },
+      "correct_answer": "A",
+      "explanation": "Prolactin is produced by the pituitary gland and stimulates milk production after childbirth.",
+      "section": "endocrine_system"
+    },
+    {
+      "id": 27,
+      "question": "Which of these is a vector for malaria?",
+      "options": {
+        "A": "Female Anopheles mosquito",
+        "B": "Tsetse fly",
+        "C": "Housefly",
+        "D": "Blackfly"
+      },
+      "correct_answer": "A",
+      "explanation": "The female Anopheles mosquito transmits the Plasmodium parasite that causes malaria.",
+      "section": "health_and_disease"
+    },
+    {
+      "id": 28,
+      "question": "The process of cell division that results in two identical daughter cells is",
+      "options": {
+        "A": "Mitosis",
+        "B": "Meiosis",
+        "C": "Binary fission",
+        "D": "Budding"
+      },
+      "correct_answer": "A",
+      "explanation": "Mitosis is the process of cell division for growth and repair, producing two genetically identical diploid cells.",
+      "section": "cell_division"
+    },
+    {
+      "id": 29,
+      "question": "Which of these is a vestigial organ in humans?",
+      "options": {
+        "A": "Appendix",
+        "B": "Heart",
+        "C": "Liver",
+        "D": "Lung"
+      },
+      "correct_answer": "A",
+      "explanation": "The appendix is considered a vestigial organ with no significant function in humans.",
+      "section": "evolution"
+    },
+    {
+      "id": 30,
+      "question": "The study of insects is called",
+      "options": {
+        "A": "Entomology",
+        "B": "Ornithology",
+        "C": "Ichthyology",
+        "D": "Herpetology"
+      },
+      "correct_answer": "A",
+      "explanation": "Entomology is the scientific study of insects.",
+      "section": "classification"
+    },
+    {
+      "id": 31,
+      "question": "Which of these is a protein?",
+      "options": {
+        "A": "Enzyme",
+        "B": "Glucose",
+        "C": "Cholesterol",
+        "D": "Glycerol"
+      },
+      "correct_answer": "A",
+      "explanation": "Enzymes are biological catalysts made of protein.",
+      "section": "biochemistry"
+    },
+    {
+      "id": 32,
+      "question": "The process by which plants make their own food using sunlight is called",
+      "options": {
+        "A": "Photosynthesis",
+        "B": "Respiration",
+        "C": "Transpiration",
+        "D": "Digestion"
+      },
+      "correct_answer": "A",
+      "explanation": "Photosynthesis is the process where plants convert light energy, carbon dioxide, and water into glucose and oxygen.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 33,
+      "question": "Which of these is a characteristic of arthropods?",
+      "options": {
+        "A": "Jointed appendages",
+        "B": "Backbone",
+        "C": "Moist skin",
+        "D": "Scales"
+      },
+      "correct_answer": "A",
+      "explanation": "Arthropods have jointed appendages, exoskeletons, and segmented bodies.",
+      "section": "classification"
+    },
+    {
+      "id": 34,
+      "question": "The part of the eye that controls the amount of light entering is the",
+      "options": {
+        "A": "Iris",
+        "B": "Retina",
+        "C": "Cornea",
+        "D": "Lens"
+      },
+      "correct_answer": "A",
+      "explanation": "The iris contains muscles that adjust the size of the pupil to control light entry.",
+      "section": "sense_organs"
+    },
+    {
+      "id": 35,
+      "question": "Which of these is a function of the liver?",
+      "options": {
+        "A": "Detoxification",
+        "B": "Pumping blood",
+        "C": "Gas exchange",
+        "D": "Filtration of urine"
+      },
+      "correct_answer": "A",
+      "explanation": "The liver detoxifies various metabolites, synthesizes proteins, and produces biochemicals necessary for digestion.",
+      "section": "digestive_system"
+    },
+    {
+      "id": 36,
+      "question": "The process by which water moves from roots to leaves in plants is called",
+      "options": {
+        "A": "Transpiration pull",
+        "B": "Capillary action",
+        "C": "Active transport",
+        "D": "Osmosis"
+      },
+      "correct_answer": "A",
+      "explanation": "Transpiration pull is the main force that moves water upward through the xylem in plants.",
+      "section": "transport_system"
+    },
+    {
+      "id": 37,
+      "question": "Which of these is a renewable natural resource?",
+      "options": {
+        "A": "Forest",
+        "B": "Coal",
+        "C": "Petroleum",
+        "D": "Natural gas"
+      },
+      "correct_answer": "A",
+      "explanation": "Forests are renewable resources that can be replenished naturally over time.",
+      "section": "conservation"
+    },
+    {
+      "id": 38,
+      "question": "The basic hereditary unit in living organisms is the",
+      "options": {
+        "A": "Gene",
+        "B": "Cell",
+        "C": "Chromosome",
+        "D": "Nucleus"
+      },
+      "correct_answer": "A",
+      "explanation": "A gene is the basic physical and functional unit of heredity made up of DNA.",
+      "section": "genetics"
+    },
+    {
+      "id": 39,
+      "question": "Which of these is a plant hormone?",
+      "options": {
+        "A": "Auxin",
+        "B": "Insulin",
+        "C": "Adrenaline",
+        "D": "Thyroxine"
+      },
+      "correct_answer": "A",
+      "explanation": "Auxin is a plant hormone that regulates growth and development.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 40,
+      "question": "The process by which green plants respond to light is called",
+      "options": {
+        "A": "Phototropism",
+        "B": "Geotropism",
+        "C": "Hydrotropism",
+        "D": "Thigmotropism"
+      },
+      "correct_answer": "A",
+      "explanation": "Phototropism is the growth response of plants to light.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 41,
+      "question": "Which of these is a function of the mammalian skin?",
+      "options": {
+        "A": "Temperature regulation",
+        "B": "Pumping blood",
+        "C": "Oxygen transport",
+        "D": "Food digestion"
+      },
+      "correct_answer": "A",
+      "explanation": "The skin helps regulate body temperature through sweating and blood vessel dilation/constriction.",
+      "section": "skin_and_temperature_regulation"
+    },
+    {
+      "id": 42,
+      "question": "The process of converting light energy to chemical energy occurs in the",
+      "options": {
+        "A": "Chloroplast",
+        "B": "Mitochondrion",
+        "C": "Nucleus",
+        "D": "Ribosome"
+      },
+      "correct_answer": "A",
+      "explanation": "Chloroplasts contain chlorophyll where photosynthesis converts light energy to chemical energy.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 43,
+      "question": "Which of these is a communicable disease?",
+      "options": {
+        "A": "Malaria",
+        "B": "Diabetes",
+        "C": "Sickle cell anemia",
+        "D": "Cancer"
+      },
+      "correct_answer": "A",
+      "explanation": "Malaria is an infectious disease caused by parasites and transmitted through mosquito bites.",
+      "section": "health_and_disease"
+    },
+    {
+      "id": 44,
+      "question": "The part of the flower that develops into a fruit is the",
+      "options": {
+        "A": "Ovary",
+        "B": "Stigma",
+        "C": "Style",
+        "D": "Anther"
+      },
+      "correct_answer": "A",
+      "explanation": "After fertilization, the ovary of the flower develops into the fruit.",
+      "section": "reproduction_in_plants"
+    },
+    {
+      "id": 45,
+      "question": "Which of these is a micronutrient required by plants?",
+      "options": {
+        "A": "Iron",
+        "B": "Nitrogen",
+        "C": "Phosphorus",
+        "D": "Potassium"
+      },
+      "correct_answer": "A",
+      "explanation": "Iron is a micronutrient required by plants in small amounts for chlorophyll synthesis.",
+      "section": "plant_nutrition"
+    },
+    {
+      "id": 46,
+      "question": "The process of breaking down food into simpler absorbable forms is called",
+      "options": {
+        "A": "Digestion",
+        "B": "Absorption",
+        "C": "Assimilation",
+        "D": "Egestion"
+      },
+      "correct_answer": "A",
+      "explanation": "Digestion is the mechanical and chemical breakdown of food into smaller components.",
+      "section": "digestive_system"
+    },
+    {
+      "id": 47,
+      "question": "Which of these is a function of the root system in plants?",
+      "options": {
+        "A": "Anchorage and absorption",
+        "B": "Photosynthesis",
+        "C": "Reproduction",
+        "D": "Gas exchange"
+      },
+      "correct_answer": "A",
+      "explanation": "Roots anchor the plant and absorb water and minerals from the soil.",
+      "section": "plant_anatomy"
+    },
+    {
+      "id": 48,
+      "question": "The process by which organisms maintain a constant internal environment is called",
+      "options": {
+        "A": "Homeostasis",
+        "B": "Metabolism",
+        "C": "Respiration",
+        "D": "Excretion"
+      },
+      "correct_answer": "A",
+      "explanation": "Homeostasis is the maintenance of a stable internal environment despite external changes.",
+      "section": "homeostasis"
+    },
+    {
+      "id": 49,
+      "question": "Which of these is a product of anaerobic respiration in animals?",
+      "options": {
+        "A": "Lactic acid",
+        "B": "Ethanol",
+        "C": "Carbon dioxide",
+        "D": "Oxygen"
+      },
+      "correct_answer": "A",
+      "explanation": "In animals, anaerobic respiration produces lactic acid, while in yeast it produces ethanol and CO₂.",
+      "section": "respiration"
+    },
+    {
+      "id": 50,
+      "question": "The structural and functional unit of the nervous system is the",
+      "options": {
+        "A": "Neuron",
+        "B": "Nephron",
+        "C": "Alveolus",
+        "D": "Villus"
+      },
+      "correct_answer": "A",
+      "explanation": "The neuron is the basic working unit of the nervous system that transmits nerve impulses.",
+      "section": "nervous_system"
+    },
+    {
+      "id": 51,
+      "question": "Which of these is a method of asexual reproduction in plants?",
+      "options": {
+        "A": "Budding",
+        "B": "Pollination",
+        "C": "Fertilization",
+        "D": "Seed formation"
+      },
+      "correct_answer": "A",
+      "explanation": "Budding is a form of asexual reproduction where a new organism develops from an outgrowth or bud.",
+      "section": "reproduction_in_plants"
+    },
+    {
+      "id": 52,
+      "question": "The process by which water moves across a semi-permeable membrane is called",
+      "options": {
+        "A": "Osmosis",
+        "B": "Diffusion",
+        "C": "Active transport",
+        "D": "Plasmolysis"
+      },
+      "correct_answer": "A",
+      "explanation": "Osmosis is the movement of water molecules from a region of higher water potential to a region of lower water potential through a semi-permeable membrane.",
+      "section": "cell_physiology"
+    },
+    {
+      "id": 53,
+      "question": "Which of these is a primary consumer in a grassland ecosystem?",
+      "options": {
+        "A": "Grasshopper",
+        "B": "Grass",
+        "C": "Snake",
+        "D": "Hawk"
+      },
+      "correct_answer": "A",
+      "explanation": "Grasshoppers are primary consumers (herbivores) that feed directly on producers (grasses).",
+      "section": "ecology"
+    },
+    {
+      "id": 54,
+      "question": "The part of the cell that contains genetic material is the",
+      "options": {
+        "A": "Nucleus",
+        "B": "Cytoplasm",
+        "C": "Cell membrane",
+        "D": "Mitochondrion"
+      },
+      "correct_answer": "A",
+      "explanation": "The nucleus contains the cell's chromosomes (genetic material) and controls cell activities.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 55,
+      "question": "Which of these is a function of the skeletal system?",
+      "options": {
+        "A": "Support and protection",
+        "B": "Digestion",
+        "C": "Respiration",
+        "D": "Circulation"
+      },
+      "correct_answer": "A",
+      "explanation": "The skeletal system provides structural support, protects internal organs, and facilitates movement.",
+      "section": "skeletal_system"
+    },
+    {
+      "id": 56,
+      "question": "The process by which plants bend toward light is an example of",
+      "options": {
+        "A": "Positive phototropism",
+        "B": "Negative phototropism",
+        "C": "Positive geotropism",
+        "D": "Negative geotropism"
+      },
+      "correct_answer": "A",
+      "explanation": "Positive phototropism is growth toward light, which is beneficial for photosynthesis.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 57,
+      "question": "Which of these is a greenhouse gas?",
+      "options": {
+        "A": "Methane",
+        "B": "Oxygen",
+        "C": "Nitrogen",
+        "D": "Hydrogen"
+      },
+      "correct_answer": "A",
+      "explanation": "Methane is a potent greenhouse gas that contributes to global warming.",
+      "section": "ecology"
+    },
+    {
+      "id": 58,
+      "question": "The process by which plants release water vapor into the atmosphere is called",
+      "options": {
+        "A": "Transpiration",
+        "B": "Evaporation",
+        "C": "Condensation",
+        "D": "Precipitation"
+      },
+      "correct_answer": "A",
+      "explanation": "Transpiration is the process where plants lose water vapor through their stomata.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 59,
+      "question": "Which of these is a characteristic of mammals?",
+      "options": {
+        "A": "Presence of mammary glands",
+        "B": "Cold-blooded",
+        "C": "Lay eggs",
+        "D": "Have scales"
+      },
+      "correct_answer": "A",
+      "explanation": "Mammals are characterized by the presence of mammary glands that produce milk for their young.",
+      "section": "classification"
+    },
+    {
+      "id": 60,
+      "question": "The part of the human respiratory system where gas exchange occurs is the",
+      "options": {
+        "A": "Alveolus",
+        "B": "Trachea",
+        "C": "Bronchus",
+        "D": "Pharynx"
+      },
+      "correct_answer": "A",
+      "explanation": "Alveoli are tiny air sacs in the lungs where oxygen and carbon dioxide are exchanged with the blood.",
+      "section": "respiratory_system"
+    },
+    {
+      "id": 61,
+      "question": "Which of these is a function of the circulatory system?",
+      "options": {
+        "A": "Transport of nutrients and oxygen",
+        "B": "Production of hormones",
+        "C": "Filtration of blood",
+        "D": "Gas exchange"
+      },
+      "correct_answer": "A",
+      "explanation": "The circulatory system transports oxygen, nutrients, hormones, and waste products throughout the body.",
+      "section": "transport_system"
+    },
+    {
+      "id": 62,
+      "question": "The process by which plants make food using chemical energy instead of light energy is called",
+      "options": {
+        "A": "Chemosynthesis",
+        "B": "Photosynthesis",
+        "C": "Respiration",
+        "D": "Fermentation"
+      },
+      "correct_answer": "A",
+      "explanation": "Chemosynthesis is the process where certain bacteria make food using energy from chemical reactions.",
+      "section": "nutrition"
+    },
+    {
+      "id": 63,
+      "question": "Which of these is a method of birth control?",
+      "options": {
+        "A": "Condom",
+        "B": "Antibiotic",
+        "C": "Analgesic",
+        "D": "Antihistamine"
+      },
+      "correct_answer": "A",
+      "explanation": "Condoms are barrier methods of contraception that prevent pregnancy and STIs.",
+      "section": "reproduction"
+    },
+    {
+      "id": 64,
+      "question": "The process by which organisms produce energy from food is called",
+      "options": {
+        "A": "Respiration",
+        "B": "Photosynthesis",
+        "C": "Digestion",
+        "D": "Excretion"
+      },
+      "correct_answer": "A",
+      "explanation": "Respiration is the process where cells break down food molecules to release energy.",
+      "section": "respiration"
+    },
+    {
+      "id": 65,
+      "question": "Which of these is a function of the kidney?",
+      "options": {
+        "A": "Filtration of blood",
+        "B": "Pumping blood",
+        "C": "Gas exchange",
+        "D": "Digestion of food"
+      },
+      "correct_answer": "A",
+      "explanation": "The kidneys filter waste products from the blood and regulate water and electrolyte balance.",
+      "section": "excretory_system"
+    },
+    {
+      "id": 66,
+      "question": "The process by which green plants convert light energy to chemical energy is called",
+      "options": {
+        "A": "Photosynthesis",
+        "B": "Respiration",
+        "C": "Transpiration",
+        "D": "Fermentation"
+      },
+      "correct_answer": "A",
+      "explanation": "Photosynthesis is the process where plants convert light energy, carbon dioxide, and water into glucose and oxygen.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 67,
+      "question": "Which of these is a characteristic of fungi?",
+      "options": {
+        "A": "Heterotrophic nutrition",
+        "B": "Autotrophic nutrition",
+        "C": "Presence of chlorophyll",
+        "D": "Mobile"
+      },
+      "correct_answer": "A",
+      "explanation": "Fungi are heterotrophs that obtain nutrients by absorbing organic matter from their environment.",
+      "section": "classification"
+    },
+    {
+      "id": 68,
+      "question": "The part of the plant that conducts water and minerals from roots to leaves is the",
+      "options": {
+        "A": "Xylem",
+        "B": "Phloem",
+        "C": "Cambium",
+        "D": "Epidermis"
+      },
+      "correct_answer": "A",
+      "explanation": "Xylem tissue transports water and minerals from roots to other parts of the plant.",
+      "section": "transport_system"
+    },
+    {
+      "id": 69,
+      "question": "Which of these is a function of white blood cells?",
+      "options": {
+        "A": "Fighting infection",
+        "B": "Oxygen transport",
+        "C": "Blood clotting",
+        "D": "Hormone production"
+      },
+      "correct_answer": "A",
+      "explanation": "White blood cells (leukocytes) are part of the immune system and help fight infections.",
+      "section": "transport_system"
+    },
+    {
+      "id": 70,
+      "question": "The process by which plants respond to touch is called",
+      "options": {
+        "A": "Thigmotropism",
+        "B": "Phototropism",
+        "C": "Geotropism",
+        "D": "Hydrotropism"
+      },
+      "correct_answer": "A",
+      "explanation": "Thigmotropism is the directional growth response of plants to touch or physical contact.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 71,
+      "question": "Which of these is a renewable resource?",
+      "options": {
+        "A": "Solar energy",
+        "B": "Coal",
+        "C": "Petroleum",
+        "D": "Natural gas"
+      },
+      "correct_answer": "A",
+      "explanation": "Solar energy is a renewable resource that can be replenished naturally.",
+      "section": "conservation"
+    },
+    {
+      "id": 72,
+      "question": "The process by which organisms develop from a single cell is called",
+      "options": {
+        "A": "Development",
+        "B": "Evolution",
+        "C": "Adaptation",
+        "D": "Mutation"
+      },
+      "correct_answer": "A",
+      "explanation": "Development refers to the process by which a single fertilized egg grows into a mature organism.",
+      "section": "growth_and_development"
+    },
+    {
+      "id": 73,
+      "question": "Which of these is a function of the placenta in mammals?",
+      "options": {
+        "A": "Nutrient and gas exchange",
+        "B": "Production of eggs",
+        "C": "Digestion of food",
+        "D": "Pumping blood"
+      },
+      "correct_answer": "A",
+      "explanation": "The placenta facilitates the exchange of nutrients, gases, and wastes between mother and fetus.",
+      "section": "reproduction"
+    },
+    {
+      "id": 74,
+      "question": "The process by which species gradually change over time is called",
+      "options": {
+        "A": "Evolution",
+        "B": "Mutation",
+        "C": "Adaptation",
+        "D": "Variation"
+      },
+      "correct_answer": "A",
+      "explanation": "Evolution is the process of change in all forms of life over generations.",
+      "section": "evolution"
+    },
+    {
+      "id": 75,
+      "question": "Which of these is a method of plant propagation?",
+      "options": {
+        "A": "Stem cutting",
+        "B": "Pollination",
+        "C": "Fertilization",
+        "D": "Seed dispersal"
+      },
+      "correct_answer": "A",
+      "explanation": "Stem cutting is a common method of asexual plant propagation where a piece of stem develops roots.",
+      "section": "reproduction_in_plants"
+    },
+    {
+      "id": 76,
+      "question": "The part of the cell that controls what enters and leaves is the",
+      "options": {
+        "A": "Cell membrane",
+        "B": "Cell wall",
+        "C": "Nucleus",
+        "D": "Cytoplasm"
+      },
+      "correct_answer": "A",
+      "explanation": "The cell membrane is selectively permeable and regulates the movement of substances in and out of the cell.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 77,
+      "question": "Which of these is a function of the liver?",
+      "options": {
+        "A": "Production of bile",
+        "B": "Production of insulin",
+        "C": "Filtration of urine",
+        "D": "Pumping blood"
+      },
+      "correct_answer": "A",
+      "explanation": "The liver produces bile, which helps in the digestion and absorption of fats.",
+      "section": "digestive_system"
+    },
+    {
+      "id": 78,
+      "question": "The process by which plants lose water through their leaves is called",
+      "options": {
+        "A": "Transpiration",
+        "B": "Evaporation",
+        "C": "Condensation",
+        "D": "Precipitation"
+      },
+      "correct_answer": "A",
+      "explanation": "Transpiration is the loss of water vapor from plant surfaces, mainly through stomata in leaves.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 79,
+      "question": "Which of these is a characteristic of reptiles?",
+      "options": {
+        "A": "Dry scaly skin",
+        "B": "Moist skin",
+        "C": "Feathers",
+        "D": "Hair"
+      },
+      "correct_answer": "A",
+      "explanation": "Reptiles have dry, scaly skin that prevents water loss.",
+      "section": "classification"
+    },
+    {
+      "id": 80,
+      "question": "The part of the human eye that contains light-sensitive cells is the",
+      "options": {
+        "A": "Retina",
+        "B": "Cornea",
+        "C": "Iris",
+        "D": "Lens"
+      },
+      "correct_answer": "A",
+      "explanation": "The retina contains photoreceptor cells (rods and cones) that detect light and convert it into neural signals.",
+      "section": "sense_organs"
+    },
+    {
+      "id": 81,
+      "question": "Which of these is a function of the root hair in plants?",
+      "options": {
+        "A": "Absorption of water and minerals",
+        "B": "Photosynthesis",
+        "C": "Storage of food",
+        "D": "Support"
+      },
+      "correct_answer": "A",
+      "explanation": "Root hairs increase the surface area for absorption of water and mineral nutrients from the soil.",
+      "section": "plant_anatomy"
+    },
+    {
+      "id": 82,
+      "question": "The process by which plants respond to gravity is called",
+      "options": {
+        "A": "Geotropism",
+        "B": "Phototropism",
+        "C": "Hydrotropism",
+        "D": "Thigmotropism"
+      },
+      "correct_answer": "A",
+      "explanation": "Geotropism is the growth response of plants to gravity.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 83,
+      "question": "Which of these is a method of waste disposal?",
+      "options": {
+        "A": "Recycling",
+        "B": "Deforestation",
+        "C": "Urbanization",
+        "D": "Industrialization"
+      },
+      "correct_answer": "A",
+      "explanation": "Recycling is an environmentally friendly method of waste management that converts waste into reusable materials.",
+      "section": "conservation"
+    },
+    {
+      "id": 84,
+      "question": "The process by which plants manufacture food occurs in the",
+      "options": {
+        "A": "Chloroplast",
+        "B": "Mitochondrion",
+        "C": "Nucleus",
+        "D": "Vacuole"
+      },
+      "correct_answer": "A",
+      "explanation": "Chloroplasts contain chlorophyll where photosynthesis takes place.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 85,
+      "question": "Which of these is a function of the stem in plants?",
+      "options": {
+        "A": "Support and transport",
+        "B": "Absorption of water",
+        "C": "Anchorage",
+        "D": "Storage only"
+      },
+      "correct_answer": "A",
+      "explanation": "Stems provide support for leaves and flowers and transport water, minerals, and food throughout the plant.",
+      "section": "plant_anatomy"
+    },
+    {
+      "id": 86,
+      "question": "The process by which organisms remove metabolic wastes is called",
+      "options": {
+        "A": "Excretion",
+        "B": "Secretion",
+        "C": "Egestion",
+        "D": "Digestion"
+      },
+      "correct_answer": "A",
+      "explanation": "Excretion is the process of removing metabolic wastes such as urea, carbon dioxide, and excess water from the body.",
+      "section": "excretory_system"
+    },
+    {
+      "id": 87,
+      "question": "Which of these is a characteristic of amphibians?",
+      "options": {
+        "A": "Moist permeable skin",
+        "B": "Dry scaly skin",
+        "C": "Feathers",
+        "D": "Hair"
+      },
+      "correct_answer": "A",
+      "explanation": "Amphibians have moist, permeable skin that can absorb water and gases.",
+      "section": "classification"
+    },
+    {
+      "id": 88,
+      "question": "The part of the flower that produces pollen is the",
+      "options": {
+        "A": "Anther",
+        "B": "Stigma",
+        "C": "Style",
+        "D": "Ovary"
+      },
+      "correct_answer": "A",
+      "explanation": "The anther is the part of the stamen that produces and contains pollen.",
+      "section": "reproduction_in_plants"
+    },
+    {
+      "id": 89,
+      "question": "Which of these is a method of controlling soil erosion?",
+      "options": {
+        "A": "Afforestation",
+        "B": "Deforestation",
+        "C": "Overgrazing",
+        "D": "Monoculture"
+      },
+      "correct_answer": "A",
+      "explanation": "Afforestation (planting trees) helps prevent soil erosion by holding soil in place with roots.",
+      "section": "conservation"
+    },
+    {
+      "id": 90,
+      "question": "The process by which plants respond to water is called",
+      "options": {
+        "A": "Hydrotropism",
+        "B": "Phototropism",
+        "C": "Geotropism",
+        "D": "Thigmotropism"
+      },
+      "correct_answer": "A",
+      "explanation": "Hydrotropism is the growth response of plant roots toward water.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 91,
+      "question": "Which of these is a function of the large intestine?",
+      "options": {
+        "A": "Absorption of water",
+        "B": "Digestion of proteins",
+        "C": "Production of bile",
+        "D": "Absorption of glucose"
+      },
+      "correct_answer": "A",
+      "explanation": "The large intestine primarily absorbs water and electrolytes from undigested food material.",
+      "section": "digestive_system"
+    },
+    {
+      "id": 92,
+      "question": "The process by which plants convert starch to sugar is called",
+      "options": {
+        "A": "Hydrolysis",
+        "B": "Photosynthesis",
+        "C": "Respiration",
+        "D": "Transpiration"
+      },
+      "correct_answer": "A",
+      "explanation": "Hydrolysis breaks down complex molecules like starch into simpler sugars like glucose.",
+      "section": "biochemistry"
+    },
+    {
+      "id": 93,
+      "question": "Which of these is a method of artificial propagation in plants?",
+      "options": {
+        "A": "Grafting",
+        "B": "Pollination",
+        "C": "Fertilization",
+        "D": "Seed formation"
+      },
+      "correct_answer": "A",
+      "explanation": "Grafting is an artificial method of plant propagation where tissues from one plant are inserted into another.",
+      "section": "reproduction_in_plants"
+    },
+    {
+      "id": 94,
+      "question": "The part of the cell that contains digestive enzymes is the",
+      "options": {
+        "A": "Lysosome",
+        "B": "Ribosome",
+        "C": "Mitochondrion",
+        "D": "Golgi apparatus"
+      },
+      "correct_answer": "A",
+      "explanation": "Lysosomes contain hydrolytic enzymes that break down waste materials and cellular debris.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 95,
+      "question": "Which of these is a function of the pancreas?",
+      "options": {
+        "A": "Production of insulin",
+        "B": "Production of bile",
+        "C": "Filtration of blood",
+        "D": "Storage of glycogen"
+      },
+      "correct_answer": "A",
+      "explanation": "The pancreas produces insulin, which regulates blood sugar levels.",
+      "section": "endocrine_system"
+    },
+    {
+      "id": 96,
+      "question": "The process by which plants release energy from food is called",
+      "options": {
+        "A": "Respiration",
+        "B": "Photosynthesis",
+        "C": "Transpiration",
+        "D": "Digestion"
+      },
+      "correct_answer": "A",
+      "explanation": "Respiration is the process where cells break down food molecules to release energy for cellular activities.",
+      "section": "respiration"
+    },
+    {
+      "id": 97,
+      "question": "Which of these is a characteristic of birds?",
+      "options": {
+        "A": "Presence of feathers",
+        "B": "Presence of scales",
+        "C": "Moist skin",
+        "D": "External fertilization"
+      },
+      "correct_answer": "A",
+      "explanation": "Birds are characterized by the presence of feathers, which provide insulation and enable flight.",
+      "section": "classification"
+    },
+    {
+      "id": 98,
+      "question": "The part of the plant that conducts food from leaves to other parts is the",
+      "options": {
+        "A": "Phloem",
+        "B": "Xylem",
+        "C": "Cambium",
+        "D": "Epidermis"
+      },
+      "correct_answer": "A",
+      "explanation": "Phloem tissue transports organic nutrients, particularly sugars, from leaves to other parts of the plant.",
+      "section": "transport_system"
+    },
+    {
+      "id": 99,
+      "question": "Which of these is a method of conserving water?",
+      "options": {
+        "A": "Rainwater harvesting",
+        "B": "Deforestation",
+        "C": "Overgrazing",
+        "D": "Urbanization"
+      },
+      "correct_answer": "A",
+      "explanation": "Rainwater harvesting collects and stores rainwater for future use, helping to conserve water resources.",
+      "section": "conservation"
+    },
+    {
+      "id": 100,
+      "question": "The process by which plants respond to light direction is called",
+      "options": {
+        "A": "Phototropism",
+        "B": "Geotropism",
+        "C": "Hydrotropism",
+        "D": "Thigmotropism"
+      },
+      "correct_answer": "A",
+      "explanation": "Phototropism is the growth response of plants to light direction.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 101,
+      "question": "Which of these is a function of the small intestine?",
+      "options": {
+        "A": "Absorption of nutrients",
+        "B": "Absorption of water",
+        "C": "Production of bile",
+        "D": "Storage of feces"
+      },
+      "correct_answer": "A",
+      "explanation": "The small intestine is the primary site for nutrient absorption in the digestive system.",
+      "section": "digestive_system"
+    },
+    {
+      "id": 102,
+      "question": "The process by which plants convert light energy to chemical energy occurs in the",
+      "options": {
+        "A": "Chloroplast",
+        "B": "Mitochondrion",
+        "C": "Nucleus",
+        "D": "Ribosome"
+      },
+      "correct_answer": "A",
+      "explanation": "Chloroplasts are the organelles where photosynthesis takes place.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 103,
+      "question": "Which of these is a method of natural selection?",
+      "options": {
+        "A": "Survival of the fittest",
+        "B": "Artificial selection",
+        "C": "Genetic engineering",
+        "D": "Selective breeding"
+      },
+      "correct_answer": "A",
+      "explanation": "Survival of the fittest is a key mechanism of natural selection where organisms best adapted to their environment tend to survive and reproduce.",
+      "section": "evolution"
+    },
+    {
+      "id": 104,
+      "question": "The part of the cell that synthesizes proteins is the",
+      "options": {
+        "A": "Ribosome",
+        "B": "Mitochondrion",
+        "C": "Nucleus",
+        "D": "Golgi apparatus"
+      },
+      "correct_answer": "A",
+      "explanation": "Ribosomes are the sites of protein synthesis in cells.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 105,
+      "question": "Which of these is a function of the nervous system?",
+      "options": {
+        "A": "Coordination of body activities",
+        "B": "Transport of oxygen",
+        "C": "Production of hormones",
+        "D": "Digestion of food"
+      },
+      "correct_answer": "A",
+      "explanation": "The nervous system coordinates body activities through electrical signals and responses.",
+      "section": "nervous_system"
+    },
+    {
+      "id": 106,
+      "question": "The process by which plants lose water through their leaves is called",
+      "options": {
+        "A": "Transpiration",
+        "B": "Evaporation",
+        "C": "Condensation",
+        "D": "Precipitation"
+      },
+      "correct_answer": "A",
+      "explanation": "Transpiration is the process where plants lose water vapor through stomata in their leaves.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 107,
+      "question": "Which of these is a characteristic of fish?",
+      "options": {
+        "A": "Presence of gills",
+        "B": "Presence of lungs",
+        "C": "Presence of feathers",
+        "D": "Presence of hair"
+      },
+      "correct_answer": "A",
+      "explanation": "Fish breathe through gills, which extract oxygen from water.",
+      "section": "classification"
+    },
+    {
+      "id": 108,
+      "question": "The part of the flower that receives pollen is the",
+      "options": {
+        "A": "Stigma",
+        "B": "Anther",
+        "C": "Style",
+        "D": "Ovary"
+      },
+      "correct_answer": "A",
+      "explanation": "The stigma is the receptive tip of a carpel that receives pollen during pollination.",
+      "section": "reproduction_in_plants"
+    },
+    {
+      "id": 109,
+      "question": "Which of these is a method of controlling air pollution?",
+      "options": {
+        "A": "Use of catalytic converters",
+        "B": "Deforestation",
+        "C": "Industrialization",
+        "D": "Burning of fossil fuels"
+      },
+      "correct_answer": "A",
+      "explanation": "Catalytic converters in vehicles reduce air pollution by converting harmful gases into less harmful emissions.",
+      "section": "conservation"
+    },
+    {
+      "id": 110,
+      "question": "The process by which plants respond to touch is called",
+      "options": {
+        "A": "Thigmotropism",
+        "B": "Phototropism",
+        "C": "Geotropism",
+        "D": "Hydrotropism"
+      },
+      "correct_answer": "A",
+      "explanation": "Thigmotropism is the directional growth response of plants to touch stimulus.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 111,
+      "question": "Which of these is a function of the kidney?",
+      "options": {
+        "A": "Regulation of water balance",
+        "B": "Production of bile",
+        "C": "Digestion of proteins",
+        "D": "Production of insulin"
+      },
+      "correct_answer": "A",
+      "explanation": "The kidneys regulate water balance and electrolyte concentration in the body.",
+      "section": "excretory_system"
+    },
+    {
+      "id": 112,
+      "question": "The process by which plants convert carbon dioxide and water to glucose is called",
+      "options": {
+        "A": "Photosynthesis",
+        "B": "Respiration",
+        "C": "Transpiration",
+        "D": "Fermentation"
+      },
+      "correct_answer": "A",
+      "explanation": "Photosynthesis is the process where plants use light energy to convert CO₂ and H₂O into glucose and O₂.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 113,
+      "question": "Which of these is a method of vegetative propagation?",
+      "options": {
+        "A": "Tuber",
+        "B": "Seed",
+        "C": "Spore",
+        "D": "Pollen"
+      },
+      "correct_answer": "A",
+      "explanation": "Tubers like potatoes are modified stems that can grow into new plants, representing vegetative propagation.",
+      "section": "reproduction_in_plants"
+    },
+    {
+      "id": 114,
+      "question": "The part of the cell that contains chromosomes is the",
+      "options": {
+        "A": "Nucleus",
+        "B": "Cytoplasm",
+        "C": "Cell membrane",
+        "D": "Mitochondrion"
+      },
+      "correct_answer": "A",
+      "explanation": "The nucleus contains chromosomes made of DNA that carry genetic information.",
+      "section": "cell_biology"
+    },
+    {
+      "id": 115,
+      "question": "Which of these is a function of the skeletal system?",
+      "options": {
+        "A": "Protection of internal organs",
+        "B": "Transport of nutrients",
+        "C": "Gas exchange",
+        "D": "Digestion of food"
+      },
+      "correct_answer": "A",
+      "explanation": "The skeletal system protects vital organs like the brain (skull), heart and lungs (rib cage).",
+      "section": "skeletal_system"
+    },
+    {
+      "id": 116,
+      "question": "The process by which plants bend toward light is an example of",
+      "options": {
+        "A": "Positive phototropism",
+        "B": "Negative phototropism",
+        "C": "Positive geotropism",
+        "D": "Negative geotropism"
+      },
+      "correct_answer": "A",
+      "explanation": "Positive phototropism is growth toward light sources.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 117,
+      "question": "Which of these is a renewable resource?",
+      "options": {
+        "A": "Wind energy",
+        "B": "Coal",
+        "C": "Petroleum",
+        "D": "Natural gas"
+      },
+      "correct_answer": "A",
+      "explanation": "Wind energy is a renewable resource that can be replenished naturally.",
+      "section": "conservation"
+    },
+    {
+      "id": 118,
+      "question": "The process by which organisms produce new individuals is called",
+      "options": {
+        "A": "Reproduction",
+        "B": "Respiration",
+        "C": "Digestion",
+        "D": "Excretion"
+      },
+      "correct_answer": "A",
+      "explanation": "Reproduction is the biological process by which new individual organisms are produced.",
+      "section": "reproduction"
+    },
+    {
+      "id": 119,
+      "question": "Which of these is a function of the circulatory system?",
+      "options": {
+        "A": "Transport of hormones",
+        "B": "Production of urine",
+        "C": "Gas exchange",
+        "D": "Filtration of blood"
+      },
+      "correct_answer": "A",
+      "explanation": "The circulatory system transports hormones from endocrine glands to target organs.",
+      "section": "transport_system"
+    },
+    {
+      "id": 120,
+      "question": "The process by which plants release oxygen is called",
+      "options": {
+        "A": "Photosynthesis",
+        "B": "Respiration",
+        "C": "Transpiration",
+        "D": "Fermentation"
+      },
+      "correct_answer": "A",
+      "explanation": "Oxygen is released as a byproduct during the light-dependent reactions of photosynthesis.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 121,
+      "question": "Which of these is a characteristic of mammals?",
+      "options": {
+        "A": "Warm-blooded",
+        "B": "Cold-blooded",
+        "C": "Lay eggs",
+        "D": "Have gills"
+      },
+      "correct_answer": "A",
+      "explanation": "Mammals are warm-blooded (endothermic) and maintain a constant body temperature.",
+      "section": "classification"
+    },
+    {
+      "id": 122,
+      "question": "The part of the human respiratory system where sound is produced is the",
+      "options": {
+        "A": "Larynx",
+        "B": "Trachea",
+        "C": "Bronchus",
+        "D": "Alveolus"
+      },
+      "correct_answer": "A",
+      "explanation": "The larynx (voice box) contains vocal cords that vibrate to produce sound.",
+      "section": "respiratory_system"
+    },
+    {
+      "id": 123,
+      "question": "Which of these is a method of water purification?",
+      "options": {
+        "A": "Boiling",
+        "B": "Sedimentation",
+        "C": "Filtration",
+        "D": "All of the above"
+      },
+      "correct_answer": "D",
+      "explanation": "Boiling, sedimentation, and filtration are all methods used to purify water.",
+      "section": "health_and_disease"
+    },
+    {
+      "id": 124,
+      "question": "The process by which plants respond to gravity is called",
+      "options": {
+        "A": "Geotropism",
+        "B": "Phototropism",
+        "C": "Hydrotropism",
+        "D": "Thigmotropism"
+      },
+      "correct_answer": "A",
+      "explanation": "Geotropism is the growth response of plants to gravitational forces.",
+      "section": "plant_physiology"
+    },
+    {
+      "id": 125,
+      "question": "Which of these is a function of the root system?",
+      "options": {
+        "A": "Anchorage and absorption",
+        "B": "Photosynthesis",
+        "C": "Reproduction",
+        "D": "Gas exchange"
+      },
+      "correct_answer": "A",
+      "explanation": "Roots anchor plants in soil and absorb water and mineral nutrients.",
+      "section": "plant_anatomy"
+    },
+    {
+      "id": 126,
+      "question": "The process by which organisms maintain constant internal conditions is called",
+      "options": {
+        "A": "Homeostasis",
+        "B": "Metabolism",
+        "C": "Respiration",
+        "D": "Digestion"
+      },
+      "correct_answer": "A",
+      "explanation": "Homeostasis is the maintenance of a stable internal environment despite external changes.",
+      "section": "homeostasis"
+    },
+    {
+      "id": 127,
+      "question": "Which of these is a method of conserving biodiversity?",
+      "options": {
+        "A": "Establishment of wildlife sanctuaries",
+        "B": "Deforestation",
+        "C": "Urbanization",
+        "D": "Pollution"
+      },
+      "correct_answer": "A",
+      "explanation": "Wildlife sanctuaries protect habitats and species, helping to conserve biodiversity.",
+      "section": "conservation"
+    },
+    {
+      "id": 128,
+      "question": "The process by which green plants convert light energy to chemical energy is called",
+      "options": {
+        "A": "Photosynthesis",
+        "B": "Respiration",
+        "C": "Transpiration",
+        "D": "Digestion"
+      },
+      "correct_answer": "A",
+      "explanation": "Photosynthesis is the fundamental process where plants convert light energy into chemical energy stored in glucose.",
+      "section": "plant_physiology"
+    }
+  ]
+} 
