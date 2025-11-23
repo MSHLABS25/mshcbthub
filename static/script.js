@@ -6,10 +6,69 @@ const AppState = {
     examTimer: null,
     timeRemaining: 0,
     examResults: null,
-    isInitialized: false
+    isInitialized: false,
+    trialTimer: null
 };
 
-// ==================== LOADING SYSTEM ====================
+// Subject configuration with icons
+const SUBJECT_CONFIG = {
+    waec: [
+        { id: 'english', name: 'English Language', compulsory: true, icon: 'fa-language', color: '#4361EE' },
+        { id: 'mathematics', name: 'Mathematics', compulsory: true, icon: 'fa-calculator', color: '#FF6B00' },
+        { id: 'physics', name: 'Physics', compulsory: false, icon: 'fa-atom', color: '#F72585' },
+        { id: 'chemistry', name: 'Chemistry', compulsory: false, icon: 'fa-flask', color: '#00A000' },
+        { id: 'biology', name: 'Biology', compulsory: false, icon: 'fa-dna', color: '#7209B7' },
+        { id: 'geography', name: 'Geography', compulsory: false, icon: 'fa-globe-africa', color: '#4895EF' },
+        { id: 'economics', name: 'Economics', compulsory: false, icon: 'fa-chart-line', color: '#FFD166' },
+        { id: 'government', name: 'Government', compulsory: false, icon: 'fa-landmark', color: '#EF476F' },
+        { id: 'literature', name: 'Literature in English', compulsory: false, icon: 'fa-book', color: '#06D6A0' },
+        { id: 'crs', name: 'Christian Religious Studies', compulsory: false, icon: 'fa-church', color: '#560BAD' },
+        { id: 'irs', name: 'Islamic Religious Studies', compulsory: false, icon: 'fa-mosque', color: '#4895EF' }
+    ],
+    jamb: [
+        { id: 'english', name: 'English Language', compulsory: true, icon: 'fa-language', color: '#4361EE' },
+        { id: 'mathematics', name: 'Mathematics', compulsory: false, icon: 'fa-calculator', color: '#FF6B00' },
+        { id: 'physics', name: 'Physics', compulsory: false, icon: 'fa-atom', color: '#F72585' },
+        { id: 'chemistry', name: 'Chemistry', compulsory: false, icon: 'fa-flask', color: '#00A000' },
+        { id: 'biology', name: 'Biology', compulsory: false, icon: 'fa-dna', color: '#7209B7' },
+        { id: 'geography', name: 'Geography', compulsory: false, icon: 'fa-globe-africa', color: '#4895EF' },
+        { id: 'economics', name: 'Economics', compulsory: false, icon: 'fa-chart-line', color: '#FFD166' },
+        { id: 'government', name: 'Government', compulsory: false, icon: 'fa-landmark', color: '#EF476F' },
+        { id: 'literature', name: 'Literature in English', compulsory: false, icon: 'fa-book', color: '#06D6A0' },
+        { id: 'crs', name: 'Christian Religious Studies', compulsory: false, icon: 'fa-church', color: '#560BAD' },
+        { id: 'irs', name: 'Islamic Religious Studies', compulsory: false, icon: 'fa-mosque', color: '#4895EF' }
+    ]
+};
+
+// Performance messages with beautiful styling
+const PERFORMANCE_MESSAGES = {
+    excellent: {
+        range: [80, 100],
+        message: "Outstanding performance! 😁🏆 You're ready to ace the real exam!",
+        class: "excellent",
+        icon: "fas fa-trophy"
+    },
+    good: {
+        range: [60, 79],
+        message: "Great work! 😃💪 With a bit more practice, you'll be excellent!",
+        class: "good",
+        icon: "fas fa-star"
+    },
+    average: {
+        range: [40, 59],
+        message: "Good effort! 🙂📚 Keep practicing to improve your score.",
+        class: "average",
+        icon: "fas fa-graduation-cap"
+    },
+    poor: {
+        range: [0, 39],
+        message: "Don't worry! 😔🌟 Review the materials and try again. You can do it!",
+        class: "poor",
+        icon: "fas fa-redo"
+    }
+};
+
+// ==================== INITIALIZATION & UTILITIES ====================
 
 /**
  * Initialize loading screen
@@ -42,7 +101,7 @@ function initializeLoadingScreen() {
 function initializeMainApp() {
     if (AppState.isInitialized) return;
     
-    console.log('🚀 MSH CBT HUB Enhanced Initializing...');
+    console.log('🚀 MSH CBT HUB Enhanced V2 Initializing...');
     
     // Initialize event listeners
     initializeEventListeners();
@@ -60,83 +119,14 @@ function initializeMainApp() {
     initializeFromURL();
     
     AppState.isInitialized = true;
-    console.log('✅ MSH CBT HUB Enhanced Initialized Successfully');
-}
-
-// Subject configuration with icons
-const SUBJECT_CONFIG = {
-    waec: [
-        { id: 'english', name: 'English Language', compulsory: true, icon: 'fa-language', color: '#4361EE' },
-        { id: 'mathematics', name: 'Mathematics', compulsory: true, icon: 'fa-calculator', color: '#FF6B00' },
-        { id: 'physics', name: 'Physics', compulsory: false, icon: 'fa-atom', color: '#F72585' },
-        { id: 'chemistry', name: 'Chemistry', compulsory: false, icon: 'fa-flask', color: '#00A000' },
-        { id: 'biology', name: 'Biology', compulsory: false, icon: 'fa-dna', color: '#7209B7' },
-        { id: 'geography', name: 'Geography', compulsory: false, icon: 'fa-globe-africa', color: '#4895EF' },
-        { id: 'economics', name: 'Economics', compulsory: false, icon: 'fa-chart-line', color: '#FFD166' },
-        { id: 'government', name: 'Government', compulsory: false, icon: 'fa-landmark', color: '#EF476F' },
-        { id: 'literature', name: 'Literature in English', compulsory: false, icon: 'fa-book', color: '#06D6A0' },
-        { id: 'crs', name: 'Christian Religious Studies', compulsory: false, icon: 'fa-church', color: '#560BAD' },
-        { id: 'irs', name: 'Islamic Religious Studies', compulsory: false, icon: 'fa-mosque', color: '#4895EF' }
-    ],
-    jamb: [
-        { id: 'english', name: 'English Language', compulsory: true, icon: 'fa-language', color: '#4361EE' },
-        { id: 'mathematics', name: 'Mathematics', compulsory: false, icon: 'fa-calculator', color: '#FF6B00' },
-        { id: 'physics', name: 'Physics', compulsory: false, icon: 'fa-atom', color: '#F72585' },
-        { id: 'chemistry', name: 'Chemistry', compulsory: false, icon: 'fa-flask', color: '#00A000' },
-        { id: 'biology', name: 'Biology', compulsory: false, icon: 'fa-dna', color: '#7209B7' },
-        { id: 'geography', name: 'Geography', compulsory: false, icon: 'fa-globe-africa', color: '#4895EF' },
-        { id: 'economics', name: 'Economics', compulsory: false, icon: 'fa-chart-line', color: '#FFD166' },
-        { id: 'government', name: 'Government', compulsory: false, icon: 'fa-landmark', color: '#EF476F' },
-        { id: 'literature', name: 'Literature in English', compulsory: false, icon: 'fa-book', color: '#06D6A0' },
-        { id: 'crs', name: 'Christian Religious Studies', compulsory: false, icon: 'fa-church', color: '#560BAD' },
-        { id: 'irs', name: 'Islamic Religious Studies', compulsory: false, icon: 'fa-mosque', color: '#4895EF' }
-    ]
-};
-
-// Performance messages based on scores
-const PERFORMANCE_MESSAGES = {
-    excellent: {
-        range: [80, 100],
-        message: "Outstanding performance!😁🏆 You're ready to ace the real exam!",
-        color: "text-success",
-        icon: "fas fa-trophy"
-    },
-    good: {
-        range: [60, 79],
-        message: "Great work!😃💪 With a bit more practice, you'll be excellent!",
-        color: "text-warning", 
-        icon: "fas fa-star"
-    },
-    average: {
-        range: [40, 59],
-        message: "Good effort! 🙂📚 Keep practicing to improve your score.",
-        color: "text-info",
-        icon: "fas fa-graduation-cap"
-    },
-    poor: {
-        range: [0, 39],
-        message: "Don't worry!😞🌟 Review the materials and try again. You can do it!",
-        color: "text-danger",
-        icon: "fas fa-redo"
-    }
-};
-
-// ==================== INITIALIZATION & UTILITIES ====================
-
-/**
- * Initialize the application when DOM is loaded
- */
-function initializeApp() {
-    // This is now handled by initializeLoadingScreen()
-    // Keeping this function for backward compatibility
-    initializeLoadingScreen();
+    console.log('✅ MSH CBT HUB Enhanced V2 Initialized Successfully');
 }
 
 /**
- * Initialize all event listeners - FIXED: Proper form attachment
+ * Initialize all event listeners
  */
 function initializeEventListeners() {
-    // Form submissions - FIXED: Wait for DOM to be fully ready
+    // Form submissions
     setTimeout(() => {
         const registerForm = document.getElementById('registerForm');
         const loginForm = document.getElementById('loginForm');
@@ -144,15 +134,11 @@ function initializeEventListeners() {
         if (registerForm) {
             console.log('📝 Register form found, attaching listener');
             registerForm.addEventListener('submit', handleRegistration);
-        } else {
-            console.log('❌ Register form NOT found');
         }
         
         if (loginForm) {
             console.log('🔑 Login form found, attaching listener');
             loginForm.addEventListener('submit', handleLogin);
-        } else {
-            console.log('❌ Login form NOT found');
         }
     }, 100);
     
@@ -164,6 +150,9 @@ function initializeEventListeners() {
     
     // Window events
     window.addEventListener('beforeunload', handleBeforeUnload);
+    
+    // Resize events for responsiveness
+    window.addEventListener('resize', handleWindowResize);
 }
 
 /**
@@ -192,8 +181,14 @@ async function checkUserSession() {
             AppState.currentUser = {
                 full_name: data.user_name,
                 email: data.user_email || '',
-                status: data.status
+                status: data.status,
+                is_admin: data.is_admin || false
             };
+            
+            if (data.status === 'trial' && data.remaining_minutes) {
+                startTrialCountdown(data.remaining_minutes * 60);
+            }
+            
             showNotification(`Welcome back, ${data.user_name}!`, 'success');
         }
     } catch (error) {
@@ -292,13 +287,16 @@ function initializePage(pageName, data) {
             break;
         case 'results':
             if (AppState.examResults) {
-                displayResults(AppState.examResults);
+                displayResults();
             }
             break;
         case 'review':
             if (AppState.examResults) {
                 displayReviewQuestions('all');
             }
+            break;
+        case 'instructions':
+            // No special initialization needed
             break;
     }
 }
@@ -318,6 +316,11 @@ function updateNavigation() {
             <a class="nav-link" href="#" onclick="showPage('dashboard')">
                 <i class="fas fa-tachometer-alt me-1"></i>Dashboard
             </a>
+            ${AppState.currentUser.is_admin ? `
+                <a class="nav-link" href="/admin" target="_blank">
+                    <i class="fas fa-cog me-1"></i>Admin
+                </a>
+            ` : ''}
             <a class="nav-link" href="#" onclick="handleLogout()">
                 <i class="fas fa-sign-out-alt me-1"></i>Logout
             </a>
@@ -347,7 +350,7 @@ function initializeFromURL() {
 // ==================== AUTHENTICATION SYSTEM ====================
 
 /**
- * Handle user registration - FIXED: Proper form handling
+ * Handle user registration
  */
 async function handleRegistration(e) {
     e.preventDefault();
@@ -398,7 +401,7 @@ async function handleRegistration(e) {
 }
 
 /**
- * Handle user login - FIXED: Proper form handling
+ * Handle user login
  */
 async function handleLogin(e) {
     e.preventDefault();
@@ -432,8 +435,14 @@ async function handleLogin(e) {
             AppState.currentUser = {
                 full_name: result.user_name,
                 email: formData.email,
-                status: result.is_activated ? 'activated' : 'trial'
+                status: result.is_activated ? 'activated' : 'trial',
+                is_admin: result.is_admin || false
             };
+            
+            // Start trial countdown if in trial mode
+            if (result.trial_active && !result.is_activated) {
+                startTrialCountdown(result.remaining_minutes * 60);
+            }
             
             showNotification(result.message, 'success');
             document.getElementById('loginForm').reset();
@@ -462,9 +471,16 @@ async function handleLogout() {
         const result = await response.json();
         
         if (result.success) {
+            // Clear all timers
+            if (AppState.examTimer) clearInterval(AppState.examTimer);
+            if (AppState.trialTimer) clearInterval(AppState.trialTimer);
+            
+            // Reset state
             AppState.currentUser = null;
             AppState.currentExam = null;
             AppState.examResults = null;
+            AppState.examTimer = null;
+            AppState.trialTimer = null;
             
             showNotification(result.message, 'success');
             showPage('home');
@@ -522,7 +538,7 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-// ==================== FIXED DASHBOARD SYSTEM ====================
+// ==================== ENHANCED DASHBOARD SYSTEM ====================
 
 /**
  * Load dashboard data with proper trial status check
@@ -572,7 +588,7 @@ function updateWelcomeMessage(userStatus) {
     const welcomeMessage = document.getElementById('userGreeting');
     if (welcomeMessage) {
         if (userStatus.status === 'trial') {
-            welcomeMessage.innerHTML = `Welcome to your free trial! <span class="text-teal">${userStatus.remaining_minutes} minutes remaining</span> ⏰`;
+            welcomeMessage.innerHTML = `Welcome to your free trial! <span class="text-teal" id="trialTimerDisplay">${formatTimeMinutesSeconds(userStatus.remaining_minutes * 60)} remaining</span> ⏰`;
         } else if (userStatus.status === 'activated') {
             welcomeMessage.innerHTML = `Welcome back! Full access activated 🎉`;
         } else {
@@ -582,16 +598,18 @@ function updateWelcomeMessage(userStatus) {
 }
 
 /**
- * Show trial dashboard with timer
+ * Show trial dashboard with timer - FIXED: Minutes+Seconds display
  */
 function showTrialDashboard(userStatus) {
     const accountStatus = document.getElementById('accountStatus');
     if (accountStatus) {
+        const totalSeconds = userStatus.remaining_minutes * 60;
+        
         accountStatus.innerHTML = `
             <div class="alert alert-info">
                 <i class="fas fa-clock me-2"></i>
                 <strong>Free Trial Active</strong>
-                <p class="mb-2">${userStatus.remaining_minutes} minutes remaining</p>
+                <p class="mb-2" id="trialTimerText">${formatTimeMinutesSeconds(totalSeconds)} remaining</p>
                 <div class="progress" style="height: 6px;">
                     <div class="progress-bar bg-warning" style="width: ${(userStatus.remaining_minutes / 60) * 100}%"></div>
                 </div>
@@ -602,7 +620,58 @@ function showTrialDashboard(userStatus) {
                 </button>
             </div>
         `;
+        
+        // Start countdown timer
+        startTrialCountdown(totalSeconds);
     }
+}
+
+/**
+ * Start trial countdown timer - FIXED: Minutes+Seconds format
+ */
+function startTrialCountdown(totalSeconds) {
+    // Clear existing timer
+    if (AppState.trialTimer) {
+        clearInterval(AppState.trialTimer);
+    }
+    
+    let secondsLeft = totalSeconds;
+    
+    AppState.trialTimer = setInterval(() => {
+        secondsLeft--;
+        
+        const timerElement = document.getElementById('trialTimerText');
+        const displayElement = document.getElementById('trialTimerDisplay');
+        
+        if (timerElement) {
+            timerElement.textContent = `${formatTimeMinutesSeconds(secondsLeft)} remaining`;
+        }
+        
+        if (displayElement) {
+            displayElement.textContent = `${formatTimeMinutesSeconds(secondsLeft)} remaining`;
+        }
+        
+        // Update progress bar
+        const progressBar = document.querySelector('#accountStatus .progress-bar');
+        if (progressBar) {
+            const progress = (secondsLeft / totalSeconds) * 100;
+            progressBar.style.width = `${progress}%`;
+            
+            // Change color when time is running out
+            if (progress < 20) {
+                progressBar.className = 'progress-bar bg-danger';
+            } else if (progress < 50) {
+                progressBar.className = 'progress-bar bg-warning';
+            }
+        }
+        
+        if (secondsLeft <= 0) {
+            clearInterval(AppState.trialTimer);
+            showNotification('Your free trial has ended. Please activate your account to continue.', 'warning');
+            // Refresh dashboard to show activation prompt
+            loadDashboard();
+        }
+    }, 1000);
 }
 
 /**
@@ -703,22 +772,6 @@ function animateDashboardElements() {
 // ==================== SUBJECT SELECTION SYSTEM ====================
 
 /**
- * Show WAEC selection page
- */
-function showWAECSelectionPage() {
-    showPage('waec-selection');
-    loadWAECSubjects();
-}
-
-/**
- * Show JAMB selection page
- */
-function showJAMBSelectionPage() {
-    showPage('jamb-selection');
-    loadJAMBSubjects();
-}
-
-/**
  * Start WAEC subject selection
  */
 function startWAECSelection() {
@@ -727,7 +780,13 @@ function startWAECSelection() {
         showPage('login');
         return;
     }
-    showWAECSelectionPage();
+    
+    // Check trial status
+    checkExamAccess().then(hasAccess => {
+        if (hasAccess) {
+            showPage('waec-selection');
+        }
+    });
 }
 
 /**
@@ -739,7 +798,31 @@ function startJAMBSelection() {
         showPage('login');
         return;
     }
-    showJAMBSelectionPage();
+    
+    // Check trial status
+    checkExamAccess().then(hasAccess => {
+        if (hasAccess) {
+            showPage('jamb-selection');
+        }
+    });
+}
+
+/**
+ * Check if user has access to exams
+ */
+async function checkExamAccess() {
+    try {
+        const userStatus = await checkUserStatus();
+        if (!userStatus.active) {
+            showNotification('Your access has expired. Please activate your account.', 'warning');
+            showActivationModal();
+            return false;
+        }
+        return true;
+    } catch (error) {
+        showNotification('Error checking account status', 'error');
+        return false;
+    }
 }
 
 /**
@@ -852,7 +935,7 @@ function loadJAMBSubjects() {
     html += `
         </div>
         <div class="text-center mt-4">
-            <button class="btn btn-primary btn-lg" onclick="startJAMBExam()" id="jambStartBtn">
+            <button class="btn btn-primary btn-lg" onclick="startJAMBExam()" id="jambStartBtn" disabled>
                 <i class="fas fa-play me-2"></i>Start JAMB Exam
             </button>
         </div>
@@ -863,27 +946,12 @@ function loadJAMBSubjects() {
 }
 
 /**
- * Validate JAMB subject selection - FIXED: Exactly 4 subjects required
+ * Validate JAMB subject selection
  */
 function validateJAMBSelection() {
     const selectedSubjects = document.querySelectorAll('.jamb-subject:checked');
-    const englishCheckbox = document.getElementById('jamb-english');
     const startBtn = document.getElementById('jambStartBtn');
     
-    // Ensure English is always selected
-    if (!englishCheckbox.checked) {
-        englishCheckbox.checked = true;
-        showNotification('English Language is compulsory for JAMB', 'info');
-    }
-    
-    // Limit to exactly 4 subjects total
-    if (selectedSubjects.length > 4) {
-        showNotification('You can only select exactly 4 subjects for JAMB (including English)', 'warning');
-        event.target.checked = false;
-        return;
-    }
-    
-    // Enable/disable start button based on selection
     if (startBtn) {
         if (selectedSubjects.length === 4) {
             startBtn.disabled = false;
@@ -897,10 +965,10 @@ function validateJAMBSelection() {
     }
 }
 
-// ==================== EXAM SYSTEM ====================
+// ==================== ENHANCED EXAM SYSTEM ====================
 
 /**
- * Start WAEC exam with selected subjects - FIXED: Validate 9 subjects
+ * Start WAEC exam with selected subjects
  */
 async function startWAECExam() {
     const selectedSubjects = getSelectedSubjects('waec');
@@ -915,7 +983,7 @@ async function startWAECExam() {
 }
 
 /**
- * Start JAMB exam with selected subjects - FIXED: Validate 4 subjects
+ * Start JAMB exam with selected subjects
  */
 async function startJAMBExam() {
     const selectedSubjects = getSelectedSubjects('jamb');
@@ -923,12 +991,6 @@ async function startJAMBExam() {
     // Validate selection - exactly 4 subjects required
     if (selectedSubjects.length !== 4) {
         showNotification(`Please select exactly 4 subjects for JAMB (currently ${selectedSubjects.length})`, 'warning');
-        return;
-    }
-    
-    // Check if English is selected
-    if (!selectedSubjects.includes('english')) {
-        showNotification('English Language is compulsory for JAMB', 'warning');
         return;
     }
     
@@ -941,9 +1003,8 @@ async function startJAMBExam() {
 function getSelectedSubjects(examType) {
     const selectedSubjects = [];
     const prefix = examType === 'waec' ? 'waec-' : 'jamb-';
-    const subjects = examType === 'waec' ? SUBJECT_CONFIG.waec : SUBJECT_CONFIG.jamb;
     
-    subjects.forEach(subject => {
+    SUBJECT_CONFIG[examType].forEach(subject => {
         const checkbox = document.getElementById(`${prefix}${subject.id}`);
         if (checkbox && checkbox.checked) {
             selectedSubjects.push(subject.id);
@@ -965,14 +1026,9 @@ async function startExam(examType, selectedSubjects) {
 
     // Check trial/activation status
     try {
-        const userStatus = await checkUserStatus();
-        if (!userStatus.active) {
-            showNotification('Your access has expired. Please activate your account.', 'warning');
-            showActivationModal();
-            return;
-        }
+        const hasAccess = await checkExamAccess();
+        if (!hasAccess) return;
     } catch (error) {
-        showNotification('Error checking account status', 'error');
         return;
     }
 
@@ -1022,13 +1078,15 @@ async function startExam(examType, selectedSubjects) {
 }
 
 /**
- * Get exam time based on type and subjects
+ * Get exam time based on type and subjects - FIXED: Proper timing
  */
 function getExamTime(examType, subjects) {
-    if (subjects.includes('english')) {
-        return 9000; // 2.5 hours for English
+    // Convert hours to seconds
+    if (examType === 'WAEC') {
+        return 3 * 60 * 60; // 3 hours for WAEC
+    } else {
+        return 2 * 60 * 60; // 2 hours for JAMB
     }
-    return examType === 'WAEC' ? 8400 : 7200; // WAEC: 2h20m, JAMB: 2h
 }
 
 /**
@@ -1046,11 +1104,11 @@ function initializeExamInterface() {
     const examInfo = document.getElementById('examInfo');
     
     if (examSubject) {
-        examSubject.innerHTML = `<i class="fas fa-book me-2"></i>${AppState.currentExam.type} ${AppState.currentExam.subjects.join(', ')}`;
+        examSubject.innerHTML = `<i class="fas fa-book me-2"></i>${AppState.currentExam.type} Exam`;
     }
     
     if (examInfo) {
-        examInfo.textContent = `${AppState.currentExam.questions.length} Questions • ${formatTime(AppState.currentExam.timeRemaining)}`;
+        examInfo.textContent = `${AppState.currentExam.questions.length} Questions • ${formatTimeMinutesSeconds(AppState.currentExam.timeRemaining)}`;
     }
 }
 
@@ -1064,29 +1122,30 @@ function updateQuestionDisplay() {
     
     document.getElementById('currentQuestion').textContent = AppState.currentExam.currentQuestionIndex + 1;
     document.getElementById('totalQuestions').textContent = AppState.currentExam.questions.length;
-    document.getElementById('questionText').textContent = question.question;
+    
+    // Update question text
+    const questionText = document.getElementById('questionText');
+    if (questionText) {
+        questionText.textContent = question.question;
+    }
     
     // Update options
     const optionsContainer = document.getElementById('optionsContainer');
-    if (optionsContainer) {
-        optionsContainer.innerHTML = `
-            <div class="option" data-option="A">
-                <span class="option-letter">A</span>
-                <span class="option-text">${question.options.A}</span>
-            </div>
-            <div class="option" data-option="B">
-                <span class="option-letter">B</span>
-                <span class="option-text">${question.options.B}</span>
-            </div>
-            <div class="option" data-option="C">
-                <span class="option-letter">C</span>
-                <span class="option-text">${question.options.C}</span>
-            </div>
-            <div class="option" data-option="D">
-                <span class="option-letter">D</span>
-                <span class="option-text">${question.options.D}</span>
-            </div>
-        `;
+    if (optionsContainer && question.options) {
+        optionsContainer.innerHTML = '';
+        
+        ['A', 'B', 'C', 'D'].forEach(option => {
+            if (question.options[option]) {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.dataset.option = option;
+                optionElement.innerHTML = `
+                    <span class="option-letter">${option}</span>
+                    <span class="option-text">${question.options[option]}</span>
+                `;
+                optionsContainer.appendChild(optionElement);
+            }
+        });
     }
     
     // Clear previous selection
@@ -1097,7 +1156,10 @@ function updateQuestionDisplay() {
     // Show current selection
     const userAnswer = AppState.currentExam.userAnswers[AppState.currentExam.currentQuestionIndex];
     if (userAnswer) {
-        document.querySelector(`.option[data-option="${userAnswer}"]`).classList.add('selected');
+        const selectedOption = document.querySelector(`.option[data-option="${userAnswer}"]`);
+        if (selectedOption) {
+            selectedOption.classList.add('selected');
+        }
     }
     
     // Handle comprehension passages
@@ -1172,7 +1234,7 @@ function navigateToQuestion(index) {
 }
 
 /**
- * Start exam timer
+ * Start exam timer - FIXED: Minutes+Seconds display
  */
 function startExamTimer() {
     if (!AppState.currentExam) return;
@@ -1191,7 +1253,7 @@ function startExamTimer() {
 }
 
 /**
- * Update timer display
+ * Update timer display - FIXED: Minutes+Seconds format
  */
 function updateTimerDisplay() {
     if (!AppState.currentExam) return;
@@ -1200,7 +1262,7 @@ function updateTimerDisplay() {
     const progressElement = document.getElementById('timerProgress');
     
     if (timerElement) {
-        timerElement.textContent = formatTime(AppState.currentExam.timeRemaining);
+        timerElement.textContent = formatTimeMinutesSeconds(AppState.currentExam.timeRemaining);
     }
     
     if (progressElement) {
@@ -1221,6 +1283,15 @@ function updateTimerDisplay() {
 }
 
 /**
+ * Format time to show minutes and seconds only (MM:SS) - NEW FUNCTION
+ */
+function formatTimeMinutesSeconds(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+/**
  * Auto-submit when time is up
  */
 function autoSubmitExam() {
@@ -1231,48 +1302,18 @@ function autoSubmitExam() {
 /**
  * Show submit confirmation modal
  */
-function showSubmitConfirmation(unanswered) {
-    const modalHtml = `
-        <div class="modal fade" id="submitConfirmationModal" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">
-                            <i class="fas fa-exclamation-triangle me-2"></i>Confirm Submission
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <i class="fas fa-question-circle fa-4x text-warning mb-3"></i>
-                        <h4>You have ${unanswered} unanswered questions!</h4>
-                        <p>Are you sure you want to submit your exam?</p>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                            <i class="fas fa-arrow-left me-2"></i>Continue Exam
-                        </button>
-                        <button type="button" class="btn btn-danger" onclick="submitExam()">
-                            <i class="fas fa-paper-plane me-2"></i>Submit Anyway
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
+function showSubmitConfirmation() {
+    if (!AppState.currentExam) return;
     
-    // Add modal to body if not exists
-    if (!document.getElementById('submitConfirmationModal')) {
-        document.body.insertAdjacentHTML('beforeend', modalHtml);
-    }
+    const unanswered = AppState.currentExam.questions.length - Object.keys(AppState.currentExam.userAnswers).length;
     
-    // Update unanswered count
+    const modal = new bootstrap.Modal(document.getElementById('submitConfirmationModal'));
     const unansweredElement = document.querySelector('#submitConfirmationModal h4');
+    
     if (unansweredElement) {
         unansweredElement.textContent = `You have ${unanswered} unanswered questions!`;
     }
     
-    // Show modal
-    const modal = new bootstrap.Modal(document.getElementById('submitConfirmationModal'));
     modal.show();
 }
 
@@ -1285,6 +1326,7 @@ async function submitExam() {
     // Clear timer
     if (AppState.currentExam.timer) {
         clearInterval(AppState.currentExam.timer);
+        AppState.currentExam.timer = null;
     }
     
     // Calculate time taken
@@ -1326,7 +1368,7 @@ async function submitExam() {
                 examType: AppState.currentExam.type,
                 userAnswers: AppState.currentExam.userAnswers,
                 questions: AppState.currentExam.questions,
-                subjectScores: result.subject_scores
+                subjectScores: result.subject_scores || {}
             };
             
             showNotification('Exam submitted successfully!', 'success');
@@ -1346,7 +1388,8 @@ async function submitExam() {
             subjects: AppState.currentExam.subjects,
             examType: AppState.currentExam.type,
             userAnswers: AppState.currentExam.userAnswers,
-            questions: AppState.currentExam.questions
+            questions: AppState.currentExam.questions,
+            subjectScores: {}
         };
         showNotification('Exam submitted (offline mode)', 'warning');
         showPage('results');
@@ -1390,10 +1433,10 @@ function updateProgress() {
     if (totalCount) totalCount.textContent = total;
 }
 
-// ==================== RESULTS SYSTEM FUNCTIONS ====================
+// ==================== ENHANCED RESULTS SYSTEM ====================
 
 /**
- * Display exam results
+ * Display exam results - ENHANCED: Beautiful messages
  */
 function displayResults() {
     if (!AppState.examResults) return;
@@ -1401,27 +1444,35 @@ function displayResults() {
     // Update results display
     document.getElementById('scorePercentage').textContent = `${AppState.examResults.percentage}%`;
     document.getElementById('scoreText').textContent = `${AppState.examResults.score} out of ${AppState.examResults.totalQuestions} questions`;
-    document.getElementById('timeTaken').textContent = formatTime(AppState.examResults.timeTaken);
+    document.getElementById('timeTaken').textContent = formatTimeMinutesSeconds(AppState.examResults.timeTaken);
     document.getElementById('completionDate').textContent = AppState.examResults.date;
 
-    // Update results message based on performance
+    // Update results message based on performance - ENHANCED with beautiful styling
     const resultsMessage = document.getElementById('resultsMessage');
-    if (AppState.examResults.percentage >= 80) {
-        resultsMessage.innerHTML = 'Outstanding performance! You\'re ready to ace the real exam! 🏆';
-        resultsMessage.className = 'lead text-success';
-    } else if (AppState.examResults.percentage >= 60) {
-        resultsMessage.innerHTML = 'Great work! With a bit more practice, you\'ll be excellent! 💪';
-        resultsMessage.className = 'lead text-warning';
-    } else if (AppState.examResults.percentage >= 40) {
-        resultsMessage.innerHTML = 'Good effort! Keep practicing to improve your score. 📚';
-        resultsMessage.className = 'lead text-info';
-    } else {
-        resultsMessage.innerHTML = 'Don\'t worry! Review the materials and try again. You can do it! 🌟';
-        resultsMessage.className = 'lead text-danger';
+    const performance = getPerformanceLevel(AppState.examResults.percentage);
+    
+    if (resultsMessage) {
+        resultsMessage.innerHTML = `
+            <i class="${performance.icon} me-2"></i>
+            ${performance.message}
+        `;
+        resultsMessage.className = `results-message ${performance.class}`;
     }
 
     // Update subject breakdown
     updateSubjectBreakdown();
+}
+
+/**
+ * Get performance level based on score
+ */
+function getPerformanceLevel(percentage) {
+    for (const [level, config] of Object.entries(PERFORMANCE_MESSAGES)) {
+        if (percentage >= config.range[0] && percentage <= config.range[1]) {
+            return config;
+        }
+    }
+    return PERFORMANCE_MESSAGES.poor;
 }
 
 /**
@@ -1589,6 +1640,67 @@ function filterReview(type) {
     displayReviewQuestions(type);
 }
 
+// ==================== ACTIVATION SYSTEM ====================
+
+/**
+ * Show activation modal
+ */
+function showActivationModal() {
+    const modal = new bootstrap.Modal(document.getElementById('activationModal'));
+    modal.show();
+}
+
+/**
+ * Activate account with code
+ */
+async function activateAccount() {
+    const codeInput = document.getElementById('activationCode');
+    const code = codeInput?.value.trim();
+    
+    if (!code) {
+        showNotification('Please enter an activation code.', 'warning');
+        return;
+    }
+    
+    // Validate code format
+    const codeRegex = /^MSH-[A-Z0-9]{4}-[A-Z0-9]{4}$/;
+    if (!codeRegex.test(code)) {
+        showNotification('Invalid activation code format. Format should be MSH-XXXX-XXXX (e.g., MSH-A1B2-C3D4)', 'warning');
+        return;
+    }
+    
+    try {
+        const response = await fetch('/activate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                code: code
+            })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showNotification(result.message, 'success');
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('activationModal'));
+            modal.hide();
+            // Clear input
+            codeInput.value = '';
+            // Update user status
+            AppState.currentUser.status = 'activated';
+            // Reload dashboard
+            loadDashboard();
+        } else {
+            showNotification(result.message, 'error');
+        }
+    } catch (error) {
+        showNotification('Activation failed. Please try again.', 'error');
+    }
+}
+
 // ==================== NOTIFICATION SYSTEM ====================
 
 /**
@@ -1632,16 +1744,6 @@ function showNotification(message, type = 'info') {
 // ==================== UTILITY FUNCTIONS ====================
 
 /**
- * Format time from seconds to HH:MM:SS
- */
-function formatTime(seconds) {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-}
-
-/**
  * Check user status from server
  */
 async function checkUserStatus() {
@@ -1653,62 +1755,14 @@ async function checkUserStatus() {
     }
 }
 
-// ==================== ACTIVATION SYSTEM ====================
-
 /**
- * Show activation modal
+ * Format time from seconds to HH:MM:SS
  */
-function showActivationModal() {
-    const modal = new bootstrap.Modal(document.getElementById('activationModal'));
-    modal.show();
-}
-
-/**
- * Activate account with code - FIXED: Enhanced format validation
- */
-async function activateAccount() {
-    const code = document.getElementById('activationCode')?.value.trim();
-    
-    if (!code) {
-        showNotification('Please enter an activation code.', 'warning');
-        return;
-    }
-    
-    // Validate code format - ENHANCED: MSH-XXXX-XXXX
-    const codeRegex = /^MSH-[A-Z0-9]{4}-[A-Z0-9]{4}$/;
-    if (!codeRegex.test(code)) {
-        showNotification('Invalid activation code format. Format should be MSH-XXXX-XXXX (e.g., MSH-KDUK-5273)', 'warning');
-        return;
-    }
-    
-    try {
-        const response = await fetch('/activate', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                code: code
-            })
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            showNotification(result.message, 'success');
-            // Close modal
-            const modal = bootstrap.Modal.getInstance(document.getElementById('activationModal'));
-            modal.hide();
-            // Reload dashboard
-            loadDashboard();
-            // Update session
-            AppState.currentUser.status = 'activated';
-        } else {
-            showNotification(result.message, 'error');
-        }
-    } catch (error) {
-        showNotification('Activation failed. Please try again.', 'error');
-    }
+function formatTime(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 }
 
 // ==================== EVENT HANDLERS ====================
@@ -1763,7 +1817,7 @@ function handleGlobalClicks(e) {
         const unanswered = AppState.currentExam.questions.length - Object.keys(AppState.currentExam.userAnswers).length;
         
         if (unanswered > 0) {
-            showSubmitConfirmation(unanswered);
+            showSubmitConfirmation();
         } else {
             submitExam();
         }
@@ -1796,11 +1850,17 @@ function handleKeyboardShortcuts(e) {
             break;
         case 'ArrowRight':
             // Next question
-            if (AppState.currentExam) document.getElementById('nextBtn').click();
+            if (AppState.currentExam) {
+                const nextBtn = document.getElementById('nextBtn');
+                if (nextBtn && !nextBtn.disabled) nextBtn.click();
+            }
             break;
         case 'ArrowLeft':
             // Previous question
-            if (AppState.currentExam) document.getElementById('prevBtn').click();
+            if (AppState.currentExam) {
+                const prevBtn = document.getElementById('prevBtn');
+                if (prevBtn && !prevBtn.disabled) prevBtn.click();
+            }
             break;
         case 'Escape':
             // Close modals
@@ -1823,6 +1883,14 @@ function handleBeforeUnload(e) {
     }
 }
 
+/**
+ * Handle window resize for responsiveness
+ */
+function handleWindowResize() {
+    // You can add responsive behavior here
+    console.log('Window resized:', window.innerWidth, 'x', window.innerHeight);
+}
+
 // ==================== ANIMATION HELPERS ====================
 
 /**
@@ -1837,17 +1905,6 @@ function initializeHoverEffects() {
         });
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
-        });
-    });
-    
-    // Add fast button click effects
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 150);
         });
     });
 }
@@ -1940,7 +1997,7 @@ MSH CBT HUB - Exam Results
 Exam Type: ${AppState.examResults.examType}
 Subjects: ${AppState.examResults.subjects.join(', ')}
 Score: ${AppState.examResults.score}/${AppState.examResults.totalQuestions} (${AppState.examResults.percentage}%)
-Time Taken: ${formatTime(AppState.examResults.timeTaken)}
+Time Taken: ${formatTimeMinutesSeconds(AppState.examResults.timeTaken)}
 Date: ${AppState.examResults.date}
 
 Performance Summary:
@@ -2029,30 +2086,6 @@ function calculate() {
         }
         calculatorValue = '';
     }
-}
-
-// ==================== ENHANCED UTILITY FUNCTIONS ====================
-
-/**
- * Animate counter from start to end value
- */
-function animateCounter(elementId, start, end, duration) {
-    const element = document.getElementById(elementId);
-    if (!element) return;
-    
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const value = Math.floor(progress * (end - start) + start);
-        element.textContent = end === 75 ? `${value}%` : value;
-        
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        }
-    };
-    
-    window.requestAnimationFrame(step);
 }
 
 // ==================== INITIALIZATION ====================
