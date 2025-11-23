@@ -1,4 +1,4 @@
-# app.py - VERSION 2 - UPDATED WITH LOADING & DASHBOARD FIXES
+# app.py - VERSION 2 - UPDATED WITH ENGLISH TEST FIXES & ENHANCEMENTS
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for, send_file
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -19,8 +19,8 @@ from flask_compress import Compress
 # -------------------- Flask app setup --------------------
 app = Flask(
     __name__,
-    template_folder='templates',   # now points to templates/
-    static_folder='static',        # now points to static/
+    template_folder='templates',
+    static_folder='static',
     static_url_path='/static'
 )
 
@@ -161,9 +161,37 @@ def load_questions_from_file(exam_type, subject):
         file_name = f"{exam_part}_{subject_part}.json"
         file_path = os.path.join(app.root_path, 'questions', file_name)
 
+        # FIX: Check for English language variations
+        if not os.path.exists(file_path) and subject_part == 'english':
+            # Try alternative file names for English
+            alternative_files = [
+                f"{exam_part}_english_language.json",
+                f"{exam_part}_english.json",
+                "waec_english.json",
+                "jamb_english.json"
+            ]
+            
+            for alt_file in alternative_files:
+                alt_path = os.path.join(app.root_path, 'questions', alt_file)
+                if os.path.exists(alt_path):
+                    file_path = alt_path
+                    file_name = alt_file
+                    logger.info(f"Using alternative English file: {alt_file}")
+                    break
+
         if not os.path.exists(file_path):
             logger.warning(f"Question file not found: {file_path}")
-            return None
+            # Try to find any English file as fallback
+            if 'english' in subject_part:
+                english_files = [f for f in os.listdir(os.path.join(app.root_path, 'questions')) 
+                               if 'english' in f.lower() and f.endswith('.json')]
+                if english_files:
+                    file_path = os.path.join(app.root_path, 'questions', english_files[0])
+                    logger.info(f"Using fallback English file: {english_files[0]}")
+                else:
+                    return None
+            else:
+                return None
 
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -181,6 +209,28 @@ def load_questions_from_file(exam_type, subject):
     except Exception as e:
         logger.error(f"Error loading questions from {file_name}: {str(e)}")
         return None
+
+def validate_subject_selection(exam_type, subjects):
+    """Validate subject selection based on exam type"""
+    subjects_lower = [s.lower() for s in subjects]
+    
+    if exam_type.upper() == 'WAEC':
+        if len(subjects) != 9:
+            return False, 'WAEC requires exactly 9 subjects'
+        if 'english' not in subjects_lower:
+            return False, 'WAEC requires English Language'
+        if 'mathematics' not in subjects_lower:
+            return False, 'WAEC requires Mathematics'
+        return True, 'Valid selection'
+    
+    elif exam_type.upper() == 'JAMB':
+        if len(subjects) != 4:
+            return False, 'JAMB requires exactly 4 subjects'
+        if 'english' not in subjects_lower:
+            return False, 'JAMB requires English Language'
+        return True, 'Valid selection'
+    
+    return False, 'Invalid exam type'
 
 # -------------------- ROUTES --------------------
 @app.route('/')
@@ -296,14 +346,23 @@ def login():
 
             logger.info(f"User logged in: {email} (Admin: {user.is_admin})")
 
-            return jsonify({
+            response_data = {
                 'success': True,
                 'message': 'Login successful! Welcome back.',
                 'user_name': user.full_name,
                 'is_activated': user.is_activated,
-                'is_admin': user.is_admin,
-                'trial_active': trial_active
-            })
+                'is_admin': user.is_admin
+            }
+
+            # Add trial information if in trial period
+            if trial_active and not user.is_activated:
+                trial_end = user.trial_start + timedelta(hours=1)
+                remaining = trial_end - datetime.utcnow()
+                remaining_minutes = max(0, int(remaining.total_seconds() / 60))
+                response_data['trial_active'] = True
+                response_data['remaining_minutes'] = remaining_minutes
+
+            return jsonify(response_data)
 
         return jsonify({'success': False, 'message': 'Invalid email or password!'})
 
@@ -438,7 +497,7 @@ def activate_account():
         db.session.rollback()
         return jsonify({'success': False, 'message': 'Activation failed. Please try again.'})
 
-# -------------------- EXAM SYSTEM --------------------
+# -------------------- ENHANCED EXAM SYSTEM --------------------
 @app.route('/api/start-exam', methods=['POST'])
 def start_exam():
     try:
@@ -474,20 +533,10 @@ def get_questions():
         if not exam_type or not subjects:
             return jsonify({'success': False, 'message': 'Exam type and subjects are required!'})
 
-        # Validation rules
-        if exam_type.upper() == 'WAEC' and len(subjects) != 9:
-            return jsonify({'success': False, 'message': 'WAEC requires exactly 9 subjects (English, Mathematics + 7 others)'})
-
-        if exam_type.upper() == 'JAMB' and len(subjects) != 4:
-            return jsonify({'success': False, 'message': 'JAMB requires exactly 4 subjects (English + 3 others)'})
-
-        if exam_type.upper() == 'WAEC':
-            if 'english' not in [s.lower() for s in subjects] or 'mathematics' not in [s.lower() for s in subjects]:
-                return jsonify({'success': False, 'message': 'WAEC requires both English and Mathematics'})
-
-        if exam_type.upper() == 'JAMB':
-            if 'english' not in [s.lower() for s in subjects]:
-                return jsonify({'success': False, 'message': 'JAMB requires English Language'})
+        # Validate subject selection
+        is_valid, validation_message = validate_subject_selection(exam_type, subjects)
+        if not is_valid:
+            return jsonify({'success': False, 'message': validation_message})
 
         all_questions = []
 
@@ -495,15 +544,24 @@ def get_questions():
             questions = load_questions_from_file(exam_type, subject)
             if questions:
                 all_questions.extend(questions)
+                logger.info(f"Loaded {len(questions)} questions for {exam_type} {subject}")
             else:
                 logger.warning(f"Questions not found for {exam_type} {subject}")
-                # continue with other subjects
+                # Continue with other subjects but log the issue
 
         if not all_questions:
             return jsonify({'success': False, 'message': 'No questions found for the selected subjects!'})
 
+        # Shuffle questions and select appropriate number
         random.shuffle(all_questions)
-        selected_questions = all_questions[:60]
+        
+        # Determine number of questions based on exam type
+        if exam_type.upper() == 'WAEC':
+            question_limit = 60  # WAEC typically has more questions
+        else:
+            question_limit = 50  # JAMB typically has fewer questions
+            
+        selected_questions = all_questions[:question_limit]
 
         logger.info(f"Loaded {len(selected_questions)} questions for {exam_type} - {subjects}")
 
@@ -527,6 +585,8 @@ def submit_exam():
 
         user_answers = data.get('user_answers', {})
         questions = data.get('questions', [])
+        exam_type = data.get('exam_type')
+        selected_subjects = data.get('subjects', [])
 
         correct = 0
         subject_scores = {}
@@ -549,8 +609,8 @@ def submit_exam():
 
         new_result = ExamResult(
             user_id=session['user_id'],
-            exam_type=data.get('exam_type'),
-            subjects=','.join(data.get('subjects', [])),
+            exam_type=exam_type,
+            subjects=','.join(selected_subjects),
             score=correct,
             total_questions=total_questions,
             percentage=percentage,
@@ -615,8 +675,14 @@ def get_exam_result(result_id):
 @admin_required
 def generate_codes():
     try:
+        data = request.get_json()
+        count = data.get('count', 100)  # Allow custom count, default to 100
+        
+        if count > 1000:  # Safety limit
+            return jsonify({'success': False, 'message': 'Cannot generate more than 1000 codes at once'})
+
         codes = []
-        for _ in range(100):
+        for _ in range(count):
             code = generate_activation_code()
             expires_at = datetime.utcnow() + timedelta(days=150)  # 5 months
 
@@ -632,11 +698,11 @@ def generate_codes():
 
         db.session.commit()
 
-        logger.info(f"Generated 100 activation codes with enhanced format by Admin: {session.get('user_email')}")
+        logger.info(f"Generated {count} activation codes by Admin: {session.get('user_email')}")
 
         return jsonify({
             'success': True,
-            'message': '100 activation codes generated successfully with enhanced format MSH-XXXX-XXXX!',
+            'message': f'{count} activation codes generated successfully with enhanced format MSH-XXXX-XXXX!',
             'codes': codes
         })
 
@@ -659,12 +725,18 @@ def admin_stats():
         recent_users = User.query.filter(User.created_at >= week_ago).count()
         recent_exams = ExamResult.query.filter(ExamResult.created_at >= week_ago).count()
 
+        # Calculate active trials (users with trial not expired and not activated)
+        active_trials = 0
+        for user in User.query.filter_by(is_activated=False).all():
+            if check_trial_status(user):
+                active_trials += 1
+
         return jsonify({
             'success': True,
             'stats': {
                 'total_users': total_users,
                 'activated_users': activated_users,
-                'active_trials': total_users - activated_users,
+                'active_trials': active_trials,
                 'total_codes': total_codes,
                 'used_codes': used_codes,
                 'total_exams': total_exams,
@@ -688,12 +760,22 @@ def admin_users():
 
         users_data = []
         for user, exam_count in user_exam_counts:
+            # Determine user status
+            if user.is_admin:
+                status = 'Admin'
+            elif user.is_activated:
+                status = 'Activated'
+            elif check_trial_status(user):
+                status = 'Trial'
+            else:
+                status = 'Expired'
+
             users_data.append({
                 'id': user.id,
                 'name': user.full_name,
                 'email': user.email,
                 'ip_address': user.ip_address,
-                'status': 'Activated' if user.is_activated else ('Admin' if user.is_admin else 'Trial'),
+                'status': status,
                 'exam_count': exam_count,
                 'join_date': user.created_at.strftime('%Y-%m-%d %H:%M'),
                 'last_login': user.last_login.strftime('%Y-%m-%d %H:%M') if user.last_login else 'Never',
@@ -732,6 +814,40 @@ def admin_codes():
         logger.error(f"Admin codes error: {str(e)}")
         return jsonify({'success': False, 'message': 'Error loading activation codes.'})
 
+# -------------------- QUESTION MANAGEMENT --------------------
+@app.route('/api/subjects')
+def get_available_subjects():
+    """Get list of available subjects with question counts"""
+    try:
+        subjects_data = {}
+        questions_dir = os.path.join(app.root_path, 'questions')
+        
+        if os.path.exists(questions_dir):
+            for filename in os.listdir(questions_dir):
+                if filename.endswith('.json'):
+                    # Extract subject name from filename
+                    subject_name = filename.replace('.json', '').replace('waec_', '').replace('jamb_', '')
+                    subject_name = subject_name.replace('_', ' ').title()
+                    
+                    file_path = os.path.join(questions_dir, filename)
+                    try:
+                        with open(file_path, 'r', encoding='utf-8') as f:
+                            data = json.load(f)
+                            question_count = len(data.get('questions', []))
+                            subjects_data[subject_name] = question_count
+                    except Exception as e:
+                        logger.error(f"Error reading {filename}: {str(e)}")
+                        continue
+        
+        return jsonify({
+            'success': True,
+            'subjects': subjects_data
+        })
+        
+    except Exception as e:
+        logger.error(f"Error getting subjects: {str(e)}")
+        return jsonify({'success': False, 'message': 'Error loading subjects'})
+
 # -------------------- ERROR HANDLERS --------------------
 @app.errorhandler(404)
 def not_found(error):
@@ -752,10 +868,21 @@ def health_check():
     try:
         # test simple DB connection
         db.session.execute(db.select(1))
+        
+        # Check questions directory
+        questions_dir = os.path.join(app.root_path, 'questions')
+        questions_exist = os.path.exists(questions_dir)
+        question_files = []
+        
+        if questions_exist:
+            question_files = [f for f in os.listdir(questions_dir) if f.endswith('.json')]
+        
         return jsonify({
             'status': 'healthy',
             'timestamp': datetime.utcnow().isoformat(),
-            'database': 'connected'
+            'database': 'connected',
+            'questions_available': len(question_files),
+            'question_files': question_files
         })
     except Exception as e:
         logger.error(f"Health check failed: {str(e)}")
@@ -770,6 +897,7 @@ def health_check():
 def initialize_application():
     try:
         with app.app_context():
+            # Create initial admin activation codes if none exist
             if ActivationCode.query.count() == 0:
                 logger.info("Creating initial activation codes...")
                 for _ in range(10):
@@ -779,7 +907,16 @@ def initialize_application():
                     db.session.add(activation_code)
                 db.session.commit()
                 logger.info("Initial activation codes created")
-            logger.info("MSH CBT HUB Application Initialized Successfully")
+            
+            # Log available question files
+            questions_dir = os.path.join(app.root_path, 'questions')
+            if os.path.exists(questions_dir):
+                question_files = [f for f in os.listdir(questions_dir) if f.endswith('.json')]
+                logger.info(f"Found {len(question_files)} question files: {question_files}")
+            else:
+                logger.warning("Questions directory not found!")
+                
+            logger.info("MSH CBT HUB Application Initialized Successfully - V2 with English Test Fixes")
     except Exception as e:
         logger.error(f"Application initialization failed: {str(e)}")
 
@@ -788,10 +925,28 @@ initialize_application()
 # -------------------- RUN --------------------
 if __name__ == '__main__':
     print("🚀 Starting MSH CBT HUB Server - VERSION 2...")
-    print("✅ Loading animations & dashboard flow FIXED")
-    print("✅ Trial users now see full dashboard with timer")
-    print("✅ Activation prompt only appears after trial expires")
+    print("✅ English WAEC & JAMB tests FIXED")
+    print("✅ Enhanced question loading with fallbacks")
+    print("✅ Improved subject validation")
+    print("✅ Better error handling and logging")
     print("⚠️  IMPORTANT: Ensure you set the SECRET_KEY environment variable!")
     print("📁 Running with templates/ and static/ folders")
-    print("📝 Note: Ensure question JSON files exist in questions/ in format: {exam_type}_{subject}.json")
+    print("📝 Note: Ensure question JSON files exist in questions/ folder")
+    
+    # Check for required directories
+    questions_dir = os.path.join(app.root_path, 'questions')
+    if not os.path.exists(questions_dir):
+        print("❌ WARNING: questions/ directory not found!")
+        print("   Please create a 'questions' folder with JSON question files")
+    else:
+        question_files = [f for f in os.listdir(questions_dir) if f.endswith('.json')]
+        print(f"✅ Found {len(question_files)} question files")
+        
+        # Check for English question files
+        english_files = [f for f in question_files if 'english' in f.lower()]
+        if english_files:
+            print(f"✅ English question files found: {english_files}")
+        else:
+            print("❌ WARNING: No English question files found!")
+    
     app.run(host='0.0.0.0', port=5000, debug=True, threaded=True)
