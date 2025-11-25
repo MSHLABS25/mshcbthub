@@ -11,15 +11,15 @@
     <!-- Open Graph / Social Media Preview -->
     <meta property="og:title" content="MSH CBT HUB - Excel in WAEC & JAMB">
     <meta property="og:description" content="Practice 11 subjects online, including WAEC & JAMB questions. Improve your scores with MSH CBT HUB.">
-    <meta property="og:image" content="{{ url_for('static', filename='logo.jpg') }}">
-    <meta property="og:url" content="https://mshcbthub.onrender.com/">
+    <meta property="og:image" content="{{ url_for('static', filename='logo.png') }}">
+    <meta property="og:url" content="https://mshcbthub.netlify.com/">
     <meta property="og:type" content="website">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MSH CBT HUB - Excel in WAEC & JAMB">
     <meta name="twitter:description" content="Practice 11 subjects online, including WAEC & JAMB questions. Improve your scores with MSH CBT HUB.">
-    <meta name="twitter:image" content="{{ url_for('static', filename='logo.jpg') }}">
+    <meta name="twitter:image" content="{{ url_for('static', filename='logo.png') }}">
 
     <!-- Favicon -->
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
@@ -44,7 +44,10 @@
     <div id="loadingScreen" class="loading-screen">
         <div class="loading-content">
             <div class="loading-logo">
-                <i class="fas fa-graduation-cap"></i>
+                <!-- Logo with rounded circle and glow effect -->
+                <div class="logo-container">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="MSH CBT HUB Logo" class="rounded-logo">
+                </div>
                 <h2>MSH CBT HUB</h2>
             </div>
             <div class="loading-spinner-large"></div>
@@ -70,7 +73,10 @@
         <div class="container">
             <a class="navbar-brand" href="#" onclick="showPage('home')">
                 <div class="brand-logo">
-                    <i class="fas fa-graduation-cap me-2"></i>
+                    <!-- Header Logo with rounded circle and glow -->
+                    <div class="logo-container header-logo">
+                        <img src="{{ url_for('static', filename='logo.png') }}" alt="MSH CBT HUB Logo" class="rounded-logo">
+                    </div>
                     <div class="brand-text">
                         <strong>MSH CBT HUB</strong>
                         <small>Excel in Exams</small>
