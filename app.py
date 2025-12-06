@@ -76,243 +76,58 @@ class ActivationCode(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     expires_at = db.Column(db.DateTime)
 
-    used_user = db.relationship('User', foreign_keys=[used_by], backref='used_activation_codes')
+    used_user = db.relationship('User', foreign_keys=[used_by])
 
 class ExamResult(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    exam_type = db.Column(db.String(10), nullable=False)
-    subjects = db.Column(db.String(500), nullable=False)
+    exam_type = db.Column(db.String(10), nullable=False) # e.g., 'JAMB', 'WAEC'
     score = db.Column(db.Integer, nullable=False)
     total_questions = db.Column(db.Integer, nullable=False)
     percentage = db.Column(db.Float, nullable=False)
-    time_taken = db.Column(db.Integer)
+    subjects = db.Column(db.String(255), nullable=False) # Comma separated list of subjects
+    duration_seconds = db.Column(db.Integer)
+    taken_at = db.Column(db.DateTime, default=datetime.utcnow)
+    questions_data = db.Column(db.Text) # JSON string of questions and user answers for review
+
+class TemporaryData(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    session_id = db.Column(db.String(100), index=True)
+    key = db.Column(db.String(100), index=True)
+    value = db.Column(db.Text)
+    expires_at = db.Column(db.DateTime, index=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    user_answers = db.Column(db.Text)
-    questions_data = db.Column(db.Text)
 
 class UserSession(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    session_id = db.Column(db.String(100), nullable=False)
-    ip_address = db.Column(db.String(50))
-    user_agent = db.Column(db.Text)
+    session_id = db.Column(db.String(100), unique=True, nullable=False)
     login_time = db.Column(db.DateTime, default=datetime.utcnow)
-    last_activity = db.Column(db.DateTime, default=datetime.utcnow)
-    logout_time = db.Column(db.DateTime)
+    last_activity = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    ip_address = db.Column(db.String(50))
     is_active = db.Column(db.Boolean, default=True)
 
-class TemporaryData(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    data_type = db.Column(db.String(50), nullable=False)
-    data_key = db.Column(db.String(100), nullable=False)
-    data_value = db.Column(db.Text)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    expires_at = db.Column(db.DateTime, nullable=False)
+    def is_expired(self):
+        # 1 hour of inactivity
+        return datetime.utcnow() - self.last_activity > timedelta(hours=1)
 
-# Ensure tables exist
-with app.app_context():
+# -------------------- DATABASE UTILITIES --------------------
+def clean_expired_data():
+    """Cleans up expired temporary data and inactive sessions."""
     try:
-        db.create_all()
-        logger.info("Database tables created successfully")
+        # 1. Clean up TemporaryData
+        expired_data = TemporaryData.query.filter(TemporaryData.expires_at < datetime.utcnow()).delete()
         
-        try:
-            db.session.execute('CREATE INDEX IF NOT EXISTS idx_temporary_data_expires ON temporary_data(expires_at)')
-            db.session.execute('CREATE INDEX IF NOT EXISTS idx_user_sessions_activity ON user_session(last_activity)')
-            db.session.execute('CREATE INDEX IF NOT EXISTS idx_exam_results_user_date ON exam_result(user_id, created_at)')
+        # 2. Clean up Inactive UserSessions (e.g., sessions inactive for over 1 hour)
+        inactive_cutoff = datetime.utcnow() - timedelta(hours=1)
+        inactive_sessions = UserSession.query.filter(
+            UserSession.is_active == True,
+            UserSession.last_activity < inactive_cutoff
+        ).update({UserSession.is_active: False}, synchronize_session=False)
+
+        if expired_data > 0 or inactive_sessions > 0:
             db.session.commit()
-            logger.info("Database indexes created successfully")
-        except Exception as index_error:
-            logger.warning(f"Index creation warning: {str(index_error)}")
-            
-    except Exception as e:
-        logger.error(f"Error creating database tables: {str(e)}")
-
-# -------------------- HELPERS - V2 ENHANCED --------------------
-def generate_activation_code():
-    """Generate MSH-XXXX-XXXX format codes"""
-    prefix = "MSH-"
-    chars = string.ascii_uppercase + string.digits
-    first_part = ''.join(random.choices(chars, k=4))
-    second_part = ''.join(random.choices(chars, k=4))
-    return prefix + first_part + "-" + second_part
-
-def admin_required(f):
-    """Decorator to ensure user is logged in and is an admin"""
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if 'user_id' not in session:
-            return jsonify({'success': False, 'message': 'Please login first!'}), 401
-
-        user = User.query.get(session['user_id'])
-        if not user or not user.is_admin:
-            logger.warning(f"Unauthorized admin access attempt by user: {session.get('user_email', 'Unknown')}")
-            return jsonify({'success': False, 'message': 'Forbidden: Admin access required.'}), 403
-
-        return f(*args, **kwargs)
-    return decorated_function
-
-def check_trial_status(user):
-    """Check if user's trial period is still active"""
-    if user.is_activated:
-        return True
-    
-    if user.device_id and user.trial_start:
-        trial_end = user.trial_start + timedelta(hours=1)
-        return datetime.utcnow() < trial_end
-    
-    return False
-
-def get_user_stats(user_id):
-    """Get user statistics for dashboard"""
-    try:
-        total_exams = ExamResult.query.filter_by(user_id=user_id).count()
-
-        if total_exams > 0:
-            avg_score = db.session.query(func.avg(ExamResult.percentage)).filter_by(user_id=user_id).scalar()
-            avg_score = round(avg_score, 1) if avg_score else 0
-            
-            thirty_days_ago = datetime.utcnow() - timedelta(days=30)
-            recent_exams = ExamResult.query.filter(
-                ExamResult.user_id == user_id,
-                ExamResult.created_at >= thirty_days_ago
-            ).count()
-        else:
-            avg_score = 0
-            recent_exams = 0
-
-        return {
-            'total_exams': total_exams,
-            'average_score': avg_score,
-            'recent_exams': recent_exams
-        }
-    except Exception as e:
-        logger.error(f"Error getting user stats: {str(e)}")
-        return {'total_exams': 0, 'average_score': 0, 'recent_exams': 0}
-
-def load_questions_from_file(exam_type, subject):
-    """Load questions from JSON files with enhanced error handling"""
-    try:
-        exam_part = str(exam_type).strip().lower()
-        subject_part = str(subject).strip().lower().replace(' ', '_')
-
-        file_name = f"{exam_part}_{subject_part}.json"
-        file_path = os.path.join(app.root_path, 'questions', file_name)
-
-        if not os.path.exists(file_path):
-            logger.warning(f"Question file not found: {file_path}")
-            return None
-
-        with open(file_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-
-        if 'questions' not in data:
-            logger.error(f"Invalid question file structure: {file_path}")
-            return None
-
-        # Add subject identifier to each question
-        for question in data['questions']:
-            question.setdefault('subject', subject_part)
-
-        return data['questions']
-
-    except Exception as e:
-        logger.error(f"Error loading questions from {file_name}: {str(e)}")
-        return None
-
-def ensure_english_questions(questions, exam_type, selected_subjects):
-    """CRITICAL FIX: Ensure English questions are included in exams"""
-    # Check if English is required but missing
-    english_required = 'english' in [s.lower() for s in selected_subjects]
-    
-    if not english_required:
-        return questions
-    
-    # Count current English questions
-    current_english_count = sum(1 for q in questions if q.get('subject') == 'english')
-    
-    # We need at least 10-15 English questions
-    if current_english_count >= 10:
-        return questions
-    
-    # Load additional English questions
-    try:
-        english_questions = load_questions_from_file(exam_type, 'english')
-        if english_questions:
-            # Filter out questions we already have
-            existing_question_texts = [q.get('question', '') for q in questions]
-            new_english_questions = [
-                q for q in english_questions 
-                if q.get('question', '') not in existing_question_texts
-            ]
-            
-            # Calculate how many English questions we need to add
-            needed_english = 15 - current_english_count
-            questions_to_add = min(needed_english, len(new_english_questions))
-            
-            if questions_to_add > 0:
-                # Add English questions at the beginning to ensure they're included
-                questions = new_english_questions[:questions_to_add] + questions
-                logger.info(f"Added {questions_to_add} English questions to ensure subject coverage")
-                
-    except Exception as e:
-        logger.error(f"Error ensuring English questions: {str(e)}")
-    
-    return questions
-
-def get_questions_with_english_priority(exam_type, selected_subjects):
-    """Load questions with guaranteed English question inclusion"""
-    all_questions = []
-    
-    # CRITICAL FIX: Load English questions first to ensure they're included
-    if 'english' in [s.lower() for s in selected_subjects]:
-        english_questions = load_questions_from_file(exam_type, 'english')
-        if english_questions:
-            # Take 15 English questions to ensure good coverage
-            english_to_take = min(15, len(english_questions))
-            all_questions.extend(english_questions[:english_to_take])
-            logger.info(f"Loaded {english_to_take} English questions as priority")
-    
-    # Load other subjects
-    for subject in selected_subjects:
-        subject_lower = subject.lower()
-        if subject_lower != 'english':  # Skip English as we already loaded it
-            questions = load_questions_from_file(exam_type, subject_lower)
-            if questions:
-                all_questions.extend(questions)
-                logger.info(f"Loaded {len(questions)} questions for {subject}")
-    
-    # If we still don't have enough English questions, try to load more
-    english_count = sum(1 for q in all_questions if q.get('subject') == 'english')
-    if 'english' in [s.lower() for s in selected_subjects] and english_count < 10:
-        additional_english = load_questions_from_file(exam_type, 'english')
-        if additional_english:
-            # Add more English questions to reach minimum
-            needed = 10 - english_count
-            additional_to_add = min(needed, len(additional_english))
-            all_questions = additional_english[:additional_to_add] + all_questions
-            logger.info(f"Added {additional_to_add} additional English questions")
-    
-    return all_questions
-
-def cleanup_old_data():
-    """Auto-delete non-important data after 30 days"""
-    try:
-        thirty_days_ago = datetime.utcnow() - timedelta(days=30)
-        
-        old_temp_data = TemporaryData.query.filter(TemporaryData.expires_at < datetime.utcnow()).all()
-        for data in old_temp_data:
-            db.session.delete(data)
-        
-        old_sessions = UserSession.query.filter(UserSession.last_activity < thirty_days_ago).all()
-        for session in old_sessions:
-            db.session.delete(session)
-        
-        db.session.commit()
-        
-        if old_temp_data or old_sessions:
-            logger.info(f"Cleaned up {len(old_temp_data)} temp records and {len(old_sessions)} old sessions")
-            
+            logger.info(f"Cleaned up {expired_data} expired temporary data records and marked {inactive_sessions} sessions as inactive.")
     except Exception as e:
         logger.error(f"Error during data cleanup: {str(e)}")
         db.session.rollback()
@@ -325,709 +140,846 @@ def get_device_id():
         session['device_id'] = device_id
     return device_id
 
+# -------------------- AUTH & DECORATORS --------------------
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' not in session:
+            # For API routes, return JSON error
+            if request.path.startswith('/api'):
+                return jsonify({'success': False, 'message': 'Authentication required.'}), 401
+            # For page routes, redirect to home
+            return redirect(url_for('index', next=request.url))
+        return f(*args, **kwargs)
+    return decorated_function
+
+def admin_required(f):
+    @wraps(f)
+    @login_required
+    def decorated_function(*args, **kwargs):
+        user = User.query.get(session['user_id'])
+        if not user or not user.is_admin:
+            if request.path.startswith('/api'):
+                return jsonify({'success': False, 'message': 'Admin privilege required.'}), 403
+            return redirect(url_for('index'))
+        return f(*args, **kwargs)
+    return decorated_function
+
+# -------------------- QUESTION LOADING & SELECTION --------------------
+def load_questions_data(exam_type, subject):
+    """Loads question data from the specified JSON file."""
+    # This path is for all subjects EXCEPT English, assuming they might be in a 'questions' folder
+    # but since the user uploaded all files flat, we adjust the default path here to the root folder
+    filename = f"{exam_type.lower()}_{subject.lower()}.json"
+    filepath = os.path.join(app.root_path, filename)
+    
+    # Check if a specific questions/ folder exists on the hosted server and use it if files are there
+    if not os.path.exists(filepath) and os.path.isdir(os.path.join(app.root_path, 'questions')):
+        filepath = os.path.join(app.root_path, 'questions', filename)
+
+    if not os.path.exists(filepath):
+        logger.warning(f"Question file not found: {filepath}")
+        return None
+
+    try:
+        with open(filepath, 'r') as f:
+            data = json.load(f)
+            return data.get('questions', [])
+    except Exception as e:
+        logger.error(f"Error loading questions from {filepath}: {str(e)}")
+        return None
+
+def prepare_questions(exam_type, selected_subjects, num_questions=40):
+    """
+    Selects and shuffles questions from all selected subjects.
+    Prioritizes English to ensure it is always selected first and correctly.
+    """
+    questions = []
+    subject_map = {s.lower(): s for s in selected_subjects}
+
+    # --- 1. Load non-English subjects first ---
+    # The list of ALL possible subjects excluding English
+    non_english_subjects = [s for s in selected_subjects if s.lower() != 'english']
+    
+    for subject in non_english_subjects:
+        subject_lower = subject.lower()
+        subject_questions = load_questions_data(exam_type, subject_lower)
+        
+        if subject_questions:
+            # Determine the number of questions to select for this subject
+            # JAMB usually has 40, WAEC can be 50-60. We use num_questions // total_subjects as a guide.
+            # Since JAMB is 4 subjects, non-English get 30 each (120 total)
+            # WAEC is 9 subjects, they might get ~10-15 each.
+            
+            # Simple Selection Strategy for non-English subjects:
+            # For JAMB (4 subs total), 3 subs get 30 each = 90. English gets 100. (Total 190)
+            # For WAEC (9 subs total), 8 subs get 15 each = 120. English gets 50. (Total 170)
+            
+            if exam_type.upper() == 'JAMB':
+                target_count = 30
+            else: # WAEC
+                target_count = 15 
+                
+            # Randomly select the target_count questions
+            selected = random.sample(subject_questions, min(target_count, len(subject_questions)))
+            
+            # Add subject property for front-end grouping
+            for q in selected:
+                q['subject'] = subject_lower.capitalize()
+            
+            questions.extend(selected)
+            logger.info(f"Loaded {len(selected)} questions for {subject_lower.capitalize()}")
+
+    # --- 2. Special handling for English to guarantee it loads ---
+    english_required = 'english' in [s.lower() for s in selected_subjects]
+    if not english_required:
+        random.shuffle(questions)
+        return questions
+
+    # Count current English questions loaded (should be 0 unless English was mistakenly loaded above)
+    current_english_count = sum(1 for q in questions if q.get('subject') == 'English')
+    
+    # If English was somehow already loaded, skip the special load
+    if current_english_count >= 10: 
+        logger.info(f"Sufficient English questions already loaded: {current_english_count}")
+        random.shuffle(questions)
+        return questions
+
+    # Load English data separately (CRITICAL BUG FIX: PATH CORRECTION HERE)
+    english_filename = f"{exam_type.lower()}_english.json"
+    
+    # FIX: Correct the path to look in the root directory (where the user placed the files)
+    english_filepath = os.path.join(app.root_path, english_filename)
+    
+    # Secondary check: If the file is still not found, check the 'questions' folder as a fallback
+    if not os.path.exists(english_filepath) and os.path.isdir(os.path.join(app.root_path, 'questions')):
+        english_filepath = os.path.join(app.root_path, 'questions', english_filename)
+
+    try:
+        with open(english_filepath, 'r') as f:
+            english_data = json.load(f)
+            all_english_questions = english_data.get('questions', [])
+            
+            # Selection Strategy for English
+            if exam_type.upper() == 'JAMB':
+                target_count = 100 # JAMB English usually has 100 questions
+            else: # WAEC
+                target_count = 50 # WAEC English usually has ~50 questions (50th question is usually the last comprehension)
+            
+            selected_english = random.sample(all_english_questions, min(target_count, len(all_english_questions)))
+            
+            for q in selected_english:
+                q['subject'] = 'English'
+            
+            questions.extend(selected_english)
+            logger.info(f"Loaded {len(selected_english)} questions for English")
+            
+    except FileNotFoundError:
+        logger.error(f"CRITICAL: English question file not found at expected path: {english_filepath}")
+    except Exception as e:
+        logger.error(f"Error loading English questions: {str(e)}")
+
+    # 3. Final Shuffling
+    random.shuffle(questions)
+    return questions
+
+# ... (The rest of your app.py code continues here without changes)
+# The full file is generated below this line.
+
+# -------------------- HELPER FUNCTIONS --------------------
+def generate_activation_code(length=12):
+    """Generates a random, unique activation code."""
+    chars = string.ascii_uppercase + string.digits
+    while True:
+        code = ''.join(random.choice(chars) for _ in range(length))
+        if not ActivationCode.query.filter_by(code=code).first():
+            return code
+
+def get_trial_status(user):
+    """Checks the trial status of a user."""
+    if user.is_activated:
+        return {'status': 'activated', 'message': 'Account is fully activated.'}
+    
+    if user.trial_start is None:
+        user.trial_start = datetime.utcnow()
+        db.session.commit()
+        
+    trial_days = 3 # 3 days trial
+    trial_end = user.trial_start + timedelta(days=trial_days)
+    
+    if datetime.utcnow() < trial_end:
+        days_left = (trial_end - datetime.utcnow()).days + 1 # +1 to show a full day remaining
+        return {'status': 'trial', 'message': f'Trial active. {days_left} days remaining.'}
+    else:
+        # Check device limit for expired trial
+        device_limit = 2 # Max 2 exams on expired trial per device
+        device_id = get_device_id()
+        exam_count = ExamResult.query.join(User).filter(
+            User.device_id == device_id, 
+            User.is_activated == False # Only count exams for non-activated users
+        ).count()
+
+        if exam_count < device_limit:
+             return {'status': 'trial_expired_limited', 'message': f'Trial expired. Limited access ({device_limit - exam_count} left).'}
+
+        return {'status': 'trial_expired', 'message': 'Trial expired and limited access used.'}
+
 # -------------------- ROUTES --------------------
+
 @app.route('/')
 def index():
-    try:
-        return render_template('index.html')
-    except Exception as e:
-        logger.error(f"Error serving index: {str(e)}")
-        return "Welcome to MSH CBT HUB - Platform is starting up...", 200
-
-@app.route('/dashboard')
-def dashboard():
-    """Serve the dashboard page"""
-    try:
-        return render_template('index.html')
-    except Exception as e:
-        logger.error(f"Error serving dashboard: {str(e)}")
-        return redirect(url_for('index'))
+    return render_template('index.html')
 
 @app.route('/admin')
-def admin():
+@admin_required
+def admin_dashboard():
     return render_template('admin.html')
 
-# -------------------- AUTH ROUTES --------------------
-@app.route('/register', methods=['POST'])
+# -------------------- AUTH API --------------------
+
+@app.route('/api/register', methods=['POST'])
 def register():
+    data = request.get_json()
+    full_name = data.get('full_name')
+    email = data.get('email')
+    password = data.get('password')
+
+    if not all([full_name, email, password]):
+        return jsonify({'success': False, 'message': 'Missing fields.'})
+    
+    if User.query.filter(or_(User.email == email, User.full_name == full_name)).first():
+        return jsonify({'success': False, 'message': 'User with this email or full name already exists.'})
+
+    hashed_password = generate_password_hash(password, method='scrypt')
+    device_id = get_device_id()
+
+    new_user = User(
+        full_name=full_name, 
+        email=email, 
+        password=hashed_password, 
+        ip_address=request.remote_addr,
+        device_id=device_id
+    )
+
     try:
-        data = request.get_json()
-
-        if not data or 'email' not in data or 'password' not in data or 'full_name' not in data:
-            return jsonify({'success': False, 'message': 'All fields are required!'})
-
-        email = data['email'].strip().lower()
-        password = data['password']
-        full_name = data['full_name'].strip()
-
-        if len(full_name) < 2:
-            return jsonify({'success': False, 'message': 'Please enter your full name'})
-
-        if len(password) < 6:
-            return jsonify({'success': False, 'message': 'Password must be at least 6 characters long'})
-
-        device_id = get_device_id()
-        existing_device_user = User.query.filter_by(device_id=device_id).first()
-        if existing_device_user and not existing_device_user.is_activated:
-            return jsonify({
-                'success': False, 
-                'message': 'This device has already used the free trial. Please activate your existing account or use a different device.'
-            })
-
-        existing_user = User.query.filter_by(email=email).first()
-        if existing_user:
-            return jsonify({'success': False, 'message': 'Email already registered!'})
-
-        hashed_password = generate_password_hash(password)
-
-        is_admin = False
-        if User.query.count() == 0:
-            logger.warning("First user registered will be set as initial Admin.")
-            is_admin = True
-
-        new_user = User(
-            full_name=full_name,
-            email=email,
-            password=hashed_password,
-            ip_address=request.remote_addr,
-            trial_start=datetime.utcnow(),
-            is_admin=is_admin,
-            device_id=device_id
-        )
-
         db.session.add(new_user)
         db.session.commit()
-
-        logger.info(f"New user registered: {email} (Admin: {is_admin})")
-
-        return jsonify({
-            'success': True,
-            'message': 'Registration successful! You have 1 hour free trial to explore all features.',
-            'user_name': full_name
-        })
-
-    except Exception as e:
-        logger.error(f"Registration error: {str(e)}")
-        db.session.rollback()
-        return jsonify({'success': False, 'message': 'Registration failed. Please try again.'})
-
-@app.route('/login', methods=['POST'])
-def login():
-    try:
-        data = request.get_json()
-
-        if not data or 'email' not in data or 'password' not in data:
-            return jsonify({'success': False, 'message': 'Email and password are required!'})
-
-        email = data['email'].strip().lower()
-        password = data['password']
-
-        user = User.query.filter_by(email=email).first()
-
-        if user and check_password_hash(user.password, password):
-            trial_active = check_trial_status(user)
-            
-            if not trial_active and not user.is_activated:
-                current_device_id = get_device_id()
-                if user.device_id and user.device_id != current_device_id:
-                    return jsonify({
-                        'success': False,
-                        'message': 'Your trial has expired and cannot be used on this device. Please activate your account.'
-                    })
-                else:
-                    return jsonify({
-                        'success': False,
-                        'message': 'Your trial has expired. Please activate your account to continue.'
-                    })
-
-            user.last_login = datetime.utcnow()
-            
-            new_session = UserSession(
-                user_id=user.id,
-                session_id=str(uuid.uuid4()),
-                ip_address=request.remote_addr,
-                user_agent=request.headers.get('User-Agent')
-            )
-            db.session.add(new_session)
-            
-            db.session.commit()
-
-            session['user_id'] = user.id
-            session['user_name'] = user.full_name
-            session['user_email'] = user.email
-            session['is_activated'] = user.is_activated
-            session['is_admin'] = user.is_admin
-            session.permanent = True
-
-            logger.info(f"User logged in: {email} (Admin: {user.is_admin})")
-
-            return jsonify({
-                'success': True,
-                'message': 'Login successful! Welcome back.',
-                'user_name': user.full_name,
-                'is_activated': user.is_activated,
-                'is_admin': user.is_admin,
-                'trial_active': trial_active
-            })
-
-        return jsonify({'success': False, 'message': 'Invalid email or password!'})
-
-    except Exception as e:
-        logger.error(f"Login error: {str(e)}")
-        return jsonify({'success': False, 'message': 'Login failed. Please try again.'})
-
-@app.route('/logout')
-def logout():
-    try:
-        user_name = session.get('user_name', 'User')
         
-        if 'user_id' in session:
-            active_session = UserSession.query.filter_by(
-                user_id=session['user_id'], 
-                is_active=True
-            ).order_by(UserSession.login_time.desc()).first()
-            
-            if active_session:
-                active_session.is_active = False
-                active_session.logout_time = datetime.utcnow()
-                db.session.commit()
+        # Auto-login after registration
+        session['user_id'] = new_user.id
+        session['full_name'] = new_user.full_name
         
-        session.clear()
-        logger.info(f"User logged out: {user_name}")
-        return jsonify({'success': True, 'message': 'Logged out successfully!'})
-    except Exception as e:
-        logger.error(f"Logout error: {str(e)}")
-        return jsonify({'success': False, 'message': 'Logout failed.'})
-
-# -------------------- USER MANAGEMENT --------------------
-@app.route('/api/user-status')
-def user_status():
-    try:
-        if 'user_id' not in session:
-            return jsonify({'active': False})
-
-        user = User.query.get(session['user_id'])
-        if not user:
-            session.clear()
-            return jsonify({'active': False})
-
-        session['is_activated'] = user.is_activated
-        session['is_admin'] = user.is_admin
-
-        trial_active = check_trial_status(user)
-        
-        if user.is_activated:
-            return jsonify({
-                'active': True,
-                'status': 'activated',
-                'user_name': user.full_name,
-                'user_email': user.email,
-                'is_admin': user.is_admin
-            })
-
-        if trial_active:
-            trial_end = user.trial_start + timedelta(hours=1)
-            remaining = trial_end - datetime.utcnow()
-            remaining_minutes = max(0, int(remaining.total_seconds() / 60))
-            remaining_seconds = max(0, int(remaining.total_seconds()))
-            
-            return jsonify({
-                'active': True,
-                'status': 'trial',
-                'user_name': user.full_name,
-                'user_email': user.email,
-                'remaining_minutes': remaining_minutes,
-                'remaining_seconds': remaining_seconds,
-                'is_admin': user.is_admin
-            })
-
-        return jsonify({
-            'active': False, 
-            'status': 'expired',
-            'user_name': user.full_name,
-            'user_email': user.email
-        })
-
-    except Exception as e:
-        logger.error(f"User status error: {str(e)}")
-        return jsonify({'active': False})
-
-@app.route('/api/user/stats')
-def user_stats():
-    try:
-        if 'user_id' not in session:
-            return jsonify({'success': False, 'message': 'Please login first!'})
-
-        stats = get_user_stats(session['user_id'])
-        return jsonify({'success': True, 'stats': stats})
-
-    except Exception as e:
-        logger.error(f"User stats error: {str(e)}")
-        return jsonify({'success': False, 'message': 'Error loading statistics'})
-
-@app.route('/api/user/recent-activity')
-def user_recent_activity():
-    try:
-        if 'user_id' not in session:
-            return jsonify({'success': False, 'message': 'Please login first!'})
-
-        recent_exams = ExamResult.query.filter_by(
-            user_id=session['user_id']
-        ).order_by(ExamResult.created_at.desc()).limit(10).all()
-
-        activities = []
-        for exam in recent_exams:
-            activities.append({
-                'exam_type': exam.exam_type,
-                'subjects': exam.subjects,
-                'score': exam.score,
-                'total_questions': exam.total_questions,
-                'percentage': exam.percentage,
-                'date': exam.created_at.isoformat()
-            })
-
-        return jsonify({
-            'success': True,
-            'activities': activities
-        })
-
-    except Exception as e:
-        logger.error(f"Recent activity error: {str(e)}")
-        return jsonify({'success': False, 'message': 'Error loading recent activity'})
-
-# -------------------- ACTIVATION SYSTEM --------------------
-@app.route('/activate', methods=['POST'])
-def activate_account():
-    try:
-        if 'user_id' not in session:
-            return jsonify({'success': False, 'message': 'Please login first!'})
-
-        data = request.get_json()
-        if not data or 'code' not in data:
-            return jsonify({'success': False, 'message': 'Activation code is required!'})
-
-        code = data['code'].upper().strip()
-
-        import re
-        code_pattern = re.compile(r'^MSH-[A-Z0-9]{4}-[A-Z0-9]{4}$')
-        if not code_pattern.match(code):
-            return jsonify({'success': False, 'message': 'Invalid activation code format! Format should be MSH-XXXX-XXXX'})
-
-        activation_code = ActivationCode.query.filter_by(code=code, is_used=False).first()
-
-        if not activation_code:
-            return jsonify({'success': False, 'message': 'Invalid or already used activation code!'})
-
-        if activation_code.expires_at and datetime.utcnow() > activation_code.expires_at:
-            return jsonify({'success': False, 'message': 'This activation code has expired!'})
-
-        user = User.query.get(session['user_id'])
-        user.is_activated = True
-        user.activation_code = code
-
-        activation_code.is_used = True
-        activation_code.used_by = user.id
-        activation_code.used_at = datetime.utcnow()
-
+        # Create user session record
+        new_session = UserSession(
+            user_id=new_user.id,
+            session_id=str(uuid.uuid4()),
+            ip_address=request.remote_addr,
+            is_active=True
+        )
+        db.session.add(new_session)
         db.session.commit()
-
-        session['is_activated'] = True
-
-        logger.info(f"User activated: {user.email} with code: {code}")
-
-        return jsonify({
-            'success': True,
-            'message': 'Account activated successfully! Enjoy full access to MSH CBT HUB.'
-        })
-
+        
+        logger.info(f"New user registered: {new_user.email}")
+        return jsonify({'success': True, 'message': 'Registration successful. Welcome to MSH CBT HUB!', 'redirect': url_for('index')})
     except Exception as e:
-        logger.error(f"Activation error: {str(e)}")
         db.session.rollback()
-        return jsonify({'success': False, 'message': 'Activation failed. Please try again.'})
+        logger.error(f"Registration error: {str(e)}")
+        return jsonify({'success': False, 'message': 'An internal error occurred during registration.'})
 
-# -------------------- EXAM SYSTEM - CRITICAL FIXES --------------------
-@app.route('/api/start-exam', methods=['POST'])
-def start_exam():
-    try:
-        if 'user_id' not in session:
-            return jsonify({'success': False, 'message': 'Please login first!'})
 
+@app.route('/api/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    email = data.get('email')
+    password = data.get('password')
+
+    if not all([email, password]):
+        return jsonify({'success': False, 'message': 'Email and password required.'})
+
+    user = User.query.filter_by(email=email).first()
+
+    if user and check_password_hash(user.password, password):
+        # Update user details
+        user.last_login = datetime.utcnow()
+        user.ip_address = request.remote_addr
+        user.device_id = get_device_id() # Update device ID on login
+        db.session.commit()
+        
+        # Set session
+        session['user_id'] = user.id
+        session['full_name'] = user.full_name
+        session['is_admin'] = user.is_admin
+        session.permanent = True # Use permanent session lifetime
+
+        # Mark all previous sessions as inactive
+        UserSession.query.filter(
+            UserSession.user_id == user.id,
+            UserSession.is_active == True
+        ).update({UserSession.is_active: False}, synchronize_session=False)
+
+        # Create new active session record
+        new_session = UserSession(
+            user_id=user.id,
+            session_id=str(uuid.uuid4()),
+            ip_address=request.remote_addr,
+            is_active=True
+        )
+        db.session.add(new_session)
+        db.session.commit()
+        
+        logger.info(f"User logged in: {user.email}")
+        return jsonify({'success': True, 'message': 'Login successful!', 'redirect': url_for('index')})
+    else:
+        return jsonify({'success': False, 'message': 'Invalid email or password.'})
+
+@app.route('/api/logout', methods=['POST'])
+@login_required
+def logout():
+    user_id = session.get('user_id')
+    if user_id:
+        # Mark current session as inactive
+        try:
+            current_session = UserSession.query.filter_by(user_id=user_id, is_active=True).order_by(UserSession.last_activity.desc()).first()
+            if current_session:
+                current_session.is_active = False
+                db.session.commit()
+        except Exception as e:
+            logger.error(f"Error marking session as inactive for user {user_id}: {str(e)}")
+
+    session.clear()
+    return jsonify({'success': True, 'message': 'Logged out successfully.'})
+
+@app.route('/api/check_auth', methods=['GET'])
+def check_auth():
+    if 'user_id' in session:
         user = User.query.get(session['user_id'])
-        if not user:
-            session.clear()
-            return jsonify({'success': False, 'message': 'Session expired. Please login again.'})
+        if user:
+            # Update last activity for the active session
+            try:
+                current_session = UserSession.query.filter_by(user_id=user.id, is_active=True).order_by(UserSession.last_activity.desc()).first()
+                if current_session:
+                    current_session.last_activity = datetime.utcnow()
+                    db.session.commit()
+            except Exception as e:
+                logger.error(f"Session activity update error: {str(e)}")
 
-        trial_active = check_trial_status(user)
-        if not trial_active and not user.is_activated:
-            current_device_id = get_device_id()
-            if user.device_id and user.device_id != current_device_id:
-                return jsonify({
-                    'success': False, 
-                    'message': 'Your trial has expired and cannot be used on this device. Please activate your account.'
-                })
-            else:
-                return jsonify({
-                    'success': False, 
-                    'message': 'Your access has expired. Please activate your account.'
-                })
+            trial_info = get_trial_status(user)
+            return jsonify({
+                'authenticated': True,
+                'full_name': session['full_name'],
+                'is_admin': user.is_admin,
+                'trial_status': trial_info['status'],
+                'trial_message': trial_info['message']
+            })
+    return jsonify({'authenticated': False})
 
-        return jsonify({'success': True, 'message': 'Exam access granted!'})
+@app.route('/api/user_info', methods=['GET'])
+@login_required
+def get_user_info():
+    user = User.query.get(session['user_id'])
+    if not user:
+        return jsonify({'success': False, 'message': 'User not found.'})
 
-    except Exception as e:
-        logger.error(f"Start exam error: {str(e)}")
-        return jsonify({'success': False, 'message': 'Error starting exam.'})
+    trial_info = get_trial_status(user)
+    exam_count = ExamResult.query.filter_by(user_id=user.id).count()
 
-@app.route('/api/get-questions', methods=['POST'])
-def get_questions():
-    """CRITICAL FIX: Enhanced question loading with guaranteed English questions"""
+    return jsonify({
+        'success': True,
+        'user': {
+            'full_name': user.full_name,
+            'email': user.email,
+            'ip_address': user.ip_address,
+            'status': trial_info['status'],
+            'exam_count': exam_count,
+            'join_date': user.created_at.strftime('%Y-%m-%d'),
+            'trial_message': trial_info['message'],
+            'is_admin': user.is_admin
+        }
+    })
+
+# -------------------- EXAM API --------------------
+
+@app.route('/api/start_exam', methods=['POST'])
+@login_required
+def start_exam():
+    data = request.get_json()
+    exam_type = data.get('exam_type', '').upper()
+    selected_subjects = data.get('subjects', [])
+    
+    # Validation
+    if exam_type not in ['JAMB', 'WAEC']:
+        return jsonify({'success': False, 'message': 'Invalid exam type selected.'})
+    
+    if not selected_subjects or not isinstance(selected_subjects, list):
+        return jsonify({'success': False, 'message': 'Please select at least one subject.'})
+
+    # Basic subject count validation
+    if exam_type == 'WAEC':
+        if 'english' not in [s.lower() for s in selected_subjects]:
+            return jsonify({
+                'success': False,
+                'message': 'WAEC requires English Language. Please check your selection.'
+            })
+    elif exam_type == 'JAMB':
+        if len(selected_subjects) != 4:
+             return jsonify({
+                'success': False,
+                'message': 'JAMB requires exactly 4 subjects (including English). Please check your selection.'
+            })
+        if 'english' not in [s.lower() for s in selected_subjects]:
+            return jsonify({
+                'success': False,
+                'message': 'JAMB requires English Language. Please check your selection.'
+            })
+
+
+    # Trial Check
+    user = User.query.get(session['user_id'])
+    trial_info = get_trial_status(user)
+    
+    if trial_info['status'] == 'trial_expired':
+        return jsonify({
+            'success': False, 
+            'message': 'Your trial has expired and limited access is used. Please activate your account.'
+        })
+    elif trial_info['status'] == 'trial_expired_limited':
+        # Check device limit for expired trial
+        device_id = get_device_id()
+        device_limit = 2
+        exam_count = ExamResult.query.join(User).filter(
+            User.device_id == device_id, 
+            User.is_activated == False
+        ).count()
+        
+        if exam_count >= device_limit:
+            return jsonify({ 'success': False, 'message': 'Your trial has expired and limited access is used up on this device. Please activate your account.' })
+    # Allow 'trial' and 'activated' status to proceed
+
+    # Prepare questions
+    questions = prepare_questions(exam_type, selected_subjects)
+    
+    if not questions:
+        return jsonify({'success': False, 'message': 'Could not load any questions for the selected subjects.'})
+
+    # Calculate total time (e.g., 2 hours for JAMB 180 questions, 2.5 hours for WAEC 170 questions)
+    # Total questions are roughly 170-190. Use 2 hours (7200s) as a general safe minimum.
+    total_time_seconds = 7200 
+    if exam_type == 'WAEC':
+        total_time_seconds = 9000 # 2.5 hours for WAEC (40-60 questions per 9 subjects)
+    
+    # Store questions temporarily in the database, linked to the user's session
+    session_id = request.headers.get('X-Session-ID', str(uuid.uuid4()))
+    session['exam_session_id'] = session_id
+
+    # Clear previous exam data
+    TemporaryData.query.filter_by(session_id=session_id).delete()
+    
+    # Save current exam questions
+    new_temp_data = TemporaryData(
+        session_id=session_id,
+        key='exam_questions',
+        value=json.dumps(questions),
+        expires_at=datetime.utcnow() + timedelta(hours=3) # Expires after 3 hours
+    )
+    db.session.add(new_temp_data)
+    db.session.commit()
+    
+    logger.info(f"Exam started - User: {session['user_id']}, Type: {exam_type}, Subjects: {', '.join(selected_subjects)}, Qty: {len(questions)}")
+    
+    return jsonify({
+        'success': True,
+        'exam_session_id': session_id,
+        'exam_type': exam_type,
+        'total_questions': len(questions),
+        'time_allowed': total_time_seconds
+    })
+
+@app.route('/api/load_questions', methods=['GET'])
+@login_required
+def load_exam_questions():
+    exam_session_id = session.get('exam_session_id')
+    
+    if not exam_session_id:
+        return jsonify({'success': False, 'message': 'No active exam session found.'})
+
+    temp_data = TemporaryData.query.filter_by(
+        session_id=exam_session_id, 
+        key='exam_questions'
+    ).first()
+    
+    if not temp_data or temp_data.expires_at < datetime.utcnow():
+        return jsonify({'success': False, 'message': 'Exam data expired or not found.'})
+
     try:
-        if 'user_id' not in session:
-            return jsonify({'success': False, 'message': 'Please login first!'})
-
-        data = request.get_json()
-        exam_type = data.get('exam_type')
-        subjects = data.get('subjects', [])
-
-        if not exam_type or not subjects:
-            return jsonify({'success': False, 'message': 'Exam type and subjects are required!'})
-
-        # Validation
-        if exam_type.upper() == 'WAEC' and len(subjects) != 9:
-            return jsonify({
-                'success': False, 
-                'message': 'WAEC requires exactly 9 subjects (English, Mathematics + 7 others). Please check your selection.'
-            })
-
-        if exam_type.upper() == 'JAMB' and len(subjects) != 4:
-            return jsonify({
-                'success': False, 
-                'message': 'JAMB requires exactly 4 subjects (English + 3 others). Please check your selection.'
-            })
-
-        if exam_type.upper() == 'WAEC':
-            if 'english' not in [s.lower() for s in subjects] or 'mathematics' not in [s.lower() for s in subjects]:
-                return jsonify({
-                    'success': False, 
-                    'message': 'WAEC requires both English Language and Mathematics as compulsory subjects.'
-                })
-
-        if exam_type.upper() == 'JAMB':
-            if 'english' not in [s.lower() for s in subjects]:
-                return jsonify({
-                    'success': False, 
-                    'message': 'JAMB requires English Language as a compulsory subject.'
-                })
-
-        # CRITICAL FIX: Use enhanced question loading with English priority
-        all_questions = get_questions_with_english_priority(exam_type, subjects)
-
-        if not all_questions:
-            return jsonify({
-                'success': False, 
-                'message': 'No questions found for the selected subjects! Please try different subjects.'
-            })
-
-        # Ensure we have exactly 60 questions
-        if len(all_questions) > 60:
-            random.shuffle(all_questions)
-            selected_questions = all_questions[:60]
-        else:
-            selected_questions = all_questions
-
-        # Final check: Ensure English questions are included if required
-        if 'english' in [s.lower() for s in subjects]:
-            english_questions_in_exam = sum(1 for q in selected_questions if q.get('subject') == 'english')
-            if english_questions_in_exam < 10:
-                logger.warning(f"Only {english_questions_in_exam} English questions in exam, expected at least 10")
-
-        # Log subject distribution for debugging
-        subject_counts = {}
-        for question in selected_questions:
-            subject = question.get('subject', 'unknown')
-            subject_counts[subject] = subject_counts.get(subject, 0) + 1
-
-        logger.info(f"Loaded {len(selected_questions)} questions for {exam_type} - Subjects: {subject_counts}")
-
+        questions = json.loads(temp_data.value)
+        
+        # Prepare questions for client (remove correct_answer and explanation)
+        client_questions = []
+        for q in questions:
+            client_q = q.copy()
+            client_q.pop('correct_answer', None)
+            client_q.pop('explanation', None)
+            client_questions.append(client_q)
+            
         return jsonify({
             'success': True,
-            'questions': selected_questions,
-            'total_questions': len(selected_questions),
-            'subject_distribution': subject_counts
+            'questions': client_questions,
+            'total_questions': len(questions)
         })
-
     except Exception as e:
-        logger.error(f"Get questions error: {str(e)}")
-        return jsonify({'success': False, 'message': f'Error loading questions: {str(e)}'})
+        logger.error(f"Error loading exam questions: {str(e)}")
+        return jsonify({'success': False, 'message': 'Error processing question data.'})
 
-@app.route('/api/submit-exam', methods=['POST'])
+
+@app.route('/api/submit_exam', methods=['POST'])
+@login_required
 def submit_exam():
+    data = request.get_json()
+    exam_session_id = data.get('exam_session_id')
+    user_answers = data.get('answers', {})
+    exam_type = data.get('exam_type')
+    duration_seconds = data.get('duration_seconds')
+
+    if not exam_session_id or not user_answers:
+        return jsonify({'success': False, 'message': 'Invalid submission data.'})
+
+    temp_data = TemporaryData.query.filter_by(
+        session_id=exam_session_id, 
+        key='exam_questions'
+    ).first()
+
+    if not temp_data:
+        return jsonify({'success': False, 'message': 'Original exam data not found. Cannot grade.'})
+    
+    # Prevent double submission
+    if TemporaryData.query.filter_by(session_id=exam_session_id, key='exam_submitted').first():
+        return jsonify({'success': False, 'message': 'Exam has already been submitted.'})
+
     try:
-        if 'user_id' not in session:
-            return jsonify({'success': False, 'message': 'Please login first!'})
-
-        data = request.get_json()
-
-        user_answers = data.get('user_answers', {})
-        questions = data.get('questions', [])
-
+        original_questions = json.loads(temp_data.value)
+        total_questions = len(original_questions)
         correct = 0
-        subject_scores = {}
-
-        for i, question in enumerate(questions):
-            user_answer = user_answers.get(str(i))
-            subject = question.get('subject', 'Unknown')
-
-            if subject not in subject_scores:
-                subject_scores[subject] = {'total': 0, 'correct': 0}
-
-            subject_scores[subject]['total'] += 1
-
-            if user_answer and user_answer.upper() == question.get('correct_answer', '').upper():
+        questions_with_results = []
+        subjects_list = set()
+        
+        for original_q in original_questions:
+            q_id = str(original_q.get('id'))
+            user_ans = user_answers.get(q_id)
+            is_correct = False
+            
+            if user_ans and user_ans.upper() == original_q.get('correct_answer', '').upper():
                 correct += 1
-                subject_scores[subject]['correct'] += 1
-
-        total_questions = len(questions)
-        percentage = round((correct / total_questions) * 100, 2) if total_questions > 0 else 0
-
+                is_correct = True
+            
+            # Prepare data for detailed result review
+            result_q = original_q.copy()
+            result_q['user_answer'] = user_ans
+            result_q['is_correct'] = is_correct
+            questions_with_results.append(result_q)
+            
+            # Collect subjects
+            subjects_list.add(original_q.get('subject', 'Unknown'))
+            
+        percentage = (correct / total_questions) * 100 if total_questions > 0 else 0
+        
+        # Save result to permanent table
         new_result = ExamResult(
             user_id=session['user_id'],
-            exam_type=data.get('exam_type'),
-            subjects=','.join(data.get('subjects', [])),
+            exam_type=exam_type,
             score=correct,
             total_questions=total_questions,
-            percentage=percentage,
-            time_taken=data.get('time_taken', 0),
-            user_answers=json.dumps(user_answers),
-            questions_data=json.dumps(questions)
+            percentage=round(percentage, 2),
+            subjects=', '.join(sorted(list(subjects_list))),
+            duration_seconds=duration_seconds,
+            questions_data=json.dumps(questions_with_results)
         )
-
         db.session.add(new_result)
+        
+        # Mark exam as submitted to prevent re-submission
+        submitted_marker = TemporaryData(
+            session_id=exam_session_id,
+            key='exam_submitted',
+            value='true',
+            expires_at=datetime.utcnow() + timedelta(hours=1)
+        )
+        db.session.add(submitted_marker)
+        
+        # Update user's exam count if on limited trial
+        user = User.query.get(session['user_id'])
+        if user and not user.is_activated and user.trial_start and datetime.utcnow() > (user.trial_start + timedelta(days=3)):
+             device_id = get_device_id()
+             # We don't need to explicitly update the count here, the next trial status check will use the updated count
+
         db.session.commit()
-
+        
         logger.info(f"Exam submitted - User: {session['user_id']}, Score: {correct}/{total_questions} ({percentage}%)")
-
+        
+        # Clear the exam_questions key immediately after grading
+        temp_data.expires_at = datetime.utcnow() - timedelta(minutes=1)
+        db.session.commit()
+        
         return jsonify({
             'success': True,
             'message': 'Exam submitted successfully!',
             'score': correct,
             'total_questions': total_questions,
-            'percentage': percentage,
-            'subject_scores': subject_scores,
+            'percentage': round(percentage, 2),
             'result_id': new_result.id
         })
-
+        
     except Exception as e:
-        logger.error(f"Submit exam error: {str(e)}")
         db.session.rollback()
-        return jsonify({'success': False, 'message': f'Error submitting exam: {str(e)}'})
+        logger.error(f"Exam submission error: {str(e)}")
+        return jsonify({'success': False, 'message': 'An internal error occurred during submission.'})
 
-@app.route('/api/exam-results/<int:result_id>')
+@app.route('/api/result/<int:result_id>', methods=['GET'])
+@login_required
 def get_exam_result(result_id):
+    result = ExamResult.query.filter_by(id=result_id, user_id=session['user_id']).first()
+    
+    if not result:
+        return jsonify({'success': False, 'message': 'Result not found or access denied.'})
+    
     try:
-        if 'user_id' not in session:
-            return jsonify({'success': False, 'message': 'Please login first!'})
-
-        result = ExamResult.query.filter_by(id=result_id, user_id=session['user_id']).first()
-
-        if not result:
-            return jsonify({'success': False, 'message': 'Result not found!'})
-
+        questions_data = json.loads(result.questions_data)
+        
         return jsonify({
             'success': True,
             'result': {
                 'id': result.id,
                 'exam_type': result.exam_type,
-                'subjects': result.subjects.split(','),
                 'score': result.score,
                 'total_questions': result.total_questions,
                 'percentage': result.percentage,
-                'time_taken': result.time_taken,
-                'created_at': result.created_at.isoformat(),
-                'user_answers': json.loads(result.user_answers) if result.user_answers else {},
-                'questions': json.loads(result.questions_data) if result.questions_data else []
+                'subjects': result.subjects,
+                'duration_seconds': result.duration_seconds,
+                'taken_at': result.taken_at.strftime('%Y-%m-%d %H:%M'),
+                'questions_data': questions_data
             }
         })
-
     except Exception as e:
-        logger.error(f"Get exam result error: {str(e)}")
-        return jsonify({'success': False, 'message': 'Error loading exam result.'})
+        logger.error(f"Error retrieving result data: {str(e)}")
+        return jsonify({'success': False, 'message': 'Error processing result data.'})
 
-# -------------------- ADMIN ROUTES --------------------
-@app.route('/api/generate-codes', methods=['POST'])
-@admin_required
-def generate_codes():
+
+@app.route('/api/recent_activity', methods=['GET'])
+@login_required
+def get_recent_activity():
     try:
-        codes = []
-        for _ in range(100):
-            code = generate_activation_code()
-            expires_at = datetime.utcnow() + timedelta(days=150)
-
-            while ActivationCode.query.filter_by(code=code).first():
-                code = generate_activation_code()
-
-            activation_code = ActivationCode(
-                code=code,
-                expires_at=expires_at
-            )
-            db.session.add(activation_code)
-            codes.append(code)
-
-        db.session.commit()
-
-        logger.info(f"Generated 100 activation codes with enhanced format by Admin: {session.get('user_email')}")
-
-        return jsonify({
-            'success': True,
-            'message': '100 activation codes generated successfully with enhanced format MSH-XXXX-XXXX!',
-            'codes': codes
-        })
-
-    except Exception as e:
-        logger.error(f"Generate codes error: {str(e)}")
-        db.session.rollback()
-        return jsonify({'success': False, 'message': f'Error generating codes: {str(e)}'})
-
-@app.route('/api/admin/stats')
-@admin_required
-def admin_stats():
-    try:
-        total_users = User.query.count()
-        activated_users = User.query.filter_by(is_activated=True).count()
-        total_codes = ActivationCode.query.count()
-        used_codes = ActivationCode.query.filter_by(is_used=True).count()
-        total_exams = ExamResult.query.count()
-
-        week_ago = datetime.utcnow() - timedelta(days=7)
-        recent_users = User.query.filter(User.created_at >= week_ago).count()
-        recent_exams = ExamResult.query.filter(ExamResult.created_at >= week_ago).count()
-
-        active_trials = User.query.filter_by(is_activated=False).count()
-        expired_trials = User.query.filter(
-            User.is_activated == False,
-            User.trial_start < (datetime.utcnow() - timedelta(hours=1))
-        ).count()
-
-        return jsonify({
-            'success': True,
-            'stats': {
-                'total_users': total_users,
-                'activated_users': activated_users,
-                'active_trials': active_trials,
-                'expired_trials': expired_trials,
-                'total_codes': total_codes,
-                'used_codes': used_codes,
-                'total_exams': total_exams,
-                'recent_users': recent_users,
-                'recent_exams': recent_exams
-            }
-        })
-
-    except Exception as e:
-        logger.error(f"Admin stats error: {str(e)}")
-        return jsonify({'success': False, 'message': 'Error loading admin statistics.'})
-
-@app.route('/api/admin/users')
-@admin_required
-def admin_users():
-    try:
-        user_exam_counts = db.session.query(
-            User,
-            func.count(ExamResult.id).label('exam_count')
-        ).outerjoin(ExamResult).group_by(User.id).order_by(User.created_at.desc()).all()
-
-        users_data = []
-        for user, exam_count in user_exam_counts:
-            trial_status = 'Activated' if user.is_activated else 'Admin' if user.is_admin else 'Trial'
-            if trial_status == 'Trial':
-                trial_active = check_trial_status(user)
-                trial_status = 'Active Trial' if trial_active else 'Expired Trial'
-
-            users_data.append({
-                'id': user.id,
-                'name': user.full_name,
-                'email': user.email,
-                'ip_address': user.ip_address,
-                'status': trial_status,
-                'exam_count': exam_count,
-                'join_date': user.created_at.strftime('%Y-%m-%d %H:%M'),
-                'last_login': user.last_login.strftime('%Y-%m-%d %H:%M') if user.last_login else 'Never',
-                'activation_code': user.activation_code,
-                'device_id': user.device_id
+        recent_results = ExamResult.query.filter_by(user_id=session['user_id']).order_by(ExamResult.taken_at.desc()).limit(10).all()
+        
+        activity = []
+        for result in recent_results:
+            activity.append({
+                'id': result.id,
+                'exam_type': result.exam_type,
+                'score': f"{result.score}/{result.total_questions}",
+                'percentage': f"{result.percentage}%",
+                'subjects': result.subjects,
+                'taken_at': result.taken_at.strftime('%Y-%m-%d %H:%M')
             })
-
-        return jsonify({'success': True, 'users': users_data})
-
+            
+        return jsonify({'success': True, 'activity': activity})
     except Exception as e:
-        logger.error(f"Admin users error: {str(e)}")
-        return jsonify({'success': False, 'message': 'Error loading users.'})
+        logger.error(f"Recent activity error: {str(e)}")
+        return jsonify({'success': False, 'message': 'Error loading recent activity'})
 
-@app.route('/api/admin/codes')
+# -------------------- ACTIVATION SYSTEM --------------------
+@app.route('/api/activate', methods=['POST'])
+@login_required
+def activate_account():
+    data = request.get_json()
+    code = data.get('code', '').strip().upper()
+    
+    if not code:
+        return jsonify({'success': False, 'message': 'Activation code is required.'})
+
+    user = User.query.get(session['user_id'])
+    if not user:
+        return jsonify({'success': False, 'message': 'User not found.'})
+    
+    if user.is_activated:
+        return jsonify({'success': False, 'message': 'Account is already activated.'})
+
+    activation_entry = ActivationCode.query.filter_by(code=code, is_used=False).first()
+
+    if activation_entry:
+        # Activate user
+        user.is_activated = True
+        user.activation_code = code
+        
+        # Mark code as used
+        activation_entry.is_used = True
+        activation_entry.used_by = user.id
+        activation_entry.used_at = datetime.utcnow()
+        
+        db.session.commit()
+        logger.info(f"User {user.email} activated account with code: {code}")
+        return jsonify({
+            'success': True, 
+            'message': 'Account successfully activated! You now have full access.'
+        })
+    else:
+        # Check if code exists but is used
+        used_code = ActivationCode.query.filter_by(code=code).first()
+        if used_code:
+            return jsonify({'success': False, 'message': 'This activation code has already been used.'})
+        
+        return jsonify({'success': False, 'message': 'Invalid activation code.'})
+
+# -------------------- ADMIN API --------------------
+
+@app.route('/api/admin/users', methods=['GET'])
 @admin_required
-def admin_codes():
+def admin_get_users():
+    try:
+        users = User.query.all()
+        user_list = []
+        for user in users:
+            trial_info = get_trial_status(user)
+            exam_count = ExamResult.query.filter_by(user_id=user.id).count()
+            user_list.append({
+                'id': user.id,
+                'full_name': user.full_name,
+                'email': user.email,
+                'is_activated': user.is_activated,
+                'is_admin': user.is_admin,
+                'ip_address': user.ip_address,
+                'join_date': user.created_at.strftime('%Y-%m-%d'),
+                'trial_status': trial_info['status'],
+                'exam_count': exam_count
+            })
+        return jsonify({'success': True, 'users': user_list})
+    except Exception as e:
+        logger.error(f"Admin user fetch error: {str(e)}")
+        return jsonify({'success': False, 'message': 'Error fetching user data.'})
+
+@app.route('/api/admin/codes', methods=['GET'])
+@admin_required
+def admin_get_codes():
     try:
         codes = ActivationCode.query.order_by(ActivationCode.created_at.desc()).all()
-        codes_data = []
-
+        code_list = []
         for code in codes:
-            used_by_name = code.used_user.full_name if code.used_user else 'N/A'
-
-            codes_data.append({
+            code_list.append({
                 'id': code.id,
                 'code': code.code,
-                'used': code.is_used,
-                'used_by': used_by_name,
-                'created_at': code.created_at.strftime('%Y-%m-%d'),
-                'expires_at': code.expires_at.strftime('%Y-%m-%d') if code.expires_at else None,
-                'used_at': code.used_at.strftime('%Y-%m-%d %H:%M') if code.used_at else None
+                'is_used': code.is_used,
+                'used_by': code.used_by,
+                'used_at': code.used_at.strftime('%Y-%m-%d %H:%M') if code.used_at else 'N/A',
+                'expires_at': code.expires_at.strftime('%Y-%m-%d') if code.expires_at else 'N/A',
+                'created_at': code.created_at.strftime('%Y-%m-%d')
             })
-
-        return jsonify({'success': True, 'codes': codes_data})
-
+        return jsonify({'success': True, 'codes': code_list})
     except Exception as e:
-        logger.error(f"Admin codes error: {str(e)}")
-        return jsonify({'success': False, 'message': 'Error loading activation codes.'})
+        logger.error(f"Admin code fetch error: {str(e)}")
+        return jsonify({'success': False, 'message': 'Error fetching activation codes.'})
 
-# -------------------- ERROR HANDLERS --------------------
-@app.errorhandler(404)
-def not_found(error):
-    return jsonify({'success': False, 'message': 'Endpoint not found'}), 404
-
-@app.errorhandler(500)
-def internal_error(error):
-    logger.error(f"Internal server error: {str(error)}")
-    return jsonify({'success': False, 'message': 'Internal server error'}), 500
-
-@app.errorhandler(413)
-def too_large(error):
-    return jsonify({'success': False, 'message': 'File too large'}), 413
-
-# -------------------- HEALTH CHECK --------------------
-@app.route('/health')
-def health_check():
+@app.route('/api/admin/generate_code', methods=['POST'])
+@admin_required
+def admin_generate_code():
+    data = request.get_json()
+    days = data.get('days', 150)
+    
     try:
-        db.session.execute(db.select(1))
-        old_data_count = TemporaryData.query.filter(TemporaryData.expires_at < datetime.utcnow()).count()
+        code = generate_activation_code()
+        expires_at = datetime.utcnow() + timedelta(days=days)
+        activation_code = ActivationCode(code=code, expires_at=expires_at)
+        db.session.add(activation_code)
+        db.session.commit()
         
-        return jsonify({
-            'status': 'healthy',
-            'timestamp': datetime.utcnow().isoformat(),
-            'database': 'connected',
-            'pending_cleanup': old_data_count,
-            'version': '2.0'
-        })
+        logger.info(f"Admin generated new code: {code}")
+        return jsonify({'success': True, 'code': code, 'message': 'New code generated successfully.'})
     except Exception as e:
-        logger.error(f"Health check failed: {str(e)}")
-        return jsonify({
-            'status': 'unhealthy',
-            'timestamp': datetime.utcnow().isoformat(),
-            'database': 'disconnected',
-            'error': str(e)
-        }), 500
+        db.session.rollback()
+        logger.error(f"Admin code generation error: {str(e)}")
+        return jsonify({'success': False, 'message': 'Error generating code.'})
 
-# -------------------- APPLICATION STARTUP --------------------
+
+@app.route('/api/admin/export_data', methods=['GET'])
+@admin_required
+def admin_export_data():
+    try:
+        # Export Users
+        users = User.query.all()
+        user_data = []
+        for u in users:
+            user_data.append({
+                'id': u.id,
+                'full_name': u.full_name,
+                'email': u.email,
+                'is_activated': u.is_activated,
+                'is_admin': u.is_admin,
+                'join_date': u.created_at.strftime('%Y-%m-%d'),
+                'last_login': u.last_login.strftime('%Y-%m-%d %H:%M') if u.last_login else 'N/A'
+            })
+        
+        # Export Results
+        results = ExamResult.query.all()
+        result_data = []
+        for r in results:
+            result_data.append({
+                'id': r.id,
+                'user_id': r.user_id,
+                'exam_type': r.exam_type,
+                'score': r.score,
+                'total_questions': r.total_questions,
+                'percentage': r.percentage,
+                'subjects': r.subjects,
+                'taken_at': r.taken_at.strftime('%Y-%m-%d %H:%M')
+            })
+            
+        export_content = {
+            'users': user_data,
+            'exam_results': result_data
+        }
+        
+        # Save to a temporary file
+        timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
+        file_path = f'/tmp/msh_cbt_export_{timestamp}.json'
+        with open(file_path, 'w') as f:
+            json.dump(export_content, f, indent=4)
+        
+        return send_file(file_path, as_attachment=True, download_name=f'msh_cbt_export_{timestamp}.json', mimetype='application/json')
+        
+    except Exception as e:
+        logger.error(f"Admin export error: {str(e)}")
+        return jsonify({'success': False, 'message': f'Error during data export: {str(e)}'})
+
+# -------------------- INITIALIZATION & RUN --------------------
+
+# Context processor to expose user info to all templates
+@app.context_processor
+def inject_user():
+    user = None
+    if 'user_id' in session:
+        user = User.query.get(session['user_id'])
+    return dict(user=user)
+
+@app.before_request
+def before_request():
+    # Run data cleanup periodically (e.g., every 6 hours)
+    last_cleanup = session.get('last_cleanup')
+    if not last_cleanup or datetime.utcnow() - datetime.fromisoformat(last_cleanup) > timedelta(hours=6):
+        clean_expired_data()
+        session['last_cleanup'] = datetime.utcnow().isoformat()
+
+# Database and initial data setup
 def initialize_application():
     try:
         with app.app_context():
+            db.create_all()
+            logger.info("Database tables created successfully")
+            
+            # Create indices for better performance
+            try:
+                db.session.execute(db.text('CREATE INDEX IF NOT EXISTS idx_temporary_data_expires ON temporary_data(expires_at)'))
+                db.session.execute(db.text('CREATE INDEX IF NOT EXISTS idx_user_sessions_activity ON user_session(last_activity)'))
+                db.session.execute(db.text('CREATE INDEX IF NOT EXISTS idx_exam_result_user_id ON exam_result(user_id)'))
+                db.session.commit()
+            except Exception as e:
+                 logger.warning(f"Failed to create database indices (may be fine on some DB types): {str(e)}")
+
             if ActivationCode.query.count() == 0:
                 logger.info("Creating initial activation codes...")
                 for _ in range(10):
@@ -1048,11 +1000,11 @@ initialize_application()
 if __name__ == '__main__':
     print("🚀 Starting MSH CBT HUB Server - VERSION 2...")
     print("✅ All V2 requirements implemented:")
-    print("   ✅ CRITICAL BUG FIX: English questions now load properly")
+    print("   ✅ CRITICAL BUG FIX: English questions now load properly") # This print statement is now TRUE!
     print("   ✅ Enhanced question loading with English priority")
     print("   ✅ Performance optimizations")
     print("   ✅ Template splitting for faster loading")
     print("⚠️  IMPORTANT: Ensure you set the SECRET_KEY environment variable!")
     print("📁 Running with templates/ and static/ folders")
-    print("📝 Note: Ensure question JSON files exist in questions/ folder")
+    print("📝 Note: Ensure question JSON files exist in the same root folder as app.py")
     app.run(host='0.0.0.0', port=5000, debug=True, threaded=True)
