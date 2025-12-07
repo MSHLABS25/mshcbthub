@@ -1,4 +1,4 @@
-# app.py - VERSION 4 - FINALIZED, 60-QUESTION LIMIT & WAEC RESULT ASSURANCE
+# app.py - VERSION 3 - FIXED ANSWER REVIEW & WAEC RESULTS
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for, send_file
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -48,7 +48,7 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
 # Initialize DB
 db = SQLAlchemy(app)
 
-# -------------------- DATABASE MODELS - V4 SAME AS V3 --------------------
+# -------------------- DATABASE MODELS - V3 ENHANCED --------------------
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(100), nullable=False)
@@ -62,6 +62,8 @@ class User(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     last_login = db.Column(db.DateTime)
     device_id = db.Column(db.String(100))
+
+    # Relationship with exam results
     exam_results = db.relationship('ExamResult', backref='user', lazy=True)
     user_sessions = db.relationship('UserSession', backref='user', lazy=True)
 
@@ -73,6 +75,7 @@ class ActivationCode(db.Model):
     used_at = db.Column(db.DateTime)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     expires_at = db.Column(db.DateTime)
+
     used_user = db.relationship('User', foreign_keys=[used_by], backref='used_activation_codes')
 
 class ExamResult(db.Model):
@@ -87,6 +90,7 @@ class ExamResult(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     user_answers = db.Column(db.Text)
     questions_data = db.Column(db.Text)
+    subject_details = db.Column(db.Text)  # NEW: Store detailed subject breakdown
 
 class UserSession(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -114,10 +118,9 @@ with app.app_context():
         logger.info("Database tables created successfully")
         
         try:
-            # Using db.text() for SQL statements
-            db.session.execute(db.text('CREATE INDEX IF NOT EXISTS idx_temporary_data_expires ON temporary_data(expires_at)'))
-            db.session.execute(db.text('CREATE INDEX IF NOT EXISTS idx_user_sessions_activity ON user_session(last_activity)'))
-            db.session.execute(db.text('CREATE INDEX IF NOT EXISTS idx_exam_results_user_date ON exam_result(user_id, created_at)'))
+            db.session.execute('CREATE INDEX IF NOT EXISTS idx_temporary_data_expires ON temporary_data(expires_at)')
+            db.session.execute('CREATE INDEX IF NOT EXISTS idx_user_sessions_activity ON user_session(last_activity)')
+            db.session.execute('CREATE INDEX IF NOT EXISTS idx_exam_results_user_date ON exam_result(user_id, created_at)')
             db.session.commit()
             logger.info("Database indexes created successfully")
         except Exception as index_error:
@@ -126,7 +129,7 @@ with app.app_context():
     except Exception as e:
         logger.error(f"Error creating database tables: {str(e)}")
 
-# -------------------- HELPERS - V4 QUESTION LOGIC --------------------
+# -------------------- HELPERS - V3 ENHANCED --------------------
 def generate_activation_code():
     """Generate MSH-XXXX-XXXX format codes"""
     prefix = "MSH-"
@@ -155,7 +158,6 @@ def check_trial_status(user):
     if user.is_activated:
         return True
     
-    # 1-hour trial limit
     if user.device_id and user.trial_start:
         trial_end = user.trial_start + timedelta(hours=1)
         return datetime.utcnow() < trial_end
@@ -166,8 +168,6 @@ def get_user_stats(user_id):
     """Get user statistics for dashboard"""
     try:
         total_exams = ExamResult.query.filter_by(user_id=user_id).count()
-        avg_score = 0
-        recent_exams = 0
 
         if total_exams > 0:
             avg_score = db.session.query(func.avg(ExamResult.percentage)).filter_by(user_id=user_id).scalar()
@@ -178,6 +178,9 @@ def get_user_stats(user_id):
                 ExamResult.user_id == user_id,
                 ExamResult.created_at >= thirty_days_ago
             ).count()
+        else:
+            avg_score = 0
+            recent_exams = 0
 
         return {
             'total_exams': total_exams,
@@ -188,128 +191,112 @@ def get_user_stats(user_id):
         logger.error(f"Error getting user stats: {str(e)}")
         return {'total_exams': 0, 'average_score': 0, 'recent_exams': 0}
 
-
 def load_questions_from_file(exam_type, subject):
-    """
-    V4 File Loading Logic (Retained V3 Fix): 
-    Checks root directory first, then falls back to 'questions' subdirectory.
-    """
+    """Load questions from JSON files with enhanced error handling"""
     try:
         exam_part = str(exam_type).strip().lower()
         subject_part = str(subject).strip().lower().replace(' ', '_')
 
         file_name = f"{exam_part}_{subject_part}.json"
+        file_path = os.path.join(app.root_path, 'questions', file_name)
 
-        # 1. Check in the root directory
-        filepath = os.path.join(app.root_path, file_name)
-
-        # 2. If not found, check the 'questions' subdirectory
-        if not os.path.exists(filepath):
-            filepath = os.path.join(app.root_path, 'questions', file_name)
-
-        if not os.path.exists(filepath):
-            logger.warning(f"Question file not found for {subject}: {file_name}. Checked: {os.path.join(app.root_path, file_name)} and {os.path.join(app.root_path, 'questions', file_name)}")
+        if not os.path.exists(file_path):
+            logger.warning(f"Question file not found: {file_path}")
             return None
 
-        with open(filepath, 'r', encoding='utf-8') as f:
+        with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
 
         if 'questions' not in data:
-            logger.error(f"Invalid question file structure: {filepath}")
+            logger.error(f"Invalid question file structure: {file_path}")
             return None
 
         # Add subject identifier to each question
         for question in data['questions']:
             question.setdefault('subject', subject_part)
+            # Ensure explanation field exists
+            question.setdefault('explanation', question.get('explanation', 'No explanation available.'))
 
         return data['questions']
 
     except Exception as e:
-        logger.error(f"Error loading questions from {file_name} at {filepath}: {str(e)}")
+        logger.error(f"Error loading questions from {file_name}: {str(e)}")
         return None
 
-
-def prepare_questions_for_exam(exam_type, selected_subjects):
-    """
-    V4 FIX: Selects, shuffles, and limits questions to **exactly 60**, 
-    with a priority of 15 questions for English.
-    """
-    questions = []
+def ensure_english_questions(questions, exam_type, selected_subjects):
+    """CRITICAL FIX: Ensure English questions are included in exams"""
+    # Check if English is required but missing
+    english_required = 'english' in [s.lower() for s in selected_subjects]
     
-    # User-defined targets: 60 total questions, 10-15 English questions. We use 15.
-    max_total = 60
-    english_target = 15
+    if not english_required:
+        return questions
     
-    subjects_lower = [s.lower() for s in selected_subjects]
+    # Count current English questions
+    current_english_count = sum(1 for q in questions if q.get('subject') == 'english')
     
-    # 1. Load English questions first (if required)
-    if 'english' in subjects_lower:
+    # We need at least 10-15 English questions
+    if current_english_count >= 10:
+        return questions
+    
+    # Load additional English questions
+    try:
         english_questions = load_questions_from_file(exam_type, 'english')
         if english_questions:
-            # Sample exactly the target amount, or all available
-            selected_english = random.sample(english_questions, min(english_target, len(english_questions)))
-            for q in selected_english:
-                q['subject'] = 'English'
-            questions.extend(selected_english)
-            logger.info(f"Loaded {len(selected_english)} English questions (Target: {english_target})")
-        
-        subjects_to_load = [s for s in selected_subjects if s.lower() != 'english']
-    else:
-        subjects_to_load = selected_subjects
-
-    # 2. Determine distribution for other subjects
-    subjects_count = len(subjects_to_load)
-    remaining_capacity = max_total - len(questions)
-    
-    if remaining_capacity <= 0:
-        logger.warning("English questions already met/exceeded total capacity. Shuffling and truncating.")
-        random.shuffle(questions)
-        return questions[:max_total]
-
-    if subjects_count > 0:
-        # Calculate base questions per subject
-        base_target = remaining_capacity // subjects_count
-        remainder = remaining_capacity % subjects_count
-        
-        # Decide which subjects get the extra question(s) to reach exactly 60
-        subjects_for_extra = random.sample(subjects_to_load, remainder) if remainder > 0 else []
-
-        for subject in subjects_to_load:
-            subject_lower = subject.lower()
+            # Filter out questions we already have
+            existing_question_texts = [q.get('question', '') for q in questions]
+            new_english_questions = [
+                q for q in english_questions 
+                if q.get('question', '') not in existing_question_texts
+            ]
             
-            # Target for this subject
-            target_count = base_target + (1 if subject in subjects_for_extra else 0)
+            # Calculate how many English questions we need to add
+            needed_english = 15 - current_english_count
+            questions_to_add = min(needed_english, len(new_english_questions))
             
-            subject_questions = load_questions_from_file(exam_type, subject_lower)
-            
-            if subject_questions and target_count > 0:
-                selected = random.sample(subject_questions, min(target_count, len(subject_questions)))
+            if questions_to_add > 0:
+                # Add English questions at the beginning to ensure they're included
+                questions = new_english_questions[:questions_to_add] + questions
+                logger.info(f"Added {questions_to_add} English questions to ensure subject coverage")
                 
-                # Add subject property for front-end grouping
-                for q in selected:
-                    q['subject'] = subject.capitalize()
-                
-                questions.extend(selected)
-                logger.info(f"Loaded {len(selected)} questions for {subject.capitalize()} (Target: {target_count})")
-            elif target_count > 0:
-                 logger.warning(f"Skipping {subject} as no questions were loaded (Target: {target_count}).")
+    except Exception as e:
+        logger.error(f"Error ensuring English questions: {str(e)}")
+    
+    return questions
 
-    # 3. Final Shuffling and overall limit
-    random.shuffle(questions)
+def get_questions_with_english_priority(exam_type, selected_subjects):
+    """Load questions with guaranteed English question inclusion"""
+    all_questions = []
     
-    # Ensure total questions is exactly max_total (60)
-    final_questions = questions[:max_total]
+    # CRITICAL FIX: Load English questions first to ensure they're included
+    if 'english' in [s.lower() for s in selected_subjects]:
+        english_questions = load_questions_from_file(exam_type, 'english')
+        if english_questions:
+            # Take 15 English questions to ensure good coverage
+            english_to_take = min(15, len(english_questions))
+            all_questions.extend(english_questions[:english_to_take])
+            logger.info(f"Loaded {english_to_take} English questions as priority")
     
-    # Log distribution for confirmation
-    subject_counts = {}
-    for question in final_questions:
-        subject = question.get('subject', 'unknown')
-        subject_counts[subject] = subject_counts.get(subject, 0) + 1
-        
-    logger.info(f"Final exam compiled: {len(final_questions)} questions (Target: {max_total}) - Distribution: {subject_counts}")
+    # Load other subjects
+    for subject in selected_subjects:
+        subject_lower = subject.lower()
+        if subject_lower != 'english':  # Skip English as we already loaded it
+            questions = load_questions_from_file(exam_type, subject_lower)
+            if questions:
+                all_questions.extend(questions)
+                logger.info(f"Loaded {len(questions)} questions for {subject}")
     
-    return final_questions
-
+    # If we still don't have enough English questions, try to load more
+    english_count = sum(1 for q in all_questions if q.get('subject') == 'english')
+    if 'english' in [s.lower() for s in selected_subjects] and english_count < 10:
+        additional_english = load_questions_from_file(exam_type, 'english')
+        if additional_english:
+            # Add more English questions to reach minimum
+            needed = 10 - english_count
+            additional_to_add = min(needed, len(additional_english))
+            all_questions = additional_english[:additional_to_add] + all_questions
+            logger.info(f"Added {additional_to_add} additional English questions")
+    
+    return all_questions
 
 def cleanup_old_data():
     """Auto-delete non-important data after 30 days"""
@@ -341,7 +328,43 @@ def get_device_id():
         session['device_id'] = device_id
     return device_id
 
-# -------------------- ROUTES (Same as V3) --------------------
+def calculate_subject_breakdown(questions, user_answers):
+    """Calculate detailed subject breakdown for results"""
+    subject_stats = {}
+    
+    for i, question in enumerate(questions):
+        subject = question.get('subject', 'Unknown')
+        if subject not in subject_stats:
+            subject_stats[subject] = {
+                'total': 0,
+                'correct': 0,
+                'questions': []
+            }
+        
+        subject_stats[subject]['total'] += 1
+        
+        user_answer = user_answers.get(str(i))
+        correct_answer = question.get('correct_answer', '')
+        
+        is_correct = user_answer and user_answer.upper() == correct_answer.upper()
+        
+        if is_correct:
+            subject_stats[subject]['correct'] += 1
+        
+        # Store question details for review
+        subject_stats[subject]['questions'].append({
+            'index': i,
+            'question': question.get('question'),
+            'options': question.get('options', []),
+            'correct_answer': correct_answer,
+            'user_answer': user_answer,
+            'is_correct': is_correct,
+            'explanation': question.get('explanation', 'No explanation available.')
+        })
+    
+    return subject_stats
+
+# -------------------- ROUTES --------------------
 @app.route('/')
 def index():
     try:
@@ -363,7 +386,7 @@ def dashboard():
 def admin():
     return render_template('admin.html')
 
-# -------------------- AUTH ROUTES (Same as V3) --------------------
+# -------------------- AUTH ROUTES --------------------
 @app.route('/register', methods=['POST'])
 def register():
     try:
@@ -458,9 +481,6 @@ def login():
 
             user.last_login = datetime.utcnow()
             
-            # Inactivate previous sessions (optional, but good for security)
-            UserSession.query.filter_by(user_id=user.id, is_active=True).update({'is_active': False})
-            
             new_session = UserSession(
                 user_id=user.id,
                 session_id=str(uuid.uuid4()),
@@ -518,7 +538,7 @@ def logout():
         logger.error(f"Logout error: {str(e)}")
         return jsonify({'success': False, 'message': 'Logout failed.'})
 
-# -------------------- USER MANAGEMENT (Same as V3) --------------------
+# -------------------- USER MANAGEMENT --------------------
 @app.route('/api/user-status')
 def user_status():
     try:
@@ -614,7 +634,7 @@ def user_recent_activity():
         logger.error(f"Recent activity error: {str(e)}")
         return jsonify({'success': False, 'message': 'Error loading recent activity'})
 
-# -------------------- ACTIVATION SYSTEM (Same as V3) --------------------
+# -------------------- ACTIVATION SYSTEM --------------------
 @app.route('/activate', methods=['POST'])
 def activate_account():
     try:
@@ -664,10 +684,9 @@ def activate_account():
         db.session.rollback()
         return jsonify({'success': False, 'message': 'Activation failed. Please try again.'})
 
-# -------------------- EXAM SYSTEM - V4 QUESTION LOGIC --------------------
+# -------------------- EXAM SYSTEM - CRITICAL FIXES --------------------
 @app.route('/api/start-exam', methods=['POST'])
 def start_exam():
-    # Only checks trial status, actual questions loaded in /api/get-questions
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
@@ -699,7 +718,7 @@ def start_exam():
 
 @app.route('/api/get-questions', methods=['POST'])
 def get_questions():
-    """V4: Uses the corrected 60-question loading logic."""
+    """CRITICAL FIX: Enhanced question loading with guaranteed English questions"""
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
@@ -711,11 +730,11 @@ def get_questions():
         if not exam_type or not subjects:
             return jsonify({'success': False, 'message': 'Exam type and subjects are required!'})
 
-        # V4 Validation (Retained from V3/V2)
+        # Validation
         if exam_type.upper() == 'WAEC' and len(subjects) != 9:
             return jsonify({
                 'success': False, 
-                'message': 'WAEC typically requires 9 subjects for a full mock. Please check your selection.'
+                'message': 'WAEC requires exactly 9 subjects (English, Mathematics + 7 others). Please check your selection.'
             })
 
         if exam_type.upper() == 'JAMB' and len(subjects) != 4:
@@ -724,47 +743,53 @@ def get_questions():
                 'message': 'JAMB requires exactly 4 subjects (English + 3 others). Please check your selection.'
             })
 
-        if exam_type.upper() in ['WAEC', 'JAMB']:
-            if 'english' not in [s.lower() for s in subjects]:
+        if exam_type.upper() == 'WAEC':
+            if 'english' not in [s.lower() for s in subjects] or 'mathematics' not in [s.lower() for s in subjects]:
                 return jsonify({
-                    'success': False, 
-                    'message': f'{exam_type} requires English Language as a compulsory subject.'
-                })
-            if exam_type.upper() == 'WAEC' and 'mathematics' not in [s.lower() for s in subjects]:
-                 return jsonify({
                     'success': False, 
                     'message': 'WAEC requires both English Language and Mathematics as compulsory subjects.'
                 })
 
-        # V4 CRITICAL FIX: Use the 60-question limit preparation function
-        selected_questions = prepare_questions_for_exam(exam_type, subjects)
+        if exam_type.upper() == 'JAMB':
+            if 'english' not in [s.lower() for s in subjects]:
+                return jsonify({
+                    'success': False, 
+                    'message': 'JAMB requires English Language as a compulsory subject.'
+                })
 
-        if not selected_questions:
+        # CRITICAL FIX: Use enhanced question loading with English priority
+        all_questions = get_questions_with_english_priority(exam_type, subjects)
+
+        if not all_questions:
             return jsonify({
                 'success': False, 
-                'message': 'No questions found for the selected subjects! Please ensure files exist in the root or questions/ folder.'
+                'message': 'No questions found for the selected subjects! Please try different subjects.'
             })
+
+        # Ensure we have exactly 60 questions
+        if len(all_questions) > 60:
+            random.shuffle(all_questions)
+            selected_questions = all_questions[:60]
+        else:
+            selected_questions = all_questions
+
+        # Final check: Ensure English questions are included if required
+        if 'english' in [s.lower() for s in subjects]:
+            english_questions_in_exam = sum(1 for q in selected_questions if q.get('subject') == 'english')
+            if english_questions_in_exam < 10:
+                logger.warning(f"Only {english_questions_in_exam} English questions in exam, expected at least 10")
 
         # Log subject distribution for debugging
         subject_counts = {}
         for question in selected_questions:
-            # We use subject.capitalize() in prepare_questions_for_exam, so keys are clean
-            subject = question.get('subject', 'unknown') 
+            subject = question.get('subject', 'unknown')
             subject_counts[subject] = subject_counts.get(subject, 0) + 1
 
         logger.info(f"Loaded {len(selected_questions)} questions for {exam_type} - Subjects: {subject_counts}")
 
-        # Remove correct answers and explanations before sending to client
-        client_questions = []
-        for q in selected_questions:
-            client_q = q.copy()
-            client_q.pop('correct_answer', None)
-            client_q.pop('explanation', None)
-            client_questions.append(client_q)
-            
         return jsonify({
             'success': True,
-            'questions': client_questions, # Send questions without answers
+            'questions': selected_questions,
             'total_questions': len(selected_questions),
             'subject_distribution': subject_counts
         })
@@ -775,8 +800,6 @@ def get_questions():
 
 @app.route('/api/submit-exam', methods=['POST'])
 def submit_exam():
-    # V4: Logic is retained from V3 - it calculates scores generically, 
-    # ensuring WAEC results are processed identically to JAMB.
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
@@ -784,19 +807,15 @@ def submit_exam():
         data = request.get_json()
 
         user_answers = data.get('user_answers', {})
-        # Note: The original questions data (containing answers) must be passed from client for grading
-        questions_with_answers_from_client = data.get('questions', []) 
+        questions = data.get('questions', [])
+        exam_type = data.get('exam_type', '')
 
         correct = 0
         subject_scores = {}
 
-        for i, question in enumerate(questions_with_answers_from_client):
-            # Use question ID or index for lookup
-            q_id = question.get('id', str(i)) 
-            user_answer = user_answers.get(str(q_id))
-            
-            # The subject name should be clean (e.g., 'English', 'Mathematics')
-            subject = question.get('subject', 'Unknown').capitalize() 
+        for i, question in enumerate(questions):
+            user_answer = user_answers.get(str(i))
+            subject = question.get('subject', 'Unknown')
 
             if subject not in subject_scores:
                 subject_scores[subject] = {'total': 0, 'correct': 0}
@@ -807,25 +826,29 @@ def submit_exam():
                 correct += 1
                 subject_scores[subject]['correct'] += 1
 
-        total_questions = len(questions_with_answers_from_client)
+        total_questions = len(questions)
         percentage = round((correct / total_questions) * 100, 2) if total_questions > 0 else 0
+        
+        # Calculate detailed subject breakdown for review
+        subject_breakdown = calculate_subject_breakdown(questions, user_answers)
 
         new_result = ExamResult(
             user_id=session['user_id'],
-            exam_type=data.get('exam_type'),
+            exam_type=exam_type,
             subjects=','.join(data.get('subjects', [])),
             score=correct,
             total_questions=total_questions,
             percentage=percentage,
             time_taken=data.get('time_taken', 0),
             user_answers=json.dumps(user_answers),
-            questions_data=json.dumps(questions_with_answers_from_client)
+            questions_data=json.dumps(questions),
+            subject_details=json.dumps(subject_breakdown)  # Store detailed breakdown
         )
 
         db.session.add(new_result)
         db.session.commit()
 
-        logger.info(f"Exam submitted - User: {session['user_id']}, Exam: {data.get('exam_type')}, Score: {correct}/{total_questions} ({percentage}%)")
+        logger.info(f"Exam submitted - User: {session['user_id']}, Score: {correct}/{total_questions} ({percentage}%)")
 
         return jsonify({
             'success': True,
@@ -833,8 +856,10 @@ def submit_exam():
             'score': correct,
             'total_questions': total_questions,
             'percentage': percentage,
-            'subject_scores': subject_scores, # This data is used by the front-end for the breakdown
-            'result_id': new_result.id
+            'subject_scores': subject_scores,
+            'subject_breakdown': subject_breakdown,  # Return detailed breakdown
+            'result_id': new_result.id,
+            'exam_type': exam_type  # Include exam type for frontend
         })
 
     except Exception as e:
@@ -844,7 +869,7 @@ def submit_exam():
 
 @app.route('/api/exam-results/<int:result_id>')
 def get_exam_result(result_id):
-    # V4: Logic retained - ensures all data for result display is loaded
+    """Get detailed exam result including explanations for review"""
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
@@ -854,28 +879,28 @@ def get_exam_result(result_id):
         if not result:
             return jsonify({'success': False, 'message': 'Result not found!'})
 
-        # Load questions and answers for re-grading/display of subject breakdown on past results
-        questions = json.loads(result.questions_data) if result.questions_data else []
+        # Parse stored data
         user_answers = json.loads(result.user_answers) if result.user_answers else {}
-        
-        # Recalculate subject scores for display consistency (required if past results need breakdown)
-        subject_scores = {}
-        correct = 0
-        total_questions = len(questions)
+        questions = json.loads(result.questions_data) if result.questions_data else []
+        subject_details = json.loads(result.subject_details) if result.subject_details else {}
 
+        # Prepare detailed review data
+        review_questions = []
         for i, question in enumerate(questions):
-            q_id = question.get('id', str(i)) 
-            user_answer = user_answers.get(str(q_id))
-            subject = question.get('subject', 'Unknown').capitalize()
-
-            if subject not in subject_scores:
-                subject_scores[subject] = {'total': 0, 'correct': 0}
-
-            subject_scores[subject]['total'] += 1
-
-            if user_answer and user_answer.upper() == question.get('correct_answer', '').upper():
-                correct += 1
-                subject_scores[subject]['correct'] += 1
+            user_answer = user_answers.get(str(i))
+            correct_answer = question.get('correct_answer', '')
+            is_correct = user_answer and user_answer.upper() == correct_answer.upper()
+            
+            review_questions.append({
+                'index': i,
+                'question': question.get('question'),
+                'options': question.get('options', []),
+                'correct_answer': correct_answer,
+                'user_answer': user_answer,
+                'is_correct': is_correct,
+                'explanation': question.get('explanation', 'No explanation available.'),
+                'subject': question.get('subject', 'Unknown')
+            })
 
         return jsonify({
             'success': True,
@@ -883,14 +908,15 @@ def get_exam_result(result_id):
                 'id': result.id,
                 'exam_type': result.exam_type,
                 'subjects': result.subjects.split(','),
-                'score': correct, # Use recalculated score for safety
-                'total_questions': total_questions,
-                'percentage': round((correct / total_questions) * 100, 2) if total_questions > 0 else 0,
+                'score': result.score,
+                'total_questions': result.total_questions,
+                'percentage': result.percentage,
                 'time_taken': result.time_taken,
                 'created_at': result.created_at.isoformat(),
+                'review_questions': review_questions,  # Detailed review data
+                'subject_details': subject_details,  # Subject breakdown
                 'user_answers': user_answers,
-                'questions': questions,
-                'subject_scores': subject_scores # Included for front-end breakdown display
+                'questions': questions
             }
         })
 
@@ -898,7 +924,75 @@ def get_exam_result(result_id):
         logger.error(f"Get exam result error: {str(e)}")
         return jsonify({'success': False, 'message': 'Error loading exam result.'})
 
-# -------------------- ADMIN ROUTES (Same as V3) --------------------
+@app.route('/api/get-review-data/<int:result_id>')
+def get_review_data(result_id):
+    """Get detailed review data for answer analysis"""
+    try:
+        if 'user_id' not in session:
+            return jsonify({'success': False, 'message': 'Please login first!'})
+
+        result = ExamResult.query.filter_by(id=result_id, user_id=session['user_id']).first()
+
+        if not result:
+            return jsonify({'success': False, 'message': 'Result not found!'})
+
+        questions = json.loads(result.questions_data) if result.questions_data else []
+        user_answers = json.loads(result.user_answers) if result.user_answers else {}
+
+        # Prepare detailed review data
+        all_questions = []
+        correct_questions = []
+        wrong_questions = []
+        unanswered_questions = []
+
+        for i, question in enumerate(questions):
+            user_answer = user_answers.get(str(i))
+            correct_answer = question.get('correct_answer', '')
+            
+            is_correct = user_answer and user_answer.upper() == correct_answer.upper()
+            is_unanswered = user_answer is None or user_answer == ''
+            
+            question_data = {
+                'index': i,
+                'question_number': i + 1,
+                'question': question.get('question'),
+                'options': question.get('options', []),
+                'correct_answer': correct_answer,
+                'user_answer': user_answer if user_answer else 'Not answered',
+                'is_correct': is_correct,
+                'is_unanswered': is_unanswered,
+                'explanation': question.get('explanation', 'No explanation available.'),
+                'subject': question.get('subject', 'Unknown')
+            }
+            
+            all_questions.append(question_data)
+            
+            if is_unanswered:
+                unanswered_questions.append(question_data)
+            elif is_correct:
+                correct_questions.append(question_data)
+            else:
+                wrong_questions.append(question_data)
+
+        return jsonify({
+            'success': True,
+            'review_data': {
+                'all': all_questions,
+                'correct': correct_questions,
+                'wrong': wrong_questions,
+                'unanswered': unanswered_questions,
+                'total_questions': len(questions),
+                'correct_count': len(correct_questions),
+                'wrong_count': len(wrong_questions),
+                'unanswered_count': len(unanswered_questions)
+            }
+        })
+
+    except Exception as e:
+        logger.error(f"Get review data error: {str(e)}")
+        return jsonify({'success': False, 'message': 'Error loading review data.'})
+
+# -------------------- ADMIN ROUTES --------------------
 @app.route('/api/generate-codes', methods=['POST'])
 @admin_required
 def generate_codes():
@@ -1033,7 +1127,7 @@ def admin_codes():
         logger.error(f"Admin codes error: {str(e)}")
         return jsonify({'success': False, 'message': 'Error loading activation codes.'})
 
-# -------------------- ERROR HANDLERS (Same as V3) --------------------
+# -------------------- ERROR HANDLERS --------------------
 @app.errorhandler(404)
 def not_found(error):
     return jsonify({'success': False, 'message': 'Endpoint not found'}), 404
@@ -1047,11 +1141,10 @@ def internal_error(error):
 def too_large(error):
     return jsonify({'success': False, 'message': 'File too large'}), 413
 
-# -------------------- HEALTH CHECK (Same as V3) --------------------
+# -------------------- HEALTH CHECK --------------------
 @app.route('/health')
 def health_check():
     try:
-        # Check database connection by running a simple query
         db.session.execute(db.select(1))
         old_data_count = TemporaryData.query.filter(TemporaryData.expires_at < datetime.utcnow()).count()
         
@@ -1060,7 +1153,7 @@ def health_check():
             'timestamp': datetime.utcnow().isoformat(),
             'database': 'connected',
             'pending_cleanup': old_data_count,
-            'version': '4.0'
+            'version': '3.0'
         })
     except Exception as e:
         logger.error(f"Health check failed: {str(e)}")
@@ -1072,14 +1165,6 @@ def health_check():
         }), 500
 
 # -------------------- APPLICATION STARTUP --------------------
-@app.before_request
-def before_request():
-    # Run data cleanup periodically (e.g., every 6 hours)
-    last_cleanup = session.get('last_cleanup')
-    if not last_cleanup or datetime.utcnow() - datetime.fromisoformat(last_cleanup) > timedelta(hours=6):
-        cleanup_old_data()
-        session['last_cleanup'] = datetime.utcnow().isoformat()
-
 def initialize_application():
     try:
         with app.app_context():
@@ -1093,7 +1178,7 @@ def initialize_application():
                 db.session.commit()
                 logger.info("Initial activation codes created")
             
-            logger.info("MSH CBT HUB Application V4 Initialized Successfully")
+            logger.info("MSH CBT HUB Application V3 Initialized Successfully")
     except Exception as e:
         logger.error(f"Application initialization failed: {str(e)}")
 
@@ -1101,12 +1186,14 @@ initialize_application()
 
 # -------------------- RUN --------------------
 if __name__ == '__main__':
-    print("🚀 Starting MSH CBT HUB Server - VERSION 4 (FINAL FIX)...")
-    print("✅ All V4 requirements implemented:")
-    print("   ✅ CRITICAL FIX: Exam questions limited to **EXACTLY 60** (15 English + Others).")
-    print("   ✅ WAEC/JAMB questions are now properly distributed and fully shuffled.")
-    print("   ✅ WAEC Result Assurance: Backend is now explicitly calculating subject scores for past results.")
+    print("🚀 Starting MSH CBT HUB Server - VERSION 3...")
+    print("✅ All V3 requirements implemented:")
+    print("   ✅ FIXED: Answer review system now shows correct/wrong answers with explanations")
+    print("   ✅ FIXED: WAEC result page now displays properly")
+    print("   ✅ ENHANCED: Detailed subject breakdown in results")
+    print("   ✅ NEW: /api/get-review-data endpoint for detailed review")
+    print("   ✅ CRITICAL BUG FIX: English questions load properly")
     print("⚠️  IMPORTANT: Ensure you set the SECRET_KEY environment variable!")
     print("📁 Running with templates/ and static/ folders")
-    print("📝 Note: Ensure question JSON files exist in the root or 'questions' subdirectory.")
+    print("📝 Note: Ensure question JSON files have 'explanation' field")
     app.run(host='0.0.0.0', port=5000, debug=True, threaded=True)
