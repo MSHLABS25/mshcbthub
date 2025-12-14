@@ -220,127 +220,101 @@ def load_questions_from_file(exam_type, subject):
         logger.error(f"Error loading questions from {file_name}: {str(e)}")
         return None
 
-def get_questions_with_english_priority(exam_type, selected_subjects):
-    """Load questions with guaranteed English question inclusion - FIXED: 10-15 questions per subject"""
-    all_questions = []
+def ensure_english_questions(questions, exam_type, selected_subjects):
+    """CRITICAL FIX: Ensure English questions are included in exams"""
+    # Check if English is required but missing
+    english_required = 'english' in [s.lower() for s in selected_subjects]
     
-    # FIX: Track how many questions we take per subject
-    questions_per_subject = {}
+    if not english_required:
+        return questions
+    
+    # Count current English questions
+    current_english_count = sum(1 for q in questions if q.get('subject') == 'english')
+    
+    # We need 10-15 English questions
+    if current_english_count >= 10:
+        return questions
+    
+    # Load additional English questions
+    try:
+        english_questions = load_questions_from_file(exam_type, 'english')
+        if english_questions:
+            # Filter out questions we already have
+            existing_question_texts = [q.get('question', '') for q in questions]
+            new_english_questions = [
+                q for q in english_questions 
+                if q.get('question', '') not in existing_question_texts
+            ]
+            
+            # Calculate how many English questions we need to add (10-15 total)
+            target_english_count = random.randint(10, 15)
+            needed_english = target_english_count - current_english_count
+            
+            if needed_english > 0 and new_english_questions:
+                # Add English questions at the beginning to ensure they're included
+                questions_to_add = min(needed_english, len(new_english_questions))
+                questions = new_english_questions[:questions_to_add] + questions
+                logger.info(f"Added {questions_to_add} English questions to ensure subject coverage")
+                
+    except Exception as e:
+        logger.error(f"Error ensuring English questions: {str(e)}")
+    
+    return questions
+
+def get_questions_with_english_priority(exam_type, selected_subjects):
+    """Load questions with guaranteed English question inclusion - FIXED: Better distribution"""
+    all_questions = []
     
     # CRITICAL FIX: Load English questions first to ensure they're included
     if 'english' in [s.lower() for s in selected_subjects]:
         english_questions = load_questions_from_file(exam_type, 'english')
         if english_questions:
-            # FIX: Ensure we take exactly 10-15 English questions
-            # Randomly select between 10 and 15 questions (or fewer if not available)
-            target_count = random.randint(10, min(15, len(english_questions)))
-            
-            # FIX: Use random.sample for proper shuffling
-            if len(english_questions) > target_count:
-                selected_english = random.sample(english_questions, target_count)
-            else:
-                selected_english = english_questions
-                
-            all_questions.extend(selected_english)
-            questions_per_subject['english'] = len(selected_english)
-            logger.info(f"Loaded {len(selected_english)} English questions (target: {target_count})")
-        else:
-            logger.error("No English questions found! This is a critical issue.")
-            # FIX: Add dummy English questions as fallback to prevent empty exams
-            all_questions.extend(generate_dummy_english_questions(15))
-            questions_per_subject['english'] = 15
-            logger.warning("Added dummy English questions as fallback")
+            # Take 10-15 English questions (random)
+            english_to_take = random.randint(10, min(15, len(english_questions)))
+            # Shuffle and take required number
+            random.shuffle(english_questions)
+            all_questions.extend(english_questions[:english_to_take])
+            logger.info(f"Loaded {english_to_take} English questions as priority")
     
-    # FIX: Load other subjects with 10-15 questions each
-    for subject in selected_subjects:
-        subject_lower = subject.lower()
-        if subject_lower != 'english':  # Skip English as we already loaded it
+    # Calculate remaining questions needed
+    remaining_questions = 60 - len(all_questions)
+    
+    # Load other subjects - distribute remaining questions evenly
+    other_subjects = [s for s in selected_subjects if s.lower() != 'english']
+    
+    if other_subjects and remaining_questions > 0:
+        # Calculate questions per other subject
+        questions_per_subject = remaining_questions // len(other_subjects)
+        extra_questions = remaining_questions % len(other_subjects)
+        
+        for i, subject in enumerate(other_subjects):
+            subject_lower = subject.lower()
             questions = load_questions_from_file(exam_type, subject_lower)
             if questions:
-                # FIX: Ensure we take 10-15 questions per subject
-                # Randomly select between 10 and 15 questions
-                target_count = random.randint(10, min(15, len(questions)))
+                # Calculate how many questions to take for this subject
+                to_take = questions_per_subject
+                if i < extra_questions:
+                    to_take += 1
                 
-                if len(questions) > target_count:
-                    selected_questions = random.sample(questions, target_count)
-                else:
-                    selected_questions = questions
-                    
-                all_questions.extend(selected_questions)
-                questions_per_subject[subject_lower] = len(selected_questions)
-                logger.info(f"Loaded {len(selected_questions)} questions for {subject} (target: {target_count})")
+                # Ensure we don't take more than available
+                to_take = min(to_take, len(questions))
+                
+                if to_take > 0:
+                    # Shuffle and take required number
+                    random.shuffle(questions)
+                    all_questions.extend(questions[:to_take])
+                    logger.info(f"Loaded {to_take} questions for {subject}")
             else:
                 logger.warning(f"No questions found for subject: {subject}")
-                # FIX: Add dummy questions for missing subjects
-                all_questions.extend(generate_dummy_questions(subject_lower, 12))
-                questions_per_subject[subject_lower] = 12
-                logger.warning(f"Added dummy questions for {subject} as fallback")
     
-    # FIX: Final validation - count English questions
-    if 'english' in [s.lower() for s in selected_subjects]:
-        english_count = sum(1 for q in all_questions if q.get('subject') == 'english')
-        if english_count < 10:
-            logger.error(f"CRITICAL: Only {english_count} English questions loaded! Adding more...")
-            # Emergency fallback
-            emergency_english = generate_dummy_english_questions(15 - english_count)
-            all_questions = emergency_english + all_questions
-            logger.warning(f"Added {len(emergency_english)} emergency English questions")
+    # Final shuffle of all questions
+    random.shuffle(all_questions)
     
-    # FIX: Log detailed subject distribution
-    subject_distribution = {}
-    for question in all_questions:
-        subject = question.get('subject', 'unknown')
-        subject_distribution[subject] = subject_distribution.get(subject, 0) + 1
-    
-    logger.info(f"Final question distribution: {subject_distribution}")
-    logger.info(f"Total questions loaded: {len(all_questions)}")
-    
-    # FIX: Ensure we don't exceed 60 questions total
+    # Ensure we have exactly 60 questions
     if len(all_questions) > 60:
-        logger.info(f"Truncating {len(all_questions)} questions to 60 maximum")
         all_questions = all_questions[:60]
     
     return all_questions
-
-def generate_dummy_english_questions(count):
-    """Generate dummy English questions as emergency fallback"""
-    dummy_questions = []
-    for i in range(count):
-        dummy_questions.append({
-            'question': f'English Question {i+1}: Choose the correct option.',
-            'options': {'A': 'Option A', 'B': 'Option B', 'C': 'Option C', 'D': 'Option D'},
-            'correct_answer': random.choice(['A', 'B', 'C', 'D']),
-            'explanation': 'This is a placeholder question.',
-            'subject': 'english'
-        })
-    return dummy_questions
-
-def generate_dummy_questions(subject, count):
-    """Generate dummy questions for missing subjects"""
-    dummy_questions = []
-    subject_names = {
-        'mathematics': 'Mathematics',
-        'physics': 'Physics',
-        'chemistry': 'Chemistry',
-        'biology': 'Biology',
-        'geography': 'Geography',
-        'economics': 'Economics',
-        'government': 'Government',
-        'literature': 'Literature',
-        'crs': 'Christian Religious Studies',
-        'irs': 'Islamic Religious Studies'
-    }
-    subject_name = subject_names.get(subject, subject.capitalize())
-    
-    for i in range(count):
-        dummy_questions.append({
-            'question': f'{subject_name} Question {i+1}: What is the correct answer?',
-            'options': {'A': 'Choice A', 'B': 'Choice B', 'C': 'Choice C', 'D': 'Choice D'},
-            'correct_answer': random.choice(['A', 'B', 'C', 'D']),
-            'explanation': f'This is a placeholder {subject_name} question.',
-            'subject': subject
-        })
-    return dummy_questions
 
 def cleanup_old_data():
     """Auto-delete non-important data after 30 days"""
