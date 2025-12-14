@@ -295,8 +295,11 @@ function hidePageLoading() {
 
 /**
  * Initialize page-specific functionality
+ * FIX: Added proper results page initialization
  */
 function initializePage(pageName, data) {
+    console.log(`Initializing page: ${pageName}`);
+    
     switch (pageName) {
         case 'dashboard':
             loadDashboard();
@@ -313,13 +316,29 @@ function initializePage(pageName, data) {
             }
             break;
         case 'results':
-            if (AppState.examResults) {
-                displayResults(AppState.examResults);
-            }
+            // FIX: Call displayResults with a small delay to ensure DOM is ready
+            setTimeout(() => {
+                displayResults();
+            }, 100);
             break;
         case 'review':
             if (AppState.examResults) {
                 displayReviewQuestions('all');
+            } else {
+                // Try to load from session storage
+                const savedResults = sessionStorage.getItem('msh_cbt_exam_results');
+                if (savedResults) {
+                    try {
+                        AppState.examResults = JSON.parse(savedResults);
+                        displayReviewQuestions('all');
+                    } catch (e) {
+                        showNotification('No exam results to review', 'warning');
+                        showPage('dashboard');
+                    }
+                } else {
+                    showNotification('No exam results to review', 'warning');
+                    showPage('dashboard');
+                }
             }
             break;
     }
@@ -1517,7 +1536,7 @@ function showSubmitConfirmation(unanswered) {
 }
 
 /**
- * Submit exam to backend
+ * Submit exam to backend - FIX: Added session storage backup
  */
 async function submitExam() {
     if (!AppState.currentExam) return;
@@ -1569,6 +1588,13 @@ async function submitExam() {
                 subjectScores: result.subject_scores
             };
             
+            // FIX: Save to session storage immediately
+            try {
+                sessionStorage.setItem('msh_cbt_exam_results', JSON.stringify(AppState.examResults));
+            } catch (e) {
+                console.error('Failed to save results to session storage:', e);
+            }
+            
             showNotification('Exam submitted successfully!', 'success');
             showPage('results');
         } else {
@@ -1577,17 +1603,29 @@ async function submitExam() {
     } catch (error) {
         console.error('Error submitting exam:', error);
         // Still show results even if backend fails
+        const score = calculateScore();
+        const percentage = Math.round((score / AppState.currentExam.questions.length) * 100);
+        
         AppState.examResults = {
-            score: calculateScore(),
+            score: score,
             totalQuestions: AppState.currentExam.questions.length,
-            percentage: Math.round((calculateScore() / AppState.currentExam.questions.length) * 100),
+            percentage: percentage,
             timeTaken: timeTaken,
             date: new Date().toLocaleDateString(),
             subjects: AppState.currentExam.subjects,
             examType: AppState.currentExam.type,
             userAnswers: AppState.currentExam.userAnswers,
-            questions: AppState.currentExam.questions
+            questions: AppState.currentExam.questions,
+            subjectScores: {}  // Empty for offline mode
         };
+        
+        // FIX: Save to session storage for offline mode
+        try {
+            sessionStorage.setItem('msh_cbt_exam_results', JSON.stringify(AppState.examResults));
+        } catch (e) {
+            console.error('Failed to save offline results:', e);
+        }
+        
         showNotification('Exam submitted (offline mode)', 'warning');
         showPage('results');
     }
@@ -1634,9 +1672,39 @@ function updateProgress() {
 
 /**
  * Display exam results - V2 UPDATE: Modern design
+ * FIX: Added proper initialization check
  */
 function displayResults() {
-    if (!AppState.examResults) return;
+    // FIX: Check if we're on the results page
+    const resultsPage = document.getElementById('results-page');
+    if (!resultsPage || !resultsPage.classList.contains('active')) {
+        console.log('Results page not active, not displaying results');
+        return;
+    }
+    
+    // FIX: Validate exam results exist
+    if (!AppState.examResults) {
+        console.error('No exam results to display!');
+        showNotification('No exam results found. Please complete an exam first.', 'warning');
+        
+        // Try to get results from session storage as fallback
+        const savedResults = sessionStorage.getItem('msh_cbt_exam_results');
+        if (savedResults) {
+            try {
+                AppState.examResults = JSON.parse(savedResults);
+                console.log('Loaded results from session storage');
+            } catch (e) {
+                console.error('Failed to parse saved results:', e);
+                setTimeout(() => showPage('dashboard'), 2000);
+                return;
+            }
+        } else {
+            setTimeout(() => showPage('dashboard'), 2000);
+            return;
+        }
+    }
+    
+    console.log('Displaying exam results:', AppState.examResults);
     
     // Update results display
     document.getElementById('scorePercentage').textContent = `${AppState.examResults.percentage}%`;
@@ -1678,6 +1746,13 @@ function displayResults() {
 
     // Update subject breakdown
     updateSubjectBreakdown();
+    
+    // FIX: Also save results to session storage as backup
+    try {
+        sessionStorage.setItem('msh_cbt_exam_results', JSON.stringify(AppState.examResults));
+    } catch (e) {
+        console.error('Failed to save results to session storage:', e);
+    }
 }
 
 /**
