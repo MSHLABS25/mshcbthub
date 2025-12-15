@@ -1,4 +1,4 @@
-# app.py - VERSION 2 - UPDATED WITH CRITICAL ENGLISH QUESTION FIX
+# app.py - VERSION 3 - UPDATED WITH 60 QUESTIONS FIX AND JAMB RESULTS FIX
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for, send_file
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -128,7 +128,7 @@ with app.app_context():
     except Exception as e:
         logger.error(f"Error creating database tables: {str(e)}")
 
-# -------------------- HELPERS - V2 ENHANCED --------------------
+# -------------------- HELPERS - V3 ENHANCED --------------------
 def generate_activation_code():
     """Generate MSH-XXXX-XXXX format codes"""
     prefix = "MSH-"
@@ -220,99 +220,125 @@ def load_questions_from_file(exam_type, subject):
         logger.error(f"Error loading questions from {file_name}: {str(e)}")
         return None
 
-def ensure_english_questions(questions, exam_type, selected_subjects):
-    """CRITICAL FIX: Ensure English questions are included in exams"""
-    # Check if English is required but missing
-    english_required = 'english' in [s.lower() for s in selected_subjects]
+def calculate_subject_weights(selected_subjects, exam_type):
+    """
+    Calculate weight for each subject based on exam type and subject count.
+    V3 FIX: Ensure exactly 60 questions with proper distribution.
+    """
+    total_subjects = len(selected_subjects)
+    english_weight = 0
     
-    if not english_required:
-        return questions
+    # Determine English weight (10-15 questions)
+    if 'english' in selected_subjects:
+        english_weight = random.randint(10, 15)
     
-    # Count current English questions
-    current_english_count = sum(1 for q in questions if q.get('subject') == 'english')
+    # Calculate remaining questions for other subjects
+    remaining_questions = 60 - english_weight
     
-    # We need 10-15 English questions
-    if current_english_count >= 10:
-        return questions
+    # Distribute remaining questions among other subjects
+    other_subjects = [s for s in selected_subjects if s != 'english']
+    other_subjects_count = len(other_subjects)
     
-    # Load additional English questions
-    try:
-        english_questions = load_questions_from_file(exam_type, 'english')
-        if english_questions:
-            # Filter out questions we already have
-            existing_question_texts = [q.get('question', '') for q in questions]
-            new_english_questions = [
-                q for q in english_questions 
-                if q.get('question', '') not in existing_question_texts
-            ]
-            
-            # Calculate how many English questions we need to add (10-15 total)
-            target_english_count = random.randint(10, 15)
-            needed_english = target_english_count - current_english_count
-            
-            if needed_english > 0 and new_english_questions:
-                # Add English questions at the beginning to ensure they're included
-                questions_to_add = min(needed_english, len(new_english_questions))
-                questions = new_english_questions[:questions_to_add] + questions
-                logger.info(f"Added {questions_to_add} English questions to ensure subject coverage")
-                
-    except Exception as e:
-        logger.error(f"Error ensuring English questions: {str(e)}")
+    if other_subjects_count > 0:
+        base_per_subject = remaining_questions // other_subjects_count
+        extra_questions = remaining_questions % other_subjects_count
+        
+        subject_weights = {}
+        
+        if 'english' in selected_subjects:
+            subject_weights['english'] = english_weight
+        
+        # Distribute base questions
+        for subject in other_subjects:
+            subject_weights[subject] = base_per_subject
+        
+        # Distribute extra questions randomly
+        subjects_list = other_subjects.copy()
+        random.shuffle(subjects_list)
+        
+        for i in range(extra_questions):
+            if i < len(subjects_list):
+                subject_weights[subjects_list[i]] += 1
+    else:
+        # Only English selected (shouldn't happen but handle it)
+        subject_weights = {'english': 60}
     
-    return questions
+    logger.info(f"Subject weights for {exam_type}: {subject_weights}")
+    return subject_weights
 
-def get_questions_with_english_priority(exam_type, selected_subjects):
-    """Load questions with guaranteed English question inclusion - FIXED: Better distribution"""
+def select_questions_for_subject(questions, required_count):
+    """Select required number of questions from available pool"""
+    if len(questions) <= required_count:
+        return questions.copy()
+    
+    # Shuffle and select required count
+    shuffled = questions.copy()
+    random.shuffle(shuffled)
+    return shuffled[:required_count]
+
+def get_questions_for_exam(exam_type, selected_subjects):
+    """
+    V3 FIX: Get exactly 60 questions with proper subject distribution.
+    Ensure English has 10-15 questions, other subjects get proportional distribution.
+    """
     all_questions = []
     
-    # CRITICAL FIX: Load English questions first to ensure they're included
-    if 'english' in [s.lower() for s in selected_subjects]:
-        english_questions = load_questions_from_file(exam_type, 'english')
-        if english_questions:
-            # Take 10-15 English questions (random)
-            english_to_take = random.randint(10, min(15, len(english_questions)))
-            # Shuffle and take required number
-            random.shuffle(english_questions)
-            all_questions.extend(english_questions[:english_to_take])
-            logger.info(f"Loaded {english_to_take} English questions as priority")
+    # Calculate how many questions each subject should get
+    subject_weights = calculate_subject_weights([s.lower() for s in selected_subjects], exam_type)
     
-    # Calculate remaining questions needed
-    remaining_questions = 60 - len(all_questions)
-    
-    # Load other subjects - distribute remaining questions evenly
-    other_subjects = [s for s in selected_subjects if s.lower() != 'english']
-    
-    if other_subjects and remaining_questions > 0:
-        # Calculate questions per other subject
-        questions_per_subject = remaining_questions // len(other_subjects)
-        extra_questions = remaining_questions % len(other_subjects)
+    # Load questions for each subject according to weights
+    for subject, required_count in subject_weights.items():
+        questions = load_questions_from_file(exam_type, subject)
         
-        for i, subject in enumerate(other_subjects):
+        if not questions:
+            logger.warning(f"No questions found for {subject}, trying to load from other subjects")
+            continue
+        
+        # Select required number of questions
+        selected = select_questions_for_subject(questions, required_count)
+        
+        if len(selected) < required_count:
+            logger.warning(f"Only {len(selected)} questions available for {subject}, expected {required_count}")
+        
+        all_questions.extend(selected)
+    
+    # If we still don't have 60 questions, try to fill from available subjects
+    if len(all_questions) < 60:
+        logger.warning(f"Only {len(all_questions)} questions loaded, trying to fill to 60")
+        
+        # Try to get more questions from available subjects
+        for subject in selected_subjects:
+            if len(all_questions) >= 60:
+                break
+                
             subject_lower = subject.lower()
             questions = load_questions_from_file(exam_type, subject_lower)
+            
             if questions:
-                # Calculate how many questions to take for this subject
-                to_take = questions_per_subject
-                if i < extra_questions:
-                    to_take += 1
+                # Get questions we haven't used yet
+                used_questions = [q.get('question', '') for q in all_questions]
+                new_questions = [q for q in questions if q.get('question', '') not in used_questions]
                 
-                # Ensure we don't take more than available
-                to_take = min(to_take, len(questions))
-                
-                if to_take > 0:
-                    # Shuffle and take required number
-                    random.shuffle(questions)
-                    all_questions.extend(questions[:to_take])
-                    logger.info(f"Loaded {to_take} questions for {subject}")
-            else:
-                logger.warning(f"No questions found for subject: {subject}")
+                if new_questions:
+                    needed = 60 - len(all_questions)
+                    to_add = min(needed, len(new_questions))
+                    all_questions.extend(new_questions[:to_add])
     
-    # Final shuffle of all questions
+    # Final shuffle
     random.shuffle(all_questions)
     
-    # Ensure we have exactly 60 questions
+    # Ensure exactly 60 questions
     if len(all_questions) > 60:
         all_questions = all_questions[:60]
+    
+    # Log distribution for debugging
+    subject_counts = {}
+    for question in all_questions:
+        subject = question.get('subject', 'unknown')
+        subject_counts[subject] = subject_counts.get(subject, 0) + 1
+    
+    logger.info(f"Final question distribution for {exam_type}: {subject_counts}")
+    logger.info(f"Total questions: {len(all_questions)}")
     
     return all_questions
 
@@ -666,7 +692,7 @@ def activate_account():
         db.session.rollback()
         return jsonify({'success': False, 'message': 'Activation failed. Please try again.'})
 
-# -------------------- EXAM SYSTEM - CRITICAL FIXES --------------------
+# -------------------- EXAM SYSTEM - V3 CRITICAL FIXES --------------------
 @app.route('/api/start-exam', methods=['POST'])
 def start_exam():
     try:
@@ -700,7 +726,10 @@ def start_exam():
 
 @app.route('/api/get-questions', methods=['POST'])
 def get_questions():
-    """CRITICAL FIX: Enhanced question loading with guaranteed English questions"""
+    """
+    V3 FIX: Enhanced question loading with exactly 60 questions.
+    English gets 10-15 questions, other subjects get proportional distribution.
+    """
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
@@ -739,8 +768,8 @@ def get_questions():
                     'message': 'JAMB requires English Language as a compulsory subject.'
                 })
 
-        # CRITICAL FIX: Use enhanced question loading with English priority
-        all_questions = get_questions_with_english_priority(exam_type, subjects)
+        # V3 FIX: Use new question loading with 60 questions guarantee
+        all_questions = get_questions_for_exam(exam_type, subjects)
 
         if not all_questions:
             return jsonify({
@@ -748,32 +777,48 @@ def get_questions():
                 'message': 'No questions found for the selected subjects! Please try different subjects.'
             })
 
-        # Ensure we have exactly 60 questions
-        if len(all_questions) > 60:
+        # Final check: Ensure we have exactly 60 questions
+        if len(all_questions) != 60:
+            logger.warning(f"Expected 60 questions, but got {len(all_questions)}. Adjusting...")
+            # Try to get more questions if we have less
+            if len(all_questions) < 60:
+                # Try to load additional questions from English (usually has many)
+                if 'english' in [s.lower() for s in subjects]:
+                    english_questions = load_questions_from_file(exam_type, 'english')
+                    if english_questions:
+                        used_questions = [q.get('question', '') for q in all_questions]
+                        new_questions = [q for q in english_questions 
+                                       if q.get('question', '') not in used_questions]
+                        needed = 60 - len(all_questions)
+                        to_add = min(needed, len(new_questions))
+                        all_questions.extend(new_questions[:to_add])
+            
+            # Final shuffle
             random.shuffle(all_questions)
-            selected_questions = all_questions[:60]
-        else:
-            selected_questions = all_questions
+            
+            # Ensure exactly 60
+            if len(all_questions) > 60:
+                all_questions = all_questions[:60]
 
-        # Final check: Ensure English questions are included if required
-        if 'english' in [s.lower() for s in subjects]:
-            english_questions_in_exam = sum(1 for q in selected_questions if q.get('subject') == 'english')
-            if english_questions_in_exam < 10:
-                logger.warning(f"Only {english_questions_in_exam} English questions in exam, expected at least 10")
-
-        # Log subject distribution for debugging
+        # Log final distribution
         subject_counts = {}
-        for question in selected_questions:
+        for question in all_questions:
             subject = question.get('subject', 'unknown')
             subject_counts[subject] = subject_counts.get(subject, 0) + 1
 
-        logger.info(f"Loaded {len(selected_questions)} questions for {exam_type} - Subjects: {subject_counts}")
+        logger.info(f"Loaded {len(all_questions)} questions for {exam_type} - Final distribution: {subject_counts}")
+
+        # V3 FIX: Add question IDs for frontend tracking
+        for i, question in enumerate(all_questions):
+            question['id'] = i
+            question['selected_answer'] = None
 
         return jsonify({
             'success': True,
-            'questions': selected_questions,
-            'total_questions': len(selected_questions),
-            'subject_distribution': subject_counts
+            'questions': all_questions,
+            'total_questions': len(all_questions),
+            'subject_distribution': subject_counts,
+            'exam_type': exam_type
         })
 
     except Exception as e:
@@ -782,21 +827,34 @@ def get_questions():
 
 @app.route('/api/submit-exam', methods=['POST'])
 def submit_exam():
+    """
+    V3 FIX: Enhanced exam submission with better error handling and JAMB results fix.
+    """
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
 
         data = request.get_json()
-
+        
+        # V3 FIX: Better validation
+        if not data:
+            return jsonify({'success': False, 'message': 'No data received!'})
+        
         user_answers = data.get('user_answers', {})
         questions = data.get('questions', [])
+        exam_type = data.get('exam_type', '')
+        subjects = data.get('subjects', [])
+
+        if not questions:
+            return jsonify({'success': False, 'message': 'No questions data!'})
 
         correct = 0
         subject_scores = {}
 
+        # Calculate scores
         for i, question in enumerate(questions):
             user_answer = user_answers.get(str(i))
-            subject = question.get('subject', 'Unknown')
+            subject = question.get('subject', 'Unknown').lower()
 
             if subject not in subject_scores:
                 subject_scores[subject] = {'total': 0, 'correct': 0}
@@ -810,10 +868,11 @@ def submit_exam():
         total_questions = len(questions)
         percentage = round((correct / total_questions) * 100, 2) if total_questions > 0 else 0
 
+        # Save result to database
         new_result = ExamResult(
             user_id=session['user_id'],
-            exam_type=data.get('exam_type'),
-            subjects=','.join(data.get('subjects', [])),
+            exam_type=exam_type,
+            subjects=','.join(subjects),
             score=correct,
             total_questions=total_questions,
             percentage=percentage,
@@ -825,8 +884,10 @@ def submit_exam():
         db.session.add(new_result)
         db.session.commit()
 
-        logger.info(f"Exam submitted - User: {session['user_id']}, Score: {correct}/{total_questions} ({percentage}%)")
+        logger.info(f"Exam submitted - User: {session['user_id']}, Type: {exam_type}, "
+                   f"Score: {correct}/{total_questions} ({percentage}%)")
 
+        # V3 FIX: Return proper structure for both WAEC and JAMB
         return jsonify({
             'success': True,
             'message': 'Exam submitted successfully!',
@@ -834,7 +895,9 @@ def submit_exam():
             'total_questions': total_questions,
             'percentage': percentage,
             'subject_scores': subject_scores,
-            'result_id': new_result.id
+            'result_id': new_result.id,
+            'exam_type': exam_type,
+            'subjects': subjects
         })
 
     except Exception as e:
@@ -844,6 +907,9 @@ def submit_exam():
 
 @app.route('/api/exam-results/<int:result_id>')
 def get_exam_result(result_id):
+    """
+    V3 FIX: Enhanced results retrieval for both WAEC and JAMB.
+    """
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
@@ -853,19 +919,39 @@ def get_exam_result(result_id):
         if not result:
             return jsonify({'success': False, 'message': 'Result not found!'})
 
+        # Parse stored data
+        user_answers = json.loads(result.user_answers) if result.user_answers else {}
+        questions = json.loads(result.questions_data) if result.questions_data else []
+        subjects_list = result.subjects.split(',') if result.subjects else []
+
+        # V3 FIX: Calculate subject scores for display
+        subject_scores = {}
+        if questions:
+            for i, question in enumerate(questions):
+                subject = question.get('subject', 'Unknown').lower()
+                if subject not in subject_scores:
+                    subject_scores[subject] = {'total': 0, 'correct': 0}
+                
+                subject_scores[subject]['total'] += 1
+                
+                user_answer = user_answers.get(str(i))
+                if user_answer and user_answer.upper() == question.get('correct_answer', '').upper():
+                    subject_scores[subject]['correct'] += 1
+
         return jsonify({
             'success': True,
             'result': {
                 'id': result.id,
                 'exam_type': result.exam_type,
-                'subjects': result.subjects.split(','),
+                'subjects': subjects_list,
                 'score': result.score,
                 'total_questions': result.total_questions,
                 'percentage': result.percentage,
                 'time_taken': result.time_taken,
                 'created_at': result.created_at.isoformat(),
-                'user_answers': json.loads(result.user_answers) if result.user_answers else {},
-                'questions': json.loads(result.questions_data) if result.questions_data else []
+                'user_answers': user_answers,
+                'questions': questions,
+                'subject_scores': subject_scores  # V3 FIX: Include subject scores
             }
         })
 
@@ -1034,7 +1120,7 @@ def health_check():
             'timestamp': datetime.utcnow().isoformat(),
             'database': 'connected',
             'pending_cleanup': old_data_count,
-            'version': '2.0'
+            'version': '3.0'
         })
     except Exception as e:
         logger.error(f"Health check failed: {str(e)}")
@@ -1059,7 +1145,7 @@ def initialize_application():
                 db.session.commit()
                 logger.info("Initial activation codes created")
             
-            logger.info("MSH CBT HUB Application V2 Initialized Successfully")
+            logger.info("MSH CBT HUB Application V3 Initialized Successfully")
     except Exception as e:
         logger.error(f"Application initialization failed: {str(e)}")
 
@@ -1067,12 +1153,13 @@ initialize_application()
 
 # -------------------- RUN --------------------
 if __name__ == '__main__':
-    print("🚀 Starting MSH CBT HUB Server - VERSION 2...")
-    print("✅ All V2 requirements implemented:")
-    print("   ✅ CRITICAL BUG FIX: English questions now load properly")
-    print("   ✅ Enhanced question loading with English priority")
-    print("   ✅ Performance optimizations")
-    print("   ✅ Template splitting for faster loading")
+    print("🚀 Starting MSH CBT HUB Server - VERSION 3...")
+    print("✅ All V3 requirements implemented:")
+    print("   ✅ FIXED: Exactly 60 questions per exam")
+    print("   ✅ FIXED: English gets 10-15 random questions")
+    print("   ✅ FIXED: Proper subject distribution")
+    print("   ✅ FIXED: JAMB results display issue")
+    print("   ✅ FIXED: Real questions only from pool")
     print("⚠️  IMPORTANT: Ensure you set the SECRET_KEY environment variable!")
     print("📁 Running with templates/ and static/ folders")
     print("📝 Note: Ensure question JSON files exist in questions/ folder")
