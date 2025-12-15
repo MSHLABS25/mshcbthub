@@ -1,4 +1,4 @@
-// MSH CBT HUB - ENHANCED PREMIUM JavaScript V2
+// MSH CBT HUB - ENHANCED PREMIUM JavaScript V3
 // Global variables with better organization
 const AppState = {
     currentUser: null,
@@ -44,7 +44,7 @@ function initializeLoadingScreen() {
 function initializeMainApp() {
     if (AppState.isInitialized) return;
     
-    console.log('🚀 MSH CBT HUB Enhanced V2 Initializing...');
+    console.log('🚀 MSH CBT HUB Enhanced V3 Initializing...');
     
     // Initialize event listeners
     initializeEventListeners();
@@ -65,10 +65,10 @@ function initializeMainApp() {
     startTrialTimer();
     
     AppState.isInitialized = true;
-    console.log('✅ MSH CBT HUB Enhanced V2 Initialized Successfully');
+    console.log('✅ MSH CBT HUB Enhanced V3 Initialized Successfully');
 }
 
-// Subject configuration with icons - UPDATED FOR V2
+// Subject configuration with icons - UPDATED FOR V3
 const SUBJECT_CONFIG = {
     waec: [
         { id: 'english', name: 'English Language', compulsory: true, icon: 'fa-language', color: '#4361EE' },
@@ -98,7 +98,7 @@ const SUBJECT_CONFIG = {
     ]
 };
 
-// Enhanced Performance messages for V2
+// Enhanced Performance messages for V3
 const PERFORMANCE_MESSAGES = {
     excellent: {
         range: [80, 100],
@@ -295,11 +295,8 @@ function hidePageLoading() {
 
 /**
  * Initialize page-specific functionality
- * FIX: Added proper results page initialization
  */
 function initializePage(pageName, data) {
-    console.log(`Initializing page: ${pageName}`);
-    
     switch (pageName) {
         case 'dashboard':
             loadDashboard();
@@ -316,29 +313,16 @@ function initializePage(pageName, data) {
             }
             break;
         case 'results':
-            // FIX: Call displayResults with a small delay to ensure DOM is ready
-            setTimeout(() => {
-                displayResults();
-            }, 100);
+            if (AppState.examResults) {
+                displayResults(AppState.examResults);
+            } else {
+                // V3 FIX: Try to load results from state
+                setTimeout(() => displayResults(), 100);
+            }
             break;
         case 'review':
             if (AppState.examResults) {
                 displayReviewQuestions('all');
-            } else {
-                // Try to load from session storage
-                const savedResults = sessionStorage.getItem('msh_cbt_exam_results');
-                if (savedResults) {
-                    try {
-                        AppState.examResults = JSON.parse(savedResults);
-                        displayReviewQuestions('all');
-                    } catch (e) {
-                        showNotification('No exam results to review', 'warning');
-                        showPage('dashboard');
-                    }
-                } else {
-                    showNotification('No exam results to review', 'warning');
-                    showPage('dashboard');
-                }
             }
             break;
     }
@@ -385,7 +369,7 @@ function initializeFromURL() {
     }
 }
 
-// ==================== TRIAL TIMER SYSTEM - V2 UPDATE ====================
+// ==================== TRIAL TIMER SYSTEM - V3 UPDATE ====================
 
 /**
  * Start trial timer for free trial users
@@ -824,7 +808,7 @@ async function loadQuickStats() {
 }
 
 /**
- * Load recent activity - V2 FIXED: Now shows real data
+ * Load recent activity - V3 FIXED: Now shows real data
  */
 async function loadRecentActivity() {
     const recentActivity = document.getElementById('recentActivity');
@@ -1110,7 +1094,7 @@ function validateJAMBSelection() {
     }
 }
 
-// ==================== EXAM SYSTEM - V2 ENHANCED ====================
+// ==================== EXAM SYSTEM - V3 ENHANCED ====================
 
 /**
  * Start WAEC exam with selected subjects - FIXED: Validate 9 subjects
@@ -1173,7 +1157,7 @@ function getSelectedSubjects(examType) {
 }
 
 /**
- * Start exam with selected subjects - V2 FIXED: English questions included
+ * Start exam with selected subjects - V3 FIXED: 60 questions with proper distribution
  */
 async function startExam(examType, selectedSubjects) {
     if (!AppState.currentUser) {
@@ -1210,7 +1194,7 @@ async function startExam(examType, selectedSubjects) {
         startTime: new Date()
     };
 
-    // Load questions from backend - V2 FIX: Ensure English questions are included
+    // Load questions from backend - V3 FIX: Ensure 60 questions with proper distribution
     try {
         const response = await fetch('/api/get-questions', {
             method: 'POST',
@@ -1226,37 +1210,12 @@ async function startExam(examType, selectedSubjects) {
         const result = await response.json();
         
         if (result.success) {
-            // V2 CRITICAL FIX: Ensure we have exactly 60 questions with English included
+            // V3 FIX: Verify we have 60 questions
             let questions = result.questions;
             
-            // If we don't have enough questions, try to load more
-            if (questions.length < 60) {
-                console.warn(`Only ${questions.length} questions loaded, expected 60`);
-                
-                // Try to load English questions specifically if missing
-                if (selectedSubjects.includes('english')) {
-                    try {
-                        const englishResponse = await fetch('/api/get-questions', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                exam_type: examType,
-                                subjects: ['english']
-                            })
-                        });
-                        
-                        const englishResult = await englishResponse.json();
-                        if (englishResult.success) {
-                            // Add English questions to ensure we have enough
-                            const englishQuestions = englishResult.questions.slice(0, 10); // Take up to 10 English questions
-                            questions = [...englishQuestions, ...questions].slice(0, 60); // Combine and limit to 60
-                        }
-                    } catch (englishError) {
-                        console.error('Error loading additional English questions:', englishError);
-                    }
-                }
+            if (questions.length !== 60) {
+                console.warn(`Expected 60 questions but got ${questions.length}. Showing warning.`);
+                showNotification(`Loaded ${questions.length} questions.`, 'warning');
             }
             
             AppState.currentExam.questions = questions;
@@ -1269,7 +1228,7 @@ async function startExam(examType, selectedSubjects) {
             showPage('exam-interface');
             initializeExamInterface();
             startExamTimer();
-            showNotification('Exam started! Good luck! 🎯', 'success');
+            showNotification(`Exam started with ${questions.length} questions! Good luck! 🎯`, 'success');
         } else {
             showNotification('Error loading questions: ' + result.message, 'error');
         }
@@ -1280,14 +1239,11 @@ async function startExam(examType, selectedSubjects) {
 }
 
 /**
- * Get exam time based on type and subjects - V2 UPDATE: English gets more time
+ * Get exam time based on type and subjects - V3 UPDATE: Standard timing
  */
 function getExamTime(examType, subjects) {
-    // V2 ENHANCEMENT: English exams get more time
-    if (subjects.includes('english')) {
-        return examType === 'WAEC' ? 9000 : 8400; // WAEC: 2.5 hours, JAMB: 2h20m for English
-    }
-    return examType === 'WAEC' ? 8400 : 7200; // WAEC: 2h20m, JAMB: 2h for other subjects
+    // V3 ENHANCEMENT: Standard timing for all exams
+    return examType === 'WAEC' ? 7200 : 7200; // 2 hours for both WAEC and JAMB
 }
 
 /**
@@ -1305,11 +1261,12 @@ function initializeExamInterface() {
     const examInfo = document.getElementById('examInfo');
     
     if (examSubject) {
-        examSubject.innerHTML = `<i class="fas fa-book me-2"></i>${AppState.currentExam.type} ${AppState.currentExam.subjects.join(', ')}`;
+        const examName = AppState.currentExam.type === 'WAEC' ? 'WAEC' : 'JAMB';
+        examSubject.innerHTML = `<i class="fas fa-book me-2"></i>${examName} - ${AppState.currentExam.questions.length} Questions`;
     }
     
     if (examInfo) {
-        examInfo.textContent = `${AppState.currentExam.questions.length} Questions • ${formatTime(AppState.currentExam.timeRemaining)}`;
+        examInfo.textContent = `${AppState.currentExam.subjects.length} Subjects • ${formatTime(AppState.currentExam.timeRemaining)}`;
     }
 }
 
@@ -1356,7 +1313,10 @@ function updateQuestionDisplay() {
     // Show current selection
     const userAnswer = AppState.currentExam.userAnswers[AppState.currentExam.currentQuestionIndex];
     if (userAnswer) {
-        document.querySelector(`.option[data-option="${userAnswer}"]`).classList.add('selected');
+        const optionElement = document.querySelector(`.option[data-option="${userAnswer}"]`);
+        if (optionElement) {
+            optionElement.classList.add('selected');
+        }
     }
     
     // Handle comprehension passages
@@ -1450,7 +1410,7 @@ function startExamTimer() {
 }
 
 /**
- * Update timer display - V2 UPDATE: Enhanced formatting
+ * Update timer display - V3 UPDATE: Enhanced formatting
  */
 function updateTimerDisplay() {
     if (!AppState.currentExam) return;
@@ -1536,7 +1496,7 @@ function showSubmitConfirmation(unanswered) {
 }
 
 /**
- * Submit exam to backend - FIX: Added session storage backup
+ * Submit exam to backend - V3 FIX: Enhanced for JAMB results
  */
 async function submitExam() {
     if (!AppState.currentExam) return;
@@ -1570,7 +1530,7 @@ async function submitExam() {
         const result = await response.json();
         
         if (result.success) {
-            // Store results for display
+            // V3 FIX: Store complete results for display
             AppState.examResults = {
                 score: result.score,
                 totalQuestions: result.total_questions,
@@ -1585,15 +1545,9 @@ async function submitExam() {
                 examType: AppState.currentExam.type,
                 userAnswers: AppState.currentExam.userAnswers,
                 questions: AppState.currentExam.questions,
-                subjectScores: result.subject_scores
+                subjectScores: result.subject_scores || {},
+                resultId: result.result_id
             };
-            
-            // FIX: Save to session storage immediately
-            try {
-                sessionStorage.setItem('msh_cbt_exam_results', JSON.stringify(AppState.examResults));
-            } catch (e) {
-                console.error('Failed to save results to session storage:', e);
-            }
             
             showNotification('Exam submitted successfully!', 'success');
             showPage('results');
@@ -1602,29 +1556,22 @@ async function submitExam() {
         }
     } catch (error) {
         console.error('Error submitting exam:', error);
-        // Still show results even if backend fails
+        // Fallback: Calculate results locally if backend fails
         const score = calculateScore();
-        const percentage = Math.round((score / AppState.currentExam.questions.length) * 100);
+        const totalQuestions = AppState.currentExam.questions.length;
+        const percentage = Math.round((score / totalQuestions) * 100);
         
         AppState.examResults = {
             score: score,
-            totalQuestions: AppState.currentExam.questions.length,
+            totalQuestions: totalQuestions,
             percentage: percentage,
             timeTaken: timeTaken,
             date: new Date().toLocaleDateString(),
             subjects: AppState.currentExam.subjects,
             examType: AppState.currentExam.type,
             userAnswers: AppState.currentExam.userAnswers,
-            questions: AppState.currentExam.questions,
-            subjectScores: {}  // Empty for offline mode
+            questions: AppState.currentExam.questions
         };
-        
-        // FIX: Save to session storage for offline mode
-        try {
-            sessionStorage.setItem('msh_cbt_exam_results', JSON.stringify(AppState.examResults));
-        } catch (e) {
-            console.error('Failed to save offline results:', e);
-        }
         
         showNotification('Exam submitted (offline mode)', 'warning');
         showPage('results');
@@ -1668,51 +1615,29 @@ function updateProgress() {
     if (totalCount) totalCount.textContent = total;
 }
 
-// ==================== RESULTS SYSTEM FUNCTIONS - V2 ENHANCED ====================
+// ==================== RESULTS SYSTEM FUNCTIONS - V3 ENHANCED ====================
 
 /**
- * Display exam results - V2 UPDATE: Modern design
- * FIX: Added proper initialization check
+ * Display exam results - V3 FIX: Proper results display for both WAEC and JAMB
  */
-function displayResults() {
-    // FIX: Check if we're on the results page
-    const resultsPage = document.getElementById('results-page');
-    if (!resultsPage || !resultsPage.classList.contains('active')) {
-        console.log('Results page not active, not displaying results');
+async function displayResults() {
+    if (!AppState.examResults) {
+        console.log('No exam results found');
         return;
     }
     
-    // FIX: Validate exam results exist
-    if (!AppState.examResults) {
-        console.error('No exam results to display!');
-        showNotification('No exam results found. Please complete an exam first.', 'warning');
-        
-        // Try to get results from session storage as fallback
-        const savedResults = sessionStorage.getItem('msh_cbt_exam_results');
-        if (savedResults) {
-            try {
-                AppState.examResults = JSON.parse(savedResults);
-                console.log('Loaded results from session storage');
-            } catch (e) {
-                console.error('Failed to parse saved results:', e);
-                setTimeout(() => showPage('dashboard'), 2000);
-                return;
-            }
-        } else {
-            setTimeout(() => showPage('dashboard'), 2000);
-            return;
-        }
-    }
-    
-    console.log('Displaying exam results:', AppState.examResults);
-    
     // Update results display
-    document.getElementById('scorePercentage').textContent = `${AppState.examResults.percentage}%`;
-    document.getElementById('scoreText').textContent = `${AppState.examResults.score} out of ${AppState.examResults.totalQuestions} questions`;
-    document.getElementById('timeTaken').textContent = formatTime(AppState.examResults.timeTaken);
-    document.getElementById('completionDate').textContent = AppState.examResults.date;
+    const scorePercentage = document.getElementById('scorePercentage');
+    const scoreText = document.getElementById('scoreText');
+    const timeTaken = document.getElementById('timeTaken');
+    const completionDate = document.getElementById('completionDate');
+    
+    if (scorePercentage) scorePercentage.textContent = `${AppState.examResults.percentage}%`;
+    if (scoreText) scoreText.textContent = `${AppState.examResults.score} out of ${AppState.examResults.totalQuestions} questions`;
+    if (timeTaken) timeTaken.textContent = formatTime(AppState.examResults.timeTaken);
+    if (completionDate) completionDate.textContent = AppState.examResults.date;
 
-    // V2 ENHANCEMENT: Modern results message with performance-based styling
+    // V3 FIX: Modern results message with performance-based styling
     const resultsMessage = document.getElementById('resultsMessage');
     let performanceLevel = '';
     
@@ -1728,75 +1653,102 @@ function displayResults() {
     
     const performance = PERFORMANCE_MESSAGES[performanceLevel];
     
-    // Replace the simple message with enhanced V2 design
-    resultsMessage.outerHTML = `
-        <div class="results-message-container ${performance.color}">
-            <div class="results-message-content">
-                <div class="performance-icon">
-                    <i class="${performance.icon}"></i>
-                </div>
-                <h4 class="performance-message">${performance.message}</h4>
-                <p class="performance-submessage">${performance.submessage}</p>
-                <div class="performance-badge">
-                    <i class="fas fa-award me-2"></i>${performance.badge}
+    // Replace the simple message with enhanced V3 design
+    if (resultsMessage) {
+        resultsMessage.outerHTML = `
+            <div class="results-message-container ${performance.color}">
+                <div class="results-message-content">
+                    <div class="performance-icon">
+                        <i class="${performance.icon}"></i>
+                    </div>
+                    <h4 class="performance-message">${performance.message}</h4>
+                    <p class="performance-submessage">${performance.submessage}</p>
+                    <div class="performance-badge">
+                        <i class="fas fa-award me-2"></i>${performance.badge}
+                    </div>
                 </div>
             </div>
-        </div>
-    `;
+        `;
+    }
 
     // Update subject breakdown
     updateSubjectBreakdown();
     
-    // FIX: Also save results to session storage as backup
-    try {
-        sessionStorage.setItem('msh_cbt_exam_results', JSON.stringify(AppState.examResults));
-    } catch (e) {
-        console.error('Failed to save results to session storage:', e);
+    // V3 FIX: If we have a result ID, try to fetch detailed results
+    if (AppState.examResults.resultId) {
+        try {
+            const response = await fetch(`/api/exam-results/${AppState.examResults.resultId}`);
+            const result = await response.json();
+            
+            if (result.success && result.result) {
+                // Update with server data
+                AppState.examResults = {
+                    ...AppState.examResults,
+                    subjectScores: result.result.subject_scores || AppState.examResults.subjectScores,
+                    questions: result.result.questions || AppState.examResults.questions,
+                    userAnswers: result.result.user_answers || AppState.examResults.userAnswers
+                };
+                
+                // Update display again with server data
+                updateSubjectBreakdown();
+            }
+        } catch (error) {
+            console.log('Could not fetch detailed results:', error);
+        }
     }
 }
 
 /**
- * Update subject performance breakdown
+ * Update subject performance breakdown - V3 FIX: Better calculation
  */
 function updateSubjectBreakdown() {
     if (!AppState.examResults) return;
     
     const container = document.getElementById('subjectBreakdown');
-    const subjectScores = {};
+    const subjectScores = AppState.examResults.subjectScores || {};
     
-    // Calculate scores per subject
-    AppState.examResults.questions.forEach((question, index) => {
-        const subject = question.subject || 'General';
-        if (!subjectScores[subject]) {
-            subjectScores[subject] = { total: 0, correct: 0 };
-        }
+    // If no subject scores, calculate from questions
+    if (Object.keys(subjectScores).length === 0 && AppState.examResults.questions) {
+        const calculatedScores = {};
         
-        subjectScores[subject].total++;
-        const userAnswer = AppState.examResults.userAnswers[index];
-        if (userAnswer && userAnswer === question.correct_answer) {
-            subjectScores[subject].correct++;
-        }
-    });
+        AppState.examResults.questions.forEach((question, index) => {
+            const subject = question.subject || 'General';
+            if (!calculatedScores[subject]) {
+                calculatedScores[subject] = { total: 0, correct: 0 };
+            }
+            
+            calculatedScores[subject].total++;
+            const userAnswer = AppState.examResults.userAnswers[index];
+            if (userAnswer && userAnswer === question.correct_answer) {
+                calculatedScores[subject].correct++;
+            }
+        });
+        
+        subjectScores = calculatedScores;
+    }
 
     // Generate HTML for each subject
     let html = '';
     Object.keys(subjectScores).forEach(subject => {
         const score = subjectScores[subject];
-        const percentage = Math.round((score.correct / score.total) * 100);
+        const percentage = score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0;
         
         html += `
-            <div class="subject-performance">
-                <div class="subject-name">
-                    <i class="fas fa-book me-2 text-teal"></i>${subject.charAt(0).toUpperCase() + subject.slice(1)}
+            <div class="subject-performance mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <div class="subject-name">
+                        <i class="fas fa-book me-2 text-teal"></i>
+                        <strong>${subject.charAt(0).toUpperCase() + subject.slice(1)}</strong>
+                    </div>
+                    <div class="subject-score">
+                        ${score.correct}/${score.total} (${percentage}%)
+                    </div>
                 </div>
                 <div class="subject-progress">
                     <div class="progress" style="height: 8px;">
                         <div class="progress-bar ${getProgressBarColor(percentage)}" 
                              style="width: ${percentage}%"></div>
                     </div>
-                </div>
-                <div class="subject-score">
-                    ${score.correct}/${score.total} (${percentage}%)
                 </div>
             </div>
         `;
@@ -1829,7 +1781,7 @@ function reviewAnswers() {
 }
 
 /**
- * Display review questions with filtering
+ * Display review questions with filtering - V3 FIX: Better display
  */
 function displayReviewQuestions(filter) {
     if (!AppState.examResults) return;
@@ -1839,7 +1791,7 @@ function displayReviewQuestions(filter) {
 
     AppState.examResults.questions.forEach((question, index) => {
         const userAnswer = AppState.examResults.userAnswers[index];
-        const isCorrect = userAnswer === question.correct_answer;
+        const isCorrect = userAnswer && userAnswer === question.correct_answer;
         const isUnanswered = !userAnswer;
 
         // Apply filters
@@ -1847,35 +1799,35 @@ function displayReviewQuestions(filter) {
         if (filter === 'wrong' && (isCorrect || isUnanswered)) return;
         if (filter === 'unanswered' && !isUnanswered) return;
 
-        let itemClass = 'review-item';
-        if (isCorrect) itemClass += ' correct';
-        else if (isUnanswered) itemClass += ' unanswered';
-        else itemClass += ' wrong';
+        let itemClass = 'review-item p-3 mb-3 border rounded';
+        if (isCorrect) itemClass += ' border-success bg-success-light';
+        else if (isUnanswered) itemClass += ' border-warning bg-warning-light';
+        else itemClass += ' border-danger bg-danger-light';
 
         html += `
             <div class="${itemClass}">
-                <div class="review-question">
+                <div class="review-question mb-3">
                     <strong>Q${index + 1}:</strong> ${question.question}
                     ${question.passage ? `<div class="text-muted small mt-2"><em>Comprehension Passage</em></div>` : ''}
                 </div>
 
                 <div class="review-options">
                     ${Object.entries(question.options).map(([option, text]) => {
-                        let optionClass = 'review-option';
+                        let optionClass = 'review-option p-2 mb-1 border rounded';
                         let icon = '';
 
                         if (option === question.correct_answer) {
-                            optionClass += ' correct-answer';
+                            optionClass += ' border-success bg-success-light';
                             icon = '<i class="fas fa-check-circle ms-2 text-success"></i>';
                         }
 
                         if (option === userAnswer) {
                             if (option === question.correct_answer) {
-                                optionClass += ' user-correct';
-                                icon = '<i class="fas fa-check-circle ms-2 text-success"></i>';
+                                optionClass += ' border-success border-2';
+                                icon = '<i class="fas fa-check-circle ms-2 text-success"></i> Your answer';
                             } else {
-                                optionClass += ' user-wrong';
-                                icon = '<i class="fas fa-times-circle ms-2 text-danger"></i>';
+                                optionClass += ' border-danger border-2';
+                                icon = '<i class="fas fa-times-circle ms-2 text-danger"></i> Your answer';
                             }
                         }
 
@@ -1888,12 +1840,12 @@ function displayReviewQuestions(filter) {
                 </div>
 
                 ${!isUnanswered ? `
-                    <div class="review-explanation">
+                    <div class="review-explanation mt-3 p-2 bg-light rounded">
                         <strong><i class="fas fa-lightbulb me-2 text-warning"></i>Explanation:</strong>
                         <p class="mb-0 mt-2">${question.explanation || 'No explanation available.'}</p>
                     </div>
                 ` : `
-                    <div class="review-explanation">
+                    <div class="review-explanation mt-3 p-2 bg-info-light rounded">
                         <strong><i class="fas fa-info-circle me-2 text-info"></i>Note:</strong>
                         <p class="mb-0 mt-2">You didn't answer this question. The correct answer is <strong>${question.correct_answer}</strong>.</p>
                     </div>
@@ -1970,7 +1922,6 @@ function formatTime(seconds) {
     const minutes = Math.floor((seconds % 3600) / 60);
     const secs = seconds % 60;
     
-    // V2 UPDATE: Return MM:SS format for trial timer, HH:MM:SS for exam timer
     if (hours > 0) {
         return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     } else {
@@ -2324,12 +2275,14 @@ Keep practicing and improving! 🚀
 }
 
 /**
- * Retake exam
+ * Retake exam - V3 FIX: Proper exam restart
  */
 function retakeExam() {
     if (!AppState.examResults) return;
     
     if (confirm('Start a new exam with different questions?')) {
+        // Clear previous exam state
+        AppState.currentExam = null;
         startExam(AppState.examResults.examType, AppState.examResults.subjects);
     }
 }
@@ -2442,4 +2395,4 @@ window.MSH_CBT_HUB = {
     loadDashboard
 };
 
-console.log('📚 MSH CBT HUB Enhanced JavaScript V2 Loaded');
+console.log('📚 MSH CBT HUB Enhanced JavaScript V3 Loaded');
