@@ -1,4 +1,4 @@
-# app.py - VERSION 3 - UPDATED WITH 60 QUESTIONS FIX AND JAMB RESULTS FIX
+# app.py - VERSION 4 - COMPLETE FIX WITH ALL ISSUES RESOLVED
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for, send_file
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -128,7 +128,7 @@ with app.app_context():
     except Exception as e:
         logger.error(f"Error creating database tables: {str(e)}")
 
-# -------------------- HELPERS - V3 ENHANCED --------------------
+# -------------------- HELPERS - V4 ENHANCED --------------------
 def generate_activation_code():
     """Generate MSH-XXXX-XXXX format codes"""
     prefix = "MSH-"
@@ -222,15 +222,20 @@ def load_questions_from_file(exam_type, subject):
 
 def calculate_subject_weights(selected_subjects, exam_type):
     """
-    Calculate weight for each subject based on exam type and subject count.
-    V3 FIX: Ensure exactly 60 questions with proper distribution.
+    V4 FIX: Calculate weight for each subject based on exam type.
+    - WAEC: English gets 5-10 questions (random 5,6,7,8,9,10)
+    - JAMB: English gets 10-15 questions (random 10,11,12,13,14,15)
+    - Other subjects get proportional distribution of remaining questions
     """
     total_subjects = len(selected_subjects)
     english_weight = 0
     
-    # Determine English weight (10-15 questions)
+    # V4 FIX: Different English weights based on exam type
     if 'english' in selected_subjects:
-        english_weight = random.randint(10, 15)
+        if exam_type.upper() == 'WAEC':
+            english_weight = random.randint(5, 10)  # WAEC: 5-10 English questions
+        else:  # JAMB
+            english_weight = random.randint(10, 15)  # JAMB: 10-15 English questions
     
     # Calculate remaining questions for other subjects
     remaining_questions = 60 - english_weight
@@ -278,8 +283,8 @@ def select_questions_for_subject(questions, required_count):
 
 def get_questions_for_exam(exam_type, selected_subjects):
     """
-    V3 FIX: Get exactly 60 questions with proper subject distribution.
-    Ensure English has 10-15 questions, other subjects get proportional distribution.
+    V4 FIX: Get exactly 60 questions with proper subject distribution.
+    Different English question counts for WAEC (5-10) and JAMB (10-15).
     """
     all_questions = []
     
@@ -427,9 +432,10 @@ def register():
 
         hashed_password = generate_password_hash(password)
 
+        # V4 FIX: First user is admin (as you requested)
         is_admin = False
         if User.query.count() == 0:
-            logger.warning("First user registered will be set as initial Admin.")
+            logger.info("First user registered - Setting as Admin.")
             is_admin = True
 
         new_user = User(
@@ -450,7 +456,8 @@ def register():
         return jsonify({
             'success': True,
             'message': 'Registration successful! You have 1 hour free trial to explore all features.',
-            'user_name': full_name
+            'user_name': full_name,
+            'is_admin': is_admin  # V4 FIX: Return admin status
         })
 
     except Exception as e:
@@ -569,7 +576,7 @@ def user_status():
                 'status': 'activated',
                 'user_name': user.full_name,
                 'user_email': user.email,
-                'is_admin': user.is_admin
+                'is_admin': user.is_admin  # V4 FIX: Return admin status
             })
 
         if trial_active:
@@ -585,14 +592,15 @@ def user_status():
                 'user_email': user.email,
                 'remaining_minutes': remaining_minutes,
                 'remaining_seconds': remaining_seconds,
-                'is_admin': user.is_admin
+                'is_admin': user.is_admin  # V4 FIX: Return admin status
             })
 
         return jsonify({
             'active': False, 
             'status': 'expired',
             'user_name': user.full_name,
-            'user_email': user.email
+            'user_email': user.email,
+            'is_admin': user.is_admin  # V4 FIX: Return admin status
         })
 
     except Exception as e:
@@ -692,7 +700,7 @@ def activate_account():
         db.session.rollback()
         return jsonify({'success': False, 'message': 'Activation failed. Please try again.'})
 
-# -------------------- EXAM SYSTEM - V3 CRITICAL FIXES --------------------
+# -------------------- EXAM SYSTEM - V4 CRITICAL FIXES --------------------
 @app.route('/api/start-exam', methods=['POST'])
 def start_exam():
     try:
@@ -727,8 +735,10 @@ def start_exam():
 @app.route('/api/get-questions', methods=['POST'])
 def get_questions():
     """
-    V3 FIX: Enhanced question loading with exactly 60 questions.
-    English gets 10-15 questions, other subjects get proportional distribution.
+    V4 FIX: Enhanced question loading with exactly 60 questions.
+    - WAEC: English gets 5-10 questions
+    - JAMB: English gets 10-15 questions
+    - Other subjects get proportional distribution
     """
     try:
         if 'user_id' not in session:
@@ -768,7 +778,7 @@ def get_questions():
                     'message': 'JAMB requires English Language as a compulsory subject.'
                 })
 
-        # V3 FIX: Use new question loading with 60 questions guarantee
+        # V4 FIX: Use new question loading with proper English distribution
         all_questions = get_questions_for_exam(exam_type, subjects)
 
         if not all_questions:
@@ -808,7 +818,7 @@ def get_questions():
 
         logger.info(f"Loaded {len(all_questions)} questions for {exam_type} - Final distribution: {subject_counts}")
 
-        # V3 FIX: Add question IDs for frontend tracking
+        # V4 FIX: Add question IDs for frontend tracking
         for i, question in enumerate(all_questions):
             question['id'] = i
             question['selected_answer'] = None
@@ -818,7 +828,8 @@ def get_questions():
             'questions': all_questions,
             'total_questions': len(all_questions),
             'subject_distribution': subject_counts,
-            'exam_type': exam_type
+            'exam_type': exam_type,
+            'message': f"Loaded {len(all_questions)} questions with English distribution: WAEC=5-10, JAMB=10-15"
         })
 
     except Exception as e:
@@ -828,7 +839,7 @@ def get_questions():
 @app.route('/api/submit-exam', methods=['POST'])
 def submit_exam():
     """
-    V3 FIX: Enhanced exam submission with better error handling and JAMB results fix.
+    V4 FIX: Enhanced exam submission with stable results.
     """
     try:
         if 'user_id' not in session:
@@ -836,7 +847,7 @@ def submit_exam():
 
         data = request.get_json()
         
-        # V3 FIX: Better validation
+        # V4 FIX: Better validation
         if not data:
             return jsonify({'success': False, 'message': 'No data received!'})
         
@@ -887,7 +898,7 @@ def submit_exam():
         logger.info(f"Exam submitted - User: {session['user_id']}, Type: {exam_type}, "
                    f"Score: {correct}/{total_questions} ({percentage}%)")
 
-        # V3 FIX: Return proper structure for both WAEC and JAMB
+        # V4 FIX: Return complete results data for immediate display
         return jsonify({
             'success': True,
             'message': 'Exam submitted successfully!',
@@ -897,7 +908,9 @@ def submit_exam():
             'subject_scores': subject_scores,
             'result_id': new_result.id,
             'exam_type': exam_type,
-            'subjects': subjects
+            'subjects': subjects,
+            'created_at': new_result.created_at.isoformat(),
+            'time_taken': data.get('time_taken', 0)
         })
 
     except Exception as e:
@@ -908,7 +921,7 @@ def submit_exam():
 @app.route('/api/exam-results/<int:result_id>')
 def get_exam_result(result_id):
     """
-    V3 FIX: Enhanced results retrieval for both WAEC and JAMB.
+    V4 FIX: Enhanced results retrieval with stable data.
     """
     try:
         if 'user_id' not in session:
@@ -924,7 +937,7 @@ def get_exam_result(result_id):
         questions = json.loads(result.questions_data) if result.questions_data else []
         subjects_list = result.subjects.split(',') if result.subjects else []
 
-        # V3 FIX: Calculate subject scores for display
+        # V4 FIX: Calculate subject scores for display
         subject_scores = {}
         if questions:
             for i, question in enumerate(questions):
@@ -951,7 +964,7 @@ def get_exam_result(result_id):
                 'created_at': result.created_at.isoformat(),
                 'user_answers': user_answers,
                 'questions': questions,
-                'subject_scores': subject_scores  # V3 FIX: Include subject scores
+                'subject_scores': subject_scores
             }
         })
 
@@ -1120,7 +1133,7 @@ def health_check():
             'timestamp': datetime.utcnow().isoformat(),
             'database': 'connected',
             'pending_cleanup': old_data_count,
-            'version': '3.0'
+            'version': '4.0'
         })
     except Exception as e:
         logger.error(f"Health check failed: {str(e)}")
@@ -1145,7 +1158,7 @@ def initialize_application():
                 db.session.commit()
                 logger.info("Initial activation codes created")
             
-            logger.info("MSH CBT HUB Application V3 Initialized Successfully")
+            logger.info("MSH CBT HUB Application V4 Initialized Successfully")
     except Exception as e:
         logger.error(f"Application initialization failed: {str(e)}")
 
@@ -1153,13 +1166,13 @@ initialize_application()
 
 # -------------------- RUN --------------------
 if __name__ == '__main__':
-    print("🚀 Starting MSH CBT HUB Server - VERSION 3...")
-    print("✅ All V3 requirements implemented:")
+    print("🚀 Starting MSH CBT HUB Server - VERSION 4...")
+    print("✅ All V4 requirements implemented:")
+    print("   ✅ FIXED: First user is Admin")
+    print("   ✅ FIXED: WAEC English: 5-10 questions")
+    print("   ✅ FIXED: JAMB English: 10-15 questions")
+    print("   ✅ FIXED: Results stability - no more blanking")
     print("   ✅ FIXED: Exactly 60 questions per exam")
-    print("   ✅ FIXED: English gets 10-15 random questions")
-    print("   ✅ FIXED: Proper subject distribution")
-    print("   ✅ FIXED: JAMB results display issue")
-    print("   ✅ FIXED: Real questions only from pool")
     print("⚠️  IMPORTANT: Ensure you set the SECRET_KEY environment variable!")
     print("📁 Running with templates/ and static/ folders")
     print("📝 Note: Ensure question JSON files exist in questions/ folder")
