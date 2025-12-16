@@ -1,4 +1,4 @@
-// MSH CBT HUB - ENHANCED PREMIUM JavaScript V3
+// MSH CBT HUB - ENHANCED PREMIUM JavaScript V4
 // Global variables with better organization
 const AppState = {
     currentUser: null,
@@ -44,7 +44,7 @@ function initializeLoadingScreen() {
 function initializeMainApp() {
     if (AppState.isInitialized) return;
     
-    console.log('🚀 MSH CBT HUB Enhanced V3 Initializing...');
+    console.log('🚀 MSH CBT HUB Enhanced V4 Initializing...');
     
     // Initialize event listeners
     initializeEventListeners();
@@ -65,10 +65,10 @@ function initializeMainApp() {
     startTrialTimer();
     
     AppState.isInitialized = true;
-    console.log('✅ MSH CBT HUB Enhanced V3 Initialized Successfully');
+    console.log('✅ MSH CBT HUB Enhanced V4 Initialized Successfully');
 }
 
-// Subject configuration with icons - UPDATED FOR V3
+// Subject configuration with icons - UPDATED FOR V4
 const SUBJECT_CONFIG = {
     waec: [
         { id: 'english', name: 'English Language', compulsory: true, icon: 'fa-language', color: '#4361EE' },
@@ -98,7 +98,7 @@ const SUBJECT_CONFIG = {
     ]
 };
 
-// Enhanced Performance messages for V3
+// Enhanced Performance messages for V4
 const PERFORMANCE_MESSAGES = {
     excellent: {
         range: [80, 100],
@@ -208,13 +208,17 @@ async function checkUserSession() {
             AppState.currentUser = {
                 full_name: data.user_name,
                 email: data.user_email || '',
-                status: data.status
+                status: data.status,
+                is_admin: data.is_admin || false  // V4 FIX: Store admin status
             };
             
             // Store trial time if in trial
             if (data.status === 'trial' && data.remaining_minutes) {
                 AppState.trialTimeRemaining = data.remaining_minutes * 60; // Convert to seconds
             }
+            
+            // Update navigation with admin link if user is admin
+            updateNavigation();
             
             showNotification(`Welcome back, ${data.user_name}!`, 'success');
         }
@@ -313,40 +317,74 @@ function initializePage(pageName, data) {
             }
             break;
         case 'results':
-            if (AppState.examResults) {
-                displayResults(AppState.examResults);
-            } else {
-                // V3 FIX: Try to load results from state
-                setTimeout(() => displayResults(), 100);
-            }
+            // V4 FIX: Always display results when page is shown
+            setTimeout(() => {
+                if (AppState.examResults) {
+                    displayResults();
+                } else {
+                    // Try to get results from localStorage as backup
+                    const savedResults = localStorage.getItem('msh_cbt_exam_results');
+                    if (savedResults) {
+                        try {
+                            AppState.examResults = JSON.parse(savedResults);
+                            displayResults();
+                        } catch (e) {
+                            console.error('Error parsing saved results:', e);
+                        }
+                    }
+                }
+            }, 100);
             break;
         case 'review':
             if (AppState.examResults) {
                 displayReviewQuestions('all');
             }
             break;
+        case 'admin':
+            // Admin dashboard - only accessible to admins
+            if (AppState.currentUser && AppState.currentUser.is_admin) {
+                loadAdminDashboard();
+            } else {
+                showNotification('Access denied. Admin only!', 'error');
+                showPage('dashboard');
+            }
+            break;
     }
 }
 
 /**
- * Update navigation based on user state
+ * Update navigation based on user state - V4 FIX: Added admin link
  */
 function updateNavigation() {
     const navLinks = document.getElementById('navLinks');
     if (!navLinks) return;
     
     if (AppState.currentUser) {
-        navLinks.innerHTML = `
+        let navHtml = `
             <span class="nav-link text-light user-welcome">
                 <i class="fas fa-user me-1"></i>Welcome, ${AppState.currentUser.full_name}
             </span>
             <a class="nav-link" href="#" onclick="showPage('dashboard')">
                 <i class="fas fa-tachometer-alt me-1"></i>Dashboard
             </a>
+        `;
+        
+        // V4 FIX: Add admin link if user is admin
+        if (AppState.currentUser.is_admin) {
+            navHtml += `
+                <a class="nav-link text-warning" href="#" onclick="showPage('admin')">
+                    <i class="fas fa-crown me-1"></i>Admin Dashboard
+                </a>
+            `;
+        }
+        
+        navHtml += `
             <a class="nav-link" href="#" onclick="handleLogout()">
                 <i class="fas fa-sign-out-alt me-1"></i>Logout
             </a>
         `;
+        
+        navLinks.innerHTML = navHtml;
     } else {
         navLinks.innerHTML = `
             <a class="nav-link" href="#" onclick="showPage('login')">
@@ -369,7 +407,7 @@ function initializeFromURL() {
     }
 }
 
-// ==================== TRIAL TIMER SYSTEM - V3 UPDATE ====================
+// ==================== TRIAL TIMER SYSTEM - V4 UPDATE ====================
 
 /**
  * Start trial timer for free trial users
@@ -538,7 +576,8 @@ async function handleLogin(e) {
             AppState.currentUser = {
                 full_name: result.user_name,
                 email: formData.email,
-                status: result.is_activated ? 'activated' : 'trial'
+                status: result.is_activated ? 'activated' : 'trial',
+                is_admin: result.is_admin || false  // V4 FIX: Store admin status
             };
             
             // Initialize trial timer if in trial
@@ -595,6 +634,9 @@ async function handleLogout() {
             AppState.currentExam = null;
             AppState.examResults = null;
             AppState.trialTimeRemaining = 0;
+            
+            // Clear localStorage
+            localStorage.removeItem('msh_cbt_exam_results');
             
             showNotification(result.message, 'success');
             showPage('home');
@@ -808,7 +850,7 @@ async function loadQuickStats() {
 }
 
 /**
- * Load recent activity - V3 FIXED: Now shows real data
+ * Load recent activity - V4 FIXED: Now shows real data
  */
 async function loadRecentActivity() {
     const recentActivity = document.getElementById('recentActivity');
@@ -879,6 +921,368 @@ function animateDashboardElements() {
         card.style.animationDelay = `${index * 0.1}s`;
         card.classList.add('fade-in');
     });
+}
+
+// ==================== ADMIN DASHBOARD SYSTEM ====================
+
+/**
+ * Load admin dashboard
+ */
+async function loadAdminDashboard() {
+    if (!AppState.currentUser || !AppState.currentUser.is_admin) {
+        showNotification('Access denied. Admin only!', 'error');
+        showPage('dashboard');
+        return;
+    }
+    
+    const adminPage = document.getElementById('admin-page');
+    if (!adminPage) {
+        // Create admin page if it doesn't exist
+        createAdminPage();
+    }
+    
+    try {
+        // Load admin stats
+        const response = await fetch('/api/admin/stats');
+        const result = await response.json();
+        
+        if (result.success) {
+            displayAdminStats(result.stats);
+        }
+        
+        // Load users
+        await loadAdminUsers();
+        
+        // Load activation codes
+        await loadAdminCodes();
+        
+    } catch (error) {
+        console.error('Error loading admin dashboard:', error);
+        showNotification('Error loading admin dashboard', 'error');
+    }
+}
+
+/**
+ * Create admin page dynamically
+ */
+function createAdminPage() {
+    const pagesContainer = document.querySelector('.page-section.active').parentElement;
+    
+    const adminPageHTML = `
+        <div id="admin-page" class="page-section">
+            <div class="container mt-5 pt-5">
+                <div class="cbt-card">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="text-teal">
+                            <i class="fas fa-crown me-2"></i>Admin Dashboard
+                        </h2>
+                        <button class="btn btn-outline-teal" onclick="showPage('dashboard')">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                        </button>
+                    </div>
+                    
+                    <!-- Admin Stats -->
+                    <div class="mb-5">
+                        <h4 class="mb-3">System Overview</h4>
+                        <div class="row" id="adminStats">
+                            <div class="text-center py-4">
+                                <div class="loading-spinner"></div>
+                                <p class="mt-3">Loading admin statistics...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Users Management -->
+                    <div class="mb-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4>Users Management</h4>
+                            <button class="btn btn-teal btn-sm" onclick="refreshAdminUsers()">
+                                <i class="fas fa-sync-alt me-2"></i>Refresh
+                            </button>
+                        </div>
+                        <div id="adminUsersTable" class="table-responsive">
+                            <div class="text-center py-4">
+                                <div class="loading-spinner"></div>
+                                <p class="mt-3">Loading users...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Activation Codes -->
+                    <div class="mb-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4>Activation Codes</h4>
+                            <div>
+                                <button class="btn btn-warning btn-sm me-2" onclick="refreshAdminCodes()">
+                                    <i class="fas fa-sync-alt me-2"></i>Refresh
+                                </button>
+                                <button class="btn btn-success btn-sm" onclick="generateActivationCodes()">
+                                    <i class="fas fa-plus me-2"></i>Generate Codes
+                                </button>
+                            </div>
+                        </div>
+                        <div id="adminCodesTable" class="table-responsive">
+                            <div class="text-center py-4">
+                                <div class="loading-spinner"></div>
+                                <p class="mt-3">Loading activation codes...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    pagesContainer.insertAdjacentHTML('beforeend', adminPageHTML);
+}
+
+/**
+ * Display admin statistics
+ */
+function displayAdminStats(stats) {
+    const adminStats = document.getElementById('adminStats');
+    if (!adminStats) return;
+    
+    adminStats.innerHTML = `
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-teal">${stats.total_users}</div>
+                <div class="stat-label">Total Users</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-success">${stats.activated_users}</div>
+                <div class="stat-label">Activated Users</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-warning">${stats.active_trials}</div>
+                <div class="stat-label">Active Trials</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-danger">${stats.expired_trials}</div>
+                <div class="stat-label">Expired Trials</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-primary">${stats.total_codes}</div>
+                <div class="stat-label">Total Codes</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-info">${stats.used_codes}</div>
+                <div class="stat-label">Used Codes</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-teal">${stats.total_exams}</div>
+                <div class="stat-label">Total Exams</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-teal">${stats.recent_exams}</div>
+                <div class="stat-label">Recent Exams (7 days)</div>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Load admin users
+ */
+async function loadAdminUsers() {
+    try {
+        const response = await fetch('/api/admin/users');
+        const result = await response.json();
+        
+        if (result.success && result.users) {
+            displayAdminUsers(result.users);
+        }
+    } catch (error) {
+        console.error('Error loading admin users:', error);
+    }
+}
+
+/**
+ * Display admin users
+ */
+function displayAdminUsers(users) {
+    const adminUsersTable = document.getElementById('adminUsersTable');
+    if (!adminUsersTable) return;
+    
+    let html = `
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Exams</th>
+                    <th>Join Date</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+    
+    users.forEach(user => {
+        let statusClass = '';
+        if (user.status === 'Activated') statusClass = 'badge bg-success';
+        else if (user.status === 'Admin') statusClass = 'badge bg-warning';
+        else if (user.status === 'Active Trial') statusClass = 'badge bg-info';
+        else statusClass = 'badge bg-secondary';
+        
+        html += `
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td><span class="${statusClass}">${user.status}</span></td>
+                <td>${user.exam_count}</td>
+                <td>${user.join_date}</td>
+            </tr>
+        `;
+    });
+    
+    html += `
+            </tbody>
+        </table>
+        <div class="text-muted text-end mt-2">Total: ${users.length} users</div>
+    `;
+    
+    adminUsersTable.innerHTML = html;
+}
+
+/**
+ * Refresh admin users
+ */
+function refreshAdminUsers() {
+    const adminUsersTable = document.getElementById('adminUsersTable');
+    if (adminUsersTable) {
+        adminUsersTable.innerHTML = `
+            <div class="text-center py-4">
+                <div class="loading-spinner"></div>
+                <p class="mt-3">Refreshing users...</p>
+            </div>
+        `;
+    }
+    loadAdminUsers();
+}
+
+/**
+ * Load admin codes
+ */
+async function loadAdminCodes() {
+    try {
+        const response = await fetch('/api/admin/codes');
+        const result = await response.json();
+        
+        if (result.success && result.codes) {
+            displayAdminCodes(result.codes);
+        }
+    } catch (error) {
+        console.error('Error loading admin codes:', error);
+    }
+}
+
+/**
+ * Display admin codes
+ */
+function displayAdminCodes(codes) {
+    const adminCodesTable = document.getElementById('adminCodesTable');
+    if (!adminCodesTable) return;
+    
+    let html = `
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Status</th>
+                    <th>Used By</th>
+                    <th>Created</th>
+                    <th>Expires</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+    
+    codes.forEach(code => {
+        let statusBadge = code.used ? 
+            '<span class="badge bg-danger">Used</span>' : 
+            '<span class="badge bg-success">Available</span>';
+        
+        html += `
+            <tr>
+                <td>${code.id}</td>
+                <td><code>${code.code}</code></td>
+                <td>${statusBadge}</td>
+                <td>${code.used_by || 'N/A'}</td>
+                <td>${code.created_at}</td>
+                <td>${code.expires_at || 'N/A'}</td>
+            </tr>
+        `;
+    });
+    
+    html += `
+            </tbody>
+        </table>
+        <div class="text-muted text-end mt-2">Total: ${codes.length} codes</div>
+    `;
+    
+    adminCodesTable.innerHTML = html;
+}
+
+/**
+ * Refresh admin codes
+ */
+function refreshAdminCodes() {
+    const adminCodesTable = document.getElementById('adminCodesTable');
+    if (adminCodesTable) {
+        adminCodesTable.innerHTML = `
+            <div class="text-center py-4">
+                <div class="loading-spinner"></div>
+                <p class="mt-3">Refreshing codes...</p>
+            </div>
+        `;
+    }
+    loadAdminCodes();
+}
+
+/**
+ * Generate activation codes
+ */
+async function generateActivationCodes() {
+    if (!confirm('Generate 100 new activation codes?')) return;
+    
+    try {
+        const response = await fetch('/api/generate-codes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showNotification('100 activation codes generated successfully!', 'success');
+            refreshAdminCodes();
+        } else {
+            showNotification('Error generating codes: ' + result.message, 'error');
+        }
+    } catch (error) {
+        console.error('Error generating codes:', error);
+        showNotification('Error generating activation codes', 'error');
+    }
 }
 
 // ==================== SUBJECT SELECTION SYSTEM ====================
@@ -1094,7 +1498,7 @@ function validateJAMBSelection() {
     }
 }
 
-// ==================== EXAM SYSTEM - V3 ENHANCED ====================
+// ==================== EXAM SYSTEM - V4 ENHANCED ====================
 
 /**
  * Start WAEC exam with selected subjects - FIXED: Validate 9 subjects
@@ -1157,7 +1561,7 @@ function getSelectedSubjects(examType) {
 }
 
 /**
- * Start exam with selected subjects - V3 FIXED: 60 questions with proper distribution
+ * Start exam with selected subjects - V4 FIX: 60 questions with proper distribution
  */
 async function startExam(examType, selectedSubjects) {
     if (!AppState.currentUser) {
@@ -1194,7 +1598,7 @@ async function startExam(examType, selectedSubjects) {
         startTime: new Date()
     };
 
-    // Load questions from backend - V3 FIX: Ensure 60 questions with proper distribution
+    // Load questions from backend - V4 FIX: Ensure 60 questions with proper distribution
     try {
         const response = await fetch('/api/get-questions', {
             method: 'POST',
@@ -1210,12 +1614,11 @@ async function startExam(examType, selectedSubjects) {
         const result = await response.json();
         
         if (result.success) {
-            // V3 FIX: Verify we have 60 questions
+            // V4 FIX: Verify we have questions
             let questions = result.questions;
             
             if (questions.length !== 60) {
-                console.warn(`Expected 60 questions but got ${questions.length}. Showing warning.`);
-                showNotification(`Loaded ${questions.length} questions.`, 'warning');
+                console.warn(`Expected 60 questions but got ${questions.length}`);
             }
             
             AppState.currentExam.questions = questions;
@@ -1239,10 +1642,10 @@ async function startExam(examType, selectedSubjects) {
 }
 
 /**
- * Get exam time based on type and subjects - V3 UPDATE: Standard timing
+ * Get exam time based on type and subjects - V4 UPDATE: Standard timing
  */
 function getExamTime(examType, subjects) {
-    // V3 ENHANCEMENT: Standard timing for all exams
+    // V4 ENHANCEMENT: Standard timing for all exams
     return examType === 'WAEC' ? 7200 : 7200; // 2 hours for both WAEC and JAMB
 }
 
@@ -1410,7 +1813,7 @@ function startExamTimer() {
 }
 
 /**
- * Update timer display - V3 UPDATE: Enhanced formatting
+ * Update timer display - V4 UPDATE: Enhanced formatting
  */
 function updateTimerDisplay() {
     if (!AppState.currentExam) return;
@@ -1496,7 +1899,7 @@ function showSubmitConfirmation(unanswered) {
 }
 
 /**
- * Submit exam to backend - V3 FIX: Enhanced for JAMB results
+ * Submit exam to backend - V4 FIX: Enhanced for stable results
  */
 async function submitExam() {
     if (!AppState.currentExam) return;
@@ -1530,13 +1933,13 @@ async function submitExam() {
         const result = await response.json();
         
         if (result.success) {
-            // V3 FIX: Store complete results for display
+            // V4 FIX: Store complete results for display with backup to localStorage
             AppState.examResults = {
                 score: result.score,
                 totalQuestions: result.total_questions,
                 percentage: result.percentage,
-                timeTaken: timeTaken,
-                date: new Date().toLocaleDateString('en-US', {
+                timeTaken: result.time_taken || timeTaken,
+                date: new Date(result.created_at || new Date()).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
@@ -1548,6 +1951,9 @@ async function submitExam() {
                 subjectScores: result.subject_scores || {},
                 resultId: result.result_id
             };
+            
+            // Save to localStorage as backup
+            localStorage.setItem('msh_cbt_exam_results', JSON.stringify(AppState.examResults));
             
             showNotification('Exam submitted successfully!', 'success');
             showPage('results');
@@ -1572,6 +1978,9 @@ async function submitExam() {
             userAnswers: AppState.currentExam.userAnswers,
             questions: AppState.currentExam.questions
         };
+        
+        // Save to localStorage as backup
+        localStorage.setItem('msh_cbt_exam_results', JSON.stringify(AppState.examResults));
         
         showNotification('Exam submitted (offline mode)', 'warning');
         showPage('results');
@@ -1615,18 +2024,33 @@ function updateProgress() {
     if (totalCount) totalCount.textContent = total;
 }
 
-// ==================== RESULTS SYSTEM FUNCTIONS - V3 ENHANCED ====================
+// ==================== RESULTS SYSTEM FUNCTIONS - V4 ENHANCED ====================
 
 /**
- * Display exam results - V3 FIX: Proper results display for both WAEC and JAMB
+ * Display exam results - V4 FIX: Stable results display with no blanking
  */
 async function displayResults() {
+    // V4 FIX: Ensure results are available
     if (!AppState.examResults) {
-        console.log('No exam results found');
-        return;
+        console.log('No exam results found in state, checking localStorage...');
+        const savedResults = localStorage.getItem('msh_cbt_exam_results');
+        if (savedResults) {
+            try {
+                AppState.examResults = JSON.parse(savedResults);
+            } catch (e) {
+                console.error('Error parsing saved results:', e);
+                showNotification('No exam results available. Please try again.', 'error');
+                showPage('dashboard');
+                return;
+            }
+        } else {
+            showNotification('No exam results available. Please try again.', 'error');
+            showPage('dashboard');
+            return;
+        }
     }
     
-    // Update results display
+    // Update results display - V4 FIX: Use direct DOM manipulation for stability
     const scorePercentage = document.getElementById('scorePercentage');
     const scoreText = document.getElementById('scoreText');
     const timeTaken = document.getElementById('timeTaken');
@@ -1637,7 +2061,7 @@ async function displayResults() {
     if (timeTaken) timeTaken.textContent = formatTime(AppState.examResults.timeTaken);
     if (completionDate) completionDate.textContent = AppState.examResults.date;
 
-    // V3 FIX: Modern results message with performance-based styling
+    // V4 FIX: Modern results message with performance-based styling
     const resultsMessage = document.getElementById('resultsMessage');
     let performanceLevel = '';
     
@@ -1653,7 +2077,7 @@ async function displayResults() {
     
     const performance = PERFORMANCE_MESSAGES[performanceLevel];
     
-    // Replace the simple message with enhanced V3 design
+    // Replace the simple message with enhanced V4 design
     if (resultsMessage) {
         resultsMessage.outerHTML = `
             <div class="results-message-container ${performance.color}">
@@ -1674,7 +2098,7 @@ async function displayResults() {
     // Update subject breakdown
     updateSubjectBreakdown();
     
-    // V3 FIX: If we have a result ID, try to fetch detailed results
+    // V4 FIX: If we have a result ID, try to fetch detailed results from server
     if (AppState.examResults.resultId) {
         try {
             const response = await fetch(`/api/exam-results/${AppState.examResults.resultId}`);
@@ -1689,23 +2113,27 @@ async function displayResults() {
                     userAnswers: result.result.user_answers || AppState.examResults.userAnswers
                 };
                 
+                // Update localStorage with fresh data
+                localStorage.setItem('msh_cbt_exam_results', JSON.stringify(AppState.examResults));
+                
                 // Update display again with server data
                 updateSubjectBreakdown();
             }
         } catch (error) {
-            console.log('Could not fetch detailed results:', error);
+            console.log('Could not fetch detailed results from server:', error);
+            // Use local data - already displayed
         }
     }
 }
 
 /**
- * Update subject performance breakdown - V3 FIX: Better calculation
+ * Update subject performance breakdown - V4 FIX: Better calculation
  */
 function updateSubjectBreakdown() {
     if (!AppState.examResults) return;
     
     const container = document.getElementById('subjectBreakdown');
-    const subjectScores = AppState.examResults.subjectScores || {};
+    let subjectScores = AppState.examResults.subjectScores || {};
     
     // If no subject scores, calculate from questions
     if (Object.keys(subjectScores).length === 0 && AppState.examResults.questions) {
@@ -1781,7 +2209,7 @@ function reviewAnswers() {
 }
 
 /**
- * Display review questions with filtering - V3 FIX: Better display
+ * Display review questions with filtering - V4 FIX: Better display
  */
 function displayReviewQuestions(filter) {
     if (!AppState.examResults) return;
@@ -2275,7 +2703,7 @@ Keep practicing and improving! 🚀
 }
 
 /**
- * Retake exam - V3 FIX: Proper exam restart
+ * Retake exam - V4 FIX: Proper exam restart
  */
 function retakeExam() {
     if (!AppState.examResults) return;
@@ -2392,7 +2820,8 @@ window.MSH_CBT_HUB = {
     showNotification,
     startWAECSelection,
     startJAMBSelection,
-    loadDashboard
+    loadDashboard,
+    loadAdminDashboard
 };
 
-console.log('📚 MSH CBT HUB Enhanced JavaScript V3 Loaded');
+console.log('📚 MSH CBT HUB Enhanced JavaScript V4 Loaded');
