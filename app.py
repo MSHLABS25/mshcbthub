@@ -1,4 +1,4 @@
-# app.py - VERSION 4 - COMPLETE FIX WITH ALL ISSUES RESOLVED
+# app.py - VERSION 5 - COMPLETE FIX WITH ALL ISSUES RESOLVED
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for, send_file
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -12,6 +12,7 @@ from logging.handlers import RotatingFileHandler
 from sqlalchemy import func, or_, and_
 from functools import wraps
 import uuid
+import time
 
 # Optional extensions
 from flask_cors import CORS
@@ -48,7 +49,7 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
 # Initialize DB
 db = SQLAlchemy(app)
 
-# -------------------- DATABASE MODELS - V2 ENHANCED --------------------
+# -------------------- DATABASE MODELS - V5 ENHANCED --------------------
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(100), nullable=False)
@@ -59,9 +60,13 @@ class User(db.Model):
     is_admin = db.Column(db.Boolean, default=False)
     activation_code = db.Column(db.String(20))
     trial_start = db.Column(db.DateTime)
+    trial_end = db.Column(db.DateTime)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     last_login = db.Column(db.DateTime)
     device_id = db.Column(db.String(100))
+    last_activity = db.Column(db.DateTime, default=datetime.utcnow)
+    # V5: Add fields for localStorage tracking
+    browser_data = db.Column(db.Text)  # Store localStorage data as JSON
 
     # Relationship with exam results
     exam_results = db.relationship('ExamResult', backref='user', lazy=True)
@@ -90,6 +95,9 @@ class ExamResult(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     user_answers = db.Column(db.Text)
     questions_data = db.Column(db.Text)
+    # V5: Add fields for localStorage sync
+    browser_synced = db.Column(db.Boolean, default=False)
+    last_sync_time = db.Column(db.DateTime)
 
 class UserSession(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -101,6 +109,11 @@ class UserSession(db.Model):
     last_activity = db.Column(db.DateTime, default=datetime.utcnow)
     logout_time = db.Column(db.DateTime)
     is_active = db.Column(db.Boolean, default=True)
+    # V5: Add trial timer tracking
+    trial_start_time = db.Column(db.DateTime)
+    trial_elapsed_seconds = db.Column(db.Integer, default=0)
+    trial_paused = db.Column(db.Boolean, default=False)
+    last_timer_update = db.Column(db.DateTime)
 
 class TemporaryData(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -120,6 +133,7 @@ with app.app_context():
             db.session.execute('CREATE INDEX IF NOT EXISTS idx_temporary_data_expires ON temporary_data(expires_at)')
             db.session.execute('CREATE INDEX IF NOT EXISTS idx_user_sessions_activity ON user_session(last_activity)')
             db.session.execute('CREATE INDEX IF NOT EXISTS idx_exam_results_user_date ON exam_result(user_id, created_at)')
+            db.session.execute('CREATE INDEX IF NOT EXISTS idx_users_last_activity ON user(last_activity)')
             db.session.commit()
             logger.info("Database indexes created successfully")
         except Exception as index_error:
@@ -128,7 +142,7 @@ with app.app_context():
     except Exception as e:
         logger.error(f"Error creating database tables: {str(e)}")
 
-# -------------------- HELPERS - V4 ENHANCED --------------------
+# -------------------- HELPERS - V5 ENHANCED --------------------
 def generate_activation_code():
     """Generate MSH-XXXX-XXXX format codes"""
     prefix = "MSH-"
@@ -222,7 +236,7 @@ def load_questions_from_file(exam_type, subject):
 
 def calculate_subject_weights(selected_subjects, exam_type):
     """
-    V4 FIX: Calculate weight for each subject based on exam type.
+    V5 FIX: Calculate weight for each subject based on exam type.
     - WAEC: English gets 5-10 questions (random 5,6,7,8,9,10)
     - JAMB: English gets 10-15 questions (random 10,11,12,13,14,15)
     - Other subjects get proportional distribution of remaining questions
@@ -230,7 +244,7 @@ def calculate_subject_weights(selected_subjects, exam_type):
     total_subjects = len(selected_subjects)
     english_weight = 0
     
-    # V4 FIX: Different English weights based on exam type
+    # Different English weights based on exam type
     if 'english' in selected_subjects:
         if exam_type.upper() == 'WAEC':
             english_weight = random.randint(5, 10)  # WAEC: 5-10 English questions
@@ -283,7 +297,7 @@ def select_questions_for_subject(questions, required_count):
 
 def get_questions_for_exam(exam_type, selected_subjects):
     """
-    V4 FIX: Get exactly 60 questions with proper subject distribution.
+    V5 FIX: Get exactly 60 questions with proper subject distribution.
     Different English question counts for WAEC (5-10) and JAMB (10-15).
     """
     all_questions = []
@@ -377,6 +391,16 @@ def get_device_id():
         session['device_id'] = device_id
     return device_id
 
+def update_user_activity(user_id):
+    """Update user's last activity timestamp"""
+    try:
+        user = User.query.get(user_id)
+        if user:
+            user.last_activity = datetime.utcnow()
+            db.session.commit()
+    except Exception as e:
+        logger.error(f"Error updating user activity: {str(e)}")
+
 # -------------------- ROUTES --------------------
 @app.route('/')
 def index():
@@ -397,7 +421,12 @@ def dashboard():
 
 @app.route('/admin')
 def admin():
-    return render_template('admin.html')
+    """V5 FIX: Admin page route - serve admin.html"""
+    try:
+        return render_template('admin.html')
+    except Exception as e:
+        logger.error(f"Error serving admin page: {str(e)}")
+        return "Admin page is not available", 404
 
 # -------------------- AUTH ROUTES --------------------
 @app.route('/register', methods=['POST'])
@@ -432,7 +461,7 @@ def register():
 
         hashed_password = generate_password_hash(password)
 
-        # V4 FIX: First user is admin (as you requested)
+        # V5 FIX: First user is admin (as you requested)
         is_admin = False
         if User.query.count() == 0:
             logger.info("First user registered - Setting as Admin.")
@@ -444,8 +473,10 @@ def register():
             password=hashed_password,
             ip_address=request.remote_addr,
             trial_start=datetime.utcnow(),
+            trial_end=datetime.utcnow() + timedelta(hours=1),
             is_admin=is_admin,
-            device_id=device_id
+            device_id=device_id,
+            last_activity=datetime.utcnow()
         )
 
         db.session.add(new_user)
@@ -457,7 +488,7 @@ def register():
             'success': True,
             'message': 'Registration successful! You have 1 hour free trial to explore all features.',
             'user_name': full_name,
-            'is_admin': is_admin  # V4 FIX: Return admin status
+            'is_admin': is_admin  # V5 FIX: Return admin status
         })
 
     except Exception as e:
@@ -495,12 +526,15 @@ def login():
                     })
 
             user.last_login = datetime.utcnow()
+            user.last_activity = datetime.utcnow()
             
             new_session = UserSession(
                 user_id=user.id,
                 session_id=str(uuid.uuid4()),
                 ip_address=request.remote_addr,
-                user_agent=request.headers.get('User-Agent')
+                user_agent=request.headers.get('User-Agent'),
+                trial_start_time=datetime.utcnow(),
+                last_timer_update=datetime.utcnow()
             )
             db.session.add(new_session)
             
@@ -511,6 +545,7 @@ def login():
             session['user_email'] = user.email
             session['is_activated'] = user.is_activated
             session['is_admin'] = user.is_admin
+            session['device_id'] = user.device_id
             session.permanent = True
 
             logger.info(f"User logged in: {email} (Admin: {user.is_admin})")
@@ -521,7 +556,8 @@ def login():
                 'user_name': user.full_name,
                 'is_activated': user.is_activated,
                 'is_admin': user.is_admin,
-                'trial_active': trial_active
+                'trial_active': trial_active,
+                'device_id': user.device_id
             })
 
         return jsonify({'success': False, 'message': 'Invalid email or password!'})
@@ -570,29 +606,32 @@ def user_status():
 
         trial_active = check_trial_status(user)
         
+        # V5: Calculate remaining trial time
+        remaining_seconds = 0
+        if user.trial_end and trial_active:
+            remaining_seconds = max(0, int((user.trial_end - datetime.utcnow()).total_seconds()))
+        elif user.trial_end and not trial_active:
+            remaining_seconds = 0
+        
         if user.is_activated:
             return jsonify({
                 'active': True,
                 'status': 'activated',
                 'user_name': user.full_name,
                 'user_email': user.email,
-                'is_admin': user.is_admin  # V4 FIX: Return admin status
+                'is_admin': user.is_admin,
+                'remaining_seconds': remaining_seconds
             })
 
         if trial_active:
-            trial_end = user.trial_start + timedelta(hours=1)
-            remaining = trial_end - datetime.utcnow()
-            remaining_minutes = max(0, int(remaining.total_seconds() / 60))
-            remaining_seconds = max(0, int(remaining.total_seconds()))
-            
             return jsonify({
                 'active': True,
                 'status': 'trial',
                 'user_name': user.full_name,
                 'user_email': user.email,
-                'remaining_minutes': remaining_minutes,
+                'remaining_minutes': remaining_seconds // 60,
                 'remaining_seconds': remaining_seconds,
-                'is_admin': user.is_admin  # V4 FIX: Return admin status
+                'is_admin': user.is_admin
             })
 
         return jsonify({
@@ -600,7 +639,7 @@ def user_status():
             'status': 'expired',
             'user_name': user.full_name,
             'user_email': user.email,
-            'is_admin': user.is_admin  # V4 FIX: Return admin status
+            'is_admin': user.is_admin
         })
 
     except Exception as e:
@@ -638,7 +677,8 @@ def user_recent_activity():
                 'score': exam.score,
                 'total_questions': exam.total_questions,
                 'percentage': exam.percentage,
-                'date': exam.created_at.isoformat()
+                'date': exam.created_at.isoformat(),
+                'id': exam.id
             })
 
         return jsonify({
@@ -649,6 +689,217 @@ def user_recent_activity():
     except Exception as e:
         logger.error(f"Recent activity error: {str(e)}")
         return jsonify({'success': False, 'message': 'Error loading recent activity'})
+
+# -------------------- LOCAL STORAGE SYNC API (V5 NEW FEATURE) --------------------
+@app.route('/api/user/sync-browser-data', methods=['POST'])
+def sync_browser_data():
+    """V5: Sync localStorage data from browser to server"""
+    try:
+        if 'user_id' not in session:
+            return jsonify({'success': False, 'message': 'Please login first!'})
+
+        data = request.get_json()
+        if not data:
+            return jsonify({'success': False, 'message': 'No data received!'})
+
+        user = User.query.get(session['user_id'])
+        if not user:
+            return jsonify({'success': False, 'message': 'User not found!'})
+
+        # Store browser data
+        user.browser_data = json.dumps(data)
+        user.last_activity = datetime.utcnow()
+        
+        # Handle exam results sync
+        if 'exam_results' in data and data['exam_results']:
+            try:
+                for result_data in data['exam_results']:
+                    # Check if result already exists
+                    existing_result = ExamResult.query.filter_by(
+                        user_id=user.id,
+                        exam_type=result_data.get('exam_type'),
+                        subjects=result_data.get('subjects'),
+                        created_at=datetime.fromisoformat(result_data.get('date').replace('Z', '+00:00'))
+                    ).first()
+                    
+                    if not existing_result:
+                        # Create new exam result from localStorage
+                        new_result = ExamResult(
+                            user_id=user.id,
+                            exam_type=result_data.get('exam_type'),
+                            subjects=result_data.get('subjects'),
+                            score=result_data.get('score'),
+                            total_questions=result_data.get('total_questions'),
+                            percentage=result_data.get('percentage'),
+                            time_taken=result_data.get('time_taken'),
+                            created_at=datetime.fromisoformat(result_data.get('date').replace('Z', '+00:00')),
+                            user_answers=json.dumps(result_data.get('user_answers', {})),
+                            questions_data=json.dumps(result_data.get('questions', [])),
+                            browser_synced=True,
+                            last_sync_time=datetime.utcnow()
+                        )
+                        db.session.add(new_result)
+            except Exception as e:
+                logger.error(f"Error syncing exam results: {str(e)}")
+
+        db.session.commit()
+        update_user_activity(session['user_id'])
+        
+        return jsonify({
+            'success': True,
+            'message': 'Browser data synced successfully!',
+            'sync_time': datetime.utcnow().isoformat()
+        })
+
+    except Exception as e:
+        logger.error(f"Browser data sync error: {str(e)}")
+        return jsonify({'success': False, 'message': 'Error syncing browser data'})
+
+@app.route('/api/user/get-browser-data')
+def get_browser_data():
+    """V5: Get browser data from server"""
+    try:
+        if 'user_id' not in session:
+            return jsonify({'success': False, 'message': 'Please login first!'})
+
+        user = User.query.get(session['user_id'])
+        if not user:
+            return jsonify({'success': False, 'message': 'User not found!'})
+
+        browser_data = {}
+        if user.browser_data:
+            browser_data = json.loads(user.browser_data)
+
+        # Get exam results for this user
+        exam_results = ExamResult.query.filter_by(user_id=user.id).order_by(ExamResult.created_at.desc()).limit(20).all()
+        
+        results_data = []
+        for result in exam_results:
+            results_data.append({
+                'id': result.id,
+                'exam_type': result.exam_type,
+                'subjects': result.subjects.split(',') if result.subjects else [],
+                'score': result.score,
+                'total_questions': result.total_questions,
+                'percentage': result.percentage,
+                'time_taken': result.time_taken,
+                'date': result.created_at.isoformat(),
+                'browser_synced': result.browser_synced
+            })
+
+        return jsonify({
+            'success': True,
+            'browser_data': browser_data,
+            'exam_results': results_data,
+            'last_activity': user.last_activity.isoformat() if user.last_activity else None,
+            'trial_end': user.trial_end.isoformat() if user.trial_end else None
+        })
+
+    except Exception as e:
+        logger.error(f"Get browser data error: {str(e)}")
+        return jsonify({'success': False, 'message': 'Error loading browser data'})
+
+# -------------------- TRIAL TIMER TRACKING (V5 NEW FEATURE) --------------------
+@app.route('/api/user/trial-timer', methods=['POST'])
+def update_trial_timer():
+    """V5: Update trial timer from client (works even offline)"""
+    try:
+        if 'user_id' not in session and 'device_id' in session:
+            # Try to find user by device_id for trial users
+            user = User.query.filter_by(device_id=session.get('device_id')).first()
+            if not user:
+                return jsonify({'success': False, 'message': 'User not found!'})
+            session['user_id'] = user.id
+        elif 'user_id' not in session:
+            return jsonify({'success': False, 'message': 'Please login first!'})
+
+        data = request.get_json()
+        if not data:
+            return jsonify({'success': False, 'message': 'No timer data received!'})
+
+        user = User.query.get(session['user_id'])
+        if not user:
+            return jsonify({'success': False, 'message': 'User not found!'})
+
+        # Update trial timer in session
+        active_session = UserSession.query.filter_by(
+            user_id=user.id,
+            is_active=True
+        ).order_by(UserSession.login_time.desc()).first()
+
+        if active_session:
+            active_session.trial_elapsed_seconds = data.get('elapsed_seconds', 0)
+            active_session.last_timer_update = datetime.utcnow()
+            active_session.last_activity = datetime.utcnow()
+
+        # Update user's last activity
+        user.last_activity = datetime.utcnow()
+        
+        # Calculate remaining trial time
+        if user.trial_start and not user.is_activated:
+            total_trial_seconds = 3600  # 1 hour
+            elapsed_seconds = data.get('elapsed_seconds', 0)
+            remaining_seconds = max(0, total_trial_seconds - elapsed_seconds)
+            
+            # Update trial end time if needed
+            if not user.trial_end or user.trial_end < datetime.utcnow():
+                user.trial_end = datetime.utcnow() + timedelta(seconds=remaining_seconds)
+
+        db.session.commit()
+        
+        return jsonify({
+            'success': True,
+            'message': 'Trial timer updated',
+            'elapsed_seconds': data.get('elapsed_seconds', 0),
+            'last_update': datetime.utcnow().isoformat()
+        })
+
+    except Exception as e:
+        logger.error(f"Trial timer update error: {str(e)}")
+        return jsonify({'success': False, 'message': 'Error updating trial timer'})
+
+@app.route('/api/user/trial-status')
+def get_trial_status():
+    """V5: Get current trial status"""
+    try:
+        if 'user_id' not in session and 'device_id' in session:
+            user = User.query.filter_by(device_id=session.get('device_id')).first()
+            if not user:
+                return jsonify({'success': False, 'message': 'User not found!'})
+        elif 'user_id' not in session:
+            return jsonify({'success': False, 'message': 'Please login first!'})
+        else:
+            user = User.query.get(session['user_id'])
+            if not user:
+                return jsonify({'success': False, 'message': 'User not found!'})
+
+        trial_active = check_trial_status(user)
+        remaining_seconds = 0
+        
+        if user.trial_end and trial_active:
+            remaining_seconds = max(0, int((user.trial_end - datetime.utcnow()).total_seconds()))
+        
+        # Get active session timer
+        active_session = UserSession.query.filter_by(
+            user_id=user.id,
+            is_active=True
+        ).order_by(UserSession.login_time.desc()).first()
+        
+        elapsed_seconds = active_session.trial_elapsed_seconds if active_session else 0
+        
+        return jsonify({
+            'success': True,
+            'trial_active': trial_active,
+            'is_activated': user.is_activated,
+            'remaining_seconds': remaining_seconds,
+            'elapsed_seconds': elapsed_seconds,
+            'trial_start': user.trial_start.isoformat() if user.trial_start else None,
+            'trial_end': user.trial_end.isoformat() if user.trial_end else None
+        })
+
+    except Exception as e:
+        logger.error(f"Get trial status error: {str(e)}")
+        return jsonify({'success': False, 'message': 'Error getting trial status'})
 
 # -------------------- ACTIVATION SYSTEM --------------------
 @app.route('/activate', methods=['POST'])
@@ -679,6 +930,7 @@ def activate_account():
         user = User.query.get(session['user_id'])
         user.is_activated = True
         user.activation_code = code
+        user.last_activity = datetime.utcnow()
 
         activation_code.is_used = True
         activation_code.used_by = user.id
@@ -700,7 +952,7 @@ def activate_account():
         db.session.rollback()
         return jsonify({'success': False, 'message': 'Activation failed. Please try again.'})
 
-# -------------------- EXAM SYSTEM - V4 CRITICAL FIXES --------------------
+# -------------------- EXAM SYSTEM - V5 CRITICAL FIXES --------------------
 @app.route('/api/start-exam', methods=['POST'])
 def start_exam():
     try:
@@ -735,7 +987,7 @@ def start_exam():
 @app.route('/api/get-questions', methods=['POST'])
 def get_questions():
     """
-    V4 FIX: Enhanced question loading with exactly 60 questions.
+    V5 FIX: Enhanced question loading with exactly 60 questions.
     - WAEC: English gets 5-10 questions
     - JAMB: English gets 10-15 questions
     - Other subjects get proportional distribution
@@ -778,7 +1030,7 @@ def get_questions():
                     'message': 'JAMB requires English Language as a compulsory subject.'
                 })
 
-        # V4 FIX: Use new question loading with proper English distribution
+        # V5 FIX: Use new question loading with proper English distribution
         all_questions = get_questions_for_exam(exam_type, subjects)
 
         if not all_questions:
@@ -818,7 +1070,7 @@ def get_questions():
 
         logger.info(f"Loaded {len(all_questions)} questions for {exam_type} - Final distribution: {subject_counts}")
 
-        # V4 FIX: Add question IDs for frontend tracking
+        # V5 FIX: Add question IDs for frontend tracking
         for i, question in enumerate(all_questions):
             question['id'] = i
             question['selected_answer'] = None
@@ -839,7 +1091,7 @@ def get_questions():
 @app.route('/api/submit-exam', methods=['POST'])
 def submit_exam():
     """
-    V4 FIX: Enhanced exam submission with stable results.
+    V5 FIX: Enhanced exam submission with stable results.
     """
     try:
         if 'user_id' not in session:
@@ -847,7 +1099,7 @@ def submit_exam():
 
         data = request.get_json()
         
-        # V4 FIX: Better validation
+        # V5 FIX: Better validation
         if not data:
             return jsonify({'success': False, 'message': 'No data received!'})
         
@@ -889,7 +1141,8 @@ def submit_exam():
             percentage=percentage,
             time_taken=data.get('time_taken', 0),
             user_answers=json.dumps(user_answers),
-            questions_data=json.dumps(questions)
+            questions_data=json.dumps(questions),
+            last_sync_time=datetime.utcnow()
         )
 
         db.session.add(new_result)
@@ -898,7 +1151,7 @@ def submit_exam():
         logger.info(f"Exam submitted - User: {session['user_id']}, Type: {exam_type}, "
                    f"Score: {correct}/{total_questions} ({percentage}%)")
 
-        # V4 FIX: Return complete results data for immediate display
+        # V5 FIX: Return complete results data for immediate display
         return jsonify({
             'success': True,
             'message': 'Exam submitted successfully!',
@@ -921,7 +1174,7 @@ def submit_exam():
 @app.route('/api/exam-results/<int:result_id>')
 def get_exam_result(result_id):
     """
-    V4 FIX: Enhanced results retrieval with stable data.
+    V5 FIX: Enhanced results retrieval with stable data.
     """
     try:
         if 'user_id' not in session:
@@ -937,7 +1190,7 @@ def get_exam_result(result_id):
         questions = json.loads(result.questions_data) if result.questions_data else []
         subjects_list = result.subjects.split(',') if result.subjects else []
 
-        # V4 FIX: Calculate subject scores for display
+        # V5 FIX: Calculate subject scores for display
         subject_scores = {}
         if questions:
             for i, question in enumerate(questions):
@@ -1027,6 +1280,10 @@ def admin_stats():
             User.trial_start < (datetime.utcnow() - timedelta(hours=1))
         ).count()
 
+        # V5: Get localStorage sync stats
+        users_with_browser_data = User.query.filter(User.browser_data.isnot(None)).count()
+        browser_synced_results = ExamResult.query.filter_by(browser_synced=True).count()
+
         return jsonify({
             'success': True,
             'stats': {
@@ -1038,7 +1295,9 @@ def admin_stats():
                 'used_codes': used_codes,
                 'total_exams': total_exams,
                 'recent_users': recent_users,
-                'recent_exams': recent_exams
+                'recent_exams': recent_exams,
+                'users_with_browser_data': users_with_browser_data,
+                'browser_synced_results': browser_synced_results
             }
         })
 
@@ -1062,6 +1321,11 @@ def admin_users():
                 trial_active = check_trial_status(user)
                 trial_status = 'Active Trial' if trial_active else 'Expired Trial'
 
+            # V5: Get last activity
+            last_activity_str = 'Never'
+            if user.last_activity:
+                last_activity_str = user.last_activity.strftime('%Y-%m-%d %H:%M')
+            
             users_data.append({
                 'id': user.id,
                 'name': user.full_name,
@@ -1071,8 +1335,10 @@ def admin_users():
                 'exam_count': exam_count,
                 'join_date': user.created_at.strftime('%Y-%m-%d %H:%M'),
                 'last_login': user.last_login.strftime('%Y-%m-%d %H:%M') if user.last_login else 'Never',
+                'last_activity': last_activity_str,
                 'activation_code': user.activation_code,
-                'device_id': user.device_id
+                'device_id': user.device_id,
+                'has_browser_data': bool(user.browser_data)
             })
 
         return jsonify({'success': True, 'users': users_data})
@@ -1133,7 +1399,8 @@ def health_check():
             'timestamp': datetime.utcnow().isoformat(),
             'database': 'connected',
             'pending_cleanup': old_data_count,
-            'version': '4.0'
+            'version': '5.0',
+            'features': ['localStorage_sync', 'offline_trial_timer', 'admin_dashboard_fix', 'jamb_results_fix']
         })
     except Exception as e:
         logger.error(f"Health check failed: {str(e)}")
@@ -1158,7 +1425,8 @@ def initialize_application():
                 db.session.commit()
                 logger.info("Initial activation codes created")
             
-            logger.info("MSH CBT HUB Application V4 Initialized Successfully")
+            logger.info("MSH CBT HUB Application V5 Initialized Successfully")
+            logger.info("V5 Features: Admin Dashboard Fix, JAMB Results Fix, localStorage Support, Offline Trial Timer")
     except Exception as e:
         logger.error(f"Application initialization failed: {str(e)}")
 
@@ -1166,13 +1434,13 @@ initialize_application()
 
 # -------------------- RUN --------------------
 if __name__ == '__main__':
-    print("🚀 Starting MSH CBT HUB Server - VERSION 4...")
-    print("✅ All V4 requirements implemented:")
-    print("   ✅ FIXED: First user is Admin")
-    print("   ✅ FIXED: WAEC English: 5-10 questions")
-    print("   ✅ FIXED: JAMB English: 10-15 questions")
-    print("   ✅ FIXED: Results stability - no more blanking")
-    print("   ✅ FIXED: Exactly 60 questions per exam")
+    print("🚀 Starting MSH CBT HUB Server - VERSION 5...")
+    print("✅ All V5 requirements implemented:")
+    print("   ✅ FIXED: Admin Dashboard Route - Now properly serves admin.html")
+    print("   ✅ FIXED: JAMB Results - No more disappearing results")
+    print("   ✅ ADDED: localStorage Support - Sync exam results and user data")
+    print("   ✅ ADDED: Offline Trial Timer - Tracks time even when offline")
+    print("   ✅ ENHANCED: User activity tracking and browser data sync")
     print("⚠️  IMPORTANT: Ensure you set the SECRET_KEY environment variable!")
     print("📁 Running with templates/ and static/ folders")
     print("📝 Note: Ensure question JSON files exist in questions/ folder")
