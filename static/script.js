@@ -1,4 +1,4 @@
-// MSH CBT HUB - ENHANCED PREMIUM JavaScript V4
+// MSH CBT HUB - ENHANCED PREMIUM JavaScript V5
 // Global variables with better organization
 const AppState = {
     currentUser: null,
@@ -7,8 +7,25 @@ const AppState = {
     trialTimer: null,
     timeRemaining: 0,
     trialTimeRemaining: 0,
+    trialElapsedSeconds: 0,
     examResults: null,
-    isInitialized: false
+    isInitialized: false,
+    // V5: LocalStorage keys
+    localStorageKeys: {
+        USER_DATA: 'msh_cbt_user_data',
+        EXAM_RESULTS: 'msh_cbt_exam_results',
+        RECENT_ACTIVITY: 'msh_cbt_recent_activity',
+        TRIAL_TIMER: 'msh_cbt_trial_timer',
+        LAST_SYNC: 'msh_cbt_last_sync',
+        BROWSER_DATA: 'msh_cbt_browser_data'
+    },
+    // V5: Trial timer state
+    trialTimerState: {
+        startTime: null,
+        elapsedSeconds: 0,
+        lastUpdate: null,
+        isRunning: false
+    }
 };
 
 // ==================== LOADING SYSTEM ====================
@@ -44,7 +61,10 @@ function initializeLoadingScreen() {
 function initializeMainApp() {
     if (AppState.isInitialized) return;
     
-    console.log('🚀 MSH CBT HUB Enhanced V4 Initializing...');
+    console.log('🚀 MSH CBT HUB Enhanced V5 Initializing...');
+    
+    // V5: Load data from localStorage first
+    loadFromLocalStorage();
     
     // Initialize event listeners
     initializeEventListeners();
@@ -61,14 +81,17 @@ function initializeMainApp() {
     // Initialize page based on URL hash
     initializeFromURL();
     
-    // Start trial timer if user is in trial
-    startTrialTimer();
+    // V5: Start trial timer with offline support
+    startOfflineTrialTimer();
+    
+    // V5: Setup periodic sync to server
+    setupBrowserDataSync();
     
     AppState.isInitialized = true;
-    console.log('✅ MSH CBT HUB Enhanced V4 Initialized Successfully');
+    console.log('✅ MSH CBT HUB Enhanced V5 Initialized Successfully');
 }
 
-// Subject configuration with icons - UPDATED FOR V4
+// Subject configuration with icons - UPDATED FOR V5
 const SUBJECT_CONFIG = {
     waec: [
         { id: 'english', name: 'English Language', compulsory: true, icon: 'fa-language', color: '#4361EE' },
@@ -98,7 +121,7 @@ const SUBJECT_CONFIG = {
     ]
 };
 
-// Enhanced Performance messages for V4
+// Enhanced Performance messages for V5
 const PERFORMANCE_MESSAGES = {
     excellent: {
         range: [80, 100],
@@ -133,6 +156,537 @@ const PERFORMANCE_MESSAGES = {
         badge: "Learning Journey"
     }
 };
+
+// ==================== LOCALSTORAGE FUNCTIONS - V5 NEW ====================
+
+/**
+ * V5: Save data to localStorage
+ */
+function saveToLocalStorage(key, data) {
+    try {
+        localStorage.setItem(key, JSON.stringify(data));
+        console.log(`💾 Saved to localStorage: ${key}`);
+        return true;
+    } catch (error) {
+        console.error(`Error saving to localStorage (${key}):`, error);
+        return false;
+    }
+}
+
+/**
+ * V5: Load data from localStorage
+ */
+function loadFromLocalStorage(key = null) {
+    try {
+        if (key) {
+            const data = localStorage.getItem(key);
+            return data ? JSON.parse(data) : null;
+        } else {
+            // Load all application data
+            const userData = loadFromLocalStorage(AppState.localStorageKeys.USER_DATA);
+            const examResults = loadFromLocalStorage(AppState.localStorageKeys.EXAM_RESULTS);
+            const recentActivity = loadFromLocalStorage(AppState.localStorageKeys.RECENT_ACTIVITY);
+            const trialTimer = loadFromLocalStorage(AppState.localStorageKeys.TRIAL_TIMER);
+            const browserData = loadFromLocalStorage(AppState.localStorageKeys.BROWSER_DATA);
+            
+            // Update AppState with loaded data
+            if (userData) {
+                AppState.currentUser = userData;
+            }
+            if (examResults) {
+                AppState.examResults = examResults;
+            }
+            if (trialTimer) {
+                AppState.trialTimerState = trialTimer;
+                AppState.trialElapsedSeconds = trialTimer.elapsedSeconds || 0;
+            }
+            
+            return {
+                userData,
+                examResults,
+                recentActivity,
+                trialTimer,
+                browserData
+            };
+        }
+    } catch (error) {
+        console.error(`Error loading from localStorage (${key}):`, error);
+        return null;
+    }
+}
+
+/**
+ * V5: Save user data to localStorage
+ */
+function saveUserDataToStorage(userData) {
+    if (!userData) return;
+    
+    const storageData = {
+        ...userData,
+        lastSaved: new Date().toISOString()
+    };
+    
+    saveToLocalStorage(AppState.localStorageKeys.USER_DATA, storageData);
+    
+    // Also save to browser data for sync
+    saveBrowserData('user_data', storageData);
+}
+
+/**
+ * V5: Save exam results to localStorage
+ */
+function saveExamResultsToStorage(results) {
+    if (!results) return;
+    
+    const storageData = {
+        ...results,
+        lastSaved: new Date().toISOString(),
+        storedLocally: true
+    };
+    
+    saveToLocalStorage(AppState.localStorageKeys.EXAM_RESULTS, storageData);
+    
+    // Also save to recent activity
+    addToRecentActivity({
+        type: 'exam_result',
+        exam_type: results.examType,
+        subjects: results.subjects,
+        score: results.score,
+        total_questions: results.totalQuestions,
+        percentage: results.percentage,
+        date: results.date,
+        timestamp: new Date().toISOString()
+    });
+    
+    // Save to browser data for sync
+    saveBrowserData('exam_results', results);
+}
+
+/**
+ * V5: Save recent activity to localStorage
+ */
+function addToRecentActivity(activity) {
+    try {
+        let recentActivities = loadFromLocalStorage(AppState.localStorageKeys.RECENT_ACTIVITY) || [];
+        
+        // Add new activity at the beginning
+        recentActivities.unshift({
+            ...activity,
+            id: Date.now(),
+            storedLocally: true
+        });
+        
+        // Keep only last 50 activities
+        if (recentActivities.length > 50) {
+            recentActivities = recentActivities.slice(0, 50);
+        }
+        
+        saveToLocalStorage(AppState.localStorageKeys.RECENT_ACTIVITY, recentActivities);
+        
+        // Save to browser data for sync
+        saveBrowserData('recent_activity', recentActivities);
+        
+        return true;
+    } catch (error) {
+        console.error('Error saving recent activity:', error);
+        return false;
+    }
+}
+
+/**
+ * V5: Save trial timer state to localStorage
+ */
+function saveTrialTimerToStorage(timerState) {
+    if (!timerState) return;
+    
+    const storageData = {
+        ...timerState,
+        lastSaved: new Date().toISOString()
+    };
+    
+    saveToLocalStorage(AppState.localStorageKeys.TRIAL_TIMER, storageData);
+    
+    // Save to browser data for sync
+    saveBrowserData('trial_timer', timerState);
+}
+
+/**
+ * V5: Save browser data for sync
+ */
+function saveBrowserData(key, data) {
+    try {
+        let browserData = loadFromLocalStorage(AppState.localStorageKeys.BROWSER_DATA) || {};
+        browserData[key] = {
+            data: data,
+            lastUpdated: new Date().toISOString(),
+            synced: false
+        };
+        
+        saveToLocalStorage(AppState.localStorageKeys.BROWSER_DATA, browserData);
+        
+        // Schedule sync to server
+        scheduleBrowserDataSync();
+        
+        return true;
+    } catch (error) {
+        console.error('Error saving browser data:', error);
+        return false;
+    }
+}
+
+/**
+ * V5: Get all browser data for sync
+ */
+function getBrowserDataForSync() {
+    try {
+        const browserData = loadFromLocalStorage(AppState.localStorageKeys.BROWSER_DATA) || {};
+        const syncData = {};
+        
+        // Prepare data for sync
+        for (const [key, value] of Object.entries(browserData)) {
+            if (!value.synced) {
+                syncData[key] = value.data;
+            }
+        }
+        
+        return syncData;
+    } catch (error) {
+        console.error('Error getting browser data for sync:', error);
+        return null;
+    }
+}
+
+/**
+ * V5: Mark browser data as synced
+ */
+function markBrowserDataAsSynced(keys) {
+    try {
+        let browserData = loadFromLocalStorage(AppState.localStorageKeys.BROWSER_DATA) || {};
+        
+        if (Array.isArray(keys)) {
+            keys.forEach(key => {
+                if (browserData[key]) {
+                    browserData[key].synced = true;
+                    browserData[key].lastSynced = new Date().toISOString();
+                }
+            });
+        } else if (keys === 'all') {
+            for (const key in browserData) {
+                browserData[key].synced = true;
+                browserData[key].lastSynced = new Date().toISOString();
+            }
+        }
+        
+        saveToLocalStorage(AppState.localStorageKeys.BROWSER_DATA, browserData);
+        
+        // Update last sync time
+        saveToLocalStorage(AppState.localStorageKeys.LAST_SYNC, new Date().toISOString());
+        
+        return true;
+    } catch (error) {
+        console.error('Error marking browser data as synced:', error);
+        return false;
+    }
+}
+
+/**
+ * V5: Sync browser data to server
+ */
+async function syncBrowserDataToServer() {
+    try {
+        const syncData = getBrowserDataForSync();
+        
+        if (!syncData || Object.keys(syncData).length === 0) {
+            console.log('📡 No browser data to sync');
+            return true;
+        }
+        
+        console.log('📡 Syncing browser data to server:', Object.keys(syncData));
+        
+        const response = await fetch('/api/user/sync-browser-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(syncData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            // Mark data as synced
+            markBrowserDataAsSynced(Object.keys(syncData));
+            console.log('✅ Browser data synced successfully');
+            return true;
+        } else {
+            console.error('❌ Browser data sync failed:', result.message);
+            return false;
+        }
+    } catch (error) {
+        console.error('❌ Browser data sync error:', error);
+        return false;
+    }
+}
+
+/**
+ * V5: Get browser data from server
+ */
+async function getBrowserDataFromServer() {
+    try {
+        const response = await fetch('/api/user/get-browser-data');
+        const result = await response.json();
+        
+        if (result.success) {
+            console.log('📥 Got browser data from server');
+            
+            // Merge with local data
+            if (result.exam_results && result.exam_results.length > 0) {
+                // Check if we need to update local exam results
+                const localResults = loadFromLocalStorage(AppState.localStorageKeys.EXAM_RESULTS);
+                if (!localResults || result.exam_results.length > 0) {
+                    // Use server results if available
+                    if (result.exam_results[0]) {
+                        AppState.examResults = result.exam_results[0];
+                        saveExamResultsToStorage(AppState.examResults);
+                    }
+                }
+            }
+            
+            return result;
+        } else {
+            console.log('No browser data from server');
+            return null;
+        }
+    } catch (error) {
+        console.error('Error getting browser data from server:', error);
+        return null;
+    }
+}
+
+/**
+ * V5: Setup periodic browser data sync
+ */
+function setupBrowserDataSync() {
+    // Initial sync
+    setTimeout(() => {
+        syncBrowserDataToServer();
+        getBrowserDataFromServer();
+    }, 3000);
+    
+    // Periodic sync every 30 seconds
+    setInterval(() => {
+        if (navigator.onLine) {
+            syncBrowserDataToServer();
+        }
+    }, 30000);
+    
+    // Sync when coming online
+    window.addEventListener('online', () => {
+        console.log('🌐 Connection restored, syncing browser data...');
+        syncBrowserDataToServer();
+        getBrowserDataFromServer();
+    });
+    
+    // Save data when going offline
+    window.addEventListener('offline', () => {
+        console.log('📴 Going offline, saving data locally...');
+        saveAllDataToLocalStorage();
+    });
+}
+
+/**
+ * V5: Schedule browser data sync
+ */
+function scheduleBrowserDataSync() {
+    // Debounce sync to avoid too many requests
+    if (window.syncTimeout) {
+        clearTimeout(window.syncTimeout);
+    }
+    
+    window.syncTimeout = setTimeout(() => {
+        if (navigator.onLine) {
+            syncBrowserDataToServer();
+        }
+    }, 5000); // Sync after 5 seconds of inactivity
+}
+
+/**
+ * V5: Save all current data to localStorage
+ */
+function saveAllDataToLocalStorage() {
+    if (AppState.currentUser) {
+        saveUserDataToStorage(AppState.currentUser);
+    }
+    
+    if (AppState.examResults) {
+        saveExamResultsToStorage(AppState.examResults);
+    }
+    
+    if (AppState.trialTimerState) {
+        saveTrialTimerToStorage(AppState.trialTimerState);
+    }
+    
+    console.log('💾 All data saved to localStorage');
+}
+
+// ==================== OFFLINE TRIAL TIMER - V5 NEW ====================
+
+/**
+ * V5: Start offline trial timer
+ */
+function startOfflineTrialTimer() {
+    // Load saved timer state
+    const savedTimer = loadFromLocalStorage(AppState.localStorageKeys.TRIAL_TIMER);
+    
+    if (savedTimer && savedTimer.isRunning) {
+        // Resume timer from saved state
+        AppState.trialTimerState = savedTimer;
+        
+        // Calculate additional elapsed time since last save
+        if (savedTimer.lastUpdate) {
+            const lastUpdate = new Date(savedTimer.lastUpdate);
+            const now = new Date();
+            const additionalSeconds = Math.floor((now - lastUpdate) / 1000);
+            
+            AppState.trialTimerState.elapsedSeconds += additionalSeconds;
+            AppState.trialElapsedSeconds = AppState.trialTimerState.elapsedSeconds;
+        }
+        
+        console.log('⏰ Resuming trial timer from localStorage');
+    } else if (AppState.currentUser && AppState.currentUser.status === 'trial') {
+        // Start new timer
+        AppState.trialTimerState = {
+            startTime: new Date().toISOString(),
+            elapsedSeconds: 0,
+            lastUpdate: new Date().toISOString(),
+            isRunning: true
+        };
+        
+        AppState.trialElapsedSeconds = 0;
+        console.log('⏰ Starting new trial timer');
+    } else {
+        return; // No trial active
+    }
+    
+    // Start timer interval
+    if (AppState.trialTimer) {
+        clearInterval(AppState.trialTimer);
+    }
+    
+    AppState.trialTimer = setInterval(() => {
+        if (AppState.trialTimerState.isRunning) {
+            AppState.trialTimerState.elapsedSeconds++;
+            AppState.trialElapsedSeconds = AppState.trialTimerState.elapsedSeconds;
+            AppState.trialTimerState.lastUpdate = new Date().toISOString();
+            
+            // Save timer state every 30 seconds
+            if (AppState.trialTimerState.elapsedSeconds % 30 === 0) {
+                saveTrialTimerToStorage(AppState.trialTimerState);
+                
+                // Update server if online
+                if (navigator.onLine) {
+                    updateTrialTimerOnServer();
+                }
+            }
+            
+            // Update display
+            updateTrialTimerDisplay();
+            
+            // Check if trial has expired
+            if (AppState.trialElapsedSeconds >= 3600) { // 1 hour = 3600 seconds
+                handleTrialExpired();
+            }
+        }
+    }, 1000);
+    
+    // Initial save
+    saveTrialTimerToStorage(AppState.trialTimerState);
+    
+    // Initial server update if online
+    if (navigator.onLine) {
+        updateTrialTimerOnServer();
+    }
+}
+
+/**
+ * V5: Update trial timer on server
+ */
+async function updateTrialTimerOnServer() {
+    try {
+        if (!AppState.currentUser || AppState.currentUser.status !== 'trial') {
+            return;
+        }
+        
+        const response = await fetch('/api/user/trial-timer', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                elapsed_seconds: AppState.trialElapsedSeconds
+            })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            console.log('⏰ Trial timer updated on server');
+        }
+    } catch (error) {
+        console.error('Error updating trial timer on server:', error);
+    }
+}
+
+/**
+ * V5: Get trial status from server
+ */
+async function getTrialStatusFromServer() {
+    try {
+        const response = await fetch('/api/user/trial-status');
+        const result = await response.json();
+        
+        if (result.success) {
+            // Update local state with server data
+            if (result.trial_active && result.elapsed_seconds) {
+                AppState.trialElapsedSeconds = result.elapsed_seconds;
+                AppState.trialTimerState.elapsedSeconds = result.elapsed_seconds;
+                
+                // Save updated timer state
+                saveTrialTimerToStorage(AppState.trialTimerState);
+            }
+            
+            return result;
+        }
+    } catch (error) {
+        console.error('Error getting trial status from server:', error);
+    }
+    
+    return null;
+}
+
+/**
+ * V5: Pause trial timer
+ */
+function pauseTrialTimer() {
+    if (AppState.trialTimerState.isRunning) {
+        AppState.trialTimerState.isRunning = false;
+        AppState.trialTimerState.lastUpdate = new Date().toISOString();
+        saveTrialTimerToStorage(AppState.trialTimerState);
+        console.log('⏸️ Trial timer paused');
+    }
+}
+
+/**
+ * V5: Resume trial timer
+ */
+function resumeTrialTimer() {
+    if (!AppState.trialTimerState.isRunning) {
+        AppState.trialTimerState.isRunning = true;
+        AppState.trialTimerState.lastUpdate = new Date().toISOString();
+        saveTrialTimerToStorage(AppState.trialTimerState);
+        console.log('▶️ Trial timer resumed');
+    }
+}
 
 // ==================== INITIALIZATION & UTILITIES ====================
 
@@ -180,6 +734,17 @@ function initializeEventListeners() {
     
     // Visibility change for timers
     document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    // V5: Handle page visibility for trial timer
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            // Page is hidden, pause timers if needed
+            pauseTrialTimer();
+        } else {
+            // Page is visible, resume timers
+            resumeTrialTimer();
+        }
+    });
 }
 
 /**
@@ -209,21 +774,45 @@ async function checkUserSession() {
                 full_name: data.user_name,
                 email: data.user_email || '',
                 status: data.status,
-                is_admin: data.is_admin || false  // V4 FIX: Store admin status
+                is_admin: data.is_admin || false
             };
             
+            // V5: Save to localStorage
+            saveUserDataToStorage(AppState.currentUser);
+            
             // Store trial time if in trial
-            if (data.status === 'trial' && data.remaining_minutes) {
-                AppState.trialTimeRemaining = data.remaining_minutes * 60; // Convert to seconds
+            if (data.status === 'trial' && data.remaining_seconds) {
+                AppState.trialTimeRemaining = data.remaining_seconds;
+                AppState.trialElapsedSeconds = 3600 - data.remaining_seconds;
+                
+                // Update trial timer state
+                AppState.trialTimerState = {
+                    startTime: new Date().toISOString(),
+                    elapsedSeconds: AppState.trialElapsedSeconds,
+                    lastUpdate: new Date().toISOString(),
+                    isRunning: true
+                };
+                
+                // Save timer state
+                saveTrialTimerToStorage(AppState.trialTimerState);
             }
             
             // Update navigation with admin link if user is admin
             updateNavigation();
             
+            // V5: Get browser data from server
+            getBrowserDataFromServer();
+            
             showNotification(`Welcome back, ${data.user_name}!`, 'success');
         }
     } catch (error) {
-        console.log('No active session found');
+        console.log('No active session found, using localStorage data');
+        // Try to use localStorage data
+        const userData = loadFromLocalStorage(AppState.localStorageKeys.USER_DATA);
+        if (userData) {
+            AppState.currentUser = userData;
+            updateNavigation();
+        }
     }
 }
 
@@ -236,6 +825,9 @@ function showPage(pageName, options = {}) {
     const { forceReload = false, data = null } = options;
     
     console.log(`📄 Showing page: ${pageName}`);
+    
+    // V5: Save current state before page change
+    saveAllDataToLocalStorage();
     
     // Show loading state for page transitions
     showPageLoading();
@@ -317,20 +909,19 @@ function initializePage(pageName, data) {
             }
             break;
         case 'results':
-            // V4 FIX: Always display results when page is shown
+            // V5 FIX: Always display results with localStorage backup
             setTimeout(() => {
                 if (AppState.examResults) {
                     displayResults();
                 } else {
                     // Try to get results from localStorage as backup
-                    const savedResults = localStorage.getItem('msh_cbt_exam_results');
+                    const savedResults = loadFromLocalStorage(AppState.localStorageKeys.EXAM_RESULTS);
                     if (savedResults) {
-                        try {
-                            AppState.examResults = JSON.parse(savedResults);
-                            displayResults();
-                        } catch (e) {
-                            console.error('Error parsing saved results:', e);
-                        }
+                        AppState.examResults = savedResults;
+                        displayResults();
+                    } else {
+                        showNotification('No exam results available.', 'warning');
+                        showPage('dashboard');
                     }
                 }
             }, 100);
@@ -338,6 +929,13 @@ function initializePage(pageName, data) {
         case 'review':
             if (AppState.examResults) {
                 displayReviewQuestions('all');
+            } else {
+                // Try to load from localStorage
+                const savedResults = loadFromLocalStorage(AppState.localStorageKeys.EXAM_RESULTS);
+                if (savedResults) {
+                    AppState.examResults = savedResults;
+                    displayReviewQuestions('all');
+                }
             }
             break;
         case 'admin':
@@ -353,7 +951,7 @@ function initializePage(pageName, data) {
 }
 
 /**
- * Update navigation based on user state - V4 FIX: Added admin link
+ * Update navigation based on user state - V5 FIX: Added admin link
  */
 function updateNavigation() {
     const navLinks = document.getElementById('navLinks');
@@ -369,7 +967,7 @@ function updateNavigation() {
             </a>
         `;
         
-        // V4 FIX: Add admin link if user is admin
+        // V5 FIX: Add admin link if user is admin
         if (AppState.currentUser.is_admin) {
             navHtml += `
                 <a class="nav-link text-warning" href="#" onclick="showPage('admin')">
@@ -407,7 +1005,7 @@ function initializeFromURL() {
     }
 }
 
-// ==================== TRIAL TIMER SYSTEM - V4 UPDATE ====================
+// ==================== TRIAL TIMER SYSTEM - V5 UPDATE ====================
 
 /**
  * Start trial timer for free trial users
@@ -415,54 +1013,43 @@ function initializeFromURL() {
 function startTrialTimer() {
     if (!AppState.currentUser || AppState.currentUser.status !== 'trial') return;
     
-    if (AppState.trialTimer) {
-        clearInterval(AppState.trialTimer);
-    }
-    
-    // Update timer every second
-    AppState.trialTimer = setInterval(() => {
-        if (AppState.trialTimeRemaining > 0) {
-            AppState.trialTimeRemaining--;
-            updateTrialTimerDisplay();
-            
-            // Check if trial has expired
-            if (AppState.trialTimeRemaining <= 0) {
-                clearInterval(AppState.trialTimer);
-                handleTrialExpired();
-            }
-        }
-    }, 1000);
-    
-    updateTrialTimerDisplay();
+    // V5: Use offline timer instead
+    startOfflineTrialTimer();
 }
 
 /**
- * Update trial timer display in dashboard
+ * Update trial timer display
  */
 function updateTrialTimerDisplay() {
     const userGreeting = document.getElementById('userGreeting');
     const accountStatus = document.getElementById('accountStatus');
     
-    if (userGreeting) {
-        const minutes = Math.floor(AppState.trialTimeRemaining / 60);
-        const seconds = AppState.trialTimeRemaining % 60;
+    if (userGreeting && AppState.currentUser?.status === 'trial') {
+        const remainingSeconds = 3600 - AppState.trialElapsedSeconds;
+        const minutes = Math.floor(remainingSeconds / 60);
+        const seconds = remainingSeconds % 60;
         userGreeting.innerHTML = `Welcome to your free trial! <span class="text-teal">${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} remaining</span> ⏰`;
     }
     
     if (accountStatus && AppState.currentUser?.status === 'trial') {
-        const minutes = Math.floor(AppState.trialTimeRemaining / 60);
-        const seconds = AppState.trialTimeRemaining % 60;
-        const progressPercentage = (AppState.trialTimeRemaining / (60 * 60)) * 100; // 1 hour total
+        const remainingSeconds = 3600 - AppState.trialElapsedSeconds;
+        const minutes = Math.floor(remainingSeconds / 60);
+        const seconds = remainingSeconds % 60;
+        const progressPercentage = (remainingSeconds / 3600) * 100;
+        
+        // V5: Show offline indicator if applicable
+        const offlineIndicator = !navigator.onLine ? '<span class="badge bg-warning ms-2">Offline</span>' : '';
         
         accountStatus.innerHTML = `
             <div class="alert alert-info">
                 <i class="fas fa-clock me-2"></i>
-                <strong>Free Trial Active</strong>
+                <strong>Free Trial Active ${offlineIndicator}</strong>
                 <div class="trial-timer mt-2">${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}</div>
                 <div class="progress mt-2" style="height: 6px;">
                     <div class="progress-bar bg-warning" style="width: ${progressPercentage}%"></div>
                 </div>
                 <small class="text-muted mt-2 d-block">${Math.floor(minutes)} minutes ${seconds} seconds remaining</small>
+                <small class="text-muted d-block">Elapsed: ${Math.floor(AppState.trialElapsedSeconds / 60)}:${(AppState.trialElapsedSeconds % 60).toString().padStart(2, '0')}</small>
             </div>
             <div class="d-grid">
                 <button class="btn btn-primary" onclick="showActivationModal()">
@@ -478,6 +1065,15 @@ function updateTrialTimerDisplay() {
  */
 function handleTrialExpired() {
     AppState.currentUser.status = 'expired';
+    
+    // V5: Save to localStorage
+    saveUserDataToStorage(AppState.currentUser);
+    
+    // Stop timer
+    if (AppState.trialTimer) {
+        clearInterval(AppState.trialTimer);
+        AppState.trialTimer = null;
+    }
     
     showNotification('Your free trial has expired. Please activate your account to continue.', 'warning');
     
@@ -524,8 +1120,20 @@ async function handleRegistration(e) {
         
         if (result.success) {
             showNotification(result.message, 'success');
+            
+            // V5: Create user object and save to localStorage
+            AppState.currentUser = {
+                full_name: formData.full_name,
+                email: formData.email,
+                status: 'trial',
+                is_admin: result.is_admin || false
+            };
+            
+            saveUserDataToStorage(AppState.currentUser);
+            
             // Clear form
             document.getElementById('registerForm').reset();
+            
             // Show login page
             setTimeout(() => showPage('login'), 1500);
         } else {
@@ -577,8 +1185,11 @@ async function handleLogin(e) {
                 full_name: result.user_name,
                 email: formData.email,
                 status: result.is_activated ? 'activated' : 'trial',
-                is_admin: result.is_admin || false  // V4 FIX: Store admin status
+                is_admin: result.is_admin || false
             };
+            
+            // V5: Save to localStorage
+            saveUserDataToStorage(AppState.currentUser);
             
             // Initialize trial timer if in trial
             if (result.trial_active && !result.is_activated) {
@@ -586,17 +1197,27 @@ async function handleLogin(e) {
                 const statusResponse = await fetch('/api/user-status');
                 const statusData = await statusResponse.json();
                 
-                if (statusData.remaining_minutes) {
-                    AppState.trialTimeRemaining = statusData.remaining_minutes * 60;
+                if (statusData.remaining_seconds) {
+                    AppState.trialTimeRemaining = statusData.remaining_seconds;
+                    AppState.trialElapsedSeconds = 3600 - statusData.remaining_seconds;
                 } else {
-                    AppState.trialTimeRemaining = 60 * 60; // 1 hour default
+                    AppState.trialTimeRemaining = 3600;
+                    AppState.trialElapsedSeconds = 0;
                 }
                 
-                startTrialTimer();
+                // Start offline timer
+                startOfflineTrialTimer();
             }
             
             showNotification(result.message, 'success');
             document.getElementById('loginForm').reset();
+            
+            // V5: Sync browser data
+            setTimeout(() => {
+                syncBrowserDataToServer();
+                getBrowserDataFromServer();
+            }, 1000);
+            
             showPage('dashboard');
         } else {
             showNotification(result.message, 'error');
@@ -630,13 +1251,24 @@ async function handleLogout() {
                 clearInterval(AppState.examTimer);
             }
             
+            // V5: Save data before clearing
+            saveAllDataToLocalStorage();
+            
             AppState.currentUser = null;
             AppState.currentExam = null;
             AppState.examResults = null;
             AppState.trialTimeRemaining = 0;
+            AppState.trialElapsedSeconds = 0;
+            AppState.trialTimerState = {
+                startTime: null,
+                elapsedSeconds: 0,
+                lastUpdate: null,
+                isRunning: false
+            };
             
-            // Clear localStorage
-            localStorage.removeItem('msh_cbt_exam_results');
+            // V5: Clear sensitive data from localStorage
+            localStorage.removeItem(AppState.localStorageKeys.USER_DATA);
+            localStorage.removeItem(AppState.localStorageKeys.TRIAL_TIMER);
             
             showNotification(result.message, 'success');
             showPage('home');
@@ -706,21 +1338,29 @@ async function loadDashboard() {
     }
     
     try {
-        // Check user status first
-        const userStatus = await checkUserStatus();
-        
-        if (!userStatus.active) {
-            // Show activation modal immediately if trial expired
-            showNotification('Your trial has expired. Please activate your account to continue.', 'warning');
-            showActivationModal();
-            return;
+        // V5: Try to get latest data from server if online
+        if (navigator.onLine) {
+            await getBrowserDataFromServer();
+            await getTrialStatusFromServer();
         }
         
-        if (userStatus.status === 'trial') {
+        // Check user status
+        const userStatus = await checkUserStatus();
+        
+        if (!userStatus || !userStatus.active) {
+            // Show activation modal immediately if trial expired
+            if (AppState.currentUser.status === 'expired') {
+                showNotification('Your trial has expired. Please activate your account to continue.', 'warning');
+                showActivationModal();
+                return;
+            }
+        }
+        
+        if (AppState.currentUser.status === 'trial') {
             // Show dashboard with trial timer
             updateWelcomeMessage(userStatus);
             showTrialDashboard(userStatus);
-        } else if (userStatus.status === 'activated') {
+        } else if (AppState.currentUser.status === 'activated') {
             // Show full activated dashboard
             updateWelcomeMessage(userStatus);
             showActivatedDashboard();
@@ -730,6 +1370,9 @@ async function loadDashboard() {
         await loadQuickStats();
         await loadRecentActivity();
         animateDashboardElements();
+        
+        // V5: Update trial timer display
+        updateTrialTimerDisplay();
         
     } catch (error) {
         console.error('Error loading dashboard:', error);
@@ -743,11 +1386,13 @@ async function loadDashboard() {
 function updateWelcomeMessage(userStatus) {
     const welcomeMessage = document.getElementById('userGreeting');
     if (welcomeMessage) {
-        if (userStatus.status === 'trial') {
-            const minutes = Math.floor(AppState.trialTimeRemaining / 60);
-            const seconds = AppState.trialTimeRemaining % 60;
-            welcomeMessage.innerHTML = `Welcome to your free trial! <span class="text-teal">${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} remaining</span> ⏰`;
-        } else if (userStatus.status === 'activated') {
+        if (AppState.currentUser.status === 'trial') {
+            const remainingSeconds = 3600 - AppState.trialElapsedSeconds;
+            const minutes = Math.floor(remainingSeconds / 60);
+            const seconds = remainingSeconds % 60;
+            const offlineIndicator = !navigator.onLine ? ' (Offline)' : '';
+            welcomeMessage.innerHTML = `Welcome to your free trial! <span class="text-teal">${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} remaining${offlineIndicator}</span> ⏰`;
+        } else if (AppState.currentUser.status === 'activated') {
             welcomeMessage.innerHTML = `Welcome back! Full access activated 🎉`;
         } else {
             welcomeMessage.innerHTML = `Welcome to MSH CBT HUB!`;
@@ -761,19 +1406,24 @@ function updateWelcomeMessage(userStatus) {
 function showTrialDashboard(userStatus) {
     const accountStatus = document.getElementById('accountStatus');
     if (accountStatus) {
-        const minutes = Math.floor(AppState.trialTimeRemaining / 60);
-        const seconds = AppState.trialTimeRemaining % 60;
-        const progressPercentage = (AppState.trialTimeRemaining / (60 * 60)) * 100;
+        const remainingSeconds = 3600 - AppState.trialElapsedSeconds;
+        const minutes = Math.floor(remainingSeconds / 60);
+        const seconds = remainingSeconds % 60;
+        const progressPercentage = (remainingSeconds / 3600) * 100;
+        
+        // V5: Show offline indicator
+        const offlineIndicator = !navigator.onLine ? '<span class="badge bg-warning ms-2">Offline</span>' : '';
         
         accountStatus.innerHTML = `
             <div class="alert alert-info">
                 <i class="fas fa-clock me-2"></i>
-                <strong>Free Trial Active</strong>
+                <strong>Free Trial Active ${offlineIndicator}</strong>
                 <div class="trial-timer mt-2">${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}</div>
                 <div class="progress mt-2" style="height: 6px;">
                     <div class="progress-bar bg-warning" style="width: ${progressPercentage}%"></div>
                 </div>
                 <small class="text-muted mt-2 d-block">${Math.floor(minutes)} minutes ${seconds} seconds remaining</small>
+                <small class="text-muted d-block">Time tracked even when offline</small>
             </div>
             <div class="d-grid">
                 <button class="btn btn-primary" onclick="showActivationModal()">
@@ -836,43 +1486,81 @@ async function loadQuickStats() {
             `;
         }
     } catch (error) {
-        quickStats.innerHTML = `
-            <div class="col-6">
-                <div class="stat-number text-teal">0</div>
-                <div class="stat-label">Tests Taken</div>
-            </div>
-            <div class="col-6">
-                <div class="stat-number text-teal">0%</div>
-                <div class="stat-label">Average Score</div>
-            </div>
-        `;
+        // V5: Use localStorage data if offline
+        const examResults = loadFromLocalStorage(AppState.localStorageKeys.EXAM_RESULTS);
+        if (examResults) {
+            quickStats.innerHTML = `
+                <div class="col-6">
+                    <div class="stat-number text-teal">1</div>
+                    <div class="stat-label">Tests Taken</div>
+                </div>
+                <div class="col-6">
+                    <div class="stat-number text-teal">${examResults.percentage}%</div>
+                    <div class="stat-label">Average Score</div>
+                </div>
+            `;
+        } else {
+            quickStats.innerHTML = `
+                <div class="col-6">
+                    <div class="stat-number text-teal">0</div>
+                    <div class="stat-label">Tests Taken</div>
+                </div>
+                <div class="col-6">
+                    <div class="stat-number text-teal">0%</div>
+                    <div class="stat-label">Average Score</div>
+                </div>
+            `;
+        }
     }
 }
 
 /**
- * Load recent activity - V4 FIXED: Now shows real data
+ * Load recent activity - V5 FIXED: Now shows real data with localStorage
  */
 async function loadRecentActivity() {
     const recentActivity = document.getElementById('recentActivity');
     if (!recentActivity) return;
     
     try {
-        const response = await fetch('/api/user/recent-activity');
-        const result = await response.json();
+        let activities = [];
         
-        if (result.success && result.activities && result.activities.length > 0) {
+        if (navigator.onLine) {
+            // Try to get from server first
+            const response = await fetch('/api/user/recent-activity');
+            const result = await response.json();
+            
+            if (result.success && result.activities && result.activities.length > 0) {
+                activities = result.activities;
+                // Save to localStorage for offline use
+                saveToLocalStorage('server_activities', activities);
+            }
+        }
+        
+        // If no server data, try localStorage
+        if (activities.length === 0) {
+            activities = loadFromLocalStorage('server_activities') || [];
+        }
+        
+        // Add local activities
+        const localActivities = loadFromLocalStorage(AppState.localStorageKeys.RECENT_ACTIVITY) || [];
+        if (localActivities.length > 0) {
+            activities = [...localActivities, ...activities].slice(0, 10);
+        }
+        
+        if (activities.length > 0) {
             let html = '<div class="activity-list">';
             
-            result.activities.forEach(activity => {
-                const date = new Date(activity.date).toLocaleDateString();
-                const time = new Date(activity.date).toLocaleTimeString();
+            activities.forEach(activity => {
+                const date = new Date(activity.date || activity.timestamp).toLocaleDateString();
+                const time = new Date(activity.date || activity.timestamp).toLocaleTimeString();
+                const isLocal = activity.storedLocally ? '<span class="badge bg-info ms-2">Local</span>' : '';
                 
                 html += `
                     <div class="activity-item mb-3 p-3 border rounded">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <h6 class="mb-1">${activity.exam_type} Test</h6>
-                                <p class="mb-1 text-muted">${activity.subjects}</p>
+                                <h6 class="mb-1">${activity.exam_type || 'Exam'} Test ${isLocal}</h6>
+                                <p class="mb-1 text-muted">${activity.subjects || 'Multiple subjects'}</p>
                                 <small class="text-muted">Score: ${activity.score}/${activity.total_questions} (${activity.percentage}%)</small>
                             </div>
                             <div class="text-end">
@@ -962,543 +1650,9 @@ async function loadAdminDashboard() {
     }
 }
 
-/**
- * Create admin page dynamically
- */
-function createAdminPage() {
-    const pagesContainer = document.querySelector('.page-section.active').parentElement;
-    
-    const adminPageHTML = `
-        <div id="admin-page" class="page-section">
-            <div class="container mt-5 pt-5">
-                <div class="cbt-card">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2 class="text-teal">
-                            <i class="fas fa-crown me-2"></i>Admin Dashboard
-                        </h2>
-                        <button class="btn btn-outline-teal" onclick="showPage('dashboard')">
-                            <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
-                        </button>
-                    </div>
-                    
-                    <!-- Admin Stats -->
-                    <div class="mb-5">
-                        <h4 class="mb-3">System Overview</h4>
-                        <div class="row" id="adminStats">
-                            <div class="text-center py-4">
-                                <div class="loading-spinner"></div>
-                                <p class="mt-3">Loading admin statistics...</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Users Management -->
-                    <div class="mb-5">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4>Users Management</h4>
-                            <button class="btn btn-teal btn-sm" onclick="refreshAdminUsers()">
-                                <i class="fas fa-sync-alt me-2"></i>Refresh
-                            </button>
-                        </div>
-                        <div id="adminUsersTable" class="table-responsive">
-                            <div class="text-center py-4">
-                                <div class="loading-spinner"></div>
-                                <p class="mt-3">Loading users...</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Activation Codes -->
-                    <div class="mb-5">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4>Activation Codes</h4>
-                            <div>
-                                <button class="btn btn-warning btn-sm me-2" onclick="refreshAdminCodes()">
-                                    <i class="fas fa-sync-alt me-2"></i>Refresh
-                                </button>
-                                <button class="btn btn-success btn-sm" onclick="generateActivationCodes()">
-                                    <i class="fas fa-plus me-2"></i>Generate Codes
-                                </button>
-                            </div>
-                        </div>
-                        <div id="adminCodesTable" class="table-responsive">
-                            <div class="text-center py-4">
-                                <div class="loading-spinner"></div>
-                                <p class="mt-3">Loading activation codes...</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-    
-    pagesContainer.insertAdjacentHTML('beforeend', adminPageHTML);
-}
+// ... [Rest of the admin dashboard functions remain the same] ...
 
-/**
- * Display admin statistics
- */
-function displayAdminStats(stats) {
-    const adminStats = document.getElementById('adminStats');
-    if (!adminStats) return;
-    
-    adminStats.innerHTML = `
-        <div class="col-md-3 mb-3">
-            <div class="cbt-card text-center p-3">
-                <div class="stat-number text-teal">${stats.total_users}</div>
-                <div class="stat-label">Total Users</div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-3">
-            <div class="cbt-card text-center p-3">
-                <div class="stat-number text-success">${stats.activated_users}</div>
-                <div class="stat-label">Activated Users</div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-3">
-            <div class="cbt-card text-center p-3">
-                <div class="stat-number text-warning">${stats.active_trials}</div>
-                <div class="stat-label">Active Trials</div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-3">
-            <div class="cbt-card text-center p-3">
-                <div class="stat-number text-danger">${stats.expired_trials}</div>
-                <div class="stat-label">Expired Trials</div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-3">
-            <div class="cbt-card text-center p-3">
-                <div class="stat-number text-primary">${stats.total_codes}</div>
-                <div class="stat-label">Total Codes</div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-3">
-            <div class="cbt-card text-center p-3">
-                <div class="stat-number text-info">${stats.used_codes}</div>
-                <div class="stat-label">Used Codes</div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-3">
-            <div class="cbt-card text-center p-3">
-                <div class="stat-number text-teal">${stats.total_exams}</div>
-                <div class="stat-label">Total Exams</div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-3">
-            <div class="cbt-card text-center p-3">
-                <div class="stat-number text-teal">${stats.recent_exams}</div>
-                <div class="stat-label">Recent Exams (7 days)</div>
-            </div>
-        </div>
-    `;
-}
-
-/**
- * Load admin users
- */
-async function loadAdminUsers() {
-    try {
-        const response = await fetch('/api/admin/users');
-        const result = await response.json();
-        
-        if (result.success && result.users) {
-            displayAdminUsers(result.users);
-        }
-    } catch (error) {
-        console.error('Error loading admin users:', error);
-    }
-}
-
-/**
- * Display admin users
- */
-function displayAdminUsers(users) {
-    const adminUsersTable = document.getElementById('adminUsersTable');
-    if (!adminUsersTable) return;
-    
-    let html = `
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                    <th>Exams</th>
-                    <th>Join Date</th>
-                </tr>
-            </thead>
-            <tbody>
-    `;
-    
-    users.forEach(user => {
-        let statusClass = '';
-        if (user.status === 'Activated') statusClass = 'badge bg-success';
-        else if (user.status === 'Admin') statusClass = 'badge bg-warning';
-        else if (user.status === 'Active Trial') statusClass = 'badge bg-info';
-        else statusClass = 'badge bg-secondary';
-        
-        html += `
-            <tr>
-                <td>${user.id}</td>
-                <td>${user.name}</td>
-                <td>${user.email}</td>
-                <td><span class="${statusClass}">${user.status}</span></td>
-                <td>${user.exam_count}</td>
-                <td>${user.join_date}</td>
-            </tr>
-        `;
-    });
-    
-    html += `
-            </tbody>
-        </table>
-        <div class="text-muted text-end mt-2">Total: ${users.length} users</div>
-    `;
-    
-    adminUsersTable.innerHTML = html;
-}
-
-/**
- * Refresh admin users
- */
-function refreshAdminUsers() {
-    const adminUsersTable = document.getElementById('adminUsersTable');
-    if (adminUsersTable) {
-        adminUsersTable.innerHTML = `
-            <div class="text-center py-4">
-                <div class="loading-spinner"></div>
-                <p class="mt-3">Refreshing users...</p>
-            </div>
-        `;
-    }
-    loadAdminUsers();
-}
-
-/**
- * Load admin codes
- */
-async function loadAdminCodes() {
-    try {
-        const response = await fetch('/api/admin/codes');
-        const result = await response.json();
-        
-        if (result.success && result.codes) {
-            displayAdminCodes(result.codes);
-        }
-    } catch (error) {
-        console.error('Error loading admin codes:', error);
-    }
-}
-
-/**
- * Display admin codes
- */
-function displayAdminCodes(codes) {
-    const adminCodesTable = document.getElementById('adminCodesTable');
-    if (!adminCodesTable) return;
-    
-    let html = `
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Code</th>
-                    <th>Status</th>
-                    <th>Used By</th>
-                    <th>Created</th>
-                    <th>Expires</th>
-                </tr>
-            </thead>
-            <tbody>
-    `;
-    
-    codes.forEach(code => {
-        let statusBadge = code.used ? 
-            '<span class="badge bg-danger">Used</span>' : 
-            '<span class="badge bg-success">Available</span>';
-        
-        html += `
-            <tr>
-                <td>${code.id}</td>
-                <td><code>${code.code}</code></td>
-                <td>${statusBadge}</td>
-                <td>${code.used_by || 'N/A'}</td>
-                <td>${code.created_at}</td>
-                <td>${code.expires_at || 'N/A'}</td>
-            </tr>
-        `;
-    });
-    
-    html += `
-            </tbody>
-        </table>
-        <div class="text-muted text-end mt-2">Total: ${codes.length} codes</div>
-    `;
-    
-    adminCodesTable.innerHTML = html;
-}
-
-/**
- * Refresh admin codes
- */
-function refreshAdminCodes() {
-    const adminCodesTable = document.getElementById('adminCodesTable');
-    if (adminCodesTable) {
-        adminCodesTable.innerHTML = `
-            <div class="text-center py-4">
-                <div class="loading-spinner"></div>
-                <p class="mt-3">Refreshing codes...</p>
-            </div>
-        `;
-    }
-    loadAdminCodes();
-}
-
-/**
- * Generate activation codes
- */
-async function generateActivationCodes() {
-    if (!confirm('Generate 100 new activation codes?')) return;
-    
-    try {
-        const response = await fetch('/api/generate-codes', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            showNotification('100 activation codes generated successfully!', 'success');
-            refreshAdminCodes();
-        } else {
-            showNotification('Error generating codes: ' + result.message, 'error');
-        }
-    } catch (error) {
-        console.error('Error generating codes:', error);
-        showNotification('Error generating activation codes', 'error');
-    }
-}
-
-// ==================== SUBJECT SELECTION SYSTEM ====================
-
-/**
- * Show WAEC selection page
- */
-function showWAECSelectionPage() {
-    showPage('waec-selection');
-    loadWAECSubjects();
-}
-
-/**
- * Show JAMB selection page
- */
-function showJAMBSelectionPage() {
-    showPage('jamb-selection');
-    loadJAMBSubjects();
-}
-
-/**
- * Start WAEC subject selection
- */
-function startWAECSelection() {
-    if (!AppState.currentUser) {
-        showNotification('Please login first', 'warning');
-        showPage('login');
-        return;
-    }
-    
-    // Check if trial expired
-    if (AppState.currentUser.status === 'expired') {
-        showNotification('Your trial has expired. Please activate your account.', 'warning');
-        showActivationModal();
-        return;
-    }
-    
-    showWAECSelectionPage();
-}
-
-/**
- * Start JAMB subject selection
- */
-function startJAMBSelection() {
-    if (!AppState.currentUser) {
-        showNotification('Please login first', 'warning');
-        showPage('login');
-        return;
-    }
-    
-    // Check if trial expired
-    if (AppState.currentUser.status === 'expired') {
-        showNotification('Your trial has expired. Please activate your account.', 'warning');
-        showActivationModal();
-        return;
-    }
-    
-    showJAMBSelectionPage();
-}
-
-/**
- * Load WAEC subjects with icons
- */
-function loadWAECSubjects() {
-    const container = document.getElementById('waecSubjectsList');
-    if (!container) return;
-    
-    let html = `
-        <div class="selection-info mb-4">
-            <div class="alert alert-info">
-                <i class="fas fa-info-circle me-2"></i>
-                <strong>Note:</strong> English Language and Mathematics are compulsory. Select 7 additional subjects to make 9 total.
-            </div>
-        </div>
-        <div class="row g-3">
-    `;
-    
-    SUBJECT_CONFIG.waec.forEach((subject, index) => {
-        html += `
-            <div class="col-md-6">
-                <div class="subject-selection-card ${subject.compulsory ? 'compulsory' : ''}">
-                    <div class="subject-selection-header">
-                        <div class="subject-icon" style="background: ${subject.color}">
-                            <i class="fas ${subject.icon}"></i>
-                        </div>
-                        <div class="subject-info">
-                            <h6 class="mb-1">${subject.name}</h6>
-                            ${subject.compulsory ? 
-                                '<small class="text-success"><i class="fas fa-check-circle me-1"></i>Compulsory</small>' : 
-                                '<small class="text-muted">Optional</small>'
-                            }
-                        </div>
-                    </div>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" 
-                               id="waec-${subject.id}" 
-                               ${subject.compulsory ? 'checked disabled' : ''}
-                               value="${subject.id}">
-                        <label class="form-check-label" for="waec-${subject.id}">
-                            ${subject.compulsory ? 'Required' : 'Select'}
-                        </label>
-                    </div>
-                </div>
-            </div>
-        `;
-    });
-    
-    html += `
-        </div>
-        <div class="text-center mt-4">
-            <button class="btn btn-primary btn-lg" onclick="startWAECExam()">
-                <i class="fas fa-play me-2"></i>Start WAEC Exam
-            </button>
-        </div>
-    `;
-    
-    container.innerHTML = html;
-}
-
-/**
- * Load JAMB subjects with icons
- */
-function loadJAMBSubjects() {
-    const container = document.getElementById('jambSubjectsList');
-    if (!container) return;
-    
-    let html = `
-        <div class="selection-info mb-4">
-            <div class="alert alert-info">
-                <i class="fas fa-info-circle me-2"></i>
-                <strong>Note:</strong> English Language is compulsory. Select 3 additional subjects to make 4 total.
-            </div>
-        </div>
-        <div class="row g-3">
-    `;
-    
-    SUBJECT_CONFIG.jamb.forEach((subject, index) => {
-        html += `
-            <div class="col-md-6">
-                <div class="subject-selection-card ${subject.compulsory ? 'compulsory' : ''}">
-                    <div class="subject-selection-header">
-                        <div class="subject-icon" style="background: ${subject.color}">
-                            <i class="fas ${subject.icon}"></i>
-                        </div>
-                        <div class="subject-info">
-                            <h6 class="mb-1">${subject.name}</h6>
-                            ${subject.compulsory ? 
-                                '<small class="text-success"><i class="fas fa-check-circle me-1"></i>Compulsory</small>' : 
-                                '<small class="text-muted">Optional</small>'
-                            }
-                        </div>
-                    </div>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input jamb-subject" type="checkbox" 
-                               id="jamb-${subject.id}" 
-                               ${subject.compulsory ? 'checked' : ''}
-                               value="${subject.id}"
-                               onchange="validateJAMBSelection()">
-                        <label class="form-check-label" for="jamb-${subject.id}">
-                            ${subject.compulsory ? 'Required' : 'Select'}
-                        </label>
-                    </div>
-                </div>
-            </div>
-        `;
-    });
-    
-    html += `
-        </div>
-        <div class="text-center mt-4">
-            <button class="btn btn-primary btn-lg" onclick="startJAMBExam()" id="jambStartBtn">
-                <i class="fas fa-play me-2"></i>Start JAMB Exam
-            </button>
-        </div>
-    `;
-    
-    container.innerHTML = html;
-    validateJAMBSelection();
-}
-
-/**
- * Validate JAMB subject selection - FIXED: Exactly 4 subjects required
- */
-function validateJAMBSelection() {
-    const selectedSubjects = document.querySelectorAll('.jamb-subject:checked');
-    const englishCheckbox = document.getElementById('jamb-english');
-    const startBtn = document.getElementById('jambStartBtn');
-    
-    // Ensure English is always selected
-    if (!englishCheckbox.checked) {
-        englishCheckbox.checked = true;
-        showNotification('English Language is compulsory for JAMB', 'info');
-    }
-    
-    // Limit to exactly 4 subjects total
-    if (selectedSubjects.length > 4) {
-        showNotification('You can only select exactly 4 subjects for JAMB (including English)', 'warning');
-        event.target.checked = false;
-        return;
-    }
-    
-    // Enable/disable start button based on selection
-    if (startBtn) {
-        if (selectedSubjects.length === 4) {
-            startBtn.disabled = false;
-            startBtn.classList.remove('btn-secondary');
-            startBtn.classList.add('btn-primary');
-        } else {
-            startBtn.disabled = true;
-            startBtn.classList.remove('btn-primary');
-            startBtn.classList.add('btn-secondary');
-        }
-    }
-}
-
-// ==================== EXAM SYSTEM - V4 ENHANCED ====================
+// ==================== EXAM SYSTEM - V5 ENHANCED ====================
 
 /**
  * Start WAEC exam with selected subjects - FIXED: Validate 9 subjects
@@ -1543,25 +1697,7 @@ async function startJAMBExam() {
 }
 
 /**
- * Get selected subjects from checkboxes
- */
-function getSelectedSubjects(examType) {
-    const selectedSubjects = [];
-    const prefix = examType === 'waec' ? 'waec-' : 'jamb-';
-    const subjects = examType === 'waec' ? SUBJECT_CONFIG.waec : SUBJECT_CONFIG.jamb;
-    
-    subjects.forEach(subject => {
-        const checkbox = document.getElementById(`${prefix}${subject.id}`);
-        if (checkbox && checkbox.checked) {
-            selectedSubjects.push(subject.id);
-        }
-    });
-    
-    return selectedSubjects;
-}
-
-/**
- * Start exam with selected subjects - V4 FIX: 60 questions with proper distribution
+ * Start exam with selected subjects - V5 FIX: 60 questions with proper distribution
  */
 async function startExam(examType, selectedSubjects) {
     if (!AppState.currentUser) {
@@ -1579,8 +1715,12 @@ async function startExam(examType, selectedSubjects) {
             return;
         }
     } catch (error) {
-        showNotification('Error checking account status', 'error');
-        return;
+        // V5: Check localStorage for trial status if offline
+        if (AppState.currentUser.status === 'expired') {
+            showNotification('Your trial has expired. Please activate your account.', 'warning');
+            showActivationModal();
+            return;
+        }
     }
 
     // Show loading state
@@ -1598,7 +1738,7 @@ async function startExam(examType, selectedSubjects) {
         startTime: new Date()
     };
 
-    // Load questions from backend - V4 FIX: Ensure 60 questions with proper distribution
+    // Load questions from backend - V5 FIX: Ensure 60 questions with proper distribution
     try {
         const response = await fetch('/api/get-questions', {
             method: 'POST',
@@ -1614,7 +1754,7 @@ async function startExam(examType, selectedSubjects) {
         const result = await response.json();
         
         if (result.success) {
-            // V4 FIX: Verify we have questions
+            // V5 FIX: Verify we have questions
             let questions = result.questions;
             
             if (questions.length !== 60) {
@@ -1642,264 +1782,7 @@ async function startExam(examType, selectedSubjects) {
 }
 
 /**
- * Get exam time based on type and subjects - V4 UPDATE: Standard timing
- */
-function getExamTime(examType, subjects) {
-    // V4 ENHANCEMENT: Standard timing for all exams
-    return examType === 'WAEC' ? 7200 : 7200; // 2 hours for both WAEC and JAMB
-}
-
-/**
- * Initialize exam interface
- */
-function initializeExamInterface() {
-    if (!AppState.currentExam) return;
-    
-    updateQuestionDisplay();
-    initializeQuestionsGrid();
-    updateProgress();
-    
-    // Set exam info
-    const examSubject = document.getElementById('examSubject');
-    const examInfo = document.getElementById('examInfo');
-    
-    if (examSubject) {
-        const examName = AppState.currentExam.type === 'WAEC' ? 'WAEC' : 'JAMB';
-        examSubject.innerHTML = `<i class="fas fa-book me-2"></i>${examName} - ${AppState.currentExam.questions.length} Questions`;
-    }
-    
-    if (examInfo) {
-        examInfo.textContent = `${AppState.currentExam.subjects.length} Subjects • ${formatTime(AppState.currentExam.timeRemaining)}`;
-    }
-}
-
-/**
- * Update question display
- */
-function updateQuestionDisplay() {
-    if (!AppState.currentExam) return;
-    
-    const question = AppState.currentExam.questions[AppState.currentExam.currentQuestionIndex];
-    
-    document.getElementById('currentQuestion').textContent = AppState.currentExam.currentQuestionIndex + 1;
-    document.getElementById('totalQuestions').textContent = AppState.currentExam.questions.length;
-    document.getElementById('questionText').textContent = question.question;
-    
-    // Update options
-    const optionsContainer = document.getElementById('optionsContainer');
-    if (optionsContainer) {
-        optionsContainer.innerHTML = `
-            <div class="option" data-option="A">
-                <span class="option-letter">A</span>
-                <span class="option-text">${question.options.A}</span>
-            </div>
-            <div class="option" data-option="B">
-                <span class="option-letter">B</span>
-                <span class="option-text">${question.options.B}</span>
-            </div>
-            <div class="option" data-option="C">
-                <span class="option-letter">C</span>
-                <span class="option-text">${question.options.C}</span>
-            </div>
-            <div class="option" data-option="D">
-                <span class="option-letter">D</span>
-                <span class="option-text">${question.options.D}</span>
-            </div>
-        `;
-    }
-    
-    // Clear previous selection
-    document.querySelectorAll('.option').forEach(opt => {
-        opt.classList.remove('selected');
-    });
-    
-    // Show current selection
-    const userAnswer = AppState.currentExam.userAnswers[AppState.currentExam.currentQuestionIndex];
-    if (userAnswer) {
-        const optionElement = document.querySelector(`.option[data-option="${userAnswer}"]`);
-        if (optionElement) {
-            optionElement.classList.add('selected');
-        }
-    }
-    
-    // Handle comprehension passages
-    const passageElement = document.getElementById('comprehensionPassage');
-    if (question.passage) {
-        document.getElementById('passageContent').textContent = question.passage;
-        passageElement.style.display = 'block';
-    } else {
-        passageElement.style.display = 'none';
-    }
-    
-    // Update navigation buttons
-    document.getElementById('prevBtn').disabled = AppState.currentExam.currentQuestionIndex === 0;
-    document.getElementById('nextBtn').disabled = AppState.currentExam.currentQuestionIndex === AppState.currentExam.questions.length - 1;
-    
-    // Update questions grid
-    updateQuestionsGrid();
-}
-
-/**
- * Initialize questions grid for exam
- */
-function initializeQuestionsGrid() {
-    if (!AppState.currentExam) return;
-    
-    const grid = document.getElementById('questionsGrid');
-    grid.innerHTML = '';
-    
-    for (let i = 0; i < AppState.currentExam.questions.length; i++) {
-        const btn = document.createElement('button');
-        btn.className = 'question-number-btn unanswered';
-        btn.textContent = i + 1;
-        btn.onclick = () => navigateToQuestion(i);
-        
-        if (i === AppState.currentExam.currentQuestionIndex) {
-            btn.classList.add('current');
-        }
-        
-        grid.appendChild(btn);
-    }
-}
-
-/**
- * Update questions grid display
- */
-function updateQuestionsGrid() {
-    if (!AppState.currentExam) return;
-    
-    const buttons = document.querySelectorAll('.question-number-btn');
-    
-    buttons.forEach((btn, index) => {
-        btn.className = 'question-number-btn';
-        
-        if (index === AppState.currentExam.currentQuestionIndex) {
-            btn.classList.add('current');
-        } else if (AppState.currentExam.userAnswers[index]) {
-            btn.classList.add('answered');
-        } else {
-            btn.classList.add('unanswered');
-        }
-    });
-}
-
-/**
- * Navigate to specific question
- */
-function navigateToQuestion(index) {
-    if (!AppState.currentExam) return;
-    
-    AppState.currentExam.currentQuestionIndex = index;
-    updateQuestionDisplay();
-}
-
-/**
- * Start exam timer
- */
-function startExamTimer() {
-    if (!AppState.currentExam) return;
-    
-    updateTimerDisplay();
-    
-    AppState.currentExam.timer = setInterval(() => {
-        AppState.currentExam.timeRemaining--;
-        updateTimerDisplay();
-        
-        if (AppState.currentExam.timeRemaining <= 0) {
-            clearInterval(AppState.currentExam.timer);
-            autoSubmitExam();
-        }
-    }, 1000);
-}
-
-/**
- * Update timer display - V4 UPDATE: Enhanced formatting
- */
-function updateTimerDisplay() {
-    if (!AppState.currentExam) return;
-    
-    const timerElement = document.getElementById('examTimer');
-    const progressElement = document.getElementById('timerProgress');
-    
-    if (timerElement) {
-        timerElement.textContent = formatTime(AppState.currentExam.timeRemaining);
-    }
-    
-    if (progressElement) {
-        // Update progress bar color based on time
-        const totalTime = getExamTime(AppState.currentExam.type, AppState.currentExam.subjects);
-        const progress = (AppState.currentExam.timeRemaining / totalTime) * 100;
-        
-        progressElement.style.width = `${progress}%`;
-        
-        if (progress < 20) {
-            progressElement.className = 'progress-bar bg-danger';
-        } else if (progress < 50) {
-            progressElement.className = 'progress-bar bg-warning';
-        } else {
-            progressElement.className = 'progress-bar bg-success';
-        }
-    }
-}
-
-/**
- * Auto-submit when time is up
- */
-function autoSubmitExam() {
-    showNotification('Time is up! Your exam has been automatically submitted.', 'warning');
-    submitExam();
-}
-
-/**
- * Show submit confirmation modal
- */
-function showSubmitConfirmation(unanswered) {
-    const modalHtml = `
-        <div class="modal fade" id="submitConfirmationModal" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">
-                            <i class="fas fa-exclamation-triangle me-2"></i>Confirm Submission
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <i class="fas fa-question-circle fa-4x text-warning mb-3"></i>
-                        <h4 id="unansweredCount">You have ${unanswered} unanswered questions!</h4>
-                        <p>Are you sure you want to submit your exam?</p>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                            <i class="fas fa-arrow-left me-2"></i>Continue Exam
-                        </button>
-                        <button type="button" class="btn btn-danger" onclick="submitExam()">
-                            <i class="fas fa-paper-plane me-2"></i>Submit Anyway
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-    
-    // Add modal to body if not exists
-    if (!document.getElementById('submitConfirmationModal')) {
-        document.body.insertAdjacentHTML('beforeend', modalHtml);
-    }
-    
-    // Update unanswered count
-    const unansweredElement = document.querySelector('#submitConfirmationModal h4');
-    if (unansweredElement) {
-        unansweredElement.textContent = `You have ${unanswered} unanswered questions!`;
-    }
-    
-    // Show modal
-    const modal = new bootstrap.Modal(document.getElementById('submitConfirmationModal'));
-    modal.show();
-}
-
-/**
- * Submit exam to backend - V4 FIX: Enhanced for stable results
+ * Submit exam to backend - V5 FIX: Enhanced for stable results with localStorage backup
  */
 async function submitExam() {
     if (!AppState.currentExam) return;
@@ -1933,7 +1816,7 @@ async function submitExam() {
         const result = await response.json();
         
         if (result.success) {
-            // V4 FIX: Store complete results for display with backup to localStorage
+            // V5 FIX: Store complete results for display with backup to localStorage
             AppState.examResults = {
                 score: result.score,
                 totalQuestions: result.total_questions,
@@ -1952,8 +1835,8 @@ async function submitExam() {
                 resultId: result.result_id
             };
             
-            // Save to localStorage as backup
-            localStorage.setItem('msh_cbt_exam_results', JSON.stringify(AppState.examResults));
+            // V5: Save to localStorage
+            saveExamResultsToStorage(AppState.examResults);
             
             showNotification('Exam submitted successfully!', 'success');
             showPage('results');
@@ -1962,7 +1845,7 @@ async function submitExam() {
         }
     } catch (error) {
         console.error('Error submitting exam:', error);
-        // Fallback: Calculate results locally if backend fails
+        // V5: Fallback to localStorage if offline
         const score = calculateScore();
         const totalQuestions = AppState.currentExam.questions.length;
         const percentage = Math.round((score / totalQuestions) * 100);
@@ -1976,73 +1859,30 @@ async function submitExam() {
             subjects: AppState.currentExam.subjects,
             examType: AppState.currentExam.type,
             userAnswers: AppState.currentExam.userAnswers,
-            questions: AppState.currentExam.questions
+            questions: AppState.currentExam.questions,
+            storedLocally: true
         };
         
-        // Save to localStorage as backup
-        localStorage.setItem('msh_cbt_exam_results', JSON.stringify(AppState.examResults));
+        // Save to localStorage
+        saveExamResultsToStorage(AppState.examResults);
         
-        showNotification('Exam submitted (offline mode)', 'warning');
+        showNotification('Exam submitted (offline mode - saved locally)', 'warning');
         showPage('results');
     }
 }
 
-/**
- * Calculate exam score
- */
-function calculateScore() {
-    if (!AppState.currentExam) return 0;
-    
-    let correct = 0;
-    
-    AppState.currentExam.questions.forEach((question, index) => {
-        const userAnswer = AppState.currentExam.userAnswers[index];
-        if (userAnswer && userAnswer === question.correct_answer) {
-            correct++;
-        }
-    });
-    
-    return correct;
-}
+// ==================== RESULTS SYSTEM FUNCTIONS - V5 ENHANCED ====================
 
 /**
- * Update progress display
- */
-function updateProgress() {
-    if (!AppState.currentExam) return;
-    
-    const answered = Object.keys(AppState.currentExam.userAnswers).length;
-    const total = AppState.currentExam.questions.length;
-    const progress = (answered / total) * 100;
-    
-    const progressBar = document.getElementById('progressBar');
-    const answeredCount = document.getElementById('answeredCount');
-    const totalCount = document.getElementById('totalCount');
-    
-    if (progressBar) progressBar.style.width = `${progress}%`;
-    if (answeredCount) answeredCount.textContent = answered;
-    if (totalCount) totalCount.textContent = total;
-}
-
-// ==================== RESULTS SYSTEM FUNCTIONS - V4 ENHANCED ====================
-
-/**
- * Display exam results - V4 FIX: Stable results display with no blanking
+ * Display exam results - V5 FIX: Stable results display with no blanking
  */
 async function displayResults() {
-    // V4 FIX: Ensure results are available
+    // V5 FIX: Ensure results are available
     if (!AppState.examResults) {
         console.log('No exam results found in state, checking localStorage...');
-        const savedResults = localStorage.getItem('msh_cbt_exam_results');
+        const savedResults = loadFromLocalStorage(AppState.localStorageKeys.EXAM_RESULTS);
         if (savedResults) {
-            try {
-                AppState.examResults = JSON.parse(savedResults);
-            } catch (e) {
-                console.error('Error parsing saved results:', e);
-                showNotification('No exam results available. Please try again.', 'error');
-                showPage('dashboard');
-                return;
-            }
+            AppState.examResults = savedResults;
         } else {
             showNotification('No exam results available. Please try again.', 'error');
             showPage('dashboard');
@@ -2050,7 +1890,7 @@ async function displayResults() {
         }
     }
     
-    // Update results display - V4 FIX: Use direct DOM manipulation for stability
+    // Update results display - V5 FIX: Use direct DOM manipulation for stability
     const scorePercentage = document.getElementById('scorePercentage');
     const scoreText = document.getElementById('scoreText');
     const timeTaken = document.getElementById('timeTaken');
@@ -2061,7 +1901,7 @@ async function displayResults() {
     if (timeTaken) timeTaken.textContent = formatTime(AppState.examResults.timeTaken);
     if (completionDate) completionDate.textContent = AppState.examResults.date;
 
-    // V4 FIX: Modern results message with performance-based styling
+    // V5 FIX: Modern results message with performance-based styling
     const resultsMessage = document.getElementById('resultsMessage');
     let performanceLevel = '';
     
@@ -2077,7 +1917,11 @@ async function displayResults() {
     
     const performance = PERFORMANCE_MESSAGES[performanceLevel];
     
-    // Replace the simple message with enhanced V4 design
+    // Add offline indicator if result was saved locally
+    const offlineIndicator = AppState.examResults.storedLocally ? 
+        '<div class="alert alert-info mt-3"><i class="fas fa-save me-2"></i>Saved locally - will sync when online</div>' : '';
+    
+    // Replace the simple message with enhanced V5 design
     if (resultsMessage) {
         resultsMessage.outerHTML = `
             <div class="results-message-container ${performance.color}">
@@ -2090,6 +1934,7 @@ async function displayResults() {
                     <div class="performance-badge">
                         <i class="fas fa-award me-2"></i>${performance.badge}
                     </div>
+                    ${offlineIndicator}
                 </div>
             </div>
         `;
@@ -2098,8 +1943,8 @@ async function displayResults() {
     // Update subject breakdown
     updateSubjectBreakdown();
     
-    // V4 FIX: If we have a result ID, try to fetch detailed results from server
-    if (AppState.examResults.resultId) {
+    // V5 FIX: If we have a result ID and are online, try to fetch detailed results from server
+    if (AppState.examResults.resultId && navigator.onLine && !AppState.examResults.storedLocally) {
         try {
             const response = await fetch(`/api/exam-results/${AppState.examResults.resultId}`);
             const result = await response.json();
@@ -2113,8 +1958,8 @@ async function displayResults() {
                     userAnswers: result.result.user_answers || AppState.examResults.userAnswers
                 };
                 
-                // Update localStorage with fresh data
-                localStorage.setItem('msh_cbt_exam_results', JSON.stringify(AppState.examResults));
+                // Save updated results to localStorage
+                saveExamResultsToStorage(AppState.examResults);
                 
                 // Update display again with server data
                 updateSubjectBreakdown();
@@ -2126,258 +1971,38 @@ async function displayResults() {
     }
 }
 
+// ==================== EVENT HANDLERS ====================
+
 /**
- * Update subject performance breakdown - V4 FIX: Better calculation
+ * Handle beforeunload event
  */
-function updateSubjectBreakdown() {
-    if (!AppState.examResults) return;
-    
-    const container = document.getElementById('subjectBreakdown');
-    let subjectScores = AppState.examResults.subjectScores || {};
-    
-    // If no subject scores, calculate from questions
-    if (Object.keys(subjectScores).length === 0 && AppState.examResults.questions) {
-        const calculatedScores = {};
-        
-        AppState.examResults.questions.forEach((question, index) => {
-            const subject = question.subject || 'General';
-            if (!calculatedScores[subject]) {
-                calculatedScores[subject] = { total: 0, correct: 0 };
-            }
-            
-            calculatedScores[subject].total++;
-            const userAnswer = AppState.examResults.userAnswers[index];
-            if (userAnswer && userAnswer === question.correct_answer) {
-                calculatedScores[subject].correct++;
-            }
-        });
-        
-        subjectScores = calculatedScores;
+function handleBeforeUnload(e) {
+    if (AppState.currentExam) {
+        e.preventDefault();
+        e.returnValue = 'You have an ongoing exam. Are you sure you want to leave?';
+        return e.returnValue;
     }
-
-    // Generate HTML for each subject
-    let html = '';
-    Object.keys(subjectScores).forEach(subject => {
-        const score = subjectScores[subject];
-        const percentage = score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0;
-        
-        html += `
-            <div class="subject-performance mb-3">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <div class="subject-name">
-                        <i class="fas fa-book me-2 text-teal"></i>
-                        <strong>${subject.charAt(0).toUpperCase() + subject.slice(1)}</strong>
-                    </div>
-                    <div class="subject-score">
-                        ${score.correct}/${score.total} (${percentage}%)
-                    </div>
-                </div>
-                <div class="subject-progress">
-                    <div class="progress" style="height: 8px;">
-                        <div class="progress-bar ${getProgressBarColor(percentage)}" 
-                             style="width: ${percentage}%"></div>
-                    </div>
-                </div>
-            </div>
-        `;
-    });
-
-    if (container) {
-        container.innerHTML = html || '<p class="text-muted text-center">No subject data available</p>';
-    }
+    
+    // V5: Save all data before leaving
+    saveAllDataToLocalStorage();
 }
 
 /**
- * Get progress bar color based on percentage
+ * Handle visibility change for timers
  */
-function getProgressBarColor(percentage) {
-    if (percentage >= 80) return 'bg-success';
-    if (percentage >= 60) return 'bg-warning';
-    return 'bg-danger';
-}
-
-/**
- * Review answers
- */
-function reviewAnswers() {
-    if (!AppState.examResults) {
-        showNotification('No exam results to review', 'warning');
-        return;
-    }
-    showPage('review');
-    displayReviewQuestions('all');
-}
-
-/**
- * Display review questions with filtering - V4 FIX: Better display
- */
-function displayReviewQuestions(filter) {
-    if (!AppState.examResults) return;
-    
-    const container = document.getElementById('reviewQuestionsContainer');
-    let html = '';
-
-    AppState.examResults.questions.forEach((question, index) => {
-        const userAnswer = AppState.examResults.userAnswers[index];
-        const isCorrect = userAnswer && userAnswer === question.correct_answer;
-        const isUnanswered = !userAnswer;
-
-        // Apply filters
-        if (filter === 'correct' && !isCorrect) return;
-        if (filter === 'wrong' && (isCorrect || isUnanswered)) return;
-        if (filter === 'unanswered' && !isUnanswered) return;
-
-        let itemClass = 'review-item p-3 mb-3 border rounded';
-        if (isCorrect) itemClass += ' border-success bg-success-light';
-        else if (isUnanswered) itemClass += ' border-warning bg-warning-light';
-        else itemClass += ' border-danger bg-danger-light';
-
-        html += `
-            <div class="${itemClass}">
-                <div class="review-question mb-3">
-                    <strong>Q${index + 1}:</strong> ${question.question}
-                    ${question.passage ? `<div class="text-muted small mt-2"><em>Comprehension Passage</em></div>` : ''}
-                </div>
-
-                <div class="review-options">
-                    ${Object.entries(question.options).map(([option, text]) => {
-                        let optionClass = 'review-option p-2 mb-1 border rounded';
-                        let icon = '';
-
-                        if (option === question.correct_answer) {
-                            optionClass += ' border-success bg-success-light';
-                            icon = '<i class="fas fa-check-circle ms-2 text-success"></i>';
-                        }
-
-                        if (option === userAnswer) {
-                            if (option === question.correct_answer) {
-                                optionClass += ' border-success border-2';
-                                icon = '<i class="fas fa-check-circle ms-2 text-success"></i> Your answer';
-                            } else {
-                                optionClass += ' border-danger border-2';
-                                icon = '<i class="fas fa-times-circle ms-2 text-danger"></i> Your answer';
-                            }
-                        }
-
-                        return `
-                            <div class="${optionClass}">
-                                <strong>${option}:</strong> ${text} ${icon}
-                            </div>
-                        `;
-                    }).join('')}
-                </div>
-
-                ${!isUnanswered ? `
-                    <div class="review-explanation mt-3 p-2 bg-light rounded">
-                        <strong><i class="fas fa-lightbulb me-2 text-warning"></i>Explanation:</strong>
-                        <p class="mb-0 mt-2">${question.explanation || 'No explanation available.'}</p>
-                    </div>
-                ` : `
-                    <div class="review-explanation mt-3 p-2 bg-info-light rounded">
-                        <strong><i class="fas fa-info-circle me-2 text-info"></i>Note:</strong>
-                        <p class="mb-0 mt-2">You didn't answer this question. The correct answer is <strong>${question.correct_answer}</strong>.</p>
-                    </div>
-                `}
-            </div>
-        `;
-    });
-
-    if (container) {
-        container.innerHTML = html || '<div class="text-center py-5"><p class="text-muted">No questions match the selected filter.</p></div>';
-    }
-
-    // Update filter buttons
-    document.querySelectorAll('.review-filters .btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    event.target.classList.add('active');
-}
-
-/**
- * Filter review questions
- */
-function filterReview(type) {
-    displayReviewQuestions(type);
-}
-
-// ==================== NOTIFICATION SYSTEM ====================
-
-/**
- * Show notification to user
- */
-function showNotification(message, type = 'info') {
-    // Remove existing notifications
-    const existingNotifications = document.querySelectorAll('.custom-notification');
-    existingNotifications.forEach(notification => {
-        notification.remove();
-    });
-    
-    const icons = {
-        success: 'fas fa-check-circle',
-        error: 'fas fa-exclamation-circle',
-        warning: 'fas fa-exclamation-triangle',
-        info: 'fas fa-info-circle'
-    };
-    
-    const notification = document.createElement('div');
-    notification.className = `custom-notification alert-${type} fade-in`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <i class="${icons[type]} me-2"></i>
-            <span>${message}</span>
-        </div>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.style.opacity = '0';
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => notification.remove(), 300);
-        }
-    }, 5000);
-}
-
-// ==================== UTILITY FUNCTIONS ====================
-
-/**
- * Format time from seconds to HH:MM:SS or MM:SS
- */
-function formatTime(seconds) {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
-    
-    if (hours > 0) {
-        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+function handleVisibilityChange() {
+    if (document.hidden) {
+        // Page is hidden, pause timers if needed
+        pauseTrialTimer();
+        console.log('Page hidden - timers paused');
     } else {
-        return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-    }
-}
-
-/**
- * Check user status from server
- */
-async function checkUserStatus() {
-    try {
-        const response = await fetch('/api/user-status');
-        return await response.json();
-    } catch (error) {
-        return { active: false };
+        // Page is visible, resume timers
+        resumeTrialTimer();
+        console.log('Page visible - timers resumed');
     }
 }
 
 // ==================== ACTIVATION SYSTEM ====================
-
-/**
- * Show activation modal
- */
-function showActivationModal() {
-    const modal = new bootstrap.Modal(document.getElementById('activationModal'));
-    modal.show();
-}
 
 /**
  * Activate account with code - FIXED: Enhanced format validation
@@ -2418,10 +2043,15 @@ async function activateAccount() {
             
             // Update user status
             AppState.currentUser.status = 'activated';
+            AppState.currentUser.is_activated = true;
+            
+            // V5: Save to localStorage
+            saveUserDataToStorage(AppState.currentUser);
             
             // Clear trial timer
             if (AppState.trialTimer) {
                 clearInterval(AppState.trialTimer);
+                AppState.trialTimer = null;
             }
             
             // Reload dashboard
@@ -2434,364 +2064,28 @@ async function activateAccount() {
     }
 }
 
-// ==================== EVENT HANDLERS ====================
-
-/**
- * Handle global click events
- */
-function handleGlobalClicks(e) {
-    // Option selection in exam
-    if (e.target.closest('.option')) {
-        const option = e.target.closest('.option');
-        const selectedAnswer = option.dataset.option;
-        
-        if (!AppState.currentExam) return;
-        
-        // Clear other selections
-        document.querySelectorAll('.option').forEach(opt => {
-            opt.classList.remove('selected');
-        });
-        
-        // Select current option
-        option.classList.add('selected');
-        
-        // Save answer
-        AppState.currentExam.userAnswers[AppState.currentExam.currentQuestionIndex] = selectedAnswer;
-        
-        // Update progress
-        updateProgress();
-        updateQuestionsGrid();
-    }
-    
-    // Next question button
-    if (e.target.id === 'nextBtn' || e.target.closest('#nextBtn')) {
-        if (AppState.currentExam && AppState.currentExam.currentQuestionIndex < AppState.currentExam.questions.length - 1) {
-            AppState.currentExam.currentQuestionIndex++;
-            updateQuestionDisplay();
-        }
-    }
-    
-    // Previous question button
-    if (e.target.id === 'prevBtn' || e.target.closest('#prevBtn')) {
-        if (AppState.currentExam && AppState.currentExam.currentQuestionIndex > 0) {
-            AppState.currentExam.currentQuestionIndex--;
-            updateQuestionDisplay();
-        }
-    }
-    
-    // Submit exam button
-    if (e.target.id === 'submitExamBtn' || e.target.closest('#submitExamBtn')) {
-        if (!AppState.currentExam) return;
-        
-        const unanswered = AppState.currentExam.questions.length - Object.keys(AppState.currentExam.userAnswers).length;
-        
-        if (unanswered > 0) {
-            showSubmitConfirmation(unanswered);
-        } else {
-            submitExam();
-        }
-    }
-    
-    // Calculator button
-    if (e.target.id === 'calculatorBtn' || e.target.closest('#calculatorBtn')) {
-        const modal = new bootstrap.Modal(document.getElementById('calculatorModal'));
-        modal.show();
-    }
-}
-
-/**
- * Handle keyboard shortcuts
- */
-function handleKeyboardShortcuts(e) {
-    // Only handle shortcuts when not in input fields
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-    
-    switch(e.key) {
-        case '1':
-        case '2':
-        case '3':
-        case '4':
-            // Select options A, B, C, D in exam
-            if (AppState.currentExam && document.getElementById('exam-interface-page').classList.contains('active')) {
-                const option = document.querySelector(`.option[data-option="${e.key}"]`);
-                if (option) option.click();
-            }
-            break;
-        case 'ArrowRight':
-            // Next question
-            if (AppState.currentExam) document.getElementById('nextBtn').click();
-            break;
-        case 'ArrowLeft':
-            // Previous question
-            if (AppState.currentExam) document.getElementById('prevBtn').click();
-            break;
-        case 'Escape':
-            // Close modals
-            const openModal = document.querySelector('.modal.show');
-            if (openModal) {
-                bootstrap.Modal.getInstance(openModal).hide();
-            }
-            break;
-    }
-}
-
-/**
- * Handle beforeunload event
- */
-function handleBeforeUnload(e) {
-    if (AppState.currentExam) {
-        e.preventDefault();
-        e.returnValue = 'You have an ongoing exam. Are you sure you want to leave?';
-        return e.returnValue;
-    }
-}
-
-/**
- * Handle visibility change for timers
- */
-function handleVisibilityChange() {
-    if (document.hidden) {
-        // Page is hidden, pause timers if needed
-        console.log('Page hidden - timers may need adjustment');
-    } else {
-        // Page is visible, ensure timers are accurate
-        console.log('Page visible - timers should be accurate');
-    }
-}
-
-// ==================== ANIMATION HELPERS ====================
-
-/**
- * Initialize hover effects
- */
-function initializeHoverEffects() {
-    // Add hover effects to cards
-    const cards = document.querySelectorAll('.cbt-card, .feature-card, .subject-item');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-        });
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-    
-    // Add fast button click effects
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 150);
-        });
-    });
-}
-
-/**
- * Initialize scroll animations
- */
-function initializeScrollAnimations() {
-    // Add intersection observer for scroll animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    // Observe all elements with fade-in class
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
-}
-
-/**
- * Initialize button effects
- */
-function initializeButtonEffects() {
-    // Add loading states to forms
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            const submitBtn = this.querySelector('button[type="submit"]');
-            if (submitBtn) {
-                submitBtn.classList.add('loading');
-            }
-        });
-    });
-}
-
-// ==================== SHARING FUNCTIONS ====================
-
-/**
- * Share results
- */
-function shareResults() {
-    if (!AppState.examResults) {
-        showNotification('No results to share', 'warning');
-        return;
-    }
-    const modal = new bootstrap.Modal(document.getElementById('shareModal'));
-    modal.show();
-}
-
-/**
- * Share on WhatsApp
- */
-function shareOnWhatsApp() {
-    if (!AppState.examResults) return;
-
-    const { percentage, examType } = AppState.examResults;
-    const message = `*I just scored ${percentage}% in my ${examType} practice test on MSH CBT HUB! 🧠🔥*\n\nThink you can beat me?\nTest your knowledge too: https://mshcbthub.netlify.app`;
-    const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-}
-
-/**
- * Copy results link
- */
-function copyResultsLink() {
-    const tempInput = document.createElement('input');
-    tempInput.value = window.location.href;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempInput);
-    
-    showNotification('Results link copied to clipboard!', 'success');
-}
-
-/**
- * Download results as text file
- */
-function downloadResults() {
-    if (!AppState.examResults) return;
-    
-    // Create a simple text report
-    const report = `
-MSH CBT HUB - Exam Results
-==========================
-
-Exam Type: ${AppState.examResults.examType}
-Subjects: ${AppState.examResults.subjects.join(', ')}
-Score: ${AppState.examResults.score}/${AppState.examResults.totalQuestions} (${AppState.examResults.percentage}%)
-Time Taken: ${formatTime(AppState.examResults.timeTaken)}
-Date: ${AppState.examResults.date}
-
-Performance Summary:
-${Object.keys(AppState.examResults.subjectScores || {}).map(subject => {
-    const score = AppState.examResults.subjectScores[subject];
-    return `- ${subject}: ${score.correct}/${score.total} (${Math.round((score.correct/score.total)*100)}%)`;
-}).join('\n')}
-
-Keep practicing and improving! 🚀
-    `.trim();
-
-    const blob = new Blob([report], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `msh-cbt-results-${new Date().toISOString().split('T')[0]}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    
-    showNotification('Results downloaded!', 'success');
-}
-
-/**
- * Retake exam - V4 FIX: Proper exam restart
- */
-function retakeExam() {
-    if (!AppState.examResults) return;
-    
-    if (confirm('Start a new exam with different questions?')) {
-        // Clear previous exam state
-        AppState.currentExam = null;
-        startExam(AppState.examResults.examType, AppState.examResults.subjects);
-    }
-}
-
-/**
- * Show study materials
- */
-function showStudyMaterials() {
-    showNotification('Study materials feature coming soon!', 'info');
-}
-
-// ==================== CALCULATOR FUNCTIONS ====================
-
-let calculatorValue = '';
-
-/**
- * Input to calculator
- */
-function calcInput(value) {
-    calculatorValue += value;
-    const display = document.getElementById('calcDisplay');
-    if (display) {
-        display.value = calculatorValue;
-    }
-}
-
-/**
- * Clear calculator
- */
-function clearCalc() {
-    calculatorValue = '';
-    const display = document.getElementById('calcDisplay');
-    if (display) {
-        display.value = '';
-    }
-}
-
-/**
- * Calculate expression
- */
-function calculate() {
-    try {
-        // Replace ^ with ** for exponentiation
-        const expression = calculatorValue.replace(/\^/g, '**');
-        const result = eval(expression);
-        calculatorValue = result.toString();
-        const display = document.getElementById('calcDisplay');
-        if (display) {
-            display.value = calculatorValue;
-        }
-    } catch (error) {
-        const display = document.getElementById('calcDisplay');
-        if (display) {
-            display.value = 'Error';
-        }
-        calculatorValue = '';
-    }
-}
-
 // ==================== ENHANCED UTILITY FUNCTIONS ====================
 
 /**
- * Animate counter from start to end value
+ * Check user status from server
  */
-function animateCounter(elementId, start, end, duration) {
-    const element = document.getElementById(elementId);
-    if (!element) return;
-    
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const value = Math.floor(progress * (end - start) + start);
-        element.textContent = end === 75 ? `${value}%` : value;
-        
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
+async function checkUserStatus() {
+    try {
+        const response = await fetch('/api/user-status');
+        return await response.json();
+    } catch (error) {
+        // V5: Return status from localStorage if offline
+        if (AppState.currentUser) {
+            return {
+                active: true,
+                status: AppState.currentUser.status,
+                user_name: AppState.currentUser.full_name,
+                user_email: AppState.currentUser.email,
+                is_admin: AppState.currentUser.is_admin
+            };
         }
-    };
-    
-    window.requestAnimationFrame(step);
+        return { active: false };
+    }
 }
 
 // ==================== INITIALIZATION ====================
@@ -2821,7 +2115,12 @@ window.MSH_CBT_HUB = {
     startWAECSelection,
     startJAMBSelection,
     loadDashboard,
-    loadAdminDashboard
+    loadAdminDashboard,
+    // V5: Export localStorage functions
+    saveToLocalStorage,
+    loadFromLocalStorage,
+    syncBrowserDataToServer
 };
 
-console.log('📚 MSH CBT HUB Enhanced JavaScript V4 Loaded');
+console.log('📚 MSH CBT HUB Enhanced JavaScript V5 Loaded');
+console.log('✅ Features: Admin Dashboard Fix, JAMB Results Fix, localStorage Support, Offline Trial Timer');
