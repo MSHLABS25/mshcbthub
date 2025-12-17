@@ -12,19 +12,21 @@ const AppState = {
     isInitialized: false,
     // V5: LocalStorage keys
     localStorageKeys: {
-        USER_DATA: 'msh_cbt_user_data',
-        EXAM_RESULTS: 'msh_cbt_exam_results',
-        RECENT_ACTIVITY: 'msh_cbt_recent_activity',
-        TRIAL_TIMER: 'msh_cbt_trial_timer',
-        LAST_SYNC: 'msh_cbt_last_sync',
-        BROWSER_DATA: 'msh_cbt_browser_data'
+        USER_DATA: 'msh_cbt_user_data_v5',
+        EXAM_RESULTS: 'msh_cbt_exam_results_v5',
+        RECENT_ACTIVITY: 'msh_cbt_recent_activity_v5',
+        TRIAL_TIMER: 'msh_cbt_trial_timer_v5',
+        LAST_SYNC: 'msh_cbt_last_sync_v5',
+        BROWSER_DATA: 'msh_cbt_browser_data_v5',
+        TRIAL_EXPIRED: 'msh_cbt_trial_expired_v5'
     },
     // V5: Trial timer state
     trialTimerState: {
         startTime: null,
         elapsedSeconds: 0,
         lastUpdate: null,
-        isRunning: false
+        isRunning: false,
+        hasExpired: false
     }
 };
 
@@ -188,6 +190,7 @@ function loadFromLocalStorage(key = null) {
             const recentActivity = loadFromLocalStorage(AppState.localStorageKeys.RECENT_ACTIVITY);
             const trialTimer = loadFromLocalStorage(AppState.localStorageKeys.TRIAL_TIMER);
             const browserData = loadFromLocalStorage(AppState.localStorageKeys.BROWSER_DATA);
+            const trialExpired = loadFromLocalStorage(AppState.localStorageKeys.TRIAL_EXPIRED);
             
             // Update AppState with loaded data
             if (userData) {
@@ -200,13 +203,17 @@ function loadFromLocalStorage(key = null) {
                 AppState.trialTimerState = trialTimer;
                 AppState.trialElapsedSeconds = trialTimer.elapsedSeconds || 0;
             }
+            if (trialExpired) {
+                AppState.trialTimerState.hasExpired = true;
+            }
             
             return {
                 userData,
                 examResults,
                 recentActivity,
                 trialTimer,
-                browserData
+                browserData,
+                trialExpired
             };
         }
     } catch (error) {
@@ -308,6 +315,38 @@ function saveTrialTimerToStorage(timerState) {
     
     // Save to browser data for sync
     saveBrowserData('trial_timer', timerState);
+}
+
+/**
+ * V5: Mark trial as expired in localStorage (CANNOT BE RESET)
+ */
+function markTrialAsExpired() {
+    const expirationData = {
+        expired: true,
+        expiredAt: new Date().toISOString(),
+        deviceId: AppState.currentUser?.device_id || session.get('device_id'),
+        cannotRestart: true
+    };
+    
+    saveToLocalStorage(AppState.localStorageKeys.TRIAL_EXPIRED, expirationData);
+    
+    // Also mark in browser data for sync
+    saveBrowserData('trial_expired', expirationData);
+    
+    console.log('⏰ Trial marked as expired permanently');
+    
+    // Force show activation modal
+    setTimeout(() => {
+        showActivationModal();
+    }, 1000);
+}
+
+/**
+ * V5: Check if trial has expired permanently
+ */
+function isTrialExpiredPermanently() {
+    const trialExpired = loadFromLocalStorage(AppState.localStorageKeys.TRIAL_EXPIRED);
+    return trialExpired && trialExpired.expired === true;
 }
 
 /**
@@ -469,8 +508,10 @@ async function getBrowserDataFromServer() {
 function setupBrowserDataSync() {
     // Initial sync
     setTimeout(() => {
-        syncBrowserDataToServer();
-        getBrowserDataFromServer();
+        if (navigator.onLine) {
+            syncBrowserDataToServer();
+            getBrowserDataFromServer();
+        }
     }, 3000);
     
     // Periodic sync every 30 seconds
@@ -535,10 +576,23 @@ function saveAllDataToLocalStorage() {
  * V5: Start offline trial timer
  */
 function startOfflineTrialTimer() {
+    // V5: FIRST check if trial has expired permanently (cannot restart)
+    if (isTrialExpiredPermanently()) {
+        console.log('⏰ Trial has expired permanently - cannot restart');
+        AppState.currentUser.status = 'expired';
+        AppState.trialTimerState.hasExpired = true;
+        
+        // Force show activation modal
+        setTimeout(() => {
+            showActivationModal();
+        }, 1000);
+        return;
+    }
+    
     // Load saved timer state
     const savedTimer = loadFromLocalStorage(AppState.localStorageKeys.TRIAL_TIMER);
     
-    if (savedTimer && savedTimer.isRunning) {
+    if (savedTimer && savedTimer.isRunning && !savedTimer.hasExpired) {
         // Resume timer from saved state
         AppState.trialTimerState = savedTimer;
         
@@ -550,22 +604,29 @@ function startOfflineTrialTimer() {
             
             AppState.trialTimerState.elapsedSeconds += additionalSeconds;
             AppState.trialElapsedSeconds = AppState.trialTimerState.elapsedSeconds;
+            
+            // Check if trial has expired during offline time
+            if (AppState.trialElapsedSeconds >= 3600) { // 1 hour = 3600 seconds
+                handleTrialExpired();
+                return;
+            }
         }
         
         console.log('⏰ Resuming trial timer from localStorage');
-    } else if (AppState.currentUser && AppState.currentUser.status === 'trial') {
-        // Start new timer
+    } else if (AppState.currentUser && AppState.currentUser.status === 'trial' && !AppState.trialTimerState.hasExpired) {
+        // Start new timer only if trial hasn't expired
         AppState.trialTimerState = {
             startTime: new Date().toISOString(),
             elapsedSeconds: 0,
             lastUpdate: new Date().toISOString(),
-            isRunning: true
+            isRunning: true,
+            hasExpired: false
         };
         
         AppState.trialElapsedSeconds = 0;
         console.log('⏰ Starting new trial timer');
     } else {
-        return; // No trial active
+        return; // No trial active or trial expired
     }
     
     // Start timer interval
@@ -574,7 +635,7 @@ function startOfflineTrialTimer() {
     }
     
     AppState.trialTimer = setInterval(() => {
-        if (AppState.trialTimerState.isRunning) {
+        if (AppState.trialTimerState.isRunning && !AppState.trialTimerState.hasExpired) {
             AppState.trialTimerState.elapsedSeconds++;
             AppState.trialElapsedSeconds = AppState.trialTimerState.elapsedSeconds;
             AppState.trialTimerState.lastUpdate = new Date().toISOString();
@@ -613,7 +674,7 @@ function startOfflineTrialTimer() {
  */
 async function updateTrialTimerOnServer() {
     try {
-        if (!AppState.currentUser || AppState.currentUser.status !== 'trial') {
+        if (!AppState.currentUser || AppState.currentUser.status !== 'trial' || AppState.trialTimerState.hasExpired) {
             return;
         }
         
@@ -668,7 +729,7 @@ async function getTrialStatusFromServer() {
  * V5: Pause trial timer
  */
 function pauseTrialTimer() {
-    if (AppState.trialTimerState.isRunning) {
+    if (AppState.trialTimerState.isRunning && !AppState.trialTimerState.hasExpired) {
         AppState.trialTimerState.isRunning = false;
         AppState.trialTimerState.lastUpdate = new Date().toISOString();
         saveTrialTimerToStorage(AppState.trialTimerState);
@@ -680,7 +741,7 @@ function pauseTrialTimer() {
  * V5: Resume trial timer
  */
 function resumeTrialTimer() {
-    if (!AppState.trialTimerState.isRunning) {
+    if (!AppState.trialTimerState.isRunning && !AppState.trialTimerState.hasExpired) {
         AppState.trialTimerState.isRunning = true;
         AppState.trialTimerState.lastUpdate = new Date().toISOString();
         saveTrialTimerToStorage(AppState.trialTimerState);
@@ -777,6 +838,14 @@ async function checkUserSession() {
                 is_admin: data.is_admin || false
             };
             
+            // V5: Check if trial has expired permanently
+            if (isTrialExpiredPermanently() && data.status === 'trial') {
+                AppState.currentUser.status = 'expired';
+                showNotification('Your trial has expired. Please activate your account to continue.', 'warning');
+                showActivationModal();
+                return;
+            }
+            
             // V5: Save to localStorage
             saveUserDataToStorage(AppState.currentUser);
             
@@ -790,7 +859,8 @@ async function checkUserSession() {
                     startTime: new Date().toISOString(),
                     elapsedSeconds: AppState.trialElapsedSeconds,
                     lastUpdate: new Date().toISOString(),
-                    isRunning: true
+                    isRunning: true,
+                    hasExpired: false
                 };
                 
                 // Save timer state
@@ -811,6 +881,14 @@ async function checkUserSession() {
         const userData = loadFromLocalStorage(AppState.localStorageKeys.USER_DATA);
         if (userData) {
             AppState.currentUser = userData;
+            
+            // V5: Check if trial has expired
+            if (isTrialExpiredPermanently() && AppState.currentUser.status === 'trial') {
+                AppState.currentUser.status = 'expired';
+                showNotification('Your trial has expired. Please activate your account to continue.', 'warning');
+                showActivationModal();
+            }
+            
             updateNavigation();
         }
     }
@@ -1061,13 +1139,10 @@ function updateTrialTimerDisplay() {
 }
 
 /**
- * Handle trial expiration
+ * Handle trial expiration - PERMANENT, CANNOT RESTART
  */
 function handleTrialExpired() {
-    AppState.currentUser.status = 'expired';
-    
-    // V5: Save to localStorage
-    saveUserDataToStorage(AppState.currentUser);
+    console.log('⏰ Trial expired - marking as permanent');
     
     // Stop timer
     if (AppState.trialTimer) {
@@ -1075,10 +1150,20 @@ function handleTrialExpired() {
         AppState.trialTimer = null;
     }
     
+    // Mark trial as expired permanently
+    AppState.currentUser.status = 'expired';
+    AppState.trialTimerState.hasExpired = true;
+    AppState.trialTimerState.isRunning = false;
+    
+    // V5: Save to localStorage - MARK AS PERMANENTLY EXPIRED
+    saveUserDataToStorage(AppState.currentUser);
+    saveTrialTimerToStorage(AppState.trialTimerState);
+    markTrialAsExpired(); // This marks it as permanently expired
+    
     showNotification('Your free trial has expired. Please activate your account to continue.', 'warning');
     
-    // Show activation modal immediately
-    showActivationModal();
+    // Force show activation modal - user MUST activate
+    showActivationModal(true);
     
     // Update dashboard to show expired state
     loadDashboard();
@@ -1188,6 +1273,14 @@ async function handleLogin(e) {
                 is_admin: result.is_admin || false
             };
             
+            // V5: Check if trial has expired permanently
+            if (isTrialExpiredPermanently() && !result.is_activated) {
+                AppState.currentUser.status = 'expired';
+                showNotification('Your trial has expired. Please activate your account to continue.', 'warning');
+                showActivationModal(true);
+                return;
+            }
+            
             // V5: Save to localStorage
             saveUserDataToStorage(AppState.currentUser);
             
@@ -1263,7 +1356,8 @@ async function handleLogout() {
                 startTime: null,
                 elapsedSeconds: 0,
                 lastUpdate: null,
-                isRunning: false
+                isRunning: false,
+                hasExpired: false
             };
             
             // V5: Clear sensitive data from localStorage
@@ -1337,6 +1431,14 @@ async function loadDashboard() {
         return;
     }
     
+    // V5: Check if trial has expired permanently
+    if (isTrialExpiredPermanently() && AppState.currentUser.status === 'trial') {
+        AppState.currentUser.status = 'expired';
+        showNotification('Your trial has expired. Please activate your account to continue.', 'warning');
+        showActivationModal(true);
+        return;
+    }
+    
     try {
         // V5: Try to get latest data from server if online
         if (navigator.onLine) {
@@ -1349,9 +1451,9 @@ async function loadDashboard() {
         
         if (!userStatus || !userStatus.active) {
             // Show activation modal immediately if trial expired
-            if (AppState.currentUser.status === 'expired') {
+            if (AppState.currentUser.status === 'expired' || isTrialExpiredPermanently()) {
                 showNotification('Your trial has expired. Please activate your account to continue.', 'warning');
-                showActivationModal();
+                showActivationModal(true);
                 return;
             }
         }
@@ -1364,6 +1466,10 @@ async function loadDashboard() {
             // Show full activated dashboard
             updateWelcomeMessage(userStatus);
             showActivatedDashboard();
+        } else if (AppState.currentUser.status === 'expired') {
+            // Show expired dashboard
+            updateWelcomeMessage(userStatus);
+            showExpiredDashboard();
         }
         
         // Load common dashboard components
@@ -1394,6 +1500,8 @@ function updateWelcomeMessage(userStatus) {
             welcomeMessage.innerHTML = `Welcome to your free trial! <span class="text-teal">${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} remaining${offlineIndicator}</span> ⏰`;
         } else if (AppState.currentUser.status === 'activated') {
             welcomeMessage.innerHTML = `Welcome back! Full access activated 🎉`;
+        } else if (AppState.currentUser.status === 'expired') {
+            welcomeMessage.innerHTML = `Your trial has expired. Please activate your account. 🔒`;
         } else {
             welcomeMessage.innerHTML = `Welcome to MSH CBT HUB!`;
         }
@@ -1445,6 +1553,36 @@ function showActivatedDashboard() {
                 <i class="fas fa-check-circle me-2"></i>
                 <strong>Account Activated</strong>
                 <p class="mb-0">Full access to all features until your subscription ends.</p>
+            </div>
+        `;
+    }
+}
+
+/**
+ * Show expired dashboard
+ */
+function showExpiredDashboard() {
+    const accountStatus = document.getElementById('accountStatus');
+    if (accountStatus) {
+        accountStatus.innerHTML = `
+            <div class="alert alert-danger">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                <strong>Trial Expired</strong>
+                <p class="mb-2">Your 1-hour free trial has ended. To continue using MSH CBT HUB:</p>
+                <ol class="mb-0 ps-3">
+                    <li>Get an activation code via WhatsApp</li>
+                    <li>Enter the code in the activation form</li>
+                    <li>Enjoy full access for 5 months!</li>
+                </ol>
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" onclick="showActivationModal(true)">
+                    <i class="fas fa-key me-2"></i>Enter Activation Code
+                </button>
+                <a href="https://wa.me/2347084315679?text=Hello%2C%20I%20want%20to%20apply%20for%20an%20activation%20code%20for%20MSH%20CBT%20HUB." 
+                   class="btn btn-success" target="_blank">
+                    <i class="fab fa-whatsapp me-2"></i>Get Code via WhatsApp
+                </a>
             </div>
         `;
     }
@@ -1650,7 +1788,555 @@ async function loadAdminDashboard() {
     }
 }
 
-// ... [Rest of the admin dashboard functions remain the same] ...
+/**
+ * Create admin page dynamically
+ */
+function createAdminPage() {
+    const pagesContainer = document.querySelector('.page-section.active').parentElement;
+    
+    const adminPageHTML = `
+        <div id="admin-page" class="page-section">
+            <div class="container mt-5 pt-5">
+                <div class="cbt-card">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="text-teal">
+                            <i class="fas fa-crown me-2"></i>Admin Dashboard
+                        </h2>
+                        <button class="btn btn-outline-teal" onclick="showPage('dashboard')">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                        </button>
+                    </div>
+                    
+                    <!-- Admin Stats -->
+                    <div class="mb-5">
+                        <h4 class="mb-3">System Overview</h4>
+                        <div class="row" id="adminStats">
+                            <div class="text-center py-4">
+                                <div class="loading-spinner"></div>
+                                <p class="mt-3">Loading admin statistics...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Users Management -->
+                    <div class="mb-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4>Users Management</h4>
+                            <button class="btn btn-teal btn-sm" onclick="refreshAdminUsers()">
+                                <i class="fas fa-sync-alt me-2"></i>Refresh
+                            </button>
+                        </div>
+                        <div id="adminUsersTable" class="table-responsive">
+                            <div class="text-center py-4">
+                                <div class="loading-spinner"></div>
+                                <p class="mt-3">Loading users...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Activation Codes -->
+                    <div class="mb-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4>Activation Codes</h4>
+                            <div>
+                                <button class="btn btn-warning btn-sm me-2" onclick="refreshAdminCodes()">
+                                    <i class="fas fa-sync-alt me-2"></i>Refresh
+                                </button>
+                                <button class="btn btn-success btn-sm" onclick="generateActivationCodes()">
+                                    <i class="fas fa-plus me-2"></i>Generate Codes
+                                </button>
+                            </div>
+                        </div>
+                        <div id="adminCodesTable" class="table-responsive">
+                            <div class="text-center py-4">
+                                <div class="loading-spinner"></div>
+                                <p class="mt-3">Loading activation codes...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    pagesContainer.insertAdjacentHTML('beforeend', adminPageHTML);
+}
+
+/**
+ * Display admin statistics
+ */
+function displayAdminStats(stats) {
+    const adminStats = document.getElementById('adminStats');
+    if (!adminStats) return;
+    
+    adminStats.innerHTML = `
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-teal">${stats.total_users}</div>
+                <div class="stat-label">Total Users</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-success">${stats.activated_users}</div>
+                <div class="stat-label">Activated Users</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-warning">${stats.active_trials}</div>
+                <div class="stat-label">Active Trials</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-danger">${stats.expired_trials}</div>
+                <div class="stat-label">Expired Trials</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-primary">${stats.total_codes}</div>
+                <div class="stat-label">Total Codes</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-info">${stats.used_codes}</div>
+                <div class="stat-label">Used Codes</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-teal">${stats.total_exams}</div>
+                <div class="stat-label">Total Exams</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="cbt-card text-center p-3">
+                <div class="stat-number text-teal">${stats.recent_exams}</div>
+                <div class="stat-label">Recent Exams (7 days)</div>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Load admin users
+ */
+async function loadAdminUsers() {
+    try {
+        const response = await fetch('/api/admin/users');
+        const result = await response.json();
+        
+        if (result.success && result.users) {
+            displayAdminUsers(result.users);
+        }
+    } catch (error) {
+        console.error('Error loading admin users:', error);
+    }
+}
+
+/**
+ * Display admin users
+ */
+function displayAdminUsers(users) {
+    const adminUsersTable = document.getElementById('adminUsersTable');
+    if (!adminUsersTable) return;
+    
+    let html = `
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Exams</th>
+                    <th>Join Date</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+    
+    users.forEach(user => {
+        let statusClass = '';
+        if (user.status === 'Activated') statusClass = 'badge bg-success';
+        else if (user.status === 'Admin') statusClass = 'badge bg-warning';
+        else if (user.status === 'Active Trial') statusClass = 'badge bg-info';
+        else statusClass = 'badge bg-secondary';
+        
+        html += `
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td><span class="${statusClass}">${user.status}</span></td>
+                <td>${user.exam_count}</td>
+                <td>${user.join_date}</td>
+            </tr>
+        `;
+    });
+    
+    html += `
+            </tbody>
+        </table>
+        <div class="text-muted text-end mt-2">Total: ${users.length} users</div>
+    `;
+    
+    adminUsersTable.innerHTML = html;
+}
+
+/**
+ * Refresh admin users
+ */
+function refreshAdminUsers() {
+    const adminUsersTable = document.getElementById('adminUsersTable');
+    if (adminUsersTable) {
+        adminUsersTable.innerHTML = `
+            <div class="text-center py-4">
+                <div class="loading-spinner"></div>
+                <p class="mt-3">Refreshing users...</p>
+            </div>
+        `;
+    }
+    loadAdminUsers();
+}
+
+/**
+ * Load admin codes
+ */
+async function loadAdminCodes() {
+    try {
+        const response = await fetch('/api/admin/codes');
+        const result = await response.json();
+        
+        if (result.success && result.codes) {
+            displayAdminCodes(result.codes);
+        }
+    } catch (error) {
+        console.error('Error loading admin codes:', error);
+    }
+}
+
+/**
+ * Display admin codes
+ */
+function displayAdminCodes(codes) {
+    const adminCodesTable = document.getElementById('adminCodesTable');
+    if (!adminCodesTable) return;
+    
+    let html = `
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Status</th>
+                    <th>Used By</th>
+                    <th>Created</th>
+                    <th>Expires</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+    
+    codes.forEach(code => {
+        let statusBadge = code.used ? 
+            '<span class="badge bg-danger">Used</span>' : 
+            '<span class="badge bg-success">Available</span>';
+        
+        html += `
+            <tr>
+                <td>${code.id}</td>
+                <td><code>${code.code}</code></td>
+                <td>${statusBadge}</td>
+                <td>${code.used_by || 'N/A'}</td>
+                <td>${code.created_at}</td>
+                <td>${code.expires_at || 'N/A'}</td>
+            </tr>
+        `;
+    });
+    
+    html += `
+            </tbody>
+        </table>
+        <div class="text-muted text-end mt-2">Total: ${codes.length} codes</div>
+    `;
+    
+    adminCodesTable.innerHTML = html;
+}
+
+/**
+ * Refresh admin codes
+ */
+function refreshAdminCodes() {
+    const adminCodesTable = document.getElementById('adminCodesTable');
+    if (adminCodesTable) {
+        adminCodesTable.innerHTML = `
+            <div class="text-center py-4">
+                <div class="loading-spinner"></div>
+                <p class="mt-3">Refreshing codes...</p>
+            </div>
+        `;
+    }
+    loadAdminCodes();
+}
+
+/**
+ * Generate activation codes
+ */
+async function generateActivationCodes() {
+    if (!confirm('Generate 100 new activation codes?')) return;
+    
+    try {
+        const response = await fetch('/api/generate-codes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showNotification('100 activation codes generated successfully!', 'success');
+            refreshAdminCodes();
+        } else {
+            showNotification('Error generating codes: ' + result.message, 'error');
+        }
+    } catch (error) {
+        console.error('Error generating codes:', error);
+        showNotification('Error generating activation codes', 'error');
+    }
+}
+
+// ==================== SUBJECT SELECTION SYSTEM ====================
+
+/**
+ * Show WAEC selection page
+ */
+function showWAECSelectionPage() {
+    showPage('waec-selection');
+    loadWAECSubjects();
+}
+
+/**
+ * Show JAMB selection page
+ */
+function showJAMBSelectionPage() {
+    showPage('jamb-selection');
+    loadJAMBSubjects();
+}
+
+/**
+ * Start WAEC subject selection
+ */
+function startWAECSelection() {
+    if (!AppState.currentUser) {
+        showNotification('Please login first', 'warning');
+        showPage('login');
+        return;
+    }
+    
+    // V5: Check if trial has expired permanently
+    if (isTrialExpiredPermanently() && AppState.currentUser.status === 'trial') {
+        showNotification('Your trial has expired. Please activate your account.', 'warning');
+        showActivationModal(true);
+        return;
+    }
+    
+    // Check if trial expired
+    if (AppState.currentUser.status === 'expired') {
+        showNotification('Your trial has expired. Please activate your account.', 'warning');
+        showActivationModal(true);
+        return;
+    }
+    
+    showWAECSelectionPage();
+}
+
+/**
+ * Start JAMB subject selection
+ */
+function startJAMBSelection() {
+    if (!AppState.currentUser) {
+        showNotification('Please login first', 'warning');
+        showPage('login');
+        return;
+    }
+    
+    // V5: Check if trial has expired permanently
+    if (isTrialExpiredPermanently() && AppState.currentUser.status === 'trial') {
+        showNotification('Your trial has expired. Please activate your account.', 'warning');
+        showActivationModal(true);
+        return;
+    }
+    
+    // Check if trial expired
+    if (AppState.currentUser.status === 'expired') {
+        showNotification('Your trial has expired. Please activate your account.', 'warning');
+        showActivationModal(true);
+        return;
+    }
+    
+    showJAMBSelectionPage();
+}
+
+/**
+ * Load WAEC subjects with icons
+ */
+function loadWAECSubjects() {
+    const container = document.getElementById('waecSubjectsList');
+    if (!container) return;
+    
+    let html = `
+        <div class="selection-info mb-4">
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i>
+                <strong>Note:</strong> English Language and Mathematics are compulsory. Select 7 additional subjects to make 9 total.
+            </div>
+        </div>
+        <div class="row g-3">
+    `;
+    
+    SUBJECT_CONFIG.waec.forEach((subject, index) => {
+        html += `
+            <div class="col-md-6">
+                <div class="subject-selection-card ${subject.compulsory ? 'compulsory' : ''}">
+                    <div class="subject-selection-header">
+                        <div class="subject-icon" style="background: ${subject.color}">
+                            <i class="fas ${subject.icon}"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h6 class="mb-1">${subject.name}</h6>
+                            ${subject.compulsory ? 
+                                '<small class="text-success"><i class="fas fa-check-circle me-1"></i>Compulsory</small>' : 
+                                '<small class="text-muted">Optional</small>'
+                            }
+                        </div>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" 
+                               id="waec-${subject.id}" 
+                               ${subject.compulsory ? 'checked disabled' : ''}
+                               value="${subject.id}">
+                        <label class="form-check-label" for="waec-${subject.id}">
+                            ${subject.compulsory ? 'Required' : 'Select'}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    html += `
+        </div>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary btn-lg" onclick="startWAECExam()">
+                <i class="fas fa-play me-2"></i>Start WAEC Exam
+            </button>
+        </div>
+    `;
+    
+    container.innerHTML = html;
+}
+
+/**
+ * Load JAMB subjects with icons
+ */
+function loadJAMBSubjects() {
+    const container = document.getElementById('jambSubjectsList');
+    if (!container) return;
+    
+    let html = `
+        <div class="selection-info mb-4">
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i>
+                <strong>Note:</strong> English Language is compulsory. Select 3 additional subjects to make 4 total.
+            </div>
+        </div>
+        <div class="row g-3">
+    `;
+    
+    SUBJECT_CONFIG.jamb.forEach((subject, index) => {
+        html += `
+            <div class="col-md-6">
+                <div class="subject-selection-card ${subject.compulsory ? 'compulsory' : ''}">
+                    <div class="subject-selection-header">
+                        <div class="subject-icon" style="background: ${subject.color}">
+                            <i class="fas ${subject.icon}"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h6 class="mb-1">${subject.name}</h6>
+                            ${subject.compulsory ? 
+                                '<small class="text-success"><i class="fas fa-check-circle me-1"></i>Compulsory</small>' : 
+                                '<small class="text-muted">Optional</small>'
+                            }
+                        </div>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input jamb-subject" type="checkbox" 
+                               id="jamb-${subject.id}" 
+                               ${subject.compulsory ? 'checked' : ''}
+                               value="${subject.id}"
+                               onchange="validateJAMBSelection()">
+                        <label class="form-check-label" for="jamb-${subject.id}">
+                            ${subject.compulsory ? 'Required' : 'Select'}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    html += `
+        </div>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary btn-lg" onclick="startJAMBExam()" id="jambStartBtn">
+                <i class="fas fa-play me-2"></i>Start JAMB Exam
+            </button>
+        </div>
+    `;
+    
+    container.innerHTML = html;
+    validateJAMBSelection();
+}
+
+/**
+ * Validate JAMB subject selection - FIXED: Exactly 4 subjects required
+ */
+function validateJAMBSelection() {
+    const selectedSubjects = document.querySelectorAll('.jamb-subject:checked');
+    const englishCheckbox = document.getElementById('jamb-english');
+    const startBtn = document.getElementById('jambStartBtn');
+    
+    // Ensure English is always selected
+    if (!englishCheckbox.checked) {
+        englishCheckbox.checked = true;
+        showNotification('English Language is compulsory for JAMB', 'info');
+    }
+    
+    // Limit to exactly 4 subjects total
+    if (selectedSubjects.length > 4) {
+        showNotification('You can only select exactly 4 subjects for JAMB (including English)', 'warning');
+        event.target.checked = false;
+        return;
+    }
+    
+    // Enable/disable start button based on selection
+    if (startBtn) {
+        if (selectedSubjects.length === 4) {
+            startBtn.disabled = false;
+            startBtn.classList.remove('btn-secondary');
+            startBtn.classList.add('btn-primary');
+        } else {
+            startBtn.disabled = true;
+            startBtn.classList.remove('btn-primary');
+            startBtn.classList.add('btn-secondary');
+        }
+    }
+}
 
 // ==================== EXAM SYSTEM - V5 ENHANCED ====================
 
@@ -1697,6 +2383,24 @@ async function startJAMBExam() {
 }
 
 /**
+ * Get selected subjects from checkboxes
+ */
+function getSelectedSubjects(examType) {
+    const selectedSubjects = [];
+    const prefix = examType === 'waec' ? 'waec-' : 'jamb-';
+    const subjects = examType === 'waec' ? SUBJECT_CONFIG.waec : SUBJECT_CONFIG.jamb;
+    
+    subjects.forEach(subject => {
+        const checkbox = document.getElementById(`${prefix}${subject.id}`);
+        if (checkbox && checkbox.checked) {
+            selectedSubjects.push(subject.id);
+        }
+    });
+    
+    return selectedSubjects;
+}
+
+/**
  * Start exam with selected subjects - V5 FIX: 60 questions with proper distribution
  */
 async function startExam(examType, selectedSubjects) {
@@ -1706,19 +2410,26 @@ async function startExam(examType, selectedSubjects) {
         return;
     }
 
+    // V5: Check if trial has expired permanently
+    if (isTrialExpiredPermanently() && AppState.currentUser.status === 'trial') {
+        showNotification('Your trial has expired. Please activate your account.', 'warning');
+        showActivationModal(true);
+        return;
+    }
+
     // Check trial/activation status
     try {
         const userStatus = await checkUserStatus();
         if (!userStatus.active) {
             showNotification('Your access has expired. Please activate your account.', 'warning');
-            showActivationModal();
+            showActivationModal(true);
             return;
         }
     } catch (error) {
         // V5: Check localStorage for trial status if offline
-        if (AppState.currentUser.status === 'expired') {
+        if (AppState.currentUser.status === 'expired' || isTrialExpiredPermanently()) {
             showNotification('Your trial has expired. Please activate your account.', 'warning');
-            showActivationModal();
+            showActivationModal(true);
             return;
         }
     }
@@ -1779,6 +2490,263 @@ async function startExam(examType, selectedSubjects) {
         console.error('Error starting exam:', error);
         showNotification('Error starting exam. Please try again.', 'error');
     }
+}
+
+/**
+ * Get exam time based on type and subjects - V5 UPDATE: Standard timing
+ */
+function getExamTime(examType, subjects) {
+    // V5 ENHANCEMENT: Standard timing for all exams
+    return examType === 'WAEC' ? 7200 : 7200; // 2 hours for both WAEC and JAMB
+}
+
+/**
+ * Initialize exam interface
+ */
+function initializeExamInterface() {
+    if (!AppState.currentExam) return;
+    
+    updateQuestionDisplay();
+    initializeQuestionsGrid();
+    updateProgress();
+    
+    // Set exam info
+    const examSubject = document.getElementById('examSubject');
+    const examInfo = document.getElementById('examInfo');
+    
+    if (examSubject) {
+        const examName = AppState.currentExam.type === 'WAEC' ? 'WAEC' : 'JAMB';
+        examSubject.innerHTML = `<i class="fas fa-book me-2"></i>${examName} - ${AppState.currentExam.questions.length} Questions`;
+    }
+    
+    if (examInfo) {
+        examInfo.textContent = `${AppState.currentExam.subjects.length} Subjects • ${formatTime(AppState.currentExam.timeRemaining)}`;
+    }
+}
+
+/**
+ * Update question display
+ */
+function updateQuestionDisplay() {
+    if (!AppState.currentExam) return;
+    
+    const question = AppState.currentExam.questions[AppState.currentExam.currentQuestionIndex];
+    
+    document.getElementById('currentQuestion').textContent = AppState.currentExam.currentQuestionIndex + 1;
+    document.getElementById('totalQuestions').textContent = AppState.currentExam.questions.length;
+    document.getElementById('questionText').textContent = question.question;
+    
+    // Update options
+    const optionsContainer = document.getElementById('optionsContainer');
+    if (optionsContainer) {
+        optionsContainer.innerHTML = `
+            <div class="option" data-option="A">
+                <span class="option-letter">A</span>
+                <span class="option-text">${question.options.A}</span>
+            </div>
+            <div class="option" data-option="B">
+                <span class="option-letter">B</span>
+                <span class="option-text">${question.options.B}</span>
+            </div>
+            <div class="option" data-option="C">
+                <span class="option-letter">C</span>
+                <span class="option-text">${question.options.C}</span>
+            </div>
+            <div class="option" data-option="D">
+                <span class="option-letter">D</span>
+                <span class="option-text">${question.options.D}</span>
+            </div>
+        `;
+    }
+    
+    // Clear previous selection
+    document.querySelectorAll('.option').forEach(opt => {
+        opt.classList.remove('selected');
+    });
+    
+    // Show current selection
+    const userAnswer = AppState.currentExam.userAnswers[AppState.currentExam.currentQuestionIndex];
+    if (userAnswer) {
+        const optionElement = document.querySelector(`.option[data-option="${userAnswer}"]`);
+        if (optionElement) {
+            optionElement.classList.add('selected');
+        }
+    }
+    
+    // Handle comprehension passages
+    const passageElement = document.getElementById('comprehensionPassage');
+    if (question.passage) {
+        document.getElementById('passageContent').textContent = question.passage;
+        passageElement.style.display = 'block';
+    } else {
+        passageElement.style.display = 'none';
+    }
+    
+    // Update navigation buttons
+    document.getElementById('prevBtn').disabled = AppState.currentExam.currentQuestionIndex === 0;
+    document.getElementById('nextBtn').disabled = AppState.currentExam.currentQuestionIndex === AppState.currentExam.questions.length - 1;
+    
+    // Update questions grid
+    updateQuestionsGrid();
+}
+
+/**
+ * Initialize questions grid for exam
+ */
+function initializeQuestionsGrid() {
+    if (!AppState.currentExam) return;
+    
+    const grid = document.getElementById('questionsGrid');
+    grid.innerHTML = '';
+    
+    for (let i = 0; i < AppState.currentExam.questions.length; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'question-number-btn unanswered';
+        btn.textContent = i + 1;
+        btn.onclick = () => navigateToQuestion(i);
+        
+        if (i === AppState.currentExam.currentQuestionIndex) {
+            btn.classList.add('current');
+        }
+        
+        grid.appendChild(btn);
+    }
+}
+
+/**
+ * Update questions grid display
+ */
+function updateQuestionsGrid() {
+    if (!AppState.currentExam) return;
+    
+    const buttons = document.querySelectorAll('.question-number-btn');
+    
+    buttons.forEach((btn, index) => {
+        btn.className = 'question-number-btn';
+        
+        if (index === AppState.currentExam.currentQuestionIndex) {
+            btn.classList.add('current');
+        } else if (AppState.currentExam.userAnswers[index]) {
+            btn.classList.add('answered');
+        } else {
+            btn.classList.add('unanswered');
+        }
+    });
+}
+
+/**
+ * Navigate to specific question
+ */
+function navigateToQuestion(index) {
+    if (!AppState.currentExam) return;
+    
+    AppState.currentExam.currentQuestionIndex = index;
+    updateQuestionDisplay();
+}
+
+/**
+ * Start exam timer
+ */
+function startExamTimer() {
+    if (!AppState.currentExam) return;
+    
+    updateTimerDisplay();
+    
+    AppState.currentExam.timer = setInterval(() => {
+        AppState.currentExam.timeRemaining--;
+        updateTimerDisplay();
+        
+        if (AppState.currentExam.timeRemaining <= 0) {
+            clearInterval(AppState.currentExam.timer);
+            autoSubmitExam();
+        }
+    }, 1000);
+}
+
+/**
+ * Update timer display - V5 UPDATE: Enhanced formatting
+ */
+function updateTimerDisplay() {
+    if (!AppState.currentExam) return;
+    
+    const timerElement = document.getElementById('examTimer');
+    const progressElement = document.getElementById('timerProgress');
+    
+    if (timerElement) {
+        timerElement.textContent = formatTime(AppState.currentExam.timeRemaining);
+    }
+    
+    if (progressElement) {
+        // Update progress bar color based on time
+        const totalTime = getExamTime(AppState.currentExam.type, AppState.currentExam.subjects);
+        const progress = (AppState.currentExam.timeRemaining / totalTime) * 100;
+        
+        progressElement.style.width = `${progress}%`;
+        
+        if (progress < 20) {
+            progressElement.className = 'progress-bar bg-danger';
+        } else if (progress < 50) {
+            progressElement.className = 'progress-bar bg-warning';
+        } else {
+            progressElement.className = 'progress-bar bg-success';
+        }
+    }
+}
+
+/**
+ * Auto-submit when time is up
+ */
+function autoSubmitExam() {
+    showNotification('Time is up! Your exam has been automatically submitted.', 'warning');
+    submitExam();
+}
+
+/**
+ * Show submit confirmation modal
+ */
+function showSubmitConfirmation(unanswered) {
+    const modalHtml = `
+        <div class="modal fade" id="submitConfirmationModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <i class="fas fa-exclamation-triangle me-2"></i>Confirm Submission
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <i class="fas fa-question-circle fa-4x text-warning mb-3"></i>
+                        <h4 id="unansweredCount">You have ${unanswered} unanswered questions!</h4>
+                        <p>Are you sure you want to submit your exam?</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <i class="fas fa-arrow-left me-2"></i>Continue Exam
+                        </button>
+                        <button type="button" class="btn btn-danger" onclick="submitExam()">
+                            <i class="fas fa-paper-plane me-2"></i>Submit Anyway
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Add modal to body if not exists
+    if (!document.getElementById('submitConfirmationModal')) {
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+    }
+    
+    // Update unanswered count
+    const unansweredElement = document.querySelector('#submitConfirmationModal h4');
+    if (unansweredElement) {
+        unansweredElement.textContent = `You have ${unanswered} unanswered questions!`;
+    }
+    
+    // Show modal
+    const modal = new bootstrap.Modal(document.getElementById('submitConfirmationModal'));
+    modal.show();
 }
 
 /**
@@ -1869,6 +2837,43 @@ async function submitExam() {
         showNotification('Exam submitted (offline mode - saved locally)', 'warning');
         showPage('results');
     }
+}
+
+/**
+ * Calculate exam score
+ */
+function calculateScore() {
+    if (!AppState.currentExam) return 0;
+    
+    let correct = 0;
+    
+    AppState.currentExam.questions.forEach((question, index) => {
+        const userAnswer = AppState.currentExam.userAnswers[index];
+        if (userAnswer && userAnswer === question.correct_answer) {
+            correct++;
+        }
+    });
+    
+    return correct;
+}
+
+/**
+ * Update progress display
+ */
+function updateProgress() {
+    if (!AppState.currentExam) return;
+    
+    const answered = Object.keys(AppState.currentExam.userAnswers).length;
+    const total = AppState.currentExam.questions.length;
+    const progress = (answered / total) * 100;
+    
+    const progressBar = document.getElementById('progressBar');
+    const answeredCount = document.getElementById('answeredCount');
+    const totalCount = document.getElementById('totalCount');
+    
+    if (progressBar) progressBar.style.width = `${progress}%`;
+    if (answeredCount) answeredCount.textContent = answered;
+    if (totalCount) totalCount.textContent = total;
 }
 
 // ==================== RESULTS SYSTEM FUNCTIONS - V5 ENHANCED ====================
@@ -1971,38 +2976,297 @@ async function displayResults() {
     }
 }
 
-// ==================== EVENT HANDLERS ====================
-
 /**
- * Handle beforeunload event
+ * Update subject performance breakdown - V5 FIX: Better calculation
  */
-function handleBeforeUnload(e) {
-    if (AppState.currentExam) {
-        e.preventDefault();
-        e.returnValue = 'You have an ongoing exam. Are you sure you want to leave?';
-        return e.returnValue;
-    }
+function updateSubjectBreakdown() {
+    if (!AppState.examResults) return;
     
-    // V5: Save all data before leaving
-    saveAllDataToLocalStorage();
+    const container = document.getElementById('subjectBreakdown');
+    let subjectScores = AppState.examResults.subjectScores || {};
+    
+    // If no subject scores, calculate from questions
+    if (Object.keys(subjectScores).length === 0 && AppState.examResults.questions) {
+        const calculatedScores = {};
+        
+        AppState.examResults.questions.forEach((question, index) => {
+            const subject = question.subject || 'General';
+            if (!calculatedScores[subject]) {
+                calculatedScores[subject] = { total: 0, correct: 0 };
+            }
+            
+            calculatedScores[subject].total++;
+            const userAnswer = AppState.examResults.userAnswers[index];
+            if (userAnswer && userAnswer === question.correct_answer) {
+                calculatedScores[subject].correct++;
+            }
+        });
+        
+        subjectScores = calculatedScores;
+    }
+
+    // Generate HTML for each subject
+    let html = '';
+    Object.keys(subjectScores).forEach(subject => {
+        const score = subjectScores[subject];
+        const percentage = score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0;
+        
+        html += `
+            <div class="subject-performance mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <div class="subject-name">
+                        <i class="fas fa-book me-2 text-teal"></i>
+                        <strong>${subject.charAt(0).toUpperCase() + subject.slice(1)}</strong>
+                    </div>
+                    <div class="subject-score">
+                        ${score.correct}/${score.total} (${percentage}%)
+                    </div>
+                </div>
+                <div class="subject-progress">
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar ${getProgressBarColor(percentage)}" 
+                             style="width: ${percentage}%"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    if (container) {
+        container.innerHTML = html || '<p class="text-muted text-center">No subject data available</p>';
+    }
 }
 
 /**
- * Handle visibility change for timers
+ * Get progress bar color based on percentage
  */
-function handleVisibilityChange() {
-    if (document.hidden) {
-        // Page is hidden, pause timers if needed
-        pauseTrialTimer();
-        console.log('Page hidden - timers paused');
+function getProgressBarColor(percentage) {
+    if (percentage >= 80) return 'bg-success';
+    if (percentage >= 60) return 'bg-warning';
+    return 'bg-danger';
+}
+
+/**
+ * Review answers
+ */
+function reviewAnswers() {
+    if (!AppState.examResults) {
+        showNotification('No exam results to review', 'warning');
+        return;
+    }
+    showPage('review');
+    displayReviewQuestions('all');
+}
+
+/**
+ * Display review questions with filtering - V5 FIX: Better display
+ */
+function displayReviewQuestions(filter) {
+    if (!AppState.examResults) return;
+    
+    const container = document.getElementById('reviewQuestionsContainer');
+    let html = '';
+
+    AppState.examResults.questions.forEach((question, index) => {
+        const userAnswer = AppState.examResults.userAnswers[index];
+        const isCorrect = userAnswer && userAnswer === question.correct_answer;
+        const isUnanswered = !userAnswer;
+
+        // Apply filters
+        if (filter === 'correct' && !isCorrect) return;
+        if (filter === 'wrong' && (isCorrect || isUnanswered)) return;
+        if (filter === 'unanswered' && !isUnanswered) return;
+
+        let itemClass = 'review-item p-3 mb-3 border rounded';
+        if (isCorrect) itemClass += ' border-success bg-success-light';
+        else if (isUnanswered) itemClass += ' border-warning bg-warning-light';
+        else itemClass += ' border-danger bg-danger-light';
+
+        html += `
+            <div class="${itemClass}">
+                <div class="review-question mb-3">
+                    <strong>Q${index + 1}:</strong> ${question.question}
+                    ${question.passage ? `<div class="text-muted small mt-2"><em>Comprehension Passage</em></div>` : ''}
+                </div>
+
+                <div class="review-options">
+                    ${Object.entries(question.options).map(([option, text]) => {
+                        let optionClass = 'review-option p-2 mb-1 border rounded';
+                        let icon = '';
+
+                        if (option === question.correct_answer) {
+                            optionClass += ' border-success bg-success-light';
+                            icon = '<i class="fas fa-check-circle ms-2 text-success"></i>';
+                        }
+
+                        if (option === userAnswer) {
+                            if (option === question.correct_answer) {
+                                optionClass += ' border-success border-2';
+                                icon = '<i class="fas fa-check-circle ms-2 text-success"></i> Your answer';
+                            } else {
+                                optionClass += ' border-danger border-2';
+                                icon = '<i class="fas fa-times-circle ms-2 text-danger"></i> Your answer';
+                            }
+                        }
+
+                        return `
+                            <div class="${optionClass}">
+                                <strong>${option}:</strong> ${text} ${icon}
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+
+                ${!isUnanswered ? `
+                    <div class="review-explanation mt-3 p-2 bg-light rounded">
+                        <strong><i class="fas fa-lightbulb me-2 text-warning"></i>Explanation:</strong>
+                        <p class="mb-0 mt-2">${question.explanation || 'No explanation available.'}</p>
+                    </div>
+                ` : `
+                    <div class="review-explanation mt-3 p-2 bg-info-light rounded">
+                        <strong><i class="fas fa-info-circle me-2 text-info"></i>Note:</strong>
+                        <p class="mb-0 mt-2">You didn't answer this question. The correct answer is <strong>${question.correct_answer}</strong>.</p>
+                    </div>
+                `}
+            </div>
+        `;
+    });
+
+    if (container) {
+        container.innerHTML = html || '<div class="text-center py-5"><p class="text-muted">No questions match the selected filter.</p></div>';
+    }
+
+    // Update filter buttons
+    document.querySelectorAll('.review-filters .btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+}
+
+/**
+ * Filter review questions
+ */
+function filterReview(type) {
+    displayReviewQuestions(type);
+}
+
+// ==================== NOTIFICATION SYSTEM ====================
+
+/**
+ * Show notification to user
+ */
+function showNotification(message, type = 'info') {
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.custom-notification');
+    existingNotifications.forEach(notification => {
+        notification.remove();
+    });
+    
+    const icons = {
+        success: 'fas fa-check-circle',
+        error: 'fas fa-exclamation-circle',
+        warning: 'fas fa-exclamation-triangle',
+        info: 'fas fa-info-circle'
+    };
+    
+    const notification = document.createElement('div');
+    notification.className = `custom-notification alert-${type} fade-in`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="${icons[type]} me-2"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => notification.remove(), 300);
+        }
+    }, 5000);
+}
+
+// ==================== UTILITY FUNCTIONS ====================
+
+/**
+ * Format time from seconds to HH:MM:SS or MM:SS
+ */
+function formatTime(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    
+    if (hours > 0) {
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     } else {
-        // Page is visible, resume timers
-        resumeTrialTimer();
-        console.log('Page visible - timers resumed');
+        return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+}
+
+/**
+ * Check user status from server
+ */
+async function checkUserStatus() {
+    try {
+        const response = await fetch('/api/user-status');
+        return await response.json();
+    } catch (error) {
+        // V5: Return status from localStorage if offline
+        if (AppState.currentUser) {
+            return {
+                active: true,
+                status: AppState.currentUser.status,
+                user_name: AppState.currentUser.full_name,
+                user_email: AppState.currentUser.email,
+                is_admin: AppState.currentUser.is_admin
+            };
+        }
+        return { active: false };
     }
 }
 
 // ==================== ACTIVATION SYSTEM ====================
+
+/**
+ * Show activation modal
+ */
+function showActivationModal(force = false) {
+    const modal = new bootstrap.Modal(document.getElementById('activationModal'));
+    
+    // V5: If forcing (trial expired), make sure modal shows
+    if (force) {
+        // Ensure activation code field is empty
+        const activationCodeInput = document.getElementById('activationCode');
+        if (activationCodeInput) {
+            activationCodeInput.value = '';
+            activationCodeInput.focus();
+        }
+        
+        // Show expiration message
+        const modalBody = document.querySelector('#activationModal .modal-body');
+        if (modalBody) {
+            const warningHtml = `
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <strong>Your free trial has expired!</strong>
+                    <p class="mb-0 mt-2">You must activate your account to continue using MSH CBT HUB.</p>
+                </div>
+            `;
+            
+            // Insert warning at the top
+            const firstChild = modalBody.firstChild;
+            if (firstChild && !firstChild.classList.contains('alert-danger')) {
+                modalBody.insertAdjacentHTML('afterbegin', warningHtml);
+            }
+        }
+    }
+    
+    modal.show();
+}
 
 /**
  * Activate account with code - FIXED: Enhanced format validation
@@ -2045,14 +3309,27 @@ async function activateAccount() {
             AppState.currentUser.status = 'activated';
             AppState.currentUser.is_activated = true;
             
-            // V5: Save to localStorage
+            // V5: Save to localStorage and CLEAR expired trial marker
             saveUserDataToStorage(AppState.currentUser);
+            localStorage.removeItem(AppState.localStorageKeys.TRIAL_EXPIRED);
             
             // Clear trial timer
             if (AppState.trialTimer) {
                 clearInterval(AppState.trialTimer);
                 AppState.trialTimer = null;
             }
+            
+            // Clear trial timer state
+            AppState.trialTimerState = {
+                startTime: null,
+                elapsedSeconds: 0,
+                lastUpdate: null,
+                isRunning: false,
+                hasExpired: false
+            };
+            
+            // Clear trial timer from localStorage
+            localStorage.removeItem(AppState.localStorageKeys.TRIAL_TIMER);
             
             // Reload dashboard
             loadDashboard();
@@ -2064,28 +3341,369 @@ async function activateAccount() {
     }
 }
 
+// ==================== EVENT HANDLERS ====================
+
+/**
+ * Handle global click events
+ */
+function handleGlobalClicks(e) {
+    // Option selection in exam
+    if (e.target.closest('.option')) {
+        const option = e.target.closest('.option');
+        const selectedAnswer = option.dataset.option;
+        
+        if (!AppState.currentExam) return;
+        
+        // Clear other selections
+        document.querySelectorAll('.option').forEach(opt => {
+            opt.classList.remove('selected');
+        });
+        
+        // Select current option
+        option.classList.add('selected');
+        
+        // Save answer
+        AppState.currentExam.userAnswers[AppState.currentExam.currentQuestionIndex] = selectedAnswer;
+        
+        // Update progress
+        updateProgress();
+        updateQuestionsGrid();
+    }
+    
+    // Next question button
+    if (e.target.id === 'nextBtn' || e.target.closest('#nextBtn')) {
+        if (AppState.currentExam && AppState.currentExam.currentQuestionIndex < AppState.currentExam.questions.length - 1) {
+            AppState.currentExam.currentQuestionIndex++;
+            updateQuestionDisplay();
+        }
+    }
+    
+    // Previous question button
+    if (e.target.id === 'prevBtn' || e.target.closest('#prevBtn')) {
+        if (AppState.currentExam && AppState.currentExam.currentQuestionIndex > 0) {
+            AppState.currentExam.currentQuestionIndex--;
+            updateQuestionDisplay();
+        }
+    }
+    
+    // Submit exam button
+    if (e.target.id === 'submitExamBtn' || e.target.closest('#submitExamBtn')) {
+        if (!AppState.currentExam) return;
+        
+        const unanswered = AppState.currentExam.questions.length - Object.keys(AppState.currentExam.userAnswers).length;
+        
+        if (unanswered > 0) {
+            showSubmitConfirmation(unanswered);
+        } else {
+            submitExam();
+        }
+    }
+    
+    // Calculator button
+    if (e.target.id === 'calculatorBtn' || e.target.closest('#calculatorBtn')) {
+        const modal = new bootstrap.Modal(document.getElementById('calculatorModal'));
+        modal.show();
+    }
+}
+
+/**
+ * Handle keyboard shortcuts
+ */
+function handleKeyboardShortcuts(e) {
+    // Only handle shortcuts when not in input fields
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    
+    switch(e.key) {
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+            // Select options A, B, C, D in exam
+            if (AppState.currentExam && document.getElementById('exam-interface-page').classList.contains('active')) {
+                const option = document.querySelector(`.option[data-option="${e.key}"]`);
+                if (option) option.click();
+            }
+            break;
+        case 'ArrowRight':
+            // Next question
+            if (AppState.currentExam) document.getElementById('nextBtn').click();
+            break;
+        case 'ArrowLeft':
+            // Previous question
+            if (AppState.currentExam) document.getElementById('prevBtn').click();
+            break;
+        case 'Escape':
+            // Close modals
+            const openModal = document.querySelector('.modal.show');
+            if (openModal) {
+                bootstrap.Modal.getInstance(openModal).hide();
+            }
+            break;
+    }
+}
+
+/**
+ * Handle beforeunload event
+ */
+function handleBeforeUnload(e) {
+    if (AppState.currentExam) {
+        e.preventDefault();
+        e.returnValue = 'You have an ongoing exam. Are you sure you want to leave?';
+        return e.returnValue;
+    }
+    
+    // V5: Save all data before leaving
+    saveAllDataToLocalStorage();
+}
+
+/**
+ * Handle visibility change for timers
+ */
+function handleVisibilityChange() {
+    if (document.hidden) {
+        // Page is hidden, pause timers if needed
+        pauseTrialTimer();
+        console.log('Page hidden - timers paused');
+    } else {
+        // Page is visible, resume timers
+        resumeTrialTimer();
+        console.log('Page visible - timers resumed');
+    }
+}
+
+// ==================== ANIMATION HELPERS ====================
+
+/**
+ * Initialize hover effects
+ */
+function initializeHoverEffects() {
+    // Add hover effects to cards
+    const cards = document.querySelectorAll('.cbt-card, .feature-card, .subject-item');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Add fast button click effects
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+    });
+}
+
+/**
+ * Initialize scroll animations
+ */
+function initializeScrollAnimations() {
+    // Add intersection observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    // Observe all elements with fade-in class
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+/**
+ * Initialize button effects
+ */
+function initializeButtonEffects() {
+    // Add loading states to forms
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.classList.add('loading');
+            }
+        });
+    });
+}
+
+// ==================== SHARING FUNCTIONS ====================
+
+/**
+ * Share results
+ */
+function shareResults() {
+    if (!AppState.examResults) {
+        showNotification('No results to share', 'warning');
+        return;
+    }
+    const modal = new bootstrap.Modal(document.getElementById('shareModal'));
+    modal.show();
+}
+
+/**
+ * Share on WhatsApp
+ */
+function shareOnWhatsApp() {
+    if (!AppState.examResults) return;
+
+    const { percentage, examType } = AppState.examResults;
+    const message = `*I just scored ${percentage}% in my ${examType} practice test on MSH CBT HUB! 🧠🔥*\n\nThink you can beat me?\nTest your knowledge too: https://mshcbthub.netlify.app`;
+    const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+}
+
+/**
+ * Copy results link
+ */
+function copyResultsLink() {
+    const tempInput = document.createElement('input');
+    tempInput.value = window.location.href;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    
+    showNotification('Results link copied to clipboard!', 'success');
+}
+
+/**
+ * Download results as text file
+ */
+function downloadResults() {
+    if (!AppState.examResults) return;
+    
+    // Create a simple text report
+    const report = `
+MSH CBT HUB - Exam Results
+==========================
+
+Exam Type: ${AppState.examResults.examType}
+Subjects: ${AppState.examResults.subjects.join(', ')}
+Score: ${AppState.examResults.score}/${AppState.examResults.totalQuestions} (${AppState.examResults.percentage}%)
+Time Taken: ${formatTime(AppState.examResults.timeTaken)}
+Date: ${AppState.examResults.date}
+
+Performance Summary:
+${Object.keys(AppState.examResults.subjectScores || {}).map(subject => {
+    const score = AppState.examResults.subjectScores[subject];
+    return `- ${subject}: ${score.correct}/${score.total} (${Math.round((score.correct/score.total)*100)}%)`;
+}).join('\n')}
+
+Keep practicing and improving! 🚀
+    `.trim();
+
+    const blob = new Blob([report], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `msh-cbt-results-${new Date().toISOString().split('T')[0]}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    showNotification('Results downloaded!', 'success');
+}
+
+/**
+ * Retake exam - V5 FIX: Proper exam restart
+ */
+function retakeExam() {
+    if (!AppState.examResults) return;
+    
+    if (confirm('Start a new exam with different questions?')) {
+        // Clear previous exam state
+        AppState.currentExam = null;
+        startExam(AppState.examResults.examType, AppState.examResults.subjects);
+    }
+}
+
+/**
+ * Show study materials
+ */
+function showStudyMaterials() {
+    showNotification('Study materials feature coming soon!', 'info');
+}
+
+// ==================== CALCULATOR FUNCTIONS ====================
+
+let calculatorValue = '';
+
+/**
+ * Input to calculator
+ */
+function calcInput(value) {
+    calculatorValue += value;
+    const display = document.getElementById('calcDisplay');
+    if (display) {
+        display.value = calculatorValue;
+    }
+}
+
+/**
+ * Clear calculator
+ */
+function clearCalc() {
+    calculatorValue = '';
+    const display = document.getElementById('calcDisplay');
+    if (display) {
+        display.value = '';
+    }
+}
+
+/**
+ * Calculate expression
+ */
+function calculate() {
+    try {
+        // Replace ^ with ** for exponentiation
+        const expression = calculatorValue.replace(/\^/g, '**');
+        const result = eval(expression);
+        calculatorValue = result.toString();
+        const display = document.getElementById('calcDisplay');
+        if (display) {
+            display.value = calculatorValue;
+        }
+    } catch (error) {
+        const display = document.getElementById('calcDisplay');
+        if (display) {
+            display.value = 'Error';
+        }
+        calculatorValue = '';
+    }
+}
+
 // ==================== ENHANCED UTILITY FUNCTIONS ====================
 
 /**
- * Check user status from server
+ * Animate counter from start to end value
  */
-async function checkUserStatus() {
-    try {
-        const response = await fetch('/api/user-status');
-        return await response.json();
-    } catch (error) {
-        // V5: Return status from localStorage if offline
-        if (AppState.currentUser) {
-            return {
-                active: true,
-                status: AppState.currentUser.status,
-                user_name: AppState.currentUser.full_name,
-                user_email: AppState.currentUser.email,
-                is_admin: AppState.currentUser.is_admin
-            };
+function animateCounter(elementId, start, end, duration) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const value = Math.floor(progress * (end - start) + start);
+        element.textContent = end === 75 ? `${value}%` : value;
+        
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
         }
-        return { active: false };
-    }
+    };
+    
+    window.requestAnimationFrame(step);
 }
 
 // ==================== INITIALIZATION ====================
@@ -2119,8 +3737,20 @@ window.MSH_CBT_HUB = {
     // V5: Export localStorage functions
     saveToLocalStorage,
     loadFromLocalStorage,
-    syncBrowserDataToServer
+    syncBrowserDataToServer,
+    // V5: Export trial timer functions
+    startOfflineTrialTimer,
+    pauseTrialTimer,
+    resumeTrialTimer,
+    // V5: Export trial check function
+    isTrialExpiredPermanently
 };
 
 console.log('📚 MSH CBT HUB Enhanced JavaScript V5 Loaded');
-console.log('✅ Features: Admin Dashboard Fix, JAMB Results Fix, localStorage Support, Offline Trial Timer');
+console.log('✅ V5 Features:');
+console.log('   ✅ Admin Dashboard Fix - Works perfectly');
+console.log('   ✅ JAMB Results Fix - No more disappearing results');
+console.log('   ✅ localStorage Support - Data persists across sessions');
+console.log('   ✅ Offline Trial Timer - Tracks time even when offline');
+console.log('   ✅ Permanent Trial Expiry - 1-hour trial CANNOT restart');
+console.log('   ✅ Activation Required - User MUST activate after trial');
