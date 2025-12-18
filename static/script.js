@@ -1,4 +1,4 @@
-// MSH CBT HUB - ENHANCED PREMIUM JavaScript V5
+// MSH CBT HUB - ENHANCED PREMIUM JavaScript V5.1
 // Global variables with better organization
 const AppState = {
     currentUser: null,
@@ -63,7 +63,7 @@ function initializeLoadingScreen() {
 function initializeMainApp() {
     if (AppState.isInitialized) return;
     
-    console.log('🚀 MSH CBT HUB Enhanced V5 Initializing...');
+    console.log('🚀 MSH CBT HUB Enhanced V5.1 Initializing...');
     
     // V5: Load data from localStorage first
     loadFromLocalStorage();
@@ -90,7 +90,7 @@ function initializeMainApp() {
     setupBrowserDataSync();
     
     AppState.isInitialized = true;
-    console.log('✅ MSH CBT HUB Enhanced V5 Initialized Successfully');
+    console.log('✅ MSH CBT HUB Enhanced V5.1 Initialized Successfully');
 }
 
 // Subject configuration with icons - UPDATED FOR V5
@@ -270,28 +270,42 @@ function saveExamResultsToStorage(results) {
 }
 
 /**
- * V5: Save recent activity to localStorage
+ * V5: Save recent activity to localStorage with deduplication
  */
 function addToRecentActivity(activity) {
     try {
         let recentActivities = loadFromLocalStorage(AppState.localStorageKeys.RECENT_ACTIVITY) || [];
         
-        // Add new activity at the beginning
-        recentActivities.unshift({
-            ...activity,
-            id: Date.now(),
-            storedLocally: true
+        // V5.1 FIX: Create a unique key for this activity
+        const activityKey = `${activity.exam_type}_${activity.subjects}_${activity.score}_${activity.total_questions}_${activity.date}`;
+        
+        // Check if this activity already exists
+        const existingIndex = recentActivities.findIndex(a => {
+            const existingKey = `${a.exam_type}_${a.subjects}_${a.score}_${a.total_questions}_${a.date}`;
+            return existingKey === activityKey;
         });
         
-        // Keep only last 50 activities
-        if (recentActivities.length > 50) {
-            recentActivities = recentActivities.slice(0, 50);
+        // If it doesn't exist, add it
+        if (existingIndex === -1) {
+            recentActivities.unshift({
+                ...activity,
+                id: Date.now(),
+                storedLocally: true,
+                uniqueKey: activityKey
+            });
+            
+            // Keep only last 50 activities
+            if (recentActivities.length > 50) {
+                recentActivities = recentActivities.slice(0, 50);
+            }
+            
+            saveToLocalStorage(AppState.localStorageKeys.RECENT_ACTIVITY, recentActivities);
+            
+            // Save to browser data for sync
+            saveBrowserData('recent_activity', recentActivities);
+        } else {
+            console.log('Activity already exists, skipping duplicate');
         }
-        
-        saveToLocalStorage(AppState.localStorageKeys.RECENT_ACTIVITY, recentActivities);
-        
-        // Save to browser data for sync
-        saveBrowserData('recent_activity', recentActivities);
         
         return true;
     } catch (error) {
@@ -793,9 +807,6 @@ function initializeEventListeners() {
     // Window events
     window.addEventListener('beforeunload', handleBeforeUnload);
     
-    // Visibility change for timers
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    
     // V5: Handle page visibility for trial timer
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
@@ -804,6 +815,14 @@ function initializeEventListeners() {
         } else {
             // Page is visible, resume timers
             resumeTrialTimer();
+        }
+    });
+    
+    // V5.1 FIX: Admin button event listener
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('[onclick*="admin"]')) {
+            e.preventDefault();
+            showPage('admin');
         }
     });
 }
@@ -1017,8 +1036,13 @@ function initializePage(pageName, data) {
             }
             break;
         case 'admin':
-            // Admin dashboard - only accessible to admins
+            // V5.1 FIX: Admin dashboard - only accessible to admins
             if (AppState.currentUser && AppState.currentUser.is_admin) {
+                // If admin page doesn't exist, redirect to admin route
+                if (!document.getElementById('admin-page')) {
+                    window.location.href = '/admin';
+                    return;
+                }
                 loadAdminDashboard();
             } else {
                 showNotification('Access denied. Admin only!', 'error');
@@ -1029,7 +1053,7 @@ function initializePage(pageName, data) {
 }
 
 /**
- * Update navigation based on user state - V5 FIX: Added admin link
+ * Update navigation based on user state - V5.1 FIX: Added admin link with proper routing
  */
 function updateNavigation() {
     const navLinks = document.getElementById('navLinks');
@@ -1045,10 +1069,10 @@ function updateNavigation() {
             </a>
         `;
         
-        // V5 FIX: Add admin link if user is admin
+        // V5.1 FIX: Add admin link if user is admin - with proper routing
         if (AppState.currentUser.is_admin) {
             navHtml += `
-                <a class="nav-link text-warning" href="#" onclick="showPage('admin')">
+                <a class="nav-link text-warning" href="/admin" target="_blank">
                     <i class="fas fa-crown me-1"></i>Admin Dashboard
                 </a>
             `;
@@ -1080,6 +1104,9 @@ function initializeFromURL() {
     const hash = window.location.hash.substring(1);
     if (hash && document.getElementById(`${hash}-page`)) {
         showPage(hash);
+    } else if (hash === 'admin') {
+        // Special handling for admin page
+        showPage('admin');
     }
 }
 
@@ -1653,7 +1680,7 @@ async function loadQuickStats() {
 }
 
 /**
- * Load recent activity - V5 FIXED: Now shows real data with localStorage
+ * V5.1 FIX: Load recent activity - No duplication with unique activities
  */
 async function loadRecentActivity() {
     const recentActivity = document.getElementById('recentActivity');
@@ -1661,37 +1688,71 @@ async function loadRecentActivity() {
     
     try {
         let activities = [];
+        let serverActivities = [];
         
         if (navigator.onLine) {
-            // Try to get from server first
+            // Try to get from server first - V5.1 FIX: Server now returns unique activities
             const response = await fetch('/api/user/recent-activity');
             const result = await response.json();
             
             if (result.success && result.activities && result.activities.length > 0) {
-                activities = result.activities;
+                serverActivities = result.activities;
                 // Save to localStorage for offline use
-                saveToLocalStorage('server_activities', activities);
+                saveToLocalStorage('server_activities', serverActivities);
             }
+        } else {
+            // If offline, try to get server activities from localStorage
+            serverActivities = loadFromLocalStorage('server_activities') || [];
         }
         
-        // If no server data, try localStorage
-        if (activities.length === 0) {
-            activities = loadFromLocalStorage('server_activities') || [];
-        }
+        // V5.1 FIX: Use server activities as primary source (already unique)
+        activities = [...serverActivities];
         
-        // Add local activities
+        // Add local activities only if they don't duplicate server activities
         const localActivities = loadFromLocalStorage(AppState.localStorageKeys.RECENT_ACTIVITY) || [];
-        if (localActivities.length > 0) {
-            activities = [...localActivities, ...activities].slice(0, 10);
-        }
+        
+        // Create a set of server activity keys for quick lookup
+        const serverActivityKeys = new Set();
+        serverActivities.forEach(activity => {
+            const key = `${activity.exam_type}_${activity.subjects}_${activity.score}_${activity.total_questions}_${activity.date}`;
+            serverActivityKeys.add(key);
+        });
+        
+        // Add local activities that aren't duplicates of server activities
+        localActivities.forEach(activity => {
+            const key = `${activity.exam_type}_${activity.subjects}_${activity.score}_${activity.total_questions}_${activity.date}`;
+            if (!serverActivityKeys.has(key)) {
+                activities.push(activity);
+            }
+        });
+        
+        // Sort by date (most recent first) and take top 10
+        activities.sort((a, b) => {
+            const dateA = new Date(a.date || a.timestamp);
+            const dateB = new Date(b.date || b.timestamp);
+            return dateB - dateA;
+        }).slice(0, 10);
         
         if (activities.length > 0) {
             let html = '<div class="activity-list">';
+            
+            // Track displayed activities to avoid duplicates in display
+            const displayedKeys = new Set();
             
             activities.forEach(activity => {
                 const date = new Date(activity.date || activity.timestamp).toLocaleDateString();
                 const time = new Date(activity.date || activity.timestamp).toLocaleTimeString();
                 const isLocal = activity.storedLocally ? '<span class="badge bg-info ms-2">Local</span>' : '';
+                
+                // Create a unique key for this activity
+                const displayKey = `${activity.exam_type}_${activity.subjects}_${activity.score}_${date}`;
+                
+                // Skip if we've already displayed this activity
+                if (displayedKeys.has(displayKey)) {
+                    return;
+                }
+                
+                displayedKeys.add(displayKey);
                 
                 html += `
                     <div class="activity-item mb-3 p-3 border rounded">
@@ -1700,6 +1761,7 @@ async function loadRecentActivity() {
                                 <h6 class="mb-1">${activity.exam_type || 'Exam'} Test ${isLocal}</h6>
                                 <p class="mb-1 text-muted">${activity.subjects || 'Multiple subjects'}</p>
                                 <small class="text-muted">Score: ${activity.score}/${activity.total_questions} (${activity.percentage}%)</small>
+                                ${activity.time_taken ? `<br><small class="text-muted">Time: ${formatTime(activity.time_taken)}</small>` : ''}
                             </div>
                             <div class="text-end">
                                 <small class="text-muted">${date}</small>
@@ -1763,8 +1825,9 @@ async function loadAdminDashboard() {
     
     const adminPage = document.getElementById('admin-page');
     if (!adminPage) {
-        // Create admin page if it doesn't exist
-        createAdminPage();
+        // V5.1 FIX: If admin page doesn't exist, we're in the wrong place
+        window.location.href = '/admin';
+        return;
     }
     
     try {
@@ -1792,66 +1855,24 @@ async function loadAdminDashboard() {
  * Create admin page dynamically
  */
 function createAdminPage() {
-    const pagesContainer = document.querySelector('.page-section.active').parentElement;
+    // V5.1 FIX: Admin page should be served by Flask route /admin
+    // This function is kept for backward compatibility
+    console.log('Admin page should be served by Flask route /admin');
+    
+    // Create a simple placeholder if needed
+    const pagesContainer = document.querySelector('.page-section.active')?.parentElement;
+    if (!pagesContainer) return;
     
     const adminPageHTML = `
         <div id="admin-page" class="page-section">
             <div class="container mt-5 pt-5">
                 <div class="cbt-card">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2 class="text-teal">
-                            <i class="fas fa-crown me-2"></i>Admin Dashboard
-                        </h2>
-                        <button class="btn btn-outline-teal" onclick="showPage('dashboard')">
-                            <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
-                        </button>
-                    </div>
-                    
-                    <!-- Admin Stats -->
-                    <div class="mb-5">
-                        <h4 class="mb-3">System Overview</h4>
-                        <div class="row" id="adminStats">
-                            <div class="text-center py-4">
-                                <div class="loading-spinner"></div>
-                                <p class="mt-3">Loading admin statistics...</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Users Management -->
-                    <div class="mb-5">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4>Users Management</h4>
-                            <button class="btn btn-teal btn-sm" onclick="refreshAdminUsers()">
-                                <i class="fas fa-sync-alt me-2"></i>Refresh
-                            </button>
-                        </div>
-                        <div id="adminUsersTable" class="table-responsive">
-                            <div class="text-center py-4">
-                                <div class="loading-spinner"></div>
-                                <p class="mt-3">Loading users...</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Activation Codes -->
-                    <div class="mb-5">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4>Activation Codes</h4>
-                            <div>
-                                <button class="btn btn-warning btn-sm me-2" onclick="refreshAdminCodes()">
-                                    <i class="fas fa-sync-alt me-2"></i>Refresh
-                                </button>
-                                <button class="btn btn-success btn-sm" onclick="generateActivationCodes()">
-                                    <i class="fas fa-plus me-2"></i>Generate Codes
-                                </button>
-                            </div>
-                        </div>
-                        <div id="adminCodesTable" class="table-responsive">
-                            <div class="text-center py-4">
-                                <div class="loading-spinner"></div>
-                                <p class="mt-3">Loading activation codes...</p>
-                            </div>
+                    <div class="text-center py-5">
+                        <i class="fas fa-crown fa-4x text-warning mb-3"></i>
+                        <h3>Admin Dashboard</h3>
+                        <p class="text-muted">Redirecting to admin interface...</p>
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
                     </div>
                 </div>
@@ -1860,6 +1881,11 @@ function createAdminPage() {
     `;
     
     pagesContainer.insertAdjacentHTML('beforeend', adminPageHTML);
+    
+    // Redirect to actual admin page
+    setTimeout(() => {
+        window.location.href = '/admin';
+    }, 1000);
 }
 
 /**
@@ -3404,6 +3430,17 @@ function handleGlobalClicks(e) {
         const modal = new bootstrap.Modal(document.getElementById('calculatorModal'));
         modal.show();
     }
+    
+    // V5.1 FIX: Admin button handling
+    if (e.target.closest('.admin-link') || e.target.closest('[href*="/admin"]')) {
+        e.preventDefault();
+        // Check if user is admin
+        if (AppState.currentUser && AppState.currentUser.is_admin) {
+            window.location.href = '/admin';
+        } else {
+            showNotification('Access denied. Admin only!', 'error');
+        }
+    }
 }
 
 /**
@@ -3746,11 +3783,12 @@ window.MSH_CBT_HUB = {
     isTrialExpiredPermanently
 };
 
-console.log('📚 MSH CBT HUB Enhanced JavaScript V5 Loaded');
-console.log('✅ V5 Features:');
-console.log('   ✅ Admin Dashboard Fix - Works perfectly');
-console.log('   ✅ JAMB Results Fix - No more disappearing results');
-console.log('   ✅ localStorage Support - Data persists across sessions');
-console.log('   ✅ Offline Trial Timer - Tracks time even when offline');
-console.log('   ✅ Permanent Trial Expiry - 1-hour trial CANNOT restart');
-console.log('   ✅ Activation Required - User MUST activate after trial');
+console.log('📚 MSH CBT HUB Enhanced JavaScript V5.1 Loaded');
+console.log('✅ V5.1 Features:');
+console.log('   ✅ FIXED: Recent Activity Duplication - Shows unique activities only');
+console.log('   ✅ FIXED: Admin Dashboard Button - Now opens /admin route correctly');
+console.log('   ✅ FIXED: JAMB Results - No more disappearing results');
+console.log('   ✅ ADDED: localStorage Support - Data persists across sessions');
+console.log('   ✅ ADDED: Offline Trial Timer - Tracks time even when offline');
+console.log('   ✅ ENHANCED: Permanent Trial Expiry - 1-hour trial CANNOT restart');
+console.log('   ✅ ENHANCED: Activation Required - User MUST activate after trial');
