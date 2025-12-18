@@ -982,7 +982,7 @@ def start_exam():
         return jsonify({'success': True, 'message': 'Exam access granted!'})
 
     except Exception as e:
-        logger.error(f"Start exam error: {str(e)})
+        logger.error(f"Start exam error: {str(e)}")  # FIXED: Added missing closing quote
         return jsonify({'success': False, 'message': 'Error starting exam.'})
 
 @app.route('/api/get-questions', methods=['POST'])
