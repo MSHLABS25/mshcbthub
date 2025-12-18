@@ -9,7 +9,7 @@ import os
 import json
 import logging
 from logging.handlers import RotatingFileHandler
-from sqlalchemy import func, or_, and_
+from sqlalchemy import func, or_, and_, text  # ADDED: Import text from sqlalchemy
 from functools import wraps
 import uuid
 import time
@@ -130,10 +130,11 @@ with app.app_context():
         logger.info("Database tables created successfully")
         
         try:
-            db.session.execute('CREATE INDEX IF NOT EXISTS idx_temporary_data_expires ON temporary_data(expires_at)')
-            db.session.execute('CREATE INDEX IF NOT EXISTS idx_user_sessions_activity ON user_session(last_activity)')
-            db.session.execute('CREATE INDEX IF NOT EXISTS idx_exam_results_user_date ON exam_result(user_id, created_at)')
-            db.session.execute('CREATE INDEX IF NOT EXISTS idx_users_last_activity ON user(last_activity)')
+            # FIXED: Wrapped SQL strings with text() function
+            db.session.execute(text('CREATE INDEX IF NOT EXISTS idx_temporary_data_expires ON temporary_data(expires_at)'))
+            db.session.execute(text('CREATE INDEX IF NOT EXISTS idx_user_sessions_activity ON user_session(last_activity)'))
+            db.session.execute(text('CREATE INDEX IF NOT EXISTS idx_exam_results_user_date ON exam_result(user_id, created_at)'))
+            db.session.execute(text('CREATE INDEX IF NOT EXISTS idx_users_last_activity ON user(last_activity)'))
             db.session.commit()
             logger.info("Database indexes created successfully")
         except Exception as index_error:
@@ -981,7 +982,7 @@ def start_exam():
         return jsonify({'success': True, 'message': 'Exam access granted!'})
 
     except Exception as e:
-        logger.error(f"Start exam error: {str(e)}")
+        logger.error(f"Start exam error: {str(e)})
         return jsonify({'success': False, 'message': 'Error starting exam.'})
 
 @app.route('/api/get-questions', methods=['POST'])
@@ -1391,7 +1392,7 @@ def too_large(error):
 @app.route('/health')
 def health_check():
     try:
-        db.session.execute(db.select(1))
+        db.session.execute(text('SELECT 1'))  # FIXED: Added text() wrapper here too
         old_data_count = TemporaryData.query.filter(TemporaryData.expires_at < datetime.utcnow()).count()
         
         return jsonify({
