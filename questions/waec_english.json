@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": 1,
-      "question": "Choose the word that has the same vowel sound as the one represented by the letter(s) underlined: <u>ie</u>ld",
+      "question": "Choose the word that has the same vowel sound as the one represented by the letter(s) underlined: _ie_ld",
       "options": {
         "A": "seized",
         "B": "sieve", 
@@ -97,7 +97,7 @@
     },
     {
       "id": 8,
-      "question": "From the words lettered A to D, choose the word that is nearest in meaning to the underlined word: His <u>nonchalant</u> attitude towards his studies worried his parents.",
+      "question": "From the words lettered A to D, choose the word that is nearest in meaning to the underlined word: His _nonchalant_ attitude towards his studies worried his parents.",
       "options": {
         "A": "careless", 
         "B": "enthusiastic",
@@ -110,7 +110,7 @@
     },
     {
       "id": 9,
-      "question": "The principal's <u>candid</u> remarks shocked the audience.",
+      "question": "The principal's _candid_ remarks shocked the audience.",
       "options": {
         "A": "harsh",
         "B": "lengthy", 
@@ -123,7 +123,7 @@
     },
     {
       "id": 10,
-      "question": "From the words lettered A to D, choose the word that is most nearly opposite in meaning to the underlined word: The <u>profligate</u> son squandered his inheritance.",
+      "question": "From the words lettered A to D, choose the word that is most nearly opposite in meaning to the underlined word: The _profligate_ son squandered his inheritance.",
       "options": {
         "A": "miserly",
         "B": "thrifty", 
@@ -136,7 +136,7 @@
     },
     {
   "id": 11,
-  "question": "His <u>taciturn</u> nature contrasts with his brother's _____.",
+  "question": "His _taciturn_ nature contrasts with his brother's _____.",
   "options": {
     "A": "garrulity", 
     "B": "seriousness",
@@ -422,7 +422,7 @@
 },
 {
   "id": 33,
-  "question": "Choose the word that has the same consonant sound as the one represented by the letter(s) underlined: <u>ch</u>oir",
+  "question": "Choose the word that has the same consonant sound as the one represented by the letter(s) underlined: _ch_oir",
   "options": {
     "A": "chest",
     "B": "chaos",
@@ -448,7 +448,7 @@
 },
 {
   "id": 35,
-  "question": "The politician's <u>voluble</u> speech captivated the crowd.",
+  "question": "The politician's _voluble_ speech captivated the crowd.",
   "options": {
     "A": "verbose", 
     "B": "quiet",
@@ -461,7 +461,7 @@
 },
 {
   "id": 36,
-  "question": "His <u>parsimonious</u> habits made him unpopular.",
+  "question": "His _parsimonious_ habits made him unpopular.",
   "options": {
     "A": "generous",
     "B": "stingy", 
@@ -474,7 +474,7 @@
 },
 {
   "id": 37,
-  "question": "The <u>ephemeral</u> nature of fame worries many artists.",
+  "question": "The _ephemeral_ nature of fame worries many artists.",
   "options": {
     "A": "permanent",
     "B": "temporary", 
@@ -487,7 +487,7 @@
 },
 {
   "id": 38,
-  "question": "The government's policy was <u>detrimental</u> to economic growth.",
+  "question": "The government's policy was _detrimental_ to economic growth.",
   "options": {
     "A": "harmful", 
     "B": "beneficial",
@@ -500,7 +500,7 @@
 },
 {
   "id": 39,
-  "question": "The witness gave a <u>lucid</u> account of the incident.",
+  "question": "The witness gave a _lucid_ account of the incident.",
   "options": {
     "A": "clear", 
     "B": "confused",
@@ -513,7 +513,7 @@
 },
 {
   "id": 40,
-  "question": "The principal warned the students against <u>flouting</u> the school rules.",
+  "question": "The principal warned the students against _flouting_ the school rules.",
   "options": {
     "A": "obeying",
     "B": "discussing",
@@ -526,7 +526,7 @@
 },
 {
   "id": 41,
-  "question": "His <u>magnanimous</u> gesture was appreciated by all.",
+  "question": "His _magnanimous_ gesture was appreciated by all.",
   "options": {
     "A": "generous", 
     "B": "selfish",
@@ -539,7 +539,7 @@
 },
 {
   "id": 42,
-  "question": "The <u>obsolete</u> equipment was replaced.",
+  "question": "The _obsolete_ equipment was replaced.",
   "options": {
     "A": "new",
     "B": "modern",
@@ -552,7 +552,7 @@
 },
 {
   "id": 43,
-  "question": "The student's <u>diligence</u> earned him a scholarship.",
+  "question": "The student's _diligence_ earned him a scholarship.",
   "options": {
     "A": "laziness",
     "B": "carelessness",
@@ -565,7 +565,7 @@
 },
 {
   "id": 44,
-  "question": "The manager's <u>pragmatic</u> approach solved the problem.",
+  "question": "The manager's _pragmatic_ approach solved the problem.",
   "options": {
     "A": "theoretical",
     "B": "impractical",
@@ -578,7 +578,7 @@
 },
 {
   "id": 45,
-  "question": "The <u>prolific</u> writer published three novels last year.",
+  "question": "The _prolific_ writer published three novels last year.",
   "options": {
     "A": "unproductive",
     "B": "productive", 
@@ -591,7 +591,7 @@
 },
 {
   "id": 46,
-  "question": "His <u>reticent</u> nature makes it difficult to know him.",
+  "question": "His _reticent_ nature makes it difficult to know him.",
   "options": {
     "A": "talkative",
     "B": "reserved", 
@@ -604,7 +604,7 @@
 },
 {
   "id": 47,
-  "question": "The <u>scrupulous</u> lawyer checked every detail.",
+  "question": "The _scrupulous_ lawyer checked every detail.",
   "options": {
     "A": "careless",
     "B": "thorough", 
@@ -617,7 +617,7 @@
 },
 {
   "id": 48,
-  "question": "The <u>tranquil</u> atmosphere of the village was soothing.",
+  "question": "The _tranquil_ atmosphere of the village was soothing.",
   "options": {
     "A": "peaceful", 
     "B": "noisy",
@@ -630,7 +630,7 @@
 },
 {
   "id": 49,
-  "question": "The <u>vindictive</u> employee sought revenge.",
+  "question": "The _vindictive_ employee sought revenge.",
   "options": {
     "A": "forgiving",
     "B": "revengeful", 
@@ -643,7 +643,7 @@
 },
 {
   "id": 50,
-  "question": "The <u>wary</u> traveler watched his surroundings carefully.",
+  "question": "The _wary_ traveler watched his surroundings carefully.",
   "options": {
     "A": "careless",
     "B": "cautious", 
@@ -656,7 +656,7 @@
 },
 {
   "id": 51,
-  "question": "The <u>affluent</u> businessman donated generously.",
+  "question": "The _affluent_ businessman donated generously.",
   "options": {
     "A": "poor",
     "B": "rich", 
@@ -669,7 +669,7 @@
 },
 {
   "id": 52,
-  "question": "The <u>ambiguous</u> statement confused everyone.",
+  "question": "The _ambiguous_ statement confused everyone.",
   "options": {
     "A": "clear",
     "B": "unclear", 
@@ -682,7 +682,7 @@
 },
 {
   "id": 53,
-  "question": "The <u>benevolent</u> king was loved by his subjects.",
+  "question": "The _benevolent_ king was loved by his subjects.",
   "options": {
     "A": "cruel",
     "B": "kind", 
@@ -695,7 +695,7 @@
 },
 {
   "id": 54,
-  "question": "The <u>candid</u> photo captured her natural beauty.",
+  "question": "The _candid_ photo captured her natural beauty.",
   "options": {
     "A": "posed",
     "B": "unposed", 
@@ -708,7 +708,7 @@
 },
 {
   "id": 55,
-  "question": "The <u>dubious</u> character of the witness made the jury suspicious.",
+  "question": "The _dubious_ character of the witness made the jury suspicious.",
   "options": {
     "A": "questionable", 
     "B": "excellent",
@@ -721,7 +721,7 @@
 },
 {
   "id": 56,
-  "question": "The <u>eloquent</u> speaker held the audience spellbound.",
+  "question": "The _eloquent_ speaker held the audience spellbound.",
   "options": {
     "A": "articulate", 
     "B": "inarticulate",
@@ -734,7 +734,7 @@
 },
 {
   "id": 57,
-  "question": "The <u>frivolous</u> lawsuit was dismissed by the judge.",
+  "question": "The _frivolous_ lawsuit was dismissed by the judge.",
   "options": {
     "A": "serious",
     "B": "silly", 
@@ -747,7 +747,7 @@
 },
 {
   "id": 58,
-  "question": "The <u>gregarious</u> child made friends easily.",
+  "question": "The _gregarious_ child made friends easily.",
   "options": {
     "A": "shy",
     "B": "sociable", 
@@ -760,7 +760,7 @@
 },
 {
   "id": 59,
-  "question": "The <u>hostile</u> takeover bid was rejected.",
+  "question": "The _hostile_ takeover bid was rejected.",
   "options": {
     "A": "friendly",
     "B": "unfriendly", 
@@ -773,7 +773,7 @@
 },
 {
   "id": 60,
-  "question": "The <u>incessant</u> noise made concentration difficult.",
+  "question": "The _incessant_ noise made concentration difficult.",
   "options": {
     "A": "continuous", 
     "B": "intermittent",
@@ -786,7 +786,7 @@
 },
 {
   "id": 61,
-  "question": "From the words lettered A to D, choose the word that is most nearly opposite in meaning to the underlined word: The <u>amicable</u> settlement pleased both parties.",
+  "question": "From the words lettered A to D, choose the word that is most nearly opposite in meaning to the underlined word: The _amicable_ settlement pleased both parties.",
   "options": {
     "A": "hostile", 
     "B": "friendly",
@@ -799,7 +799,7 @@
 },
 {
   "id": 62,
-  "question": "His <u>arrogant</u> manner made him unpopular.",
+  "question": "His _arrogant_ manner made him unpopular.",
   "options": {
     "A": "humble", 
     "B": "proud",
@@ -812,7 +812,7 @@
 },
 {
   "id": 63,
-  "question": "The <u>benign</u> tumor was not dangerous.",
+  "question": "The _benign_ tumor was not dangerous.",
   "options": {
     "A": "malignant", 
     "B": "harmless",
@@ -825,7 +825,7 @@
 },
 {
   "id": 64,
-  "question": "The <u>cowardly</u> soldier ran from the battle.",
+  "question": "The _cowardly_ soldier ran from the battle.",
   "options": {
     "A": "brave", 
     "B": "fearful",
@@ -838,7 +838,7 @@
 },
 {
   "id": 65,
-  "question": "The <u>diminutive</u> actor played child roles.",
+  "question": "The _diminutive_ actor played child roles.",
   "options": {
     "A": "tall",
     "B": "small",
@@ -851,7 +851,7 @@
 },
 {
   "id": 66,
-  "question": "The <u>extravagant</u> wedding cost a fortune.",
+  "question": "The _extravagant_ wedding cost a fortune.",
   "options": {
     "A": "frugal", 
     "B": "wasteful",
@@ -864,7 +864,7 @@
 },
 {
   "id": 67,
-  "question": "Her <u>frivolous</u> approach to work worried her boss.",
+  "question": "Her _frivolous_ approach to work worried her boss.",
   "options": {
     "A": "serious", 
     "B": "silly",
@@ -877,7 +877,7 @@
 },
 {
   "id": 68,
-  "question": "The <u>generous</u> donation helped the charity.",
+  "question": "The _generous_ donation helped the charity.",
   "options": {
     "A": "stingy", 
     "B": "large",
@@ -890,7 +890,7 @@
 },
 {
   "id": 69,
-  "question": "The <u>humble</u> beginnings of the company are well known.",
+  "question": "The _humble_ beginnings of the company are well known.",
   "options": {
     "A": "modest",
     "B": "proud",
@@ -903,7 +903,7 @@
 },
 {
   "id": 70,
-  "question": "The <u>indigenous</u> people of the area were friendly.",
+  "question": "The _indigenous_ people of the area were friendly.",
   "options": {
     "A": "native",
     "B": "foreign", 
@@ -916,7 +916,7 @@
 },
 {
   "id": 71,
-  "question": "The <u>juvenile</u> offender was treated leniently.",
+  "question": "The _juvenile_ offender was treated leniently.",
   "options": {
     "A": "young",
     "B": "adult", 
@@ -929,7 +929,7 @@
 },
 {
   "id": 72,
-  "question": "The <u>kindhearted</u> woman helped the stranger.",
+  "question": "The _kindhearted_ woman helped the stranger.",
   "options": {
     "A": "cruel", 
     "B": "gentle",
@@ -942,7 +942,7 @@
 },
 {
   "id": 73,
-  "question": "The <u>lavish</u> party impressed the guests.",
+  "question": "The _lavish_ party impressed the guests.",
   "options": {
     "A": "extravagant",
     "B": "frugal", 
@@ -955,7 +955,7 @@
 },
 {
   "id": 74,
-  "question": "The <u>meticulous</u> worker checked every detail.",
+  "question": "The _meticulous_ worker checked every detail.",
   "options": {
     "A": "careful",
     "B": "careless", 
@@ -968,7 +968,7 @@
 },
 {
   "id": 75,
-  "question": "The <u>notorious</u> criminal was finally caught.",
+  "question": "The _notorious_ criminal was finally caught.",
   "options": {
     "A": "famous",
     "B": "unknown", 
@@ -981,7 +981,7 @@
 },
 {
   "id": 76,
-  "question": "The <u>obsolete</u> law was finally repealed.",
+  "question": "The _obsolete_ law was finally repealed.",
   "options": {
     "A": "old",
     "B": "new",
@@ -994,7 +994,7 @@
 },
 {
   "id": 77,
-  "question": "The <u>permanent</u> structure was built to last.",
+  "question": "The _permanent_ structure was built to last.",
   "options": {
     "A": "temporary", 
     "B": "strong",
@@ -1007,7 +1007,7 @@
 },
 {
   "id": 78,
-  "question": "The <u>qualified</u> applicant got the job.",
+  "question": "The _qualified_ applicant got the job.",
   "options": {
     "A": "suitable",
     "B": "unqualified", 
@@ -1020,7 +1020,7 @@
 },
 {
   "id": 79,
-  "question": "The <u>reluctant</u> witness finally testified.",
+  "question": "The _reluctant_ witness finally testified.",
   "options": {
     "A": "willing", 
     "B": "unwilling",
@@ -1033,7 +1033,7 @@
 },
 {
   "id": 80,
-  "question": "The <u>significant</u> discovery changed science.",
+  "question": "The _significant_ discovery changed science.",
   "options": {
     "A": "important",
     "B": "insignificant", 
