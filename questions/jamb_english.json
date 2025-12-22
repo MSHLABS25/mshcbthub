@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": 1,
-      "question": "Choose the word that is nearest in meaning to the underlined word: The journalist's account was highly fictitious.",
+      "question": "Choose the word that is nearest in meaning to the underlined word: The journalist's account was highly _fictitious_.",
       "options": {
         "A": "Imaginary",
         "B": "Factual",
@@ -19,7 +19,7 @@
     },
     {
       "id": 2,
-      "question": "Choose the word that is opposite in meaning to the underlined word: Her success was ephemeral.",
+      "question": "Choose the word that is opposite in meaning to the underlined word: Her success was _ephemeral_.",
       "options": {
         "A": "Momentary",
         "B": "Lasting",
