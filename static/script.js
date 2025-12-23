@@ -3593,7 +3593,7 @@ function shareOnWhatsApp() {
     if (!AppState.examResults) return;
 
     const { percentage, examType } = AppState.examResults;
-    const message = `*I just scored ${percentage}% in my ${examType} practice test on MSH CBT HUB! 🧠🔥*\n\nThink you can beat me?\nTest your knowledge too: https://mshcbthub.netlify.app`;
+    const message = `*I just scored ${percentage}% in my ${examType} practice test on MSH CBT HUB🎓! 🧠🔥*\n\nThink you can beat me?\nTest your knowledge too 👉 🔗*Try now:* https://mshcbthub.onrender.com`;
     const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
 }
