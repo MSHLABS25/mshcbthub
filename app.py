@@ -1,4 +1,4 @@
-# app.py - VERSION 5.2 - FIXED TRIAL EXPIRY BEHAVIOR
+# app.py - VERSION 5.2 - FIXED TRIAL EXPIRY BEHAVIOR (SYNTAX ERROR FIXED)
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for, send_file
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -949,7 +949,7 @@ def get_trial_status():
         else:
             user = User.query.get(session['user_id'])
             if not user:
-                return jsonify({'success': False, 'message': 'User not found!'')
+                return jsonify({'success': False, 'message': 'User not found!'})
 
         access_status = check_access_status(user)
         remaining_seconds = 0
@@ -1563,6 +1563,7 @@ if __name__ == '__main__':
     print("🚀 Starting MSH CBT HUB Server - VERSION 5.2...")
     print("✅ All V5.2 requirements implemented:")
     print("   ✅ FIXED: Trial Expiry Behavior - Users can login but only access activation")
+    print("   ✅ FIXED: Access Control - Expired trial users can ONLY access activation")
     print("   ✅ FIXED: Admin Dashboard Route - Now properly serves admin.html")
     print("   ✅ FIXED: Recent Activity Duplication - Unique activities only")
     print("   ✅ FIXED: JAMB Results - No more disappearing results")
