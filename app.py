@@ -1,4 +1,4 @@
-# app.py - VERSION 5.1 - FIXED WITH ALL ISSUES RESOLVED
+# app.py - VERSION 5.2 - FIXED TRIAL EXPIRY BEHAVIOR
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for, send_file
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -183,6 +183,22 @@ def check_trial_status(user):
         return datetime.utcnow() < trial_end
     
     return False
+
+def check_access_status(user):
+    """V5.2 FIX: Check user access status - returns detailed status"""
+    if user.is_activated:
+        return {'status': 'activated', 'has_access': True}
+    
+    if user.is_admin:
+        return {'status': 'admin', 'has_access': True}
+    
+    # Check trial status
+    trial_active = check_trial_status(user)
+    if trial_active:
+        return {'status': 'trial', 'has_access': True}
+    else:
+        # V5.2 FIX: Trial expired - user can login but only access activation
+        return {'status': 'expired', 'has_access': False, 'message': 'Trial expired. Please activate your account.'}
 
 def get_user_stats(user_id):
     """Get user statistics for dashboard"""
@@ -408,41 +424,6 @@ def update_user_activity(user_id):
     except Exception as e:
         logger.error(f"Error updating user activity: {str(e)}")
 
-# -------------------- TRIAL LOCKOUT MIDDLEWARE --------------------
-def trial_lockout_required(allow_access_to_activation=False):
-    """Middleware to lock out users with expired trials from all features except activation"""
-    def decorator(f):
-        @wraps(f)
-        def decorated_function(*args, **kwargs):
-            if 'user_id' not in session:
-                # Allow login/registration pages
-                return f(*args, **kwargs)
-            
-            user = User.query.get(session['user_id'])
-            if not user:
-                return f(*args, **kwargs)
-            
-            # Check if trial has expired and user is not activated
-            trial_active = check_trial_status(user)
-            if not trial_active and not user.is_activated:
-                # User with expired trial - check what they're trying to access
-                if allow_access_to_activation:
-                    # Allow access to activation-related endpoints
-                    return f(*args, **kwargs)
-                else:
-                    # Block access to all other features
-                    logger.warning(f"Trial expired user attempted to access restricted feature: {user.email}")
-                    return jsonify({
-                        'success': False, 
-                        'message': 'Your trial has expired. Please activate your account to continue.',
-                        'status': 'trial_expired',
-                        'locked_out': True
-                    }), 403
-            
-            return f(*args, **kwargs)
-        return decorated_function
-    return decorator
-
 # -------------------- ROUTES --------------------
 @app.route('/')
 def index():
@@ -539,7 +520,6 @@ def register():
         return jsonify({'success': False, 'message': 'Registration failed. Please try again.'})
 
 @app.route('/login', methods=['POST'])
-@trial_lockout_required(allow_access_to_activation=True)  # Allow login even with expired trial
 def login():
     try:
         data = request.get_json()
@@ -553,38 +533,9 @@ def login():
         user = User.query.filter_by(email=email).first()
 
         if user and check_password_hash(user.password, password):
-            trial_active = check_trial_status(user)
+            # V5.2 FIX: Allow login even if trial expired, but mark status properly
+            access_status = check_access_status(user)
             
-            # Check if trial expired
-            if not trial_active and not user.is_activated:
-                # Trial expired - allow login but set expired status
-                user.last_login = datetime.utcnow()
-                user.last_activity = datetime.utcnow()
-                db.session.commit()
-
-                session['user_id'] = user.id
-                session['user_name'] = user.full_name
-                session['user_email'] = user.email
-                session['is_activated'] = user.is_activated
-                session['is_admin'] = user.is_admin
-                session['device_id'] = user.device_id
-                session['trial_expired'] = True  # Mark trial as expired in session
-                session.permanent = True
-
-                logger.info(f"Expired trial user logged in: {email}")
-
-                return jsonify({
-                    'success': True,
-                    'message': 'Login successful. Your trial has expired. Please activate your account to continue.',
-                    'user_name': user.full_name,
-                    'is_activated': user.is_activated,
-                    'is_admin': user.is_admin,
-                    'trial_active': False,
-                    'trial_expired': True,
-                    'device_id': user.device_id,
-                    'locked_out': True
-                })
-
             user.last_login = datetime.utcnow()
             user.last_activity = datetime.utcnow()
             
@@ -606,18 +557,18 @@ def login():
             session['is_activated'] = user.is_activated
             session['is_admin'] = user.is_admin
             session['device_id'] = user.device_id
-            session['trial_expired'] = False
             session.permanent = True
 
-            logger.info(f"User logged in: {email} (Admin: {user.is_admin})")
+            logger.info(f"User logged in: {email} (Admin: {user.is_admin}, Status: {access_status['status']})")
 
             return jsonify({
                 'success': True,
-                'message': 'Login successful! Welcome back.',
+                'message': 'Login successful!' if access_status['status'] != 'expired' else 'Login successful! Your trial has expired. Please activate your account.',
                 'user_name': user.full_name,
                 'is_activated': user.is_activated,
                 'is_admin': user.is_admin,
-                'trial_active': trial_active,
+                'status': access_status['status'],  # V5.2 FIX: Return status
+                'has_access': access_status.get('has_access', True),
                 'device_id': user.device_id
             })
 
@@ -652,7 +603,6 @@ def logout():
 
 # -------------------- USER MANAGEMENT --------------------
 @app.route('/api/user-status')
-@trial_lockout_required(allow_access_to_activation=True)  # Allow status check for activation
 def user_status():
     try:
         if 'user_id' not in session:
@@ -663,46 +613,33 @@ def user_status():
             session.clear()
             return jsonify({'active': False})
 
+        # V5.2 FIX: Use new access status check
+        access_status = check_access_status(user)
+        
         session['is_activated'] = user.is_activated
         session['is_admin'] = user.is_admin
 
-        trial_active = check_trial_status(user)
-        
-        # V5: Calculate remaining trial time
+        # Calculate remaining trial time if in trial
         remaining_seconds = 0
-        if user.trial_end and trial_active:
+        if access_status['status'] == 'trial' and user.trial_end:
             remaining_seconds = max(0, int((user.trial_end - datetime.utcnow()).total_seconds()))
-        elif user.trial_end and not trial_active:
-            remaining_seconds = 0
         
-        # Check if trial has expired
-        if not trial_active and not user.is_activated:
-            session['trial_expired'] = True
-            return jsonify({
-                'active': True,
-                'status': 'expired',
-                'user_name': user.full_name,
-                'user_email': user.email,
-                'is_admin': user.is_admin,
-                'remaining_seconds': 0,
-                'locked_out': True,
-                'message': 'Your trial has expired. Please activate your account.'
-            })
-
-        if user.is_activated:
+        if access_status['status'] == 'activated':
             return jsonify({
                 'active': True,
                 'status': 'activated',
+                'has_access': True,
                 'user_name': user.full_name,
                 'user_email': user.email,
                 'is_admin': user.is_admin,
                 'remaining_seconds': remaining_seconds
             })
 
-        if trial_active:
+        if access_status['status'] == 'trial':
             return jsonify({
                 'active': True,
                 'status': 'trial',
+                'has_access': True,
                 'user_name': user.full_name,
                 'user_email': user.email,
                 'remaining_minutes': remaining_seconds // 60,
@@ -710,25 +647,42 @@ def user_status():
                 'is_admin': user.is_admin
             })
 
-        return jsonify({
-            'active': False, 
-            'status': 'expired',
-            'user_name': user.full_name,
-            'user_email': user.email,
-            'is_admin': user.is_admin,
-            'locked_out': True
-        })
+        if access_status['status'] == 'expired':
+            # V5.2 FIX: Return expired status but allow login
+            return jsonify({
+                'active': True,  # Still active session
+                'status': 'expired',
+                'has_access': False,  # No access to features
+                'user_name': user.full_name,
+                'user_email': user.email,
+                'is_admin': user.is_admin,
+                'message': 'Your trial has expired. Please activate your account.'
+            })
+
+        return jsonify({'active': False})
 
     except Exception as e:
         logger.error(f"User status error: {str(e)}")
         return jsonify({'active': False})
 
 @app.route('/api/user/stats')
-@trial_lockout_required()  # Lock out expired trial users
 def user_stats():
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
+
+        # V5.2 FIX: Check if user has access
+        user = User.query.get(session['user_id'])
+        if not user:
+            return jsonify({'success': False, 'message': 'User not found!'})
+            
+        access_status = check_access_status(user)
+        if not access_status['has_access'] and not user.is_activated:
+            return jsonify({
+                'success': False, 
+                'message': 'Your trial has expired. Please activate your account to access statistics.',
+                'requires_activation': True
+            })
 
         stats = get_user_stats(session['user_id'])
         return jsonify({'success': True, 'stats': stats})
@@ -738,12 +692,24 @@ def user_stats():
         return jsonify({'success': False, 'message': 'Error loading statistics'})
 
 @app.route('/api/user/recent-activity')
-@trial_lockout_required()  # Lock out expired trial users
 def user_recent_activity():
     """V5.1 FIX: Get unique recent activities without duplication"""
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
+
+        # V5.2 FIX: Check if user has access
+        user = User.query.get(session['user_id'])
+        if not user:
+            return jsonify({'success': False, 'message': 'User not found!'})
+            
+        access_status = check_access_status(user)
+        if not access_status['has_access'] and not user.is_activated:
+            return jsonify({
+                'success': False, 
+                'message': 'Your trial has expired. Please activate your account to view recent activity.',
+                'requires_activation': True
+            })
 
         # V5.1 FIX: Use distinct to get unique activities and order by most recent
         recent_exams = ExamResult.query.filter_by(
@@ -790,20 +756,20 @@ def user_recent_activity():
 
 # -------------------- LOCAL STORAGE SYNC API (V5 NEW FEATURE) --------------------
 @app.route('/api/user/sync-browser-data', methods=['POST'])
-@trial_lockout_required(allow_access_to_activation=True)  # Allow sync for activation
 def sync_browser_data():
     """V5: Sync localStorage data from browser to server"""
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
 
-        data = request.get_json()
-        if not data:
-            return jsonify({'success': False, 'message': 'No data received!'})
-
+        # V5.2 FIX: Allow sync even for expired trial users
         user = User.query.get(session['user_id'])
         if not user:
             return jsonify({'success': False, 'message': 'User not found!'})
+
+        data = request.get_json()
+        if not data:
+            return jsonify({'success': False, 'message': 'No data received!'})
 
         # Store browser data
         user.browser_data = json.dumps(data)
@@ -856,13 +822,13 @@ def sync_browser_data():
         return jsonify({'success': False, 'message': 'Error syncing browser data'})
 
 @app.route('/api/user/get-browser-data')
-@trial_lockout_required(allow_access_to_activation=True)  # Allow browser data for activation
 def get_browser_data():
     """V5: Get browser data from server"""
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
 
+        # V5.2 FIX: Allow browser data retrieval even for expired trial users
         user = User.query.get(session['user_id'])
         if not user:
             return jsonify({'success': False, 'message': 'User not found!'})
@@ -913,7 +879,6 @@ def get_browser_data():
 
 # -------------------- TRIAL TIMER TRACKING (V5 NEW FEATURE) --------------------
 @app.route('/api/user/trial-timer', methods=['POST'])
-@trial_lockout_required(allow_access_to_activation=True)  # Allow timer updates for activation
 def update_trial_timer():
     """V5: Update trial timer from client (works even offline)"""
     try:
@@ -972,7 +937,6 @@ def update_trial_timer():
         return jsonify({'success': False, 'message': 'Error updating trial timer'})
 
 @app.route('/api/user/trial-status')
-@trial_lockout_required(allow_access_to_activation=True)  # Allow status check for activation
 def get_trial_status():
     """V5: Get current trial status"""
     try:
@@ -985,12 +949,12 @@ def get_trial_status():
         else:
             user = User.query.get(session['user_id'])
             if not user:
-                return jsonify({'success': False, 'message': 'User not found!'})
+                return jsonify({'success': False, 'message': 'User not found!'')
 
-        trial_active = check_trial_status(user)
+        access_status = check_access_status(user)
         remaining_seconds = 0
         
-        if user.trial_end and trial_active:
+        if user.trial_end and access_status['status'] == 'trial':
             remaining_seconds = max(0, int((user.trial_end - datetime.utcnow()).total_seconds()))
         
         # Get active session timer
@@ -1001,29 +965,17 @@ def get_trial_status():
         
         elapsed_seconds = active_session.trial_elapsed_seconds if active_session else 0
         
-        # Check if trial expired
-        if not trial_active and not user.is_activated:
-            return jsonify({
-                'success': True,
-                'trial_active': False,
-                'is_activated': False,
-                'remaining_seconds': 0,
-                'elapsed_seconds': elapsed_seconds,
-                'trial_start': user.trial_start.isoformat() if user.trial_start else None,
-                'trial_end': user.trial_end.isoformat() if user.trial_end else None,
-                'trial_expired': True,
-                'locked_out': True,
-                'message': 'Your trial has expired. Please activate your account.'
-            })
-        
         return jsonify({
             'success': True,
-            'trial_active': trial_active,
+            'trial_active': access_status['status'] == 'trial',
+            'trial_expired': access_status['status'] == 'expired',
             'is_activated': user.is_activated,
             'remaining_seconds': remaining_seconds,
             'elapsed_seconds': elapsed_seconds,
             'trial_start': user.trial_start.isoformat() if user.trial_start else None,
-            'trial_end': user.trial_end.isoformat() if user.trial_end else None
+            'trial_end': user.trial_end.isoformat() if user.trial_end else None,
+            'status': access_status['status'],
+            'has_access': access_status.get('has_access', True)
         })
 
     except Exception as e:
@@ -1032,7 +984,6 @@ def get_trial_status():
 
 # -------------------- ACTIVATION SYSTEM --------------------
 @app.route('/activate', methods=['POST'])
-@trial_lockout_required(allow_access_to_activation=True)  # Allow activation for expired trials
 def activate_account():
     try:
         if 'user_id' not in session:
@@ -1069,7 +1020,6 @@ def activate_account():
         db.session.commit()
 
         session['is_activated'] = True
-        session['trial_expired'] = False  # Clear trial expired flag
 
         logger.info(f"User activated: {user.email} with code: {code}")
 
@@ -1085,7 +1035,6 @@ def activate_account():
 
 # -------------------- EXAM SYSTEM - V5 CRITICAL FIXES --------------------
 @app.route('/api/start-exam', methods=['POST'])
-@trial_lockout_required()  # Lock out expired trial users
 def start_exam():
     try:
         if 'user_id' not in session:
@@ -1096,12 +1045,14 @@ def start_exam():
             session.clear()
             return jsonify({'success': False, 'message': 'Session expired. Please login again.'})
 
-        trial_active = check_trial_status(user)
-        if not trial_active and not user.is_activated:
+        # V5.2 FIX: Check access status properly
+        access_status = check_access_status(user)
+        
+        if not access_status['has_access']:
             return jsonify({
                 'success': False, 
-                'message': 'Your access has expired. Please activate your account.',
-                'locked_out': True
+                'message': 'Your trial has expired. Please activate your account to access exams.',
+                'requires_activation': True
             })
 
         return jsonify({'success': True, 'message': 'Exam access granted!'})
@@ -1111,7 +1062,6 @@ def start_exam():
         return jsonify({'success': False, 'message': 'Error starting exam.'})
 
 @app.route('/api/get-questions', methods=['POST'])
-@trial_lockout_required()  # Lock out expired trial users
 def get_questions():
     """
     V5 FIX: Enhanced question loading with exactly 60 questions.
@@ -1122,6 +1072,19 @@ def get_questions():
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
+
+        # V5.2 FIX: Check if user has access
+        user = User.query.get(session['user_id'])
+        if not user:
+            return jsonify({'success': False, 'message': 'User not found!'})
+            
+        access_status = check_access_status(user)
+        if not access_status['has_access']:
+            return jsonify({
+                'success': False, 
+                'message': 'Your trial has expired. Please activate your account to access questions.',
+                'requires_activation': True
+            })
 
         data = request.get_json()
         exam_type = data.get('exam_type')
@@ -1216,7 +1179,6 @@ def get_questions():
         return jsonify({'success': False, 'message': f'Error loading questions: {str(e)}'})
 
 @app.route('/api/submit-exam', methods=['POST'])
-@trial_lockout_required()  # Lock out expired trial users
 def submit_exam():
     """
     V5 FIX: Enhanced exam submission with stable results.
@@ -1224,6 +1186,19 @@ def submit_exam():
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
+
+        # V5.2 FIX: Check if user has access
+        user = User.query.get(session['user_id'])
+        if not user:
+            return jsonify({'success': False, 'message': 'User not found!'})
+            
+        access_status = check_access_status(user)
+        if not access_status['has_access']:
+            return jsonify({
+                'success': False, 
+                'message': 'Your trial has expired. Please activate your account to submit exams.',
+                'requires_activation': True
+            })
 
         data = request.get_json()
         
@@ -1278,7 +1253,7 @@ def submit_exam():
             db.session.commit()
 
             logger.info(f"Exam submitted - User: {session['user_id']}, Type: {exam_type}, "
-                       f"Score: {correct}/${total_questions} ({percentage}%)")
+                       f"Score: {correct}/{total_questions} ({percentage}%)")
         except Exception as db_error:
             # If duplicate, find existing result
             logger.warning(f"Possible duplicate exam result: {str(db_error)}")
@@ -1316,7 +1291,6 @@ def submit_exam():
         return jsonify({'success': False, 'message': f'Error submitting exam: {str(e)}'})
 
 @app.route('/api/exam-results/<int:result_id>')
-@trial_lockout_required()  # Lock out expired trial users
 def get_exam_result(result_id):
     """
     V5 FIX: Enhanced results retrieval with stable data.
@@ -1324,6 +1298,12 @@ def get_exam_result(result_id):
     try:
         if 'user_id' not in session:
             return jsonify({'success': False, 'message': 'Please login first!'})
+
+        # V5.2 FIX: Allow viewing results even for expired trial users
+        # (they can see their past results but not take new exams)
+        user = User.query.get(session['user_id'])
+        if not user:
+            return jsonify({'success': False, 'message': 'User not found!'})
 
         result = ExamResult.query.filter_by(id=result_id, user_id=session['user_id']).first()
 
@@ -1461,8 +1441,9 @@ def admin_users():
 
         users_data = []
         for user, exam_count in user_exam_counts:
-            trial_status = 'Activated' if user.is_activated else 'Admin' if user.is_admin else 'Trial'
-            if trial_status == 'Trial':
+            access_status = check_access_status(user)
+            trial_status = access_status['status']
+            if trial_status == 'trial':
                 trial_active = check_trial_status(user)
                 trial_status = 'Active Trial' if trial_active else 'Expired Trial'
 
@@ -1544,8 +1525,8 @@ def health_check():
             'timestamp': datetime.utcnow().isoformat(),
             'database': 'connected',
             'pending_cleanup': old_data_count,
-            'version': '5.1',
-            'features': ['unique_recent_activities', 'admin_dashboard_fix', 'jamb_results_fix', 'trial_lockout']
+            'version': '5.2',
+            'features': ['unique_recent_activities', 'admin_dashboard_fix', 'jamb_results_fix', 'trial_expiry_fix']
         })
     except Exception as e:
         logger.error(f"Health check failed: {str(e)}")
@@ -1570,8 +1551,8 @@ def initialize_application():
                 db.session.commit()
                 logger.info("Initial activation codes created")
             
-            logger.info("MSH CBT HUB Application V5.1 Initialized Successfully")
-            logger.info("V5.1 Features: Unique Recent Activities, Admin Dashboard Fix, JAMB Results Fix, Trial Lockout")
+            logger.info("MSH CBT HUB Application V5.2 Initialized Successfully")
+            logger.info("V5.2 Features: Unique Recent Activities, Admin Dashboard Fix, JAMB Results Fix, Trial Expiry Fix")
     except Exception as e:
         logger.error(f"Application initialization failed: {str(e)}")
 
@@ -1579,14 +1560,15 @@ initialize_application()
 
 # -------------------- RUN --------------------
 if __name__ == '__main__':
-    print("🚀 Starting MSH CBT HUB Server - VERSION 5.1...")
-    print("✅ All V5.1 requirements implemented:")
+    print("🚀 Starting MSH CBT HUB Server - VERSION 5.2...")
+    print("✅ All V5.2 requirements implemented:")
+    print("   ✅ FIXED: Trial Expiry Behavior - Users can login but only access activation")
     print("   ✅ FIXED: Admin Dashboard Route - Now properly serves admin.html")
     print("   ✅ FIXED: Recent Activity Duplication - Unique activities only")
     print("   ✅ FIXED: JAMB Results - No more disappearing results")
-    print("   ✅ ADDED: Trial Lockout System - Users locked out after trial ends")
-    print("   ✅ ADDED: Activation Only Access - Expired users can only access activation")
-    print("   ✅ ADDED: Complete Feature Block - All features disabled for expired trials")
+    print("   ✅ ADDED: localStorage Support - Sync exam results and user data")
+    print("   ✅ ADDED: Offline Trial Timer - Tracks time even when offline")
+    print("   ✅ ENHANCED: User activity tracking and browser data sync")
     print("⚠️  IMPORTANT: Ensure you set the SECRET_KEY environment variable!")
     print("📁 Running with templates/ and static/ folders")
     print("📝 Note: Ensure question JSON files exist in questions/ folder")
