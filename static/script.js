@@ -1,4 +1,5 @@
-// MSH CBT HUB - ENHANCED PREMIUM JavaScript V5.1
+// script.js - VERSION 5.2 - FIXED TRIAL EXPIRY BEHAVIOR
+// MSH CBT HUB - ENHANCED PREMIUM JavaScript V5.2
 // Global variables with better organization
 const AppState = {
     currentUser: null,
@@ -10,8 +11,6 @@ const AppState = {
     trialElapsedSeconds: 0,
     examResults: null,
     isInitialized: false,
-    // V5: Trial lockout state
-    trialLockedOut: false,
     // V5: LocalStorage keys
     localStorageKeys: {
         USER_DATA: 'msh_cbt_user_data_v5',
@@ -20,8 +19,7 @@ const AppState = {
         TRIAL_TIMER: 'msh_cbt_trial_timer_v5',
         LAST_SYNC: 'msh_cbt_last_sync_v5',
         BROWSER_DATA: 'msh_cbt_browser_data_v5',
-        TRIAL_EXPIRED: 'msh_cbt_trial_expired_v5',
-        TRIAL_LOCKED_OUT: 'msh_cbt_trial_locked_out_v5'
+        TRIAL_EXPIRED: 'msh_cbt_trial_expired_v5'
     },
     // V5: Trial timer state
     trialTimerState: {
@@ -66,7 +64,7 @@ function initializeLoadingScreen() {
 function initializeMainApp() {
     if (AppState.isInitialized) return;
     
-    console.log('🚀 MSH CBT HUB Enhanced V5.1 Initializing...');
+    console.log('🚀 MSH CBT HUB Enhanced V5.2 Initializing...');
     
     // V5: Load data from localStorage first
     loadFromLocalStorage();
@@ -93,7 +91,7 @@ function initializeMainApp() {
     setupBrowserDataSync();
     
     AppState.isInitialized = true;
-    console.log('✅ MSH CBT HUB Enhanced V5.1 Initialized Successfully');
+    console.log('✅ MSH CBT HUB Enhanced V5.2 Initialized Successfully');
 }
 
 // Subject configuration with icons - UPDATED FOR V5
@@ -162,83 +160,6 @@ const PERFORMANCE_MESSAGES = {
     }
 };
 
-// ==================== TRIAL LOCKOUT SYSTEM - V5 NEW ====================
-
-/**
- * V5: Check if user is locked out due to expired trial
- */
-function isUserLockedOut() {
-    // Check session first
-    if (AppState.currentUser && AppState.currentUser.status === 'expired') {
-        return true;
-    }
-    
-    // Check localStorage
-    const trialLockedOut = loadFromLocalStorage(AppState.localStorageKeys.TRIAL_LOCKED_OUT);
-    const trialExpired = loadFromLocalStorage(AppState.localStorageKeys.TRIAL_EXPIRED);
-    
-    return (trialLockedOut === true || (trialExpired && trialExpired.expired === true));
-}
-
-/**
- * V5: Mark user as locked out (cannot access any features)
- */
-function markUserAsLockedOut() {
-    AppState.trialLockedOut = true;
-    
-    const lockoutData = {
-        lockedOut: true,
-        lockedOutAt: new Date().toISOString(),
-        deviceId: AppState.currentUser?.device_id,
-        message: 'Trial expired - User locked out from all features'
-    };
-    
-    saveToLocalStorage(AppState.localStorageKeys.TRIAL_LOCKED_OUT, lockoutData);
-    console.log('🔒 User marked as locked out due to expired trial');
-    
-    // Force show activation modal
-    setTimeout(() => {
-        showActivationModal(true);
-    }, 500);
-}
-
-/**
- * V5: Clear lockout status (when user activates account)
- */
-function clearLockoutStatus() {
-    AppState.trialLockedOut = false;
-    localStorage.removeItem(AppState.localStorageKeys.TRIAL_LOCKED_OUT);
-    console.log('🔓 Lockout status cleared');
-}
-
-/**
- * V5: Block user from accessing features if trial expired
- */
-function checkTrialLockout() {
-    if (isUserLockedOut()) {
-        // Show lockout message and redirect to activation
-        showNotification('Your trial has expired. Please activate your account to continue.', 'error');
-        showActivationModal(true);
-        return true;
-    }
-    return false;
-}
-
-/**
- * V5: Block page navigation for locked out users
- */
-function blockPageForLockedOutUsers(pageName) {
-    const blockedPages = ['dashboard', 'waec-selection', 'jamb-selection', 'exam-interface', 
-                         'results', 'review', 'instructions'];
-    
-    if (isUserLockedOut() && blockedPages.includes(pageName)) {
-        showNotification('Your trial has expired. Please activate your account to access this feature.', 'error');
-        showActivationModal(true);
-        return true; // Page is blocked
-    }
-    return false; // Page is allowed
-}
-
 // ==================== LOCALSTORAGE FUNCTIONS - V5 NEW ====================
 
 /**
@@ -271,7 +192,6 @@ function loadFromLocalStorage(key = null) {
             const trialTimer = loadFromLocalStorage(AppState.localStorageKeys.TRIAL_TIMER);
             const browserData = loadFromLocalStorage(AppState.localStorageKeys.BROWSER_DATA);
             const trialExpired = loadFromLocalStorage(AppState.localStorageKeys.TRIAL_EXPIRED);
-            const trialLockedOut = loadFromLocalStorage(AppState.localStorageKeys.TRIAL_LOCKED_OUT);
             
             // Update AppState with loaded data
             if (userData) {
@@ -287,9 +207,6 @@ function loadFromLocalStorage(key = null) {
             if (trialExpired) {
                 AppState.trialTimerState.hasExpired = true;
             }
-            if (trialLockedOut) {
-                AppState.trialLockedOut = true;
-            }
             
             return {
                 userData,
@@ -297,8 +214,7 @@ function loadFromLocalStorage(key = null) {
                 recentActivity,
                 trialTimer,
                 browserData,
-                trialExpired,
-                trialLockedOut
+                trialExpired
             };
         }
     } catch (error) {
@@ -432,14 +348,11 @@ function markTrialAsExpired() {
     // Also mark in browser data for sync
     saveBrowserData('trial_expired', expirationData);
     
-    // Mark user as locked out
-    markUserAsLockedOut();
-    
-    console.log('⏰ Trial marked as expired permanently - User locked out');
+    console.log('⏰ Trial marked as expired permanently');
     
     // Force show activation modal
     setTimeout(() => {
-        showActivationModal(true);
+        showActivationModal();
     }, 1000);
 }
 
@@ -535,12 +448,6 @@ function markBrowserDataAsSynced(keys) {
  */
 async function syncBrowserDataToServer() {
     try {
-        // Check if user is locked out
-        if (isUserLockedOut()) {
-            console.log('🔒 User locked out - skipping browser data sync');
-            return false;
-        }
-        
         const syncData = getBrowserDataForSync();
         
         if (!syncData || Object.keys(syncData).length === 0) {
@@ -580,12 +487,6 @@ async function syncBrowserDataToServer() {
  */
 async function getBrowserDataFromServer() {
     try {
-        // Check if user is locked out
-        if (isUserLockedOut()) {
-            console.log('🔒 User locked out - skipping browser data fetch');
-            return null;
-        }
-        
         const response = await fetch('/api/user/get-browser-data');
         const result = await response.json();
         
@@ -622,7 +523,7 @@ async function getBrowserDataFromServer() {
 function setupBrowserDataSync() {
     // Initial sync
     setTimeout(() => {
-        if (navigator.onLine && !isUserLockedOut()) {
+        if (navigator.onLine) {
             syncBrowserDataToServer();
             getBrowserDataFromServer();
         }
@@ -630,7 +531,7 @@ function setupBrowserDataSync() {
     
     // Periodic sync every 30 seconds
     setInterval(() => {
-        if (navigator.onLine && !isUserLockedOut()) {
+        if (navigator.onLine) {
             syncBrowserDataToServer();
         }
     }, 30000);
@@ -638,10 +539,8 @@ function setupBrowserDataSync() {
     // Sync when coming online
     window.addEventListener('online', () => {
         console.log('🌐 Connection restored, syncing browser data...');
-        if (!isUserLockedOut()) {
-            syncBrowserDataToServer();
-            getBrowserDataFromServer();
-        }
+        syncBrowserDataToServer();
+        getBrowserDataFromServer();
     });
     
     // Save data when going offline
@@ -655,12 +554,6 @@ function setupBrowserDataSync() {
  * V5: Schedule browser data sync
  */
 function scheduleBrowserDataSync() {
-    // Check if user is locked out
-    if (isUserLockedOut()) {
-        console.log('🔒 User locked out - not scheduling sync');
-        return;
-    }
-    
     // Debounce sync to avoid too many requests
     if (window.syncTimeout) {
         clearTimeout(window.syncTimeout);
@@ -703,11 +596,10 @@ function startOfflineTrialTimer() {
         console.log('⏰ Trial has expired permanently - cannot restart');
         AppState.currentUser.status = 'expired';
         AppState.trialTimerState.hasExpired = true;
-        AppState.trialLockedOut = true;
         
         // Force show activation modal
         setTimeout(() => {
-            showActivationModal(true);
+            showActivationModal();
         }, 1000);
         return;
     }
@@ -839,13 +731,6 @@ async function getTrialStatusFromServer() {
                 saveTrialTimerToStorage(AppState.trialTimerState);
             }
             
-            // Check if trial expired
-            if (result.trial_expired || (result.locked_out && result.locked_out === true)) {
-                AppState.currentUser.status = 'expired';
-                AppState.trialLockedOut = true;
-                markUserAsLockedOut();
-            }
-            
             return result;
         }
     } catch (error) {
@@ -970,22 +855,16 @@ async function checkUserSession() {
                 full_name: data.user_name,
                 email: data.user_email || '',
                 status: data.status,
-                is_admin: data.is_admin || false
+                is_admin: data.is_admin || false,
+                has_access: data.has_access !== false // V5.2 FIX: Track access
             };
-            
-            // V5: Check if user is locked out
-            if (data.locked_out || data.status === 'expired') {
-                AppState.currentUser.status = 'expired';
-                AppState.trialLockedOut = true;
-                markUserAsLockedOut();
-                return;
-            }
             
             // V5: Check if trial has expired permanently
             if (isTrialExpiredPermanently() && data.status === 'trial') {
                 AppState.currentUser.status = 'expired';
-                AppState.trialLockedOut = true;
-                markUserAsLockedOut();
+                AppState.currentUser.has_access = false;
+                showNotification('Your trial has expired. Please activate your account to continue.', 'warning');
+                showActivationModal();
                 return;
             }
             
@@ -1010,15 +889,22 @@ async function checkUserSession() {
                 saveTrialTimerToStorage(AppState.trialTimerState);
             }
             
+            // V5.2 FIX: If user has no access, redirect to activation
+            if (data.status === 'expired' && !data.has_access) {
+                AppState.currentUser.has_access = false;
+                showNotification('Your trial has expired. Please activate your account.', 'warning');
+                setTimeout(() => showActivationModal(), 1000);
+            }
+            
             // Update navigation with admin link if user is admin
             updateNavigation();
             
-            // V5: Get browser data from server (if not locked out)
-            if (!AppState.trialLockedOut) {
-                getBrowserDataFromServer();
-            }
+            // V5: Get browser data from server
+            getBrowserDataFromServer();
             
-            showNotification(`Welcome back, ${data.user_name}!`, 'success');
+            if (data.status !== 'expired') {
+                showNotification(`Welcome back, ${data.user_name}!`, 'success');
+            }
         }
     } catch (error) {
         console.log('No active session found, using localStorage data');
@@ -1030,8 +916,9 @@ async function checkUserSession() {
             // V5: Check if trial has expired
             if (isTrialExpiredPermanently() && AppState.currentUser.status === 'trial') {
                 AppState.currentUser.status = 'expired';
-                AppState.trialLockedOut = true;
-                markUserAsLockedOut();
+                AppState.currentUser.has_access = false;
+                showNotification('Your trial has expired. Please activate your account to continue.', 'warning');
+                showActivationModal();
             }
             
             updateNavigation();
@@ -1042,16 +929,19 @@ async function checkUserSession() {
 // ==================== ENHANCED PAGE MANAGEMENT ====================
 
 /**
- * Enhanced page navigation with loading states and lockout check
+ * Enhanced page navigation with loading states
  */
 function showPage(pageName, options = {}) {
     const { forceReload = false, data = null } = options;
     
     console.log(`📄 Showing page: ${pageName}`);
     
-    // V5: Check if user is locked out from this page
-    if (blockPageForLockedOutUsers(pageName)) {
-        return; // Stop page navigation
+    // V5.2 FIX: Check if user has access to this page
+    if (AppState.currentUser && !AppState.currentUser.has_access && 
+        pageName !== 'activation' && pageName !== 'home' && pageName !== 'login' && pageName !== 'register') {
+        showNotification('Your trial has expired. Please activate your account to access this feature.', 'warning');
+        showActivationModal();
+        return;
     }
     
     // V5: Save current state before page change
@@ -1118,19 +1008,9 @@ function hidePageLoading() {
 }
 
 /**
- * Initialize page-specific functionality with lockout checks
+ * Initialize page-specific functionality
  */
 function initializePage(pageName, data) {
-    // V5: Check lockout status
-    if (isUserLockedOut()) {
-        // Only allow activation-related pages
-        if (pageName !== 'home' && pageName !== 'login' && pageName !== 'register') {
-            showNotification('Your trial has expired. Please activate your account.', 'error');
-            showActivationModal(true);
-            return;
-        }
-    }
-    
     switch (pageName) {
         case 'dashboard':
             loadDashboard();
@@ -1199,22 +1079,6 @@ function initializePage(pageName, data) {
 function updateNavigation() {
     const navLinks = document.getElementById('navLinks');
     if (!navLinks) return;
-    
-    // V5: Check if user is locked out
-    if (isUserLockedOut()) {
-        navLinks.innerHTML = `
-            <span class="nav-link text-danger">
-                <i class="fas fa-exclamation-triangle me-1"></i>Trial Expired
-            </span>
-            <a class="nav-link" href="#" onclick="showActivationModal(true)">
-                <i class="fas fa-key me-1"></i>Activate Account
-            </a>
-            <a class="nav-link" href="#" onclick="handleLogout()">
-                <i class="fas fa-sign-out-alt me-1"></i>Logout
-            </a>
-        `;
-        return;
-    }
     
     if (AppState.currentUser) {
         let navHtml = `
@@ -1323,10 +1187,10 @@ function updateTrialTimerDisplay() {
 }
 
 /**
- * Handle trial expiration - PERMANENT, CANNOT RESTART - USER LOCKED OUT
+ * Handle trial expiration - PERMANENT, CANNOT RESTART
  */
 function handleTrialExpired() {
-    console.log('⏰ Trial expired - locking user out completely');
+    console.log('⏰ Trial expired - marking as permanent');
     
     // Stop timer
     if (AppState.trialTimer) {
@@ -1334,25 +1198,21 @@ function handleTrialExpired() {
         AppState.trialTimer = null;
     }
     
-    // Mark trial as expired permanently and lock user out
+    // Mark trial as expired permanently
     AppState.currentUser.status = 'expired';
+    AppState.currentUser.has_access = false; // V5.2 FIX: Remove access
     AppState.trialTimerState.hasExpired = true;
     AppState.trialTimerState.isRunning = false;
-    AppState.trialLockedOut = true;
     
-    // V5: Save to localStorage - MARK AS PERMANENTLY EXPIRED AND LOCKED OUT
+    // V5: Save to localStorage - MARK AS PERMANENTLY EXPIRED
     saveUserDataToStorage(AppState.currentUser);
     saveTrialTimerToStorage(AppState.trialTimerState);
-    markTrialAsExpired(); // This marks it as permanently expired and locked out
-    markUserAsLockedOut(); // Mark user as locked out
+    markTrialAsExpired(); // This marks it as permanently expired
     
     showNotification('Your free trial has expired. Please activate your account to continue.', 'warning');
     
     // Force show activation modal - user MUST activate
     showActivationModal(true);
-    
-    // Update navigation to show lockout state
-    updateNavigation();
     
     // Update dashboard to show expired state
     loadDashboard();
@@ -1400,7 +1260,8 @@ async function handleRegistration(e) {
                 full_name: formData.full_name,
                 email: formData.email,
                 status: 'trial',
-                is_admin: result.is_admin || false
+                is_admin: result.is_admin || false,
+                has_access: true
             };
             
             saveUserDataToStorage(AppState.currentUser);
@@ -1424,7 +1285,7 @@ async function handleRegistration(e) {
 }
 
 /**
- * Handle user login - FIXED: Proper form handling with lockout check
+ * Handle user login - FIXED: Proper form handling
  */
 async function handleLogin(e) {
     e.preventDefault();
@@ -1458,26 +1319,16 @@ async function handleLogin(e) {
             AppState.currentUser = {
                 full_name: result.user_name,
                 email: formData.email,
-                status: result.is_activated ? 'activated' : 'trial',
-                is_admin: result.is_admin || false
+                status: result.status || (result.is_activated ? 'activated' : 'trial'),
+                is_admin: result.is_admin || false,
+                has_access: result.has_access !== false // V5.2 FIX: Track access
             };
-            
-            // V5: Check if user is locked out
-            if (result.locked_out || result.trial_expired) {
-                AppState.currentUser.status = 'expired';
-                AppState.trialLockedOut = true;
-                markUserAsLockedOut();
-                showNotification(result.message, 'warning');
-                showActivationModal(true);
-                return;
-            }
             
             // V5: Check if trial has expired permanently
             if (isTrialExpiredPermanently() && !result.is_activated) {
                 AppState.currentUser.status = 'expired';
-                AppState.trialLockedOut = true;
-                markUserAsLockedOut();
-                showNotification('Your trial has expired. Please activate your account.', 'warning');
+                AppState.currentUser.has_access = false;
+                showNotification('Your trial has expired. Please activate your account to continue.', 'warning');
                 showActivationModal(true);
                 return;
             }
@@ -1486,7 +1337,7 @@ async function handleLogin(e) {
             saveUserDataToStorage(AppState.currentUser);
             
             // Initialize trial timer if in trial
-            if (result.trial_active && !result.is_activated) {
+            if (result.status === 'trial' && !result.is_activated) {
                 // Get remaining time from server or set default
                 const statusResponse = await fetch('/api/user-status');
                 const statusData = await statusResponse.json();
@@ -1503,16 +1354,21 @@ async function handleLogin(e) {
                 startOfflineTrialTimer();
             }
             
-            showNotification(result.message, 'success');
+            // V5.2 FIX: If user has no access, show activation modal
+            if (result.status === 'expired' && !result.has_access) {
+                showNotification('Your trial has expired. Please activate your account.', 'warning');
+                setTimeout(() => showActivationModal(true), 1000);
+            } else {
+                showNotification(result.message, 'success');
+            }
+            
             document.getElementById('loginForm').reset();
             
-            // V5: Sync browser data (if not locked out)
-            if (!AppState.trialLockedOut) {
-                setTimeout(() => {
-                    syncBrowserDataToServer();
-                    getBrowserDataFromServer();
-                }, 1000);
-            }
+            // V5: Sync browser data
+            setTimeout(() => {
+                syncBrowserDataToServer();
+                getBrowserDataFromServer();
+            }, 1000);
             
             showPage('dashboard');
         } else {
@@ -1562,12 +1418,10 @@ async function handleLogout() {
                 isRunning: false,
                 hasExpired: false
             };
-            AppState.trialLockedOut = false;
             
             // V5: Clear sensitive data from localStorage
             localStorage.removeItem(AppState.localStorageKeys.USER_DATA);
             localStorage.removeItem(AppState.localStorageKeys.TRIAL_TIMER);
-            localStorage.removeItem(AppState.localStorageKeys.TRIAL_LOCKED_OUT);
             
             showNotification(result.message, 'success');
             showPage('home');
@@ -1628,7 +1482,7 @@ function isValidEmail(email) {
 // ==================== FIXED DASHBOARD SYSTEM ====================
 
 /**
- * Load dashboard data with proper trial status check and lockout
+ * Load dashboard data with proper trial status check
  */
 async function loadDashboard() {
     if (!AppState.currentUser) {
@@ -1636,26 +1490,26 @@ async function loadDashboard() {
         return;
     }
     
-    // V5: Check if user is locked out
-    if (isUserLockedOut()) {
-        showNotification('Your trial has expired. Please activate your account to continue.', 'warning');
-        showActivationModal(true);
+    // V5.2 FIX: Check if user has access
+    if (!AppState.currentUser.has_access) {
+        // Show expired dashboard with activation prompt
+        updateWelcomeMessage({status: 'expired'});
+        showExpiredDashboard();
         return;
     }
     
     // V5: Check if trial has expired permanently
     if (isTrialExpiredPermanently() && AppState.currentUser.status === 'trial') {
         AppState.currentUser.status = 'expired';
-        AppState.trialLockedOut = true;
-        markUserAsLockedOut();
-        showNotification('Your trial has expired. Please activate your account.', 'warning');
+        AppState.currentUser.has_access = false;
+        showNotification('Your trial has expired. Please activate your account to continue.', 'warning');
         showActivationModal(true);
         return;
     }
     
     try {
         // V5: Try to get latest data from server if online
-        if (navigator.onLine && !isUserLockedOut()) {
+        if (navigator.onLine) {
             await getBrowserDataFromServer();
             await getTrialStatusFromServer();
         }
@@ -1773,7 +1627,7 @@ function showActivatedDashboard() {
 }
 
 /**
- * Show expired dashboard - USER LOCKED OUT
+ * Show expired dashboard
  */
 function showExpiredDashboard() {
     const accountStatus = document.getElementById('accountStatus');
@@ -1781,13 +1635,12 @@ function showExpiredDashboard() {
         accountStatus.innerHTML = `
             <div class="alert alert-danger">
                 <i class="fas fa-exclamation-triangle me-2"></i>
-                <strong>Trial Expired - Account Locked 🔒</strong>
-                <p class="mb-2">Your 1-hour free trial has ended. Your account is now locked.</p>
-                <p class="mb-2"><strong>You cannot access any features until you activate your account.</strong></p>
+                <strong>Trial Expired</strong>
+                <p class="mb-2">Your 1-hour free trial has ended. To continue using MSH CBT HUB:</p>
                 <ol class="mb-0 ps-3">
                     <li>Get an activation code via WhatsApp</li>
                     <li>Enter the code in the activation form</li>
-                    <li>Unlock full access for 5 months!</li>
+                    <li>Enjoy full access for 5 months!</li>
                 </ol>
             </div>
             <div class="d-grid gap-2">
@@ -1807,24 +1660,6 @@ function showExpiredDashboard() {
  * Load quick statistics
  */
 async function loadQuickStats() {
-    // V5: Check if user is locked out
-    if (isUserLockedOut()) {
-        const quickStats = document.getElementById('quickStats');
-        if (quickStats) {
-            quickStats.innerHTML = `
-                <div class="col-6">
-                    <div class="stat-number text-muted">0</div>
-                    <div class="stat-label">Tests Taken</div>
-                </div>
-                <div class="col-6">
-                    <div class="stat-number text-muted">0%</div>
-                    <div class="stat-label">Average Score</div>
-                </div>
-            `;
-        }
-        return;
-    }
-    
     const quickStats = document.getElementById('quickStats');
     if (!quickStats) return;
     
@@ -1842,6 +1677,16 @@ async function loadQuickStats() {
                 <div class="col-6">
                     <div class="stat-number text-teal">${stats.average_score}%</div>
                     <div class="stat-label">Average Score</div>
+                </div>
+            `;
+        } else if (result.requires_activation) {
+            // V5.2 FIX: Show activation required message
+            quickStats.innerHTML = `
+                <div class="col-12 text-center">
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <p class="mb-0">Activate your account to view statistics</p>
+                    </div>
                 </div>
             `;
         } else {
@@ -1889,21 +1734,6 @@ async function loadQuickStats() {
  * V5.1 FIX: Load recent activity - No duplication with unique activities
  */
 async function loadRecentActivity() {
-    // V5: Check if user is locked out
-    if (isUserLockedOut()) {
-        const recentActivity = document.getElementById('recentActivity');
-        if (recentActivity) {
-            recentActivity.innerHTML = `
-                <div class="alert alert-danger">
-                    <i class="fas fa-lock me-2"></i>
-                    <strong>Account Locked</strong>
-                    <p class="mb-0">Your trial has expired. Please activate your account to access recent activity.</p>
-                </div>
-            `;
-        }
-        return;
-    }
-    
     const recentActivity = document.getElementById('recentActivity');
     if (!recentActivity) return;
     
@@ -1920,6 +1750,20 @@ async function loadRecentActivity() {
                 serverActivities = result.activities;
                 // Save to localStorage for offline use
                 saveToLocalStorage('server_activities', serverActivities);
+            } else if (result.requires_activation) {
+                // V5.2 FIX: Show activation required message
+                recentActivity.innerHTML = `
+                    <div class="text-center py-4">
+                        <div class="alert alert-warning">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <p class="mb-0">Activate your account to view recent activity</p>
+                            <button class="btn btn-primary btn-sm mt-2" onclick="showActivationModal()">
+                                <i class="fas fa-key me-2"></i>Activate Now
+                            </button>
+                        </div>
+                    </div>
+                `;
+                return;
             }
         } else {
             // If offline, try to get server activities from localStorage
@@ -2211,6 +2055,7 @@ function displayAdminUsers(users) {
         if (user.status === 'Activated') statusClass = 'badge bg-success';
         else if (user.status === 'Admin') statusClass = 'badge bg-warning';
         else if (user.status === 'Active Trial') statusClass = 'badge bg-info';
+        else if (user.status === 'Expired Trial') statusClass = 'badge bg-danger';
         else statusClass = 'badge bg-secondary';
         
         html += `
@@ -2386,8 +2231,10 @@ function startWAECSelection() {
         return;
     }
     
-    // V5: Check if user is locked out
-    if (checkTrialLockout()) {
+    // V5.2 FIX: Check if user has access
+    if (!AppState.currentUser.has_access) {
+        showNotification('Your trial has expired. Please activate your account to access exams.', 'warning');
+        showActivationModal(true);
         return;
     }
     
@@ -2411,8 +2258,10 @@ function startJAMBSelection() {
         return;
     }
     
-    // V5: Check if user is locked out
-    if (checkTrialLockout()) {
+    // V5.2 FIX: Check if user has access
+    if (!AppState.currentUser.has_access) {
+        showNotification('Your trial has expired. Please activate your account to access exams.', 'warning');
+        showActivationModal(true);
         return;
     }
     
@@ -2587,11 +2436,6 @@ function validateJAMBSelection() {
  * Start WAEC exam with selected subjects - FIXED: Validate 9 subjects
  */
 async function startWAECExam() {
-    // V5: Check if user is locked out
-    if (checkTrialLockout()) {
-        return;
-    }
-    
     const selectedSubjects = getSelectedSubjects('waec');
     
     // Validate selection - exactly 9 subjects required
@@ -2613,11 +2457,6 @@ async function startWAECExam() {
  * Start JAMB exam with selected subjects - FIXED: Validate 4 subjects
  */
 async function startJAMBExam() {
-    // V5: Check if user is locked out
-    if (checkTrialLockout()) {
-        return;
-    }
-    
     const selectedSubjects = getSelectedSubjects('jamb');
     
     // Validate selection - exactly 4 subjects required
@@ -2663,8 +2502,10 @@ async function startExam(examType, selectedSubjects) {
         return;
     }
 
-    // V5: Check if user is locked out
-    if (checkTrialLockout()) {
+    // V5.2 FIX: Check if user has access
+    if (!AppState.currentUser.has_access) {
+        showNotification('Your trial has expired. Please activate your account to access exams.', 'warning');
+        showActivationModal(true);
         return;
     }
 
@@ -2734,6 +2575,10 @@ async function startExam(examType, selectedSubjects) {
             initializeExamInterface();
             startExamTimer();
             showNotification(`Exam started with ${questions.length} questions! Good luck! 🎯`, 'success');
+        } else if (result.requires_activation) {
+            // V5.2 FIX: Handle activation required
+            showNotification('Your trial has expired. Please activate your account to access exams.', 'warning');
+            showActivationModal(true);
         } else {
             showNotification('Error loading questions: ' + result.message, 'error');
         }
@@ -3059,6 +2904,10 @@ async function submitExam() {
             
             showNotification('Exam submitted successfully!', 'success');
             showPage('results');
+        } else if (result.requires_activation) {
+            // V5.2 FIX: Handle activation required
+            showNotification('Your trial has expired. Please activate your account to submit exams.', 'warning');
+            showActivationModal(true);
         } else {
             showNotification('Error submitting exam: ' + result.message, 'error');
         }
@@ -3133,13 +2982,6 @@ function updateProgress() {
  * Display exam results - V5 FIX: Stable results display with no blanking
  */
 async function displayResults() {
-    // V5: Check if user is locked out
-    if (isUserLockedOut()) {
-        showNotification('Your trial has expired. Please activate your account to view results.', 'error');
-        showActivationModal(true);
-        return;
-    }
-    
     // V5 FIX: Ensure results are available
     if (!AppState.examResults) {
         console.log('No exam results found in state, checking localStorage...');
@@ -3312,14 +3154,6 @@ function reviewAnswers() {
         showNotification('No exam results to review', 'warning');
         return;
     }
-    
-    // V5: Check if user is locked out
-    if (isUserLockedOut()) {
-        showNotification('Your trial has expired. Please activate your account.', 'error');
-        showActivationModal(true);
-        return;
-    }
-    
     showPage('review');
     displayReviewQuestions('all');
 }
@@ -3488,7 +3322,8 @@ async function checkUserStatus() {
                 status: AppState.currentUser.status,
                 user_name: AppState.currentUser.full_name,
                 user_email: AppState.currentUser.email,
-                is_admin: AppState.currentUser.is_admin
+                is_admin: AppState.currentUser.is_admin,
+                has_access: AppState.currentUser.has_access
             };
         }
         return { active: false };
@@ -3520,7 +3355,6 @@ function showActivationModal(force = false) {
                     <i class="fas fa-exclamation-triangle me-2"></i>
                     <strong>Your free trial has expired!</strong>
                     <p class="mb-0 mt-2">You must activate your account to continue using MSH CBT HUB.</p>
-                    <p class="mb-0 mt-2"><strong>All features are locked until you activate.</strong></p>
                 </div>
             `;
             
@@ -3575,12 +3409,11 @@ async function activateAccount() {
             // Update user status
             AppState.currentUser.status = 'activated';
             AppState.currentUser.is_activated = true;
-            AppState.trialLockedOut = false;
+            AppState.currentUser.has_access = true; // V5.2 FIX: Restore access
             
-            // V5: Save to localStorage and CLEAR expired trial marker and lockout
+            // V5: Save to localStorage and CLEAR expired trial marker
             saveUserDataToStorage(AppState.currentUser);
             localStorage.removeItem(AppState.localStorageKeys.TRIAL_EXPIRED);
-            localStorage.removeItem(AppState.localStorageKeys.TRIAL_LOCKED_OUT);
             
             // Clear trial timer
             if (AppState.trialTimer) {
@@ -3599,9 +3432,6 @@ async function activateAccount() {
             
             // Clear trial timer from localStorage
             localStorage.removeItem(AppState.localStorageKeys.TRIAL_TIMER);
-            
-            // Clear lockout status
-            clearLockoutStatus();
             
             // Reload dashboard
             loadDashboard();
@@ -3828,14 +3658,6 @@ function shareResults() {
         showNotification('No results to share', 'warning');
         return;
     }
-    
-    // V5: Check if user is locked out
-    if (isUserLockedOut()) {
-        showNotification('Your trial has expired. Please activate your account.', 'error');
-        showActivationModal(true);
-        return;
-    }
-    
     const modal = new bootstrap.Modal(document.getElementById('shareModal'));
     modal.show();
 }
@@ -3906,15 +3728,10 @@ Keep practicing and improving! 🚀
 }
 
 /**
- * Retake exam - V5 FIX: Proper exam restart with lockout check
+ * Retake exam - V5 FIX: Proper exam restart
  */
 function retakeExam() {
     if (!AppState.examResults) return;
-    
-    // V5: Check if user is locked out
-    if (checkTrialLockout()) {
-        return;
-    }
     
     if (confirm('Start a new exam with different questions?')) {
         // Clear previous exam state
@@ -3927,11 +3744,6 @@ function retakeExam() {
  * Show study materials
  */
 function showStudyMaterials() {
-    // V5: Check if user is locked out
-    if (checkTrialLockout()) {
-        return;
-    }
-    
     showNotification('Study materials feature coming soon!', 'info');
 }
 
@@ -4043,22 +3855,18 @@ window.MSH_CBT_HUB = {
     startOfflineTrialTimer,
     pauseTrialTimer,
     resumeTrialTimer,
-    // V5: Export trial lockout functions
-    isUserLockedOut,
-    checkTrialLockout,
-    markUserAsLockedOut,
-    clearLockoutStatus,
+    // V5: Export trial check function
     isTrialExpiredPermanently
 };
 
-console.log('📚 MSH CBT HUB Enhanced JavaScript V5.1 Loaded');
-console.log('✅ V5.1 Features:');
+console.log('📚 MSH CBT HUB Enhanced JavaScript V5.2 Loaded');
+console.log('✅ V5.2 Features:');
+console.log('   ✅ FIXED: Trial Expiry Behavior - Users can login but only access activation page');
+console.log('   ✅ FIXED: Access Control - Expired trial users can ONLY access activation');
 console.log('   ✅ FIXED: Recent Activity Duplication - Shows unique activities only');
 console.log('   ✅ FIXED: Admin Dashboard Button - Now opens /admin route correctly');
 console.log('   ✅ FIXED: JAMB Results - No more disappearing results');
-console.log('   ✅ ADDED: Trial Lockout System - Users locked out after trial ends');
-console.log('   ✅ ADDED: Complete Feature Block - All features disabled for expired trials');
-console.log('   ✅ ADDED: Activation Only Access - Expired users can only access activation');
-console.log('   ✅ ADDED: Permanent Lockout - 1-hour trial CANNOT restart, MUST activate');
-console.log('   ✅ ENHANCED: localStorage Support - Data persists across sessions');
-console.log('   ✅ ENHANCED: Offline Trial Timer - Tracks time even when offline');
+console.log('   ✅ ADDED: localStorage Support - Data persists across sessions');
+console.log('   ✅ ADDED: Offline Trial Timer - Tracks time even when offline');
+console.log('   ✅ ENHANCED: Permanent Trial Expiry - 1-hour trial CANNOT restart');
+console.log('   ✅ ENHANCED: Activation Required - User MUST activate after trial');
